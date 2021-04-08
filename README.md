@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Для начала работы нужно настроить окружение
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Установка Prettier (для vs code, кто на webstorm всё аналогично)
 
-## Available Scripts
+Установите расширение Prettier - Code formatter.
 
-In the project directory, you can run:
+Установите default formater. Чтобы открыть палитру команд, вы можете использовать `COMMAND + SHIFT + P` в macOS или
+`CTRL + SHIFT + P` в Windows.\
+Выполните в палитре команд поиск по ключевому слову `format` и выберите `Format Document`.\
+Возможно, вам будет предложено выбрать формат для использования. Для этого нажмите кнопку Configure. Затем выберите
+Prettier - Code Formatter.\
+Если вы не видите диалога выбора формата по умолчанию, вы можете вручную изменить его в разделе «Настройки». Установите для
+`Editor: Default Formatter` значение `ebsenp.prettier-vscode`.
+
+Установите форматирование кода при сохранении.\
+Чтобы изменить эту настройку, нажмите `COMMAND +` в macOS или `CTRL +` в Windows, чтобы открыть меню Settings (Настройки).
+Выполните в меню поиск `Editor: Format On Save` и убедитесь, что эта опция включена. Теперь вы можете писать код как обычно,
+и он будет автоматически форматироваться при сохранении файла.
+
+Файл .prettirrc
+
+> {\
+>  "printWidth": 120, длина строки - 120 \
+>  "tabWidth": 2, длина "таба" - 2 пробела\
+>  "useTabs": false, использовать пробелов вместо табов\
+>  "semi": true, точка с запятой - нет\
+>  "singleQuote": true, использовать одинарные кавычки - да!\
+>  "trailingComma": "es5", запятая в последней строке - да\
+>  "bracketSpacing": true, пробел между скобками\
+>  "jsxBracketSameLine": false, закрывающийся jsx в этой же строке\
+> }
 
 ### `npm start`
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Непосредственно выполнение задач
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Работа с git
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Разделение на ветки
 
-## Learn More
+Для выполнения задачи (блока) от ветки dev ($ git checkout dev) создаём новую ветку с названием описывающим блок либо
+задачу ($ git branch name)
+[документация git](https://git-scm.com/book/ru/v2/%D0%92%D0%B5%D1%82%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-Git-%D0%9E-%D0%B2%D0%B5%D1%82%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8-%D0%B2-%D0%B4%D0%B2%D1%83%D1%85-%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D1%85)\
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Pull request
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Прямые коммиты в ветку master **ЗАПРЕЩЕНЫ!**\
+Слияние выполняем с веткой `dev`. Pull request - это запрос на слияние вашей ветки в ветку `dev`. Для слияния в основную
+ветку dev нужно два Approve от учасников команды. Поэтому после создания Pull request обязательно пишите в ощий чат. [Как выполнять Pull request](https://dan-it.gitlab.io/fe-book/final-project/pull_request.html)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Прошу качественно просматривать Pull request для улучшения качества кода. Все мы учимся, даже професионалы допускают
+ошибки.
