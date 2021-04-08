@@ -23,9 +23,11 @@ router.get("/customer", passport.authenticate("jwt", { session: false }), getCus
 // @route   GET /test
 // @desc    Return Work
 // @access  Private
-router.get("/test", (res, req) => {
-  res.status(200).json({ massage: "Workin" });
-});
+async function ddddddd(req, res) {
+  res.status(200).json({ massage: "Work!" });
+}
+
+router.get("/test", ddddddd);
 
 // @route   PUT /customers
 // @desc    Return current customer
