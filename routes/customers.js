@@ -20,15 +20,6 @@ router.post("/login", loginCustomer);
 // @access  Private
 router.get("/customer", passport.authenticate("jwt", { session: false }), getCustomer);
 
-// @route   GET /test
-// @desc    Return Work
-// @access  Private
-async function ddddddd(req, res) {
-  res.status(200).json({ massage: "Work!" });
-}
-
-router.get("/test", ddddddd);
-
 // @route   PUT /customers
 // @desc    Return current customer
 // @access  Private
