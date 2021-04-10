@@ -1,9 +1,9 @@
 import AppRoutes from './routes/AppRoutes';
-import './App.scss';
+import styles from './App.scss';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <AppRoutes />
     </div>
   );
