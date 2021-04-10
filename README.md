@@ -30,11 +30,10 @@ Prettier - Code Formatter.\
  "jsxBracketSameLine": false, закрывающийся jsx в этой же строке\
  }
 
-### `npm start`
+## Установка Eslint (для vs code, кто на webstorm всё аналогично)
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Установите расширение ESLint. В Корне проекта лежит файл конфигураций eslintrc, в package.json в devDependencies
+прописаны все плагины для работы с Eslint в паре с prettier.
 
 # Непосредственно выполнение задач
 
@@ -45,6 +44,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Для выполнения задачи (блока) от ветки dev ($ git checkout dev) создаём новую ветку с названием описывающим блок либо
 задачу ($ git branch name)
 [документация git](https://git-scm.com/book/ru/v2/%D0%92%D0%B5%D1%82%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-Git-%D0%9E-%D0%B2%D0%B5%D1%82%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8-%D0%B2-%D0%B4%D0%B2%D1%83%D1%85-%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D1%85)
+[видео](https://www.youtube.com/watch?v=n8mAPVyhbHU).
 
 ### Pull request
 
