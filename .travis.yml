@@ -8,7 +8,7 @@ cache:
     - ./node_modules
 
 before_script:
-  - npm install --prefix fe-20_final_project
+  - npm install --prefix ./
 
 script:
-  - npm run test --prefix fe-20_final_project
+  - npm run test --prefix ./
