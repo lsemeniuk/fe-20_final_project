@@ -33,7 +33,8 @@ Prettier - Code Formatter.\
 ## Установка Eslint (для vs code, кто на webstorm всё аналогично)
 
 Установите расширение ESLint. В Корне проекта лежит файл конфигураций eslintrc, в package.json в devDependencies
-прописаны все плагины для работы с Eslint в паре с prettier. [видео](https://www.youtube.com/watch?v=n8mAPVyhbHU).
+прописаны все плагины для работы с Eslint в паре с prettier, [видео-1](https://www.youtube.com/watch?v=n8mAPVyhbHU)
+[видео-2](https://www.youtube.com/watch?v=cbuBXiHeFW0) .
 
 # Непосредственно выполнение задач
 
