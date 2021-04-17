@@ -1,4 +1,4 @@
-import { SET_PRODUCTS } from './types';
+import { GET_PRODUCTS } from './types';
 
 const initialState = {
   data: [],
@@ -6,9 +6,8 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_PRODUCTS: {
+    case GET_PRODUCTS:
       return { ...state, data: action.payload };
-    }
     default: {
       return state;
     }
