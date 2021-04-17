@@ -1,11 +1,11 @@
 import React from 'react';
 import AboutShop from '../../components/AboutShop/AboutShop';
-import DeviceList from '../../components/DeviceList/DeviceList';
+import ProductList from '../../components/ProductList/ProductList';
 
 const Index = () => {
   return (
     <>
-      <DeviceList />
+      <ProductList />
       <AboutShop />
     </>
   );
