@@ -6,11 +6,13 @@ import { section } from './App.style';
 
 function App() {
   return (
-    <div className="App" style={section}>
-      <NavBar />
-      <AppRoutes />
-      <Footer />
-    </div>
+    <>
+      <div className="App" style={section}>
+        <NavBar />
+        <AppRoutes />
+        <Footer />
+      </div>
+    </>
   );
 }
 
