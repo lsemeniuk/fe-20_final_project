@@ -14,6 +14,13 @@ export const itemDescriptionStyle = {
   webkitBoxOrient: 'vertical',
   overflow: 'hidden',
   color: 'black',
+  marginBottom: '15px',
+};
+
+export const priceSection = {
+  display: 'flex',
+  justifyContent: 'flex-start',
+  marginBottom: '15px',
 };
 
 export const currentPriceStyle = {
@@ -30,20 +37,27 @@ export const previousPriceStyle = {
 
 export const badgeStyle = {
   position: 'absolute',
-  marginTop: '285px',
-  marginLeft: '-245px',
+  marginTop: '290px',
+  marginLeft: '-205px',
 };
 
 export const triangle = {
-  width: '10px',
-  height: '10px',
+  width: '5px',
+  height: '5px',
   position: 'absolute',
-  borderBottom: '4px solid #007bff',
-  borderRight: '4px solid #007bff',
-  marginTop: '8px',
-  transform: 'rotate(45deg)',
+  border: '5px solid transparent',
+  borderTop: '5px solid #007bff',
+  marginTop: '11px',
+};
+
+export const buttonsSection = {
+  display: 'flex',
+  justifyContent: 'flex-start',
 };
 
 export const favBtnStyle = {
   marginLeft: '100px',
+  backgroundColor: 'gold',
+  border: 'none',
+  color: 'black',
 };
