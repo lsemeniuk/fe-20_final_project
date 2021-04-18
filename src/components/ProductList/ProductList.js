@@ -11,13 +11,13 @@ const ProductList = props => {
     if (products.length === 0) getProducts();
   }, [getProducts]);
 
-  const productList = products.map(product => <ProductItem key={product.id} product={product} />);
+  const productList = products.map(product => <ProductItem key={product.itemNo} product={product} />);
 
   return <div>{productList}</div>;
 };
 
 ProductList.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.string),
+  products: PropTypes.arrayOf(PropTypes.object),
   getProducts: PropTypes.func.isRequired,
 };
 

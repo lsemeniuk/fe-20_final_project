@@ -1,49 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Badge } from 'react-bootstrap';
-
-import {
-  wrapperStyle,
-  imageStyle,
-  itemDescriptionStyle,
-  currentPriceStyle,
-  previousPriceStyle,
-  triangle,
-  badgeStyle,
-  favBtnStyle,
-  priceSection,
-  buttonsSection,
-} from './ProductItem.style';
+import styles from './ProductItem.module.scss';
 
 const ProductItem = props => {
   const { product } = props;
-  const { img, isNew, title, currentPrice, previousPrice } = product;
+  const { imageUrls, isNew, name, currentPrice, previousPrice } = product;
   return (
     <>
-      <div style={wrapperStyle}>
+      <div className={styles.wrapper}>
         <Card style={{ width: '18rem', display: 'inline-block' }}>
           <Card.Body>
-            <Card.Img style={imageStyle} variant="top" src={img} />
+            <Card.Img className={styles.image} variant='top' src={imageUrls[0]} />
 
             {isNew && (
-              <Badge style={badgeStyle} variant="primary">
-                <div style={triangle} />
+              <Badge className={styles.badge} variant='primary'>
+                <div className={styles.triangle} />
                 Новинка
               </Badge>
             )}
 
-            <Card.Link title={title} href=" # " style={itemDescriptionStyle}>
-              {title}
+            <Card.Link className={styles.itemDescription} title={name} href=' # '>
+              {name}
             </Card.Link>
-            <div style={priceSection}>
-              <Card.Text style={currentPriceStyle}>{currentPrice}</Card.Text>
-              <Card.Text style={previousPriceStyle}>
+            <div className={styles.priceSection}>
+              <Card.Text className={styles.currentPrice}>{currentPrice}</Card.Text>
+              <Card.Text className={styles.previousPrice}>
                 <s>{previousPrice}</s>
               </Card.Text>
             </div>
-            <div style={buttonsSection}>
-              <Button variant="primary">Купить</Button>
-              <Button style={favBtnStyle}>Fav</Button>
+            <div className={styles.buttonsSection}>
+              <Button variant='primary'>Купить</Button>
+              <Button className={styles.favBtn}>Fav</Button>
             </div>
           </Card.Body>
         </Card>

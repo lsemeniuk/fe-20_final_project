@@ -11,12 +11,12 @@ const Home = props => {
   const { categoryName } = props;
 
   return (
-    <Container style={сontainer} className="d-flex flex-column justify-content-between">
-      <div className="row d-flex justify-content-between">
-        <p className="text-left col align-self-start" style={categoryNameStyle}>
+    <Container style={сontainer} className='d-flex flex-column justify-content-between'>
+      <div className='row d-flex justify-content-between'>
+        <p className='text-left col align-self-start' style={categoryNameStyle}>
           {categoryName}
         </p>
-        <p className="text-right col align-self-end" style={breadCrumbs}>
+        <p className='text-right col align-self-end' style={breadCrumbs}>
           Главная &gt; Мужские
         </p>
       </div>
@@ -25,8 +25,8 @@ const Home = props => {
         <p style={bannerText}>Смарт часы для мужчин</p>
         <img
           style={bannerImg}
-          src="https://i.pinimg.com/originals/8a/1b/30/8a1b30d7f7b5b843652ec2124cc01a9f.jpg"
-          alt="Men"
+          src='https://i.pinimg.com/originals/8a/1b/30/8a1b30d7f7b5b843652ec2124cc01a9f.jpg'
+          alt='Men'
         />
       </div>
       <ProductList />
