@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import './CartModal.scss';
 import data from './data';
 import Button from '../Button/Button';
+import SlickSlider from '../SlickSlider/SlickSlider';
 
 const CartModal = ({ isOpen, hideModal }) => {
   const [qty, setQty] = useState(1);
@@ -78,9 +79,8 @@ const CartModal = ({ isOpen, hideModal }) => {
           </div>
         </div>
       </Modal.Body>
-      <Modal.Footer>
-        <h3>Modal Footer</h3>
-      </Modal.Footer>
+      <h5>Также рекомендуем приобрести</h5>
+      <SlickSlider />
     </Modal>
   );
 };

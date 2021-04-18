@@ -12,6 +12,7 @@
   border-top: none;
   padding-top: 0;
   padding-left: 30px;
+  text-align: left;
 }
 .modal-body {
   padding: 0 30px;
@@ -132,6 +133,7 @@
 .modal__link-home:active,
 .modal__link-home:hover {
   color: #08e8f0;
+  text-decoration: none;
 }
 
 img {
@@ -165,4 +167,7 @@ img.small {
 .card-info {
   margin: 1rem;
   margin-left: 6rem;
+}
+h5 {
+    margin-left: 30px;
 }
