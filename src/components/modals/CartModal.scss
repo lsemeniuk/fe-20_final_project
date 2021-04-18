@@ -8,6 +8,11 @@
   font-size: 2rem;
   font-weight: bold;
 }
+.modal-footer {
+  border-top: none;
+  padding-top: 0;
+  padding-left: 30px;
+}
 .modal-body {
   padding: 0 30px;
 }
@@ -43,7 +48,7 @@
   outline: none;
 }
 .btn-delete:hover {
-  transform: scale(1.2) rotate(360deg) ;
+  transform: scale(1.2) rotate(360deg);
   background-color: rgb(209, 15, 15);
 }
 .input-box {

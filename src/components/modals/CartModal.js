@@ -61,6 +61,22 @@ const CartModal = ({ isOpen, hideModal }) => {
             </li>
           ))}
         </ul>
+        <div className="modal__item-box">
+          <div className="modal__total-wrapper">
+            <p className="modal__total-text">Итого</p>
+            <div className="total__cost low"> {data.cart.reduce((a, i) => a + i.price * qty, 0)} грн </div>
+          </div>
+          <div className="modal__order-wrapper">
+            <Link to="/" className="modal__link-home">
+              &#8592;Вернуться к покупкам
+            </Link>
+            <div>
+              <Button onClick={() => console.log('Заказ Оформлен!')} className="modal__btn-order">
+                Оформить заказ
+              </Button>
+            </div>
+          </div>
+        </div>
       </Modal.Body>
       <Modal.Footer>
         <h3>Modal Footer</h3>
