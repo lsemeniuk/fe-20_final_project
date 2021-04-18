@@ -6,7 +6,7 @@ import {
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
 } from '../utils/consts';
-import Home from '../pages/Home/Home';
+import Index from '../pages/Index/Index';
 import Admin from '../pages/Admin/Admin';
 import ProductPage from '../pages/ProductPage/ProductPage';
 import WishList from '../pages/WishList/WishList';
@@ -31,7 +31,7 @@ export const authRoutes = [
 export const publicRoutes = [
   {
     path: INDEX_ROUTE,
-    Component: Home,
+    Component: Index,
   },
   {
     path: `${PRODUCT_ROUTE}/:id`,
