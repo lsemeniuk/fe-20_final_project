@@ -1,0 +1,163 @@
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+  padding-left: 30px;
+}
+.modal-header .close {
+  padding: 0 0 1rem 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.modal-body {
+  padding: 0 30px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total__cost {
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 5rem;
+  margin-left: 0;
+}
+.qty-price {
+  font-size: 0.8rem;
+  color: grey;
+  margin-left: 400px;
+}
+.title {
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+.btn-delete {
+  margin-left: 1rem;
+  width: 30px;
+  height: 30px;
+  border: 1px solid grey;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all ease-in-out 0.5s;
+  outline: none;
+}
+.btn-delete:hover {
+  transform: scale(1.2) rotate(360deg) ;
+  background-color: rgb(209, 15, 15);
+}
+.input-box {
+  border: 1px solid grey;
+  border-radius: 3px;
+  font-size: 1.3rem;
+}
+
+.input__field {
+  text-align: center;
+  max-width: 3rem;
+  color: grey;
+  border: none;
+}
+
+.modal__btn-plus {
+  background-color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+// .modal__btn-plus:first-child {
+//   padding: 2px 9px;
+// }
+.btnmodal__btn-plus:disabled {
+  color: grey;
+}
+.modal__btn-order {
+  background-color: #05c0c7;
+  padding: 7px 14px;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+.modal__btn-order:hover {
+  background-color: #04d4db;
+}
+
+.low {
+  margin-left: 10px;
+  font-size: 1.4rem;
+}
+.modal__item-box {
+  border: 1px solid lightgrey;
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin-bottom: 0.4rem;
+}
+.modal__total-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.modal__total-text {
+  margin-right: 10px;
+  align-self: center;
+}
+.modal__order-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 0.75rem;
+}
+.modal__link-product {
+  color: #000000;
+  text-decoration: none;
+}
+.modal__link-product:hover {
+  color: #05c0c7;
+  text-decoration: none;
+}
+.modal__link-home {
+  color: #000000;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+.modal__link-home:active,
+.modal__link-home:hover {
+  color: #08e8f0;
+}
+
+img {
+  border-radius: 0.5rem;
+}
+img.small {
+  max-width: 7rem;
+  width: 100%;
+}
+.min-25 {
+  min-width: 25rem;
+}
+.col-1 {
+  flex: 1 1 35rem;
+}
+/** Card */
+.card {
+  border: 0.1rem #c0c0c0 solid;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  margin: 5.5rem;
+}
+.card-body {
+  padding: 1rem;
+  max-width: 35rem;
+  background-color: #e7e7e7;
+}
+.card-body > * {
+  margin-bottom: 0.5rem;
+}
+.card-info {
+  margin: 1rem;
+  margin-left: 6rem;
+}

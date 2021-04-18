@@ -4,11 +4,9 @@
     "es2021": true
   },
   "rules": {
+    "no-console": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
-    "max-len": ["error", 120],
-    "no-plusplus": "off",
-    "import/prefer-default-export": "off"
+    "prettier/prettier": ["error", { "endOfLine":"auto" }]
   },
   "extends": ["plugin:react/recommended", "airbnb", "plugin:prettier/recommended"],
   "parserOptions": {

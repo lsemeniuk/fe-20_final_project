@@ -1,17 +1,12 @@
 import React from 'react';
 import AppRoutes from './routes/AppRoutes';
-import Footer from './components/Footer/Footer';
-import NavBar from './components/NavBar/NavBar';
-import { section } from './App.style';
+import styles from './App.scss';
 
 function App() {
   return (
-    <div className="App" style={section}>
-      <NavBar />
+    <div className={styles.app}>
       <AppRoutes />
-      <Footer />
     </div>
   );
 }
-
 export default App;

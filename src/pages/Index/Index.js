@@ -1,13 +1,24 @@
-import React from 'react';
-import AboutShop from '../../components/AboutShop/AboutShop';
-import DeviceList from '../../components/DeviceList/DeviceList';
+import React, { useState } from 'react';
+import Button from '../../components/Button/Button';
+import CartModal from '../../components/modals/CartModal';
+
+import './Index.scss';
 
 const Index = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const showModal = () => {
+    setIsOpen(true);
+  };
+  const hideModal = () => {
+    setIsOpen(false);
+  };
   return (
-    <>
-      <DeviceList />
-      <AboutShop />
-    </>
+    <div className="Index">
+      <h1>First element of the project</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <Button onClick={showModal}>Купить часы</Button>
+      <CartModal isOpen={isOpen} hideModal={hideModal} />
+    </div>
   );
 };
 
