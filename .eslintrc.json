@@ -6,7 +6,7 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
-    "max-len": ["error", 120],
+    "max-len": ["error", 1530],
     "no-plusplus": "off",
     "import/prefer-default-export": "off"
   },
