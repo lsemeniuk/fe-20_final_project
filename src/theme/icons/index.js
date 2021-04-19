@@ -1,1 +1,1 @@
-// Exports
+export { iconMobile } from "./iconMobile";
