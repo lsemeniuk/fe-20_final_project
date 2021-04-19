@@ -1,15 +1,23 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import Index from '../pages/Index/Index';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
+import HomeScreen from '../pages/HomeScreen/HomeScreen';
+import ProductScreen from '../pages/ProductScreen/ProductScreen';
 
 function AppRoutes() {
   return (
-    <Switch>
-      <Redirect exact from="/" to="/index" />
-      <Route exact path="/index">
-        <Index />
-      </Route>
-    </Switch>
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={HomeScreen} />
+        <Route exact path="/product/currentID" component={ProductScreen} />
+        <Route path="*">
+          <Redirect to="/" />
+        </Route>
+      </Switch>
+      <Footer />
+    </div>
   );
 }
 

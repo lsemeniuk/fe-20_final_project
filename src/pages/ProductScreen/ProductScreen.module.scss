@@ -1,0 +1,21 @@
+.page__wrapper {
+    padding: 1rem;
+}
+.about {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: grey;
+    border: none;
+    background-color: #ffffff;
+}
+.active {
+    color:#000000;
+    border-top:2px solid #000000;
+}
+.about:hover {
+    color:#05c0c7;
+    cursor: pointer;
+}
+.about:focus {
+    outline: none;
+}
