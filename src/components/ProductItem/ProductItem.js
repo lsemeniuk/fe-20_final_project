@@ -10,19 +10,20 @@ const product = {
 };
 
 const ProductItem = () => {
+  const { img, isNew, name, currentPrice, previousPrice } = product;
   return (
     <div className={style.item}>
-      <img src={product.img} alt='watch' />
-      <div className={style.newMessage}>Новинка</div>
+      <img src={img} alt='watch' />
+      {isNew && <div className={style.newMessage}>Новинка</div>}
       {/* вставил здесь ссылку потому что eslint ругается */}
-      <a href='https://horoshop.ua/ua/design/109/#desktop' title={product.name} className={style.name}>
-        {product.name}
+      <a href='https://horoshop.ua/ua/design/109/#desktop' title={name} className={style.name}>
+        {name}
       </a>
 
       <div className={style.priceSection}>
-        <p className={style.currentPrice}>{product.currentPrice}</p>
+        <p className={style.currentPrice}>{currentPrice}</p>
         <p className={style.previousPrice}>
-          <s>{product.previousPrice}</s>
+          <s>{previousPrice}</s>
         </p>
       </div>
 
@@ -37,6 +38,11 @@ const ProductItem = () => {
       </div>
     </div>
   );
+};
+
+ProductItem.defaultProps = {
+  name: 'Товар не найден',
+  isNew: false,
 };
 
 export default ProductItem;
