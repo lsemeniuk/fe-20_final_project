@@ -44,5 +44,4 @@ ProductItem.defaultProps = {
   name: 'Товар не найден',
   isNew: false,
 };
-
 export default ProductItem;
