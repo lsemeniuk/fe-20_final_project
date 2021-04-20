@@ -1,21 +1,113 @@
 .page__wrapper {
-    padding: 1rem;
+  padding: 1rem;
+}
+.location {
+  color: grey;
+  font-size: 0.8rem;
+}
+.name {
+  font-weight: 400;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.row {
+  display: flex;
+}
+.row__top {
+  display: flex;
+  margin-top: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.row__start {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 0.9rem;
+}
+.row__between {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1.3rem 0;
+}
+.gap {
+  margin-right: 1rem;
+}
+.col__one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1;
+}
+.col__two {
+  flex: 1 1;
+}
+.price {
+  font-size: 1.9rem;
+  margin-right: 1rem;
+}
+.oldPrice {
+  font-size: 1.4rem;
+  color: lightgrey;
+  text-decoration: line-through;
+}
+.btns__block {
+  padding: 2.8rem 0;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
+.btn__buy {
+  background-color: #37B7FA;
+  padding: 6px 14px;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+  font-size: 1.3rem;
+
+}
+.btn__gap {
+    margin-right: 0.7rem;
+}
+.btn__quickOrder {
+  background-color: #fff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  border: 1px solid lightgrey ;
+  color: #000000;
+  font-size: 1.3rem;
+}
+.btn__quickOrder:hover {
+    border: 1px solid black;
+}
+.success {
+  color: #22c422;
+}
+.danger {
+  color: #a02020;
+}
+.review {
+  color: grey;
+  text-decoration: none;
+}
+.review:hover {
+  color: #08cce6;
+  text-decoration: none;
 }
 .about {
-    font-size: 1.3em;
-    font-weight: 600;
-    color: grey;
-    border: none;
-    background-color: #ffffff;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: grey;
+  border: none;
+  background-color: #ffffff;
 }
 .active {
-    color:#000000;
-    border-top:2px solid #000000;
+  color: #000000;
+  border-top: 2px solid #000000;
 }
 .about:hover {
-    color:#05c0c7;
-    cursor: pointer;
+  color: #05c0c7;
+  cursor: pointer;
 }
 .about:focus {
-    outline: none;
+  outline: none;
 }

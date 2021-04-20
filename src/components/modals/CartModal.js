@@ -22,8 +22,8 @@ const CartModal = ({ isOpen, hideModal }) => {
       <Modal.Header closeButton>
         <Modal.Title className="title">Корзина</Modal.Title>
         <div className="d-flex align-self-end qty-price">
-          <p className="mr-4">количество</p>
-          <p className="ml-4">стоимость</p>
+          <p className="mr-3">количество</p>
+          <p className="ml-2">стоимость</p>
         </div>
       </Modal.Header>
       <Modal.Body>
