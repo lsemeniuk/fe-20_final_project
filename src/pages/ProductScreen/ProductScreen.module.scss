@@ -40,6 +40,9 @@
   flex: 1 1;
 }
 .col__two {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   flex: 1 1;
 }
 .price {
@@ -79,6 +82,15 @@
 .btn__quickOrder:hover {
     border: 1px solid black;
 }
+.delivery {
+  color:#000000;
+  text-decoration: none;
+  margin-left: 5px;
+}
+.delivery:hover{
+  color: #37B7FA;
+  text-decoration: none;
+}
 .success {
   color: #22c422;
 }
@@ -99,6 +111,7 @@
   color: grey;
   border: none;
   background-color: #ffffff;
+  padding: 0.5rem;
 }
 .active {
   color: #000000;
@@ -110,4 +123,8 @@
 }
 .about:focus {
   outline: none;
+}
+.info__block {
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 40px;
 }

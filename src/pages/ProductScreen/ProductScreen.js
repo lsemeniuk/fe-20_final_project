@@ -91,7 +91,7 @@ const ProductScreen = () => {
                 </Button>
               </li>
               <li>
-                <div>
+                <div className={styles.info__block}>
                   <Button
                     className={buttons.deliveryActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
                     onClick={handleClickDelivery}
@@ -113,9 +113,14 @@ const ProductScreen = () => {
                   {info.deliveryInfo && <DeliveryInfo />}
                   {info.paymentInfo && <PaymentInfo />}
                   {info.warrantyInfo && <WarrantyInfo />}
-                  {info.deliveryInfo && <Link to="/delivery">Подробнее о доставке</Link>}
+                  {info.deliveryInfo && (
+                    <Link to="/delivery" className={styles.delivery}>
+                      Подробнее о доставке
+                    </Link>
+                  )}
                 </div>
               </li>
+              <li />
             </ul>
           </div>
         </div>

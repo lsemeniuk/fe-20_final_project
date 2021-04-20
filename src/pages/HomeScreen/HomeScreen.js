@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SlickSlider from '../../components/SlickSlider/SlickSlider';
 import styles from './HomeScreen.module.scss';
 
 const HomeScreen = () => {
@@ -10,6 +11,7 @@ const HomeScreen = () => {
       <Link to="/product/currentID" className={styles.link}>
         To a selected Product Screen
       </Link>
+      <SlickSlider />
     </div>
   );
 };
