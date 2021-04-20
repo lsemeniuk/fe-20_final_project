@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER } from './types';
+import { SET_CURRENT_CUSTOMMER } from './types';
 
 const initialState = {
   data: [],
@@ -6,7 +6,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CURRENT_USER: {
+    case SET_CURRENT_CUSTOMMER: {
       return { ...state, data: action.payload };
     }
     default: {

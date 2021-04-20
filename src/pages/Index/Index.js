@@ -1,14 +1,8 @@
 import React from 'react';
-import Modal from '../../components/modal/Modal/Modal';
+import Container from '../../components/Container/Container';
 
 const Index = () => {
-  return (
-    <div>
-      <Modal>
-        <div>lorem sda ewrew fdgdrt c rtytrt rfghgf hf g</div>
-      </Modal>
-    </div>
-  );
+  return <Container>Index</Container>;
 };
 
 export default Index;

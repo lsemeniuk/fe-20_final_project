@@ -11,7 +11,7 @@ export const createCart = async () => {
 // @route   PUT /cart
 // @desc    Update cart when adding / deleting products in cart
 // @access  Private
-export const updateCart = async (email, password) => {
+export const updateCart = async () => {
   const { data } = await $authHost.put('cart');
   return data;
 };
@@ -20,7 +20,7 @@ export const updateCart = async (email, password) => {
 // @desc    Add one product to cart
 // @access  Private
 export const addProductToCart = async productId => {
-  const { data } = await $authHost.put('cart/' + productId);
+  const { data } = await $authHost.put(`cart/${productId}`);
   return data;
 };
 
@@ -36,15 +36,15 @@ export const deleteCart = async () => {
 // @desc    Delete one product from cart
 // @access  Private
 export const deleteProductFromCart = async productId => {
-  const { data } = await $authHost.delete('cart/' + productId);
+  const { data } = await $authHost.delete(`cart/${productId}`);
   return data;
 };
 
 // @route   DELETE /cart/product/:productId
 // @desc    Delete one product from cart
 // @access  Private
-export const decreaseCartProductQuantity = async () => {
-  const { data } = await $authHost.delete('cart/product/' + productId);
+export const decreaseCartProductQuantity = async productId => {
+  const { data } = await $authHost.delete(`cart/${productId}`);
   return data;
 };
 

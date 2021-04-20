@@ -12,7 +12,7 @@ export const addCategory = async () => {
 // @desc    Update existing category
 // @access  Private
 export const aupdateCategory = async id => {
-  const { data } = await $adminHost.put('catalog/' + id);
+  const { data } = await $adminHost.put(`catalog/${id}`);
   return data;
 };
 
@@ -20,7 +20,7 @@ export const aupdateCategory = async id => {
 // @desc    Delete existing category
 // @access  Private
 export const deleteCategory = async id => {
-  const { data } = await $adminHost.delete('catalog/' + id);
+  const { data } = await $adminHost.delete(`catalog/${id}`);
   return data;
 };
 
@@ -36,6 +36,6 @@ export const getCategories = async () => {
 // @desc    GET existing categorie
 // @access  Public
 export const getCategory = async id => {
-  const { data } = await $host.get('catalog/' + id);
+  const { data } = await $host.get(`catalog/${id}`);
   return data;
 };
