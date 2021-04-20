@@ -28,11 +28,10 @@ const ProductItem = () => {
       </div>
 
       <div className={style.btnSection}>
-        {/* проставил type потому что eslint ругается */}
-        <button type='submit' className={style.buyBtn}>
+        <button type='button' className={style.buyBtn}>
           Купить
         </button>
-        <button type='submit' className={style.favBtn}>
+        <button type='button' className={style.favBtn}>
           fav
         </button>
       </div>
