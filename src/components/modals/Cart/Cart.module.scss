@@ -1,0 +1,24 @@
+.title {
+  padding: 0;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 400;
+}
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+  color: #898989;
+  font-size: 12px;
+  margin: 5px 0 10px;
+}
+.quantity {
+  padding-right: 40px;
+}
+.price {
+  padding-right: 30px;
+}
+.list {
+  border: solid 1px #a7a7a7;
+  border-radius: 4px;
+}
