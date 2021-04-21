@@ -11,13 +11,19 @@ const product = {
 };
 
 const ProductItem = () => {
+  const buyOpenModal = () => {
+    console.log('buy');
+  };
+  const addToFav = () => {
+    console.log('add to fav');
+  };
   const { img, isNew, name, currentPrice, previousPrice } = product;
   return (
     <div className={style.item}>
-      <img src={img[0]} alt="watch" />
+      <img src={img[0]} alt='watch' />
       {isNew && <div className={style.newMessage}>Новинка</div>}
       {/* вставил здесь ссылку потому что eslint ругается */}
-      <a href="https://horoshop.ua/ua/design/109/#desktop" title={name} className={style.name}>
+      <a href='https://horoshop.ua/ua/design/109/#desktop' title={name} className={style.name}>
         {name}
       </a>
 
@@ -29,8 +35,8 @@ const ProductItem = () => {
       </div>
 
       <div className={style.btnSection}>
-        <Button type="button" variant="special" title="Купить" />
-        <Button type="button" variant="special" title="fav" />
+        <Button onClick={buyOpenModal} type='button' title='Купить' />
+        <Button onClick={addToFav} type='button' title='fav' />
       </div>
     </div>
   );
