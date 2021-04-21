@@ -7,7 +7,7 @@ const HomeScreen = () => {
     <div className={styles.home}>
       <h1>First element of the project</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <Link to="/product/currentID" className={styles.link}>
+      <Link to='/product/currentID' className={styles.link}>
         To a selected Product Screen
       </Link>
     </div>

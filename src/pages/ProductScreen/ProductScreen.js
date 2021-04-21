@@ -7,7 +7,6 @@ import DeliveryInfo from './DeliveryInfo';
 import PaymentInfo from './PaymentInfo';
 import WarrantyInfo from './WarrantyInfo';
 import CartModal from '../../components/modals/CartModal';
-import Heart from '../../theme/icons/Heart';
 
 const ProductScreen = () => {
   const { name, image, price, previousPrice, countInStock, itemNo } = data.currentProduct;
@@ -66,7 +65,7 @@ const ProductScreen = () => {
                     )}
                   </div>
                   <p className={styles.gap}>Артикул:{itemNo}</p>
-                  <Link className={styles.review} to="/reviews">
+                  <Link className={styles.review} to='/reviews'>
                     Оставить отзыв
                   </Link>
                 </div>
@@ -78,46 +77,41 @@ const ProductScreen = () => {
                     {data.currentProduct.previousPrice && <span className={styles.oldPrice}>{previousPrice} грн</span>}
                   </div>
                   <div className={styles.row}>
-                    <div>
-                      <Heart />
-                    </div>
+                    <div>Иконка</div>
                     <p>в желания</p>
                   </div>
                 </div>
               </li>
               <li className={styles.btns__block}>
-                <Button className={`${styles.btn__buy} ${styles.btn__gap}`} onClick={addToCartHandler}>
-                  Купить
-                </Button>
-                <Button className={styles.btn__quickOrder} onClick={() => console.log('Quick Buy!')}>
-                  Быстрый заказ
-                </Button>
+                <Button title='Купить' onClick={addToCartHandler} />
+                <Button
+                  title='Быстрый заказ'
+                  className={styles.btn__quickOrder}
+                  onClick={() => console.log('Quick Buy!')}
+                />
               </li>
               <li>
                 <div className={styles.info__block}>
                   <Button
+                    title='Доставка'
                     className={buttons.deliveryActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
                     onClick={handleClickDelivery}
-                  >
-                    Доставка
-                  </Button>
+                  />
                   <Button
+                    title='Оплата'
                     className={buttons.paymentActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
                     onClick={handleClickPayment}
-                  >
-                    Оплата
-                  </Button>
+                  />
                   <Button
+                    title='Гарантия'
                     className={buttons.warrantyActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
                     onClick={handleClickWarranty}
-                  >
-                    Гарантия
-                  </Button>
+                  />
                   {info.deliveryInfo && <DeliveryInfo />}
                   {info.paymentInfo && <PaymentInfo />}
                   {info.warrantyInfo && <WarrantyInfo />}
                   {info.deliveryInfo && (
-                    <Link to="/delivery" className={styles.delivery}>
+                    <Link to='/delivery' className={styles.delivery}>
                       Подробнее о доставке
                     </Link>
                   )}

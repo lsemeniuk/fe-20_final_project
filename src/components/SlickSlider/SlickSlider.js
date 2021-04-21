@@ -20,15 +20,15 @@ export default function SlickSlider() {
   };
 
   return (
-    <div className="slider-container">
+    <div className='slider-container'>
       <Slider {...settings}>
         {sliderData.products.map(product => (
           <div key={product.id}>
-            <img src={product.image} alt={product.name} className="img"></img>
+            <img src={product.image} alt={product.name} className='img'></img>
             <p>{product.name}</p>
             <div>{product.price} грн</div>
             <div>
-              <Button type="button" onClick={() => console.log('Added to Cart!')} className="add-to-cart">
+              <Button type='button' onClick={() => console.log('Added to Cart!')} className='add-to-cart'>
                 В корзину
               </Button>
             </div>
