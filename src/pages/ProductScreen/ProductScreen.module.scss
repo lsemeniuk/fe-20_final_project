@@ -28,6 +28,9 @@
   align-items: baseline;
   padding: 1.3rem 0;
 }
+.row__center {
+  align-items: center;
+}
 .gap {
   margin-right: 1rem;
 }
@@ -131,4 +134,12 @@
 //** Image */
 .large:hover {
   transform: scale(1.5);
+}
+.icon__frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid lightgrey;
+  margin-right: 10px;
 }

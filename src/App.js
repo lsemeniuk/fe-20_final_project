@@ -1,14 +1,14 @@
 import React from 'react';
 import AppRoutes from './routes/AppRoutes';
-import NavBar from './components/NavBar/NavBar';
-import Basement from './components/Basement/Basement';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <div className='App'>
-      <NavBar />
+    <div>
+      <Header />
       <AppRoutes />
-      <Basement />
+      <Footer />
     </div>
   );
 }

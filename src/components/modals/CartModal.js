@@ -45,17 +45,14 @@ const CartModal = ({ isOpen, hideModal }) => {
                   </Link>
                 </div>
                 <div className='input-box'>
-                  <Button className='modal__btn-plus' onClick={() => decrementQty()} disabled={qty === 1}>
-                    -
-                  </Button>
+                  <Button title='-' className='modal__btn-plus' onClick={() => decrementQty()} disabled={qty === 1} />
                   <input className='input__field' type='text' name='qty' value={qty} readOnly />
                   <Button
+                    title='+'
                     className='modal__btn-plus'
                     onClick={() => incrementQty()}
                     disabled={qty === item.countInStock}
-                  >
-                    +
-                  </Button>
+                  />
                 </div>
                 <div className='total__cost'>{qty * item.price} грн</div>
               </div>
@@ -72,9 +69,11 @@ const CartModal = ({ isOpen, hideModal }) => {
               &#8592;Вернуться к покупкам
             </Link>
             <div>
-              <Button onClick={() => console.log('Заказ Оформлен!')} className='modal__btn-order'>
-                Оформить заказ
-              </Button>
+              <Button
+                title='Оформить заказ'
+                onClick={() => console.log('Заказ Оформлен!')}
+                className='modal__btn-order'
+              />
             </div>
           </div>
         </div>
