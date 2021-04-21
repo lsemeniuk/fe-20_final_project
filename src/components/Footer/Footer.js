@@ -1,8 +1,12 @@
 import React from 'react';
-import styles from './Footer.module.scss';
+import Container from '../Container/Container';
 
 const Footer = () => {
-  return <footer className={styles.footer}>Footer</footer>;
+  return (
+    <Container>
+      <footer>Footer</footer>
+    </Container>
+  );
 };
 
 export default Footer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import HomeScreen from '../pages/HomeScreen/HomeScreen';
 import ProductScreen from '../pages/ProductScreen/ProductScreen';
 

@@ -1,0 +1,33 @@
+@import '../../utils/styles/var';
+
+.cont {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: $xxlMin) {
+    max-width: 1440px;
+  }
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    max-width: 1140px;
+  }
+
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    max-width: 960px;
+  }
+
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    max-width: 780px;
+  }
+
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    max-width: 720px;
+  }
+
+  @media (max-width: $xsMax) {
+    max-width: 540px;
+  }
+}
