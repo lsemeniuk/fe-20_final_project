@@ -7,6 +7,7 @@ import DeliveryInfo from './DeliveryInfo';
 import PaymentInfo from './PaymentInfo';
 import WarrantyInfo from './WarrantyInfo';
 import CartModal from '../../components/modals/CartModal';
+import Heart from '../../theme/icons/Heart';
 
 const ProductScreen = () => {
   const { name, image, price, previousPrice, countInStock, itemNo } = data.currentProduct;
@@ -43,7 +44,7 @@ const ProductScreen = () => {
     <div>
       <CartModal isOpen={isOpen} hideModal={() => setIsOpen(false)} />
       <div className={styles.page__wrapper}>
-        <div className={styles.row__top}>
+        <div className={`${styles.row} ${styles.row__top}`}>
           <div className={styles.col__one}>
             <img className={styles.large} src={image} alt={name} />
           </div>
@@ -56,7 +57,7 @@ const ProductScreen = () => {
                 <h3 className={styles.name}>{name}</h3>
               </li>
               <li>
-                <div className={styles.row__start}>
+                <div className={`${styles.row} ${styles.row__start}`}>
                   <div className={styles.gap}>
                     {countInStock > 0 ? (
                       <span className={styles.success}>В наличии</span>
@@ -71,13 +72,15 @@ const ProductScreen = () => {
                 </div>
               </li>
               <li>
-                <div className={styles.row__between}>
+                <div className={`${styles.row} ${styles.row__between}`}>
                   <div>
                     <span className={styles.price}>{price} грн</span>
                     {data.currentProduct.previousPrice && <span className={styles.oldPrice}>{previousPrice} грн</span>}
                   </div>
                   <div className={styles.row}>
-                    <div>Иконка</div>
+                    <div>
+                      <Heart />
+                    </div>
                     <p>в желания</p>
                   </div>
                 </div>
@@ -120,7 +123,6 @@ const ProductScreen = () => {
                   )}
                 </div>
               </li>
-              <li />
             </ul>
           </div>
         </div>
