@@ -9,11 +9,8 @@
 }
 .img {
   max-height: 190px;
+  width: 150px
 }
-.slider-container {
-  padding: 0 30px;
-}
-
 body {
   background-color: #ffffff;
 }
@@ -26,13 +23,24 @@ body {
 .slides .slick-next {
   position: absolute;
   top: 35%;
-  z-index: 1;
+  z-index: 1
 }
 
-.slides .slick-prev {
-  left: 5%;
-}
+// .slides .slick-prev {
+//   left: 0;
+// }
 
-.slides .slick-next {
-  right: 5%;
+// .slides .slick-next {
+//   right: 0;
+// }
+
+.slick-next:before {
+  font-size: 35px;
+  color:black;
+  
+}
+.slick-prev:before {
+  font-size: 35px;
+  color:black;
+
 }

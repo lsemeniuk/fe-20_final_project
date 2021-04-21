@@ -9,6 +9,7 @@ import WarrantyInfo from './WarrantyInfo';
 import CartModal from '../../components/modals/CartModal';
 import Heart2 from '../../theme/icons/Heart2';
 import Container from '../../components/Container/Container';
+import SlickSlider from '../../components/SlickSlider/SlickSlider';
 
 const ProductScreen = () => {
   const { name, image, price, previousPrice, countInStock, itemNo } = data.currentProduct;
@@ -41,12 +42,15 @@ const ProductScreen = () => {
     // dispatch(addToCartAction(productID))
     setIsOpen(true);
   };
+  const sliderWatches = data.products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
   return (
     <Container>
       <CartModal isOpen={isOpen} hideModal={() => setIsOpen(false)} />
       <div className={`${styles.row} ${styles.row__top}`}>
         <div className={styles.col__one}>
-          <img className={styles.large} src={image} alt={name} />
+          <div className={styles.img__box}>
+            <img className={styles.large} src={image} alt={name} />
+          </div>
         </div>
         <div className={styles.col__two}>
           <ul>
@@ -119,6 +123,10 @@ const ProductScreen = () => {
                   </Link>
                 )}
               </div>
+            </li>
+            <li>
+              <h3 className={styles.section__title}>Смотрите также</h3>
+              <SlickSlider content={sliderWatches} />
             </li>
           </ul>
         </div>
