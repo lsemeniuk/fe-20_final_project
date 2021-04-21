@@ -64,6 +64,11 @@
   font-size: 13px;
 }
 
+.footerSocialLink {
+  margin: 0 9px 9px 0;
+
+}
+
 .infoForClients {
   width: 245px;
 }
@@ -76,21 +81,26 @@
 .Contacts {
   width: 490px;
 }
-.footerContacts{
+
+.footerContacts {
   display: flex;
 }
-.footerContactsTel{
-width: 220px;
+
+.footerContactsTel {
+  width: 220px;
 }
 
-.footerContactsLocation{
+.footerContactsLocation {
   padding-top: 20px;
 }
-#iconMessage{
-  height: 16px;
-  fill: #7d7d7d;
-  margin-right: 8px;
+
+#iconMessage {
+  margin-left: 8px;
 }
-.footerContactsTelIcons{
-  margin-left: -25px;
+.roadMap {
+  margin-left: 29px;
+}
+
+.footerContactsTelIcons {
+  margin-left: -22px;
 }

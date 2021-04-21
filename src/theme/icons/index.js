@@ -1,1 +1,11 @@
-export { iconMobile } from "./iconMobile";
+export { iconMobile } from './iconMobile';
+export { iconVk } from './iconVK';
+export { iconFB } from './iconFB';
+export { iconTwitter } from './iconTwitter';
+export { iconInstagram } from './iconInstagram';
+export { iconTelephone } from './iconTelephone';
+export { iconMessageWhatsApp } from './iconMessageWhatsApp';
+export { iconMessageTelegram } from './iconMessageTelegram';
+export { iconMessageSkype } from './iconMessageSkype';
+export { iconMessageEmail } from './iconMessageEmail';
+export { iconGeolocation } from './iconGeolocation';
