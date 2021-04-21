@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
-const Button = ({ variant, title, onClick, disabled = false }) => {
+const Button = ({ variant, title, onClick, disabled, type }) => {
   let className = '';
 
   if (variant === 'outline') {
@@ -15,7 +15,7 @@ const Button = ({ variant, title, onClick, disabled = false }) => {
 
   return (
     <>
-      <button type='button' className={className} onClick={onClick} disabled={disabled}>
+      <button type={type} className={className} onClick={onClick} disabled={disabled}>
         {title}
       </button>
     </>
@@ -27,11 +27,13 @@ Button.propTypes = {
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
+  type: PropTypes.string,
 };
 
 Button.defaultProps = {
   variant: '',
   disabled: false,
+  type: 'button',
 };
 
 export default Button;
