@@ -1,6 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import style from './productItem.module.scss';
 import Button from '../Button/Button';
+import { PRODUCT_ROUTE } from '../../utils/consts';
 
 const product = {
   img: ['https://design109.horoshop.ua/content/images/25/240x240l85nn0/33197235775948.jpeg'],
@@ -8,6 +10,7 @@ const product = {
   currentPrice: '1200 грн',
   previousPrice: '1500 грн',
   isNew: true,
+  itemNo: 123512,
 };
 
 const ProductItem = () => {
@@ -17,15 +20,16 @@ const ProductItem = () => {
   const addToFav = () => {
     console.log('add to fav');
   };
-  const { img, isNew, name, currentPrice, previousPrice } = product;
+  const { img, isNew, name, currentPrice, previousPrice, itemNo } = product;
   return (
     <div className={style.item}>
-      <img src={img[0]} alt='watch' />
+      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
+        <img src={img[0]} alt='watch' />
+      </NavLink>
       {isNew && <div className={style.newMessage}>Новинка</div>}
-      {/* вставил здесь ссылку потому что eslint ругается */}
-      <a href='https://horoshop.ua/ua/design/109/#desktop' title={name} className={style.name}>
-        {name}
-      </a>
+      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
+        <span className={style.name}>{name}</span>
+      </NavLink>
 
       <div className={style.priceSection}>
         <p className={style.currentPrice}>{currentPrice}</p>
