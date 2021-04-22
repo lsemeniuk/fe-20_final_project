@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import style from './productItem.module.scss';
 import Button from '../Button/Button';
 import { PRODUCT_ROUTE } from '../../utils/consts';
-import { favIcon } from '../../theme/icons/favIcon';
+import { favIcon } from '../../theme/icons';
 
 const product = {
   img: ['https://design109.horoshop.ua/content/images/25/240x240l85nn0/33197235775948.jpeg'],
