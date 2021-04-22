@@ -8,6 +8,7 @@ import styles from './Cart.module.scss';
 import Button from '../../Button/Button';
 import { CHECKOUT_ROUTE } from '../../../utils/consts';
 import { replace } from '../../../utils/func';
+import RecommendList from '../../RecommendList/RecommendList';
 
 const Cart = ({ buttonHandler }) => {
   const [cart, setcart] = useState({});
@@ -59,6 +60,7 @@ const Cart = ({ buttonHandler }) => {
           </NavLink>
         </div>
       </div>
+      <RecommendList />
     </Modal>
   );
 };
