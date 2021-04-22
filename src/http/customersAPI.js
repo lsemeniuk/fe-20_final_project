@@ -1,5 +1,5 @@
+import jwtDecode from 'jwt-decode';
 import { $authHost, $host } from './index';
-import jwt_decode from 'jwt-decode';
 
 // @route   POST /customers
 // @desc    Register customer
@@ -12,10 +12,10 @@ export const createCustomer = async () => {
 // @route   POST /customers/login
 // @desc    Login Customer / Returning JWT Token
 // @access  Public
-export const loginCustomer = async (loginOrEmail, password) => {
+export const loginCustomer = async () => {
   const { data } = await $host.post('customers/login', {});
   localStorage.setItem('token', data.token);
-  return jwt_decode(data.token);
+  return jwtDecode(data.token);
 };
 
 // @route   GET /

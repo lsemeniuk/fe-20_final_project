@@ -1,5 +1,6 @@
+/* eslint-disable no-param-reassign */
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 
 // Базовые запросы для неавторизированных пользователей
 const $host = axios.create({
@@ -27,12 +28,12 @@ const $adminHost = axios.create({
 
 // Записываем во все запросы администратора токен в header
 const adminInterceptor = config => {
-  const user = jwt_decode(localStorage.getItem('token'));
+  const user = jwtDecode(localStorage.getItem('token'));
   if (user.isAdmin) {
     config.headers.authorization = localStorage.getItem('token');
     return config;
   }
-  return;
+  return user;
 };
 
 $adminHost.interceptors.request.use(adminInterceptor);
