@@ -8,22 +8,21 @@ import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Button from '../Button/Button';
 import './SlickSlider.scss';
 import sliderData from './slider-data';
 
 function SampleNextArrow({ className, style, onClick }) {
-  return <div className={className} style={{ ...style, display: 'block', width: 40, height: 40 }} onClick={onClick} />;
+  return <div className={className} style={{ ...style }} onClick={onClick} />;
 }
 function SamplePrevArrow({ className, style, onClick }) {
-  return <div className={className} style={{ ...style, display: 'block', width: 40, height: 40 }} onClick={onClick} />;
+  return <div className={className} style={{ ...style }} onClick={onClick} />;
 }
 export default function SlickSlider({ content }) {
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -35,11 +34,8 @@ export default function SlickSlider({ content }) {
       {content.map(product => (
         <div key={product._id}>
           <img src={product.image} alt={product.name} className='img' />
-          <p>{product.name}</p>
-          <div>{product.price} грн</div>
-          <div>
-            <Button title='В Корзину' onClick={() => console.log('Added to Cart!')} variant='special' />
-          </div>
+          <p className='name'>{product.name}</p>
+          <div className='name'>{product.price} грн</div>
         </div>
       ))}
     </Slider>

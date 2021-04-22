@@ -11,6 +11,10 @@
   max-height: 190px;
   width: 150px
 }
+.name {
+  font-size: 12px;
+  margin-top: 10px;
+}
 body {
   background-color: #ffffff;
 }
@@ -23,9 +27,13 @@ body {
 .slides .slick-next {
   position: absolute;
   top: 35%;
-  z-index: 1
+  z-index: 1;
+  
 }
-
+// .slides .slick-prev:hover,
+// .slides .slick-next:hover {
+//   border: 1px solid #696969;
+// }
 // .slides .slick-prev {
 //   left: 0;
 // }
@@ -33,14 +41,13 @@ body {
 // .slides .slick-next {
 //   right: 0;
 // }
-
-.slick-next:before {
-  font-size: 35px;
-  color:black;
-  
-}
 .slick-prev:before {
   font-size: 35px;
-  color:black;
+  color: #696969;
+
+}
+.slick-next:before {
+  font-size: 35px;
+  color: 	#696969;
 
 }

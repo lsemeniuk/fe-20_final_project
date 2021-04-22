@@ -43,6 +43,7 @@ const ProductScreen = () => {
     setIsOpen(true);
   };
   const sliderWatches = data.products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
+  const otherWatches = data.products.filter(watch => watch.category === 'men');
   return (
     <Container>
       <CartModal isOpen={isOpen} hideModal={() => setIsOpen(false)} />
@@ -93,40 +94,42 @@ const ProductScreen = () => {
               <Button title='Купить' onClick={addToCartHandler} />
               <Button
                 title='Быстрый заказ'
-                className={styles.btn__quickOrder}
+                className={`${styles.btn__quickOrder} ${styles.btn__gap}`}
                 onClick={() => console.log('Quick Buy!')}
               />
             </li>
-            <li>
-              <div className={styles.info__block}>
-                <Button
-                  title='Доставка'
-                  className={buttons.deliveryActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
-                  onClick={handleClickDelivery}
-                />
-                <Button
-                  title='Оплата'
-                  className={buttons.paymentActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
-                  onClick={handleClickPayment}
-                />
-                <Button
-                  title='Гарантия'
-                  className={buttons.warrantyActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
-                  onClick={handleClickWarranty}
-                />
-                {info.deliveryInfo && <DeliveryInfo />}
-                {info.paymentInfo && <PaymentInfo />}
-                {info.warrantyInfo && <WarrantyInfo />}
-                {info.deliveryInfo && (
-                  <Link to='/delivery' className={styles.delivery}>
-                    Подробнее о доставке
-                  </Link>
-                )}
-              </div>
+            <li className={styles.info__block}>
+              <Button
+                title='Доставка'
+                className={buttons.deliveryActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
+                onClick={handleClickDelivery}
+              />
+              <Button
+                title='Оплата'
+                className={buttons.paymentActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
+                onClick={handleClickPayment}
+              />
+              <Button
+                title='Гарантия'
+                className={buttons.warrantyActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
+                onClick={handleClickWarranty}
+              />
+              {info.deliveryInfo && <DeliveryInfo />}
+              {info.paymentInfo && <PaymentInfo />}
+              {info.warrantyInfo && <WarrantyInfo />}
+              {info.deliveryInfo && (
+                <Link to='/delivery' className={styles.delivery}>
+                  Подробнее о доставке
+                </Link>
+              )}
             </li>
-            <li>
+            <li className={styles.info__block}>
               <h3 className={styles.section__title}>Смотрите также</h3>
               <SlickSlider content={sliderWatches} />
+            </li>
+            <li className={styles.info__block}>
+              <h3 className={styles.section__title}>Похожие товары</h3>
+              <SlickSlider content={otherWatches} />
             </li>
           </ul>
         </div>
