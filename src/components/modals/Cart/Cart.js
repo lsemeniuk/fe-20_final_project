@@ -7,6 +7,7 @@ import Modal from '../Modal/Modal';
 import styles from './Cart.module.scss';
 import Button from '../../Button/Button';
 import { CHECKOUT_ROUTE } from '../../../utils/consts';
+import { replace } from '../../../utils/func';
 
 const Cart = ({ buttonHandler }) => {
   const [cart, setcart] = useState({});
@@ -19,6 +20,15 @@ const Cart = ({ buttonHandler }) => {
     });
   }, []);
 
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    cart.map(p => {
+      totalPrice += p.cartQuantity * p.product.currentPrice;
+      return totalPrice;
+    });
+    return replace(totalPrice);
+  };
+
   if (isLoading) {
     return <div>loading</div>;
   }
@@ -29,17 +39,20 @@ const Cart = ({ buttonHandler }) => {
     <Modal buttonHandler={buttonHandler}>
       <h2 className={styles.title}>Корзина</h2>
       <div className={styles.header}>
-        <div className={styles.quantity}>Количество</div>
-        <div className={styles.price}>Стоимость</div>
+        <div className={styles.headerQuantity}>Количество</div>
+        <div className={styles.headerPrice}>Стоимость</div>
       </div>
       <div className={styles.list}>{cartList}</div>
-      <div className={styles.checkoutContainer}>
-        <div className={styles.back}>
-          <span>&#8592; Вернуться к покупкам</span>
+      <div className={`${styles.list} ${styles.checkoutContainer}`}>
+        <div className={styles.backContainer}>
+          <span className={styles.back} onClick={() => buttonHandler()}>
+            &#8592; Вернуться к покупкам
+          </span>
         </div>
         <div className={styles.checkoutBlock}>
-          <h3>
-            <span>Итого</span>
+          <h3 className={styles.price}>
+            <span className={styles.total}>Итого</span>
+            {calculateTotalPrice()} грн
           </h3>
           <NavLink to={CHECKOUT_ROUTE}>
             <Button title='Оформить заказ' />

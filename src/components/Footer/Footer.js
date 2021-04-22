@@ -7,9 +7,6 @@ const Footer = () => {
     <div className={styles.footer}>
       <Container>
         <div>Footer</div>
-        <div>Footer</div>
-        <div>Footer</div>
-        <div>Footer</div>
       </Container>
     </div>
   );

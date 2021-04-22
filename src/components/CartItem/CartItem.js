@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import styles from './CartItem.module.scss';
 import { replace } from '../../utils/func';
+import { PRODUCT_ROUTE } from '../../utils/consts';
 
 const CartItem = ({ product, cartQuantity }) => {
   const [quantity, setQuantity] = useState(cartQuantity);
@@ -23,17 +25,26 @@ const CartItem = ({ product, cartQuantity }) => {
       <div className={styles.remove}>
         <span className={styles.removeBtn}>&#128465;</span>
       </div>
-      <img src={product.imageUrls[0]} width={78} height={78} alt='product img' />
+      <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`}>
+        <img src={product.imageUrls[0]} width={78} height={78} alt='product img' />
+      </NavLink>
       <div className={styles.nameBlock}>
-        <h4 className={styles.name}>{product.name}</h4>
-        <span>{product.currentPrice} грн.</span>
+        <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`}>
+          <h4 className={styles.name}>{product.name}</h4>
+        </NavLink>
+        <span>{replace(product.currentPrice)} грн</span>
       </div>
       <div>
         <div className={styles.quantityBlock}>
           <button className={styles.quantityBtn} type='button' onClick={decrementQuantity}>
             -
           </button>
-          <input className={styles.quantityInput} type='text' value={quantity} />
+          <input
+            onChange={e => setQuantity(e.target.value)}
+            className={styles.quantityInput}
+            type='text'
+            value={quantity}
+          />
           <button className={styles.quantityBtn} type='button' onClick={incrementQuantity}>
             +
           </button>
@@ -41,7 +52,7 @@ const CartItem = ({ product, cartQuantity }) => {
         {quantity === product.quantity && <span className={styles.ended}>Извините:( Товара больше нет!</span>}
       </div>
       <div className={styles.price}>
-        <span>{calculatePrice()} грн.</span>
+        <span>{calculatePrice()} грн</span>
       </div>
     </div>
   );

@@ -85,35 +85,6 @@
         "__v": 0
       },
       "cartQuantity": 2
-    },
-    {
-      "_id": "5dac218e8b2cb420e0af4678",
-      "product": {
-        "enabled": true,
-        "imageUrls": [
-          "https://design109.horoshop.ua/content/images/17/390x390l80mc0/smart-chasy-samsung-galaxy-watch-46mm-silver-sm-r800nzsasek-85420148595511.jpg"
-        ],
-        "isNew": true,
-        "quantity": 12,
-        "_id": "5d73ad2bfcad90130470f08c",
-        "name": "Смарт-часы Samsung Galaxy Watch 46мм Silver",
-        "currentPrice": 9499,
-        "previousPrice": 9999,
-        "categories": "men",
-        "color": "black",
-        "productUrl": "/men",
-        "brand": "Samsung",
-        "myCustomParam": {
-          "display": "1.4 \", 360х360 пикс, AMOLED",
-          "housing": "сталь, защита IP68",
-          "alerts": "звуковой сигнал, вибросигнал, о вызовах, о сообщениях",
-          "sports": "пульсометр, барометр, умный будильник"
-        },
-        "itemNo": "4592745",
-        "date": "2019-10-14T12:00:39.679Z",
-        "__v": 0
-      },
-      "cartQuantity": 1
     }
   ],
   "customerId": {
