@@ -22,8 +22,8 @@ const Footer = () => {
     <div className={styles.footer}>
       <div className={styles.footerPayment}>
         <nav>
-          <a href="/">
-            <img className={styles.footerPaymentLogo} src={footerLogo} alt="footerLogo" />
+          <a href='/'>
+            <img className={styles.footerPaymentLogo} src={footerLogo} alt='footerLogo' />
           </a>
         </nav>
         <article className={styles.footerCopyright}>
@@ -33,16 +33,16 @@ const Footer = () => {
         <article className={styles.footerTypeOfPayment}>
           Принимаем к оплате
           <nav className={styles.footerPaymentCard}>
-            <a href="https://www.liqpay.ua/" target="_blank" rel="noreferrer">
-              <img src={visaMaster} alt="" />
+            <a href='https://www.liqpay.ua/' target='_blank' rel='noreferrer'>
+              <img src={visaMaster} alt='' />
             </a>
-            <a href="https://privat24.ua/" target="_blank" rel="noreferrer">
-              <img src={privat24} alt="" />
+            <a href='https://privat24.ua/' target='_blank' rel='noreferrer'>
+              <img src={privat24} alt='' />
             </a>
           </nav>
         </article>
         <nav className={styles.footerPaymentMobileVersion}>
-          <a href="/" id={styles.footerPaymentMobileVersionLink}>
+          <a href='/' id={styles.footerPaymentMobileVersionLink}>
             {iconMobile()}
             Мобильная версия
           </a>
@@ -52,27 +52,27 @@ const Footer = () => {
         <article className={styles.footerHeading}>Каталог</article>
         <ul className={styles.footerMenu}>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Мужские
             </a>
           </li>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Женские
             </a>
           </li>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Детские
             </a>
           </li>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Аксессуары
             </a>
           </li>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Бренды
             </a>
           </li>
@@ -82,32 +82,32 @@ const Footer = () => {
         <article className={styles.footerHeading}>Клиентам</article>
         <ul className={styles.footerMenu}>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Вход в личный кабинет
             </a>
           </li>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               О Нас
             </a>
           </li>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Оплата и доставка
             </a>
           </li>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Обмен и возврат
             </a>
           </li>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Контактная информация
             </a>
           </li>
           <li className={styles.footerMenuLi}>
-            <a href="/" id={styles.footerMenuLiLink}>
+            <a href='/' id={styles.footerMenuLiLink}>
               Блог
             </a>
           </li>
@@ -117,16 +117,16 @@ const Footer = () => {
           Мы в соцсетях
           <br />
           <nav>
-            <a className={styles.footerSocialLink} title="Мы Вконтакте!" href="https://vk.com/">
+            <a className={styles.footerSocialLink} title='Мы Вконтакте!' href='https://vk.com/'>
               {iconVk()}
             </a>
-            <a className={styles.footerSocialLink} title="Мы в Facebook!" href="https://www.facebook.com/">
+            <a className={styles.footerSocialLink} title='Мы в Facebook!' href='https://www.facebook.com/'>
               {iconFB()}
             </a>
-            <a className={styles.footerSocialLink} title="Мы в твиттере!" href="https://twitter.com/">
+            <a className={styles.footerSocialLink} title='Мы в твиттере!' href='https://twitter.com/'>
               {iconTwitter()}
             </a>
-            <a className={styles.footerSocialLink} title="Мы в инстаграмме" href="https://instagram.com/">
+            <a className={styles.footerSocialLink} title='Мы в инстаграмме' href='https://instagram.com/'>
               {iconInstagram()}
             </a>
           </nav>
@@ -160,7 +160,7 @@ const Footer = () => {
               {iconGeolocation()}
               <span id={styles.iconMessage}>Киев, ул. Крещатик</span>
               <nav className={styles.roadMap}>
-                <a href="/">Карта проезда</a>
+                <a href='/'>Карта проезда</a>
               </nav>
             </nav>
           </div>
