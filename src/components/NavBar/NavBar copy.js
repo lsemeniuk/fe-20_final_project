@@ -1,12 +1,10 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { INDEX_ROUTE, ORDERS_ROUTE } from '../../utils/consts';
-// import { INDEX_ROUTE, MEN_ROUTE, WOMEN_ROUTE, CHILDREN_ROUTE, ACCESSORIES_ROUTE, ORDERS_ROUTE } from '../../utils/consts';
+import { INDEX_ROUTE, MEN_ROUTE, WOMEN_ROUTE, CHILDREN_ROUTE, ACCESSORIES_ROUTE, ORDERS_ROUTE } from '../../utils/consts';
 import IconHeart from '../Icons/Heart.svg';
 import IconUser from '../Icons/User.svg';
 import NavbarPrice from '../NavbarPrice/NavbarPrice';
 import NavbarCounter from '../NavbarCounter/NavbarCounter';
-import { MenuItem } from './MenuItem';
 import style from './NavBar.module.scss';
 
 const NavBar = () => {
@@ -19,16 +17,7 @@ const NavBar = () => {
       </div>
       <div className={style.menuContainer}>
         <ul className={style.menuList}>
-          {MenuItem.map(item => {
-            return (
-              <li key={item.index}>
-                <NavLink className={item.cName} to={item.url}>
-                  {item.title}
-                </NavLink>
-              </li>
-            );
-          })}
-          {/* <li>
+          <li>
             <NavLink to={MEN_ROUTE} className={style.menuLink}>
               Мужские
             </NavLink>
@@ -47,7 +36,7 @@ const NavBar = () => {
             <Link to={ACCESSORIES_ROUTE} className={style.menuLink}>
               Аксессуары
             </Link>
-          </li> */}
+          </li>
         </ul>
         <ul className={style.iconList}>
           <li className={style.iconListItem}>

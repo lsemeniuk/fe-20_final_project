@@ -3,5 +3,5 @@ export const section = {
   height: '100vh',
   fontSize: '30px',
   textAlign: 'center',
-  backgroundColor: 'Grey',
+  backgroundColor: '#fafa64',
 };
