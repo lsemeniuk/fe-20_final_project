@@ -12,7 +12,7 @@ import Container from '../../components/Container/Container';
 import SlickSlider from '../../components/SlickSlider/SlickSlider';
 
 const ProductScreen = () => {
-  const { name, image, price, previousPrice, countInStock, itemNo } = data.currentProduct;
+  const { name, image, price, previousPrice, countInStock, itemNo, isNew } = data.currentProduct;
   const [buttons, setButtons] = useState({
     deliveryActive: true,
     paymentActive: false,
@@ -51,6 +51,14 @@ const ProductScreen = () => {
         <div className={styles.col__one}>
           <div className={styles.img__box}>
             <img className={styles.large} src={image} alt={name} />
+            {isNew && <div className={styles.newMessage}>Новинка</div>}
+            <img
+              className={styles.brand__little}
+              src='https://design109.horoshop.ua/content/images/39/180x109l75nn0/amazfit-44485423477251.jpg'
+              width='60'
+              height='36'
+              alt='product-brand'
+            />
           </div>
         </div>
         <div className={styles.col__two}>
