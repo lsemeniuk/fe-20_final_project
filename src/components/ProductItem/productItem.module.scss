@@ -1,5 +1,7 @@
-.item {
+@import '../../utils/styles/var';
 
+
+.item {
   width: min-content;
   padding: 20px;
   border-radius: 3px;
@@ -25,7 +27,7 @@
   transition: 0.2s ease all;
 
   &:hover {
-    color: deepskyblue;
+    color: $colorButnHover;
     text-decoration: none;
   }
 }
@@ -38,7 +40,7 @@
 
 .previousPrice {
   margin-left: 30px;
-  color: grey;
+  color: $colorTextFooter;
 }
 
 .currentPrice {
@@ -47,7 +49,7 @@
 
 .newMessage {
   position: absolute;
-  background-color: dodgerblue;
+  background-color: $colorButton;
   color: white;
   border-radius: 3px;
   padding: 2px;
@@ -60,7 +62,7 @@
     height: 0;
     margin-top: 13px;
     border: 6px solid transparent;
-    border-top: 5px solid dodgerblue;
+    border-top: 5px solid $colorButton;
   }
 }
 
@@ -70,4 +72,13 @@
   justify-content: space-between;
   opacity: 0;
   margin-top: 20px;
+  vertical-align: center;
+  align-items: center;
+}
+
+.favIcon{
+  fill: $colorTextFooter;
+}
+.favIconActive{
+  fill: darkgoldenrod;
 }

@@ -1,0 +1,107 @@
+{
+  "_id": "5dac1d324f3a6f0e0cb19ddc",
+  "products": [
+    {
+      "_id": "5dac20058b2cb420e0af4677",
+      "product": {
+        "enabled": true,
+        "imageUrls": [
+          "https://design109.horoshop.ua/content/images/19/390x390l80mc0/smart-chasy-xiaomi-amazfit-verge-blue-84882568987681.jpg"
+        ],
+        "isNew": true,
+        "quantity": 10,
+        "_id": "5d73ad04fcad90130470f08b",
+        "name": "Смарт-часы XIAOMI Amazfit Verge Blue",
+        "currentPrice": 3599,
+        "categories": "men",
+        "color": "blue",
+        "productUrl": "/men",
+        "brand": "Xiaomi",
+        "myCustomParam": {
+          "display": "1.3 \", 360x360 пикс, AMOLED",
+          "housing": "пластик, защита IP68",
+          "alerts": "звуковой сигнал, вибросигнал, о вызовах, о сообщениях",
+          "sports": "пульсометр, барометр, компас"
+        },
+        "itemNo": "123512",
+        "date": "2019-10-14T12:00:39.679Z",
+        "__v": 0
+      },
+      "cartQuantity": 2
+    },
+    {
+      "_id": "5dac218e8b2cb420e0af4678",
+      "product": {
+        "enabled": true,
+        "imageUrls": [
+          "https://design109.horoshop.ua/content/images/17/390x390l80mc0/smart-chasy-samsung-galaxy-watch-46mm-silver-sm-r800nzsasek-85420148595511.jpg"
+        ],
+        "isNew": true,
+        "quantity": 12,
+        "_id": "5d73ad2bfcad90130470f08c",
+        "name": "Смарт-часы Samsung Galaxy Watch 46мм Silver",
+        "currentPrice": 9499,
+        "previousPrice": 9999,
+        "categories": "men",
+        "color": "black",
+        "productUrl": "/men",
+        "brand": "Samsung",
+        "myCustomParam": {
+          "display": "1.4 \", 360х360 пикс, AMOLED",
+          "housing": "сталь, защита IP68",
+          "alerts": "звуковой сигнал, вибросигнал, о вызовах, о сообщениях",
+          "sports": "пульсометр, барометр, умный будильник"
+        },
+        "itemNo": "459745",
+        "date": "2019-10-14T12:00:39.679Z",
+        "__v": 0
+      },
+      "cartQuantity": 1
+    },
+    {
+      "_id": "5dac20058b2cb420e0af4677",
+      "product": {
+        "enabled": true,
+        "imageUrls": [
+          "https://design109.horoshop.ua/content/images/19/390x390l80mc0/smart-chasy-xiaomi-amazfit-verge-blue-84882568987681.jpg"
+        ],
+        "isNew": true,
+        "quantity": 10,
+        "_id": "5d73ad04fcad90130470f08b",
+        "name": "Смарт-часы XIAOMI Amazfit Verge Blue",
+        "currentPrice": 3599,
+        "categories": "men",
+        "color": "blue",
+        "productUrl": "/men",
+        "brand": "Xiaomi",
+        "myCustomParam": {
+          "display": "1.3 \", 360x360 пикс, AMOLED",
+          "housing": "пластик, защита IP68",
+          "alerts": "звуковой сигнал, вибросигнал, о вызовах, о сообщениях",
+          "sports": "пульсометр, барометр, компас"
+        },
+        "itemNo": "1233512",
+        "date": "2019-10-14T12:00:39.679Z",
+        "__v": 0
+      },
+      "cartQuantity": 2
+    }
+  ],
+  "customerId": {
+    "isAdmin": true,
+    "enabled": true,
+    "_id": "5d99ce196d40fb1b747bc5f5",
+    "firstName": "Customer",
+    "lastName": "Newone",
+    "login": "Customer",
+    "email": "customer@gmail.com",
+    "password": "$2a$10$c4aXjoQfb5X3e4a2wZ.L0.mv0V/a3kXbV7oW6FxanCQDYcOOId10m",
+    "telephone": "+380630000000",
+    "gender": "male",
+    "avatarUrl": "img/customers/023648.png",
+    "date": "2019-10-06T11:20:57.544Z",
+    "__v": 0
+  },
+  "date": "2019-10-20T08:39:14.936Z",
+  "__v": 0
+}

@@ -1,0 +1,105 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0px 60px;
+  height: 241px;
+  color: #7d7d7d;
+}
+
+.footerPayment {
+  width: 490px;
+}
+
+.footerPaymentLogo {
+  width: 200px;
+  height: 60px;
+  margin-bottom: 25px;
+}
+
+.footerCopyright {
+  margin-bottom: 15px;
+}
+
+.footerTypeOfPayment {
+  margin-bottom: 20px;
+}
+
+.footerPaymentCard {
+  margin-top: 10px;
+}
+
+.footerPaymentMobileVersion {
+  margin-bottom: 10px;
+}
+
+#footerPaymentMobileVersionLink {
+  text-decoration: none;
+  color: #7d7d7d;
+}
+
+.catalog {
+  width: 245px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.footerHeading {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.footerMenu {
+  padding-left: 0;
+}
+
+.footerMenuLi {
+  list-style-type: none;
+}
+
+#footerMenuLiLink {
+  color: #7d7d7d;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footerSocialLink {
+  margin: 0 9px 9px 0;
+}
+
+.infoForClients {
+  width: 245px;
+}
+
+#infoForClientsSocialNetworksIcon {
+  height: 24px;
+  margin-right: 8px;
+}
+
+.Contacts {
+  width: 490px;
+}
+
+.footerContacts {
+  display: flex;
+}
+
+.footerContactsTel {
+  width: 220px;
+}
+
+.footerContactsLocation {
+  padding-top: 20px;
+}
+
+#iconMessage {
+  margin-left: 8px;
+}
+.roadMap {
+  margin-left: 29px;
+}
+
+.footerContactsTelIcons {
+  margin-left: -22px;
+}

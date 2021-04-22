@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './Modal.module.scss';
 
 const Modal = ({ children, buttonHandler }) => {
-  console.log(styles);
   const modalRef = useRef(null);
   const closeRef = useRef(null);
 
@@ -20,16 +19,18 @@ const Modal = ({ children, buttonHandler }) => {
     <div onClick={closeBtnHandler} className={styles.modalFade}>
       <div className={styles.modal} ref={modalRef}>
         <div>
-          <span className={styles.close}> </span>
+          <span className={styles.close} ref={closeRef}>
+            {' '}
+          </span>
         </div>
-        <div className="modal__body">{children}</div>
+        <div className='modal__body'>{children}</div>
       </div>
     </div>
   );
 };
 
 Modal.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
   buttonHandler: PropTypes.func.isRequired,
 };
 

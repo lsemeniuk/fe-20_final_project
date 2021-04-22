@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './productItem.module.scss';
 import Button from '../Button/Button';
 import { PRODUCT_ROUTE } from '../../utils/consts';
+import { favIcon } from '../../theme/icons/favIcon';
 
 const product = {
   img: ['https://design109.horoshop.ua/content/images/25/240x240l85nn0/33197235775948.jpeg'],
@@ -14,11 +15,14 @@ const product = {
 };
 
 const ProductItem = () => {
+  const [inCart, setCart] = useState(false);
   const buyOpenModal = () => {
+    setCart(true);
     console.log('buy');
   };
-  const addToFav = () => {
-    console.log('add to fav');
+  const addToFav = e => {
+    const heartIcon = e.target.classList;
+    heartIcon.toggle(style.favIconActive);
   };
   const { img, isNew, name, currentPrice, previousPrice, itemNo } = product;
   return (
@@ -39,8 +43,14 @@ const ProductItem = () => {
       </div>
 
       <div className={style.btnSection}>
-        <Button onClick={buyOpenModal} type='button' title='Купить' />
-        <Button onClick={addToFav} type='button' title='fav' />
+        {!inCart ? (
+          <Button onClick={buyOpenModal} type='button' title='Купить' />
+        ) : (
+          <Button onClick={buyOpenModal} variant='outline' type='button' title='В корзине' />
+        )}
+        <span className={style.favIcon} onClick={addToFav}>
+          {favIcon()}
+        </span>
       </div>
     </div>
   );
