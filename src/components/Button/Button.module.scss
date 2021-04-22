@@ -18,11 +18,13 @@
   }
 }
 .outline {
-  color: $colorButton;
-  border: 1px solid $colorButton;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
+  border: 1px solid lightgrey;
   background: #fff;
   &:hover {
-    background-color: rgba(55, 183, 250, 0.1);
+    border: 1px solid black
   }
 }
 .special {

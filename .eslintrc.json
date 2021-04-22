@@ -6,7 +6,10 @@
   "rules": {
     "no-console": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "prettier/prettier": ["error", { "endOfLine":"auto" }]
+    "prettier/prettier": ["error", { "endOfLine":"auto" }],
+    "import/prefer-default-export": "off",
+    "no-underscore-dangle": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   "extends": ["plugin:react/recommended", "airbnb", "plugin:prettier/recommended"],
   "parserOptions": {

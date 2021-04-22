@@ -3,13 +3,17 @@ import { Link } from 'react-router-dom';
 import styles from './ProductScreen.module.scss';
 import data from './data';
 import Button from '../../components/Button/Button';
-import DeliveryInfo from './DeliveryInfo';
-import PaymentInfo from './PaymentInfo';
-import WarrantyInfo from './WarrantyInfo';
 import CartModal from '../../components/modals/CartModal';
 import Heart2 from '../../theme/icons/Heart2';
 import Container from '../../components/Container/Container';
 import SlickSlider from '../../components/SlickSlider/SlickSlider';
+import DeliveryInfo from './productscreen-components/DeliveryInfo';
+import PaymentInfo from './productscreen-components/PaymentInfo';
+import WarrantyInfo from './productscreen-components/WarrantyInfo';
+import Avatar from '../../theme/icons/Avatar';
+import FacebookIcon from '../../theme/icons/Facebook';
+import GoogleIcon from '../../theme/icons/Google';
+import ReviewForm from '../../components/Forms/ReviewForm/ReviewForm';
 
 const ProductScreen = () => {
   const { name, image, price, previousPrice, countInStock, itemNo, isNew } = data.currentProduct;
@@ -60,6 +64,14 @@ const ProductScreen = () => {
               alt='product-brand'
             />
           </div>
+          <div className={styles.info__block__top}>
+            <div>
+              <Avatar />
+              <ReviewForm />
+              <FacebookIcon />
+              <GoogleIcon />
+            </div>
+          </div>
         </div>
         <div className={styles.col__two}>
           <ul>
@@ -102,7 +114,8 @@ const ProductScreen = () => {
               <Button title='Купить' onClick={addToCartHandler} />
               <Button
                 title='Быстрый заказ'
-                className={`${styles.btn__quickOrder} ${styles.btn__gap}`}
+                // className={`${styles.btn__quickOrder} ${styles.btn__gap}`}
+                variant='outline'
                 onClick={() => console.log('Quick Buy!')}
               />
             </li>

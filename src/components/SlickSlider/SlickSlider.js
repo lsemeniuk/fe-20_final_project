@@ -1,6 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
@@ -14,9 +11,19 @@ import sliderData from './slider-data';
 function SampleNextArrow({ className, style, onClick }) {
   return <div className={className} style={{ ...style }} onClick={onClick} />;
 }
+SampleNextArrow.propTypes = {
+  className: PropTypes.string.isRequired,
+  style: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 function SamplePrevArrow({ className, style, onClick }) {
   return <div className={className} style={{ ...style }} onClick={onClick} />;
 }
+SamplePrevArrow.propTypes = {
+  className: PropTypes.string.isRequired,
+  style: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 export default function SlickSlider({ content }) {
   const settings = {
     dots: false,
@@ -42,8 +49,7 @@ export default function SlickSlider({ content }) {
   );
 }
 SlickSlider.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  content: PropTypes.array,
+  content: PropTypes.arrayOf(PropTypes.string),
 };
 SlickSlider.defaultProps = {
   content: sliderData.products,
