@@ -9,6 +9,7 @@ import {
   WISH_LIST_ROUTE,
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
+  CHECKOUT_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Men from '../pages/Men/Men';
@@ -20,6 +21,7 @@ import ProductPage from '../pages/ProductPage/ProductPage';
 import WishList from '../pages/WishList/WishList';
 import Orders from '../pages/Orders/Orders';
 import PersonalInfo from '../pages/PersonalInfo/PersonalInfo';
+import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
 
 export const authRoutes = [
   {
@@ -64,5 +66,9 @@ export const publicRoutes = [
   {
     path: WISH_LIST_ROUTE,
     Component: WishList,
+  },
+  {
+    path: CHECKOUT_ROUTE,
+    Component: CheckoutCart,
   },
 ];

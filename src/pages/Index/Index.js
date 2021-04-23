@@ -1,13 +1,11 @@
 import React from 'react';
-import AboutShop from '../../components/AboutShop/AboutShop';
-import DeviceList from '../../components/DeviceList/DeviceList';
+import Container from '../../components/Container/Container';
 
 const Index = () => {
   return (
-    <>
-      <DeviceList />
-      <AboutShop />
-    </>
+    <Container>
+      <div>Index</div>
+    </Container>
   );
 };
 
