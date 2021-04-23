@@ -4,7 +4,7 @@ import Container from '../../components/Container/Container';
 const Index = () => {
   return (
     <Container>
-      <div>Index</div>
+      <div style={{ height: '700px' }}>Index</div>
     </Container>
   );
 };

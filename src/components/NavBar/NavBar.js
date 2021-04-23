@@ -21,6 +21,8 @@ const NavBar = () => {
 
   const modalHandler = () => {
     setmodalCart(!modalCart);
+    document.body.classList.toggle('lock');
+    console.log(1221);
   };
 
   useEffect(() => {
