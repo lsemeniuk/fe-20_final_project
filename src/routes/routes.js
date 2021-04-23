@@ -9,11 +9,11 @@ import {
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Admin from '../pages/Admin/Admin';
-import ProductPage from '../pages/ProductPage/ProductPage';
 import WishList from '../pages/WishList/WishList';
 import Orders from '../pages/Orders/Orders';
 import PersonalInfo from '../pages/PersonalInfo/PersonalInfo';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
+import ProductScreen from '../pages/ProductScreen/ProductScreen';
 
 export const authRoutes = [
   {
@@ -37,7 +37,7 @@ export const publicRoutes = [
   },
   {
     path: `${PRODUCT_ROUTE}/:id`,
-    Component: ProductPage,
+    Component: ProductScreen,
   },
   {
     path: WISH_LIST_ROUTE,

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styles from './ProductScreen.module.scss';
 import data from './data';
 import Button from '../../components/Button/Button';
-import CartModal from '../../components/modals/CartModal';
+// import CartModal from '../../components/modals/CartModal';
 import Heart2 from '../../theme/icons/Heart2';
 import Container from '../../components/Container/Container';
 import SlickSlider from '../../components/SlickSlider/SlickSlider';
@@ -14,9 +14,12 @@ import Avatar from '../../theme/icons/Avatar';
 import FacebookIcon from '../../theme/icons/Facebook';
 import GoogleIcon from '../../theme/icons/Google';
 import ReviewForm from '../../components/Forms/ReviewForm/ReviewForm';
+import { CART_ROUTE } from '../../utils/consts';
+import ProductDetails from './productscreen-components/ProductDetails';
 
 const ProductScreen = () => {
-  const { name, image, price, previousPrice, countInStock, itemNo, isNew } = data.currentProduct;
+  const history = useHistory();
+  const { name, image, price, previousPrice, countInStock, itemNo, isNew, _id: productID } = data.currentProduct;
   const [buttons, setButtons] = useState({
     deliveryActive: true,
     paymentActive: false,
@@ -40,17 +43,14 @@ const ProductScreen = () => {
     setButtons({ deliveryActive: false, paymentActive: false, warrantyActive: true });
     setInfo({ deliveryInfo: false, paymentInfo: false, warrantyInfo: true });
   };
-  const [isOpen, setIsOpen] = useState(false);
-
   const addToCartHandler = () => {
     // dispatch(addToCartAction(productID))
-    setIsOpen(true);
+    history.push(`${CART_ROUTE}/${productID}`);
   };
   const sliderWatches = data.products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
   const otherWatches = data.products.filter(watch => watch.category === 'men');
   return (
     <Container>
-      <CartModal isOpen={isOpen} hideModal={() => setIsOpen(false)} />
       <div className={`${styles.row} ${styles.row__top}`}>
         <div className={styles.col__one}>
           <div className={styles.img__box}>
@@ -152,13 +152,29 @@ const ProductScreen = () => {
               <h3 className={styles.section__title}>Смотрите также</h3>
               <SlickSlider content={sliderWatches} />
             </li>
-            <li className={styles.info__block}>
+            <li>
               <h3 className={styles.section__title}>Похожие товары</h3>
               <SlickSlider content={otherWatches} />
             </li>
           </ul>
         </div>
       </div>
+      <section>
+        <h3 className={styles.section__title}> Описание</h3>
+        <h3 className={styles.section__title}>{name}</h3>
+        <p>
+          Xiaomi Amazfit Verge – умные часы, которые получили 11 спортивных режимов. С ними вам не придется доставать
+          телефон, чтобы посмотреть уведомления, воспользоваться картой или принять телефонный звонок.
+        </p>
+        <h3 className={styles.section__title}>Особенности:</h3>
+        <ProductDetails />
+        <div>
+          <img
+            src='https://i.citrus.ua/uploads/content/product-photos/lysyanaya/december/av1.jpg?_t=1548256954'
+            alt='product-demo'
+          />
+        </div>
+      </section>
     </Container>
   );
 };
