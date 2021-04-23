@@ -12,3 +12,4 @@ export { iconGeolocation } from './iconGeolocation';
 export { iconBag } from './iconBag';
 export { iconHeart } from './iconHeart';
 export { iconUser } from './iconUser';
+export { favIcon } from './favIcon';
