@@ -159,7 +159,7 @@ const ProductScreen = () => {
           </ul>
         </div>
       </div>
-      <section>
+      <section className={styles.info__block__top}>
         <h3 className={styles.section__title}> Описание</h3>
         <h3 className={styles.section__title}>{name}</h3>
         <p>

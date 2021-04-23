@@ -1,39 +1,37 @@
 @import '../../utils/styles/var';
 
-// .page__wrapper {
-//   padding: 1rem;
-//   max-width: 1440px;
-// }
+
 .location {
   color: grey;
   font-size: 0.8rem;
 }
 .name {
   font-weight: 400;
-  margin-top: 0.8rem;
-  margin-bottom: 0.8rem;
+  margin: 0.8rem 0 0.8rem;
+
 }
 .row {
   display: flex;
-  border-bottom: 1px solid lightgrey;
+
+  &__top {
+    margin-top: 3rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  &__start {
+    justify-content: flex-start;
+    font-size: 0.9rem;
+  }
+  &__between {
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.3rem 0;
+  }
+  &__center {
+    align-items: center;
+  }
 }
-.row__top {
-  margin-top: 3rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.row__start {
-  justify-content: flex-start;
-  font-size: 0.9rem;
-}
-.row__between {
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 1.3rem 0;
-}
-.row__center {
-  align-items: center;
-}
+
 .gap {
   margin-right: 1rem;
 }
@@ -154,7 +152,7 @@
   transition: 0.3s ease-in-out;
 }
 .img__box:hover .large {
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 .img__box:hover .newMessage {
   opacity: 0;
@@ -186,7 +184,7 @@
 }
 .info__block__top {
   border-top: 1px solid lightgrey;
-
+  margin-top: 25px;
 }
 .review__group {
   display: flex;
