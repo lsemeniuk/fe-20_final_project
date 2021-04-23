@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
->>>>>>> navbar
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NavLink, useLocation } from 'react-router-dom';
