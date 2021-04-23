@@ -2,13 +2,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useField } from 'formik';
-// todo в Реакте есть только 2 варианта прочитать данные в Дочернем компоненте: PROPS и CONTEXT (он же например, redux store)
+import styles from './MyInput.module.scss';
+
 const MyInput = ({ name, ...rest }) => {
   const [field, meta /* helpers */] = useField(name); // *для чтения данных из Context
 
   return (
     <div>
-      <input {...field} {...rest} />
+      <input {...field} {...rest} className={styles.form__input} />
       {meta.error && meta.touched && <span className='error'>{meta.error}</span>}
     </div>
   );

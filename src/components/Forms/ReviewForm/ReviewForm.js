@@ -1,38 +1,40 @@
 import React from 'react';
+import { AiOutlineStar } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 import { withFormik } from 'formik';
 import MyInput from './MyInput';
 import schema from './schema';
 import MyText from './MyText';
 import Button from '../../Button/Button';
-import './ReviewForm.scss';
+import styles from './ReviewForm.module.scss';
 
 function ReviewForm({ handleSubmit, isSubmitting }) {
   // console.log('formikForm2', props);
+  // const [clicked, setClicked] = useState(false);
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
-      <h3 className='section__title'>Новый отзыв или комментарий</h3>
-      <MyInput name='firstName' type='text' placeholder='Имя Фамилия' />
-      <MyInput name='email' type='text' placeholder='email' />
-      <MyText name='comment' type='text' placeholder='Ваши комментарии' />
+    <form onSubmit={handleSubmit} className={styles.review__form} noValidate>
+      <MyInput name='firstName' type='text' placeholder='Имя и фамилия' />
+      <MyInput name='email' type='text' placeholder='Эл.почта' />
+      <MyText name='comment' type='text' placeholder='Сообщение' />
+      <span> Оцените товар </span>
+      <span>
+        <AiOutlineStar size='2rem' name='rating1' />
+        <AiOutlineStar size='2rem' name='rating2' />
+        <AiOutlineStar size='2rem' name='rating3' />
+        <AiOutlineStar size='2rem' name='rating4' />
+        <AiOutlineStar size='2rem' name='rating5' />
+      </span>
       <div>
-        <Button title='Отправить отзыв' disabled={isSubmitting} type='submit' />
+        <Button title='Отправить' disabled={isSubmitting} type='submit' />
       </div>
     </form>
   );
 }
-// *========= КОНЕЦ КОМПОНЕНТА ================
-// * функция placeOrder() - за пределами компонента checkOutForm()
-// const logOrder = arr => {
-//   console.log('Your order:');
-//   arr.forEach(item => {
-//     console.log(`item: ${item.title}, quantity: ${item.qty}`);
-//   });
-// };
+
 ReviewForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  isSubmitting: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
 };
 
 const placeOrder = (values, { setSubmitting }) => {

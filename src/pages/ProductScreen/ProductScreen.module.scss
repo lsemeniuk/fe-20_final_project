@@ -185,6 +185,23 @@
 }
 .info__block__top {
   border-top: 1px solid lightgrey;
-  padding-top: 16px;
 
+}
+.review__group {
+  display: flex;
+  position: relative;
+}
+.entryWith__group {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: space-between;
+  & * {
+    margin-right: 10px;
+  }
+  &__text {
+    font-size: 12px;
+    color: #ACACAC;
+  }
 }

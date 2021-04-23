@@ -65,11 +65,15 @@ const ProductScreen = () => {
             />
           </div>
           <div className={styles.info__block__top}>
-            <div>
+            <h3 className={styles.section__title}>Новый отзыв или комментарий</h3>
+            <div className={styles.review__group}>
               <Avatar />
               <ReviewForm />
-              <FacebookIcon />
-              <GoogleIcon />
+              <div className={styles.entryWith__group}>
+                <p className={styles.entryWith__group__text}>Войти с помощью</p>
+                <FacebookIcon />
+                <GoogleIcon />
+              </div>
             </div>
           </div>
         </div>

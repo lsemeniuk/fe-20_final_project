@@ -23,24 +23,14 @@ body {
   position: relative;
 }
 
-.slides .slick-prev,
-.slides .slick-next {
+.slick-prev,
+.slick-next {
   position: absolute;
   top: 35%;
   z-index: 1;
-  
-}
-// .slides .slick-prev:hover,
-// .slides .slick-next:hover {
-//   border: 1px solid #696969;
-// }
-// .slides .slick-prev {
-//   left: 0;
-// }
 
-// .slides .slick-next {
-//   right: 0;
-// }
+}
+
 .slick-prev:before {
   font-size: 35px;
   color: #696969;

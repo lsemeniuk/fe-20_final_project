@@ -8,8 +8,8 @@ function FacebookIcon() {
       id='Social_Icons'
       version='1.1'
       viewBox='0 0 128 128'
-      height='30'
-      width='30'
+      height='25'
+      width='25'
       xmlSpace='preserve'
     >
       <g id='_x31__stroke'>
