@@ -1,16 +1,14 @@
-$montserrat: 'Montserrat', sans-serif;
-.container {
+@import '../../utils/styles/var';
+
+.bgContainer {
+  background-color: #fafa64;
+}
+
+.flexContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  width: 100wh;
-  padding: 0 30px;
-  margin-bottom: 30px;
-};
-
-.logo {
-  width: 175px;
 }
 
 .menuContainer {
@@ -20,84 +18,100 @@ $montserrat: 'Montserrat', sans-serif;
 }
 
 .menuList {
+  margin-left: 20px;
   display: flex;
   align-items: center;
   list-style: none;
-};
+}
 
 .menuLink {
   color: #000;
   font-weight: 700;
-  font-family: $montserrat;
   font-size: 14px;
-  padding: 10px 30px;
-};
+  padding: 10px 10px;
+  white-space: nowrap;
+  &:hover {
+    text-decoration: none;
+    color: $colorButton;
+  }
 
-.menuLink:hover {
-  text-decoration: none;
-  color: #000;
-  padding: 10px 30px;
+  &:active {
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0 0;
+    background-color: #000;
+    text-decoration: none;
+  }
 }
-
-.menuLink:active {
-  color: #fff;
-  font-weight: 700;
-  font-family: $montserrat;
-  font-size: 14px;
-  padding: 10px 30px;
-  margin: 0 0;
-  background-color: #000;
-  text-decoration: none;
-};
 
 .iconList {
   display: flex;
-  list-style: none;
   align-items: center;
+  position: relative;
 }
 
 .iconListItem {
-  margin-left: 25px;
+  position: relative;
+  margin: 0 10px;
+  align-items: center;
+  display: flex;
+}
+
+.favorites {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  top: 13px;
+  left: 7px;
+  border-radius: 15px;
+  background: #37b7fa;
+  color: #fff;
+  font-size: 10px;
+  text-align: center;
+}
+
+.cartLink {
+  cursor: pointer;
 }
 
 .iconCart {
+  position: relative;
+  bottom: 10px;
   height: 36px;
   width: 24px;
-  background-image: url('../../components/Icons/Cart.svg');
-  background-repeat: no-repeat;
   line-height: 1.1;
 }
 
-
-.cartCounter:hover {
-  text-decoration: none;
+.productToCart {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 25px;
+  bottom: 25px;
+  line-height: 1;
+  font-size: 14px;
+  font-weight: 700;
   color: #fafa64;
 }
 
-.menuLinkMyOrder {
-  color: #000;
-  font-weight: 700;
-  font-family: $montserrat;
-  font-size: 14px;
-  padding: 0 25px 0 25px;
+.infoCart {
   display: flex;
   flex-direction: column;
-  vertical-align: bottom;
-}
-
-.menuLinkMyOrder:hover {
-  text-decoration: none;
-  color: #000;
+  justify-content: space-between;
+  margin-left: 15px;
 }
 
 .menuOrderTitle {
+  white-space: nowrap;
+  margin: 0 0 7px;
+  font-size: 17px;
   line-height: 1;
-  margin-top: 10px;
-
+  font-weight: 700;
 }
 
 .menuOrderPrice {
-  font-size: 13px;
-  font-weight: 400;
-  text-align: left;
+  font-size: 14px;
 }

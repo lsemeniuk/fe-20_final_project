@@ -1,21 +1,14 @@
 import {
   ADMIN_ROUTE,
-  MEN_ROUTE,
-  WOMEN_ROUTE,
-  CHILDREN_ROUTE,
-  ACCESSORIES_ROUTE,
   PRODUCT_ROUTE,
   INDEX_ROUTE,
   WISH_LIST_ROUTE,
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
   CHECKOUT_ROUTE,
+  PRODUCTS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
-import Men from '../pages/Men/Men';
-import Women from '../pages/Women/Women';
-import Children from '../pages/Children/Children';
-import Accessories from '../pages/Accessories/Accessories';
 import Admin from '../pages/Admin/Admin';
 import ProductPage from '../pages/ProductPage/ProductPage';
 import WishList from '../pages/WishList/WishList';
@@ -48,20 +41,12 @@ export const publicRoutes = [
     Component: ProductPage,
   },
   {
-    path: MEN_ROUTE,
-    Component: Men,
+    path: `${PRODUCTS_ROUTE}/:categories`,
+    Component: ProductPage,
   },
   {
-    path: WOMEN_ROUTE,
-    Component: Women,
-  },
-  {
-    path: CHILDREN_ROUTE,
-    Component: Children,
-  },
-  {
-    path: ACCESSORIES_ROUTE,
-    Component: Accessories,
+    path: PRODUCTS_ROUTE,
+    Component: ProductPage,
   },
   {
     path: WISH_LIST_ROUTE,
