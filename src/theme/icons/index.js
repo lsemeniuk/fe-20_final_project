@@ -9,4 +9,7 @@ export { iconMessageTelegram } from './iconMessageTelegram';
 export { iconMessageSkype } from './iconMessageSkype';
 export { iconMessageEmail } from './iconMessageEmail';
 export { iconGeolocation } from './iconGeolocation';
+export { iconBag } from './iconBag';
+export { iconHeart } from './iconHeart';
+export { iconUser } from './iconUser';
 export { favIcon } from './favIcon';
