@@ -29,16 +29,19 @@ Button.propTypes = {
   className: PropTypes.string,
   variant: PropTypes.string,
   title: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   disabled: PropTypes.bool,
   type: PropTypes.string,
 };
 
 Button.defaultProps = {
+  className: undefined,
   variant: '',
   disabled: false,
   type: 'button',
-  className: undefined,
+  onClick: () => {
+    return '';
+  },
 };
 
 export default Button;
