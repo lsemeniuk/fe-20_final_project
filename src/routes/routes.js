@@ -5,8 +5,8 @@ import {
   WISH_LIST_ROUTE,
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
-  CHECKOUT_ROUTE,
   PRODUCTS_ROUTE,
+  CHECKOUT_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Admin from '../pages/Admin/Admin';

@@ -1,0 +1,266 @@
+@import '../../utils/styles/var';
+
+// slogan section styles =================================
+.sloganWrapper {
+  background-color: #fafa64;
+  //font-family: Arial;
+  padding: 100px 100px 180px 100px;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.sloganSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.imgWrapper {
+  margin-right: 120px;
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    margin-right: 90px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    margin-right: 70px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    margin-right: 50px;
+  }
+  @media (max-width: $xsMax) {
+    margin-right: 30px;
+  }
+}
+
+.img {
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    width: 320px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    width: 300px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    width: 240px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    width: 180px;
+  }
+  @media (max-width: $xsMax) {
+    width: 150px;
+  }
+}
+
+.sloganText {
+  margin-top: 50px;
+}
+
+.slogan {
+  font-size: 80px;
+  color: #000;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    font-size: 70px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    font-size: 60px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    font-size: 40px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    font-size: 20px;
+  }
+  @media (max-width: $xsMax) {
+    font-size: 18px;
+  }
+}
+
+.sloganBuyBtn {
+  border: none;
+  border-radius: 10px;
+  padding: 15px 40px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background-color: #2bb1f9;
+  box-shadow: 0 15px 20px -15px #2bb1f9;
+  transition: 0.3s ease all;
+
+  &:hover {
+    box-shadow: none;
+    background-color: #49c9ff;
+  }
+
+  @media (min-width: $lgMin) and (max-width: $xlMax) {
+    padding: 15px 30px;
+  }
+  @media (min-width: $mdMin) and (max-width: $lgMax) {
+    padding: 12px 25px;
+    font-size: 25px;
+  }
+  @media (min-width: $smMin) and (max-width: $mdMin) {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  @media (max-width: $smMax) {
+    font-size: 15px;
+    padding: 8px 15px;
+    margin-top: 15px;
+  }
+}
+
+// product section styles===========================
+
+.productsSection {
+  color: white;
+  //font-family: Arial;
+  display: flex;
+  //padding: 0 240px;
+  flex-direction: column;
+}
+
+.descriptionWrapper {
+  background-color: #2bb1f9;
+  border-radius: 15px;
+  padding: 55px 100px 55px 130px;
+  transform: translateY(-80px);
+  box-shadow: 0 40px 25px -25px #2bb1f9;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    padding: 45px 80px 45px 100px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 40px 70px 40px 90px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    padding: 35px 60px 35px 80px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    padding: 30px 50px 34px 70px;
+  }
+
+}
+
+.descriptionText {
+  font-size: 60px;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    font-size: 50px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    font-size: 40px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    font-size: 30px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    font-size: 20px;
+  }
+
+}
+
+.descriptionImg {
+  position: absolute;
+  transform: translate(650px, -382px);
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    width: 375px;
+    transform: translate(540px, -328px);
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    width: 260px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    width: 240px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    width: 220px;
+  }
+}
+
+// bestsellers section styles ===========================
+
+.bestsellersSection {
+  margin-top: 80px;
+}
+
+.bestsellersItems {
+  text-align: center;
+  background-color: grey;
+  height: 250px;
+}
+
+.forWho {
+  margin-top: 200px;
+  justify-content: space-between;
+  display: flex;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.forWhoLinks {
+  text-decoration: none;
+  color: white;
+}
+
+.forMen, .forWoman {
+  padding: 90px 120px 90px 300px;
+  border-radius: 20px;
+}
+
+.forMen {
+  background-color: #23f4b5;
+  box-shadow: 0 15px 35px -10px #23f4b5;
+
+}
+
+.forWoman {
+  background-color: #f93b9b;
+  box-shadow: 0 15px 35px -10px #f93b9b;
+}
+
+.menText, .womanText {
+
+}
+
+.imgForMen, .imgForWoman {
+  position: absolute;
+  transform: translate(-220px, -230px);
+}
+
+
+.newProducts {
+  margin-top: 150px;
+  background-color: grey;
+  text-align: center;
+  height: 250px;
+}
+
+
+.aboutSection {
+  margin-top: 100px;
+  color: #000;
+  text-align: center;
+  padding: 0 150px;
+  margin-bottom: 100px;
+}
+
+.aboutTitle {
+  font-size: 20px;
+}
+
+.aboutText {
+  color: grey;
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.footer {
+  background-color: grey;
+  margin-top: 100px;
+  height: 250px;
+  margin-bottom: 400px;
+}
