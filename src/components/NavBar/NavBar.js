@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+>>>>>>> navbar
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -7,13 +11,20 @@ import { replace } from '../../utils/func';
 import logo from '../../theme/logo.png';
 import { iconBag, iconHeart, iconUser } from '../../theme/icons';
 import styles from './NavBar.module.scss';
+import Cart from '../modals/Cart/Cart';
 
 const NavBar = () => {
   const [catalog, setCatalog] = useState({});
   const [isLoading, setisLoading] = useState(true);
+  const [modalCart, setmodalCart] = useState(false);
+
   const location = useLocation();
   const favorites = 3;
   const cart = 2;
+
+  const modalHandler = () => {
+    setmodalCart(!modalCart);
+  };
 
   useEffect(() => {
     axios.get('../../catalog.json').then(res => {
@@ -64,7 +75,7 @@ const NavBar = () => {
                 <NavLink to={PERSONAL_INFO_ROUTE}>{iconUser()}</NavLink>
               </li>
               {cart ? (
-                <li className={`${styles.iconListItem} ${styles.cartLink}`}>
+                <li className={`${styles.iconListItem} ${styles.cartLink}`} onClick={modalHandler}>
                   <div className={styles.iconCart}>
                     {iconBag()}
                     <span className={styles.productToCart}>{cart}</span>
@@ -89,6 +100,7 @@ const NavBar = () => {
           </div>
         </div>
       </Container>
+      {modalCart && <Cart buttonHandler={modalHandler} />}
     </div>
   );
 };
