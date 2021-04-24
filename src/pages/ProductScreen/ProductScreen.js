@@ -14,11 +14,9 @@ import FacebookIcon from '../../theme/icons/Facebook';
 import GoogleIcon from '../../theme/icons/Google';
 import ReviewForm from '../../components/Forms/ReviewForm/ReviewForm';
 import ProductDetails from './productscreen-components/ProductDetails';
-import CartModal from '../../components/modals/CartModal';
 
 const ProductScreen = () => {
   const { name, image, price, previousPrice, countInStock, itemNo, isNew } = data.currentProduct;
-  const [showModal, setShowModal] = useState(false);
 
   const [buttons, setButtons] = useState({
     deliveryActive: true,
@@ -44,7 +42,7 @@ const ProductScreen = () => {
     setInfo({ deliveryInfo: false, paymentInfo: false, warrantyInfo: true });
   };
   const addToCartHandler = () => {
-    setShowModal(true);
+    // setShowModal(true);
     // dispatch(addToCartAction(productID))
     // history.push(`${CART_ROUTE}/${productID}`);
   };
@@ -52,7 +50,6 @@ const ProductScreen = () => {
   const otherWatches = data.products.filter(watch => watch.category === 'men');
   return (
     <Container>
-      <CartModal showModal={showModal} setShowModal={setShowModal} />
       <div className={`${styles.row} ${styles.row__top}`}>
         <div className={styles.col__one}>
           <div className={styles.img__box}>
