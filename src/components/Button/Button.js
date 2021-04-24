@@ -35,7 +35,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  className: undefined,
+  className: '',
   variant: '',
   disabled: false,
   type: 'button',
