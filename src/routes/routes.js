@@ -6,6 +6,7 @@ import {
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
   CHECKOUT_ROUTE,
+  PRODUCTS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Admin from '../pages/Admin/Admin';
@@ -38,6 +39,14 @@ export const publicRoutes = [
   {
     path: `${PRODUCT_ROUTE}/:id`,
     Component: ProductScreen,
+  },
+  {
+    path: `${PRODUCTS_ROUTE}/:categories`,
+    Component: ProductPage,
+  },
+  {
+    path: PRODUCTS_ROUTE,
+    Component: ProductPage,
   },
   {
     path: WISH_LIST_ROUTE,

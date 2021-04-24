@@ -1,15 +1,9 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable max-len */
 import React from 'react';
 
 export const iconGeolocation = () => (
-  <svg
-    margin-right='8px'
-    width='21px'
-    height='26px'
-    fill='#7d7d7d'
-    viewBox='0 0 64 64'
-    xmlns='http://www.w3.org/2000/svg'
-  >
+  <svg margin-right='8px' width='21px' height='26px' fill='#7d7d7d' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'>
     <path
       fillRule='evenodd'
       clipRule='evenodd'
