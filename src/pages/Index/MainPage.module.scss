@@ -5,6 +5,18 @@
   background-color: #fafa64;
   //font-family: Arial;
   padding: 100px 100px 180px 100px;
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 80px 80px 150px 80px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    padding: 60px 60px 130px 60px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    padding: 40px 80px 110px 40px;
+  }
+  @media (max-width: $xsMax) {
+    padding: 40px 20px 100px 20px ;
+  }
 }
 
 .slider {
@@ -17,6 +29,9 @@
   display: flex;
   justify-content: center;
   margin-top: 100px;
+  @media (max-width: $xsMax){
+    margin-top: 60px;
+  }
 }
 
 .imgWrapper {
@@ -31,7 +46,7 @@
     margin-right: 50px;
   }
   @media (max-width: $xsMax) {
-    margin-right: 30px;
+    margin-right: 20px;
   }
 }
 
@@ -43,18 +58,21 @@
     width: 300px;
   }
   @media (min-width: $mdMin) and (max-width: $mdMax) {
-    width: 240px;
+    width: 220px;
   }
   @media (min-width: $smMin) and (max-width: $smMax) {
     width: 180px;
   }
   @media (max-width: $xsMax) {
-    width: 150px;
+    width: 120px;
   }
 }
 
 .sloganText {
   margin-top: 50px;
+  @media (max-width: $xsMax){
+    margin-top: 20px;
+  }
 }
 
 .slogan {
@@ -71,7 +89,7 @@
     font-size: 40px;
   }
   @media (min-width: $smMin) and (max-width: $smMax) {
-    font-size: 20px;
+    font-size: 30px;
   }
   @media (max-width: $xsMax) {
     font-size: 18px;
@@ -94,21 +112,25 @@
     background-color: #49c9ff;
   }
 
-  @media (min-width: $lgMin) and (max-width: $xlMax) {
+  @media (min-width: $xlMin) and (max-width: $xlMax){
     padding: 15px 30px;
   }
-  @media (min-width: $mdMin) and (max-width: $lgMax) {
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 15px 30px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
     padding: 12px 25px;
     font-size: 25px;
   }
-  @media (min-width: $smMin) and (max-width: $mdMin) {
+  @media (min-width: $smMin) and (max-width: $smMax) {
     font-size: 20px;
     padding: 10px 20px;
   }
-  @media (max-width: $smMax) {
-    font-size: 15px;
-    padding: 8px 15px;
-    margin-top: 15px;
+  @media (max-width: $xsMax) {
+    border-radius: 8px;
+    font-size: 13px;
+    padding: 4px 10px;
+    margin-top: 10px;
   }
 }
 
@@ -116,9 +138,7 @@
 
 .productsSection {
   color: white;
-  //font-family: Arial;
   display: flex;
-  //padding: 0 240px;
   flex-direction: column;
 }
 
@@ -130,16 +150,24 @@
   box-shadow: 0 40px 25px -25px #2bb1f9;
 
   @media (min-width: $xlMin) and (max-width: $xlMax) {
-    padding: 45px 80px 45px 100px;
+    padding: 45px 80px 45px 80px;
+    transform: translateY(-70px);
   }
   @media (min-width: $lgMin) and (max-width: $lgMax) {
-    padding: 40px 70px 40px 90px;
+    padding: 30px 70px 30px 60px;
+    transform: translateY(-60px);
   }
   @media (min-width: $mdMin) and (max-width: $mdMax) {
-    padding: 35px 60px 35px 80px;
+    padding: 30px 60px 30px 60px;
+    transform: translateY(-50px);
   }
   @media (min-width: $smMin) and (max-width: $smMax) {
-    padding: 30px 50px 34px 70px;
+    padding: 20px 50px 20px 60px;
+    transform: translateY(-50px);
+  }
+  @media (max-width: $xsMax) {
+    padding: 5px 40px 5px 20px;
+    transform: translateY(-30px);
   }
 
 }
@@ -157,7 +185,10 @@
     font-size: 30px;
   }
   @media (min-width: $smMin) and (max-width: $smMax) {
-    font-size: 20px;
+    font-size: 25px;
+  }
+  @media (max-width: $xsMax) {
+    font-size: 16px;
   }
 
 }
@@ -170,13 +201,20 @@
     transform: translate(540px, -328px);
   }
   @media (min-width: $lgMin) and (max-width: $lgMax) {
-    width: 260px;
+    width: 290px;
+    transform: translate(450px, -260px);
   }
   @media (min-width: $mdMin) and (max-width: $mdMax) {
-    width: 240px;
+    width: 230px;
+    transform: translate(360px, -200px);
   }
   @media (min-width: $smMin) and (max-width: $smMax) {
-    width: 220px;
+    width: 190px;
+    transform: translate(300px, -170px);
+  }
+  @media (max-width: $xsMax){
+    width: 100px;
+    transform: translate(180px, -95px);
   }
 }
 
@@ -196,18 +234,58 @@
   margin-top: 200px;
   justify-content: space-between;
   display: flex;
-  font-size: 60px;
+  font-size: 55px;
   font-weight: bold;
+  @media (max-width: $lgMax){
+    display: none;
+  }
 }
 
 .forWhoLinks {
   text-decoration: none;
   color: white;
+  @media (max-width: $lgMax) {
+    padding: 120px 30px 50px 30px;
+  }
+  //@media (min-width: $mdMin) and (max-width: $mdMax) {
+  //  padding: 120px 30px 50px 30px;
+  //}
+  //@media (min-width: $smMin) and (max-width: $smMax) {
+  //  padding: 120px 30px 50px 30px;
+  //}
+  //@media (max-width: $xsMax){
+  //  padding: 120px 30px 50px 30px;
+  //}
 }
 
 .forMen, .forWoman {
-  padding: 90px 120px 90px 300px;
+  padding: 90px 90px 90px 330px;
   border-radius: 20px;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    font-size: 45px;
+    padding: 70px 50px 70px 270px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 70px 0 70px 490px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    padding: 60px 30px 60px 390px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    padding: 65px 20px 65px 290px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  @media (max-width: $xsMax){
+    padding: 60px 30px 60px 250px;
+    font-size: 20px;
+    font-weight: bold;
+  }
 }
 
 .forMen {
@@ -227,9 +305,39 @@
 
 .imgForMen, .imgForWoman {
   position: absolute;
-  transform: translate(-220px, -230px);
+  transform: translate(-220px, -236px);
+  @media (min-width: $xlMin) and (max-width: $xlMax){
+    width: 160px;
+    transform: translate(-210px, -202px);
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    width: 150px;
+    transform: translate(-220px, -185px);
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    width: 140px;
+    transform: translate(-240px, -176px);
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    width: 140px;
+    transform: translate(-180px, -182px);
+
+  }
+  @media (max-width: $xsMax){
+    width: 110px;
+    transform: translate(-180px, -139px);
+  }
 }
 
+.genderSlider{
+  display: none;
+  //margin-top: 150px;
+padding-top: 150px;
+  @media (max-width: $lgMax){
+    display: flex;
+    background-color: inherit;
+  }
+}
 
 .newProducts {
   margin-top: 150px;

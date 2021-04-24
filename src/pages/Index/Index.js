@@ -1,11 +1,21 @@
+// import AboutShop from '../../components/AboutShop/AboutShop';
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import AboutShop from '../../components/AboutShop/AboutShop';
+import Slider from 'react-slick';
 import style from './MainPage.module.scss';
 import Container from '../../components/Container/Container';
 import { PRODUCTS_ROUTE } from '../../utils/consts';
 
 const Index = () => {
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
   return (
     <div>
       <div className={style.sloganWrapper}>
@@ -77,9 +87,33 @@ const Index = () => {
             </NavLink>
           </div>
 
+          <Slider className={style.genderSlider} {...sliderSettings}>
+            <NavLink className={style.forWhoLinks} to={PRODUCTS_ROUTE}>
+              <div className={style.forMen}>
+                <img
+                  className={style.imgForMen}
+                  src='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
+                  alt=''
+                />
+                <p className={style.menText}>для него</p>
+              </div>
+            </NavLink>
+            <NavLink className={style.forWhoLinks} to={PRODUCTS_ROUTE}>
+              <div className={style.forWoman}>
+                <img
+                  className={style.imgForWoman}
+                  src='https://res.cloudinary.com/vdsh/image/upload/v1619086322/forWoman_bpp0pc.png'
+                  alt=''
+                />
+                <p className={style.womanText}>для неё</p>
+              </div>
+            </NavLink>
+          </Slider>
+
           <div className={style.newProducts}>
             <p>New products</p>
           </div>
+
           <div className={style.aboutSection}>
             <h4 className={style.aboutTitle}>О магазине</h4>
             <p className={style.aboutText}>
