@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import CartItem from '../../CartItem/CartItem';
 import Modal from '../Modal/Modal';
-import styles from './Cart.module.scss';
 import Button from '../../Button/Button';
 import { CHECKOUT_ROUTE } from '../../../utils/consts';
 import { replace } from '../../../utils/func';
 import RecommendList from '../../RecommendList/RecommendList';
+import styles from './Cart.module.scss';
 
 const Cart = ({ buttonHandler }) => {
   const [cart, setcart] = useState({});
