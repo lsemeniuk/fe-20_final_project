@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './ProductScreen.module.scss';
 import data from './data';
 import Button from '../../components/Button/Button';
-// import CartModal from '../../components/modals/CartModal';
 import Heart2 from '../../theme/icons/Heart2';
 import Container from '../../components/Container/Container';
 import SlickSlider from '../../components/SlickSlider/SlickSlider';
@@ -14,12 +13,13 @@ import Avatar from '../../theme/icons/Avatar';
 import FacebookIcon from '../../theme/icons/Facebook';
 import GoogleIcon from '../../theme/icons/Google';
 import ReviewForm from '../../components/Forms/ReviewForm/ReviewForm';
-import { CART_ROUTE } from '../../utils/consts';
 import ProductDetails from './productscreen-components/ProductDetails';
+import CartModal from '../../components/modals/CartModal';
 
 const ProductScreen = () => {
-  const history = useHistory();
-  const { name, image, price, previousPrice, countInStock, itemNo, isNew, _id: productID } = data.currentProduct;
+  const { name, image, price, previousPrice, countInStock, itemNo, isNew } = data.currentProduct;
+  const [showModal, setShowModal] = useState(false);
+
   const [buttons, setButtons] = useState({
     deliveryActive: true,
     paymentActive: false,
@@ -44,13 +44,15 @@ const ProductScreen = () => {
     setInfo({ deliveryInfo: false, paymentInfo: false, warrantyInfo: true });
   };
   const addToCartHandler = () => {
+    setShowModal(true);
     // dispatch(addToCartAction(productID))
-    history.push(`${CART_ROUTE}/${productID}`);
+    // history.push(`${CART_ROUTE}/${productID}`);
   };
   const sliderWatches = data.products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
   const otherWatches = data.products.filter(watch => watch.category === 'men');
   return (
     <Container>
+      <CartModal showModal={showModal} setShowModal={setShowModal} />
       <div className={`${styles.row} ${styles.row__top}`}>
         <div className={styles.col__one}>
           <div className={styles.img__box}>
@@ -95,7 +97,7 @@ const ProductScreen = () => {
                   )}
                 </div>
                 <p className={styles.gap}>Артикул:{itemNo}</p>
-                <Link className={styles.review} to='/reviews'>
+                <Link to='/reviews' className={styles.review}>
                   Оставить отзыв
                 </Link>
               </div>

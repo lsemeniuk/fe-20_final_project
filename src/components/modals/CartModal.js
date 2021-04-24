@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import './CartModal.scss';
 import data from './data';
 import Button from '../Button/Button';
-import SlickSlider from '../SlickSlider/SlickSlider';
+import SliderInModal from '../SlickSlider/SliderInModal';
 
-const CartModal = ({ isOpen, hideModal }) => {
+const CartModal = ({ showModal, setShowModal }) => {
   const [qty, setQty] = useState(1);
 
   const incrementQty = () => {
@@ -16,9 +16,14 @@ const CartModal = ({ isOpen, hideModal }) => {
   const decrementQty = () => {
     setQty(qty - 1);
   };
-  console.log(+qty);
   return (
-    <Modal show={isOpen} onHide={hideModal} size='lg' aria-labelledby='contained-modal-title-vcenter' centered>
+    <Modal
+      show={showModal}
+      onHide={() => setShowModal(false)}
+      size='lg'
+      aria-labelledby='contained-modal-title-vcenter'
+      centered
+    >
       <Modal.Header closeButton>
         <Modal.Title className='title'>Корзина</Modal.Title>
         <div className='d-flex align-self-end qty-price'>
@@ -78,13 +83,15 @@ const CartModal = ({ isOpen, hideModal }) => {
           </div>
         </div>
       </Modal.Body>
-      <h5>Также рекомендуем приобрести</h5>
-      <SlickSlider />
+      <h5 className='section-title'>Также рекомендуем приобрести</h5>
+      <div className='slider-container'>
+        <SliderInModal />
+      </div>
     </Modal>
   );
 };
 CartModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  hideModal: PropTypes.func.isRequired,
+  showModal: PropTypes.bool.isRequired,
+  setShowModal: PropTypes.func.isRequired,
 };
 export default CartModal;

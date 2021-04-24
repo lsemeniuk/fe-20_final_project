@@ -1,0 +1,48 @@
+.add-to-cart {
+    background-color: aqua;
+    font-size: 1rem;
+    color: azure;
+    padding: 4px 8px;
+    border-radius: 3px;
+    border: none;
+    margin-top: 10px;
+  }
+  .img {
+    max-height: 190px;
+    width: 150px
+  }
+  .name {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  body {
+    background-color: #ffffff;
+  }
+
+  .slides {
+    position: relative;
+  }
+
+  .slick-prev,
+  .slick-next {
+    position: absolute;
+    top: 35%;
+    z-index: 1;
+
+  }
+  .slick-prev {
+    left: -35px;
+  }
+  .slick-next {
+    right: -25px;
+  }
+  .slick-prev:before {
+    font-size: 35px;
+    color: #696969;
+
+  }
+  .slick-next:before {
+    font-size: 35px;
+    color: 	#696969;
+
+  }

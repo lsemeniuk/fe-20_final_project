@@ -1,7 +1,7 @@
 const sliderData = {
   products: [
     {
-      id: '1',
+      _id: '1',
       name: 'Nike Slim Shirt',
       category: 'Shirts',
       image: 'https://res.cloudinary.com/blackie2020/image/upload/v1617958453/beautiful-eyes-wallpaper_cfbse3.jpg',
@@ -13,7 +13,7 @@ const sliderData = {
       description: 'high quality product',
     },
     {
-      id: '2',
+      _id: '2',
       name: 'Adidas Fit Shirt',
       category: 'Shirts',
       image:
@@ -26,7 +26,7 @@ const sliderData = {
       description: 'high quality product',
     },
     {
-      id: '3',
+      _id: '3',
       name: 'Lacoste Free Shirt',
       category: 'Shirts',
       image: 'https://res.cloudinary.com/blackie2020/image/upload/v1617958452/1473462beautiful-pictures_raoztw.jpg',
@@ -38,7 +38,7 @@ const sliderData = {
       description: 'high quality product',
     },
     {
-      id: '4',
+      _id: '4',
       name: 'Nike Slim Pant',
       category: 'Pants',
       image: 'https://res.cloudinary.com/blackie2020/image/upload/v1617958454/beautiful-nature-pictures-7_qn44fx.jpg',
@@ -50,7 +50,7 @@ const sliderData = {
       description: 'high quality product',
     },
     {
-      id: '5',
+      _id: '5',
       name: 'Puma Slim Pant',
       category: 'Pants',
       image: 'https://res.cloudinary.com/blackie2020/image/upload/v1617958452/Beautiful-Farm_lkpbkh.jpg',
@@ -62,7 +62,7 @@ const sliderData = {
       description: 'high quality product',
     },
     {
-      id: '6',
+      _id: '6',
       name: 'Adidas Fit Pant',
       category: 'Pants',
       image: 'https://res.cloudinary.com/blackie2020/image/upload/v1617958453/Beautiful-HD-Wallpapers-15_c34dr7.jpg',

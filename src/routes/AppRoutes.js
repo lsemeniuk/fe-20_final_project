@@ -7,12 +7,11 @@ function AppRoutes() {
   return (
     <Switch>
       <Route exact path='/' component={HomeScreen} />
-      <Route exact path='/product/currentID' component={ProductScreen} />
+      <Route path='/product/currentID' component={ProductScreen} />
       <Route path='*'>
         <Redirect to='/' />
       </Route>
     </Switch>
   );
 }
-
 export default AppRoutes;
