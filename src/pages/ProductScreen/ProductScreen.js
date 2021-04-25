@@ -89,7 +89,7 @@ const ProductScreen = () => {
                     <span className={styles.danger}>Отсутствует</span>
                   )}
                 </div>
-                <p className={styles.gap}>Артикул:{itemNo}</p>
+                <p className={styles.gap}>Артикул: {itemNo}</p>
                 <Link to='/reviews' className={styles.review}>
                   Оставить отзыв
                 </Link>

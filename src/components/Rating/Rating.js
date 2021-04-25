@@ -11,6 +11,11 @@ const Rating = () => {
     star5: false,
   });
   const handleStarClick = starNum => {
+    /* const starV = starNum.slice(-1);
+    const stars = Object.keys(clicked);
+    stars.map(star =>
+      star.slice(-1) <= starV ? setClicked({ ...clicked, [star]: true }) : setClicked({ ...clicked, [star]: false })
+    ); */
     switch (starNum) {
       case 'star5':
         setClicked({ star5: true, star4: true, star3: true, star2: true, star1: true });

@@ -1,9 +1,152 @@
 @import '../../utils/styles/var';
-
+//* Phone View styles ===================================================//
 @media (min-width: $phone-breakpoint1) and (max-width: $phone-breakpoint2) {
+  .phoneView__container {
+    margin: 0 auto;
+  }
+  .location {
+    color: grey;
+    font-size: 0.8rem;
+  }
+  .name {
+    font-size: 27px;
+  }
+  .row {
+    display: flex;
 
+    &__top {
+      margin-top: 3rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    &__start {
+      justify-content: flex-start;
+      font-size: 0.9rem;
+    }
+    &__between {
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.3rem 0;
+    }
+    &__center {
+      align-items: center;
+    }
+  }
+  li {
+    padding: 0 16px;
+  }
 
+  .gap {
+    //margin-right: 1rem;
+    color: grey;
+  }
+  .success {
+    color: #22c422;
+  }
+  .danger {
+    color: #a02020;
+  }
 
+  //** img */
+  .img__box {
+    position: relative;
+  }
+  .imgCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .large {
+    width: 250px;
+  }
+  .brand__little {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .newMessage {
+    width: max-content;
+    background-color: #3da5ca;
+    color: white;
+    border-radius: 3px;
+    padding: 6px 8px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    position: absolute;
+    bottom: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      bottom: -14px;
+      border: 8px solid transparent;
+      border-top: 6px solid #3da5ca;
+    }
+  }
+  //** price buttons*/
+  .price_buttons {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    & * {
+      margin-top: 10px;
+    }
+  }
+  .price_buttons_block {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    margin: 0 16px;
+    padding: 0 16px;
+    & * {
+      margin-top: 10px;
+    }
+  }
+  .price {
+    font-size: 1.9rem;
+    margin-right: 1rem;
+  }
+  .buttons_group {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 0;
+  }
 
-    
+  .icon__frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+
+  //** description*/
+  .details__more {
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+}
+.icon__centre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  margin: 1rem 0;
+}
+.read__more {
+  color: black;
+  border: 1px solid lightgrey;
+  background: #fff;
+  border: none;
+  &:hover {
+    border: 1px solid black;
+  }
 }

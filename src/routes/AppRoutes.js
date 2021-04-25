@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import HomeScreen from '../pages/HomeScreen/HomeScreen';
+/* import ProductScreen from '../pages/ProductScreen/ProductScreen'; */
 import ProductScreenAdaptive from '../pages/ProductScreenAdaptive/ProductScreenAdaptive';
 
 function AppRoutes() {
