@@ -29,17 +29,4 @@ const Home = () => {
   );
 };
 
-/*
-const mapStoreToProps = store => ({
-  categoryName: store.home.categoryName,
-});
-
-Home.propTypes = {
-  categoryName: PropTypes.string,
-};
-
-
-export default connect(mapStoreToProps)(Home);
-*/
-
 export default Home;
