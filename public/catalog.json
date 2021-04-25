@@ -1,6 +1,6 @@
 [
   {
-    "_id": "5d99f68e419d040eec0f722c",
+    "_id": "5d99f68e419d040e6ec0f722c",
     "id": "men",
     "name": "Мужские",
     "parentId": "null",
@@ -11,7 +11,7 @@
     "__v": 0
   },
   {
-    "_id": "5d99f68e419d040eec0f722c",
+    "_id": "5d99f68e419d040eec0f7262c",
     "id": "women",
     "name": "Женские",
     "parentId": "null",
@@ -22,7 +22,7 @@
     "__v": 0
   },
   {
-    "_id": "5d99f68e419d040eec0f722c",
+    "_id": "5d99f68e4179d040eec0f722c",
     "id": "kids",
     "name": "Детские",
     "parentId": "null",
@@ -33,7 +33,7 @@
     "__v": 0
   },
   {
-    "_id": "5d99f68e419d040eec0f722c",
+    "_id": "5d99f68e419d040e8ec0f722c",
     "id": "accessories",
     "name": "Аксесуары",
     "parentId": "null",

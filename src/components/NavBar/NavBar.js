@@ -6,9 +6,10 @@ import { INDEX_ROUTE, PERSONAL_INFO_ROUTE, PRODUCTS_ROUTE } from '../../utils/co
 import Container from '../Container/Container';
 import { replace } from '../../utils/func';
 import logo from '../../theme/logo.png';
-import { iconBag, iconHeart, iconUser } from '../../theme/icons';
-import styles from './NavBar.module.scss';
 import Cart from '../modals/Cart/Cart';
+import Icons from '../Icons/Icons';
+import styles from './NavBar.module.scss';
+import Loader from '../Loader/Loader';
 
 const NavBar = () => {
   const [catalog, setCatalog] = useState({});
@@ -22,7 +23,6 @@ const NavBar = () => {
   const modalHandler = () => {
     setmodalCart(!modalCart);
     document.body.classList.toggle('lock');
-    console.log(1221);
   };
 
   useEffect(() => {
@@ -33,11 +33,19 @@ const NavBar = () => {
   }, []);
 
   if (isLoading) {
-    return <div>loading</div>;
+    return (
+      <div className={styles.bgContainer}>
+        <Loader />
+      </div>
+    );
   }
 
   const logoJsx = [<img src={logo} width={200} height={60} alt='logo' />];
-  const heartJsx = [<li className={styles.iconListItem}>{iconHeart()}</li>];
+  const heartJsx = [
+    <li className={styles.iconListItem}>
+      <Icons type='navHeart' color='black' width={30} height={30} />
+    </li>,
+  ];
 
   return (
     <div className={styles.bgContainer}>
@@ -46,7 +54,7 @@ const NavBar = () => {
           <div>{location.pathname === '/' ? logoJsx : <NavLink to={INDEX_ROUTE}>{logoJsx}</NavLink>}</div>
           <div className={styles.menuContainer}>
             <ul className={styles.menuList}>
-              <li>
+              <li key='all'>
                 <NavLink to={PRODUCTS_ROUTE} className={styles.menuLink}>
                   Все товары
                 </NavLink>
@@ -62,21 +70,25 @@ const NavBar = () => {
               })}
             </ul>
             <ul className={styles.iconList}>
-              {favorites ? (
-                <NavLink to={INDEX_ROUTE}>
-                  {heartJsx}
-                  <span className={styles.favorites}>{favorites}</span>
+              <li key='favorites'>
+                {favorites ? (
+                  <NavLink to={INDEX_ROUTE}>
+                    {heartJsx}
+                    <span className={styles.favorites}>{favorites}</span>
+                  </NavLink>
+                ) : (
+                  heartJsx
+                )}
+              </li>
+              <li key='personalInfo' className={styles.iconListItem}>
+                <NavLink to={PERSONAL_INFO_ROUTE}>
+                  <Icons type='navUser' color='black' width={30} height={30} />
                 </NavLink>
-              ) : (
-                heartJsx
-              )}
-              <li className={styles.iconListItem}>
-                <NavLink to={PERSONAL_INFO_ROUTE}>{iconUser()}</NavLink>
               </li>
               {cart ? (
-                <li className={`${styles.iconListItem} ${styles.cartLink}`} onClick={modalHandler}>
+                <li key='cart' className={`${styles.iconListItem} ${styles.cartLink}`} onClick={modalHandler}>
                   <div className={styles.iconCart}>
-                    {iconBag()}
+                    <Icons type='navBag' color='black' width={25} height={45} />
                     <span className={styles.productToCart}>{cart}</span>
                   </div>
                   <div className={styles.infoCart}>
@@ -85,9 +97,9 @@ const NavBar = () => {
                   </div>
                 </li>
               ) : (
-                <li className={styles.iconListItem}>
+                <li key='cart' className={styles.iconListItem}>
                   <div className={styles.iconCart}>
-                    {iconBag()}
+                    <Icons type='navBag' color='black' width={25} height={45} />
                     <span className={styles.productToCart}>0</span>
                   </div>
                   <div className={styles.infoCart}>

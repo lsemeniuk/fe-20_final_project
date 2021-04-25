@@ -3,19 +3,7 @@ import styles from './Footer.module.scss';
 import footerLogo from './img/footerLogo.png';
 import visaMaster from './img/paymentVisaMaster.png';
 import privat24 from './img/paymentPrivat24.png';
-import {
-  iconFB,
-  iconInstagram,
-  iconTelephone,
-  iconMobile,
-  iconTwitter,
-  iconVk,
-  iconMessageWhatsApp,
-  iconMessageTelegram,
-  iconMessageSkype,
-  iconMessageEmail,
-  iconGeolocation,
-} from '../../theme/icons';
+import Icons from '../Icons/Icons';
 
 const Footer = () => {
   return (
@@ -43,7 +31,7 @@ const Footer = () => {
         </article>
         <nav className={styles.footerPaymentMobileVersion}>
           <a href='/' id={styles.footerPaymentMobileVersionLink}>
-            {iconMobile()}
+            <Icons type='mobile' />
             Мобильная версия
           </a>
         </nav>
@@ -118,16 +106,16 @@ const Footer = () => {
           <br />
           <nav>
             <a className={styles.footerSocialLink} title='Мы Вконтакте!' href='https://vk.com/'>
-              {iconVk()}
+              <Icons type='vk' />
             </a>
             <a className={styles.footerSocialLink} title='Мы в Facebook!' href='https://www.facebook.com/'>
-              {iconFB()}
+              <Icons type='facebook' />
             </a>
             <a className={styles.footerSocialLink} title='Мы в твиттере!' href='https://twitter.com/'>
-              {iconTwitter()}
+              <Icons type='twitter' />
             </a>
             <a className={styles.footerSocialLink} title='Мы в инстаграмме' href='https://instagram.com/'>
-              {iconInstagram()}
+              <Icons type='instagram' />
             </a>
           </nav>
         </article>
@@ -137,7 +125,7 @@ const Footer = () => {
         <div className={styles.footerContacts}>
           <article className={styles.footerContactsTel}>
             <article className={styles.footerContactsTelIcons}>
-              {iconTelephone()}
+              <Icons type='telephone' />
               <span id={styles.iconMessage}>044 111 22 33</span>
             </article>
             <span id={styles.iconMessage}>067 111 22 33</span>
@@ -145,19 +133,19 @@ const Footer = () => {
             <span id={styles.iconMessage}>Перезвонить вам?</span>
           </article>
           <div>
-            {iconMessageWhatsApp()}
+            <Icons type='whatsApp' />
             <span id={styles.iconMessage}>whats-app</span>
             <br />
-            {iconMessageTelegram()}
+            <Icons type='telegram' />
             <span id={styles.iconMessage}>telegram</span>
             <br />
-            {iconMessageSkype()}
+            <Icons type='skype' />
             <span id={styles.iconMessage}>skype</span>
             <br />
-            {iconMessageEmail()}
+            <Icons type='email' />
             <span id={styles.iconMessage}>mail@mail.com</span>
             <nav className={styles.footerContactsLocation}>
-              {iconGeolocation()}
+              <Icons type='geolocation' />
               <span id={styles.iconMessage}>Киев, ул. Крещатик</span>
               <nav className={styles.roadMap}>
                 <a href='/'>Карта проезда</a>

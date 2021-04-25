@@ -1,0 +1,17 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
+import * as icons from '../../theme/icons';
+
+function Icon(props) {
+  const { type, color, filled, width, height, onClick } = props;
+
+  const iconJsx = icons[type];
+
+  if (!iconJsx) {
+    return null;
+  }
+
+  return <span onClick={onClick}>{iconJsx(color, filled, width, height)}</span>;
+}
+
+export default Icon;
