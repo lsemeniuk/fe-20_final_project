@@ -1,4 +1,3 @@
-// import AboutShop from '../../components/AboutShop/AboutShop';
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
@@ -6,6 +5,8 @@ import Slider from 'react-slick';
 import style from './MainPage.module.scss';
 import Container from '../../components/Container/Container';
 import { PRODUCTS_ROUTE } from '../../utils/consts';
+import GenderLink from '../../components/GenderLink/GenderLink';
+import CustomSlider from '../../components/CustomSlider/CustomSlider';
 
 const Index = () => {
   const sliderSettings = {
@@ -60,58 +61,40 @@ const Index = () => {
 
           <div className={style.bestsellersSection}>
             <div className={style.bestsellersItems}>
-              <p>Хиты продаж</p>
+              <h3 className={style.bestsellerTitle}>Хиты продаж</h3>
+              <CustomSlider />
             </div>
           </div>
 
           <div className={style.forWho}>
-            <NavLink className={style.forWhoLinks} to={PRODUCTS_ROUTE}>
-              <div className={style.forMen}>
-                <img
-                  className={style.imgForMen}
-                  src='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
-                  alt=''
-                />
-                <p className={style.menText}>для него</p>
-              </div>
-            </NavLink>
-            <NavLink className={style.forWhoLinks} to={PRODUCTS_ROUTE}>
-              <div className={style.forWoman}>
-                <img
-                  className={style.imgForWoman}
-                  src='https://res.cloudinary.com/vdsh/image/upload/v1619086322/forWoman_bpp0pc.png'
-                  alt=''
-                />
-                <p className={style.womanText}>для неё</p>
-              </div>
-            </NavLink>
+            <GenderLink
+              img='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
+              forWho='forMen'
+              textContent='для него'
+            />
+            <GenderLink
+              img='https://res.cloudinary.com/vdsh/image/upload/v1619086322/forWoman_bpp0pc.png'
+              forWho='forWoman'
+              textContent='для неё'
+            />
           </div>
 
           <Slider className={style.genderSlider} {...sliderSettings}>
-            <NavLink className={style.forWhoLinks} to={PRODUCTS_ROUTE}>
-              <div className={style.forMen}>
-                <img
-                  className={style.imgForMen}
-                  src='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
-                  alt=''
-                />
-                <p className={style.menText}>для него</p>
-              </div>
-            </NavLink>
-            <NavLink className={style.forWhoLinks} to={PRODUCTS_ROUTE}>
-              <div className={style.forWoman}>
-                <img
-                  className={style.imgForWoman}
-                  src='https://res.cloudinary.com/vdsh/image/upload/v1619086322/forWoman_bpp0pc.png'
-                  alt=''
-                />
-                <p className={style.womanText}>для неё</p>
-              </div>
-            </NavLink>
+            <GenderLink
+              img='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
+              forWho='forMen'
+              textContent='для него'
+            />
+            <GenderLink
+              img='https://res.cloudinary.com/vdsh/image/upload/v1619086322/forWoman_bpp0pc.png'
+              forWho='forWoman'
+              textContent='для неё'
+            />
           </Slider>
 
           <div className={style.newProducts}>
-            <p>New products</p>
+            <h3 className={style.newProductsTitle}>New products</h3>
+            <CustomSlider />
           </div>
 
           <div className={style.aboutSection}>
