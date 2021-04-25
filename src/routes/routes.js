@@ -9,6 +9,7 @@ import {
   PRODUCTS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
+import Home from '../pages/Home/Home';
 import Admin from '../pages/Admin/Admin';
 import ProductPage from '../pages/ProductPage/ProductPage';
 import WishList from '../pages/WishList/WishList';
@@ -42,7 +43,7 @@ export const publicRoutes = [
   },
   {
     path: `${PRODUCTS_ROUTE}/:categories`,
-    Component: ProductPage,
+    Component: Home,
   },
   {
     path: PRODUCTS_ROUTE,
