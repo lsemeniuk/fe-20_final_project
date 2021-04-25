@@ -1,0 +1,84 @@
+@import '../../utils/styles/var';
+
+.container {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px #a7a7a7;
+  padding: 15px;
+  position: relative;
+  height: 110px;
+  &:last-child {
+    border: none;
+  }
+  &:hover .remove {
+    opacity: 1;
+  }
+}
+.remove {
+  position: absolute;
+  left: -30px;
+  width: 30px;
+  text-align: center;
+  padding: 10px 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  &:hover {
+    display: block;
+    opacity: 1;
+  }
+}
+.removeBtn {
+  cursor: pointer;
+  font-size: 20px;
+  &:hover {
+    color: $colorButnHover;
+  }
+}
+.nameBlock {
+  padding-left: 20px;
+  font-size: 14px;
+}
+.name {
+  cursor: pointer;
+  line-height: 1.25;
+  font-weight: 400;
+  margin: 0 0 5px;
+  width: 340px;
+  padding-right: 20px;
+  color: #000000;
+  &:hover {
+    color: $colorButnHover;
+  }
+}
+.quantityBlock {
+  display: flex;
+  border: 1px solid #a7a7a7;
+  border-radius: 4px;
+}
+.quantityBtn {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  width: 28px;
+  border-radius: 4px;
+  height: 36px;
+}
+.quantityInput {
+  border: none;
+  width: 25px;
+  text-align: center;
+}
+.ended {
+  position: absolute;
+  right: 70px;
+  bottom: 15px;
+  font-size: 12px;
+}
+.price {
+  width: 100%;
+  text-align: center;
+  margin-left: 25px;
+  font-weight: 700;
+  font-size: 14px;
+}

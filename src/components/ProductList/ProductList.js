@@ -1,8 +1,4 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import ProductItem from '../ProductItem/ProductItem';
-import { getProductsAction } from '../../store/products/actions';
+import React from 'react';
 
 const ProductList = props => {
   const { getProducts, products } = props;
@@ -21,16 +17,4 @@ ProductList.propTypes = {
   getProducts: PropTypes.func.isRequired,
 };
 
-ProductList.defaultProps = {
-  products: [],
-};
-
-const mapStoreToProps = store => ({
-  products: store.products.data,
-});
-
-const mapDispatchToProps = dispatch => ({
-  getProducts: () => dispatch(getProductsAction()),
-});
-
-export default connect(mapStoreToProps, mapDispatchToProps)(ProductList);
+export default ProductList;

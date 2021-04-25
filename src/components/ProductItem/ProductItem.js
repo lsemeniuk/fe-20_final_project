@@ -1,47 +1,70 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Button, Card, Badge } from 'react-bootstrap';
-import styles from './ProductItem.module.scss';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import style from './productItem.module.scss';
+import Button from '../Button/Button';
+import { PRODUCT_ROUTE } from '../../utils/consts';
+import { favIcon } from '../../theme/icons';
 
-const ProductItem = props => {
-  const { product } = props;
-  const { imageUrls, isNew, name, currentPrice, previousPrice } = product;
+const product = {
+  img: ['https://design109.horoshop.ua/content/images/25/240x240l85nn0/33197235775948.jpeg'],
+  name: 'Смарт-часы SAMSUNG Galaxy Watch Active 2 40mm Aluminium Pink Gold',
+  currentPrice: '1200 грн',
+  previousPrice: '1500 грн',
+  isNew: true,
+  itemNo: 123512,
+};
+
+const ProductItem = () => {
+  const [inCart, setCart] = useState(false);
+  const buyOpenModal = () => {
+    setCart(true);
+    console.log('buy');
+  };
+  const addToFav = e => {
+    const heartIcon = e.target.classList;
+    heartIcon.toggle(style.favIconActive);
+  };
+  const { img, isNew, name, currentPrice, previousPrice, itemNo } = product;
   return (
-    <>
-      <div className={styles.wrapper}>
-        <Card style={{ width: '18rem', display: 'inline-block' }}>
-          <Card.Body>
-            <Card.Img className={styles.image} variant='top' src={imageUrls[0]} />
+    <div className={style.item}>
+      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
+        <img src={img[0]} alt='watch' />
+      </NavLink>
+      {isNew && <div className={style.newMessage}>Новинка</div>}
+      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
+        <span className={style.name}>{name}</span>
+      </NavLink>
 
-            {isNew && (
-              <Badge className={styles.badge} variant='primary'>
-                <div className={styles.triangle} />
-                Новинка
-              </Badge>
-            )}
-
-            <Card.Link className={styles.itemDescription} title={name} href=' # '>
-              {name}
-            </Card.Link>
-            <div className={styles.priceSection}>
-              <Card.Text className={styles.currentPrice}>{currentPrice}</Card.Text>
-              <Card.Text className={styles.previousPrice}>
-                <s>{previousPrice}</s>
-              </Card.Text>
-            </div>
-            <div className={styles.buttonsSection}>
-              <Button variant='primary'>Купить</Button>
-              <Button className={styles.favBtn}>Fav</Button>
-            </div>
-          </Card.Body>
-        </Card>
+      <div className={style.priceSection}>
+        <p className={style.currentPrice}>{currentPrice}</p>
+        <p className={style.previousPrice}>
+          <s>{previousPrice}</s>
+        </p>
       </div>
-    </>
+
+      <div className={style.btnSection}>
+        {!inCart ? (
+          <Button onClick={buyOpenModal} type='button' title='Купить' />
+        ) : (
+          <Button onClick={buyOpenModal} variant='outline' type='button' title='В корзине' />
+        )}
+        <span className={style.favIcon} onClick={addToFav}>
+          {favIcon()}
+        </span>
+      </div>
+    </div>
   );
 };
 
-ProductItem.propTypes = {
-  product: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+ProductItem.defaultProps = {
+  name: 'Товар не найден',
+  isNew: false,
 };
-
+// ProductItem.propTypes = {
+//   name: PropTypes.string,
+//   img: PropTypes.array,
+//   currentPrice: PropTypes.string,
+//   previousPrice: PropTypes.string,
+//   isNew: PropTypes.bool,
+// };
 export default ProductItem;
