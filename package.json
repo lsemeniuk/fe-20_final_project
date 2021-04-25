@@ -14,7 +14,6 @@
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
-    "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-modal": "^3.13.1",

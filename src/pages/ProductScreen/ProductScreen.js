@@ -78,13 +78,9 @@ const ProductScreen = () => {
         </div>
         <div className={styles.col__two}>
           <ul>
-            <li>
+            <li className={styles.product__info__block}>
               <span className={styles.location}>Главная &#62; Мужские</span>
-            </li>
-            <li>
               <h3 className={styles.name}>{name}</h3>
-            </li>
-            <li>
               <div className={`${styles.row} ${styles.row__start}`}>
                 <div className={styles.gap}>
                   {countInStock > 0 ? (
