@@ -76,7 +76,7 @@ const ProductScreenAdaptive = () => {
           </div>
           <div className={style.icon__frame}>
             <Heart2 />
-            <p>в желания</p>
+            <p>В избранное</p>
           </div>
         </li>
         <li>
@@ -89,7 +89,7 @@ const ProductScreenAdaptive = () => {
             </p>
             <div className={style.details}>
               <button className={style.read__more} onClick={readMore} type='button'>
-                Читать далее
+                Читать полностью
                 <FaChevronRight />
               </button>
               <div className={toggleDetails ? `${style.details__more} ${style.active}` : style.details__more}>
