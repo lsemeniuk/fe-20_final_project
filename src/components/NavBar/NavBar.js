@@ -37,47 +37,49 @@ const NavBar = () => {
   return (
     <div className={styles.bgContainer}>
       <Container>
-        <div className={styles.flexContainer}>
-          <div>{location.pathname === '/' ? logoJsx : <NavLink to={INDEX_ROUTE}>{logoJsx}</NavLink>}</div>
-          <div className={styles.menuContainer}>
-            <ul className={styles.menuList}>
-              <li key='all'>
-                <NavLink to={PRODUCTS_ROUTE} className={styles.menuLink}>
-                  Все товары
-                </NavLink>
-              </li>
-              {categories.map(i => {
-                return (
-                  <li key={i.id}>
-                    <NavLink to={`${PRODUCTS_ROUTE}/${i.id}`} className={styles.menuLink}>
-                      {i.name}
-                    </NavLink>
-                  </li>
-                );
-              })}
-            </ul>
-            <ul className={styles.iconList}>
-              <li key='favorites'>
-                {favorites ? (
-                  <NavLink to={INDEX_ROUTE}>
-                    {heartJsx}
-                    <span className={styles.favorites}>{favorites}</span>
+        <nav>
+          <div className={styles.flexContainer}>
+            <div>{location.pathname === '/' ? logoJsx : <NavLink to={INDEX_ROUTE}>{logoJsx}</NavLink>}</div>
+            <div className={styles.menuContainer}>
+              <ul className={styles.menuList}>
+                <li key='all'>
+                  <NavLink to={PRODUCTS_ROUTE} className={styles.menuLink}>
+                    Все товары
                   </NavLink>
-                ) : (
-                  heartJsx
-                )}
-              </li>
-              <li key='personalInfo' className={styles.iconListItem}>
-                <NavLink to={PERSONAL_INFO_ROUTE}>
-                  <Icons type='navUser' color='black' width={30} height={30} />
-                </NavLink>
-              </li>
-              <li key='cart' className={styles.iconListItem}>
-                <MyOrders />
-              </li>
-            </ul>
+                </li>
+                {categories.map(i => {
+                  return (
+                    <li key={i.id}>
+                      <NavLink to={`${PRODUCTS_ROUTE}/${i.id}`} className={styles.menuLink}>
+                        {i.name}
+                      </NavLink>
+                    </li>
+                  );
+                })}
+              </ul>
+              <ul className={styles.iconList}>
+                <li key='favorites'>
+                  {favorites ? (
+                    <NavLink to={INDEX_ROUTE}>
+                      {heartJsx}
+                      <span className={styles.favorites}>{favorites}</span>
+                    </NavLink>
+                  ) : (
+                    heartJsx
+                  )}
+                </li>
+                <li key='personalInfo' className={styles.iconListItem}>
+                  <NavLink to={PERSONAL_INFO_ROUTE}>
+                    <Icons type='navUser' color='black' width={30} height={30} />
+                  </NavLink>
+                </li>
+                <li key='cart' className={styles.iconListItem}>
+                  <MyOrders />
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+        </nav>
       </Container>
     </div>
   );
