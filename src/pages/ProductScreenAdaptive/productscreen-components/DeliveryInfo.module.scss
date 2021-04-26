@@ -1,11 +1,23 @@
 .li {
-    display: list-item;
-    list-style-type: "—";
-    font-size: 0.8rem;
-    padding-inline-start: 1ch;
-    margin-bottom: 10px;
+  display: list-item;
+  list-style-type: '—';
+  font-size: 0.8rem;
+  padding-inline-start: 1ch;
+  margin-bottom: 10px;
 }
+
 .ul {
-    margin-left: 20px;
-    margin-top: 10px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.hide__details {
+  font-size: 50px;
+  margin-left: auto;
+  background-color: #18b5a4;
+  border: none;
+  outline: none;
+}
+.details__header {
+  display: flex;
+  align-items: center;
 }

@@ -14,9 +14,7 @@ import SlickSlider from '../../components/SlickSlider/SlickSlider';
 const ProductScreenAdaptive = () => {
   const { name, image, itemNo, isNew, countInStock, price } = data.currentProduct;
   const [toggleDetails, setToggleDetails] = useState(false);
-  const readMore = () => {
-    setToggleDetails(!toggleDetails);
-  };
+
   const sliderWatches = data.products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
   const otherWatches = data.products.filter(watch => watch.category === 'men');
   return (
@@ -80,19 +78,12 @@ const ProductScreenAdaptive = () => {
               доставать телефон, чтобы посмотреть уведомления, воспользоваться картой или принять телефонный звонок.
             </p>
             <div className={style.details}>
-              <button className={style.read__more} onClick={readMore} type='button'>
+              <button className={style.read__more} onClick={() => setToggleDetails(true)} type='button'>
                 Читать полностью
                 <FaChevronRight />
               </button>
-              <div className={toggleDetails ? `${style.details__more} ${style.active}` : style.details__more}>
-                <h3 className={style.section__title}>Особенности:</h3>
-                <ProductDetails />
-                <div>
-                  <img
-                    src='https://i.citrus.ua/uploads/content/product-photos/lysyanaya/december/av1.jpg?_t=1548256954'
-                    alt='product-demo'
-                  />
-                </div>
+              <div className={toggleDetails ? `${style.product__details} ${style.active}` : style.product__details}>
+                <ProductDetails setToggleDetails={setToggleDetails} />
               </div>
             </div>
           </section>

@@ -13,6 +13,7 @@ export default function SlickSlider({ content }) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    swipeToSlide: true,
     arrows: false,
     className: 'slides',
   };
