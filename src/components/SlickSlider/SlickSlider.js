@@ -8,14 +8,12 @@ import sliderData from './slider-data';
 
 export default function SlickSlider({ content }) {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />,
-    arrows: true,
+    arrows: false,
     className: 'slides',
   };
 

@@ -106,8 +106,8 @@
   text-decoration: none;
 }
 .about {
-  font-size: 1.3em;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   color: grey;
   border: none;
   background-color: #ffffff;
@@ -119,13 +119,14 @@
 }
 .about:focus {
   outline: none;
+  color:#000000;
 }
 .active {
   color: #000000;
   border-top: 1px solid #000000;
 }
 .info__block {
-  border-bottom: 1px solid lightgrey;
+  border-top: 1px solid lightgrey;
   padding-bottom: 40px;
 }
 .icon__frame {

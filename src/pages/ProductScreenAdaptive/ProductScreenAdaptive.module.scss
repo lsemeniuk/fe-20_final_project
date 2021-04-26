@@ -2,8 +2,10 @@
 
 //* Phone View styles ===================================================//
 @media (min-width: $phone-breakpoint1) and (max-width: $phone-breakpoint2) {
+
   .phoneView__container {
-    margin: 0 auto;
+    margin: 0px auto;
+    padding: 0px 12px;
   }
   .location {
     color: grey;
@@ -33,10 +35,11 @@
       align-items: center;
     }
   }
-  li {
-    padding: 0 16px;
-  }
 
+  .margin {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
   .gap {
     color: grey;
   }
@@ -148,4 +151,7 @@
   &:hover {
     border: 1px solid black;
   }
+}
+.info__block {
+  margin-top: 25px;
 }

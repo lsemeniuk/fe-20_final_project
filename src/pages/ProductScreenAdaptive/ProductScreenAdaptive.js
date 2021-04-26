@@ -5,21 +5,11 @@ import { FaChevronRight } from 'react-icons/fa';
 import style from './ProductScreenAdaptive.module.scss';
 import data from './data';
 import Container from '../../components/Container/Container';
-// import { Link } from 'react-router-dom';
-// import style from './ProductScreenAdaptive.module.scss';
 import Button from '../../components/Button/Button';
 import Heart2 from '../../theme/icons/Heart2';
-import ProductDetails from '../ProductScreen/productscreen-components/ProductDetails';
-
-// import Container from '../../components/Container/Container';
-// import SlickSlider from '../../components/SlickSlider/SlickSlider';
-// import DeliveryInfo from './productscreen-components/DeliveryInfo';
-// import PaymentInfo from './productscreen-components/PaymentInfo';
-// import WarrantyInfo from './productscreen-components/WarrantyInfo';
-// import Avatar from '../../theme/icons/Avatar';
-// import FacebookIcon from '../../theme/icons/Facebook';
-// import GoogleIcon from '../../theme/icons/Google';
-// import ReviewForm from '../../components/Forms/ReviewForm/ReviewForm';
+import ProductDetails from './productscreen-components/ProductDetails';
+import DelPayWarrBlock from './productscreen-components/DelPayWarrBlock';
+import SlickSlider from '../../components/SlickSlider/SlickSlider';
 
 const ProductScreenAdaptive = () => {
   const { name, image, itemNo, isNew, countInStock, price } = data.currentProduct;
@@ -27,6 +17,8 @@ const ProductScreenAdaptive = () => {
   const readMore = () => {
     setToggleDetails(!toggleDetails);
   };
+  const sliderWatches = data.products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
+  const otherWatches = data.products.filter(watch => watch.category === 'men');
   return (
     <Container>
       <h2>This is Adaptive Product Screen</h2>
@@ -110,12 +102,24 @@ const ProductScreenAdaptive = () => {
           <div className={style.icon__centre}>
             <VscFeedback size='5rem' color='grey' />
             <p>Добавьте первый отзыв</p>
+            <div className={style.margin}>
+              <Button title='Написать отзыв' onClick={null} />
+            </div>
           </div>
         </li>
-        <li>Доставка Оплата Гарантия</li>
-        <li>Слайдер: смотрите также</li>
-        <li>Слайдер: похожие товары</li>
-        <li>Слайдер: просмотренные товары</li>
+        <DelPayWarrBlock />
+        <li className={style.info__block}>
+          <h3 className={style.section__title}>Смотрите также</h3>
+          <SlickSlider content={sliderWatches} />
+        </li>
+        <li className={style.info__block}>
+          <h3 className={style.section__title}>Похожие товары</h3>
+          <SlickSlider content={otherWatches} />
+        </li>
+        <li className={style.info__block}>
+          <h3 className={style.section__title}>Просмотренные товары</h3>
+          <SlickSlider content={sliderWatches} />
+        </li>
       </ul>
     </Container>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ProductScreen.module.scss';
 import data from './data';
@@ -6,45 +6,24 @@ import Button from '../../components/Button/Button';
 import Heart2 from '../../theme/icons/Heart2';
 import Container from '../../components/Container/Container';
 import SlickSlider from '../../components/SlickSlider/SlickSlider';
-import DeliveryInfo from './productscreen-components/DeliveryInfo';
-import PaymentInfo from './productscreen-components/PaymentInfo';
-import WarrantyInfo from './productscreen-components/WarrantyInfo';
+// import DeliveryInfo from './productscreen-components/DeliveryInfo';
+// import PaymentInfo from './productscreen-components/PaymentInfo';
+// import WarrantyInfo from './productscreen-components/WarrantyInfo';
 import Avatar from '../../theme/icons/Avatar';
 import FacebookIcon from '../../theme/icons/Facebook';
 import GoogleIcon from '../../theme/icons/Google';
 import ReviewForm from '../../components/Forms/ReviewForm/ReviewForm';
 import ProductDetails from './productscreen-components/ProductDetails';
+import DelPayShipBlock from './productscreen-components/DelPayShipBlock';
 
 const ProductScreen = () => {
   const { name, image, price, previousPrice, countInStock, itemNo, isNew } = data.currentProduct;
 
-  const [buttons, setButtons] = useState({
-    deliveryActive: true,
-    paymentActive: false,
-    warrantyActive: false,
-  });
-  const [info, setInfo] = useState({
-    deliveryInfo: true,
-    paymentInfo: false,
-    warrantyInfo: false,
-  });
-
-  const handleClickDelivery = () => {
-    setButtons({ deliveryActive: true, paymentActive: false, warrantyActive: false });
-    setInfo({ deliveryInfo: true, paymentInfo: false, warrantyInfo: false });
-  };
-  const handleClickPayment = () => {
-    setButtons({ deliveryActive: false, paymentActive: true, warrantyActive: false });
-    setInfo({ deliveryInfo: false, paymentInfo: true, warrantyInfo: false });
-  };
-  const handleClickWarranty = () => {
-    setButtons({ deliveryActive: false, paymentActive: false, warrantyActive: true });
-    setInfo({ deliveryInfo: false, paymentInfo: false, warrantyInfo: true });
-  };
   const addToCartHandler = () => {
     // setShowModal(true);
     // dispatch(addToCartAction(productID))
     // history.push(`${CART_ROUTE}/${productID}`);
+    console.log('Added to Cart!');
   };
   const sliderWatches = data.products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
   const otherWatches = data.products.filter(watch => watch.category === 'men');
@@ -118,31 +97,7 @@ const ProductScreen = () => {
                 onClick={() => console.log('Quick Buy!')}
               />
             </li>
-            <li className={styles.info__block}>
-              <Button
-                title='Доставка'
-                className={buttons.deliveryActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
-                onClick={handleClickDelivery}
-              />
-              <Button
-                title='Оплата'
-                className={buttons.paymentActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
-                onClick={handleClickPayment}
-              />
-              <Button
-                title='Гарантия'
-                className={buttons.warrantyActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
-                onClick={handleClickWarranty}
-              />
-              {info.deliveryInfo && <DeliveryInfo />}
-              {info.paymentInfo && <PaymentInfo />}
-              {info.warrantyInfo && <WarrantyInfo />}
-              {info.deliveryInfo && (
-                <Link to='/delivery' className={styles.delivery}>
-                  Подробнее о доставке
-                </Link>
-              )}
-            </li>
+            <DelPayShipBlock />
             <li className={styles.info__block}>
               <h3 className={styles.section__title}>Смотрите также</h3>
               <SlickSlider content={sliderWatches} />
