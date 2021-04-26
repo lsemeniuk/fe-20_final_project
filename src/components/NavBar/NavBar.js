@@ -1,43 +1,30 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import { INDEX_ROUTE, PERSONAL_INFO_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
 import Container from '../Container/Container';
-import { replace } from '../../utils/func';
 import logo from '../../theme/logo.png';
-import Cart from '../modals/Cart/Cart';
 import Icons from '../Icons/Icons';
-import styles from './NavBar.module.scss';
-import Loader from '../Loader/Loader';
 import { categoriesLoadingSelector, getCategoriesSelector } from '../../store/catalog/selectors';
 import { getCatalogOperation } from '../../store/catalog/operations';
+import MyOrders from './MyOrders/MyOrders';
+import styles from './NavBar.module.scss';
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const categories = useSelector(getCategoriesSelector);
   const isLoading = useSelector(categoriesLoadingSelector);
-  const [modalCart, setmodalCart] = useState(false);
   const location = useLocation();
 
   const favorites = 3;
-  const cart = 2;
-
-  const modalHandler = () => {
-    setmodalCart(!modalCart);
-    document.body.classList.toggle('lock');
-  };
 
   useEffect(() => {
     dispatch(getCatalogOperation());
   }, [dispatch]);
 
   if (isLoading) {
-    return (
-      <div className={styles.bgContainer}>
-        <Loader />
-      </div>
-    );
+    return <div className={styles.bgContainer}>{}</div>;
   }
 
   const logoJsx = [<img src={logo} width={200} height={60} alt='logo' key='image' />];
@@ -85,33 +72,13 @@ const NavBar = () => {
                   <Icons type='navUser' color='black' width={30} height={30} />
                 </NavLink>
               </li>
-              {cart ? (
-                <li key='cart' className={`${styles.iconListItem} ${styles.cartLink}`} onClick={modalHandler}>
-                  <div className={styles.iconCart}>
-                    <Icons type='navBag' color='black' width={25} height={45} />
-                    <span className={styles.productToCart}>{cart}</span>
-                  </div>
-                  <div className={styles.infoCart}>
-                    <h4 className={styles.menuOrderTitle}>Мой заказ</h4>
-                    <span className={styles.menuOrderPrice}>{`${replace(11321)} грн`}</span>
-                  </div>
-                </li>
-              ) : (
-                <li key='emptyСart' className={styles.iconListItem}>
-                  <div className={styles.iconCart}>
-                    <Icons type='navBag' color='black' width={25} height={45} />
-                    <span className={styles.productToCart}>0</span>
-                  </div>
-                  <div className={styles.infoCart}>
-                    <h4 className={styles.menuOrderTitle}>Мой заказ</h4>
-                  </div>
-                </li>
-              )}
+              <li key='cart' className={styles.iconListItem}>
+                <MyOrders />
+              </li>
             </ul>
           </div>
         </div>
       </Container>
-      {modalCart && <Cart buttonHandler={modalHandler} />}
     </div>
   );
 };

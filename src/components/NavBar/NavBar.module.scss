@@ -54,8 +54,6 @@
 .iconListItem {
   position: relative;
   margin: 0 10px;
-  align-items: center;
-  display: flex;
 }
 
 .favorites {
@@ -71,47 +69,4 @@
   color: #fff;
   font-size: 10px;
   text-align: center;
-}
-
-.cartLink {
-  cursor: pointer;
-}
-
-.iconCart {
-  position: relative;
-  bottom: 10px;
-  height: 36px;
-  width: 24px;
-  line-height: 1.1;
-}
-
-.productToCart {
-  position: relative;
-  display: block;
-  text-align: center;
-  width: 25px;
-  bottom: 25px;
-  line-height: 1;
-  font-size: 14px;
-  font-weight: 700;
-  color: #fafa64;
-}
-
-.infoCart {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 15px;
-}
-
-.menuOrderTitle {
-  white-space: nowrap;
-  margin: 0 0 7px;
-  font-size: 17px;
-  line-height: 1;
-  font-weight: 700;
-}
-
-.menuOrderPrice {
-  font-size: 14px;
 }
