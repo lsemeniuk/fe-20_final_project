@@ -1,1 +1,1 @@
-export const getCustomerSelector = state => state.customer;
+export const getCustomerSelector = state => state.customer.data;

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import { INDEX_ROUTE, PERSONAL_INFO_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
 import Container from '../Container/Container';
@@ -10,13 +10,16 @@ import Cart from '../modals/Cart/Cart';
 import Icons from '../Icons/Icons';
 import styles from './NavBar.module.scss';
 import Loader from '../Loader/Loader';
+import { categoriesLoadingSelector, getCategoriesSelector } from '../../store/catalog/selectors';
+import { getCatalogOperation } from '../../store/catalog/operations';
 
 const NavBar = () => {
-  const [catalog, setCatalog] = useState({});
-  const [isLoading, setisLoading] = useState(true);
+  const dispatch = useDispatch();
+  const categories = useSelector(getCategoriesSelector);
+  const isLoading = useSelector(categoriesLoadingSelector);
   const [modalCart, setmodalCart] = useState(false);
-
   const location = useLocation();
+
   const favorites = 3;
   const cart = 2;
 
@@ -26,11 +29,8 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-    axios.get('../../catalog.json').then(res => {
-      setCatalog([...res.data]);
-      setisLoading(false);
-    });
-  }, []);
+    dispatch(getCatalogOperation());
+  }, [dispatch]);
 
   if (isLoading) {
     return (
@@ -40,11 +40,11 @@ const NavBar = () => {
     );
   }
 
-  const logoJsx = [<img src={logo} width={200} height={60} alt='logo' />];
+  const logoJsx = [<img src={logo} width={200} height={60} alt='logo' key='image' />];
   const heartJsx = [
-    <li className={styles.iconListItem}>
+    <div key='heart' className={styles.iconListItem}>
       <Icons type='navHeart' color='black' width={30} height={30} />
-    </li>,
+    </div>,
   ];
 
   return (
@@ -59,7 +59,7 @@ const NavBar = () => {
                   Все товары
                 </NavLink>
               </li>
-              {catalog.map(i => {
+              {categories.map(i => {
                 return (
                   <li key={i.id}>
                     <NavLink to={`${PRODUCTS_ROUTE}/${i.id}`} className={styles.menuLink}>
@@ -97,7 +97,7 @@ const NavBar = () => {
                   </div>
                 </li>
               ) : (
-                <li key='cart' className={styles.iconListItem}>
+                <li key='emptyСart' className={styles.iconListItem}>
                   <div className={styles.iconCart}>
                     <Icons type='navBag' color='black' width={25} height={45} />
                     <span className={styles.productToCart}>0</span>
