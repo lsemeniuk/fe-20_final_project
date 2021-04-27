@@ -31,44 +31,41 @@ const ProductScreenAdaptive = () => {
             </Link>
           </div>
         </li>
-        <li>
-          <div className={style.img__box}>
-            <div className={style.imgCenter}>
-              <img className={style.large} src={image} alt={name} />
+        <div className={style.img__price__parent}>
+          <li className={style.img__block}>
+            <div className={style.img__box}>
+              <div className={style.imgCenter}>
+                <img className={style.large} src={image} alt={name} />
+                {isNew && <div className={style.newMessage}>Новинка</div>}
+              </div>
+              <img
+                className={style.brand__little}
+                src='https://design109.horoshop.ua/content/images/39/180x109l75nn0/amazfit-44485423477251.jpg'
+                width='60'
+                height='36'
+                alt='product-brand'
+              />
             </div>
-            {isNew && <div className={style.newMessage}>Новинка</div>}
-            <img
-              className={style.brand__little}
-              src='https://design109.horoshop.ua/content/images/39/180x109l75nn0/amazfit-44485423477251.jpg'
-              width='60'
-              height='36'
-              alt='product-brand'
-            />
-          </div>
-        </li>
-        <li className={style.price_buttons}>
-          <div className={style.price_buttons_block}>
-            <div className={style.gap}>
-              {countInStock > 0 ? (
-                <span className={style.success}>В наличии</span>
-              ) : (
-                <span className={style.danger}>Отсутствует</span>
-              )}
+          </li>
+          <li className={style.price__buttons}>
+            <div className={style.price__buttons__block}>
+              <div className={style.grey}>
+                {countInStock > 0 ? (
+                  <span className={style.success}>В наличии</span>
+                ) : (
+                  <span className={style.danger}>Отсутствует</span>
+                )}
+              </div>
+              <span className={style.price}>{price} грн</span>
+              <Button title='Купить' onClick={null} />
+              <Button title='Быстрый заказ' variant='outline' onClick={() => console.log('Quick Buy!')} />
             </div>
-            <span className={style.price}>{price} грн</span>
-            <Button title='Купить' onClick={null} />
-            <Button
-              title='Быстрый заказ'
-              // className={`${style.btn__quickOrder} ${style.btn__gap}`}
-              variant='outline'
-              onClick={() => console.log('Quick Buy!')}
-            />
-          </div>
-          <div className={style.icon__frame}>
-            <Heart2 />
-            <p>В избранное</p>
-          </div>
-        </li>
+            <div className={style.icon__frame}>
+              <Heart2 />
+              <p>В избранное</p>
+            </div>
+          </li>
+        </div>
         <li>
           <section className={style.info__block__top}>
             <h3 className={style.section__title}> Описание</h3>
