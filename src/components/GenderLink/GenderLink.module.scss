@@ -31,7 +31,7 @@
     font-weight: bold;
   }
   @media (max-width: $xsMax){
-    padding: 60px 30px 60px 250px;
+    padding: 60px 30px 60px 160px;
     font-size: 20px;
     font-weight: bold;
   }
@@ -70,6 +70,6 @@
   }
   @media (max-width: $xsMax){
     width: 110px;
-    transform: translate(-180px, -139px);
+    transform: translate(-150px, -139px);
   }
 }

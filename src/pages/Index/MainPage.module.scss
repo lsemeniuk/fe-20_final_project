@@ -2,7 +2,7 @@
 
 // slogan section styles =================================
 .sloganWrapper {
-  background-color: #fafa64;
+  background-color: $colorSecondary;
   //font-family: Arial;
   padding: 100px 100px 180px 100px;
   @media (min-width: $lgMin) and (max-width: $lgMax) {
@@ -102,13 +102,13 @@
   font-size: 30px;
   font-weight: bold;
   color: white;
-  background-color: #2bb1f9;
-  box-shadow: 0 15px 20px -15px #2bb1f9;
+  background-color: $colorButton;
+  box-shadow: 0 15px 20px -15px $colorButton;
   transition: 0.3s ease all;
 
   &:hover {
     box-shadow: none;
-    background-color: #49c9ff;
+    background-color: $colorButnHover;
   }
 
   @media (min-width: $xlMin) and (max-width: $xlMax) {
@@ -230,12 +230,12 @@
 .bestsellersItems {
   text-align: center;
   background-color: inherit;
-  height: 250px;
+  height: min-content;
   color: #000;
 }
 
 .forWho {
-  margin-top: 400px;
+  margin-top: 200px;
   justify-content: space-between;
   display: flex;
   font-size: 55px;
@@ -272,6 +272,24 @@
   text-align: center;
   padding: 0 150px;
   margin-bottom: 100px;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    padding: 0 120px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 0 100px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    padding: 0 80px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    padding: 0 60px;
+  }
+  @media (max-width: $xsMax) {
+    font-size: $fontSize;
+    padding: 0 40px;
+  }
+
 }
 
 .aboutTitle {

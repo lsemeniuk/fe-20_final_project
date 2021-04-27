@@ -10,6 +10,7 @@ const ProductItem = ({ product }) => {
   const [inCart, setCart] = useState(false);
   const buyOpenModal = () => {
     setCart(true);
+    // eslint-disable-next-line no-console
     console.log('buy');
   };
   const addToFav = e => {
@@ -28,10 +29,8 @@ const ProductItem = ({ product }) => {
       </NavLink>
 
       <div className={style.priceSection}>
-        <p className={style.currentPrice}>{currentPrice}</p>
-        <p className={style.previousPrice}>
-          <s>{previousPrice}</s>
-        </p>
+        <p className={style.currentPrice}>{currentPrice}грн</p>
+        <p className={style.previousPrice}>{previousPrice && <s>{previousPrice}грн</s>}</p>
       </div>
 
       <div className={style.btnSection}>

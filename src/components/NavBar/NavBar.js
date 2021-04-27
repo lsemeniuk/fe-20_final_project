@@ -22,6 +22,7 @@ const NavBar = () => {
   const modalHandler = () => {
     setmodalCart(!modalCart);
     document.body.classList.toggle('lock');
+    // eslint-disable-next-line no-console
     console.log(1221);
   };
 

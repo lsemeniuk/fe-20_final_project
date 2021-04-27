@@ -12,6 +12,29 @@ const CustomSlider = () => {
     speed: 700,
     slidesToShow: 5,
     slidesToScroll: 2,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          dots: true,
+          arrows: false,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   useEffect(() => {
     axios.get('../../products.json').then(res => setProducts([...res.data]));
