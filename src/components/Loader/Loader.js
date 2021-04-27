@@ -7,8 +7,8 @@ import styles from './Loader.module.scss';
 const Loader = ({ fixed }) => {
   const fixedStyles = {
     position: 'fixed',
-    top: 'calc(50% - 40px)',
-    left: 'calc(50% - 40px)',
+    top: '50%',
+    left: '50%;',
     zIndex: '999',
   };
 
@@ -18,22 +18,9 @@ const Loader = ({ fixed }) => {
   };
 
   return (
-    <div style={fixed ? fixedStyles : flexStyles}>
-      <div className={styles.spinner}>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
+    <svg style={fixed ? fixedStyles : flexStyles} className={styles.spinner} viewBox='0 0 50 50'>
+      <circle className={styles.path} cx='25' cy='25' r='20' fill='none' strokeWidth='5'></circle>
+    </svg>
   );
 };
 Loader.propTypes = {

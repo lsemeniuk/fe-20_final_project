@@ -2,7 +2,7 @@
 import React from 'react';
 import * as icons from '../../theme/icons';
 
-function Icon(props) {
+function Icons(props) {
   const { type, color, filled, width, height, onClick } = props;
 
   const iconJsx = icons[type];
@@ -14,4 +14,4 @@ function Icon(props) {
   return <span onClick={onClick}>{iconJsx(color, filled, width, height)}</span>;
 }
 
-export default Icon;
+export default Icons;

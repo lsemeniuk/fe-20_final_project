@@ -1,33 +1,18 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { INDEX_ROUTE, PERSONAL_INFO_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
 import Container from '../Container/Container';
-import logo from '../../theme/logo.png';
 import Icons from '../Icons/Icons';
-import { categoriesLoadingSelector, getCategoriesSelector } from '../../store/catalog/selectors';
-import { getCatalogOperation } from '../../store/catalog/operations';
 import MyOrders from './MyOrders/MyOrders';
+import Logo from '../../theme/Logo';
 import styles from './NavBar.module.scss';
+import CategoriesList from './CategoriesList/CategoriesList';
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-  const categories = useSelector(getCategoriesSelector);
-  const isLoading = useSelector(categoriesLoadingSelector);
   const location = useLocation();
-
   const favorites = 3;
 
-  useEffect(() => {
-    dispatch(getCatalogOperation());
-  }, [dispatch]);
-
-  if (isLoading) {
-    return <div className={styles.bgContainer}>{}</div>;
-  }
-
-  const logoJsx = [<img src={logo} width={200} height={60} alt='logo' key='image' />];
   const heartJsx = [
     <div key='heart' className={styles.iconListItem}>
       <Icons type='navHeart' color='black' width={30} height={30} />
@@ -39,7 +24,15 @@ const NavBar = () => {
       <Container>
         <nav>
           <div className={styles.flexContainer}>
-            <div>{location.pathname === '/' ? logoJsx : <NavLink to={INDEX_ROUTE}>{logoJsx}</NavLink>}</div>
+            <div>
+              {location.pathname === '/' ? (
+                <Logo />
+              ) : (
+                <NavLink to={INDEX_ROUTE}>
+                  <Logo />
+                </NavLink>
+              )}
+            </div>
             <div className={styles.menuContainer}>
               <ul className={styles.menuList}>
                 <li key='all'>
@@ -47,15 +40,7 @@ const NavBar = () => {
                     Все товары
                   </NavLink>
                 </li>
-                {categories.map(i => {
-                  return (
-                    <li key={i.id}>
-                      <NavLink to={`${PRODUCTS_ROUTE}/${i.id}`} className={styles.menuLink}>
-                        {i.name}
-                      </NavLink>
-                    </li>
-                  );
-                })}
+                <CategoriesList className={styles.menuLink} />
               </ul>
               <ul className={styles.iconList}>
                 <li key='favorites'>

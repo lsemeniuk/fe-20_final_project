@@ -1,7 +1,104 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { NavLink, useLocation } from 'react-router-dom';
+import Container from '../../Container/Container';
+import { INDEX_ROUTE, PRODUCTS_ROUTE } from '../../../utils/consts';
+import { categoriesLoadingSelector } from '../../../store/catalog/selectors';
+import Logo from '../../../theme/Logo';
+import visaMaster from './img/paymentVisaMaster.png';
+import privat24 from './img/paymentPrivat24.png';
+import styles from './Footer.module.scss';
+import Icons from '../../Icons/Icons';
+import Loader from '../../Loader/Loader';
+import CategoriesList from '../../NavBar/CategoriesList/CategoriesList';
+import DifferentPagesList from '../DifferentPagesList/DifferentPagesList';
 
 const Footer = () => {
-  return <div></div>;
+  const location = useLocation();
+  const catalogIsLoading = useSelector(categoriesLoadingSelector);
+
+  return (
+    <div className={styles.footer}>
+      <Container>
+        <div className={styles.flexContainer}>
+          <div className={styles.columnDouble}>
+            <div className={styles.colFlex}>
+              <div className={styles.logo}>
+                {location.pathname === '/' ? (
+                  <Logo />
+                ) : (
+                  <NavLink to={INDEX_ROUTE}>
+                    <Logo />
+                  </NavLink>
+                )}
+              </div>
+              <div className={styles.copyright}>
+                © 2014—2021
+                <br />
+                Интернет-магазин топовых часов
+              </div>
+              <div className={styles.payment}>
+                <span>Принимаем к оплате</span>
+                <div className={styles.paymentBlock}>
+                  <a href='https://www.liqpay.ua/' target='_blank' rel='noreferrer'>
+                    <img src={visaMaster} alt='' />
+                  </a>
+                  <a href='https://privat24.ua/' target='_blank' rel='noreferrer'>
+                    <img src={privat24} alt='' />
+                  </a>
+                </div>
+              </div>
+              <div className={styles.mobileVersion}>
+                <span className={styles.mobileVersion}>
+                  <Icons type='mobile' color='rgba(125,125,125, 0.7)' />
+                  Мобильная версия
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className={styles.column}>
+            <h4 className={styles.heading}>Каталог</h4>
+            <nav>
+              <ul className={styles.menuList}>
+                <li key='all' className={styles.menuItem}>
+                  <NavLink to={PRODUCTS_ROUTE} className={styles.link}>
+                    Все товары
+                  </NavLink>
+                </li>
+                {catalogIsLoading ? <Loader /> : <CategoriesList className={styles.link} classItem={styles.menuItem} />}
+              </ul>
+            </nav>
+          </div>
+          <div className={styles.column}>
+            <h4 className={styles.heading}>Клиентам</h4>
+            <nav className={styles.differentPagesList}>
+              <ul className={styles.menuList}>
+                <DifferentPagesList className={styles.link} classItem={styles.menuItem} />
+              </ul>
+            </nav>
+            <span>Мы в соцсетях</span>
+            <nav className={styles.social}>
+              <a className={styles.socialLink} title='Мы Вконтакте!' href='https://vk.com/'>
+                <Icons type='vk' />
+              </a>
+              <a className={styles.socialLink} title='Мы в Facebook!' href='https://www.facebook.com/'>
+                <Icons type='facebook' />
+              </a>
+              <a className={styles.socialLink} title='Мы в твиттере!' href='https://twitter.com/'>
+                <Icons type='twitter' />
+              </a>
+              <a className={styles.socialLink} title='Мы в инстаграмме' href='https://instagram.com/'>
+                <Icons type='instagram' />
+              </a>
+            </nav>
+          </div>
+          <div className={styles.columnDouble}>
+            <h4 className={styles.heading}>Контактная информация</h4>
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
 };
 
 export default Footer;

@@ -1,11 +1,11 @@
 import React from 'react';
-import Container from '../../components/Container/Container';
+import Footer from '../../components/Footer/FootCopy/Footer';
 
 const Index = () => {
   return (
-    <Container>
-      <div style={{ height: '100px' }}>Index</div>
-    </Container>
+    <>
+      <Footer />
+    </>
   );
 };
 
