@@ -9,6 +9,7 @@ import { CHECKOUT_ROUTE } from '../../../utils/consts';
 import { replace } from '../../../utils/func';
 import RecommendList from '../../RecommendList/RecommendList';
 import styles from './Cart.module.scss';
+import Loader from '../../Loader/Loader';
 
 const Cart = ({ buttonHandler }) => {
   const [cart, setcart] = useState({});
@@ -31,7 +32,7 @@ const Cart = ({ buttonHandler }) => {
   };
 
   if (isLoading) {
-    return <div>loading</div>;
+    return <Loader fixed />;
   }
 
   const cartList = cart.map(p => <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} />);

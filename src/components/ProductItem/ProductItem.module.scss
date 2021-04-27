@@ -1,0 +1,62 @@
+.wrapper {
+  display: inline-block;
+  margin: 10px;
+}
+
+.image {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.itemDescription {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.priceSection {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.currentPrice {
+  margin-top: 10px;
+  font-weight: bold;
+  display: inline-block;
+}
+.previousPrice {
+  display: inline-block;
+  margin-left: 20px;
+  color: grey;
+}
+
+.badge {
+  position: absolute;
+  margin-top: 290px;
+  margin-left: -205px;
+}
+
+.triangle {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  border: 5px solid transparent;
+  border-top: 5px solid #007bff;
+  margin-top: 11px;
+}
+
+.buttonsSection {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.favBtn {
+  margin-left: 100px;
+  background-color: gold;
+  border: none;
+  color: black;
+}

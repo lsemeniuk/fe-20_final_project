@@ -1,171 +1,188 @@
 import React from 'react';
-import styles from './Footer.module.scss';
-import footerLogo from './img/footerLogo.png';
+import { useSelector } from 'react-redux';
+import { NavLink, useLocation } from 'react-router-dom';
+import Container from '../Container/Container';
+import { INDEX_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
+import { categoriesLoadingSelector } from '../../store/catalog/selectors';
+import Logo from '../../theme/Logo';
 import visaMaster from './img/paymentVisaMaster.png';
 import privat24 from './img/paymentPrivat24.png';
-import {
-  iconFB,
-  iconInstagram,
-  iconTelephone,
-  iconMobile,
-  iconTwitter,
-  iconVk,
-  iconMessageWhatsApp,
-  iconMessageTelegram,
-  iconMessageSkype,
-  iconMessageEmail,
-  iconGeolocation,
-} from '../../theme/icons';
+import Icons from '../Icons/Icons';
+import Loader from '../Loader/Loader';
+import CategoriesList from '../NavBar/CategoriesList/CategoriesList';
+import DifferentPagesList from './DifferentPagesList/DifferentPagesList';
+import styles from './Footer.module.scss';
 
 const Footer = () => {
+  const location = useLocation();
+  const catalogIsLoading = useSelector(categoriesLoadingSelector);
+
   return (
     <div className={styles.footer}>
-      <div className={styles.footerPayment}>
-        <nav>
-          <a href='/'>
-            <img className={styles.footerPaymentLogo} src={footerLogo} alt='footerLogo' />
-          </a>
-        </nav>
-        <article className={styles.footerCopyright}>
-          © 2014—2021 <br />
-          Демонстрационный интернет-магазин
-        </article>
-        <article className={styles.footerTypeOfPayment}>
-          Принимаем к оплате
-          <nav className={styles.footerPaymentCard}>
-            <a href='https://www.liqpay.ua/' target='_blank' rel='noreferrer'>
-              <img src={visaMaster} alt='' />
-            </a>
-            <a href='https://privat24.ua/' target='_blank' rel='noreferrer'>
-              <img src={privat24} alt='' />
-            </a>
-          </nav>
-        </article>
-        <nav className={styles.footerPaymentMobileVersion}>
-          <a href='/' id={styles.footerPaymentMobileVersionLink}>
-            {iconMobile()}
-            Мобильная версия
-          </a>
-        </nav>
-      </div>
-      <nav className={styles.catalog}>
-        <article className={styles.footerHeading}>Каталог</article>
-        <ul className={styles.footerMenu}>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Мужские
-            </a>
-          </li>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Женские
-            </a>
-          </li>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Детские
-            </a>
-          </li>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Аксессуары
-            </a>
-          </li>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Бренды
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <nav className={styles.infoForClients}>
-        <article className={styles.footerHeading}>Клиентам</article>
-        <ul className={styles.footerMenu}>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Вход в личный кабинет
-            </a>
-          </li>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              О Нас
-            </a>
-          </li>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Оплата и доставка
-            </a>
-          </li>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Обмен и возврат
-            </a>
-          </li>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Контактная информация
-            </a>
-          </li>
-          <li className={styles.footerMenuLi}>
-            <a href='/' id={styles.footerMenuLiLink}>
-              Блог
-            </a>
-          </li>
-        </ul>
-
-        <article>
-          Мы в соцсетях
-          <br />
-          <nav>
-            <a className={styles.footerSocialLink} title='Мы Вконтакте!' href='https://vk.com/'>
-              {iconVk()}
-            </a>
-            <a className={styles.footerSocialLink} title='Мы в Facebook!' href='https://www.facebook.com/'>
-              {iconFB()}
-            </a>
-            <a className={styles.footerSocialLink} title='Мы в твиттере!' href='https://twitter.com/'>
-              {iconTwitter()}
-            </a>
-            <a className={styles.footerSocialLink} title='Мы в инстаграмме' href='https://instagram.com/'>
-              {iconInstagram()}
-            </a>
-          </nav>
-        </article>
-      </nav>
-      <div className={styles.Contacts}>
-        <article className={styles.footerHeading}>Контактная информация</article>
-        <div className={styles.footerContacts}>
-          <article className={styles.footerContactsTel}>
-            <article className={styles.footerContactsTelIcons}>
-              {iconTelephone()}
-              <span id={styles.iconMessage}>044 111 22 33</span>
-            </article>
-            <span id={styles.iconMessage}>067 111 22 33</span>
-            <br />
-            <span id={styles.iconMessage}>Перезвонить вам?</span>
-          </article>
-          <div>
-            {iconMessageWhatsApp()}
-            <span id={styles.iconMessage}>whats-app</span>
-            <br />
-            {iconMessageTelegram()}
-            <span id={styles.iconMessage}>telegram</span>
-            <br />
-            {iconMessageSkype()}
-            <span id={styles.iconMessage}>skype</span>
-            <br />
-            {iconMessageEmail()}
-            <span id={styles.iconMessage}>mail@mail.com</span>
-            <nav className={styles.footerContactsLocation}>
-              {iconGeolocation()}
-              <span id={styles.iconMessage}>Киев, ул. Крещатик</span>
-              <nav className={styles.roadMap}>
-                <a href='/'>Карта проезда</a>
-              </nav>
+      <Container>
+        <div className={styles.flexContainer}>
+          <div className={styles.columnDouble}>
+            <div className={styles.colFlex}>
+              <div className={styles.logo}>
+                {location.pathname === '/' ? (
+                  <Logo />
+                ) : (
+                  <NavLink to={INDEX_ROUTE}>
+                    <Logo />
+                  </NavLink>
+                )}
+              </div>
+              <div className={styles.copyright}>
+                © 2014—2021
+                <br />
+                Интернет-магазин топовых часов
+              </div>
+              <div className={styles.payment}>
+                <span>Принимаем к оплате</span>
+                <div className={styles.paymentBlock}>
+                  <a href='https://www.liqpay.ua/' target='_blank' rel='noreferrer'>
+                    <img src={visaMaster} alt='' />
+                  </a>
+                  <a href='https://privat24.ua/' target='_blank' rel='noreferrer'>
+                    <img src={privat24} alt='' />
+                  </a>
+                </div>
+              </div>
+              <div className={styles.mobileVersion}>
+                <span className={styles.mobileVersion}>
+                  <Icons type='mobile' color='rgba(125,125,125, 0.7)' />
+                  Мобильная версия
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className={styles.column}>
+            <h4 className={styles.heading}>Каталог</h4>
+            <nav>
+              <ul className={styles.menuList}>
+                <li key='all' className={styles.menuItem}>
+                  <NavLink to={PRODUCTS_ROUTE} className={styles.link}>
+                    Все товары
+                  </NavLink>
+                </li>
+                {catalogIsLoading ? <Loader /> : <CategoriesList className={styles.link} classItem={styles.menuItem} />}
+              </ul>
             </nav>
           </div>
+          <div className={styles.column}>
+            <h4 className={styles.heading}>Клиентам</h4>
+            <nav className={styles.differentPagesList}>
+              <ul className={styles.menuList}>
+                <DifferentPagesList className={styles.link} classItem={styles.menuItem} />
+              </ul>
+            </nav>
+            <span>Мы в соцсетях</span>
+            <nav className={styles.social}>
+              <a className={styles.socialLink} title='Мы Вконтакте!' href='https://vk.com/'>
+                <Icons type='vk' />
+              </a>
+              <a className={styles.socialLink} title='Мы в Facebook!' href='https://www.facebook.com/'>
+                <Icons type='facebook' />
+              </a>
+              <a className={styles.socialLink} title='Мы в твиттере!' href='https://twitter.com/'>
+                <Icons type='twitter' />
+              </a>
+              <a className={styles.socialLink} title='Мы в инстаграмме' href='https://instagram.com/'>
+                <Icons type='instagram' />
+              </a>
+            </nav>
+          </div>
+          <div className={`${styles.columnDouble} ${styles.contacts}`}>
+            <h4 className={styles.heading}>Контактная информация</h4>
+            <div className={styles.contactsColumn}>
+              <nav>
+                <ul className={styles.menuList}>
+                  <li className={styles.menuItem}>
+                    <Icons type='phone' className={styles.icons} />
+                    <a href='tel:+380440000000' className={`${styles.contactsLink} ${styles.link}`} dataIndex='1'>
+                      044 000-00-00
+                    </a>
+                  </li>
+                  <li className={styles.menuItem}>
+                    <Icons type='phone' className={styles.icons} />
+                    <a href='tel:+380950000000' className={`${styles.contactsLink} ${styles.link}`} dataIndex='2'>
+                      095 000-00-00
+                    </a>
+                  </li>
+                  <li className={styles.menuItem}>
+                    <span className={`${styles.call} ${styles.link}`}>Перезвонить вам?</span>
+                  </li>
+                </ul>
+              </nav>
+              <nav>
+                <ul className={styles.menuList}>
+                  <li className={styles.menuItem}>
+                    <Icons type='whatsApp' className={styles.icons} />
+                    <a
+                      href='https://api.whatsapp.com/send?phone=whats-app'
+                      className={`${styles.contactsLink} ${styles.link}`}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      whats-app
+                    </a>
+                  </li>
+                  <li className={styles.menuItem}>
+                    <Icons type='telegram' className={styles.icons} />
+                    <a
+                      href='tg://resolve?domain=telegram'
+                      className={`${styles.contactsLink} ${styles.link}`}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      telegram
+                    </a>
+                  </li>
+                  <li className={styles.menuItem}>
+                    <Icons type='skype' className={styles.icons} />
+                    <a
+                      href='skype:skype?call'
+                      className={`${styles.contactsLink} ${styles.link}`}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      skype
+                    </a>
+                  </li>
+                  <li className={styles.menuItem}>
+                    <Icons type='email' className={styles.icons} />
+                    <a
+                      href='mailto:timeshop.dan@gmail.com'
+                      className={`${styles.contactsLink} ${styles.link}`}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      mail@gmail.com
+                    </a>
+                  </li>
+                </ul>
+                <div className={styles.geolocation}>
+                  <Icons type='geolocation' className={styles.geolocationIcons} />
+                  <span className={styles.adress}>
+                    Киев, пр. Павла
+                    <br />
+                    Тичины 1в
+                  </span>
+                  <a
+                    style={{ border: 'none' }}
+                    href='https://goo.gl/maps/c1oXdJR34nr9t1666'
+                    className={`${styles.contactsLink} ${styles.link}`}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Карта проезда
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };
