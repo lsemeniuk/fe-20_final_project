@@ -3,7 +3,7 @@ export { vk } from './vk';
 export { facebook } from './facebook';
 export { twitter } from './twitter';
 export { instagram } from './instagram';
-export { telephone } from './telephone';
+export { phone } from './phone';
 export { whatsApp } from './whatsApp';
 export { telegram } from './telegram';
 export { skype } from './skype';

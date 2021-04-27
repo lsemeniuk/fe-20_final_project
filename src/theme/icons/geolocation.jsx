@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 
-export const geolocation = (color = 'rgba(125,125,125, 0.5)', filled = true, width = 20, height = 25) => (
+export const geolocation = (color = 'rgba(125,125,125, 0.5)', filled = true, width = 21, height = 21) => (
   <svg width={width} height={height} viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'>
     <path
       fillRule='evenodd'

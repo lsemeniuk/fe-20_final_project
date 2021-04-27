@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 
-export const telegram = (color = 'rgba(125,125,125, 0.5)', filled = true, width = 20, height = 25) => (
+export const telegram = (color = 'rgba(125,125,125, 0.5)', filled = true, width = 16, height = 16) => (
   <svg width={width} height={height} viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'>
     <path
       d='M41.7 21.3c-.3.1-.7.3-.9.5-6.4 4-12.7 8-19.1 12-.4.2-.4.4-.3.8.5 1.3.9 2.7 1.3 4.1l1.8 5.4h.1v-.2c.2-2 .4-3.9.5-5.9 0-.4.2-.8.5-1 2.6-2.3 5.2-4.7 7.8-7.1 2.9-2.6 5.8-5.2 8.6-7.8.2-.2.3-.4.4-.7-.2 0-.5-.1-.7-.1z'
