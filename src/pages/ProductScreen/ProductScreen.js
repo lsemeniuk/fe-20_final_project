@@ -6,15 +6,10 @@ import Button from '../../components/Button/Button';
 import Heart2 from '../../theme/icons/Heart2';
 import Container from '../../components/Container/Container';
 import SlickSlider from '../../components/SlickSlider/SlickSlider';
-// import DeliveryInfo from './productscreen-components/DeliveryInfo';
-// import PaymentInfo from './productscreen-components/PaymentInfo';
-// import WarrantyInfo from './productscreen-components/WarrantyInfo';
 import Avatar from '../../theme/icons/Avatar';
 import FacebookIcon from '../../theme/icons/Facebook';
 import GoogleIcon from '../../theme/icons/Google';
 import ReviewForm from '../../components/Forms/ReviewForm/ReviewForm';
-import ProductDetails from './productscreen-components/ProductDetails';
-import DelPayShipBlock from './productscreen-components/DelPayShipBlock';
 
 const ProductScreen = () => {
   const { name, image, price, previousPrice, countInStock, itemNo, isNew } = data.currentProduct;
@@ -97,7 +92,6 @@ const ProductScreen = () => {
                 onClick={() => console.log('Quick Buy!')}
               />
             </li>
-            <DelPayShipBlock />
             <li className={styles.info__block}>
               <h3 className={styles.section__title}>Смотрите также</h3>
               <SlickSlider content={sliderWatches} />
@@ -117,7 +111,6 @@ const ProductScreen = () => {
           телефон, чтобы посмотреть уведомления, воспользоваться картой или принять телефонный звонок.
         </p>
         <h3 className={styles.section__title}>Особенности:</h3>
-        <ProductDetails />
         <div>
           <img
             src='https://i.citrus.ua/uploads/content/product-photos/lysyanaya/december/av1.jpg?_t=1548256954'

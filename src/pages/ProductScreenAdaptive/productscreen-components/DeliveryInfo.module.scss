@@ -1,3 +1,5 @@
+@import '../../../utils/styles/var';
+
 .li {
   display: list-item;
   list-style-type: '—';
@@ -13,7 +15,7 @@
 .hide__details {
   font-size: 50px;
   margin-left: auto;
-  background-color: #18b5a4;
+  background-color: $colorTextFooter;
   border: none;
   outline: none;
 }

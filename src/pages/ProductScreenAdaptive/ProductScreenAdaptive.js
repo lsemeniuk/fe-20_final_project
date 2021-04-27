@@ -12,7 +12,7 @@ import DelPayWarrBlock from './productscreen-components/DelPayWarrBlock';
 import SlickSlider from '../../components/SlickSlider/SlickSlider';
 
 const ProductScreenAdaptive = () => {
-  const { name, image, itemNo, isNew, countInStock, price } = data.currentProduct;
+  const { name, image, itemNo, isNew, countInStock, price, previousPrice } = data.currentProduct;
   const [toggleDetails, setToggleDetails] = useState(false);
 
   const sliderWatches = data.products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
@@ -21,10 +21,10 @@ const ProductScreenAdaptive = () => {
     <Container>
       <h2>This is Adaptive Product Screen</h2>
       <ul className={style.phoneView__container}>
-        <li className={style.product__info}>
+        <li className={style.product__info__parent}>
           <span className={style.location}>Главная &#62; Мужские</span>
           <div className={style.name}>{name}</div>
-          <div className={`${style.row} ${style.row__between}`}>
+          <div className={`${style.row} ${style.row__start}`}>
             <p className={style.gap}>Артикул: {itemNo}</p>
             <Link to='/reviews' className={style.review}>
               Оставить отзыв
@@ -34,10 +34,8 @@ const ProductScreenAdaptive = () => {
         <div className={style.img__price__parent}>
           <li className={style.img__block}>
             <div className={style.img__box}>
-              <div className={style.imgCenter}>
-                <img className={style.large} src={image} alt={name} />
-                {isNew && <div className={style.newMessage}>Новинка</div>}
-              </div>
+              <img className={style.large} src={image} alt={name} />
+              {isNew && <div className={style.newMessage}>Новинка</div>}
               <img
                 className={style.brand__little}
                 src='https://design109.horoshop.ua/content/images/39/180x109l75nn0/amazfit-44485423477251.jpg'
@@ -56,13 +54,17 @@ const ProductScreenAdaptive = () => {
                   <span className={style.danger}>Отсутствует</span>
                 )}
               </div>
-              <span className={style.price}>{price} грн</span>
-              <Button title='Купить' onClick={null} />
-              <Button title='Быстрый заказ' variant='outline' onClick={() => console.log('Quick Buy!')} />
-            </div>
-            <div className={style.icon__frame}>
-              <Heart2 />
-              <p>В избранное</p>
+              <span className={style.price}>{price} грн</span>{' '}
+              <span className={style.price__old}>{previousPrice} грн</span>
+              <div className={style.pc__view}>
+                <Button title='Купить' onClick={null} />
+                <Button title='Быстрый заказ' variant='outline' onClick={() => console.log('Quick Buy!')} />
+
+                <div className={style.icon__frame}>
+                  <Heart2 />
+                  <p>В избранное</p>
+                </div>
+              </div>
             </div>
           </li>
         </div>
@@ -96,15 +98,15 @@ const ProductScreenAdaptive = () => {
           </div>
         </li>
         <DelPayWarrBlock />
-        <li className={style.info__block}>
+        <li>
           <h3 className={style.section__title}>Смотрите также</h3>
           <SlickSlider content={sliderWatches} />
         </li>
-        <li className={style.info__block}>
+        <li>
           <h3 className={style.section__title}>Похожие товары</h3>
           <SlickSlider content={otherWatches} />
         </li>
-        <li className={style.info__block}>
+        <li>
           <h3 className={style.section__title}>Просмотренные товары</h3>
           <SlickSlider content={sliderWatches} />
         </li>

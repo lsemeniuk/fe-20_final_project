@@ -59,6 +59,11 @@
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
 }
+.btns__center {
+  @media (min-width: $tablet-breakpoint1) and (max-width: $tablet-breakpoint2) {
+    text-align: center;
+  }
+}
 .btn__buy {
   background-color: $colorButton;
   padding: 6px 14px;
@@ -70,17 +75,6 @@
 .btn__gap {
   margin-left: 0.7rem;
 }
-// .btn__quickOrder {
-//   background-color: #fff;
-//   padding: 6px 14px;
-//   border-radius: 5px;
-//   border: 1px solid lightgrey;
-//   color: #000000;
-//   font-size: 1.3rem;
-// }
-// .btn__quickOrder:hover {
-//   border: 1px solid black;
-// }
 
 .success {
   color: #22c422;
@@ -107,7 +101,7 @@
 }
 .about {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   color: grey;
   border: none;
   background-color: #ffffff;

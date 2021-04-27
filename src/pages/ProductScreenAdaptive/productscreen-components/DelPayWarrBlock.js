@@ -32,21 +32,23 @@ function DelPayWarrBlock() {
   };
   return (
     <li>
-      <Button
-        title='Доставка'
-        className={buttons.deliveryActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
-        onClick={handleClickDelivery}
-      />
-      <Button
-        title='Оплата'
-        className={buttons.paymentActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
-        onClick={handleClickPayment}
-      />
-      <Button
-        title='Гарантия'
-        className={buttons.warrantyActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
-        onClick={handleClickWarranty}
-      />
+      <div className={styles.btns__center}>
+        <Button
+          title='Доставка'
+          className={buttons.deliveryActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
+          onClick={handleClickDelivery}
+        />
+        <Button
+          title='Оплата'
+          className={buttons.paymentActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
+          onClick={handleClickPayment}
+        />
+        <Button
+          title='Гарантия'
+          className={buttons.warrantyActive ? `${styles.about} ${styles.active}` : `${styles.about}`}
+          onClick={handleClickWarranty}
+        />
+      </div>
       {info.deliveryInfo && <DeliveryInfo />}
       {info.paymentInfo && <PaymentInfo />}
       {info.warrantyInfo && <WarrantyInfo />}
