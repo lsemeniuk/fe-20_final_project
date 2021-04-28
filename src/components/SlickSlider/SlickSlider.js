@@ -8,14 +8,24 @@ import sliderData from './slider-data';
 
 export default function SlickSlider({ content }) {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
+    arrows: true,
     slidesToScroll: 1,
     swipeToSlide: true,
-    arrows: false,
     className: 'slides',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          arrows: false,
+          dots: true,
+        },
+      },
+    ],
   };
 
   return (

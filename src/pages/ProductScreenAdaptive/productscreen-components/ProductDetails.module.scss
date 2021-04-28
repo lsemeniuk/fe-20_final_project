@@ -1,3 +1,4 @@
+@import '../../../utils/styles/var';
 .li {
     display: list-item;
     list-style-type: "—";
@@ -8,3 +9,18 @@
     margin-left: 20px;
     margin-top: 20px;
 }
+.hide__details {
+    font-size: 50px;
+    margin-left: auto;
+    background-color: $colorTextFooter;
+    border: none;
+    outline: none;
+  }
+  .details__header {
+    max-width: 650px;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }

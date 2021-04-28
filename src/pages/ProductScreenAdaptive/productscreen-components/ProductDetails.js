@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './DeliveryInfo.module.scss';
+import styles from './ProductDetails.module.scss';
 
 const ProductDetails = ({ setToggleDetails }) => (
   <ul className={styles.ul}>
     <li className={styles.details__header}>
-      <h3>Описание</h3>
+      <h3>Особенности</h3>
       <button type='button' className={styles.hide__details} onClick={() => setToggleDetails(false)}>
         &times;
       </button>

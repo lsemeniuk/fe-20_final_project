@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../../ProductScreen/ProductScreen.module.scss';
+import styles from './DelPayWarrBlock.module.scss';
 import Button from '../../../components/Button/Button';
 import DeliveryInfo from './DeliveryInfo';
 import PaymentInfo from './PaymentInfo';

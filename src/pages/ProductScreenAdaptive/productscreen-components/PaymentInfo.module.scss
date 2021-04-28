@@ -1,7 +1,11 @@
+@import '../../../utils/styles/var';
 .li {
-    display: list-item;
-    list-style-type: "—";
-    font-size: 0.8rem;
-    padding-inline-start: 1ch;
-    margin-bottom: 10px;
+  display: list-item;
+  list-style-type: '—';
+  font-size: 0.8rem;
+  padding-inline-start: 1ch;
+  margin-bottom: 10px;
+  @media (min-width: $pc-breakpoint) {
+    font-size: $fontSize;
+  }
 }

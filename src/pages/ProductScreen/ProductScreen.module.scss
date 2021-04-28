@@ -59,11 +59,7 @@
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
 }
-.btns__center {
-  @media (min-width: $tablet-breakpoint1) and (max-width: $tablet-breakpoint2) {
-    text-align: center;
-  }
-}
+
 .btn__buy {
   background-color: $colorButton;
   padding: 6px 14px;
@@ -82,15 +78,7 @@
 .danger {
   color: #a02020;
 }
-.delivery {
-  color: #000000;
-  text-decoration: none;
-  margin-left: 5px;
-}
-.delivery:hover {
-  color: $colorButton;
-  text-decoration: none;
-}
+
 .review {
   color: grey;
   text-decoration: none;
@@ -99,26 +87,7 @@
   color: $colorButton;
   text-decoration: none;
 }
-.about {
-  font-size: 1rem;
-  font-weight: 600;
-  color: grey;
-  border: none;
-  background-color: #ffffff;
-  padding: 0.5rem;
-}
-.about:hover {
-  color: $colorButton;
-  cursor: pointer;
-}
-.about:focus {
-  outline: none;
-  color:#000000;
-}
-.active {
-  color: #000000;
-  border-top: 1px solid #000000;
-}
+
 .info__block {
   border-top: 1px solid lightgrey;
   padding-bottom: 40px;
