@@ -130,8 +130,10 @@
 }
 
 .favIcon{
-  fill: $colorTextFooter;
+  fill: white;
+  stroke: #7d7d7d;
 }
 .favIconActive{
   fill: $colorSecondary;
+  stroke: $colorSecondary;
 }
