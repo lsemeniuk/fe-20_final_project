@@ -11,7 +11,7 @@
   grid-template-rows: 240px 40px 30px 40px;
 
   &:hover {
-    box-shadow: 0px 3px 15px -6px black;
+    box-shadow: 0 3px 15px -6px black;
   }
 
   &:hover > .btnSection {
@@ -126,7 +126,6 @@
   @media (max-width: $lgMax){
     opacity: 100%;
   }
-
 }
 
 .favIcon{
