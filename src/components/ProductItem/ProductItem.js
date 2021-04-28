@@ -16,11 +16,6 @@ const ProductItem = ({ product }) => {
   };
   const addToFav = e => {
     const heartIcon = e.target.classList;
-    heartIcon.toggle(style.favIconActive);
-    console.log('add to fav');
-  };
-  const addToFav = e => {
-    const heartIcon = e.target.classList;
     heartIcon.toggle(styles.favIconActive);
   };
   const { imageUrls, isNew, name, currentPrice, previousPrice, itemNo } = product;
