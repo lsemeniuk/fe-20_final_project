@@ -1,62 +1,138 @@
-.wrapper {
-  display: inline-block;
-  margin: 10px;
+@import '../../utils/styles/var';
+
+
+.item {
+  display: grid;
+  width: min-content;
+  padding: 20px;
+  border-radius: 3px;
+  margin: 15px 0 15px 0;
+  grid-template-columns: min-content;
+  grid-template-rows: 240px 40px 30px 40px;
+
+  &:hover {
+    box-shadow: 0 3px 15px -6px black;
+  }
+
+  &:hover > .btnSection {
+    opacity: 100%;
+  }
+
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    grid-template-rows: 240px 40px 30px 40px;
+  }
+  @media (max-width: $xsMax) {
+    grid-template-rows: 180px 40px 30px 20px;
+  }
+
 }
 
-.image {
-  margin-top: 30px;
-  margin-bottom: 30px;
+.productImg{
+  width: 230px;
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    width: 190px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    width: 200px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    width: 180px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    width: 150px;
+  }
+  @media (max-width: $xsMax) {
+    width: 150px;
+  }
 }
 
-.itemDescription {
-  -webkit-line-clamp: 2;
+.name {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  color: black;
-  margin-bottom: 15px;
+  -webkit-line-clamp: 2;
+  text-decoration: none;
+  color: #000;
+  text-align: left;
+  transition: 0.2s ease all;
+
+  &:hover {
+    color: $colorButnHover;
+    text-decoration: none;
+  }
+
+  @media (min-width: $smMin) and (max-width: $smMax) {
+   font-size: 15px;
+  }
+  @media (max-width: $xsMax) {
+    font-size: 13px;
+  }
 }
 
 .priceSection {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 15px;
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    font-size: 15px;
+  }
+  @media (max-width: $xsMax) {
+    font-size: 13px;
+  }
+}
+
+.previousPrice {
+  margin-left: 25px;
+  color: $colorTextFooter;
 }
 
 .currentPrice {
-  margin-top: 10px;
   font-weight: bold;
-  display: inline-block;
-}
-.previousPrice {
-  display: inline-block;
-  margin-left: 20px;
-  color: grey;
 }
 
-.badge {
+.newMessage {
   position: absolute;
-  margin-top: 290px;
-  margin-left: -205px;
+  background-color: $colorButton;
+  color: white;
+  border-radius: 3px;
+  padding: 2px;
+  font-size: 11px;
+  transform: translateY(215px);
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-top: 13px;
+    border: 6px solid transparent;
+    border-top: 5px solid $colorButton;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    font-size: 15px;
+  }
+  @media (max-width: $xsMax) {
+    font-size: 13px;
+  }
 }
 
-.triangle {
-  width: 5px;
-  height: 5px;
-  position: absolute;
-  border: 5px solid transparent;
-  border-top: 5px solid #007bff;
-  margin-top: 11px;
-}
 
-.buttonsSection {
+.btnSection {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  opacity: 0;
+  margin-top: 20px;
+  vertical-align: center;
+  align-items: center;
+  @media (max-width: $lgMax){
+    opacity: 100%;
+  }
 }
 
-.favBtn {
-  margin-left: 100px;
-  background-color: gold;
-  border: none;
-  color: black;
+.favIcon{
+  fill: white;
+  stroke: #7d7d7d;
+}
+.favIconActive{
+  fill: $colorSecondary;
+  stroke: $colorSecondary;
 }
