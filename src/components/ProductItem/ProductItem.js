@@ -31,11 +31,6 @@ const ProductItem = ({ product }) => {
       <div className={style.priceSection}>
         <p className={style.currentPrice}>{currentPrice}грн</p>
         <p className={style.previousPrice}>{previousPrice && <s>{previousPrice}грн</s>}</p>
-      <div className={styles.priceSection}>
-        <p className={styles.currentPrice}>{currentPrice}</p>
-        <p className={styles.previousPrice}>
-          <s>{previousPrice}</s>
-        </p>
       </div>
 
       <div className={styles.btnSection}>
