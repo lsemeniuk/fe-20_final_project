@@ -1,7 +1,11 @@
-
+@import '../../utils/styles/var';
 .img {
   height: 160px;
   width: 160px;
+  @media (min-width: $phone-breakpoint1) and (max-width: $phone-breakpoint2) {
+    height: 80px;
+    width: 80px;
+  }
 }
 .name {
   font-size: 12px;

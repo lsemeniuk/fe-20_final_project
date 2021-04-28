@@ -58,7 +58,6 @@ const ProductScreenAdaptive = () => {
             <div className={style.pc__view}>
               <Button title='Купить' onClick={null} />
               <Button title='Быстрый заказ' variant='outline' onClick={() => console.log('Quick Buy!')} />
-
               <div className={style.icon__frame}>
                 <Heart2 />
                 <p>В избранное</p>
