@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import style from './ProductItem.module.scss';
 import styles from './ProductItem.module.scss';
 import Button from '../Button/Button';
 import { PRODUCT_ROUTE } from '../../utils/consts';
