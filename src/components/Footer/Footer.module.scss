@@ -79,6 +79,10 @@
   margin: 0 10px 10px 0;
 }
 
+.socIcon:hover svg path {
+  fill: rgba(125, 125, 125, 0.7);
+}
+
 .contacts {
   padding-left: 20px;
 }
