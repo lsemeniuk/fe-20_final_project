@@ -78,17 +78,17 @@ const Footer = () => {
             </nav>
             <span>Мы в соцсетях</span>
             <nav className={styles.social}>
-              <a className={styles.socialLink} title='Мы Вконтакте!' href='https://vk.com/'>
-                <Icons type='vk' />
+              <a className={styles.socialLink} target='blank' title='Мы Вконтакте!' href='https://vk.com/'>
+                <Icons type='vk' className={styles.socIcon} />
               </a>
-              <a className={styles.socialLink} title='Мы в Facebook!' href='https://www.facebook.com/'>
-                <Icons type='facebook' />
+              <a className={styles.socialLink} target='blank' title='Мы в Facebook!' href='https://www.facebook.com/'>
+                <Icons type='facebook' className={styles.socIcon} />
               </a>
-              <a className={styles.socialLink} title='Мы в твиттере!' href='https://twitter.com/'>
-                <Icons type='twitter' />
+              <a className={styles.socialLink} target='blank' title='Мы в твиттере!' href='https://twitter.com/'>
+                <Icons type='twitter' className={styles.socIcon} />
               </a>
-              <a className={styles.socialLink} title='Мы в инстаграмме' href='https://instagram.com/'>
-                <Icons type='instagram' />
+              <a className={styles.socialLink} target='blank' title='Мы в инстаграмме' href='https://instagram.com/'>
+                <Icons type='instagram' className={styles.socIcon} />
               </a>
             </nav>
           </div>
@@ -121,7 +121,7 @@ const Footer = () => {
                     <a
                       href='https://api.whatsapp.com/send?phone=whats-app'
                       className={`${styles.contactsLink} ${styles.link}`}
-                      target='_blank'
+                      target='blank'
                       rel='noreferrer'
                     >
                       whats-app
@@ -132,7 +132,7 @@ const Footer = () => {
                     <a
                       href='tg://resolve?domain=telegram'
                       className={`${styles.contactsLink} ${styles.link}`}
-                      target='_blank'
+                      target='blank'
                       rel='noreferrer'
                     >
                       telegram
@@ -143,7 +143,7 @@ const Footer = () => {
                     <a
                       href='skype:skype?call'
                       className={`${styles.contactsLink} ${styles.link}`}
-                      target='_blank'
+                      target='blank'
                       rel='noreferrer'
                     >
                       skype
@@ -154,7 +154,7 @@ const Footer = () => {
                     <a
                       href='mailto:timeshop.dan@gmail.com'
                       className={`${styles.contactsLink} ${styles.link}`}
-                      target='_blank'
+                      target='blank'
                       rel='noreferrer'
                     >
                       mail@gmail.com
@@ -172,7 +172,7 @@ const Footer = () => {
                     style={{ border: 'none' }}
                     href='https://goo.gl/maps/c1oXdJR34nr9t1666'
                     className={`${styles.contactsLink} ${styles.link}`}
-                    target='_blank'
+                    target='blank'
                     rel='noreferrer'
                   >
                     Карта проезда
