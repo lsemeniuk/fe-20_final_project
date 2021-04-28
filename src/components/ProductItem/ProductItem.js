@@ -21,16 +21,16 @@ const ProductItem = ({ product }) => {
   return (
     <div className={styles.item}>
       <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
-        <img className={style.productImg} src={imageUrls[0]} alt='watch' />
+        <img className={styles.productImg} src={imageUrls[0]} alt='watch' />
       </NavLink>
       {isNew && <div className={styles.newMessage}>Новинка</div>}
       <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
         <span className={styles.name}>{name}</span>
       </NavLink>
 
-      <div className={style.priceSection}>
-        <p className={style.currentPrice}>{currentPrice}грн</p>
-        <p className={style.previousPrice}>{previousPrice && <s>{previousPrice}грн</s>}</p>
+      <div className={styles.priceSection}>
+        <p className={styles.currentPrice}>{currentPrice}грн</p>
+        <p className={styles.previousPrice}>{previousPrice && <s>{previousPrice}грн</s>}</p>
       </div>
 
       <div className={styles.btnSection}>
