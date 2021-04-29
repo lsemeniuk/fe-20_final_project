@@ -3,22 +3,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
-const Button = ({ className, variant, title, onClick, disabled, type }) => {
-  let style = '';
+const Button = ({ variant, title, onClick, disabled, type, className }) => {
+  let styleClass = '';
 
   if (variant === 'outline') {
-    style = `${styles.button} ${styles.outline}`;
+    styleClass = `${styles.button} ${styles.outline}`;
   } else if (variant === 'special') {
-    style = `${styles.button} ${styles.examples} ${styles.special}`;
-  } else if (!className) {
-    style = `${styles.button} ${styles.examples}`;
+    styleClass = `${styles.button} ${styles.examples} ${styles.special}`;
   } else {
-    style = className;
+    styleClass = `${styles.button} ${styles.examples}`;
   }
 
   return (
     <>
-      <button type={type} className={style} onClick={onClick} disabled={disabled}>
+      <button type={type} className={`${styleClass} ${className}`} onClick={onClick} disabled={disabled}>
         {title}
       </button>
     </>
@@ -39,8 +37,8 @@ Button.defaultProps = {
   variant: '',
   disabled: false,
   type: 'button',
-  onClick: () => {
-    return '';
+  onClick: event => {
+    event.preventDefault();
   },
 };
 
