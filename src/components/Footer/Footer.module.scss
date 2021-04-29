@@ -1,105 +1,121 @@
 .footer {
-  display: flex;
-  justify-content: center;
-  padding: 30px 0px 60px;
-  height: 241px;
+  position: relative;
   color: #7d7d7d;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 30px 0;
 }
 
-.footerPayment {
-  width: 490px;
+.flexContainer {
+  display: flex;
 }
 
-.footerPaymentLogo {
-  width: 200px;
-  height: 60px;
+.column {
+  flex: 1 0 4%;
+}
+
+.columnDouble {
+  flex: 2 0 0%;
+}
+
+.colFlex {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
   margin-bottom: 25px;
 }
-
-.footerCopyright {
+.copyright {
   margin-bottom: 15px;
 }
 
-.footerTypeOfPayment {
+.payment {
   margin-bottom: 20px;
 }
 
-.footerPaymentCard {
+.paymentBlock {
   margin-top: 10px;
 }
 
-.footerPaymentMobileVersion {
-  margin-bottom: 10px;
+.mobileVersion {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
-#footerPaymentMobileVersionLink {
-  text-decoration: none;
-  color: #7d7d7d;
-}
-
-.catalog {
-  width: 245px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.footerHeading {
+.heading {
   font-size: 14px;
-  font-weight: 700;
   color: #000;
   margin-bottom: 10px;
 }
 
-.footerMenu {
-  padding-left: 0;
-}
-
-.footerMenuLi {
-  list-style-type: none;
-}
-
-#footerMenuLiLink {
-  color: #7d7d7d;
-  text-decoration: none;
+.menuList {
   font-size: 13px;
 }
 
-.footerSocialLink {
-  margin: 0 9px 9px 0;
+.menuItem {
+  margin-bottom: 8px;
+  position: relative;
 }
 
-.infoForClients {
-  width: 245px;
+.link {
+  color: #7d7d7d;
+  &:hover {
+    color: #666666;
+    border-bottom: 1px solid #666666;
+  }
 }
 
-#infoForClientsSocialNetworksIcon {
-  height: 24px;
-  margin-right: 8px;
+.differentPagesList {
+  margin-bottom: 30px;
 }
 
-.Contacts {
-  width: 490px;
+.social {
+  margin-top: 10px;
 }
 
-.footerContacts {
+.socialLink {
+  margin: 0 10px 10px 0;
+}
+
+.socIcon:hover svg path {
+  fill: rgba(125, 125, 125, 0.7);
+}
+
+.contacts {
+  padding-left: 20px;
+}
+
+.contactsColumn {
   display: flex;
+  justify-content: space-between;
 }
 
-.footerContactsTel {
-  width: 220px;
+.icons {
+  position: absolute;
+  left: -20px;
+  top: 1px;
 }
 
-.footerContactsLocation {
-  padding-top: 20px;
+.call {
+  cursor: pointer;
 }
 
-#iconMessage {
-  margin-left: 8px;
-}
-.roadMap {
-  margin-left: 29px;
+.geolocation {
+  margin-top: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.footerContactsTelIcons {
-  margin-left: -22px;
+.geolocationIcons {
+  position: absolute;
+  left: -22px;
+  top: calc(50% - 10px);
+}
+
+.adress {
+  word-spacing: nowrap;
+  margin-bottom: 5px;
 }

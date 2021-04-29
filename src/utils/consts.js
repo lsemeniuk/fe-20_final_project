@@ -6,4 +6,4 @@ export const ORDERS_ROUTE = '/orders';
 export const PERSONAL_INFO_ROUTE = '/personal-info';
 export const CHECKOUT_ROUTE = '/checkout';
 export const ADMIN_ROUTE = '/admin';
-export const CART_ROUTE = '/cart';
+export const PAGE404_ROUTE = '/404';
