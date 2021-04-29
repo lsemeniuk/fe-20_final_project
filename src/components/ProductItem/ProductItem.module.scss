@@ -17,30 +17,26 @@
     opacity: 100%;
   }
 
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     grid-template-rows: 240px 40px 30px 40px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     grid-template-rows: 180px 40px 30px 20px;
   }
-
 }
 
-.productImg{
+.productImg {
   width: 230px;
-  @media (min-width: $xlMin) and (max-width: $xlMax) {
-    width: 190px;
-  }
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     width: 200px;
   }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     width: 180px;
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     width: 150px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     width: 150px;
   }
 }
@@ -60,10 +56,10 @@
     text-decoration: none;
   }
 
-  @media (min-width: $smMin) and (max-width: $smMax) {
-   font-size: 15px;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 15px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     font-size: 13px;
   }
 }
@@ -71,10 +67,10 @@
 .priceSection {
   display: flex;
   justify-content: flex-start;
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     font-size: 15px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     font-size: 13px;
   }
 }
@@ -106,10 +102,10 @@
     border: 6px solid transparent;
     border-top: 5px solid $colorButton;
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     font-size: 15px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     font-size: 13px;
   }
 }
@@ -121,17 +117,17 @@
   margin-top: 20px;
   vertical-align: center;
   align-items: center;
-  @media (max-width: $lgMax){
+  @media (max-width: $deskXMax) {
     opacity: 100%;
   }
 }
 
-.favIcon{
+.favIcon {
   fill: white;
   stroke: #7d7d7d;
 }
 
-.favIconActive{
+.favIconActive {
   fill: $colorSecondary;
   stroke: $colorSecondary;
 }

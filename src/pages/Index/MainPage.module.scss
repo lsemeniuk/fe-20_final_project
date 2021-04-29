@@ -5,71 +5,67 @@
   background-color: $colorSecondary;
   //font-family: Arial;
   padding: 100px 100px 180px 100px;
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     padding: 80px 80px 150px 80px;
   }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     padding: 60px 60px 130px 60px;
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     padding: 40px 80px 110px 40px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     padding: 40px 20px 100px 20px;
   }
 }
 
 .slider {
   background-color: white;
-
 }
 
 .sloganSection {
   display: flex;
   justify-content: center;
   margin-top: 100px;
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     margin-top: 60px;
   }
 }
 
 .imgWrapper {
   margin-right: 120px;
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     margin-right: 90px;
   }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     margin-right: 70px;
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     margin-right: 50px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     margin-right: 20px;
   }
 }
 
 .img {
-  @media (min-width: $xlMin) and (max-width: $xlMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     width: 320px;
   }
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
-    width: 300px;
-  }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     width: 220px;
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     width: 180px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     width: 120px;
   }
 }
 
 .sloganText {
   margin-top: 50px;
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     margin-top: 20px;
   }
 }
@@ -77,20 +73,16 @@
 .slogan {
   font-size: 80px;
   color: #000;
-
-  @media (min-width: $xlMin) and (max-width: $xlMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     font-size: 70px;
   }
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
-    font-size: 60px;
-  }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     font-size: 40px;
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     font-size: 30px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     font-size: 18px;
   }
 }
@@ -111,21 +103,18 @@
     background-color: $colorButnHover;
   }
 
-  @media (min-width: $xlMin) and (max-width: $xlMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     padding: 15px 30px;
   }
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
-    padding: 15px 30px;
-  }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     padding: 12px 25px;
     font-size: 25px;
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     font-size: 20px;
     padding: 10px 20px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     border-radius: 8px;
     font-size: 13px;
     padding: 4px 10px;
@@ -148,70 +137,57 @@
   transform: translateY(-80px);
   box-shadow: 0 40px 25px -25px #2bb1f9;
 
-  @media (min-width: $xlMin) and (max-width: $xlMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     padding: 45px 80px 45px 80px;
     transform: translateY(-70px);
   }
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
-    padding: 30px 70px 30px 60px;
-    transform: translateY(-60px);
-  }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     padding: 30px 60px 30px 60px;
     transform: translateY(-50px);
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     padding: 20px 50px 20px 60px;
     transform: translateY(-50px);
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     padding: 5px 40px 5px 20px;
     transform: translateY(-30px);
   }
-
 }
 
 .descriptionText {
   font-size: 60px;
 
-  @media (min-width: $xlMin) and (max-width: $xlMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     font-size: 50px;
   }
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
-    font-size: 40px;
-  }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     font-size: 30px;
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     font-size: 25px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     font-size: 16px;
   }
-
 }
 
 .descriptionImg {
   position: absolute;
   transform: translate(650px, -382px);
-  @media (min-width: $xlMin) and (max-width: $xlMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     width: 375px;
     transform: translate(540px, -328px);
   }
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
-    width: 290px;
-    transform: translate(450px, -260px);
-  }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     width: 230px;
     transform: translate(360px, -200px);
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     width: 190px;
     transform: translate(300px, -170px);
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     width: 100px;
     transform: translate(180px, -95px);
   }
@@ -223,7 +199,7 @@
   margin-top: 40px;
 }
 
-.bestsellerTitle{
+.bestsellerTitle {
   font-size: 20px;
 }
 
@@ -240,16 +216,15 @@
   display: flex;
   font-size: 55px;
   font-weight: bold;
-  @media (max-width: $lgMax) {
+  @media (max-width: $deskXMax) {
     display: none;
   }
 }
 
-
 .genderSlider {
   display: none;
   padding-top: 150px;
-  @media (max-width: $lgMax) {
+  @media (max-width: $deskXMax) {
     display: flex;
     background-color: inherit;
   }
@@ -262,7 +237,7 @@
   color: #000;
 }
 
-.newProductsTitle{
+.newProductsTitle {
   font-size: 20px;
 }
 
@@ -273,23 +248,19 @@
   padding: 0 150px;
   margin-bottom: 100px;
 
-  @media (min-width: $xlMin) and (max-width: $xlMax) {
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     padding: 0 120px;
   }
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
-    padding: 0 100px;
-  }
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
     padding: 0 80px;
   }
-  @media (min-width: $smMin) and (max-width: $smMax) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     padding: 0 60px;
   }
-  @media (max-width: $xsMax) {
+  @media (max-width: $mobMax) {
     font-size: $fontSize;
     padding: 0 40px;
   }
-
 }
 
 .aboutTitle {
