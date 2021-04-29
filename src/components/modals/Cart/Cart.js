@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import CartItem from '../../CartItem/CartItem';
+import CartItem from './CartItem/CartItem';
 import Modal from '../Modal/Modal';
 import Button from '../../Button/Button';
 import { CHECKOUT_ROUTE } from '../../../utils/consts';
 import { replace } from '../../../utils/func';
-import RecommendList from '../../RecommendList/RecommendList';
+import RecommendList from './RecommendList/RecommendList';
 import styles from './Cart.module.scss';
 import Loader from '../../Loader/Loader';
 

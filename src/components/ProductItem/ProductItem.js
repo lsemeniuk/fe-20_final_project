@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import styles from './ProductItem.module.scss';
 import Button from '../Button/Button';
 import { PRODUCT_ROUTE } from '../../utils/consts';
 import { favIcon } from '../../theme/icons';
+import styles from './ProductItem.module.scss';
 
 const ProductItem = ({ product }) => {
   const [inCart, setCart] = useState(false);
+
   const buyOpenModal = () => {
     setCart(true);
     // eslint-disable-next-line no-console
     console.log('buy');
   };
+
   const addToFav = e => {
     const heartIcon = e.target.classList;
     heartIcon.toggle(styles.favIconActive);
   };
+
   const { imageUrls, isNew, name, currentPrice, previousPrice, itemNo } = product;
+
   return (
     <div className={styles.item}>
       <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
@@ -50,4 +54,5 @@ const ProductItem = ({ product }) => {
 ProductItem.propTypes = {
   product: PropTypes.object.isRequired,
 };
+
 export default ProductItem;

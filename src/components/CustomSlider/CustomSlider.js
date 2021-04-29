@@ -6,6 +6,7 @@ import ProductItem from '../ProductItem/ProductItem';
 
 const CustomSlider = () => {
   const [products, setProducts] = useState([]);
+
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -36,9 +37,11 @@ const CustomSlider = () => {
       },
     ],
   };
+
   useEffect(() => {
     axios.get('../../products.json').then(res => setProducts([...res.data]));
   }, []);
+
   return (
     <div>
       <Slider {...sliderSettings}>

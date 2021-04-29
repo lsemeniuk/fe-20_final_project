@@ -12,23 +12,25 @@ const Error500 = () => {
   };
 
   return (
-    <section className={styles.page_404}>
-      <Container>
-        <h1 className={styles.title}>Произошла ошибка!</h1>
-      </Container>
-      <div className={styles.fourZeroFourBg} style={{ backgroundImage: `url(${ErrorGif})` }}>
-        {}
-      </div>
-      <Container>
-        <div className={styles.contant_box_404}>
-          <h3 className={styles.h2}>Скоро мы всё исправим!</h3>
-
-          <p className={styles.p}>Наша команда уже работает над этой проблемой</p>
-
-          <Button title='На главную' onClick={() => goToHome()} />
+    <div className={styles.center}>
+      <section className={styles.page_404}>
+        <Container>
+          <h1 className={styles.title}>Произошла ошибка!</h1>
+        </Container>
+        <div className={styles.fourZeroFourBg} style={{ backgroundImage: `url(${ErrorGif})` }}>
+          {}
         </div>
-      </Container>
-    </section>
+        <Container>
+          <div className={styles.contant_box_404}>
+            <h3 className={styles.h2}>Скоро мы всё исправим!</h3>
+
+            <p className={styles.p}>Наша команда уже работает над этой проблемой</p>
+
+            <Button title='На главную' onClick={() => goToHome()} />
+          </div>
+        </Container>
+      </section>
+    </div>
   );
 };
 

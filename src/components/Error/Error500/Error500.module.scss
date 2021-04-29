@@ -1,27 +1,28 @@
 @import '../../../utils/styles/var';
 
+.center {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
 .page_404 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   text-align: center;
   padding: 50px 15px;
   margin-right: auto;
   margin-left: auto;
-  height: 100vh;
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    padding: 25px 10px;
-  }
-  @media (max-width: $mobMax) {
-    padding: 10px;
-  }
 }
 
 .fourZeroFourBg {
   height: 400px;
   background-position: center;
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    height: 350px;
-  }
-  @media (max-width: $mobMax) {
-    height: 350px;
+  background-repeat: no-repeat;
+  @media (min-width: $deskXMax) {
+    height: 500px;
   }
 }
 .title {
