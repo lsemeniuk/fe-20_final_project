@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import jwtDecode from 'jwt-decode';
 import { $authHost, $host } from './index';
 
@@ -22,7 +23,9 @@ export const loginCustomer = async () => {
 // @desc    Return current customer
 // @access  Private
 export const getCustomer = async () => {
-  const { data } = await $authHost.get('customers/customer');
+  const { data } = await $authHost.get('customers/customer').catch(err => {
+    alert(err.message);
+  });
   return data;
 };
 
