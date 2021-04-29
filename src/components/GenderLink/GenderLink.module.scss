@@ -1,0 +1,75 @@
+@import '../../utils/styles/var';
+
+.forWhoLinks {
+  @media (max-width: $lgMax) {
+    padding: 120px 30px 50px 30px;
+  }
+}
+
+.forMen, .forWoman {
+  padding: 90px 90px 90px 330px;
+  border-radius: 20px;
+  color: white;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    font-size: 45px;
+    padding: 70px 50px 70px 270px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 70px 0 70px 490px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    padding: 60px 30px 60px 390px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    padding: 65px 20px 65px 290px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  @media (max-width: $xsMax){
+    padding: 60px 30px 60px 160px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.forMen {
+  background-color: $colorForMan;
+  box-shadow: 0 15px 35px -10px $colorForMan;
+
+}
+
+.forWoman {
+  background-color: $colorForWoman;
+  box-shadow: 0 15px 35px -10px $colorForWoman;
+}
+
+.img {
+  position: absolute;
+  transform: translate(-220px, -236px);
+  @media (min-width: $xlMin) and (max-width: $xlMax){
+    width: 160px;
+    transform: translate(-210px, -202px);
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    width: 150px;
+    transform: translate(-220px, -185px);
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    width: 140px;
+    transform: translate(-240px, -176px);
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    width: 140px;
+    transform: translate(-180px, -182px);
+
+  }
+  @media (max-width: $xsMax){
+    width: 110px;
+    transform: translate(-150px, -139px);
+  }
+}

@@ -1,0 +1,311 @@
+@import '../../utils/styles/var';
+
+// slogan section styles =================================
+.sloganWrapper {
+  background-color: $colorSecondary;
+  //font-family: Arial;
+  padding: 100px 100px 180px 100px;
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 80px 80px 150px 80px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    padding: 60px 60px 130px 60px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    padding: 40px 80px 110px 40px;
+  }
+  @media (max-width: $xsMax) {
+    padding: 40px 20px 100px 20px;
+  }
+}
+
+.slider {
+  background-color: white;
+
+}
+
+.sloganSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  @media (max-width: $xsMax) {
+    margin-top: 60px;
+  }
+}
+
+.imgWrapper {
+  margin-right: 120px;
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    margin-right: 90px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    margin-right: 70px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    margin-right: 50px;
+  }
+  @media (max-width: $xsMax) {
+    margin-right: 20px;
+  }
+}
+
+.img {
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    width: 320px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    width: 300px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    width: 220px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    width: 180px;
+  }
+  @media (max-width: $xsMax) {
+    width: 120px;
+  }
+}
+
+.sloganText {
+  margin-top: 50px;
+  @media (max-width: $xsMax) {
+    margin-top: 20px;
+  }
+}
+
+.slogan {
+  font-size: 80px;
+  color: #000;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    font-size: 70px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    font-size: 60px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    font-size: 40px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    font-size: 30px;
+  }
+  @media (max-width: $xsMax) {
+    font-size: 18px;
+  }
+}
+
+.sloganBuyBtn {
+  border: none;
+  border-radius: 10px;
+  padding: 15px 40px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background-color: $colorButton;
+  box-shadow: 0 15px 20px -15px $colorButton;
+  transition: 0.3s ease all;
+
+  &:hover {
+    box-shadow: none;
+    background-color: $colorButnHover;
+  }
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    padding: 15px 30px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 15px 30px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    padding: 12px 25px;
+    font-size: 25px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  @media (max-width: $xsMax) {
+    border-radius: 8px;
+    font-size: 13px;
+    padding: 4px 10px;
+    margin-top: 10px;
+  }
+}
+
+// product section styles===========================
+
+.productsSection {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptionWrapper {
+  background-color: #2bb1f9;
+  border-radius: 15px;
+  padding: 55px 100px 55px 130px;
+  transform: translateY(-80px);
+  box-shadow: 0 40px 25px -25px #2bb1f9;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    padding: 45px 80px 45px 80px;
+    transform: translateY(-70px);
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 30px 70px 30px 60px;
+    transform: translateY(-60px);
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    padding: 30px 60px 30px 60px;
+    transform: translateY(-50px);
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    padding: 20px 50px 20px 60px;
+    transform: translateY(-50px);
+  }
+  @media (max-width: $xsMax) {
+    padding: 5px 40px 5px 20px;
+    transform: translateY(-30px);
+  }
+
+}
+
+.descriptionText {
+  font-size: 60px;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    font-size: 50px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    font-size: 40px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    font-size: 30px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    font-size: 25px;
+  }
+  @media (max-width: $xsMax) {
+    font-size: 16px;
+  }
+
+}
+
+.descriptionImg {
+  position: absolute;
+  transform: translate(650px, -382px);
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    width: 375px;
+    transform: translate(540px, -328px);
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    width: 290px;
+    transform: translate(450px, -260px);
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    width: 230px;
+    transform: translate(360px, -200px);
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    width: 190px;
+    transform: translate(300px, -170px);
+  }
+  @media (max-width: $xsMax) {
+    width: 100px;
+    transform: translate(180px, -95px);
+  }
+}
+
+// bestsellers section styles ===========================
+
+.bestsellersSection {
+  margin-top: 40px;
+}
+
+.bestsellerTitle{
+  font-size: 20px;
+}
+
+.bestsellersItems {
+  text-align: center;
+  background-color: inherit;
+  height: min-content;
+  color: #000;
+}
+
+.forWho {
+  margin-top: 200px;
+  justify-content: space-between;
+  display: flex;
+  font-size: 55px;
+  font-weight: bold;
+  @media (max-width: $lgMax) {
+    display: none;
+  }
+}
+
+
+.genderSlider {
+  display: none;
+  padding-top: 150px;
+  @media (max-width: $lgMax) {
+    display: flex;
+    background-color: inherit;
+  }
+}
+
+.newProducts {
+  margin-top: 150px;
+  text-align: center;
+  height: 250px;
+  color: #000;
+}
+
+.newProductsTitle{
+  font-size: 20px;
+}
+
+.aboutSection {
+  margin-top: 300px;
+  color: #000;
+  text-align: center;
+  padding: 0 150px;
+  margin-bottom: 100px;
+
+  @media (min-width: $xlMin) and (max-width: $xlMax) {
+    padding: 0 120px;
+  }
+  @media (min-width: $lgMin) and (max-width: $lgMax) {
+    padding: 0 100px;
+  }
+  @media (min-width: $mdMin) and (max-width: $mdMax) {
+    padding: 0 80px;
+  }
+  @media (min-width: $smMin) and (max-width: $smMax) {
+    padding: 0 60px;
+  }
+  @media (max-width: $xsMax) {
+    font-size: $fontSize;
+    padding: 0 40px;
+  }
+
+}
+
+.aboutTitle {
+  font-size: 20px;
+}
+
+.aboutText {
+  color: grey;
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.footer {
+  background-color: grey;
+  margin-top: 100px;
+  height: 250px;
+  margin-bottom: 400px;
+}
