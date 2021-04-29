@@ -9,7 +9,6 @@ class ErrorBoundary extends PureComponent {
     super(props);
     this.state = {
       errorPresent: false,
-      error: 'qs',
     };
   }
 
