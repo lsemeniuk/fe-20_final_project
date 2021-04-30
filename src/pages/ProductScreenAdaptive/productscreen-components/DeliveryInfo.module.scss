@@ -6,7 +6,7 @@
   font-size: 0.8rem;
   padding-inline-start: 1ch;
   margin-bottom: 10px;
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
     font-size: $fontSize;
   }
 }
@@ -15,4 +15,3 @@
   margin-left: 20px;
   margin-top: 10px;
 }
-

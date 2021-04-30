@@ -22,8 +22,8 @@ ProductList.propTypes = {
   getProducts: PropTypes.func.isRequired,
 };
 
-const mapStoreToProps = store => ({
-  products: store.products.data,
+const mapStoreToProps = state => ({
+  products: state.products.data,
 });
 
 const mapDispatchToProps = dispatch => ({

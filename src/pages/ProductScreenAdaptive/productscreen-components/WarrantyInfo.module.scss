@@ -2,7 +2,7 @@
 .warranty {
     margin-top: 10px;
     font-size: 0.8rem;
-    @media (min-width: $pc-breakpoint) {
+    @media (min-width: $deskMin) {
         font-size: $fontSize;
       }
 }

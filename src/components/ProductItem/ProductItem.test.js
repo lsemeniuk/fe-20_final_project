@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, test, describe } from '@testing-library/react';
 import ProductItem from './ProductItem';
 
 describe('Test product item component', () => {

@@ -2,7 +2,7 @@
 .img {
   height: 160px;
   width: 160px;
-  @media (min-width: $phone-breakpoint1) and (max-width: $phone-breakpoint2) {
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
     height: 80px;
     width: 80px;
   }

@@ -6,7 +6,7 @@ ul > * {
 }
 .page__container {
 
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas:
@@ -21,7 +21,7 @@ ul > * {
   padding: 0px 25px;
   }
 
-  @media (min-width: $tablet-breakpoint1) and (max-width: $tablet-breakpoint2){
+  @media (min-width: $tabMin) and (max-width: $tabMax){
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas:
@@ -39,7 +39,7 @@ ul > * {
 }
 .product__info__parent {
   grid-area: product_info;
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
 
   }
 }
@@ -49,7 +49,7 @@ ul > * {
 }
 .name {
   font-size: 25px;
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
@@ -96,7 +96,7 @@ ul > * {
 //** img + Tablet(planchette) view/
 .img__block {
 grid-area: image_block;
-  @media (min-width: 600px) and (max-width: $tablet-breakpoint2) {
+  @media (min-width: 600px) and (max-width: $tabMax) {
     // flex-grow: 2;
   }
 
@@ -115,12 +115,12 @@ grid-area: image_block;
   width: 250px;
   height: 250px;
 
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
     width: 390px;
     height: 390px;
   }
 }
-@media (min-width: $pc-breakpoint) {
+@media (min-width: $deskMin) {
   .img__box:hover .large {
     transform: scale(1.2);
   }
@@ -154,10 +154,10 @@ grid-area: image_block;
     border: 8px solid transparent;
     border-top: 6px solid #3da5ca;
   }
-  @media (min-width: $tablet-breakpoint1) and (max-width: $tablet-breakpoint2) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     font-size: $fontSize;
   }
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
     font-size: $fontSize;
   }
 }
@@ -165,11 +165,11 @@ grid-area: image_block;
 .img__price__parent {
   display: block;
 
-  @media (min-width: $tablet-breakpoint1) and (max-width: $tablet-breakpoint2) {
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     display: flex;
     justify-content: space-between;
   }
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -202,7 +202,7 @@ grid-area: image_block;
   color: $colorTextFooter;
   text-decoration: line-through;
   display: none;
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
     display: block;
   }
 }
@@ -212,7 +212,7 @@ grid-area: image_block;
   & > * {
     margin-top: 10px;
   }
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -231,7 +231,7 @@ grid-area: image_block;
   justify-content: center;
   align-items: center;
 
-  @media (min-width: $pc-breakpoint) {
+  @media (min-width: $deskMin) {
     padding: 2px 16px;
     color: black;
     display: flex;
@@ -285,7 +285,7 @@ grid-area: image_block;
 }
 .description {
   grid-area: description;
-  
+
 }
 .reviews {
   grid-area: reviews;
