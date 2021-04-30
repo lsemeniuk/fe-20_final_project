@@ -32,7 +32,11 @@ const Cart = ({ buttonHandler }) => {
   };
 
   if (isLoading) {
-    return <Loader fixed />;
+    return (
+      <Modal buttonHandler={buttonHandler}>
+        <Loader />
+      </Modal>
+    );
   }
 
   const cartList = cart.map(p => <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} />);

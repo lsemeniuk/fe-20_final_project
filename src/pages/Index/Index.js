@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
-import style from './MainPage.module.scss';
+// import { PRODUCTS_ROUTE } from '../../utils/consts';
 import Container from '../../components/Container/Container';
-import { PRODUCTS_ROUTE } from '../../utils/consts';
 import GenderLink from '../../components/GenderLink/GenderLink';
 import CustomSlider from '../../components/CustomSlider/CustomSlider';
+import style from './MainPage.module.scss';
 
 const Index = () => {
   const sliderSettings = {
@@ -17,6 +17,7 @@ const Index = () => {
     slidesToScroll: 1,
     arrows: false,
   };
+
   return (
     <div>
       <div className={style.sloganWrapper}>
@@ -24,7 +25,7 @@ const Index = () => {
           <div className={style.slider}>
             <p>here will be slider later</p>
           </div>
-          <NavLink to={PRODUCTS_ROUTE}>
+          {/* <NavLink to={PRODUCTS_ROUTE}>
             <div className={style.sloganSection}>
               <div className={style.imgWrapper}>
                 <img
@@ -42,7 +43,7 @@ const Index = () => {
                 </button>
               </div>
             </div>
-          </NavLink>
+          </NavLink> */}
         </Container>
       </div>
 
