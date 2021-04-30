@@ -1,3 +1,8 @@
-import { SET_CURRENT_CUSTOMMER } from './types';
+import axios from 'axios';
+import { LOAD_PROFILE } from './types';
 
-export const saveCustomerAction = customer => ({ type: SET_CURRENT_CUSTOMMER, payload: customer });
+export const loadCustomerProfile = () => dispatch => {
+  axios('/customer-profile.json').then(res => {
+    dispatch({ type: LOAD_PROFILE, payload: res.data });
+  });
+};

@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink, Redirect, Route } from 'react-router-dom';
-import PersonalInfoForm from './PersonalInfoForm';
+import PersonalDataForm from './PersonalDataForm';
 import style from './CustomerSection.module.scss';
 
 const PersonalInfo = () => {
   return (
     <div>
       <h1 className={style.title}>Личные данные</h1>
-      <PersonalInfoForm />
+      <PersonalDataForm />
     </div>
   );
 };

@@ -1,12 +1,12 @@
-import { SET_CURRENT_CUSTOMMER } from './types';
+import { LOAD_PROFILE } from './types';
 
 const initialState = {
-  data: [],
+  data: null,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CURRENT_CUSTOMMER: {
+    case LOAD_PROFILE: {
       return { ...state, data: action.payload };
     }
     default: {

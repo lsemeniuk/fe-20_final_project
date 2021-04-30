@@ -1,10 +1,13 @@
 import React from 'react';
-import InitialRoutes from './routes/InitialRoutes';
+import CustomerSection from './components/CustomerSection/CustomerSection';
+// import InitialRoutes from './routes/InitialRoutes';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <div className='App'>
-      <InitialRoutes />
+      <Header />
+      <CustomerSection />
     </div>
   );
 }

@@ -59,6 +59,7 @@ ul > li {
   display: grid;
   grid-template-columns: max-content max-content;
   grid-gap: 10px;
+  align-items: center;
 }
 .field {
   border: 1px solid #acacac;
@@ -74,9 +75,12 @@ ul > li {
   height: 36px;
   font-family: "Montserrat", sans-serif;
   width: 150%;
-  margin-bottom: 20px;
-}
 
+}
+.btn__save {
+  margin-top: 20px;
+  text-align: center;
+}
 /**************************************
 /**CSS TO MAKE THE EXAMPLE LOOK PRETTY
 /**************************************/

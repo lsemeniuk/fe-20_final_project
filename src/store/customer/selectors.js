@@ -1,1 +1,1 @@
-export const getCustomerSelector = state => state.customer.data;
+export const customerProfileSelector = state => state.customer.data;
