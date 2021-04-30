@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ViewedProguct = () => {
-  return <div>ViewedProguct</div>;
+const ViewedProduct = () => {
+  return <div>ViewedProduct</div>;
 };
 
-export default ViewedProguct;
+export default ViewedProduct;

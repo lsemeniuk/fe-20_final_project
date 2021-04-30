@@ -1,16 +1,43 @@
 @import '../../utils/styles/var';
 
 .item {
+  display: grid;
   width: min-content;
   padding: 20px;
   border-radius: 3px;
+  margin: 15px 0 15px 0;
+  grid-template-columns: min-content;
+  grid-template-rows: 240px 40px 30px 40px;
 
   &:hover {
-    box-shadow: 0px 3px 15px -6px black;
+    box-shadow: 0 3px 15px -6px black;
   }
 
   &:hover > .btnSection {
     opacity: 100%;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    grid-template-rows: 240px 40px 30px 40px;
+  }
+  @media (max-width: $mobMax) {
+    grid-template-rows: 180px 40px 30px 20px;
+  }
+}
+
+.productImg {
+  width: 230px;
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    width: 200px;
+  }
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    width: 180px;
+  }
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    width: 150px;
+  }
+  @media (max-width: $mobMax) {
+    width: 150px;
   }
 }
 
@@ -21,7 +48,6 @@
   -webkit-line-clamp: 2;
   text-decoration: none;
   color: #000;
-  margin-top: 30px;
   text-align: left;
   transition: 0.2s ease all;
 
@@ -29,12 +55,24 @@
     color: $colorButnHover;
     text-decoration: none;
   }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 15px;
+  }
+  @media (max-width: $mobMax) {
+    font-size: 13px;
+  }
 }
 
 .priceSection {
   display: flex;
   justify-content: flex-start;
-  margin-top: 15px;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 15px;
+  }
+  @media (max-width: $mobMax) {
+    font-size: 13px;
+  }
 }
 
 .previousPrice {
@@ -53,6 +91,7 @@
   border-radius: 3px;
   padding: 2px;
   font-size: 11px;
+  transform: translateY(215px);
 
   &:before {
     content: '';
@@ -63,6 +102,12 @@
     border: 6px solid transparent;
     border-top: 5px solid $colorButton;
   }
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 15px;
+  }
+  @media (max-width: $mobMax) {
+    font-size: 13px;
+  }
 }
 
 .btnSection {
@@ -72,11 +117,17 @@
   margin-top: 20px;
   vertical-align: center;
   align-items: center;
+  // @media (max-width: $deskXMax) {
+  //   opacity: 100%;
+  // }
 }
 
 .favIcon {
-  fill: $colorTextFooter;
+  fill: white;
+  stroke: #7d7d7d;
 }
+
 .favIconActive {
-  fill: darkgoldenrod;
+  fill: $colorSecondary;
+  stroke: $colorSecondary;
 }

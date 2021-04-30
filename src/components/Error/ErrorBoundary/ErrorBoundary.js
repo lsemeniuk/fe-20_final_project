@@ -12,11 +12,6 @@ class ErrorBoundary extends PureComponent {
     };
   }
 
-  static getDerivedStateFromError(error) {
-    console.log(error.message);
-    return { errorPresent: true };
-  }
-
   componentDidUpdate(prevProps, prevState) {
     const { location } = this.props;
     const { errorPresent } = prevState;
@@ -26,12 +21,16 @@ class ErrorBoundary extends PureComponent {
     }
   }
 
-  render() {
-    const { errorPresent } = this.state;
-    const { children } = this.props;
+  componentDidCatch() {
+    // axios.post('/api/errors', JSON.stringify({ error, errorInfo }));
+    this.setState({ errorPresent: true });
+  }
 
+  render() {
+    const { errorPresent, error } = this.state;
+    const { children } = this.props;
     if (errorPresent) {
-      return <Error500 />;
+      return <Error500 error={error} />;
     }
 
     return children;

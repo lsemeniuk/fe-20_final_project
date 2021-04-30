@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { replace } from '../../utils/func';
-import { PRODUCT_ROUTE } from '../../utils/consts';
+import { replace } from '../../../../utils/func';
+import { PRODUCT_ROUTE } from '../../../../utils/consts';
 import styles from './CartItem.module.scss';
 
 const CartItem = ({ product, cartQuantity }) => {
