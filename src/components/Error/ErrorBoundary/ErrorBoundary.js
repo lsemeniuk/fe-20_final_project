@@ -44,7 +44,7 @@ ErrorBoundary.defaultProps = {
 
 ErrorBoundary.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
-  location: PropTypes.object.isRequired,
+  location: PropTypes.objectOf.isRequired,
 };
 
 export default withRouter(ErrorBoundary);

@@ -1,3 +1,4 @@
+@import '../../utils/styles/var';
 
 //* Phone View styles ===================================================//
 ul > * {
@@ -284,45 +285,26 @@ grid-area: image_block;
 }
 .description {
   grid-area: description;
-  @media (min-width: $pc-breakpoint) {
-
-  }
+  
 }
 .reviews {
   grid-area: reviews;
-  @media (min-width: $pc-breakpoint) {
 
-  }
 }
 .delivery {
   grid-area: delivery;
-  @media (min-width: $pc-breakpoint) {
 
-  }
 }
 .slider1 {
 
   grid-area: slider1;
-  @media (min-width: $pc-breakpoint) {
 
-  }
-  @media (min-width: $tablet-breakpoint1) and (max-width: $tablet-breakpoint2) {
-
-  }
 }
 .slider2 {
   grid-area: slider2;
-  @media (min-width: $pc-breakpoint) {
 
-  }
-  @media (min-width: $tablet-breakpoint1) and (max-width: $tablet-breakpoint2) {
-  }
 }
 .slider3 {
   grid-area: slider3;
-  @media (min-width: $pc-breakpoint) {
 
-  }
-  @media (min-width: $tablet-breakpoint1) and (max-width: $tablet-breakpoint2) {
-  }
 }

@@ -24,7 +24,7 @@ const ProductCardSmall = ({ product }) => {
 };
 
 ProductCardSmall.propTypes = {
-  product: PropTypes.object.isRequired,
+  product: PropTypes.objectOf.isRequired,
 };
 
 export default ProductCardSmall;

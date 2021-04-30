@@ -59,7 +59,7 @@ const CartItem = ({ product, cartQuantity }) => {
 };
 
 CartItem.propTypes = {
-  product: PropTypes.object.isRequired,
+  product: PropTypes.objectOf.isRequired,
   cartQuantity: PropTypes.number.isRequired,
 };
 

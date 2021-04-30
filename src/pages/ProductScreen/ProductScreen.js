@@ -6,9 +6,6 @@ import Button from '../../components/Button/Button';
 import Heart2 from '../../theme/icons/Heart2';
 import Container from '../../components/Container/Container';
 import SlickSlider from '../../components/SlickSlider/SlickSlider';
-import Avatar from '../../theme/icons/Avatar';
-import FacebookIcon from '../../theme/icons/Facebook';
-import GoogleIcon from '../../theme/icons/Google';
 import ReviewForm from '../../components/Forms/ReviewForm/ReviewForm';
 
 const ProductScreen = () => {
@@ -40,12 +37,9 @@ const ProductScreen = () => {
           <div className={styles.info__block__top}>
             <h3 className={styles.section__title}>Новый отзыв или комментарий</h3>
             <div className={styles.review__group}>
-              <Avatar />
               <ReviewForm />
               <div className={styles.entryWith__group}>
                 <p className={styles.entryWith__group__text}>Войти с помощью</p>
-                <FacebookIcon />
-                <GoogleIcon />
               </div>
             </div>
           </div>

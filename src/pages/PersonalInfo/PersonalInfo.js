@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PersonalInfo = () => {
-  return <div>Personal data page</div>;
+  return <div>Page with Personal Info of the Customer</div>;
 };
 
 export default PersonalInfo;

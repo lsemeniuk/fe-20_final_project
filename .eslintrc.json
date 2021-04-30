@@ -7,7 +7,7 @@
     "no-console": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "prettier/prettier": ["error", { "endOfLine": "auto", "jsxSingleQuote": true }],
-    "max-len": ["error", 120],
+    "max-len": ["error", 450],
     "no-plusplus": "off",
     "import/prefer-default-export": "off",
     "no-underscore-dangle": "off",

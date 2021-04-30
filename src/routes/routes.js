@@ -15,7 +15,7 @@ import WishList from '../pages/WishList/WishList';
 import Orders from '../pages/Orders/Orders';
 import PersonalInfo from '../pages/PersonalInfo/PersonalInfo';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
-import ProductScreen from '../pages/ProductScreen/ProductScreen';
+import ProductScreenAdaptive from '../pages/ProductScreenAdaptive/ProductScreenAdaptive';
 
 export const authRoutes = [
   {
@@ -30,6 +30,10 @@ export const authRoutes = [
     path: PERSONAL_INFO_ROUTE,
     Component: PersonalInfo,
   },
+  {
+    path: WISH_LIST_ROUTE,
+    Component: WishList,
+  },
 ];
 
 export const publicRoutes = [
@@ -39,7 +43,7 @@ export const publicRoutes = [
   },
   {
     path: `${PRODUCT_ROUTE}/:id`,
-    Component: ProductScreen,
+    Component: ProductScreenAdaptive,
   },
   {
     path: `${PRODUCTS_ROUTE}/:categories`,
@@ -47,7 +51,7 @@ export const publicRoutes = [
   },
   {
     path: PRODUCTS_ROUTE,
-    Component: ProductPage,
+    Component: ProductScreenAdaptive,
   },
   {
     path: WISH_LIST_ROUTE,
