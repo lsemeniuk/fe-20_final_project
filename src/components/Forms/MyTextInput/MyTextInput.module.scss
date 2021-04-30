@@ -1,0 +1,28 @@
+.input {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.label {
+  text-align: right;
+  font-size: 14px;
+  padding-right: 10px;
+}
+.textInput {
+  width: 65%;
+  border: 1px solid #acacac;
+  border-radius: 4px;
+  vertical-align: middle;
+  transition: border-color 0.1s;
+  padding: 6px 8px;
+  font-size: 16px;
+  height: 36px;
+}
+.error {
+  position: absolute;
+  top: -17px;
+  font-size: 14px;
+  color: red;
+}

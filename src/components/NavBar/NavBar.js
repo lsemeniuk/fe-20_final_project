@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { INDEX_ROUTE, PERSONAL_INFO_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
+import { INDEX_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
 import Container from '../Container/Container';
 import Icons from '../Icons/Icons';
 import MyOrders from './MyOrders/MyOrders';
 import Logo from '../../theme/Logo';
 import styles from './NavBar.module.scss';
 import CategoriesList from './CategoriesList/CategoriesList';
+import Login from './Login/Login';
 
 const NavBar = () => {
   const location = useLocation();
@@ -54,9 +55,7 @@ const NavBar = () => {
                   )}
                 </li>
                 <li key='personalInfo' className={styles.iconListItem}>
-                  <NavLink to={PERSONAL_INFO_ROUTE}>
-                    <Icons type='navUser' color='black' width={30} height={30} />
-                  </NavLink>
+                  <Login />
                 </li>
                 <li key='cart' className={styles.iconListItem}>
                   <MyOrders />

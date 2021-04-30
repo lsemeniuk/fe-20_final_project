@@ -11,16 +11,18 @@
   padding-bottom: 40px;
   max-height: 100%;
   overflow-y: scroll;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
 }
+
 .modal {
   box-shadow: 0 5px 35px rgba(0, 0, 0, 0.75);
   position: relative;
   top: 10%;
   left: 50%;
-  width: 730px;
   padding: 30px;
   margin-bottom: 40px;
-  margin-left: -365px;
   border-radius: 5px;
   z-index: 9999;
   background-color: #ffffff;
@@ -45,7 +47,10 @@
   cursor: pointer;
   font-size: 40px;
   font-weight: 400;
-  color: #000;
+  color: #5a5a5a;
+  &:hover {
+    color: #181818;
+  }
   &::before {
     content: '\00D7';
   }

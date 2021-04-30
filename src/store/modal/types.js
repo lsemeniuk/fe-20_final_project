@@ -1,0 +1,1 @@
+export const SET_LOCK_SCROLL = 'SET_LOCK_SCROLL';
