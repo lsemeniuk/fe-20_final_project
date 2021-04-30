@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-alert */
 import React from 'react';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../../Forms/MyTextInput/MyTextInput';
 import Button from '../../../Button/Button';
+import styles from './AuthForm.module.scss';
 
 const AuthForm = () => {
   return (
@@ -14,8 +16,11 @@ const AuthForm = () => {
           password: '',
         }}
         validationSchema={Yup.object({
-          loginOrEmail: Yup.string().email('Invalid email address').required('Required'),
-          password: Yup.string().max(20, 'Must be 20 characters or less').required('Required'),
+          loginOrEmail: Yup.string().email('Неверный адрес email').required('Укажите email'),
+          password: Yup.string()
+            .min(8, 'Это шликом маленький пароль')
+            .max(20, 'Такой пароль невозможно запомнить')
+            .required('Необходимо ввести пароль'),
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
@@ -24,13 +29,18 @@ const AuthForm = () => {
           }, 400);
         }}
       >
-        <Form>
-          <MyTextInput label='Логин или email' name='loginOrEmail' type='text' placeholder='Введите логин или email' />
+        {props => (
+          <form onSubmit={props.handleSubmit}>
+            <MyTextInput label='Email' name='loginOrEmail' type='text' placeholder='Введите email' tabIndex='0' />
 
-          <MyTextInput label='Пароль' name='lastName' type='password' placeholder='Введите пароль' />
-
-          <Button type='submit' title='Войти' />
-        </Form>
+            <MyTextInput label='Пароль' name='password' type='text' placeholder='Введите пароль' tabIndex='-1' />
+            <div className={styles.buttonCont}>
+              <div className={styles.widthCont}>
+                <Button type='submit' title='Войти' onClick={props.handleSubmit} className={styles.button} />
+              </div>
+            </div>
+          </form>
+        )}
       </Formik>
     </>
   );

@@ -11,8 +11,8 @@ const RegAuth = ({ buttonHandler, display }) => {
     <Modal buttonHandler={buttonHandler} modalWidth={570} display={display}>
       <Tabs>
         <TabList>
-          <Tab>Вход</Tab>
-          <Tab>Регистрация</Tab>
+          <Tab tabIndex='0'>Вход</Tab>
+          <Tab tabIndex='-1'>Регистрация</Tab>
         </TabList>
 
         <TabPanel>

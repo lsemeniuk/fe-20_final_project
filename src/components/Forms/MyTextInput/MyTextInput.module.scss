@@ -1,9 +1,11 @@
+.container {
+  margin-bottom: 25px;
+  position: relative;
+}
 .input {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 20px;
-  position: relative;
 }
 .label {
   text-align: right;
@@ -11,7 +13,7 @@
   padding-right: 10px;
 }
 .textInput {
-  width: 65%;
+  width: 75%;
   border: 1px solid #acacac;
   border-radius: 4px;
   vertical-align: middle;
@@ -22,7 +24,8 @@
 }
 .error {
   position: absolute;
-  top: -17px;
+  bottom: -20px;
+  right: 0;
   font-size: 14px;
   color: red;
 }

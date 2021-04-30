@@ -17,6 +17,7 @@ const Login = () => {
   const modalHandler = () => {
     setmodalLogin(!modalLogin);
     dispatch(saveLockScrollAction(!lockScroll));
+    document.body.classList.toggle('lock');
   };
 
   const Icon = <Icons type='navUser' color='black' width={30} height={30} />;
