@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Redirect, Route } from 'react-router-dom';
 import PersonalInfoForm from './PersonalInfoForm';
 import style from './CustomerSection.module.scss';
 
@@ -43,6 +43,7 @@ const CustomerSection = () => {
         </ul>
       </nav>
       <section>
+        <Route to='/' /> <Redirect to='/personal-info' />
         <Route exact path='/personal-info' component={PersonalInfo} />
         <Route exact path='/orders' component={Orders} />
         <Route exact path='/wishlist' component={Wishlist} />
