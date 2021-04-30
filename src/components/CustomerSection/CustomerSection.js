@@ -43,10 +43,10 @@ const CustomerSection = () => {
         </ul>
       </nav>
       <section>
-        <Route to='/' /> <Redirect to='/personal-info' />
-        <Route exact path='/personal-info' component={PersonalInfo} />
-        <Route exact path='/orders' component={Orders} />
-        <Route exact path='/wishlist' component={Wishlist} />
+        <Route exact to='/' /> <Redirect to='/personal-info' />
+        <Route path='/personal-info' component={PersonalInfo} />
+        <Route path='/orders' component={Orders} />
+        <Route path='/wishlist' component={Wishlist} />
       </section>
     </div>
   );
