@@ -1,3 +1,4 @@
-import { SET_CURRENT_CUSTOMMER } from './types';
+import { SET_CUSTOMMER_ISAUTH, SET_CUSTOMMER } from './types';
 
-export const saveCustomerAction = customer => ({ type: SET_CURRENT_CUSTOMMER, payload: customer });
+export const saveCustomerIsAuthAction = isAuth => ({ type: SET_CUSTOMMER_ISAUTH, payload: isAuth });
+export const saveCustomerAction = data => ({ type: SET_CUSTOMMER, payload: data });

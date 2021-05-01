@@ -8,7 +8,7 @@ import MyOrders from './MyOrders/MyOrders';
 import Logo from '../../theme/Logo';
 import styles from './NavBar.module.scss';
 import CategoriesList from './CategoriesList/CategoriesList';
-import Login from './Login/Login';
+import User from './User/User';
 
 const NavBar = () => {
   const location = useLocation();
@@ -55,7 +55,7 @@ const NavBar = () => {
                   )}
                 </li>
                 <li key='personalInfo' className={styles.iconListItem}>
-                  <Login />
+                  <User />
                 </li>
                 <li key='cart' className={styles.iconListItem}>
                   <MyOrders />

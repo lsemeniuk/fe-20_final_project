@@ -1,17 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import InitialRoutes from './routes/InitialRoutes';
-import { getLockScrollSelector } from './store/modal/selectors';
+import { checkAuthOperation } from './store/customer/operations';
 
 function App() {
-  const lockScroll = useSelector(getLockScrollSelector);
-  let styles = {};
-  if (lockScroll) {
-    styles = { overflow: 'hidden' };
-  }
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(checkAuthOperation());
+  }, []);
 
   return (
-    <div className='App' style={styles}>
+    <div className='App'>
       <InitialRoutes />
     </div>
   );

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.scss';
 import Modal from '../Modal/Modal';
-import styles from './RegAuth.module.scss';
 import AuthForm from './AuthForm/AuthForm';
+import RegForm from './RegForm/RegForm';
+import styles from './RegAuth.module.scss';
 
 const RegAuth = ({ buttonHandler, display }) => {
   return (
@@ -21,7 +22,9 @@ const RegAuth = ({ buttonHandler, display }) => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div className={styles.form}>Any content 2</div>
+          <div className={styles.form}>
+            <RegForm />
+          </div>
         </TabPanel>
       </Tabs>
     </Modal>

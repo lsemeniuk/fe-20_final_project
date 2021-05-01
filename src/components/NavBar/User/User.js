@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { saveLockScrollAction } from '../../../store/modal/actions';
-import { getLockScrollSelector } from '../../../store/modal/selectors';
+import { saveModalAuthRegAction } from '../../../store/modal/actions';
+import { getModalAuthRegSelector } from '../../../store/modal/selectors';
 import { PERSONAL_INFO_ROUTE } from '../../../utils/consts';
 import Icons from '../../Icons/Icons';
 import RegAuth from '../../modals/RegAuth/RegAuth';
-import styles from './Login.module.scss';
+import styles from './User.module.scss';
 
-const Login = () => {
+const User = () => {
   const dispatch = useDispatch();
-  const lockScroll = useSelector(getLockScrollSelector);
-  const [modalLogin, setmodalLogin] = useState(false);
+  const modalAuthReg = useSelector(getModalAuthRegSelector);
   const isLogin = false;
 
   const modalHandler = () => {
-    setmodalLogin(!modalLogin);
-    dispatch(saveLockScrollAction(!lockScroll));
+    dispatch(saveModalAuthRegAction(!modalAuthReg));
     document.body.classList.toggle('lock');
   };
 
@@ -32,9 +30,9 @@ const Login = () => {
         </div>
       )}
 
-      <RegAuth buttonHandler={modalHandler} display={modalLogin} />
+      <RegAuth buttonHandler={modalHandler} display={modalAuthReg} />
     </>
   );
 };
 
-export default Login;
+export default User;

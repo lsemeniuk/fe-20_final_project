@@ -1,13 +1,17 @@
-import { SET_LOCK_SCROLL } from './types';
+import { SET_MODAL_CART, SET_MODAL_AUTH_REG } from './types';
 
 const initialState = {
-  isLock: false,
+  cartOpen: false,
+  authRegOpen: false,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_LOCK_SCROLL: {
-      return { ...state, isLock: action.payload };
+    case SET_MODAL_CART: {
+      return { ...state, cartOpen: action.payload };
+    }
+    case SET_MODAL_AUTH_REG: {
+      return { ...state, authRegOpen: action.payload };
     }
     default: {
       return state;

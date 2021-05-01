@@ -1,1 +1,2 @@
-export const SET_LOCK_SCROLL = 'SET_LOCK_SCROLL';
+export const SET_MODAL_CART = 'SET_MODAL_CART';
+export const SET_MODAL_AUTH_REG = 'SET_MODAL_AUTH_REG';

@@ -6,8 +6,11 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
 }
 .label {
+  position: absolute;
+  right: 75%;
   text-align: right;
   font-size: 14px;
   padding-right: 10px;
