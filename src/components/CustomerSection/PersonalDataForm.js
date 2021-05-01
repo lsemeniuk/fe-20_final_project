@@ -33,11 +33,11 @@ function PersonalDataForm({ handleSubmit, isSubmitting }) {
           <label> Город</label>
           <MyInput name='city' type='text' value={customer.city} className={style.field} />
           <label> Адрес</label>
-          <MyInput name='address' type='text' className={style.field} />
+          <MyInput name='address' type='text' value={customer.address} className={style.field} />
           <label> Пароль </label>
           <MyInput name='password' type='password' value={customer.password} className={style.field} />
           <label> Еще раз пароль </label>
-          <MyInput name='repeatPassword' type='password' className={style.field} />
+          <MyInput name='repeatPassword' type='password' value={customer.password} className={style.field} />
         </div>
         <div>
           <Button disabled={isSubmitting} type='submit' title='Сохранить' className={style.btn__save} />

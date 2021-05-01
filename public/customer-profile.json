@@ -3,7 +3,6 @@
   "email": "john.d2000@gmail.com",
   "phone": "+38 (050) 123-45-67",
   "city": "New York",
-  "address": "",
-  "password": "********",
-  "repeatPassowrd": ""
+  "address": "Brooklyn, 23",
+  "password": "123456"
 }

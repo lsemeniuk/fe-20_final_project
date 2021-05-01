@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink, Redirect, Route } from 'react-router-dom';
 import PersonalDataForm from './PersonalDataForm';
 import style from './CustomerSection.module.scss';
+import Container from '../Container/Container';
+import { ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
 
 const PersonalInfo = () => {
   return (
@@ -22,33 +24,35 @@ const Wishlist = () => {
 
 const CustomerSection = () => {
   return (
-    <div className={style.flex}>
-      <nav>
-        <ul>
-          <li>
-            <NavLink exact to='/personal-info' className={style.link} activeClassName={style.link__active}>
-              Личные данные
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/orders' className={style.link} activeClassName={style.link__active}>
-              Заказы
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/wishlist' className={style.link} activeClassName={style.link__active}>
-              Списки желаний
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <section>
-        <Route exact to='/' /> <Redirect to='/personal-info' />
-        <Route path='/personal-info' component={PersonalInfo} />
-        <Route path='/orders' component={Orders} />
-        <Route path='/wishlist' component={Wishlist} />
-      </section>
-    </div>
+    <Container>
+      <div className={style.flex}>
+        <nav>
+          <ul>
+            <li>
+              <NavLink exact to={PERSONAL_INFO_ROUTE} className={style.link} activeClassName={style.link__active}>
+                Личные данные
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={ORDERS_ROUTE} className={style.link} activeClassName={style.link__active}>
+                Заказы
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={WISH_LIST_ROUTE} className={style.link} activeClassName={style.link__active}>
+                Списки желаний
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <section>
+          <Route exact to='/' /> <Redirect to={PERSONAL_INFO_ROUTE} />
+          <Route path={PERSONAL_INFO_ROUTE} component={PersonalInfo} />
+          <Route path={ORDERS_ROUTE} component={Orders} />
+          <Route path={WISH_LIST_ROUTE} component={Wishlist} />
+        </section>
+      </div>
+    </Container>
   );
 };
 
