@@ -10,6 +10,7 @@ import schema from './schema';
 import Button from '../Button/Button';
 import { customerProfileSelector } from '../../store/customer/selectors';
 import { loadCustomerProfile } from '../../store/customer/actions';
+import store from '../../store/store';
 
 function PersonalDataForm({ handleSubmit, isSubmitting }) {
   const customer = useSelector(customerProfileSelector);
@@ -25,19 +26,19 @@ function PersonalDataForm({ handleSubmit, isSubmitting }) {
       <form onSubmit={handleSubmit} noValidate>
         <div className={style.grid__layout}>
           <label> Имя и Фамилия</label>
-          <MyInput name='fullName' type='text' value={customer.fullName} className={style.field} />
+          <MyInput name='fullName' type='text' className={style.field} />
           <label> Эл. Почта</label>
-          <MyInput name='email' type='text' value={customer.email} className={style.field} />
+          <MyInput name='email' type='text' className={style.field} />
           <label> Телефон</label>
-          <MyInput name='phone' type='text' value={customer.phone} className={style.field} />
+          <MyInput name='phone' type='text' className={style.field} />
           <label> Город</label>
-          <MyInput name='city' type='text' value={customer.city} className={style.field} />
+          <MyInput name='city' type='text' className={style.field} />
           <label> Адрес</label>
-          <MyInput name='address' type='text' value={customer.address} className={style.field} />
+          <MyInput name='address' type='text' className={style.field} />
           <label> Пароль </label>
-          <MyInput name='password' type='password' value={customer.password} className={style.field} />
+          <MyInput name='password' type='password' className={style.field} />
           <label> Еще раз пароль </label>
-          <MyInput name='repeatPassword' type='password' value={customer.password} className={style.field} />
+          <MyInput name='repeatPassword' type='password' className={style.field} />
         </div>
         <div>
           <Button disabled={isSubmitting} type='submit' title='Сохранить' className={style.btn__save} />
@@ -57,15 +58,16 @@ const saveCustomerInfo = (values, { setSubmitting }) => {
   setSubmitting(false);
 };
 
+console.log(store.getState().customer.data);
+
 export default withFormik({
   mapPropsToValues: () => ({
-    fullname: '',
-    email: '',
-    phone: '',
-    city: '',
+    fullName: 'John Dow',
+    email: 'jonn.d2000@gmail.com',
+    phone: '+233 433 233',
+    city: 'New York',
     address: '',
-    password: '',
-    repeatPassword: '',
+    password: '123456',
   }),
   handleSubmit: saveCustomerInfo,
   validationSchema: schema,
