@@ -14,4 +14,39 @@ ul {
 }
 body.lock {
   overflow: hidden;
+  padding-right: 17px;
+}
+.slick-next,
+.slick-prev {
+  z-index: 50;
+  border-radius: 4px;
+  border: 1px solid #e1e1e1;
+  background: #fff;
+  height: 40px;
+  width: 40px;
+  top: 30%;
+  color: #131313;
+  opacity: 0.7;
+  &:hover {
+    background: #fff;
+    opacity: 1;
+  }
+  &:focus {
+    background: #fff;
+    opacity: 1;
+  }
+  &::before {
+    color: #131313;
+    font-size: 16px;
+    opacity: 0.7;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+.slick-next {
+  right: 0;
+}
+.slick-prev {
+  left: 0;
 }

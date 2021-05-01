@@ -1,16 +1,19 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { saveModalCartAction } from '../../../store/modal/actions';
+import { getModalCartSelector } from '../../../store/modal/selectors';
 import { replace } from '../../../utils/func';
 import Icons from '../../Icons/Icons';
 import Cart from '../../modals/Cart/Cart';
 import styles from './MyOrders.module.scss';
 
 const MyOrders = () => {
+  const dispatch = useDispatch();
+  const modalCart = useSelector(getModalCartSelector);
   const cart = 2;
-  const [modalCart, setmodalCart] = useState(false);
 
   const modalHandler = () => {
-    setmodalCart(!modalCart);
+    dispatch(saveModalCartAction(!modalCart));
     document.body.classList.toggle('lock');
   };
 
@@ -38,7 +41,7 @@ const MyOrders = () => {
           </div>
         </div>
       )}
-      {modalCart && <Cart buttonHandler={modalHandler} />}
+      <Cart buttonHandler={modalHandler} display={modalCart} />
     </>
   );
 };
