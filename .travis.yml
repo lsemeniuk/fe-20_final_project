@@ -13,6 +13,9 @@ before_install:
 before_script:
   - npm install --prefix ./
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 script:
   - npm run test --prefix ./
   - codecov
