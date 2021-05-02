@@ -15,5 +15,5 @@ before_script:
 
 script:
   - npm run test --prefix ./
-  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  - istanbul cover https://codecov.io/bash --reporter lcovonly -- -R spec
   - codecov
