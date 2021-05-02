@@ -1,3 +1,10 @@
+.container {
+  position: relative;
+  &:hover .userBar {
+    visibility: visible;
+    opacity: 1;
+  }
+}
 .icon {
   cursor: pointer;
 }
