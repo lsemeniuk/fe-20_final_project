@@ -45,7 +45,7 @@ function PersonalDataForm({ handleSubmit, isSubmitting }) {
           <MyInput name='repeatPassword' type='password' className={style.field} />
         </div>
         <div>
-          <Button disabled={isSubmitting} type='submit' title='Сохранить' className={style.btn__save} />
+          <Button type='submit' disabled={isSubmitting} title='Сохранить' />
         </div>
       </form>
     </div>
