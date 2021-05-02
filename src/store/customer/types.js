@@ -1,1 +1,2 @@
 export const LOAD_PROFILE = 'LOAD_PROFILE';
+export const SET_ISLOADING = 'SET_ISLOADING';

@@ -8,18 +8,22 @@ import style from './CustomerSection.module.scss';
 import MyInput from './MyInput';
 import schema from './schema';
 import Button from '../Button/Button';
-import { customerProfileSelector } from '../../store/customer/selectors';
+import { customerProfileSelector, isLoadingSelector } from '../../store/customer/selectors';
 import { loadCustomerProfile } from '../../store/customer/actions';
-import store from '../../store/store';
 
 function PersonalDataForm({ handleSubmit, isSubmitting }) {
   const customer = useSelector(customerProfileSelector);
+  const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadCustomerProfile());
+    if (customer) {
+      localStorage.setItem('customer', JSON.stringify(customer));
+    }
+    // localStorage.clear();
   }, []);
 
-  if (!customer || customer === null) return <Loader />;
+  if (isLoading) return <Loader />;
 
   return (
     <div className={style.profile__content}>
@@ -57,17 +61,16 @@ const saveCustomerInfo = (values, { setSubmitting }) => {
   // console.log('helpers', helpers);
   setSubmitting(false);
 };
-
-console.log(store.getState().customer.data);
+const customerLocal = JSON.parse(localStorage.getItem('customer'));
 
 export default withFormik({
   mapPropsToValues: () => ({
-    fullName: 'John Dow',
-    email: 'jonn.d2000@gmail.com',
-    phone: '+233 433 233',
-    city: 'New York',
-    address: '',
-    password: '123456',
+    fullName: customerLocal ? customerLocal.fullName : '',
+    email: customerLocal ? customerLocal.email : '',
+    phone: customerLocal ? customerLocal.phone : '',
+    city: customerLocal ? customerLocal.city : '',
+    address: customerLocal ? customerLocal.address : '',
+    password: customerLocal ? customerLocal.password : '',
   }),
   handleSubmit: saveCustomerInfo,
   validationSchema: schema,

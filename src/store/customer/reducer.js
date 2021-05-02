@@ -1,17 +1,20 @@
-import { LOAD_PROFILE } from './types';
+import { LOAD_PROFILE, SET_ISLOADING } from './types';
 
 const initialState = {
   data: null,
+  isLoading: '',
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_PROFILE: {
+    case LOAD_PROFILE:
       return { ...state, data: action.payload };
-    }
-    default: {
+
+    case SET_ISLOADING:
+      return { ...state, isLoading: action.payload };
+
+    default:
       return state;
-    }
   }
 };
 

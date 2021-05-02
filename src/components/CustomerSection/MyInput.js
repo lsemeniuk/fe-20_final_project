@@ -12,7 +12,6 @@ const MyInput = ({ name, ...rest }) => {
     </div>
   );
 };
-
 MyInput.propTypes = {
   name: PropTypes.string.isRequired,
 };
