@@ -1,14 +1,16 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-restricted-globals */
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Redirect, Route } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import style from './CustomerSection.module.scss';
 import { ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
 import PersonalDataForm from './PersonalDataForm';
 import Container from '../../components/Container/Container';
 import ProductItem from '../../components/ProductItem/ProductItem';
-import { clearFavoritesAction } from '../../store/favorites/actions';
+import FavsClearModal from '../../components/modals/FavsClearModal/FavsClearModal';
+// import { clearFavoritesAction } from '../../store/favorites/actions';
+// import FavsClearModal from '../../components/modals/FavsClearModal/FavsClearModal';
 
 const PersonalInfo = () => {
   return (
@@ -24,17 +26,19 @@ const Orders = () => {
 };
 
 const Wishlist = () => {
+  const [modalOpen, setModalOpen] = useState(false);
   const favorites = useSelector(state => state.favorites.data);
-  const dispatch = useDispatch();
-  const clearFavorites = () => {
-    dispatch(clearFavoritesAction());
-  };
+  // const dispatch = useDispatch();
+
+  // dispatch(clearFavoritesAction());
+
   return (
     <div>
+      <FavsClearModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
       <div className={style.row}>
         <h1 className={style.title}>Список желаний</h1>
         {favorites.length > 0 && (
-          <span className={style.clear} onClick={clearFavorites}>
+          <span className={style.clear} onClick={() => setModalOpen(true)}>
             Очистить
           </span>
         )}
