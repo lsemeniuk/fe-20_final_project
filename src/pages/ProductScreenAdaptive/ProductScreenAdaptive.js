@@ -1,22 +1,34 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { VscFeedback } from 'react-icons/vsc';
 import { FaChevronRight } from 'react-icons/fa';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import style from './ProductScreenAdaptive.module.scss';
 import data from './data';
 // import Container from '../../components/Container/Container';
 import Button from '../../components/Button/Button';
-import Heart2 from '../../theme/icons/Heart2';
 import ProductDetails from './productscreen-components/ProductDetails';
 import DelPayWarrBlock from './productscreen-components/DelPayWarrBlock';
 import SlickSlider from '../../components/SlickSlider/SlickSlider';
+import { addToFavoritesAction } from '../../store/favorites/actions';
 
 const ProductScreenAdaptive = () => {
-  const { name, image, itemNo, isNew, countInStock, price, previousPrice } = data.currentProduct;
-  const [toggleDetails, setToggleDetails] = useState(false);
+  const { currentProduct, products } = data;
+  const { name, image, itemNo, isNew, countInStock, price, previousPrice } = currentProduct;
 
-  const sliderWatches = data.products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
+  const [toggleDetails, setToggleDetails] = useState(false);
+  const dispatch = useDispatch();
+
+  const addToFavorites = () => {
+    dispatch(addToFavoritesAction(currentProduct));
+  };
+
+  const favorites = useSelector(state => state.favorites.data);
+  const alreadyInFavs = favorites.find(item => item._id === currentProduct._id);
+  const sliderWatches = products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
   // const otherWatches = data.products.filter(watch => watch.category === 'men');
+
   return (
     <div>
       <h2>This is Adaptive Product Screen</h2>
@@ -58,10 +70,21 @@ const ProductScreenAdaptive = () => {
             <div className={style.pc__view}>
               <Button title='Купить' onClick={null} />
               <Button title='Быстрый заказ' variant='outline' onClick={() => console.log('Quick Buy!')} />
-              <div className={style.icon__frame}>
-                <Heart2 />
-                <p>В избранное</p>
-              </div>
+              {!alreadyInFavs ? (
+                <button type='button' className={style.icon__frame} onClick={() => addToFavorites(currentProduct)}>
+                  <span className={style.heart}>
+                    <AiOutlineHeart size='1.3rem' fill='lightgrey' />
+                  </span>
+                  <p className={style.gap}>В желания </p>
+                </button>
+              ) : (
+                <button type='button' className={style.icon__frame}>
+                  <span className={`${style.heart} ${style.heart__active}`}>
+                    <AiFillHeart size='1.3rem' color='white' />
+                  </span>
+                  <p className={style.gap}>В желаниях</p>
+                </button>
+              )}
             </div>
           </div>
         </li>

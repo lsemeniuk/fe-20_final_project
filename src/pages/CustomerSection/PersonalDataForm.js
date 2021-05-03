@@ -3,11 +3,11 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { withFormik } from 'formik';
-import Loader from '../Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 import style from './CustomerSection.module.scss';
 import MyInput from './MyInput';
 import schema from './schema';
-import Button from '../Button/Button';
+import Button from '../../components/Button/Button';
 import { customerProfileSelector, isLoadingSelector } from '../../store/customer/selectors';
 import { loadCustomerProfile } from '../../store/customer/actions';
 
@@ -41,10 +41,10 @@ function PersonalDataForm({ handleSubmit, isSubmitting }) {
           <MyInput name='address' type='text' className={style.field} />
           <label> Пароль </label>
           <MyInput name='password' type='password' className={style.field} />
-          <label> Еще раз пароль </label>
+          <label> Пароль еще раз </label>
           <MyInput name='repeatPassword' type='password' className={style.field} />
         </div>
-        <div>
+        <div className={style.btn__pos}>
           <Button type='submit' disabled={isSubmitting} title='Сохранить' />
         </div>
       </form>

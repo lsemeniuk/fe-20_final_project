@@ -1,31 +1,39 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Button from '../Button/Button';
-import { PRODUCT_ROUTE } from '../../utils/consts';
+import { PRODUCT_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
 import { favIcon } from '../../theme/icons';
 import styles from './ProductItem.module.scss';
+import { removeFromFavoritesAction } from '../../store/favorites/actions';
 
 const ProductItem = ({ product }) => {
   const [inCart, setCart] = useState(false);
-
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const { image, isNew, name, price, previousPrice, itemNo, _id } = product;
   const buyOpenModal = () => {
     setCart(true);
     // eslint-disable-next-line no-console
     console.log('buy');
   };
-
+  const removeFromFavorites = () => {
+    dispatch(removeFromFavoritesAction(_id));
+    history.push(WISH_LIST_ROUTE);
+  };
   const addToFav = e => {
     const heartIcon = e.target.classList;
     heartIcon.toggle(styles.favIconActive);
   };
 
-  const { imageUrls, isNew, name, currentPrice, previousPrice, itemNo } = product;
-
   return (
     <div className={styles.item}>
       <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
-        <img className={styles.productImg} src={imageUrls[0]} alt='watch' />
+        <img className={styles.productImg} src={image} alt='watch' />
+        <span className={styles.cross} onClick={() => removeFromFavorites(_id)}>
+          &times;
+        </span>
       </NavLink>
       {isNew && <div className={styles.newMessage}>Новинка</div>}
       <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
@@ -33,7 +41,7 @@ const ProductItem = ({ product }) => {
       </NavLink>
 
       <div className={styles.priceSection}>
-        <p className={styles.currentPrice}>{currentPrice}грн</p>
+        <p className={styles.currentPrice}>{price}грн</p>
         <p className={styles.previousPrice}>{previousPrice && <s>{previousPrice}грн</s>}</p>
       </div>
 

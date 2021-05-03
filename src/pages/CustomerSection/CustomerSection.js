@@ -1,9 +1,14 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-restricted-globals */
 import React from 'react';
 import { NavLink, Redirect, Route } from 'react-router-dom';
-import PersonalDataForm from './PersonalDataForm';
+import { useSelector, useDispatch } from 'react-redux';
 import style from './CustomerSection.module.scss';
-import Container from '../Container/Container';
 import { ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
+import PersonalDataForm from './PersonalDataForm';
+import Container from '../../components/Container/Container';
+import ProductItem from '../../components/ProductItem/ProductItem';
+import { clearFavoritesAction } from '../../store/favorites/actions';
 
 const PersonalInfo = () => {
   return (
@@ -15,11 +20,31 @@ const PersonalInfo = () => {
 };
 
 const Orders = () => {
-  return <h2>Orders Page</h2>;
+  return <h1 className={style.title}>Заказы</h1>;
 };
 
 const Wishlist = () => {
-  return <h2>WishList Page</h2>;
+  const favorites = useSelector(state => state.favorites.data);
+  const dispatch = useDispatch();
+  const clearFavorites = () => {
+    dispatch(clearFavoritesAction());
+  };
+  return (
+    <div>
+      <div className={style.row}>
+        <h1 className={style.title}>Список желаний</h1>
+        {favorites.length > 0 && (
+          <span className={style.clear} onClick={clearFavorites}>
+            Очистить
+          </span>
+        )}
+      </div>
+      {!favorites.length && <p>Вы еще не добавили товары в список желаний</p>}
+      {favorites.map(item => (
+        <ProductItem key={item._id} product={item} />
+      ))}
+    </div>
+  );
 };
 
 const CustomerSection = () => {

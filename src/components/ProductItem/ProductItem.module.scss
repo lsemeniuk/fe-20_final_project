@@ -1,6 +1,7 @@
 @import '../../utils/styles/var';
 
 .item {
+  position: relative;
   display: grid;
   width: min-content;
   padding: 20px;
@@ -130,4 +131,18 @@
 .favIconActive {
   fill: $colorSecondary;
   stroke: $colorSecondary;
+}
+
+.cross {
+  font-weight: bold;
+  color:#000;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+.cross:hover {
+  color: $colorButton;
+  cursor: pointer;
+
 }

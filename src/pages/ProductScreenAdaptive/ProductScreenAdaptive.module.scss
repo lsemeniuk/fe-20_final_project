@@ -1,38 +1,41 @@
 @import '../../utils/styles/var';
-
+@mixin d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 //* Phone View styles ===================================================//
 ul > * {
   margin-bottom: 35px;
 }
 .page__container {
-
   @media (min-width: $deskMin) {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas:
-  "image_block product_info"
-  "image_block price_buttons"
-  "reviews delivery"
-  "reviews slider1"
-  "reviews slider2"
-  "description description"
-  "slider3 slider3";
-  margin: 0px auto;
-  padding: 0px 25px;
+      'image_block product_info'
+      'image_block price_buttons'
+      'reviews delivery'
+      'reviews slider1'
+      'reviews slider2'
+      'description description'
+      'slider3 slider3';
+    margin: 0px auto;
+    padding: 0px 25px;
   }
 
-  @media (min-width: $tabMin) and (max-width: $tabMax){
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-areas:
-  "product_info product_info"
-  "image_block price_buttons"
-  "description description"
-  "reviews reviews"
-  "delivery delivery"
-  "slider1 slider1"
-  "slider2 slider2"
-  "slider3 slider3";
+      'product_info product_info'
+      'image_block price_buttons'
+      'description description'
+      'reviews reviews'
+      'delivery delivery'
+      'slider1 slider1'
+      'slider2 slider2'
+      'slider3 slider3';
   }
   margin: 0px auto;
   padding: 0px 12px;
@@ -40,7 +43,6 @@ ul > * {
 .product__info__parent {
   grid-area: product_info;
   @media (min-width: $deskMin) {
-
   }
 }
 .location {
@@ -95,11 +97,10 @@ ul > * {
 
 //** img + Tablet(planchette) view/
 .img__block {
-grid-area: image_block;
+  grid-area: image_block;
   @media (min-width: 600px) and (max-width: $tabMax) {
     // flex-grow: 2;
   }
-
 }
 .img__box {
   text-align: center;
@@ -107,9 +108,7 @@ grid-area: image_block;
   margin-top: 40px;
 }
 .flx_center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include d-flex-center;
 }
 .large {
   width: 250px;
@@ -181,7 +180,6 @@ grid-area: image_block;
   flex-direction: column;
   padding: 0;
   grid-area: price_buttons;
-
 }
 .price__buttons__block {
   background-color: #f5f5f5;
@@ -228,15 +226,15 @@ grid-area: image_block;
 .icon__frame {
   background-color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
 
   @media (min-width: $deskMin) {
-    padding: 2px 16px;
+    padding: 2px 10px;
     color: black;
     display: flex;
     align-items: center;
-    border: 1px solid lightgrey;
+    border: 1px solid $colorTextFooter;
     background: #fff;
     border-radius: 5px;
     &:hover {
@@ -244,14 +242,27 @@ grid-area: image_block;
     }
   }
 }
+.heart {
+  border: 1px solid $colorTextFooter;
+  padding: 3px;
+  border-radius: 50%;
+  @include d-flex-center;
 
+}
+.heart__active {
+  background: #ffd200;
+  border-color: #ffd200;
+
+}
+.gap {
+  margin-left: 15px;
+  font-size: 12px;
+}
 //** description*/
 
 .icon__centre {
-  display: flex;
+  @include d-flex-center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 .section__title {
   font-size: 1rem;
@@ -285,26 +296,19 @@ grid-area: image_block;
 }
 .description {
   grid-area: description;
-
 }
 .reviews {
   grid-area: reviews;
-
 }
 .delivery {
   grid-area: delivery;
-
 }
 .slider1 {
-
   grid-area: slider1;
-
 }
 .slider2 {
   grid-area: slider2;
-
 }
 .slider3 {
   grid-area: slider3;
-
 }

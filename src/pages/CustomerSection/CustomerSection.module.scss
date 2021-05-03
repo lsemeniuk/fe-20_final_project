@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
-
+@import '../../utils/styles/var';
 .wrapper {
   margin: 0 auto;
   max-width: 98%;
@@ -8,6 +8,7 @@
 
 .flex {
   display: flex;
+  margin-top: 20px;
 }
 header {
   padding: 20px 0;
@@ -58,7 +59,7 @@ ul > li {
 .grid__layout {
   display: grid;
   grid-template-columns: max-content max-content;
-  grid-gap: 10px;
+  grid-gap: 15px;
   align-items: center;
 }
 .field {
@@ -81,27 +82,45 @@ ul > li {
   margin-top: 20px;
   text-align: center;
 }
+.btn__pos {
+  margin: 15px 0 0 150px;
+}
+.row {
+  display: flex;
+  align-items: flex-start;
+}
+.clear {
+  margin-left: 15px;
+}
+.clear:hover {
+  color: $colorButton;
+  cursor: pointer;
+}
+.productCard__wrapper {
+  position: relative;
+}
+
 /**************************************
 /**CSS TO MAKE THE EXAMPLE LOOK PRETTY
 /**************************************/
 
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* background: #2980b9; */
-  /* color: #FFF; */
-  font-family: "Montserrat", sans-serif;
-}
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+// *,
+// *:before,
+// *:after {
+//   -moz-box-sizing: border-box;
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+// body {
+//   margin: 0;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   /* background: #2980b9; */
+//   /* color: #FFF; */
+//   font-family: "Montserrat", sans-serif;
+// }
+// ul {
+//   list-style: none;
+//   padding: 0;
+//   margin: 0;
+// }

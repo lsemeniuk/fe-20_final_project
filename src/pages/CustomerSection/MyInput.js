@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useField } from 'formik';
-import style from './MyInput.module.scss';
+import style from './CustomerSection.module.scss';
 
 const MyInput = ({ name, ...rest }) => {
   const [field, meta] = useField(name);

@@ -1,12 +1,12 @@
 import React from 'react';
-import CustomerSection from './components/CustomerSection/CustomerSection';
+import CustomerSection from './pages/CustomerSection/CustomerSection';
+import ProductScreenAdaptive from './pages/ProductScreenAdaptive/ProductScreenAdaptive';
 // import InitialRoutes from './routes/InitialRoutes';
-import Header from './components/Header/Header';
 
 function App() {
   return (
     <div className='App'>
-      <Header />
+      <ProductScreenAdaptive />
       <CustomerSection />
     </div>
   );
