@@ -6,18 +6,12 @@ import MyFilterContainer from './components/SelectBar/MyFilterContainer/MyFilter
 import styles from './App.module.scss';
 
 function App() {
-  const [sort] = useState(true);
-  const [checkboxed] = useState(true);
   return (
     <div className='App'>
       <NavBar />
       <MyFilterContainer sort={sort} />
       <MyFilterContainer checkboxed={checkboxed} />
-
       <AppRoutes />
-
-      {/* <MyFilterContainer sort={sort} /> */}
-      <div className={styles.divs}>aaa</div>
       <Footer />
     </div>
   );
