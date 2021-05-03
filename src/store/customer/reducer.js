@@ -1,12 +1,17 @@
-import { SET_CURRENT_CUSTOMMER } from './types';
+import { SET_CUSTOMMER_ISAUTH, SET_CUSTOMMER } from './types';
 
 const initialState = {
-  data: [],
+  isAuth: false,
+  data: {},
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CURRENT_CUSTOMMER: {
+    case SET_CUSTOMMER_ISAUTH: {
+      return { ...state, isAuth: action.payload };
+    }
+
+    case SET_CUSTOMMER: {
       return { ...state, data: action.payload };
     }
     default: {

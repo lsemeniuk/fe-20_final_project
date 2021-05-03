@@ -3,7 +3,6 @@ import AppRoutes from './routes/AppRoutes';
 import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 import MyFilterContainer from './components/SelectBar/MyFilterContainer/MyFilterContainer';
-import styles from './App.module.scss';
 
 function App() {
   return (

@@ -99,13 +99,13 @@ const Footer = () => {
                 <ul className={styles.menuList}>
                   <li className={styles.menuItem}>
                     <Icons type='phone' className={styles.icons} />
-                    <a href='tel:+380440000000' className={`${styles.contactsLink} ${styles.link}`} dataIndex='1'>
+                    <a href='tel:+380440000000' className={`${styles.contactsLink} ${styles.link}`}>
                       044 000-00-00
                     </a>
                   </li>
                   <li className={styles.menuItem}>
                     <Icons type='phone' className={styles.icons} />
-                    <a href='tel:+380950000000' className={`${styles.contactsLink} ${styles.link}`} dataIndex='2'>
+                    <a href='tel:+380950000000' className={`${styles.contactsLink} ${styles.link}`}>
                       095 000-00-00
                     </a>
                   </li>

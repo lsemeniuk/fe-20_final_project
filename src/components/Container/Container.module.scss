@@ -7,27 +7,33 @@
   margin-right: auto;
   margin-left: auto;
 
-  @media (min-width: $xxlMin) {
-    max-width: 1440px;
+  @media (min-width: $deskXMax) {
+    max-width: $deskXMax;
   }
 
-  @media (min-width: $xlMin) and (max-width: $xlMax) {
-    max-width: 1140px;
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    max-width: $deskXMin;
   }
 
-  @media (min-width: $lgMin) and (max-width: $lgMax) {
-    max-width: 960px;
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    max-width: $deskMin;
   }
 
-  @media (min-width: $mdMin) and (max-width: $mdMax) {
-    max-width: 780px;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    padding-right: 10px;
+    padding-left: 10px;
+    max-width: 900px;
   }
 
-  @media (min-width: $smMin) and (max-width: $smMax) {
-    max-width: 720px;
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    padding-right: 5px;
+    padding-left: 5px;
+    max-width: 420px;
   }
 
-  @media (max-width: $xsMax) {
-    max-width: 540px;
+  @media (max-width: $mobMin) {
+    padding-right: 5px;
+    padding-left: 5px;
+    max-width: $mobMin;
   }
 }
