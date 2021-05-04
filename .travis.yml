@@ -9,9 +9,11 @@ cache:
 
 before_script:
   - npm install --prefix ./
+  - pip install pytest pytest-cov
 
 script:
   - npm run test --prefix ./
+  - pytest --cov=mypkg --cov-report term --cov-report xml:coverage.xml
   # - codecov
 
 after_success:
