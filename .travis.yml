@@ -8,14 +8,14 @@ cache:
     - ./node_modules
 
 before_install:
-  - npm install -g codecov
+  - npm install codecov
 
 before_script:
   - npm install --prefix ./
 
 script:
   - npm run test --prefix ./
-  - codecov
+  # - codecov
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

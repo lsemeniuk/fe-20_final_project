@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/LeoSame/fe-20_final_project.svg?branch=master)](https://travis-ci.com/LeoSame/fe-20_final_project)
+[![Build Status](https://travis-ci.com/LeoSame/fe-20_final_project.svg?branch=dev)](https://travis-ci.com/LeoSame/fe-20_final_project)
 
 # Для начала работы нужно настроить окружение
 
