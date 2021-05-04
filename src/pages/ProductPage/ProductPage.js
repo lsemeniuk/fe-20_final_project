@@ -5,7 +5,6 @@ const ProductPage = () => {
   // dassa.map(i => {
   //   return i + 1;
   // });
-
   return <div>ProductPage</div>;
 };
 

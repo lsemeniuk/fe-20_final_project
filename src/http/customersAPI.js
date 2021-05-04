@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
 /* eslint-disable no-alert */
+// import jwtDecode from 'jwt-decode';
 import { $authHost, $host } from './index';
 
 // @route   POST /customers
@@ -29,10 +29,10 @@ export const loginCustomer = async value => {
 // @desc    Return current customer
 // @access  Private
 export const getCustomer = async () => {
-  const res = await $authHost.get('customers/customer').catch(err => {
-    console.log(err.message);
+  const { data } = await $authHost.get('customers/customer').catch(err => {
+    alert(err.message);
   });
-  return res;
+  return data;
 };
 
 // @route   PUT /customers
