@@ -7,14 +7,15 @@ cache:
   directories:
     - ./node_modules
 
+before_install:
+  - sudo pip install codecov
+
 before_script:
   - npm install --prefix ./
-  - pip install pytest pytest-cov
 
 script:
   - npm run test --prefix ./
-  - pytest --cov=mypkg --cov-report term --cov-report xml:coverage.xml
-  # - codecov
+  - phpunit --coverage-clover=coverage.xml
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - codecov
