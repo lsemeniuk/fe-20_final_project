@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Modal from 'react-modal';
-// import style from './FavsClearModal.module.scss';
+import { useDispatch } from 'react-redux';
+import { clearFavoritesAction } from '../../../store/favorites/actions';
 import './FavsClearModal.scss';
 
 function FavsClearModal({ modalOpen, setModalOpen }) {
+  const dispatch = useDispatch();
+  const clearFavorites = () => {
+    dispatch(clearFavoritesAction());
+    setModalOpen(false);
+  };
   return (
     <Modal
       isOpen={modalOpen}
@@ -22,7 +28,7 @@ function FavsClearModal({ modalOpen, setModalOpen }) {
         <h3>Подтвердите действие:</h3>
         <p>Вы уверены что хотите очистить список желаний?</p>
         <div className='position'>
-          <button type='button' className='button ok'>
+          <button type='button' className='button ok' onClick={() => clearFavorites()}>
             OK
           </button>
           <button type='button' className='button' onClick={() => setModalOpen(false)}>

@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import Button from '../Button/Button';
-import { PRODUCT_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
+import { PRODUCT_ROUTE } from '../../utils/consts';
 import { favIcon } from '../../theme/icons';
+import FavsRemoveModal from '../modals/FavsModals/FavsRemoveModal';
 import styles from './ProductItem.module.scss';
-import { removeFromFavoritesAction } from '../../store/favorites/actions';
 
 const ProductItem = ({ product }) => {
   const [inCart, setCart] = useState(false);
-  const dispatch = useDispatch();
-  const history = useHistory();
+  const [removeModalOpen, setRemoveModalOpen] = useState(false);
+  const [removeId, setRemoveId] = useState(null);
   const { image, isNew, name, price, previousPrice, itemNo, _id } = product;
   const buyOpenModal = () => {
     setCart(true);
     // eslint-disable-next-line no-console
     console.log('buy');
   };
-  const removeFromFavorites = () => {
-    dispatch(removeFromFavoritesAction(_id));
-    history.push(WISH_LIST_ROUTE);
+  const openRemoveModal = () => {
+    setRemoveModalOpen(true);
+    setRemoveId(_id);
   };
   const addToFav = e => {
     const heartIcon = e.target.classList;
@@ -29,12 +28,13 @@ const ProductItem = ({ product }) => {
 
   return (
     <div className={styles.item}>
-      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
+      <FavsRemoveModal removeModalOpen={removeModalOpen} removeId={removeId} setRemoveModalOpen={setRemoveModalOpen} />
+      <div>
         <img className={styles.productImg} src={image} alt='watch' />
-        <span className={styles.cross} onClick={() => removeFromFavorites(_id)}>
+        <span className={styles.cross} onClick={() => openRemoveModal(_id)}>
           &times;
         </span>
-      </NavLink>
+      </div>
       {isNew && <div className={styles.newMessage}>Новинка</div>}
       <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
         <span className={styles.name}>{name}</span>

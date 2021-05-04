@@ -8,9 +8,7 @@ import { ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../utils/
 import PersonalDataForm from './PersonalDataForm';
 import Container from '../../components/Container/Container';
 import ProductItem from '../../components/ProductItem/ProductItem';
-import FavsClearModal from '../../components/modals/FavsClearModal/FavsClearModal';
-// import { clearFavoritesAction } from '../../store/favorites/actions';
-// import FavsClearModal from '../../components/modals/FavsClearModal/FavsClearModal';
+import FavsClearModal from '../../components/modals/FavsModals/FavsClearModal';
 
 const PersonalInfo = () => {
   return (
@@ -28,10 +26,6 @@ const Orders = () => {
 const Wishlist = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const favorites = useSelector(state => state.favorites.data);
-  // const dispatch = useDispatch();
-
-  // dispatch(clearFavoritesAction());
-
   return (
     <div>
       <FavsClearModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
