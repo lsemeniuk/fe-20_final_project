@@ -10,7 +10,7 @@ import styles from './ProductItem.module.scss';
 const ProductItem = ({ product }) => {
   const [inCart, setCart] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [removeId, setRemoveId] = useState(null);
+  const [removeId, setRemoveId] = useState(0);
   const { image, isNew, name, price, previousPrice, itemNo, _id } = product;
   const buyOpenModal = () => {
     setCart(true);

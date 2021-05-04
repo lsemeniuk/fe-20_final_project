@@ -1,14 +1,16 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-restricted-globals */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Redirect, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './CustomerSection.module.scss';
 import { ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
 import PersonalDataForm from './PersonalDataForm';
 import Container from '../../components/Container/Container';
 import ProductItem from '../../components/ProductItem/ProductItem';
 import FavsClearModal from '../../components/modals/FavsModals/FavsClearModal';
+import { loadFavorites } from '../../store/favorites/actions';
+import Loader from '../../components/Loader/Loader';
 
 const PersonalInfo = () => {
   return (
@@ -26,6 +28,14 @@ const Orders = () => {
 const Wishlist = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const favorites = useSelector(state => state.favorites.data);
+  const isLoading = useSelector(state => state.favorites.isLoading);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadFavorites());
+  }, []);
+
+  if (isLoading) return <Loader />;
+
   return (
     <div>
       <FavsClearModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
@@ -38,9 +48,11 @@ const Wishlist = () => {
         )}
       </div>
       {!favorites.length && <p>Вы еще не добавили товары в список желаний</p>}
-      {favorites.map(item => (
-        <ProductItem key={item._id} product={item} />
-      ))}
+      <div className={style.inline}>
+        {favorites.map(item => (
+          <ProductItem key={item._id} product={item} />
+        ))}
+      </div>
     </div>
   );
 };

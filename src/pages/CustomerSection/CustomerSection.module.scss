@@ -99,7 +99,10 @@ ul > li {
 .productCard__wrapper {
   position: relative;
 }
-
+.inline {
+  display: flex;
+  flex-flow: row wrap;
+}
 /**************************************
 /**CSS TO MAKE THE EXAMPLE LOOK PRETTY
 /**************************************/

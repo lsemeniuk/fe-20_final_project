@@ -42,6 +42,6 @@ const FavsRemoveModal = ({ modalOpen, removeId, setModalOpen }) => {
 FavsRemoveModal.propTypes = {
   modalOpen: PropTypes.bool.isRequired,
   setModalOpen: PropTypes.func.isRequired,
-  removeId: PropTypes.oneOf([PropTypes.null, PropTypes.number]).isRequired,
+  removeId: PropTypes.number.isRequired,
 };
 export default FavsRemoveModal;

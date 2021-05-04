@@ -1,4 +1,13 @@
-import { ADD_TO_FAVORITES, CLEAR_FAVORITES, REMOVE_FROM_FAVORITES } from './types';
+import axios from 'axios';
+import { ADD_TO_FAVORITES, CLEAR_FAVORITES, REMOVE_FROM_FAVORITES, LOAD_FAVORITES, SET_ISLOADING } from './types';
+
+export const loadFavorites = () => dispatch => {
+  dispatch({ type: SET_ISLOADING, payload: true });
+  axios('/favorites-list.json').then(res => {
+    dispatch({ type: LOAD_FAVORITES, payload: res.data });
+    dispatch({ type: SET_ISLOADING, payload: false });
+  });
+};
 
 export const addToFavoritesAction = product => {
   return {
