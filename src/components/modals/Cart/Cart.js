@@ -11,7 +11,7 @@ import RecommendList from './RecommendList/RecommendList';
 import styles from './Cart.module.scss';
 import Loader from '../../Loader/Loader';
 
-const Cart = ({ buttonHandler }) => {
+const Cart = ({ buttonHandler, display }) => {
   const [cart, setcart] = useState({});
   const [isLoading, setisLoading] = useState(true);
 
@@ -32,13 +32,17 @@ const Cart = ({ buttonHandler }) => {
   };
 
   if (isLoading) {
-    return <Loader fixed />;
+    return (
+      <Modal buttonHandler={buttonHandler} display={display}>
+        <Loader />
+      </Modal>
+    );
   }
 
   const cartList = cart.map(p => <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} />);
 
   return (
-    <Modal buttonHandler={buttonHandler}>
+    <Modal buttonHandler={buttonHandler} display={display}>
       <h2 className={styles.title}>Корзина</h2>
       <div className={styles.header}>
         <div className={styles.headerQuantity}>Количество</div>
@@ -68,6 +72,7 @@ const Cart = ({ buttonHandler }) => {
 
 Cart.propTypes = {
   buttonHandler: PropTypes.func.isRequired,
+  display: PropTypes.bool.isRequired,
 };
 
 export default Cart;

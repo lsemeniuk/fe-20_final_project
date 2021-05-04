@@ -2,9 +2,18 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Modal.module.scss';
 
-const Modal = ({ children, buttonHandler }) => {
+const Modal = ({ children, buttonHandler, modalWidth, display }) => {
   const modalRef = useRef(null);
   const closeRef = useRef(null);
+  let opacityStyle = {};
+
+  const modalStyle = { width: modalWidth, marginLeft: -(modalWidth / 2) };
+
+  if (display) {
+    opacityStyle = { visibility: 'visible', opacity: 1 };
+    modalStyle.left = 'calc(50% - 9px)';
+
+  }
 
   const closeBtnHandler = e => {
     const modal = modalRef.current;
@@ -16,8 +25,8 @@ const Modal = ({ children, buttonHandler }) => {
   };
 
   return (
-    <div onClick={closeBtnHandler} className={styles.modalFade}>
-      <div className={styles.modal} ref={modalRef}>
+    <div onClick={closeBtnHandler} className={styles.modalFade} style={{ ...opacityStyle }}>
+      <div style={modalStyle} className={styles.modal} ref={modalRef}>
         <div>
           <span className={styles.close} ref={closeRef}>
             {' '}
@@ -32,6 +41,13 @@ const Modal = ({ children, buttonHandler }) => {
 Modal.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
   buttonHandler: PropTypes.func.isRequired,
+  modalWidth: PropTypes.number,
+  display: PropTypes.bool,
+};
+
+Modal.defaultProps = {
+  modalWidth: 730,
+  display: false,
 };
 
 export default Modal;

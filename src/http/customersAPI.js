@@ -1,32 +1,40 @@
-/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import jwtDecode from 'jwt-decode';
 import { $authHost, $host } from './index';
 
 // @route   POST /customers
 // @desc    Register customer
 // @access  Public
-export const createCustomer = async () => {
-  const { data } = await $host.post('customers');
-  return data;
+export const createCustomer = async value => {
+  const res = await $host.post('customers', value).catch(err => {
+    console.log(err.message);
+  });
+  return res;
 };
 
 // @route   POST /customers/login
 // @desc    Login Customer / Returning JWT Token
 // @access  Public
-export const loginCustomer = async () => {
-  const { data } = await $host.post('customers/login', {});
-  localStorage.setItem('token', data.token);
-  return jwtDecode(data.token);
+export const loginCustomer = async value => {
+  const res = await $host.post('customers/login', value).catch(err => {
+    console.log(err.message);
+  });
+  if (res) {
+    localStorage.setItem('token', res.data.token);
+    const data = jwtDecode(res.data?.token);
+    return data;
+  }
+  return res;
 };
 
 // @route   GET /
 // @desc    Return current customer
 // @access  Private
 export const getCustomer = async () => {
-  const { data } = await $authHost.get('customers/customer').catch(err => {
-    alert(err.message);
+  const res = await $authHost.get('customers/customer').catch(err => {
+    console.log(err.message);
   });
-  return data;
+  return res;
 };
 
 // @route   PUT /customers

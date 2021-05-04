@@ -23,104 +23,104 @@
   background-color: white;
 }
 
-.sloganSection {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-  @media (max-width: $mobMax) {
-    margin-top: 60px;
-  }
-}
+// .sloganSection {
+//   display: flex;
+//   justify-content: center;
+//   margin-top: 100px;
+//   @media (max-width: $mobMax) {
+//     margin-top: 60px;
+//   }
+// }
 
-.imgWrapper {
-  margin-right: 120px;
-  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-    margin-right: 90px;
-  }
-  @media (min-width: $deskMin) and (max-width: $deskMax) {
-    margin-right: 70px;
-  }
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    margin-right: 50px;
-  }
-  @media (max-width: $mobMax) {
-    margin-right: 20px;
-  }
-}
+// .imgWrapper {
+//   margin-right: 120px;
+//   @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+//     margin-right: 90px;
+//   }
+//   @media (min-width: $deskMin) and (max-width: $deskMax) {
+//     margin-right: 70px;
+//   }
+//   @media (min-width: $tabMin) and (max-width: $tabMax) {
+//     margin-right: 50px;
+//   }
+//   @media (max-width: $mobMax) {
+//     margin-right: 20px;
+//   }
+// }
 
-.img {
-  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-    width: 320px;
-  }
-  @media (min-width: $deskMin) and (max-width: $deskMax) {
-    width: 220px;
-  }
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    width: 180px;
-  }
-  @media (max-width: $mobMax) {
-    width: 120px;
-  }
-}
+// .img {
+//   @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+//     width: 320px;
+//   }
+//   @media (min-width: $deskMin) and (max-width: $deskMax) {
+//     width: 220px;
+//   }
+//   @media (min-width: $tabMin) and (max-width: $tabMax) {
+//     width: 180px;
+//   }
+//   @media (max-width: $mobMax) {
+//     width: 120px;
+//   }
+// }
 
-.sloganText {
-  margin-top: 50px;
-  @media (max-width: $mobMax) {
-    margin-top: 20px;
-  }
-}
+// .sloganText {
+//   margin-top: 50px;
+//   @media (max-width: $mobMax) {
+//     margin-top: 20px;
+//   }
+// }
 
-.slogan {
-  font-size: 80px;
-  color: #000;
-  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-    font-size: 70px;
-  }
-  @media (min-width: $deskMin) and (max-width: $deskMax) {
-    font-size: 40px;
-  }
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    font-size: 30px;
-  }
-  @media (max-width: $mobMax) {
-    font-size: 18px;
-  }
-}
+// .slogan {
+//   font-size: 80px;
+//   color: #000;
+//   @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+//     font-size: 70px;
+//   }
+//   @media (min-width: $deskMin) and (max-width: $deskMax) {
+//     font-size: 40px;
+//   }
+//   @media (min-width: $tabMin) and (max-width: $tabMax) {
+//     font-size: 30px;
+//   }
+//   @media (max-width: $mobMax) {
+//     font-size: 18px;
+//   }
+// }
 
-.sloganBuyBtn {
-  border: none;
-  border-radius: 10px;
-  padding: 15px 40px;
-  font-size: 30px;
-  font-weight: bold;
-  color: white;
-  background-color: $colorButton;
-  box-shadow: 0 15px 20px -15px $colorButton;
-  transition: 0.3s ease all;
+// .sloganBuyBtn {
+//   border: none;
+//   border-radius: 10px;
+//   padding: 15px 40px;
+//   font-size: 30px;
+//   font-weight: bold;
+//   color: white;
+//   background-color: $colorButton;
+//   box-shadow: 0 15px 20px -15px $colorButton;
+//   transition: 0.3s ease all;
 
-  &:hover {
-    box-shadow: none;
-    background-color: $colorButnHover;
-  }
+//   &:hover {
+//     box-shadow: none;
+//     background-color: $colorButnHover;
+//   }
 
-  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-    padding: 15px 30px;
-  }
-  @media (min-width: $deskMin) and (max-width: $deskMax) {
-    padding: 12px 25px;
-    font-size: 25px;
-  }
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    font-size: 20px;
-    padding: 10px 20px;
-  }
-  @media (max-width: $mobMax) {
-    border-radius: 8px;
-    font-size: 13px;
-    padding: 4px 10px;
-    margin-top: 10px;
-  }
-}
+//   @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+//     padding: 15px 30px;
+//   }
+//   @media (min-width: $deskMin) and (max-width: $deskMax) {
+//     padding: 12px 25px;
+//     font-size: 25px;
+//   }
+//   @media (min-width: $tabMin) and (max-width: $tabMax) {
+//     font-size: 20px;
+//     padding: 10px 20px;
+//   }
+//   @media (max-width: $mobMax) {
+//     border-radius: 8px;
+//     font-size: 13px;
+//     padding: 4px 10px;
+//     margin-top: 10px;
+//   }
+// }
 
 // product section styles===========================
 
@@ -137,22 +137,22 @@
   transform: translateY(-80px);
   box-shadow: 0 40px 25px -25px #2bb1f9;
 
-  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-    padding: 45px 80px 45px 80px;
-    transform: translateY(-70px);
-  }
-  @media (min-width: $deskMin) and (max-width: $deskMax) {
-    padding: 30px 60px 30px 60px;
-    transform: translateY(-50px);
-  }
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    padding: 20px 50px 20px 60px;
-    transform: translateY(-50px);
-  }
-  @media (max-width: $mobMax) {
-    padding: 5px 40px 5px 20px;
-    transform: translateY(-30px);
-  }
+  // @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+  //   padding: 45px 80px 45px 80px;
+  //   transform: translateY(-70px);
+  // }
+  // @media (min-width: $deskMin) and (max-width: $deskMax) {
+  //   padding: 30px 60px 30px 60px;
+  //   transform: translateY(-50px);
+  // }
+  // @media (min-width: $tabMin) and (max-width: $tabMax) {
+  //   padding: 20px 50px 20px 60px;
+  //   transform: translateY(-50px);
+  // }
+  // @media (max-width: $mobMax) {
+  //   padding: 5px 40px 5px 20px;
+  //   transform: translateY(-30px);
+  // }
 }
 
 .descriptionText {

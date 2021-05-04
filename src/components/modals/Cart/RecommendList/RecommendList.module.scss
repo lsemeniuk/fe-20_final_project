@@ -9,12 +9,8 @@
   font-size: 16px;
 }
 
+// .slider button {
+// }
+
 :global {
-  .slick-next,
-  .slick-prev {
-    color: #131313;
-    &::before {
-      color: #131313;
-    }
-  }
 }
