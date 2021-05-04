@@ -25,10 +25,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
-<<<<<<< HEAD
     "slick-carousel": "^1.8.1",
-=======
->>>>>>> dev
     "web-vitals": "^1.1.1",
     "yup": "^0.32.9"
   },
