@@ -41,3 +41,26 @@ describe('Testing customer reducer', () => {
     expect(removeState.data).toBe(undefined);
   });
 });
+
+describe('Testing customer operations', () => {
+  test('Testing SET_CUSTOMMER_ISAUTH', () => {
+    const action = { type: SET_CUSTOMMER_ISAUTH, payload: true };
+
+    const newState = reducer(initialState, action);
+
+    expect(newState.isAuth).toBeTruthy();
+    const toogleState = reducer(newState, { type: SET_CUSTOMMER_ISAUTH, payload: false });
+    expect(toogleState.isAuth).toBeFalsy();
+  });
+
+  test('Testing SET_CUSTOMMER_ISAUTH', () => {
+    const action = { type: SET_CUSTOMMER, payload: testCustomer };
+    const newState = reducer(initialState, action);
+
+    expect(newState.data).toBe(testCustomer);
+    expect(newState.data.firstName).toEqual('Customer');
+
+    const removeState = reducer(newState, { type: SET_CUSTOMMER, payload: undefined });
+    expect(removeState.data).toBe(undefined);
+  });
+});

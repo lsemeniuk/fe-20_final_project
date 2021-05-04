@@ -8,14 +8,14 @@ cache:
     - ./node_modules
 
 before_install:
-  - sudo pip install codecov
+  - npm install -g istanbul
 
 before_script:
   - npm install --prefix ./
 
 script:
   - npm run test --prefix ./
-  - phpunit --coverage-clover=coverage.xml
+  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
 
 after_success:
   - codecov
