@@ -42,25 +42,25 @@ describe('Testing customer reducer', () => {
   });
 });
 
-describe('Testing customer operations', () => {
-  test('Testing SET_CUSTOMMER_ISAUTH', () => {
-    const action = { type: SET_CUSTOMMER_ISAUTH, payload: true };
+// describe('Testing customer operations', () => {
+//   test('Testing SET_CUSTOMMER_ISAUTH', () => {
+//     const action = { type: SET_CUSTOMMER_ISAUTH, payload: true };
 
-    const newState = reducer(initialState, action);
+//     const newState = reducer(initialState, action);
 
-    expect(newState.isAuth).toBeTruthy();
-    const toogleState = reducer(newState, { type: SET_CUSTOMMER_ISAUTH, payload: false });
-    expect(toogleState.isAuth).toBeFalsy();
-  });
+//     expect(newState.isAuth).toBeTruthy();
+//     const toogleState = reducer(newState, { type: SET_CUSTOMMER_ISAUTH, payload: false });
+//     expect(toogleState.isAuth).toBeFalsy();
+//   });
 
-  test('Testing SET_CUSTOMMER_ISAUTH', () => {
-    const action = { type: SET_CUSTOMMER, payload: testCustomer };
-    const newState = reducer(initialState, action);
+//   test('Testing SET_CUSTOMMER_ISAUTH', () => {
+//     const action = { type: SET_CUSTOMMER, payload: testCustomer };
+//     const newState = reducer(initialState, action);
 
-    expect(newState.data).toBe(testCustomer);
-    expect(newState.data.firstName).toEqual('Customer');
+//     expect(newState.data).toBe(testCustomer);
+//     expect(newState.data.firstName).toEqual('Customer');
 
-    const removeState = reducer(newState, { type: SET_CUSTOMMER, payload: undefined });
-    expect(removeState.data).toBe(undefined);
-  });
-});
+//     const removeState = reducer(newState, { type: SET_CUSTOMMER, payload: undefined });
+//     expect(removeState.data).toBe(undefined);
+//   });
+// });
