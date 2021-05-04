@@ -14,6 +14,8 @@ export const checkAuthOperation = () => dispatch => {
 export const authorizOperation = value => dispatch => {
   loginCustomer(value).then(res => {
     if (res) {
+      dispatch(saveCustomerAction(res));
+      dispatch(saveCustomerIsAuthAction(true));
       dispatch(saveModalAuthRegAction(false));
     }
   });

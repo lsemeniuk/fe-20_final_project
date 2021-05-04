@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-/* eslint-disable no-alert */
+import jwtDecode from 'jwt-decode';
 import { $authHost, $host } from './index';
 
 // @route   POST /customers
@@ -7,7 +7,7 @@ import { $authHost, $host } from './index';
 // @access  Public
 export const createCustomer = async value => {
   const res = await $host.post('customers', value).catch(err => {
-    alert(err.message);
+    console.log(err.message);
   });
   return res;
 };
@@ -17,10 +17,12 @@ export const createCustomer = async value => {
 // @access  Public
 export const loginCustomer = async value => {
   const res = await $host.post('customers/login', value).catch(err => {
-    alert(err.message);
+    console.log(err.message);
   });
   if (res) {
     localStorage.setItem('token', res.data.token);
+    const data = jwtDecode(res.data?.token);
+    return data;
   }
   return res;
 };

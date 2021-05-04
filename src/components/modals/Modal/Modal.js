@@ -7,8 +7,12 @@ const Modal = ({ children, buttonHandler, modalWidth, display }) => {
   const closeRef = useRef(null);
   let opacityStyle = {};
 
+  const modalStyle = { width: modalWidth, marginLeft: -(modalWidth / 2) };
+
   if (display) {
     opacityStyle = { visibility: 'visible', opacity: 1 };
+    modalStyle.left = 'calc(50% - 9px)';
+
   }
 
   const closeBtnHandler = e => {
@@ -22,7 +26,7 @@ const Modal = ({ children, buttonHandler, modalWidth, display }) => {
 
   return (
     <div onClick={closeBtnHandler} className={styles.modalFade} style={{ ...opacityStyle }}>
-      <div style={{ width: modalWidth, marginLeft: -(modalWidth / 2) }} className={styles.modal} ref={modalRef}>
+      <div style={modalStyle} className={styles.modal} ref={modalRef}>
         <div>
           <span className={styles.close} ref={closeRef}>
             {' '}
