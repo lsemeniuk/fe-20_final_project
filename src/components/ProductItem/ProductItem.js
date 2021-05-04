@@ -9,7 +9,7 @@ import styles from './ProductItem.module.scss';
 
 const ProductItem = ({ product }) => {
   const [inCart, setCart] = useState(false);
-  const [removeModalOpen, setRemoveModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [removeId, setRemoveId] = useState(null);
   const { image, isNew, name, price, previousPrice, itemNo, _id } = product;
   const buyOpenModal = () => {
@@ -18,7 +18,7 @@ const ProductItem = ({ product }) => {
     console.log('buy');
   };
   const openRemoveModal = () => {
-    setRemoveModalOpen(true);
+    setModalOpen(true);
     setRemoveId(_id);
   };
   const addToFav = e => {
@@ -28,7 +28,7 @@ const ProductItem = ({ product }) => {
 
   return (
     <div className={styles.item}>
-      <FavsRemoveModal removeModalOpen={removeModalOpen} removeId={removeId} setRemoveModalOpen={setRemoveModalOpen} />
+      <FavsRemoveModal modalOpen={modalOpen} removeId={removeId} setModalOpen={setModalOpen} />
       <div>
         <img className={styles.productImg} src={image} alt='watch' />
         <span className={styles.cross} onClick={() => openRemoveModal(_id)}>

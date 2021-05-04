@@ -1,11 +1,11 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { clearFavoritesAction } from '../../../store/favorites/actions';
-import './FavsClearModal.scss';
+import './FavsModalStyles.scss';
 
-function FavsClearModal({ modalOpen, setModalOpen }) {
+const FavsClearModal = ({ modalOpen, setModalOpen }) => {
   const dispatch = useDispatch();
   const clearFavorites = () => {
     dispatch(clearFavoritesAction());
@@ -38,6 +38,9 @@ function FavsClearModal({ modalOpen, setModalOpen }) {
       </div>
     </Modal>
   );
-}
-
+};
+FavsClearModal.propTypes = {
+  modalOpen: PropTypes.bool.isRequired,
+  setModalOpen: PropTypes.func.isRequired,
+};
 export default FavsClearModal;

@@ -25,13 +25,13 @@ const ProductScreenAdaptive = () => {
   };
 
   const favorites = useSelector(state => state.favorites.data);
+
   const alreadyInFavs = favorites.find(item => item._id === currentProduct._id);
+
   const sliderWatches = products.filter(watch => watch.name.split(' ')[0] === 'Смарт-часы');
-  // const otherWatches = data.products.filter(watch => watch.category === 'men');
 
   return (
     <div>
-      <h2>This is Adaptive Product Screen</h2>
       <ul className={style.page__container}>
         <li className={style.product__info__parent}>
           <span className={style.location}>Главная &#62; Мужские</span>
