@@ -19,11 +19,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
-<<<<<<< HEAD
     "react-slider": "^1.1.4",
-=======
     "react-tabs": "^3.2.2",
->>>>>>> 92d1f7d030da3008f8e6022ca9b372cc0c32deb1
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
