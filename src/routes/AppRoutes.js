@@ -23,6 +23,7 @@ const AppRoutes = () => {
           <Route key={path} path={path} component={Component} exact />
         ))}
         {/* если ввёден любой другой адрес редиректим на главную */}
+
         <Redirect to={PAGE404_ROUTE} />
       </Switch>
       <Footer />

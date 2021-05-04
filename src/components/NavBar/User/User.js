@@ -1,38 +1,34 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { saveModalAuthRegAction } from '../../../store/modal/actions';
-import { getModalAuthRegSelector } from '../../../store/modal/selectors';
-import { PERSONAL_INFO_ROUTE } from '../../../utils/consts';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
 import Icons from '../../Icons/Icons';
-import RegAuth from '../../modals/RegAuth/RegAuth';
+import UserBar from '../UserBar/UserBar';
 import styles from './User.module.scss';
 
-const User = () => {
-  const dispatch = useDispatch();
-  const modalAuthReg = useSelector(getModalAuthRegSelector);
-  const isLogin = false;
-
-  const modalHandler = () => {
-    dispatch(saveModalAuthRegAction(!modalAuthReg));
-    document.body.classList.toggle('lock');
-  };
+const User = ({ modalHandler }) => {
+  const isLogin = useSelector(getCustomerIsAuthSelector);
 
   const Icon = <Icons type='navUser' color='black' width={30} height={30} />;
 
   return (
-    <>
+    <div className={styles.container}>
       {isLogin ? (
-        <NavLink to={PERSONAL_INFO_ROUTE}>{Icon}</NavLink>
+        <div className={styles.icon}>{Icon}</div>
       ) : (
         <div className={styles.icon} onClick={() => modalHandler()}>
           {Icon}
         </div>
       )}
 
-      <RegAuth buttonHandler={modalHandler} display={modalAuthReg} />
-    </>
+      {isLogin ? <UserBar className={styles.userBar} /> : null}
+    </div>
   );
 };
 
-export default User;
+User.propTypes = {
+  modalHandler: PropTypes.func.isRequired,
+
+};
+
+ export default User;
