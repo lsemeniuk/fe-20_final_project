@@ -8,6 +8,7 @@ cache:
     - ./node_modules
 
 before_install:
+  - npm install codecov --save-dev
   - npm install -g istanbul
 
 before_script:
@@ -15,7 +16,8 @@ before_script:
 
 script:
   - npm run test --prefix ./
-  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  - istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec
+./node_modules/.bin/codecov
 
 after_success:
   - codecov
