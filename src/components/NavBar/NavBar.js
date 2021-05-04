@@ -66,9 +66,7 @@ const NavBar = () => {
                   )}
                 </li>
                 <li key='personalInfo' className={styles.iconListItem}>
-
                   <User modalHandler={authRegHandler} />
-
                 </li>
                 <li key='cart' className={styles.iconListItem}>
                   <MyOrders />
