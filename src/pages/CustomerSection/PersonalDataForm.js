@@ -8,11 +8,11 @@ import style from './CustomerSection.module.scss';
 import MyInput from './MyInput';
 import schema from './schema';
 import Button from '../../components/Button/Button';
-import { customerProfileSelector, isLoadingSelector } from '../../store/customer/selectors';
 import { loadCustomerProfile } from '../../store/customer/actions';
+import { getCustomerSelector, isLoadingSelector } from '../../store/customer/selectors';
 
 function PersonalDataForm({ handleSubmit, isSubmitting }) {
-  const customer = useSelector(customerProfileSelector);
+  const customer = useSelector(getCustomerSelector);
   const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
   useEffect(() => {

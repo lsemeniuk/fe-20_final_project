@@ -14,3 +14,5 @@ const reducer = combineReducers({
   cart: cartReducer,
   modal: modalReducer,
 });
+
+export default reducer;

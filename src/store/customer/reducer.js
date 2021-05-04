@@ -2,7 +2,7 @@ import { SET_CUSTOMMER_ISAUTH, SET_CUSTOMMER, SET_ISLOADING } from './types';
 
 const initialState = {
   isAuth: false,
-  data: {},
+  data: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,7 +10,6 @@ const reducer = (state = initialState, action) => {
     case SET_CUSTOMMER_ISAUTH: {
       return { ...state, isAuth: action.payload };
     }
-
     case SET_CUSTOMMER: {
       return { ...state, data: action.payload };
     }
