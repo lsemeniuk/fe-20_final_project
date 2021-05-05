@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-/* eslint-disable react/jsx-props-no-spreading */
 import Slider from 'react-slick';
 import axios from 'axios';
 import ProductItem from '../ProductItem/ProductItem';

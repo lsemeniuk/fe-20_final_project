@@ -4,19 +4,19 @@
 .sloganWrapper {
   background-color: $colorSecondary;
   //font-family: Arial;
-  padding: 100px 100px 180px 100px;
-  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-    padding: 80px 80px 150px 80px;
-  }
-  @media (min-width: $deskMin) and (max-width: $deskMax) {
-    padding: 60px 60px 130px 60px;
-  }
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    padding: 40px 80px 110px 40px;
-  }
-  @media (max-width: $mobMax) {
-    padding: 40px 20px 100px 20px;
-  }
+  // padding: 100px 100px 180px 100px;
+  // @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+  //   padding: 80px 80px 150px 80px;
+  // }
+  // @media (min-width: $deskMin) and (max-width: $deskMax) {
+  //   padding: 60px 60px 130px 60px;
+  // }
+  // @media (min-width: $tabMin) and (max-width: $tabMax) {
+  //   padding: 40px 80px 110px 40px;
+  // }
+  // @media (max-width: $mobMax) {
+  //   padding: 40px 20px 100px 20px;
+  // }
 }
 
 .slider {
@@ -134,7 +134,7 @@
   background-color: #2bb1f9;
   border-radius: 15px;
   padding: 55px 100px 55px 130px;
-  transform: translateY(-80px);
+  // transform: translateY(-80px);
   box-shadow: 0 40px 25px -25px #2bb1f9;
 
   // @media (min-width: $deskXMin) and (max-width: $deskXMax) {

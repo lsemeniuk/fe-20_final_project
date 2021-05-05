@@ -7,6 +7,7 @@ import Container from '../../components/Container/Container';
 import GenderLink from '../../components/GenderLink/GenderLink';
 import CustomSlider from '../../components/CustomSlider/CustomSlider';
 import style from './MainPage.module.scss';
+import PromotionSlider from '../../components/PromotionSlider/PromotionSlider';
 
 const Index = () => {
   const sliderSettings = {
@@ -20,32 +21,7 @@ const Index = () => {
 
   return (
     <div>
-      <div className={style.sloganWrapper}>
-        <Container>
-          <div className={style.slider}>
-            <p>here will be slider later</p>
-          </div>
-          {/* <NavLink to={PRODUCTS_ROUTE}>
-            <div className={style.sloganSection}>
-              <div className={style.imgWrapper}>
-                <img
-                  className={style.img}
-                  src='https://res.cloudinary.com/vdsh/image/upload/v1619018183/watch_mainPage_kgsvfq.png'
-                  alt=''
-                />
-              </div>
-              <div className={style.sloganText}>
-                <h1 className={style.slogan}>
-                  Смарт время <br /> смарт-часы!
-                </h1>
-                <button type='button' className={style.sloganBuyBtn}>
-                  Купить
-                </button>
-              </div>
-            </div>
-          </NavLink> */}
-        </Container>
-      </div>
+      <PromotionSlider />
 
       <div className={style.productsSection}>
         <Container>
