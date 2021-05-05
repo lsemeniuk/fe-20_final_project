@@ -10,6 +10,8 @@ import Logo from '../../theme/Logo';
 import CategoriesList from './CategoriesList/CategoriesList';
 import User from './User/User';
 import RegAuth from '../modals/RegAuth/RegAuth';
+import { getModalAuthRegSelector } from '../../store/modal/selectors';
+import { saveModalAuthRegAction } from '../../store/modal/actions';
 import styles from './NavBar.module.scss';
 
 const NavBar = () => {
