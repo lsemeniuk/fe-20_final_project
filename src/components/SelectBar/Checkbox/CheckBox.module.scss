@@ -1,0 +1,86 @@
+.checkbox_box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.option_title {
+  border: none;
+  min-width: 50px;
+  max-width: 200px;
+  background-color: white;
+  padding: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  &_arrow {
+    width: 10px;
+    display: inline-block;
+    transform: rotate(90deg);
+    transform: scaleX(3px);
+    color: black;
+    font-weight: 400;
+  }
+  &:hover {
+    transition: all ease-out 0.3s;
+    // background-color: rgb(243, 243, 243);
+  }
+}
+.option_list_price {
+  display: block;
+  border-radius: 3px;
+  margin: 0;
+  top: 33px;
+  padding: 7px;
+  min-width: 180px;
+  max-width: 350px;
+  background-color: white;
+  overflow: hidden;
+}
+.option_list {
+  display: block;
+  border-radius: 3px;
+  margin: 0;
+  top: 33px;
+  padding: 7px;
+  min-width: 180px;
+  max-width: 350px;
+  background-color: white;
+  overflow: hidden;
+}
+.option_list_sort {
+  display: none;
+}
+.is_active.option_list_sort {
+  position: absolute;
+  display: block;
+  border-radius: 3px;
+  margin: 0;
+  top: 33px;
+  padding: 7px;
+  min-width: 180px;
+  max-width: 350px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0.3, 0.8, 0.5, 0.2);
+  overflow: hidden;
+  z-index: 999;
+}
+.option_select {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px;
+}
+.option_item {
+  list-style: none;
+  cursor: pointer;
+  padding: 8px;
+  &_range {
+    display: flex;
+  }
+  &_input {
+    max-width: 90px;
+  }
+  &:hover {
+    color: rgb(71, 147, 233);
+  }
+}
