@@ -1,6 +1,7 @@
 import { ADD_TO_FAVORITES, CLEAR_FAVORITES, LOAD_FAVORITES, REMOVE_FROM_FAVORITES, SET_ISLOADING } from './types';
 
 const initialState = {
+  isLoading: '',
   data: [],
 };
 
@@ -17,7 +18,7 @@ const reducer = (state = initialState, action) => {
       const inFavs = state.data.find(item => item._id === action.payload._id);
 
       if (inFavs) return state;
-      return { ...state, data: [...state.data, { ...action.payload, qty: 1 }] };
+      return { ...state, data: [...state.data, { ...action.payload }] };
     }
     case REMOVE_FROM_FAVORITES: {
       return {
