@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { INDEX_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
 import Container from '../Container/Container';
 import Icons from '../Icons/Icons';
@@ -12,8 +13,15 @@ import RegAuth from '../modals/RegAuth/RegAuth';
 import styles from './NavBar.module.scss';
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const modalAuthReg = useSelector(getModalAuthRegSelector);
   const location = useLocation();
   const favorites = 3;
+
+  const authRegHandler = () => {
+    dispatch(saveModalAuthRegAction(!modalAuthReg));
+    document.body.classList.toggle('lock');
+  };
 
   const heartJsx = [
     <div key='heart' className={styles.iconListItem}>
@@ -56,7 +64,7 @@ const NavBar = () => {
                   )}
                 </li>
                 <li key='personalInfo' className={styles.iconListItem}>
-                  <User />
+                  <User modalHandler={authRegHandler} />
                 </li>
                 <li key='cart' className={styles.iconListItem}>
                   <MyOrders />

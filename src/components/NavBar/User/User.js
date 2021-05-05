@@ -34,4 +34,8 @@ const User = () => {
   );
 };
 
+User.propTypes = {
+  modalHandler: PropTypes.func.isRequired,
+};
+
 export default User;
