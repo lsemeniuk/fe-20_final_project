@@ -14,7 +14,6 @@ import RegAuth from '../modals/RegAuth/RegAuth';
 import { getModalAuthRegSelector } from '../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../store/modal/actions';
 
-
 const NavBar = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
