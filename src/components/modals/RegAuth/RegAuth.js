@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.scss';
 import Modal from '../Modal/Modal';
 import AuthForm from './AuthForm/AuthForm';
 import RegForm from './RegForm/RegForm';
 import styles from './RegAuth.module.scss';
+import { getModalAuthRegSelector } from '../../../store/modal/selectors';
+import { saveModalAuthRegAction } from '../../../store/modal/actions';
 
-const RegAuth = ({ buttonHandler, display }) => {
+const RegAuth = () => {
+  const dispatch = useDispatch();
+  const modalAuthReg = useSelector(getModalAuthRegSelector);
   const [tabIndex, setTabIndex] = useState(0);
   const [regTitle, setregTitle] = useState(null);
 
@@ -21,7 +25,13 @@ const RegAuth = ({ buttonHandler, display }) => {
   };
 
   return (
-    <Modal buttonHandler={buttonHandler} modalWidth={570} display={display}>
+    <Modal
+      buttonHandler={() => {
+        dispatch(saveModalAuthRegAction(!modalAuthReg));
+      }}
+      modalWidth={570}
+      display={modalAuthReg}
+    >
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
         <TabList>
           <Tab tabIndex='0'>Вход</Tab>
@@ -42,11 +52,6 @@ const RegAuth = ({ buttonHandler, display }) => {
       </Tabs>
     </Modal>
   );
-};
-
-RegAuth.propTypes = {
-  buttonHandler: PropTypes.func.isRequired,
-  display: PropTypes.bool.isRequired,
 };
 
 export default RegAuth;
