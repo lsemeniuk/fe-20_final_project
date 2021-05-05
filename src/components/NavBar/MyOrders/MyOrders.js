@@ -14,7 +14,6 @@ const MyOrders = () => {
 
   const modalHandler = () => {
     dispatch(saveModalCartAction(!modalCart));
-    document.body.classList.toggle('lock');
   };
 
   return (
