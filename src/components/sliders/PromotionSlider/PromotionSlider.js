@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
-import { PRODUCTS_ROUTE } from '../../utils/consts';
+import { PRODUCTS_ROUTE } from '../../../utils/consts';
 import styles from './PromotionSlider.module.scss';
 
 const PromotionSlider = () => {

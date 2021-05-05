@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
-import ProductItem from '../ProductItem/ProductItem';
+import ProductItem from '../../ProductItem/ProductItem';
 
 const CustomSlider = () => {
   const [products, setProducts] = useState([]);
