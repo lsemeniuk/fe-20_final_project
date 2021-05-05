@@ -12,7 +12,6 @@ const Modal = ({ children, buttonHandler, modalWidth, display }) => {
   if (display) {
     opacityStyle = { visibility: 'visible', opacity: 1 };
     modalStyle.left = 'calc(50% - 9px)';
-
   }
 
   const closeBtnHandler = e => {

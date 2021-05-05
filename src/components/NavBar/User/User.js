@@ -13,11 +13,9 @@ const User = ({ modalHandler }) => {
   const Icon = <Icons type='navUser' color='black' width={30} height={30} />;
 
   return (
-
     <div className={styles.container}>
       {isLogin ? (
         <div className={styles.icon}>{Icon}</div>
-
       ) : (
         <div className={styles.icon} onClick={() => modalHandler()}>
           {Icon}
@@ -31,7 +29,6 @@ const User = ({ modalHandler }) => {
 
 User.propTypes = {
   modalHandler: PropTypes.func.isRequired,
-
 };
 
 export default User;
