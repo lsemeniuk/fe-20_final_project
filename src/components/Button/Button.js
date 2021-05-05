@@ -36,8 +36,8 @@ Button.defaultProps = {
   variant: '',
   disabled: false,
   type: 'button',
-  onClick: event => {
-    event.preventDefault();
+  onClick: e => {
+    return e;
   },
   className: '',
 };

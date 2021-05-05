@@ -73,7 +73,7 @@ const Footer = () => {
             <h4 className={styles.heading}>Клиентам</h4>
             <nav className={styles.differentPagesList}>
               <ul className={styles.menuList}>
-                <DifferentPagesList className={styles.link} classItem={styles.menuItem} />
+                <DifferentPagesList classLink={styles.link} classItem={styles.menuItem} />
               </ul>
             </nav>
             <span>Мы в соцсетях</span>

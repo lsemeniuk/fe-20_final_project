@@ -21,11 +21,13 @@ export const authorizOperation = value => dispatch => {
   });
 };
 
-export const createCustomerOperation = value => dispatch => {
+export const createCustomerOperation = ({ setTabIndex, ...value }) => dispatch => {
   createCustomer(value).then(res => {
     if (res) {
       dispatch(saveCustomerAction(res.data));
-      dispatch(saveModalAuthRegAction(false));
+      // dispatch(saveModalAuthRegAction(false));
+      setTabIndex(0);
     }
+    return res;
   });
 };
