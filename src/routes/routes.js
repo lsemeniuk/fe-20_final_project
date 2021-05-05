@@ -9,9 +9,8 @@ import {
   CHECKOUT_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
-import Home from '../pages/Home/Home';
+import Products from '../pages/Products/Products';
 import Admin from '../pages/Admin/Admin';
-import ProductPage from '../pages/ProductPage/ProductPage';
 import WishList from '../pages/WishList/WishList';
 import Orders from '../pages/Orders/Orders';
 import PersonalInfo from '../pages/PersonalInfo/PersonalInfo';
@@ -39,15 +38,15 @@ export const publicRoutes = [
   },
   {
     path: `${PRODUCT_ROUTE}/:id`,
-    Component: ProductPage,
+    Component: Products,
   },
   {
     path: `${PRODUCTS_ROUTE}/:categories`,
-    Component: Home,
+    Component: Products,
   },
   {
     path: PRODUCTS_ROUTE,
-    Component: ProductPage,
+    Component: Products,
   },
   {
     path: WISH_LIST_ROUTE,

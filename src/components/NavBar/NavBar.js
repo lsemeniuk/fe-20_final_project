@@ -7,12 +7,12 @@ import Container from '../Container/Container';
 import Icons from '../Icons/Icons';
 import MyOrders from './MyOrders/MyOrders';
 import Logo from '../../theme/Logo';
-import styles from './NavBar.module.scss';
 import CategoriesList from './CategoriesList/CategoriesList';
 import User from './User/User';
 import RegAuth from '../modals/RegAuth/RegAuth';
 import { getModalAuthRegSelector } from '../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../store/modal/actions';
+import styles from './NavBar.module.scss';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -75,7 +75,7 @@ const NavBar = () => {
             </div>
           </div>
         </nav>
-        <RegAuth buttonHandler={authRegHandler} display={modalAuthReg} />
+        <RegAuth />
       </Container>
     </div>
   );

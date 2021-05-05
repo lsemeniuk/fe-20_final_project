@@ -1,13 +1,15 @@
 import React from 'react';
-
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
 import Icons from '../../Icons/Icons';
 import UserBar from '../UserBar/UserBar';
 import styles from './User.module.scss';
+import { getModalAuthRegSelector } from '../../../store/modal/selectors';
+import { saveModalAuthRegAction } from '../../../store/modal/actions';
 
-const User = ({ modalHandler }) => {
+const User = () => {
+  const dispatch = useDispatch();
+  const modalAuthReg = useSelector(getModalAuthRegSelector);
   const isLogin = useSelector(getCustomerIsAuthSelector);
 
   const Icon = <Icons type='navUser' color='black' width={30} height={30} />;
@@ -17,7 +19,12 @@ const User = ({ modalHandler }) => {
       {isLogin ? (
         <div className={styles.icon}>{Icon}</div>
       ) : (
-        <div className={styles.icon} onClick={() => modalHandler()}>
+        <div
+          className={styles.icon}
+          onClick={() => {
+            dispatch(saveModalAuthRegAction(!modalAuthReg));
+          }}
+        >
           {Icon}
         </div>
       )}
@@ -25,10 +32,6 @@ const User = ({ modalHandler }) => {
       {isLogin ? <UserBar className={styles.userBar} /> : null}
     </div>
   );
-};
-
-User.propTypes = {
-  modalHandler: PropTypes.func.isRequired,
 };
 
 export default User;
