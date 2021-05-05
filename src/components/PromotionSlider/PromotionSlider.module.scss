@@ -10,6 +10,14 @@
   & button {
     top: calc(50% - 20px);
   }
+  :global {
+    .slick-prev {
+      left: 50px;
+    }
+    .slick-next {
+      right: 50px;
+    }
+  }
 }
 .sliderItem {
   background-color: transparent;

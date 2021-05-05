@@ -6,8 +6,8 @@ import Slider from 'react-slick';
 import Container from '../../components/Container/Container';
 import GenderLink from '../../components/GenderLink/GenderLink';
 import CustomSlider from '../../components/CustomSlider/CustomSlider';
-import style from './MainPage.module.scss';
 import PromotionSlider from '../../components/PromotionSlider/PromotionSlider';
+import styles from './MainPage.module.scss';
 
 const Index = () => {
   const sliderSettings = {
@@ -20,30 +20,30 @@ const Index = () => {
   };
 
   return (
-    <div>
+    <div className>
       <PromotionSlider />
 
-      <div className={style.productsSection}>
+      <div className={styles.productsSection}>
         <Container>
-          <div className={style.descriptionWrapper}>
-            <h2 className={style.descriptionText}>
+          <div className={styles.descriptionWrapper}>
+            <h2 className={styles.descriptionText}>
               Большой выбор <br /> оригинальных <br /> смарт-часов
             </h2>
             <img
-              className={style.descriptionImg}
+              className={styles.descriptionImg}
               src='https://res.cloudinary.com/vdsh/image/upload/v1619028932/watchesBigChoise_k1qyja.png'
               alt=''
             />
           </div>
 
-          <div className={style.bestsellersSection}>
-            <div className={style.bestsellersItems}>
-              <h3 className={style.bestsellerTitle}>Хиты продаж</h3>
+          <div className={styles.bestsellersSection}>
+            <div className={styles.bestsellersItems}>
+              <h3 className={styles.bestsellerTitle}>Хиты продаж</h3>
               <CustomSlider />
             </div>
           </div>
 
-          <div className={style.forWho}>
+          <div className={styles.forWho}>
             <GenderLink
               img='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
               forWho='forMen'
@@ -56,7 +56,7 @@ const Index = () => {
             />
           </div>
 
-          <Slider className={style.genderSlider} {...sliderSettings}>
+          <Slider className={styles.genderSlider} {...sliderSettings}>
             <GenderLink
               img='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
               forWho='forMen'
@@ -69,26 +69,26 @@ const Index = () => {
             />
           </Slider>
 
-          <div className={style.newProducts}>
-            <h3 className={style.newProductsTitle}>New products</h3>
+          <div className={styles.newProducts}>
+            <h3 className={styles.newProductsTitle}>New products</h3>
             <CustomSlider />
           </div>
 
-          <div className={style.aboutSection}>
-            <h4 className={style.aboutTitle}>О магазине</h4>
-            <p className={style.aboutText}>
+          <div className={styles.aboutSection}>
+            <h4 className={styles.aboutTitle}>О магазине</h4>
+            <p className={styles.aboutText}>
               В интернет-магазине TIMESHOP каждый может выбрать и купить наручные часы, потратив совсем немного времени,
               - - удобный поиск со множеством фильтров в считаные минуты подберет модель Вашей мечты среди множества,
               представленного на сайте.
             </p>
-            <p className={style.aboutText}>
+            <p className={styles.aboutText}>
               В каталоге часов интернет-магазина TIMESHOP более 190 брендов мужских и женских моделей разных ценовых
               категорий, всего более 50 000 товаров. Здесь Вы найдете самые популярные швейцарские часы, японские и
               немецкие, и даже французские и американские. Дорогие часы эксклюзивных марок выделены в отдельный раздел.
               Кроме того, у нас есть настенные, настольные и напольные часы, ювелирные изделия и подарки.
               АссортиментTIMESHOP пополняется постоянно!
             </p>
-            <p className={style.aboutText}>
+            <p className={styles.aboutText}>
               Со многими производителями TIMESHOP сотрудничает напрямую, в остальных случаях мы выбираем официальных,
               проверенных поставщиков. Мы работаем уже более 19 лет и всегда гарантируем 100% подлинность товара.
             </p>
