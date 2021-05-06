@@ -13,7 +13,6 @@ const CategoriesList = ({ className, classItem }) => {
 
   useEffect(() => {
     dispatch(getCatalogOperation());
-    console.log(categories);
   }, [dispatch]);
 
   if (isLoading) {

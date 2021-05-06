@@ -3,7 +3,7 @@ import { categoriesLoadingAction, saveCategoriesAction } from './actions';
 
 export const getCatalogOperation = () => dispatch => {
   getCategories().then(res => {
-    dispatch(saveCategoriesAction(res));
+    dispatch(saveCategoriesAction(res.data));
     dispatch(categoriesLoadingAction(false));
   });
 };

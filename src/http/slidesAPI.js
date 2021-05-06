@@ -13,8 +13,8 @@ export const addSlide = async () => {
 // @route   PUT /slides/:id
 // @desc    Update existing slide
 // @access  Private
-export const updateSlide = async customId => {
-  const res = await $adminHost.put(`slides/${customId}`).catch(err => {
+export const updateSlide = async id => {
+  const res = await $adminHost.put(`slides/${id}`).catch(err => {
     throw err;
   });
   return res;
@@ -23,8 +23,8 @@ export const updateSlide = async customId => {
 // @route   DELETE /slides/:id
 // @desc    Delete existing slide
 // @access  Private
-export const deleteSlide = async customId => {
-  const res = await $adminHost.delete(`slides/${customId}`).catch(err => {
+export const deleteSlide = async id => {
+  const res = await $adminHost.delete(`slides/${id}`).catch(err => {
     throw err;
   });
   return res;
