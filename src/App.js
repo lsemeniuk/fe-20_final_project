@@ -7,6 +7,7 @@ import { checkAuthOperation } from './store/customer/operations';
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(checkAuthOperation());
   }, []);

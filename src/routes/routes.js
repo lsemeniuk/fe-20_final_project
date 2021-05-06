@@ -9,13 +9,12 @@ import {
   CHECKOUT_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
-import Home from '../pages/Home/Home';
+import Products from '../pages/Products/Products';
 import Admin from '../pages/Admin/Admin';
 import WishList from '../pages/WishList/WishList';
 import Orders from '../pages/Orders/Orders';
 import PersonalInfo from '../pages/PersonalInfo/PersonalInfo';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
-import ProductScreenAdaptive from '../pages/ProductScreenAdaptive/ProductScreenAdaptive';
 
 export const authRoutes = [
   {
@@ -43,15 +42,15 @@ export const publicRoutes = [
   },
   {
     path: `${PRODUCT_ROUTE}/:id`,
-    Component: ProductScreenAdaptive,
+    Component: Products,
   },
   {
     path: `${PRODUCTS_ROUTE}/:categories`,
-    Component: Home,
+    Component: Products,
   },
   {
     path: PRODUCTS_ROUTE,
-    Component: ProductScreenAdaptive,
+    Component: Products,
   },
   {
     path: WISH_LIST_ROUTE,

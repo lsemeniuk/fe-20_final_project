@@ -37,7 +37,9 @@ Button.defaultProps = {
   variant: '',
   disabled: false,
   type: 'button',
-  onClick: null,
+  onClick: e => {
+    return e;
+  },
 };
 
 export default Button;

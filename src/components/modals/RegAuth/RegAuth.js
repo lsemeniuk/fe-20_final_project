@@ -1,39 +1,57 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.scss';
 import Modal from '../Modal/Modal';
 import AuthForm from './AuthForm/AuthForm';
 import RegForm from './RegForm/RegForm';
+import { getModalAuthRegSelector } from '../../../store/modal/selectors';
+import { saveModalAuthRegAction } from '../../../store/modal/actions';
 import styles from './RegAuth.module.scss';
 
-const RegAuth = ({ buttonHandler, display }) => {
+const RegAuth = () => {
+  const dispatch = useDispatch();
+  const modalAuthReg = useSelector(getModalAuthRegSelector);
+  const [tabIndex, setTabIndex] = useState(0);
+  const [messageServer, setmessageServer] = useState(null);
+
+  const setTabIndexToReg = () => {
+    setmessageServer(
+      <span style={{ color: 'green' }}>
+        Поздравляем, Вы зарегистрированы <br />А теперь введите свои email и пароль
+      </span>
+    );
+    setTabIndex(0);
+  };
+
   return (
-    <Modal buttonHandler={buttonHandler} modalWidth={570} display={display}>
-      <Tabs>
+    <Modal
+      buttonHandler={() => {
+        dispatch(saveModalAuthRegAction(!modalAuthReg));
+      }}
+      modalWidth={570}
+      display={modalAuthReg}
+    >
+      <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
         <TabList>
           <Tab tabIndex='0'>Вход</Tab>
-          <Tab tabIndex='-1'>Регистрация</Tab>
+          <Tab tabIndex='0'>Регистрация</Tab>
         </TabList>
 
         <TabPanel>
           <div className={styles.form}>
-            <AuthForm />
+            <div className={styles.regTitle}>{messageServer}</div>
+            <AuthForm setmessageServer={setmessageServer} />
           </div>
         </TabPanel>
         <TabPanel>
           <div className={styles.form}>
-            <RegForm />
+            <RegForm setTabIndex={setTabIndexToReg} />
           </div>
         </TabPanel>
       </Tabs>
     </Modal>
   );
-};
-
-RegAuth.propTypes = {
-  buttonHandler: PropTypes.func.isRequired,
-  display: PropTypes.bool.isRequired,
 };
 
 export default RegAuth;

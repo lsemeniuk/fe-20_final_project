@@ -1,5 +1,9 @@
 @import '../../utils/styles/var';
-
+.option_btn {
+  background-color: transparent;
+  border: 1px solid black;
+  margin: 0 10px;
+}
 .button {
   cursor: pointer;
   padding: 0 16px;
