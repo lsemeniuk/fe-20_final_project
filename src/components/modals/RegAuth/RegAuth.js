@@ -5,21 +5,21 @@ import 'react-tabs/style/react-tabs.scss';
 import Modal from '../Modal/Modal';
 import AuthForm from './AuthForm/AuthForm';
 import RegForm from './RegForm/RegForm';
-import styles from './RegAuth.module.scss';
 import { getModalAuthRegSelector } from '../../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../../store/modal/actions';
+import styles from './RegAuth.module.scss';
 
 const RegAuth = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const [tabIndex, setTabIndex] = useState(0);
-  const [regTitle, setregTitle] = useState(null);
+  const [messageServer, setmessageServer] = useState(null);
 
   const setTabIndexToReg = () => {
-    setregTitle(
-      <div className={styles.regTitle}>
+    setmessageServer(
+      <span style={{ color: 'green' }}>
         Поздравляем, Вы зарегистрированы <br />А теперь введите свои email и пароль
-      </div>
+      </span>
     );
     setTabIndex(0);
   };
@@ -40,8 +40,8 @@ const RegAuth = () => {
 
         <TabPanel>
           <div className={styles.form}>
-            {regTitle}
-            <AuthForm />
+            <div className={styles.regTitle}>{messageServer}</div>
+            <AuthForm setmessageServer={setmessageServer} />
           </div>
         </TabPanel>
         <TabPanel>

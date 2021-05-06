@@ -7,7 +7,7 @@ import { $authHost, $host } from './index';
 // @access  Public
 export const createCustomer = async value => {
   const res = await $host.post('customers', value).catch(err => {
-    console.log(err.message);
+    throw err;
   });
   return res;
 };
@@ -17,7 +17,7 @@ export const createCustomer = async value => {
 // @access  Public
 export const loginCustomer = async value => {
   const res = await $host.post('customers/login', value).catch(err => {
-    console.log(err.message);
+    throw err.response;
   });
   if (res) {
     localStorage.setItem('token', res.data.token);
@@ -32,7 +32,7 @@ export const loginCustomer = async value => {
 // @access  Private
 export const getCustomer = async () => {
   const res = await $authHost.get('customers/customer').catch(err => {
-    console.log(err.message);
+    throw err;
   });
   return res;
 };

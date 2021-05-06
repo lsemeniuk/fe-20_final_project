@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import reducer from './reducer';
-import { SET_CUSTOMMER_ISAUTH, SET_CUSTOMMER } from './types';
+import { SET_CUSTOMER_ISAUTH, SET_CUSTOMER } from './types';
 
 const initialState = {
   isAuth: false,
@@ -20,23 +20,23 @@ const testCustomer = {
 };
 
 describe('Testing customer reducer', () => {
-  test('Testing SET_CUSTOMMER_ISAUTH', () => {
-    const action = { type: SET_CUSTOMMER_ISAUTH, payload: true };
+  test('Testing SET_CUSTOMER_ISAUTH', () => {
+    const action = { type: SET_CUSTOMER_ISAUTH, payload: true };
     const newState = reducer(initialState, action);
 
     expect(newState.isAuth).toBeTruthy();
-    const toogleState = reducer(newState, { type: SET_CUSTOMMER_ISAUTH, payload: false });
+    const toogleState = reducer(newState, { type: SET_CUSTOMER_ISAUTH, payload: false });
     expect(toogleState.isAuth).toBeFalsy();
   });
 
-  test('Testing SET_CUSTOMMER_ISAUTH', () => {
-    const action = { type: SET_CUSTOMMER, payload: testCustomer };
+  test('Testing SET_CUSTOMER_ISAUTH', () => {
+    const action = { type: SET_CUSTOMER, payload: testCustomer };
     const newState = reducer(initialState, action);
 
     expect(newState.data).toBe(testCustomer);
     expect(newState.data.firstName).toEqual('Customer');
 
-    const removeState = reducer(newState, { type: SET_CUSTOMMER, payload: undefined });
+    const removeState = reducer(newState, { type: SET_CUSTOMER, payload: undefined });
     expect(removeState.data).toBe(undefined);
   });
 });

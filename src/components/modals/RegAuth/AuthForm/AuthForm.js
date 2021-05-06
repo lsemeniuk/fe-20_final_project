@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../../Forms/MyTextInput/MyTextInput';
@@ -8,7 +8,7 @@ import Button from '../../../Button/Button';
 import styles from './AuthForm.module.scss';
 import { authorizOperation } from '../../../../store/customer/operations';
 
-const AuthForm = () => {
+const AuthForm = ({ setmessageServer }) => {
   const dispatch = useDispatch();
 
   return (
@@ -21,12 +21,13 @@ const AuthForm = () => {
         validationSchema={Yup.object({
           loginOrEmail: Yup.string().email('Неверный адрес email').required('Укажите email'),
           password: Yup.string()
-            .min(8, 'Это шликом маленький пароль')
+            .min(7, 'Это шликом маленький пароль')
             .max(20, 'Такой пароль невозможно запомнить')
             .required('Необходимо ввести пароль'),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          dispatch(authorizOperation(values));
+          const { loginOrEmail, password } = values;
+          dispatch(authorizOperation({ setmessageServer, loginOrEmail, password }));
           setSubmitting(false);
         }}
       >
@@ -43,6 +44,10 @@ const AuthForm = () => {
       </Formik>
     </>
   );
+};
+
+AuthForm.propTypes = {
+  setmessageServer: PropTypes.func.isRequired,
 };
 
 export default AuthForm;

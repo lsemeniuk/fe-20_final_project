@@ -7,7 +7,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_FILTERS: {
-      console.log('action.payload', action.payload);
       return { ...state, filters: action.payload };
     }
     default: {
