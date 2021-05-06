@@ -4,46 +4,58 @@ import { $authHost, $host } from './index';
 // @desc    Add new comments
 // @access  Private
 export const addComment = async () => {
-  const { data } = await $authHost.post('comments');
-  return data;
+  const res = await $authHost.post('comments').catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   PUT /comments/:id
 // @desc    Update existing comment
 // @access  Private
 export const updateComment = async id => {
-  const { data } = await $authHost.put(`comments/${id}`);
-  return data;
+  const res = await $authHost.put(`comments/${id}`).catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   DELETE /comments/:id
 // @desc    Delete existing comment
 // @access  Private
 export const deleteComment = async id => {
-  const { data } = await $authHost.delete(`comments/${id}`);
-  return data;
+  const res = await $authHost.delete(`comments/${id}`).catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   GET /comments
 // @desc    GET existing comments
 // @access  Public
 export const getComments = async () => {
-  const { data } = await $host.get('comments');
-  return data;
+  const res = await $host.get('comments').catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   GET /comments/:customerId
 // @desc    GET existing comments of particular customer
 // @access  Public
 export const getCustomerComments = async customerId => {
-  const { data } = await $host.get(`comments/${customerId}`);
-  return data;
+  const res = await $host.get(`comments/${customerId}`).catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   GET /comments/:productId
 // @desc    GET existing comments of particular product
 // @access  Public
 export const getProductComments = async productId => {
-  const { data } = await $host.get(`comments/${productId}`);
-  return data;
+  const res = await $host.get(`comments/${productId}`).catch(err => {
+    throw err;
+  });
+  return res;
 };

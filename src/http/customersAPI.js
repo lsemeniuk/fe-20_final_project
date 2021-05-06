@@ -41,14 +41,14 @@ export const getCustomer = async () => {
 // @desc    Update customer
 // @access  Private
 export const editCustomerInfo = async () => {
-  const { data } = await $authHost.put('customers');
-  return data;
+  const res = await $authHost.put('customers');
+  return res;
 };
 
 // @route   POST /customers/profile/update-password
 // @desc    Change password
 // @access  Private
 export const updatePassword = async () => {
-  const { data } = await $authHost.put('customers/password');
-  return data;
+  const res = await $authHost.put('customers/password');
+  return res;
 };
