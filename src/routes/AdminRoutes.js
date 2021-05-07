@@ -2,19 +2,18 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AsideBar from '../components/AsideBar/AsideBar';
 import Container from '../components/Container/Container';
-import { userRoutes } from './routes';
+import Admin from '../pages/Admin';
+import { ADMIN_ROUTE } from '../utils/consts';
 
-const UserRoutes = () => {
+const AdminRoutes = () => {
   return (
     <Container>
       <AsideBar />
       <Switch>
-        {userRoutes.map(({ path, Component }) => (
-          <Route key={path} path={path} component={Component} exact />
-        ))}
+        <Route exact path={ADMIN_ROUTE} component={Admin} />
       </Switch>
     </Container>
   );
 };
 
-export default UserRoutes;
+export default AdminRoutes;
