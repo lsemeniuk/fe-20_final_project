@@ -9,18 +9,13 @@ import MyInput from './MyInput';
 import schema from './schema';
 import Button from '../../components/Button/Button';
 import { loadCustomerProfile } from '../../store/customer/actions';
-import { getCustomerSelector, isLoadingSelector } from '../../store/customer/selectors';
+import { isLoadingSelector } from '../../store/customer/selectors';
 
 function PersonalDataForm({ handleSubmit, isSubmitting }) {
-  const customer = useSelector(getCustomerSelector);
   const isLoading = useSelector(isLoadingSelector);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadCustomerProfile());
-    if (customer) {
-      localStorage.setItem('customer', JSON.stringify(customer));
-    }
-    // localStorage.clear();
   }, []);
 
   if (isLoading) return <Loader />;
@@ -61,16 +56,15 @@ const saveCustomerInfo = (values, { setSubmitting }) => {
   // console.log('helpers', helpers);
   setSubmitting(false);
 };
-const customerLocal = JSON.parse(localStorage.getItem('customer'));
 
 export default withFormik({
   mapPropsToValues: () => ({
-    fullName: customerLocal ? customerLocal.fullName : '',
-    email: customerLocal ? customerLocal.email : '',
-    phone: customerLocal ? customerLocal.phone : '',
-    city: customerLocal ? customerLocal.city : '',
-    address: customerLocal ? customerLocal.address : '',
-    password: customerLocal ? customerLocal.password : '',
+    fullName: localStorage.getItem('customer') ? JSON.parse(localStorage.getItem('customer')).fullName : '',
+    email: localStorage.getItem('customer') ? JSON.parse(localStorage.getItem('customer')).email : '',
+    phone: localStorage.getItem('customer') ? JSON.parse(localStorage.getItem('customer')).phone : '',
+    city: localStorage.getItem('customer') ? JSON.parse(localStorage.getItem('customer')).city : '',
+    address: localStorage.getItem('customer') ? JSON.parse(localStorage.getItem('customer')).address : '',
+    password: localStorage.getItem('customer') ? JSON.parse(localStorage.getItem('customer')).password : '',
   }),
   handleSubmit: saveCustomerInfo,
   validationSchema: schema,

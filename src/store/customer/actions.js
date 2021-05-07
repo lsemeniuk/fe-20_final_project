@@ -6,6 +6,7 @@ export const loadCustomerProfile = () => dispatch => {
   axios('/customer-profile.json').then(res => {
     dispatch({ type: SET_CUSTOMMER, payload: res.data });
     dispatch({ type: SET_ISLOADING, payload: false });
+    localStorage.setItem('customer', JSON.stringify(res.data));
   });
 };
 export const saveCustomerIsAuthAction = isAuth => ({ type: SET_CUSTOMMER_ISAUTH, payload: isAuth });

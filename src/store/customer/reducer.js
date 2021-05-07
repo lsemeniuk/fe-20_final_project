@@ -2,7 +2,7 @@ import { SET_CUSTOMMER_ISAUTH, SET_CUSTOMMER, SET_ISLOADING } from './types';
 
 const initialState = {
   isAuth: false,
-  data: null,
+  data: {},
 };
 
 const reducer = (state = initialState, action) => {

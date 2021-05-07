@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { VscFeedback } from 'react-icons/vsc';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { FaChevronRight } from 'react-icons/fa';
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { VscFeedback } from 'react-icons/vsc';
 import style from './ProductScreenAdaptive.module.scss';
 import data from './data';
-// import Container from '../../components/Container/Container';
 import Button from '../../components/Button/Button';
 import ProductDetails from './productscreen-components/ProductDetails';
 import DelPayWarrBlock from './productscreen-components/DelPayWarrBlock';
