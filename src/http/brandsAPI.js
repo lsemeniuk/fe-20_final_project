@@ -1,40 +1,40 @@
 import { $adminHost, $host } from './index';
 
-// @route   POST /slides
-// @desc    Create new slide
+// @route   POST /brands
+// @desc    Create new brand
 // @access  Private
-export const addSlide = async () => {
-  const res = await $adminHost.post('slides').catch(err => {
+export const addBrand = async () => {
+  const res = await $adminHost.post('brands').catch(err => {
     throw err;
   });
   return res;
 };
 
-// @route   PUT /slides/:id
-// @desc    Update existing slide
+// @route   PUT /brands/:id
+// @desc    Update existing brand
 // @access  Private
-export const updateSlide = async customId => {
-  const res = await $adminHost.put(`slides/${customId}`).catch(err => {
+export const updateBrand = async id => {
+  const res = await $adminHost.put(`brands/${id}`).catch(err => {
     throw err;
   });
   return res;
 };
 
-// @route   DELETE /slides/:id
-// @desc    Delete existing slide
+// @route   DELETE /brands/:id
+// @desc    DELETE existing brand
 // @access  Private
-export const deleteSlide = async customId => {
-  const res = await $adminHost.delete(`slides/${customId}`).catch(err => {
+export const deleteBrand = async customId => {
+  const res = await $adminHost.delete(`brands/${customId}`).catch(err => {
     throw err;
   });
   return res;
 };
 
-// @route   GET /slides
-// @desc    GET existing slides
+// @route   GET /brands
+// @desc    GET existing brand
 // @access  Public
-export const getSlides = async () => {
-  const res = await $host.get('slides').catch(err => {
+export const getBrands = async () => {
+  const res = await $host.get('brands').catch(err => {
     throw err;
   });
   return res;
