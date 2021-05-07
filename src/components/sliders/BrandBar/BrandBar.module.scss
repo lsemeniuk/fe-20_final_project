@@ -1,0 +1,43 @@
+@import '../../../utils/styles/mixins';
+
+.container {
+  border-radius: 10px;
+  @extend %custom-shadow;
+  @extend %custom-border;
+  margin-bottom: 10px;
+}
+
+.slider {
+  list-style: none;
+  & button {
+    top: 50%;
+  }
+}
+.itemContainer {
+  cursor: pointer;
+  padding: 15px 0;
+  border-right: 1px solid #d6d6d6;
+}
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  width: 75px;
+  margin: 0 auto;
+}
+.img {
+  width: 75px;
+}
+.name {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #3a3a3a;
+}
+.loader {
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
