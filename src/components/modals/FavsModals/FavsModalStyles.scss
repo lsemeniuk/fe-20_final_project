@@ -11,6 +11,8 @@
 
   .ReactModalPortal .ReactModal__Overlay--after-open {
     opacity: 1;
+    position:relative;
+    z-index: 100;
   }
 
   .ReactModalPortal .ReactModal__Overlay--before-close {
