@@ -7,7 +7,6 @@ import { INDEX_ROUTE } from '../../utils/consts';
 import { getCategoriesSelector } from '../../store/catalog/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import styles from './Products.module.scss';
-import MyFilter from '../../components/SelectBar/MyFilter/MyFilter';
 
 const Products = () => {
   const location = useLocation();
@@ -42,7 +41,9 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <div className={styles.filterContainer}>
-              <MyFilter />
+              <div>
+                <h2 className={styles.filterTitle}>Filter</h2>
+              </div>
             </div>
 
             <ProductList />

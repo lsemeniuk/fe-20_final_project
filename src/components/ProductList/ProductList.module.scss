@@ -1,6 +1,10 @@
+@import '../../utils/styles/mixins';
+
 .productsContainer {
+  background-color: #fff;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  @extend %custom-shadow;
+  @extend %custom-border;
 }

@@ -17,7 +17,7 @@ const Index = () => {
   };
 
   return (
-    <div className={styles.body}>
+    <body className={styles.body}>
       <PromotionSlider />
 
       <Container>
@@ -90,7 +90,7 @@ const Index = () => {
           </p>
         </div>
       </Container>
-    </div>
+    </body>
   );
 };
 
