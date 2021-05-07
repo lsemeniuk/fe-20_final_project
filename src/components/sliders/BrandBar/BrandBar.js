@@ -2,14 +2,17 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import { getBrandsOperation } from '../../../store/brands/operations';
-import { getBrandsSelector } from '../../../store/brands/selectors';
+import { brandsLoadingSelector, getBrandsSelector } from '../../../store/brands/selectors';
+import Loader from '../../Loader/Loader';
 import styles from './BrandBar.module.scss';
 
 const BrandBar = () => {
   const brands = useSelector(getBrandsSelector);
+  const brandsLoading = useSelector(brandsLoadingSelector);
   const dispatch = useDispatch();
+
   const sliderSettings = {
-    infinite: true,
+    infinite: false,
     speed: 700,
     slidesToShow: 9,
     slidesToScroll: 3,
@@ -35,9 +38,15 @@ const BrandBar = () => {
 
   return (
     <div className={styles.container}>
-      <Slider className={styles.slider} {...sliderSettings}>
-        {brandsList}
-      </Slider>
+      {brandsLoading ? (
+        <div className={styles.loader}>
+          <Loader />
+        </div>
+      ) : (
+        <Slider className={styles.slider} {...sliderSettings}>
+          {brandsList}
+        </Slider>
+      )}
     </div>
   );
 };

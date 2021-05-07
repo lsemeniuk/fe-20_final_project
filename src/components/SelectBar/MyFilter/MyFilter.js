@@ -66,6 +66,7 @@ const MyFilter = ({ classes, sort, checkboxed }) => {
 
   return (
     <div className={styles.select_container_box}>
+      <h1 className={styles.title}>Filter</h1>
       <section className={styles.select_box}>
         {!!checkboxed && (
           <div className={classes}>

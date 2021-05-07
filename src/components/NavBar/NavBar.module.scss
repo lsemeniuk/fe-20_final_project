@@ -1,7 +1,9 @@
 @import '../../utils/styles/var';
+@import '../../utils/styles/mixins';
 
 .bgContainer {
   background-color: $colorSecondary;
+  @extend %custom-shadow;
 }
 
 .flexContainer {

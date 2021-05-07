@@ -15,6 +15,7 @@ const Loader = ({ fixed }) => {
   const flexStyles = {
     display: 'flex',
     justifyContent: 'center',
+    textAlign: 'center',
   };
 
   return (
