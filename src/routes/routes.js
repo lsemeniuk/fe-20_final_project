@@ -11,11 +11,11 @@ import {
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
 import Admin from '../pages/Admin/Admin';
-import WishList from '../pages/WishList/WishList';
+import WishList from '../pages/User/WishList/WishList';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
 import Page404 from '../pages/Page404/Page404';
-import PersonalInfo from '../pages/PersonalInfo/PersonalInfo';
-import Orders from '../pages/Orders/Orders';
+import PersonalInfo from '../pages/User/PersonalInfo';
+import Orders from '../pages/User/Orders/Orders';
 
 export const adminRoutes = [
   {
