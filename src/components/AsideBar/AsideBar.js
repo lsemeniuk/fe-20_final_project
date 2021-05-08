@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import AsideContainer from '../Container/AsideContainer/AsideContainer';
 import styles from './AsideBar.module.scss';
 
 const AsideBar = ({ links }) => {
@@ -15,11 +16,11 @@ const AsideBar = ({ links }) => {
   });
 
   return (
-    <aside className={styles.container}>
+    <AsideContainer>
       <nav>
         <ul>{list}</ul>
       </nav>
-    </aside>
+    </AsideContainer>
   );
 };
 

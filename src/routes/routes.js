@@ -13,7 +13,7 @@ import Products from '../pages/Products/Products';
 import Admin from '../pages/Admin';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
 import Page404 from '../pages/Page404/Page404';
-import PersonalInfo from '../pages/User/PersonalInfo';
+import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
 import Orders from '../pages/User/Orders/Orders';
 import WishList from '../pages/User/WishList/WishList';
 

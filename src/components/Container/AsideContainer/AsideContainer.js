@@ -4,9 +4,9 @@ import styles from './AsideContainer.module.scss';
 
 const AsideContainer = ({ children, style }) => {
   return (
-    <div style={style} className={styles.container}>
+    <aside style={style} className={styles.container}>
       {children}
-    </div>
+    </aside>
   );
 };
 

@@ -40,7 +40,7 @@ const RegAuth = () => {
 
         <TabPanel>
           <div className={styles.form}>
-            <div className={styles.regTitle}>{messageServer}</div>
+            <div className={styles.redTitle}>{messageServer}</div>
             <AuthForm setmessageServer={setmessageServer} />
           </div>
         </TabPanel>

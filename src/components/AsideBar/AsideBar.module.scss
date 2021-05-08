@@ -1,23 +1,16 @@
 @import '../../utils/styles/var';
 @import '../../utils/styles/mixins';
 
-.container {
-  width: 270px;
-  padding: 0 20px;
-  margin-right: 10px;
-  @extend %custom-shadow;
-  @extend %custom-border;
-  height: 100%;
-  background-color: #fff;
-}
-
 .item {
-  margin: 20px 0;
+  margin: 10px 0 20px;
+  &:last-child {
+    margin: 10px 0 10px;
+  }
 }
 
 .link {
   white-space: nowrap;
-  padding: 5px;
+  padding: 7px;
   font-size: 17px;
   color: #000;
   &:hover {
