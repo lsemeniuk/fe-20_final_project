@@ -6,7 +6,7 @@ import { userRoutes } from './routes';
 import { PERSONAL_INFO_ROUTE, ORDERS_ROUTE, WISH_LIST_ROUTE } from '../utils/consts';
 
 const links = [
-  { url: PERSONAL_INFO_ROUTE, description: 'Персональная информация' },
+  { url: PERSONAL_INFO_ROUTE, description: 'Личные данные' },
   { url: ORDERS_ROUTE, description: 'Заказы' },
   { url: WISH_LIST_ROUTE, description: 'Список желаний' },
 ];

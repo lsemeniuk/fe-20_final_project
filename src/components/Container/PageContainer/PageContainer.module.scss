@@ -1,0 +1,8 @@
+@import '../../../utils/styles/mixins';
+
+.container {
+  @extend %width-page;
+  @extend %custom-shadow;
+  @extend %custom-border;
+  padding: 20px;
+}

@@ -2,11 +2,13 @@
 @import '../../utils/styles/mixins';
 
 .container {
-  width: 300px;
+  width: 270px;
   padding: 0 20px;
   margin-right: 10px;
   @extend %custom-shadow;
   @extend %custom-border;
+  height: 100%;
+  background-color: #fff;
 }
 
 .item {
@@ -14,6 +16,7 @@
 }
 
 .link {
+  white-space: nowrap;
   padding: 5px;
   font-size: 17px;
   color: #000;

@@ -1,8 +1,13 @@
 import React from 'react';
-import styles from './About.module.scss';
+import PageContainer from '../../components/Container/PageContainer/PageContainer';
+// import styles from './About.module.scss';
 
 const About = () => {
-  return <div className={styles.container}>About</div>;
+  return (
+    <PageContainer>
+      <div style={{ height: '700px' }}>About</div>
+    </PageContainer>
+  );
 };
 
 export default About;

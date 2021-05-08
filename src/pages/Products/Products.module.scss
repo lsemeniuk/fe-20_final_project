@@ -40,17 +40,8 @@
   display: flex;
   justify-content: space-between;
 }
-.filterContainer {
-  width: 300px;
-  margin-right: 10px;
-  height: 100%;
-  @extend %custom-shadow;
-  @extend %custom-border;
-  background-color: #fff;
-}
 .filterTitle {
   display: block;
-  width: 300px;
   text-align: center;
   margin: 0;
 }

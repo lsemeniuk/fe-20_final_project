@@ -7,6 +7,8 @@ import { INDEX_ROUTE } from '../../utils/consts';
 import { getCategoriesSelector } from '../../store/catalog/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import styles from './Products.module.scss';
+import PageContainer from '../../components/Container/PageContainer/PageContainer';
+import AsideContainer from '../../components/Container/AsideContainer/AsideContainer';
 
 const Products = () => {
   const location = useLocation();
@@ -40,13 +42,14 @@ const Products = () => {
           </div>
           <BrandBar />
           <div className={styles.flexRow}>
-            <div className={styles.filterContainer}>
+            <AsideContainer>
               <div>
                 <h2 className={styles.filterTitle}>Filter</h2>
               </div>
-            </div>
-
-            <ProductList />
+            </AsideContainer>
+            <PageContainer style={{ padding: '0' }}>
+              <ProductList />
+            </PageContainer>
           </div>
         </div>
       </Container>
