@@ -1,9 +1,30 @@
+// Public
 export const INDEX_ROUTE = '/';
-export const PRODUCT_ROUTE = '/product';
 export const PRODUCTS_ROUTE = '/products';
-export const WISH_LIST_ROUTE = '/wish-list';
-export const ORDERS_ROUTE = '/orders';
-export const PERSONAL_INFO_ROUTE = '/personal-info';
+export const PRODUCT_ROUTE = '/product';
 export const CHECKOUT_ROUTE = '/checkout';
+export const PAGES_ROUTE = '/pages';
+
+// User
+export const USER_ROUTE = '/user';
+export const PERSONAL_INFO_ROUTE = '/user/personal-info';
+export const ORDERS_ROUTE = '/user/orders';
+export const WISH_LIST_ROUTE = '/user/wish-list';
+
+// Admin
 export const ADMIN_ROUTE = '/admin';
-export const PAGE404_ROUTE = '/404';
+export const ADM_CUSTOMERS_ROUTE = '/admin/customers';
+export const ADM_CATALOG_ROUTE = '/admin/catalog';
+export const ADM_PRODUCTS_ROUTE = '/admin/products';
+export const ADM_BRANDS_ROUTE = '/admin/brands';
+export const ADM_COLORS_ROUTE = '/admin/colors';
+export const ADM_FILTERS_ROUTE = '/admin/filters';
+export const ADM_SLIDER_ROUTE = '/admin/slider';
+export const ADM_CART_ROUTE = '/admin/cart';
+export const ADM_ORDERS_ROUTE = '/admin/orders';
+export const ADM_WISH_LIST_ROUTE = '/admin/wish-list';
+export const ADM_COMMENTS_ROUTE = '/admin/comments';
+export const ADM_SUBSCRIBERS_ROUTE = '/admin/subscribers';
+export const ADM_LINKS_ROUTE = '/admin/links';
+export const ADM_PAGES_ROUTE = '/admin/pages';
+export const ADM_CONFIGS_ROUTE = '/admin/globalConfigs';

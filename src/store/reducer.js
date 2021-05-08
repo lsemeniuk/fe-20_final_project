@@ -6,6 +6,8 @@ import catalogReducer from './catalog/reducer';
 import cartReducer from './cart/reducer';
 import modalReducer from './modal/reducer';
 import brandsReducer from './brands/reducer';
+import pagesReducer from './pages/reducer';
+import linksReducer from './links/reducer';
 
 const reducer = combineReducers({
   brands: brandsReducer,
@@ -14,7 +16,9 @@ const reducer = combineReducers({
   products: productsReducer,
   catalog: catalogReducer,
   cart: cartReducer,
+  pages: pagesReducer,
   modal: modalReducer,
+  links: linksReducer,
 });
 
 export default reducer;

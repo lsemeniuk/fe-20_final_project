@@ -1,0 +1,28 @@
+@import '../../utils/styles/var';
+@import '../../utils/styles/mixins';
+
+.item {
+  margin: 10px 0 20px;
+  &:last-child {
+    margin: 10px 0 10px;
+  }
+}
+
+.link {
+  white-space: nowrap;
+  padding: 7px;
+  font-size: 17px;
+  color: #000;
+  &:hover {
+    color: $colorButnHover;
+  }
+}
+
+.linkActive {
+  background-color: $colorButton;
+  color: #fff;
+  border-radius: 5px;
+  &:hover {
+    color: #000;
+  }
+}

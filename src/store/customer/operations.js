@@ -1,14 +1,16 @@
 /* eslint-disable no-console */
 import { createCustomer, getCustomer, loginCustomer } from '../../http/customersAPI';
 import { saveModalAuthRegAction } from '../modal/actions';
-import { saveCustomerAction, saveCustomerIsAuthAction } from './actions';
+import { saveCustomerAction, saveCustomerIsAuthAction, saveCustomerIsLoadingAction } from './actions';
 
 export const checkAuthOperation = () => dispatch => {
+  dispatch(saveCustomerIsLoadingAction(true));
   getCustomer()
     .then(res => {
       if (res) {
         dispatch(saveCustomerAction(res.data));
         dispatch(saveCustomerIsAuthAction(true));
+        dispatch(saveCustomerIsLoadingAction(false));
       }
     })
     .catch(err => {

@@ -1,30 +1,36 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { saveModalAuthRegAction } from '../../../store/modal/actions';
 import { getModalAuthRegSelector } from '../../../store/modal/selectors';
 import Loader from '../../Loader/Loader';
+import { getLinksOperation } from '../../../store/links/operations';
 import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
+import { getLinksSelector, linksLoadingSelector } from '../../../store/links/selectors';
 
 const DifferentPagesList = ({ classLink, classItem }) => {
   const dispatch = useDispatch();
   const isLogin = useSelector(getCustomerIsAuthSelector);
   const modalAuthReg = useSelector(getModalAuthRegSelector);
-  const [links, setLinks] = useState({});
-  const [isLoading, setisLoading] = useState(true);
+  const links = useSelector(getLinksSelector);
+  const linksLoading = useSelector(linksLoadingSelector);
+
   useEffect(() => {
-    axios.get('../../links.json').then(res => {
-      setLinks(res.data[0].links);
-      setisLoading(false);
-    });
+    dispatch(getLinksOperation());
   }, []);
 
-  if (isLoading) {
+  if (linksLoading) {
     return <Loader />;
   }
-  const linksList = links.map(i => {
+
+  const clientLinks = links.find(e => {
+    if (e.title !== 'Клиентам') {
+      return false;
+    }
+    return e;
+  });
+  const linksList = clientLinks.links.map(i => {
     return (
       <li key={i.url} className={classItem}>
         <NavLink to={i.url} className={classLink}>
@@ -33,6 +39,7 @@ const DifferentPagesList = ({ classLink, classItem }) => {
       </li>
     );
   });
+
   return (
     <>
       {!isLogin && (
