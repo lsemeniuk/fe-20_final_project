@@ -1,4 +1,4 @@
-import { SET_PAGES, SET_PAGES_LOADING } from './types';
+import { SET_PAGE, SET_PAGE_LOADING } from './types';
 
 const initialState = {
   isLoading: true,
@@ -7,10 +7,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_PAGES: {
+    case SET_PAGE: {
       return { ...state, data: action.payload };
     }
-    case SET_PAGES_LOADING: {
+    case SET_PAGE_LOADING: {
       return { ...state, isLoading: action.payload };
     }
     default: {

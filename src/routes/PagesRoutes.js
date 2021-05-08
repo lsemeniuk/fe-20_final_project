@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import AsideBar from '../components/AsideBar/AsideBar';
 import Container from '../components/Container/Container';
 import Loader from '../components/Loader/Loader';
-import About from '../pages/About/About';
+import Page from '../pages/Page/Page';
 import { getLinksSelector, linksLoadingSelector } from '../store/links/selectors';
 
 const PagesRoutes = () => {
@@ -28,7 +28,7 @@ const PagesRoutes = () => {
           <AsideBar links={clientLinks.links} />
           <Switch>
             {clientLinks.links.map(({ url }) => (
-              <Route key={url} path={url} component={About} exact />
+              <Route key={url} path={url} component={Page} exact />
             ))}
           </Switch>
         </div>

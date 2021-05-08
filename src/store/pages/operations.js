@@ -1,9 +1,10 @@
-import { getPage } from '../../http/pagesAPI';
-import { pagesLoadingAction, savePagesAction } from './actions';
+import { getPage } from '../../http/pagesApi';
+import { pageLoadingAction, savePageAction } from './actions';
 
 export const getBrandsOperation = customId => dispatch => {
+  dispatch(pageLoadingAction(true));
   getPage(customId).then(res => {
-    dispatch(savePagesAction(res.data));
-    dispatch(pagesLoadingAction(false));
+    dispatch(savePageAction(res.data));
+    dispatch(pageLoadingAction(false));
   });
 };
