@@ -13,7 +13,6 @@ export const WISH_LIST_ROUTE = '/user/wish-list';
 
 // Admin
 export const ADMIN_ROUTE = '/admin';
-export const ADM_CUSTOMERS_ROUTE = '/admin/customers';
 export const ADM_CATALOG_ROUTE = '/admin/catalog';
 export const ADM_PRODUCTS_ROUTE = '/admin/products';
 export const ADM_BRANDS_ROUTE = '/admin/brands';
