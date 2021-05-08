@@ -7,6 +7,7 @@ import { INDEX_ROUTE } from '../../utils/consts';
 import { getCategoriesSelector } from '../../store/catalog/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import styles from './Products.module.scss';
+import MyFilter from '../../components/SelectBar/MyFilter/MyFilter';
 
 const Products = () => {
   const location = useLocation();
