@@ -7,12 +7,8 @@ import { INDEX_ROUTE } from '../../utils/consts';
 import { getCategoriesSelector } from '../../store/catalog/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import styles from './Products.module.scss';
-<<<<<<< HEAD
 import PageContainer from '../../components/Container/PageContainer/PageContainer';
 import AsideContainer from '../../components/Container/AsideContainer/AsideContainer';
-=======
-import MyFilter from '../../components/SelectBar/MyFilter/MyFilter';
->>>>>>> 11b047f8ab7f137502a90af60ca98e2c1d2b0c34
 
 const Products = () => {
   const location = useLocation();
