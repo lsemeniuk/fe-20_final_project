@@ -1,0 +1,32 @@
+@import '../../utils/styles/var';
+@import '../../utils/styles/mixins';
+
+.container {
+  width: 300px;
+  padding: 0 20px;
+  margin-right: 10px;
+  @extend %custom-shadow;
+  @extend %custom-border;
+}
+
+.item {
+  margin: 20px 0;
+}
+
+.link {
+  padding: 5px;
+  font-size: 17px;
+  color: #000;
+  &:hover {
+    color: $colorButnHover;
+  }
+}
+
+.linkActive {
+  background-color: $colorButton;
+  color: #fff;
+  border-radius: 5px;
+  &:hover {
+    color: #000;
+  }
+}

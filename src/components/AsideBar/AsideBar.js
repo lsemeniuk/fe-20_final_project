@@ -1,23 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { ORDERS_ROUTE, USER_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
+import styles from './AsideBar.module.scss';
 
-const AsideBar = () => {
+const AsideBar = ({ links }) => {
+  const list = links.map(link => {
+    return (
+      <li key={link.url} className={styles.item}>
+        <NavLink to={link.url} className={styles.link} activeClassName={styles.linkActive}>
+          {link.description}
+        </NavLink>
+      </li>
+    );
+  });
+
   return (
-    <div>
-      <ul>
-        <li>
-          <NavLink to={USER_ROUTE}>Песональная информация</NavLink>
-        </li>
-        <li>
-          <NavLink to={ORDERS_ROUTE}>Заказы</NavLink>
-        </li>
-        <li>
-          <NavLink to={WISH_LIST_ROUTE}>Список желаний</NavLink>
-        </li>
-      </ul>
-    </div>
+    <aside className={styles.container}>
+      <nav>
+        <ul>{list}</ul>
+      </nav>
+    </aside>
   );
+};
+
+AsideBar.propTypes = {
+  links: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default AsideBar;

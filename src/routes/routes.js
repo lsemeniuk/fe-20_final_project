@@ -6,7 +6,7 @@ import {
   PRODUCTS_ROUTE,
   CHECKOUT_ROUTE,
   ORDERS_ROUTE,
-  USER_ROUTE,
+  PERSONAL_INFO_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -52,7 +52,7 @@ export const publicRoutes = [
 export const userRoutes = [
   {
     name: 'Пользователь',
-    path: USER_ROUTE,
+    path: PERSONAL_INFO_ROUTE,
     Component: PersonalInfo,
   },
   {

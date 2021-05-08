@@ -1,0 +1,7 @@
+@import '../../utils/styles/mixins';
+
+.container {
+  width: calc(100% - 310px);
+  @extend %custom-shadow;
+  @extend %custom-border;
+}

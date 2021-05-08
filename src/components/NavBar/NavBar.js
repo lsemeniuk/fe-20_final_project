@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { INDEX_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
+import { INDEX_ROUTE, PRODUCTS_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
 import Container from '../Container/Container';
 import Icons from '../Icons/Icons';
 import MyOrders from './MyOrders/MyOrders';
@@ -12,11 +12,13 @@ import User from './User/User';
 import RegAuth from '../modals/RegAuth/RegAuth';
 import { getModalAuthRegSelector } from '../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../store/modal/actions';
+import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import styles from './NavBar.module.scss';
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
+  const isAuth = useSelector(getCustomerIsAuthSelector);
   const location = useLocation();
   const favorites = 3;
 
@@ -57,7 +59,7 @@ const NavBar = () => {
               <ul className={styles.iconList}>
                 <li key='favorites'>
                   {favorites ? (
-                    <NavLink to={INDEX_ROUTE}>
+                    <NavLink to={WISH_LIST_ROUTE}>
                       {heartJsx}
                       <span className={styles.favorites}>{favorites}</span>
                     </NavLink>
@@ -75,7 +77,7 @@ const NavBar = () => {
             </div>
           </div>
         </nav>
-        <RegAuth />
+        {!isAuth && <RegAuth />}
       </Container>
     </div>
   );

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getCustomerSelector } from '../../../store/customer/selectors';
-import { ADMIN_ROUTE, ORDERS_ROUTE, USER_ROUTE, WISH_LIST_ROUTE } from '../../../utils/consts';
+import { ADMIN_ROUTE, ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../../utils/consts';
 import styles from './UserBar.module.scss';
 import { saveCustomerAction, saveCustomerIsAuthAction } from '../../../store/customer/actions';
 
@@ -21,7 +21,7 @@ const UserBar = ({ className }) => {
     <nav className={`${styles.menu} ${className}`}>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <NavLink to={USER_ROUTE} className={styles.link}>
+          <NavLink to={PERSONAL_INFO_ROUTE} className={styles.link}>
             Личные данные
           </NavLink>
         </li>
