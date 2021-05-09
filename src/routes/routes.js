@@ -1,13 +1,11 @@
 import {
-  ADMIN_ROUTE,
-  PRODUCT_ROUTE,
+  // PRODUCT_ROUTE,
   INDEX_ROUTE,
   WISH_LIST_ROUTE,
   PRODUCTS_ROUTE,
   CHECKOUT_ROUTE,
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
-  // FILTER_ROUTE,
   ADM_CATALOG_ROUTE,
   ADM_PRODUCTS_ROUTE,
 } from '../utils/consts';
@@ -29,10 +27,10 @@ export const publicRoutes = [
     path: INDEX_ROUTE,
     Component: Index,
   },
-  {
-    path: `${PRODUCT_ROUTE}/:id`,
-    Component: Product,
-  },
+  // {
+  //   path: `${PRODUCT_ROUTE}/:id`,
+  //   Component: Product,
+  // },
   {
     name: 'Товары',
     path: `${PRODUCTS_ROUTE}/:categories`,
