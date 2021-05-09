@@ -1,7 +1,7 @@
 import { SET_CART, SET_CART_LOADING } from './types';
 
 const initialState = {
-  isLoading: false,
+  isLoading: true,
   data: [],
 };
 
