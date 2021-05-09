@@ -5,7 +5,6 @@ import { getProductsSelector, productsLoadingSelector } from '../../store/produc
 import style from './ProductList.module.scss';
 import Loader from '../Loader/Loader';
 import { getProductsOperation } from '../../store/products/operations';
-import { getWishListOperation } from '../../store/wishList/operations';
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -14,7 +13,6 @@ const ProductList = () => {
 
   useEffect(() => {
     dispatch(getProductsOperation());
-    dispatch(getWishListOperation());
   }, []);
 
   if (productsLoading) {
