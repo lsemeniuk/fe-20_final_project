@@ -1,4 +1,6 @@
 export { mobile } from './mobile';
+export { sort } from './sort';
+export { filter } from './filter';
 export { vk } from './vk';
 export { facebook } from './facebook';
 export { twitter } from './twitter';

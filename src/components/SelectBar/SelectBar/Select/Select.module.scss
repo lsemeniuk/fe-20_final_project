@@ -49,10 +49,6 @@
   overflow: hidden;
 }
 .option_list_sort {
-  display: none;
-}
-.is_active.option_list_sort {
-  position: absolute;
   display: block;
   border-radius: 3px;
   margin: 0;
@@ -65,12 +61,28 @@
   overflow: hidden;
   z-index: 999;
 }
+// .is_active.option_list_sort {
+//   position: absolute;
+//   display: block;
+//   border-radius: 3px;
+//   margin: 0;
+//   top: 33px;
+//   padding: 7px;
+//   min-width: 180px;
+//   max-width: 350px;
+//   background-color: white;
+//   box-shadow: 0 0 10px rgba(0.3, 0.8, 0.5, 0.2);
+//   overflow: hidden;
+//   z-index: 999;
+// }
 .option_select {
   list-style: none;
   cursor: pointer;
   padding: 10px;
 }
 .option_item {
+  display: flex;
+  align-items: center;
   list-style: none;
   cursor: pointer;
   padding: 8px;
@@ -79,6 +91,11 @@
   }
   &_input {
     max-width: 90px;
+  }
+  &_ckeckbox {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
   }
   &:hover {
     color: rgb(71, 147, 233);
