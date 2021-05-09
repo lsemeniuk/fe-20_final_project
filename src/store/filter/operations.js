@@ -7,6 +7,7 @@ export const getFiltersOperation = () => async dispatch => {
     dispatch(saveAllFiltersAction(res.data));
   });
 };
+
 export const getFilterOperation = () => async dispatch => {
   getFilters().then(res => {
     dispatch(saveAllFiltersAction(res.data));
