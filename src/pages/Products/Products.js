@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
-import AboutShop from '../../components/AboutShop/AboutShop';
 import ProductList from '../../components/ProductList/ProductList';
 import Container from '../../components/Container/Container';
 import { INDEX_ROUTE } from '../../utils/consts';
 import { getCategoriesSelector } from '../../store/catalog/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import styles from './Products.module.scss';
+import PageContainer from '../../components/Container/PageContainer/PageContainer';
+import AsideContainer from '../../components/Container/AsideContainer/AsideContainer';
 
 const Products = () => {
   const location = useLocation();
@@ -26,24 +27,33 @@ const Products = () => {
   }
 
   return (
-    <Container>
-      <div className={styles.productsPage}>
-        <div className={styles.breadCrumbs}>
-          <NavLink className={styles.crumbsLink} to={INDEX_ROUTE}>
-            Главная
-          </NavLink>
-          <span className={styles.iconBreadcrumbs}>{}</span>
-          <span className={styles.crumbs}>{categorie.name}</span>
+    <main>
+      <Container>
+        <div className={styles.productsPage}>
+          <div className={styles.breadCrumbs}>
+            <NavLink className={styles.crumbsLink} to={INDEX_ROUTE}>
+              Главная
+            </NavLink>
+            <span className={styles.iconBreadcrumbs}>{}</span>
+            <span className={styles.crumbs}>{categorie.name}</span>
+          </div>
+          <div>
+            <h2 className={styles.categoryTitle}>{categorie.name}</h2>
+          </div>
+          <BrandBar />
+          <div className={styles.flexRow}>
+            <AsideContainer>
+              <div>
+                <h2 className={styles.filterTitle}>Filter</h2>
+              </div>
+            </AsideContainer>
+            <PageContainer style={{ padding: '0' }}>
+              <ProductList />
+            </PageContainer>
+          </div>
         </div>
-        <div>
-          <h2 className={styles.categoryTitle}>{categorie.name}</h2>
-        </div>
-        <BrandBar />
-        <div>Здесь будет компонент фильтрации и сортировки от Дениса</div>
-        <ProductList />
-        <AboutShop />
-      </div>
-    </Container>
+      </Container>
+    </main>
   );
 };
 

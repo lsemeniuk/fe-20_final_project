@@ -4,46 +4,58 @@ import { $authHost } from './index';
 // @desc    Place Order
 // @access  Private
 export const placeOrder = async () => {
-  const { data } = await $authHost.post('orders');
-  return data;
+  const res = await $authHost.post('orders').catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   PUT /orders/:id
 // @desc    Update order
 // @access  Private
 export const updateOrder = async id => {
-  const { data } = await $authHost.put(`orders${id}`);
-  return data;
+  const res = await $authHost.put(`orders/${id}`).catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   PUT /orders/cancel/:id
 // @desc    Cancel order
 // @access  Private
 export const cancelOrder = async id => {
-  const { data } = await $authHost.put(`orders/cancel${id}`);
-  return data;
+  const res = await $authHost.put(`orders/cancel/${id}`).catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   DELETE /orders/:id
 // @desc    Delete order
 // @access  Private
 export const deleteOrder = async id => {
-  const { data } = await $authHost.delete(`orders/${id}`);
-  return data;
+  const res = await $authHost.delete(`orders/${id}`).catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   GET /orders
 // @desc    Get all orders
 // @access  Private
 export const getAllOrders = async () => {
-  const { data } = await $authHost.get('orders');
-  return data;
+  const res = await $authHost.get('orders').catch(err => {
+    throw err;
+  });
+  return res;
 };
 
 // @route   GET /orders/:orderNo
 // @desc    Get one order by orderNo
 // @access  Private
 export const getOrderByNo = async orderNo => {
-  const { data } = await $authHost.get(`orders/${orderNo}`);
-  return data;
+  const res = await $authHost.get(`orders/${orderNo}`).catch(err => {
+    throw err;
+  });
+  return res;
 };

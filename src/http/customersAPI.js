@@ -40,15 +40,19 @@ export const getCustomer = async () => {
 // @route   PUT /customers
 // @desc    Update customer
 // @access  Private
-export const editCustomerInfo = async () => {
-  const { data } = await $authHost.put('customers');
-  return data;
+export const editCustomerInfo = async values => {
+  const res = await $authHost.put('customers', values).catch(err => {
+    throw err.response;
+  });
+  return res;
 };
 
 // @route   POST /customers/profile/update-password
 // @desc    Change password
 // @access  Private
-export const updatePassword = async () => {
-  const { data } = await $authHost.put('customers/password');
-  return data;
+export const updatePassword = async values => {
+  const res = await $authHost.put('customers/password', values).catch(err => {
+    throw err.response;
+  });
+  return res;
 };

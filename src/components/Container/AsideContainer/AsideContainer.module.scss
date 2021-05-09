@@ -1,0 +1,11 @@
+@import '../../../utils/styles/mixins';
+
+.container {
+  width: 270px;
+  padding: 20px;
+  margin-right: 10px;
+  @extend %custom-shadow;
+  @extend %custom-border;
+  height: 100%;
+  background-color: #fff;
+}
