@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import CartItem from './CartItem/CartItem';
@@ -10,28 +10,25 @@ import { replace } from '../../../utils/func';
 import RecommendList from './RecommendList/RecommendList';
 import styles from './Cart.module.scss';
 import Loader from '../../Loader/Loader';
+import { getModalCartSelector } from '../../../store/modal/selectors';
+import { cartLoadingSelector, getCartSelector } from '../../../store/cart/selectors';
+import { getCartOperation } from '../../../store/cart/operations';
 
 const Cart = ({ buttonHandler, display }) => {
-  const [cart, setcart] = useState({});
-  const [isLoading, setisLoading] = useState(true);
+  const dispatch = useDispatch();
+  const modalCart = useSelector(getModalCartSelector);
+  const cart = useSelector(getCartSelector);
+  const cartLoading = useSelector(cartLoadingSelector);
 
   useEffect(() => {
-    axios.get('../../cart.json').then(res => {
-      setcart([...res.data.products]);
-      setisLoading(false);
-    });
+    dispatch(getCartOperation());
   }, []);
 
-  const calculateTotalPrice = () => {
-    let totalPrice = 0;
-    cart.map(p => {
-      totalPrice += p.cartQuantity * p.product.currentPrice;
-      return totalPrice;
-    });
-    return replace(totalPrice);
-  };
+  if (!modalCart) {
+    return null;
+  }
 
-  if (isLoading) {
+  if (cartLoading) {
     return (
       <Modal buttonHandler={buttonHandler} display={display}>
         <Loader />
@@ -39,8 +36,18 @@ const Cart = ({ buttonHandler, display }) => {
     );
   }
 
-  const cartList = cart.map(p => <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} />);
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    cart.products.map(p => {
+      totalPrice += p.cartQuantity * p.product.currentPrice;
+      return totalPrice;
+    });
+    return replace(totalPrice);
+  };
 
+  const cartList = cart.products.map(p => (
+    <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} />
+  ));
   return (
     <Modal buttonHandler={buttonHandler} display={display}>
       <h2 className={styles.title}>Корзина</h2>

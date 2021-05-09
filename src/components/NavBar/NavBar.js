@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { INDEX_ROUTE, PRODUCTS_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
@@ -13,16 +13,18 @@ import RegAuth from '../modals/RegAuth/RegAuth';
 import { getModalAuthRegSelector } from '../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../store/modal/actions';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
-import styles from './NavBar.module.scss';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
+import { getWishListOperation } from '../../store/wishList/operations';
+import styles from './NavBar.module.scss';
+import { getProductsOperation } from '../../store/products/operations';
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
 
-  const wishListLoading = useSelector(wishListLoadingSelector);
   const wishList = useSelector(getWishListSelector);
+  const wishListLoading = useSelector(wishListLoadingSelector);
   const location = useLocation();
 
   let favorites = 0;
@@ -31,6 +33,11 @@ const NavBar = () => {
       favorites = wishList.products.length;
     }
   }
+
+  useEffect(() => {
+    dispatch(getWishListOperation());
+    dispatch(getProductsOperation());
+  }, []);
 
   const authRegHandler = () => {
     dispatch(saveModalAuthRegAction(!modalAuthReg));

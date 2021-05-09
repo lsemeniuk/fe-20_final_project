@@ -1,25 +1,25 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
-import ProductCardSmall from '../ProductCardSmall/ProductCardSmall';
+import { saveModalCartAction } from '../../../../store/modal/actions';
+import { getProductsSelector, productsLoadingSelector } from '../../../../store/products/selectors';
+import ProductCardSmall from '../../../ProductCard/ProductCardSmall/ProductCardSmall';
 import styles from './RecommendList.module.scss';
 
 const RecommendList = () => {
-  const [products, setProducts] = useState({});
-  const [isLoading, setisLoading] = useState(true);
+  const dispatch = useDispatch();
+  const products = useSelector(getProductsSelector);
+  const productsLoading = useSelector(productsLoadingSelector);
 
-  useEffect(() => {
-    axios.get('../../products.json').then(res => {
-      setProducts([...res.data]);
-      setisLoading(false);
-    });
-  }, []);
+  const closeCart = () => {
+    dispatch(saveModalCartAction(false));
+  };
 
-  if (isLoading) {
+  if (productsLoading) {
     return <div>loading</div>;
   }
 
-  const productList = products.map(p => <ProductCardSmall key={p.itemNo} product={p} />);
+  const productList = products.map(p => <ProductCardSmall key={p.itemNo} product={p} onClick={closeCart} />);
 
   return (
     <div className={styles.container}>
