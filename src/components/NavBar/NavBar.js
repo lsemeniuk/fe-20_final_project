@@ -27,12 +27,10 @@ const NavBar = () => {
 
   let favorites = 0;
   if (!wishListLoading) {
-    console.log(wishList);
     if (wishList) {
       favorites = wishList.products.length;
     }
   }
-  console.log(favorites);
 
   const authRegHandler = () => {
     dispatch(saveModalAuthRegAction(!modalAuthReg));
