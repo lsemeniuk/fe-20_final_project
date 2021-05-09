@@ -28,6 +28,7 @@ const ProductItem = ({ product }) => {
   }
 
   const addToWishList = () => {
+    console.log('add to wish list');
     dispatch(addProductToWishlistOperation(id));
   };
 
