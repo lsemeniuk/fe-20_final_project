@@ -14,13 +14,23 @@ import { getModalAuthRegSelector } from '../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../store/modal/actions';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import styles from './NavBar.module.scss';
+import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
+
+  const wishListLoading = useSelector(wishListLoadingSelector);
+  const wishList = useSelector(getWishListSelector);
   const location = useLocation();
-  const favorites = 3;
+
+  let favorites = 0;
+  if (!wishListLoading) {
+    if (wishList) {
+      favorites = wishList.products.length;
+    }
+  }
 
   const authRegHandler = () => {
     dispatch(saveModalAuthRegAction(!modalAuthReg));
@@ -29,7 +39,7 @@ const NavBar = () => {
 
   const heartJsx = [
     <div key='heart' className={styles.iconListItem}>
-      <Icons type='navHeart' color='black' width={30} height={30} />
+      <Icons type='navHeart' color='#000' width={30} height={30} />
     </div>,
   ];
 
@@ -57,8 +67,8 @@ const NavBar = () => {
                 <CategoriesList className={styles.menuLink} />
               </ul>
               <ul className={styles.iconList}>
-                <li key='favorites'>
-                  {favorites ? (
+                <li key='wishList'>
+                  {wishList && favorites !== 0 ? (
                     <NavLink to={WISH_LIST_ROUTE}>
                       {heartJsx}
                       <span className={styles.favorites}>{favorites}</span>

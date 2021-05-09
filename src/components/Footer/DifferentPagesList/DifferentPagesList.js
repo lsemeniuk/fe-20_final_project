@@ -11,7 +11,7 @@ import { getLinksSelector, linksLoadingSelector } from '../../../store/links/sel
 
 const DifferentPagesList = ({ classLink, classItem }) => {
   const dispatch = useDispatch();
-  const isLogin = useSelector(getCustomerIsAuthSelector);
+  const isAuth = useSelector(getCustomerIsAuthSelector);
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const links = useSelector(getLinksSelector);
   const linksLoading = useSelector(linksLoadingSelector);
@@ -42,7 +42,7 @@ const DifferentPagesList = ({ classLink, classItem }) => {
 
   return (
     <>
-      {!isLogin && (
+      {!isAuth && (
         <li key='enter' className={classItem}>
           <span
             className={classLink}

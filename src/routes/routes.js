@@ -7,8 +7,9 @@ import {
   CHECKOUT_ROUTE,
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
-
   // FILTER_ROUTE,
+  ADM_CATALOG_ROUTE,
+  ADM_PRODUCTS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -79,8 +80,13 @@ export const userRoutes = [
 
 export const adminRoutes = [
   {
-    name: 'Администратор',
-    path: ADMIN_ROUTE,
+    name: 'Каталог',
+    path: ADM_CATALOG_ROUTE,
+    Component: Admin,
+  },
+  {
+    name: 'Продукты',
+    path: ADM_PRODUCTS_ROUTE,
     Component: Admin,
   },
 ];

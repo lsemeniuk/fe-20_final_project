@@ -1,2 +1,2 @@
-export const getPagesSelector = state => state.pages.data;
-export const pagesLoadingSelector = state => state.pages.isLoading;
+export const getPageSelector = state => state.page.data;
+export const pageLoadingSelector = state => state.page.isLoading;
