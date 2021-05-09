@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PageContainer from '../../components/Container/PageContainer/PageContainer';
-import { getBrandsOperation } from '../../store/pages/operations';
+import { getPageOperation } from '../../store/pages/operations';
 import { getPageSelector, pageLoadingSelector } from '../../store/pages/selectors';
 import Loader from '../../components/Loader/Loader';
 
@@ -17,7 +17,7 @@ const Page = () => {
   const customId = arrPath[arrPath.length - 1];
 
   useEffect(() => {
-    dispatch(getBrandsOperation(customId));
+    dispatch(getPageOperation(customId));
   }, [dispatch]);
 
   return (

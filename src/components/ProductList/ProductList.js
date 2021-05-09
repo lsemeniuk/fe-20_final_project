@@ -1,33 +1,29 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import ProductItem from '../ProductItem/ProductItem';
-import { getProductsAction } from '../../store/products/actions';
+import { getProductsSelector, productsLoadingSelector } from '../../store/products/selectors';
 import style from './ProductList.module.scss';
+import Loader from '../Loader/Loader';
+import { getProductsOperation } from '../../store/products/operations';
+import { getWishListOperation } from '../../store/wishList/operations';
 
-const ProductList = props => {
-  const { getProducts, products } = props;
+const ProductList = () => {
+  const dispatch = useDispatch();
+  const products = useSelector(getProductsSelector);
+  const productsLoading = useSelector(productsLoadingSelector);
 
   useEffect(() => {
-    if (products.length === 0) getProducts();
-  }, [getProducts]);
+    dispatch(getProductsOperation());
+    dispatch(getWishListOperation());
+  }, []);
+
+  if (productsLoading) {
+    return <Loader />;
+  }
 
   const productList = products.map(product => <ProductItem key={product.itemNo} product={product} />);
 
-  return <div className={style.productsContainer}>{productList}</div>;
+  return <ul className={style.productsList}>{productList}</ul>;
 };
 
-ProductList.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object).isRequired,
-  getProducts: PropTypes.func.isRequired,
-};
-
-const mapStoreToProps = store => ({
-  products: store.products.data,
-});
-
-const mapDispatchToProps = dispatch => ({
-  getProducts: () => dispatch(getProductsAction()),
-});
-
-export default connect(mapStoreToProps, mapDispatchToProps)(ProductList);
+export default ProductList;

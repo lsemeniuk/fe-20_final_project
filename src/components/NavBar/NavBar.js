@@ -29,7 +29,7 @@ const NavBar = () => {
 
   const heartJsx = [
     <div key='heart' className={styles.iconListItem}>
-      <Icons type='navHeart' color='black' width={30} height={30} />
+      <Icons type='navHeart' color='#000' width={30} height={30} />
     </div>,
   ];
 

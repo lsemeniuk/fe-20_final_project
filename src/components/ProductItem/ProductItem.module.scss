@@ -1,133 +1,170 @@
 @import '../../utils/styles/var';
+@import '../../utils/styles/mixins';
 
-.item {
-  display: grid;
-  width: min-content;
-  padding: 10px;
-  border-radius: 3px;
-  margin-bottom: 15px;
-  grid-template-columns: min-content;
-  grid-template-rows: 240px 40px 30px 40px;
-
-  &:hover {
-    box-shadow: 0 3px 15px -6px black;
-  }
-
-  &:hover > .btnSection {
-    opacity: 100%;
-  }
-
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    grid-template-rows: 240px 40px 30px 40px;
-  }
-  @media (max-width: $mobMax) {
-    grid-template-rows: 180px 40px 30px 20px;
-  }
-}
-
-.productImg {
-  width: 230px;
-  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-    width: 200px;
-  }
-  @media (min-width: $deskMin) and (max-width: $deskMax) {
-    width: 180px;
-  }
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    width: 150px;
-  }
-  @media (max-width: $mobMax) {
-    width: 150px;
-  }
-}
-
-.name {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  -webkit-line-clamp: 2;
-  text-decoration: none;
-  color: #000;
-  text-align: left;
-  transition: 0.2s ease all;
-
-  &:hover {
-    color: $colorButnHover;
-    text-decoration: none;
-  }
-
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    font-size: 15px;
-  }
-  @media (max-width: $mobMax) {
-    font-size: 13px;
-  }
-}
-
-.priceSection {
+.container {
+  position: relative;
+  width: calc(100% / 3);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
   display: flex;
-  justify-content: flex-start;
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    font-size: 15px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+
+  &:hover {
+    @extend %custom-shadow;
+    border: 1px solid #d4d4d4;
   }
-  @media (max-width: $mobMax) {
-    font-size: 13px;
+  &:hover .lastImage {
+    visibility: hidden;
+    opacity: 0;
+  }
+  &:hover .lastImage {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+  &:hover .btnBlock {
+    box-shadow: 0px 7px 13px -3px rgba(38, 44, 48, 0.25);
+    border: 1px solid #d4d4d4;
+    border-top: none;
+    display: block;
   }
 }
 
-.previousPrice {
-  margin-left: 30px;
-  color: $colorTextFooter;
+// Images
+
+.link {
+  display: flex;
+  justify-content: center;
+}
+
+.imgBlock {
+  position: relative;
+  width: calc(100% - 40px);
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.firstImage {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.lastImage {
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.image {
+  margin: 20px;
+  width: calc(100% - 40px);
+}
+
+// Label
+
+.labelBlock {
+  padding: 10px 0 0 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 0 4px 0;
+  padding: 0 15px;
+  border-radius: 24px;
+}
+
+.labelNew {
+  background-color: $colorNew;
+}
+
+.labelSuperPrice {
+  background-color: $colorSuperPrice;
+}
+
+.labelHit {
+  background-color: #940ad5;
+}
+
+.labelSales {
+  background-color: $colorSale;
+}
+
+// Price
+
+.priceBlock {
+  align-self: flex-start;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.priceSales {
+  display: flex;
+  align-items: flex-end;
 }
 
 .currentPrice {
-  font-weight: bold;
+  margin-right: 20px;
+  color: $colorSale;
+  font-weight: 700;
+  font-size: 18px;
 }
 
-.newMessage {
+.previousPrice {
+  font-size: 14px;
+  text-decoration: line-through;
+  color: #6d6d6d;
+}
+
+.regularPrice {
+  color: $colorNew;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.name {
+  position: relative;
+  color: #263238;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.btnBlock {
+  width: calc(100% + 2px);
   position: absolute;
-  background-color: $colorButton;
-  color: white;
-  border-radius: 3px;
-  padding: 2px;
-  font-size: 11px;
-  transform: translateY(215px);
-
-  &:before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-    margin-top: 13px;
-    border: 6px solid transparent;
-    border-top: 5px solid $colorButton;
-  }
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    font-size: 15px;
-  }
-  @media (max-width: $mobMax) {
-    font-size: 13px;
-  }
+  padding: 0 20px 20px;
+  border-radius: 0 0 5px 5px;
+  border-top: 0;
+  background: #fff;
+  display: none;
+  bottom: -50px;
+  z-index: 100;
 }
 
-.btnSection {
+.btnFlex {
   display: flex;
   justify-content: space-between;
-  opacity: 0;
-  margin-top: 20px;
-  vertical-align: center;
-  align-items: center;
-  // @media (max-width: $deskXMax) {
-  //   opacity: 100%;
-  // }
 }
 
 .favIcon {
-  fill: white;
-  stroke: #7d7d7d;
-}
-
-.favIconActive {
-  fill: $colorSecondary;
-  stroke: $colorSecondary;
+  cursor: pointer;
 }
