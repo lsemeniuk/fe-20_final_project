@@ -7,6 +7,7 @@ import {
   PERSONAL_INFO_ROUTE,
   PRODUCTS_ROUTE,
   CHECKOUT_ROUTE,
+  // FILTER_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -15,6 +16,7 @@ import WishList from '../pages/WishList/WishList';
 import Orders from '../pages/Orders/Orders';
 import PersonalInfo from '../pages/PersonalInfo/PersonalInfo';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
+// import Select from '../components/SelectBar/Select/Select';
 
 export const authRoutes = [
   {
@@ -44,6 +46,11 @@ export const publicRoutes = [
     path: `${PRODUCTS_ROUTE}/:categories`,
     Component: Products,
   },
+  // {
+  //   path: `${PRODUCT_ROUTE}/:id`,
+  //   Component: Select,
+  // },
+
   {
     path: PRODUCTS_ROUTE,
     Component: Products,
