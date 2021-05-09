@@ -1,5 +1,5 @@
-import { SET_PAGES, SET_PAGES_LOADING } from './types';
+import { SET_PAGE, SET_PAGE_LOADING } from './types';
 
-export const savePagesAction = pages => ({ type: SET_PAGES, payload: pages });
+export const savePageAction = page => ({ type: SET_PAGE, payload: page });
 
-export const pagesLoadingAction = isLoading => ({ type: SET_PAGES_LOADING, payload: isLoading });
+export const pageLoadingAction = isLoading => ({ type: SET_PAGE_LOADING, payload: isLoading });

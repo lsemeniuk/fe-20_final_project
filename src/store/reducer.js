@@ -6,8 +6,9 @@ import catalogReducer from './catalog/reducer';
 import cartReducer from './cart/reducer';
 import modalReducer from './modal/reducer';
 import brandsReducer from './brands/reducer';
-import pagesReducer from './pages/reducer';
+import pageReducer from './pages/reducer';
 import linksReducer from './links/reducer';
+import wishListReducer from './wishList/reducer';
 
 const reducer = combineReducers({
   brands: brandsReducer,
@@ -16,9 +17,10 @@ const reducer = combineReducers({
   products: productsReducer,
   catalog: catalogReducer,
   cart: cartReducer,
-  pages: pagesReducer,
+  page: pageReducer,
   modal: modalReducer,
   links: linksReducer,
+  wishList: wishListReducer,
 });
 
 export default reducer;
