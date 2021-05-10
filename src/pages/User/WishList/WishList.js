@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWishListSelector, wishListLoadingSelector } from '../../../store/wishList/selectors';
 import PageContainer from '../../../components/Container/PageContainer/PageContainer';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 import Loader from '../../../components/Loader/Loader';
-import { getWishListOperation, deleteWishListOperation } from '../../../store/wishList/operations';
+import { deleteWishListOperation } from '../../../store/wishList/operations';
 import styles from './WishList.module.scss';
 import Button from '../../../components/Button/Button';
 
 const WishList = () => {
   const dispatch = useDispatch();
-  const wishListItems = useSelector(getWishListSelector);
+  const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
-  useEffect(() => {
-    dispatch(getWishListOperation());
-  }, []);
+
   const clearFavourites = () => {
     dispatch(deleteWishListOperation());
   };
-  if (!wishListItems) {
+
+  if (!wishList || wishList.products === undefined || !wishList.products.length) {
     return (
       <PageContainer>
         <p className={styles.title}>Список желаний</p>
@@ -26,9 +25,15 @@ const WishList = () => {
       </PageContainer>
     );
   }
+
   if (wishListLoading) {
-    return <Loader />;
+    return (
+      <PageContainer>
+        <Loader fixed />
+      </PageContainer>
+    );
   }
+
   return (
     <PageContainer>
       <div>
@@ -37,7 +42,7 @@ const WishList = () => {
           <Button onClick={clearFavourites} title='Очистить' variant='outline' />
         </header>
         <div className={styles.wrapper}>
-          {wishListItems.products.map(i => (
+          {wishList.products.map(i => (
             <ProductCard key={i.itemNo} product={i} inCart />
           ))}
         </div>

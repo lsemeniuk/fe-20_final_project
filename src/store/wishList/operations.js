@@ -1,5 +1,5 @@
 import { addProductToWishlist, deleteProductFromWishlist, getWishlist, deleteWishlist } from '../../http/wishlistAPI';
-import { wishListLoadingAction, saveWishListAction, clearWishList } from './actions';
+import { wishListLoadingAction, saveWishListAction } from './actions';
 
 export const getWishListOperation = () => dispatch => {
   dispatch(wishListLoadingAction(true));
@@ -23,6 +23,7 @@ export const deleteProductFromWishlishtOperation = id => dispatch => {
 
 export const deleteWishListOperation = () => dispatch => {
   deleteWishlist().then(res => {
-    dispatch(clearWishList(res.data));
+    dispatch(saveWishListAction(null));
+    return res;
   });
 };
