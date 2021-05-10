@@ -21,7 +21,7 @@ export const deleteProductFromWishlishtOperation = id => dispatch => {
   });
 };
 
-export const deleteWishList = () => dispatch => {
+export const deleteWishListOperation = () => dispatch => {
   deleteWishlist().then(res => {
     dispatch(clearWishList(res.data));
   });

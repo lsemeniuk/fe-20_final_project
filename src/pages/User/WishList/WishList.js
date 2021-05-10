@@ -4,22 +4,21 @@ import { getWishListSelector, wishListLoadingSelector } from '../../../store/wis
 import PageContainer from '../../../components/Container/PageContainer/PageContainer';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 import Loader from '../../../components/Loader/Loader';
-import { getWishListOperation, deleteWishList } from '../../../store/wishList/operations';
+import { getWishListOperation, deleteWishListOperation } from '../../../store/wishList/operations';
 import styles from './WishList.module.scss';
 import Button from '../../../components/Button/Button';
 
 const WishList = () => {
   const dispatch = useDispatch();
-  const items = useSelector(getWishListSelector);
-  const isLoading = useSelector(wishListLoadingSelector);
+  const wishListItems = useSelector(getWishListSelector);
+  const wishListLoading = useSelector(wishListLoadingSelector);
   useEffect(() => {
     dispatch(getWishListOperation());
   }, []);
-
   const clearFavourites = () => {
-    dispatch(deleteWishList());
+    dispatch(deleteWishListOperation());
   };
-  if (!items) {
+  if (!wishListItems) {
     return (
       <PageContainer>
         <p className={styles.title}>Список желаний</p>
@@ -27,24 +26,22 @@ const WishList = () => {
       </PageContainer>
     );
   }
-
+  if (wishListLoading) {
+    return <Loader />;
+  }
   return (
     <PageContainer>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div>
-          <header className={styles.header}>
-            <p className={styles.title}>Список желаний</p>
-            <Button onClick={clearFavourites} title='Очистить' variant='outline' />
-          </header>
-          <div className={styles.wrapper}>
-            {items.products.map(i => (
-              <ProductCard key={i.itemNo} product={i} inCart />
-            ))}
-          </div>
+      <div>
+        <header className={styles.header}>
+          <p className={styles.title}>Список желаний</p>
+          <Button onClick={clearFavourites} title='Очистить' variant='outline' />
+        </header>
+        <div className={styles.wrapper}>
+          {wishListItems.products.map(i => (
+            <ProductCard key={i.itemNo} product={i} inCart />
+          ))}
         </div>
-      )}
+      </div>
     </PageContainer>
   );
 };

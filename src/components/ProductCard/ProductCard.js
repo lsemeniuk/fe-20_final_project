@@ -51,7 +51,6 @@ const ProductCard = ({ product, inCart }) => {
   };
 
   const addToWishList = () => {
-    console.log('add to wish list');
     dispatch(addProductToWishlistOperation(id));
   };
 
