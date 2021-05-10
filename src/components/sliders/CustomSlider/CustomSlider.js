@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
-import axios from 'axios';
-import ProductItem from '../../ProductItem/ProductItem';
+import { useSelector } from 'react-redux';
+import { getProductsSelector, productsLoadingSelector } from '../../../store/products/selectors';
+import Loader from '../../Loader/Loader';
+import ProductCard from '../../ProductCard/ProductCard';
 
 const CustomSlider = () => {
-  const [products, setProducts] = useState([]);
+  const products = useSelector(getProductsSelector);
+  const productsLoading = useSelector(productsLoadingSelector);
+
+  if (productsLoading) {
+    return <Loader />;
+  }
 
   const sliderSettings = {
     dots: false,
@@ -37,15 +44,11 @@ const CustomSlider = () => {
     ],
   };
 
-  useEffect(() => {
-    axios.get('../../products.json').then(res => setProducts([...res.data]));
-  }, []);
-
   return (
     <div>
       <Slider {...sliderSettings}>
-        {products.map(i => (
-          <ProductItem key={i.itemNo} product={i} />
+        {products.map(product => (
+          <ProductCard key={product.itemNo} product={product} />
         ))}
       </Slider>
     </div>
