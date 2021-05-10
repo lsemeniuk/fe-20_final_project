@@ -1,6 +1,22 @@
 .wrapper{
   display: flex;
+  margin-top: 50px;
   margin-bottom: 50px;
   flex-wrap: wrap;
   align-items: center;
+}
+.header{
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  vertical-align: center;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 200;
+}
+
+.noItems {
+  margin-top: 20px;
 }

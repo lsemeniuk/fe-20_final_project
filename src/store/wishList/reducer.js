@@ -1,4 +1,4 @@
-import { SET_WISHLIST, SET_WISHLIST_LOADING } from './types';
+import { SET_WISHLIST, SET_WISHLIST_LOADING, CLEAR_WISH_LIST } from './types';
 
 const initialState = {
   isLoading: true,
@@ -12,6 +12,9 @@ const reducer = (state = initialState, action) => {
     }
     case SET_WISHLIST_LOADING: {
       return { ...state, isLoading: action.payload };
+    }
+    case CLEAR_WISH_LIST: {
+      return { ...state, data: null };
     }
     default: {
       return state;
