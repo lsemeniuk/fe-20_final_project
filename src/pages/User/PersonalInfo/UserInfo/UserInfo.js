@@ -41,8 +41,8 @@ const UserInfo = () => {
         }}
         validationSchema={Yup.object({
           firstName: Yup.string()
-            .min(2, 'Это шликом маленькое имя')
-            .max(25, 'Неповерю что Вас так зовут')
+            .min(2, 'Это cлишком маленькое имя')
+            .max(25, 'Неповерю, что Вас так зовут')
             .required('Укажите Ваше имя'),
           lastName: Yup.string()
             .min(2, 'Извените, этого маловато для фамилии')
@@ -55,7 +55,7 @@ const UserInfo = () => {
           email: Yup.string().email('Неверный адрес email').required('Укажите email'),
           telephone: Yup.string()
             .min(13, 'Слишком маленький')
-            .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Некоректный номер телефона'),
+            .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Некорректный номер телефона'),
           birthdate: Yup.string(),
           city: Yup.string(),
           gender: Yup.string().matches(/(Мужчина|Женщина)/, 'Определитесь кто вы, Мужчина либо Женщина'),
