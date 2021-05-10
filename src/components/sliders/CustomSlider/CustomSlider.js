@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { useSelector } from 'react-redux';
 import { getProductsSelector, productsLoadingSelector } from '../../../store/products/selectors';
 import Loader from '../../Loader/Loader';
-import ProductCard from '../../ProductCard/ProductCard';
+import SliderCart from '../../SliderCart/SliderCart';
 
 const CustomSlider = () => {
   const products = useSelector(getProductsSelector);
@@ -48,7 +48,7 @@ const CustomSlider = () => {
     <div>
       <Slider {...sliderSettings}>
         {products.map(product => (
-          <ProductCard key={product.itemNo} product={product} />
+          <SliderCart key={product.itemNo} product={product} />
         ))}
       </Slider>
     </div>
