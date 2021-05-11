@@ -30,13 +30,13 @@
 }
 .productItem > div {
   padding: 20px 10px;
-  
+
 }
 .grid_layout li:nth-child(even){
   background-color: #ddd;
 }
 
-button:nth-child(even) {
+.action_btn:nth-child(even) {
   background-color: red;
 }
 
