@@ -15,9 +15,13 @@ export const addProductToWishlistOperation = id => dispatch => {
   });
 };
 
-export const deleteProductFromWishlishtOperation = id => dispatch => {
+export const deleteProductFromWishlishtOperation = (id, wishList) => dispatch => {
   deleteProductFromWishlist(id).then(res => {
-    dispatch(saveWishListAction(res.data));
+    if (wishList.products.length === 1) {
+      dispatch(saveWishListAction(null));
+    } else {
+      dispatch(saveWishListAction(res.data));
+    }
   });
 };
 

@@ -13,18 +13,9 @@ const WishList = () => {
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
 
-  const clearFavourites = () => {
+  const clearFavorites = () => {
     dispatch(deleteWishListOperation());
   };
-
-  if (!wishList || wishList.products === undefined || !wishList.products.length) {
-    return (
-      <PageContainer>
-        <p className={styles.title}>Список желаний</p>
-        <p className={styles.noItems}>Вы еще не добавили товары в список желаний</p>
-      </PageContainer>
-    );
-  }
 
   if (wishListLoading) {
     return (
@@ -39,13 +30,17 @@ const WishList = () => {
       <div>
         <header className={styles.header}>
           <p className={styles.title}>Список желаний</p>
-          <Button onClick={clearFavourites} title='Очистить' variant='outline' />
+          {wishList && <Button onClick={clearFavorites} title='Очистить' variant='outline' />}
         </header>
-        <div className={styles.wrapper}>
-          {wishList.products.map(i => (
-            <ProductCard key={i.itemNo} product={i} inCart />
-          ))}
-        </div>
+        {wishList ? (
+          <div className={styles.wrapper}>
+            {wishList.products.map(i => (
+              <ProductCard key={i.itemNo} product={i} inCart />
+            ))}
+          </div>
+        ) : (
+          <p className={styles.noItems}>Вы еще не добавили товары в список желаний</p>
+        )}
       </div>
     </PageContainer>
   );

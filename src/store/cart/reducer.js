@@ -1,8 +1,9 @@
-import { SET_CART, SET_CART_LOADING } from './types';
+import { SET_CART, SET_CART_LOADING, SET_CART_TOTAL_PRICE } from './types';
 
 const initialState = {
   isLoading: true,
   data: [],
+  totalPrice: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +13,9 @@ const reducer = (state = initialState, action) => {
     }
     case SET_CART_LOADING: {
       return { ...state, isLoading: action.payload };
+    }
+    case SET_CART_TOTAL_PRICE: {
+      return { ...state, totalPrice: action.payload };
     }
     default: {
       return state;

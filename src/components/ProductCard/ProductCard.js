@@ -55,7 +55,7 @@ const ProductCard = ({ product, inCart }) => {
   };
 
   const deleteToWishList = () => {
-    dispatch(deleteProductFromWishlishtOperation(id));
+    dispatch(deleteProductFromWishlishtOperation(id, wishList));
   };
 
   const calculateSales = Math.round(((previousPrice - currentPrice) / previousPrice) * 100);
@@ -131,7 +131,11 @@ const ProductCard = ({ product, inCart }) => {
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
-  inCart: PropTypes.bool.isRequired,
+  inCart: PropTypes.bool,
+};
+
+ProductCard.defaultProps = {
+  inCart: false,
 };
 
 export default ProductCard;
