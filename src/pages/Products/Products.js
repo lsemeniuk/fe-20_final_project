@@ -6,9 +6,9 @@ import Container from '../../components/Container/Container';
 import { INDEX_ROUTE } from '../../utils/consts';
 import { getCategoriesSelector } from '../../store/catalog/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
-import styles from './Products.module.scss';
 import PageContainer from '../../components/Container/PageContainer/PageContainer';
 import AsideContainer from '../../components/Container/AsideContainer/AsideContainer';
+import styles from './Products.module.scss';
 
 const Products = () => {
   const location = useLocation();

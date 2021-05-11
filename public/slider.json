@@ -2,10 +2,10 @@
   {
     "_id": "5da7632172b193119c3c8659",
     "customId": "promotion-women-clothing21",
-    "imageUrl": "https://f.ua/statik/images/index_banners_fua/image_1619534315.png",
+    "imageUrl": "https://i.ibb.co/Y0gvwtg/Slide1.png",
     "title": "Buy 2 dresses and get a third for free!",
     "description": "Do not miss our hot offer. Promotion ends 10/30/2019",
-    "backgroundColor": "#048141",
+    "backgroundColor": "url('https://proprikol.ru/wp-content/uploads/2019/08/kartinki-na-zadnij-fon-38.jpg')",
     "category": {
       "_id": "5d99f68e419d040eec0f722c",
       "id": "women",
