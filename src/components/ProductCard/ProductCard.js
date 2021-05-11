@@ -14,7 +14,7 @@ import { addProductToCartOperation } from '../../store/cart/operations';
 import { saveModalCartAction } from '../../store/modal/actions';
 import styles from './ProductCard.module.scss';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, inCart }) => {
   const dispatch = useDispatch();
   const cart = useSelector(getCartSelector);
   const cartLoading = useSelector(cartLoadingSelector);
@@ -70,7 +70,7 @@ const ProductCard = ({ product }) => {
           </div>
         </NavLink>
       </div>
-
+      {inCart && <span onClick={deleteToWishList} className={styles.delete} />}
       <div className={styles.labelBlock}>
         {superPrise === 'yes' && (
           <div>
@@ -131,6 +131,7 @@ const ProductCard = ({ product }) => {
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
+  inCart: PropTypes.bool.isRequired,
 };
 
 export default ProductCard;
