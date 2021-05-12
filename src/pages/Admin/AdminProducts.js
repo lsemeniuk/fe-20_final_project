@@ -16,9 +16,12 @@ const AdminProducts = () => {
   const history = useHistory();
   useEffect(() => {
     dispatch(getProductsOperation());
-  }, []);
+  }, [dispatch]);
   const deleteHandler = () => {
     /// TODO: dispatch delete action
+  };
+  const createHandler = () => {
+    /// TODO: dispatch create/add product action
   };
   const productItems = products.map(product => (
     <li key={product._id} className={styles.productItem}>
@@ -40,7 +43,10 @@ const AdminProducts = () => {
   ));
   return (
     <PageContainer>
-      <h1>Products</h1>
+      <div className={styles.row}>
+        <h1>Products</h1>
+        <Button type='button' title='Create Product' className={styles.create_btn} onClick={createHandler} />
+      </div>
       {productsLoading ? (
         <Loader />
       ) : (
@@ -55,43 +61,6 @@ const AdminProducts = () => {
           </li>
           {productItems}
         </ul>
-        // <table className={styles.table}>
-        //   <thead>
-        //     <tr>
-        //       <th>ID</th>
-        //       <th>NAME</th>
-        //       <th>PRICE</th>
-        //       <th>CATEGORY</th>
-        //       <th>BRAND</th>
-        //       <th>ACTIONS</th>
-        //     </tr>
-        //   </thead>
-        //   <tbody>
-        //     {products.map(product => (
-        //       <tr key={product._id}>
-        //         <td>{product._id}</td>
-        //         <td>{product.name}</td>
-        //         <td>{product.currentPrice}</td>
-        //         <td>{product.categories}</td>
-        //         <td>{product.brand}</td>
-        //         <td>
-        //           <Button
-        //             type='button'
-        //             title='Edit'
-        //             className={styles.small}
-        //             onClick={() => history.push(`/product/${product._id}/edit`)}
-        //           />
-        //           <Button
-        //             type='button'
-        //             title='Delete'
-        //             className={styles.small}
-        //             onClick={() => deleteHandler(product)}
-        //           />
-        //         </td>
-        //       </tr>
-        //     ))}
-        //   </tbody>
-        // </table>
       )}
     </PageContainer>
   );

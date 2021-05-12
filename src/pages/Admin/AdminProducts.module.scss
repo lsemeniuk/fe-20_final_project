@@ -39,7 +39,10 @@
 .action_btn:nth-child(even) {
   background-color: red;
 }
-
+.create_btn,
+.create_btn:hover {
+  background-color: #f0c040;
+}
 .grid_layout > li > div:not(:nth-child(1)){
   border-left: 1px solid #ddd;
 }
@@ -61,4 +64,10 @@ h3 {
   margin: 0;
   padding: 20px 10px;
   font-size: 14px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
