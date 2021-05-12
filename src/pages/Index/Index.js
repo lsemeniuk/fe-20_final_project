@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import Container from '../../components/Container/Container';
 import GenderLink from '../../components/GenderLink/GenderLink';
-// import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
+import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import PromotionSlider from '../../components/sliders/PromotionSlider/PromotionSlider';
 import styles from './Index.module.scss';
 
@@ -35,7 +35,7 @@ const Index = () => {
         <div className={styles.bestsellersSection}>
           <div className={styles.bestsellersItems}>
             <h3 className={styles.bestsellerTitle}>Хиты продаж</h3>
-            {/* <CustomSlider /> */}
+            <CustomSlider />
           </div>
         </div>
 
@@ -67,7 +67,7 @@ const Index = () => {
 
         <div className={styles.newProducts}>
           <h3 className={styles.newProductsTitle}>New products</h3>
-          {/* <CustomSlider /> */}
+          <CustomSlider />
         </div>
 
         <div className={styles.aboutSection}>

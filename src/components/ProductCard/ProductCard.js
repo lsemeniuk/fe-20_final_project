@@ -4,55 +4,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { PRODUCT_ROUTE } from '../../utils/consts';
-import Icons from '../Icons/Icons';
 import { replace } from '../../utils/func';
-import { addProductToWishlistOperation, deleteProductFromWishlishtOperation } from '../../store/wishList/operations';
-import Button from '../Button/Button';
-import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
-import { cartLoadingSelector, getCartSelector } from '../../store/cart/selectors';
-import { addProductToCartOperation } from '../../store/cart/operations';
-import { saveModalCartAction } from '../../store/modal/actions';
+import { getWishListSelector } from '../../store/wishList/selectors';
+import AddToCartButton from '../AddToCartButton/AddToCartButton';
+import AddToWishListBtn from '../AddToWishListButton/AddToWishListBtn';
 import styles from './ProductCard.module.scss';
+import { deleteProductFromWishlishtOperation } from '../../store/wishList/operations';
 
 const ProductCard = ({ product, inCart }) => {
   const dispatch = useDispatch();
-  const cart = useSelector(getCartSelector);
-  const cartLoading = useSelector(cartLoadingSelector);
   const wishList = useSelector(getWishListSelector);
-  const wishListLoading = useSelector(wishListLoadingSelector);
 
-  const { imageUrls, itemNo, previousPrice, currentPrice, name, superPrise, isNew, isHit } = product;
-  const id = product['_id'];
-  let idCartList = [];
-
-  if (!cartLoading) {
-    if (cart) {
-      idCartList = cart.products.map(prod => {
-        return prod.product['_id'];
-      });
-    }
-  }
-
-  let idWishList = [];
-  if (!wishListLoading) {
-    if (wishList) {
-      idWishList = wishList.products.map(prod => {
-        return prod['_id'];
-      });
-    }
-  }
-
-  const openCart = () => {
-    dispatch(saveModalCartAction(true));
-  };
-
-  const addToCart = () => {
-    dispatch(addProductToCartOperation(id));
-  };
-
-  const addToWishList = () => {
-    dispatch(addProductToWishlistOperation(id));
-  };
+  const { imageUrls, itemNo, previousPrice, currentPrice, name, superPrise, isNew, isHit, _id: id } = product;
 
   const deleteToWishList = () => {
     dispatch(deleteProductFromWishlishtOperation(id, wishList));
@@ -111,17 +74,9 @@ const ProductCard = ({ product, inCart }) => {
 
       <div className={styles.btnBlock}>
         <div className={styles.btnFlex}>
-          {idCartList.includes(id) ? (
-            <Button onClick={openCart} variant='outline' title='В корзине' />
-          ) : (
-            <Button onClick={addToCart} title='Купить' />
-          )}
+          <AddToCartButton id={id} />
           <span className={styles.favIcon}>
-            {idWishList.includes(id) ? (
-              <Icons onClick={deleteToWishList} type='navHeart' color='#ffd200' filled width={30} height={30} />
-            ) : (
-              <Icons onClick={addToWishList} type='navHeart' color='black' width={30} height={30} />
-            )}
+            <AddToWishListBtn id={id} />
           </span>
         </div>
       </div>
