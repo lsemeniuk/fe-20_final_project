@@ -1,14 +1,8 @@
 // Public
 export const INDEX_ROUTE = '/';
 export const PRODUCTS_ROUTE = '/products';
-<<<<<<< HEAD
-export const PRODUCT_ROUTE = '/product';
-=======
 export const FILTER_ROUTE = '/filter';
-export const WISH_LIST_ROUTE = '/wish-list';
-export const ORDERS_ROUTE = '/orders';
-export const PERSONAL_INFO_ROUTE = '/personal-info';
->>>>>>> select_bar
+export const PRODUCT_ROUTE = '/product';
 export const CHECKOUT_ROUTE = '/checkout';
 export const PAGES_ROUTE = '/pages';
 

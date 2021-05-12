@@ -10,10 +10,10 @@ const Select = () => {
   const [checkboxed] = useState(true);
 
   return (
-    <div>
+    <>
       <MyFilterContainer sort={sort} checkboxed={!checkboxed} />
       <MyFilterContainer sort={!sort} checkboxed={checkboxed} />
-    </div>
+    </>
   );
 };
 

@@ -38,9 +38,9 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                   <input
                     className={styles.option_item_input}
                     type='text'
-                    onChange={e => {
-                      setDownPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '100');
-                    }}
+                    onChange={e =>
+                      setDownPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '100')
+                    }
                     id='price_prod'
                     name='price_prod'
                     value={downPrice}

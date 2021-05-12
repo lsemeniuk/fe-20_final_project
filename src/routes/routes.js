@@ -1,6 +1,5 @@
 import {
-  ADMIN_ROUTE,
-  PRODUCT_ROUTE,
+  // PRODUCT_ROUTE,
   INDEX_ROUTE,
   WISH_LIST_ROUTE,
   PRODUCTS_ROUTE,
@@ -21,18 +20,16 @@ import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
 import Orders from '../pages/User/Orders/Orders';
 import WishList from '../pages/User/WishList/WishList';
 
-// import Select from '../components/SelectBar/Select/Select';
-
 export const publicRoutes = [
   {
     name: 'Главная',
     path: INDEX_ROUTE,
     Component: Index,
   },
-  {
-    path: `${PRODUCT_ROUTE}/:id`,
-    Component: Product,
-  },
+  // {
+  //   path: `${PRODUCT_ROUTE}/:id`,
+  //   Component: Product,
+  // },
   {
     name: 'Товары',
     path: `${PRODUCTS_ROUTE}/:categories`,
@@ -61,10 +58,6 @@ export const userRoutes = [
     path: PERSONAL_INFO_ROUTE,
     Component: PersonalInfo,
   },
-  // {
-  //   path: `${PRODUCT_ROUTE}/:id`,
-  //   Component: Select,
-  // },
 
   {
     name: 'Заказы',

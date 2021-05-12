@@ -5,34 +5,28 @@
 }
 
 @mixin container_select() {
-  display: flex;
   align-items: flex-start;
 }
 .select {
   &_heading {
-    margin: 10px;
+    margin: 10px 5px 10px 5px;
   }
   &_container_box {
     background-color: rgb(31, 31, 48);
     position: relative;
     display: block;
-    // min-height: 400px;
-    min-width: 300px;
-    max-width: 25%;
+    min-width: 260px;
+    max-width: 280px;
   }
   &_btn {
-    // margin: 10px 100px;
   }
 }
 
 .select_box {
   @include container_select();
   justify-content: space-between;
-  min-width: 290px;
+  min-width: 260px;
   max-width: 100%;
-  // border: 1px solid rgb(223, 219, 219);
-
-  // position: fixed;
 }
 .select_box_filter {
   @include container_select();
@@ -41,6 +35,4 @@
 .select_box_sort {
   display: flex;
   align-items: center;
-  // position: absolute;
-  // left: 200%;
 }

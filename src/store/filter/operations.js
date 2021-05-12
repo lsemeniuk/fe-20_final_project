@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getFilters, getFilterByType } from '../../http/filterAPI';
+import { getFilters, getFilterByType } from '../../http/filtersAPI';
 import { saveAllFiltersAction, saveCheckedFiltersAction } from './actions';
 
 export const getFiltersOperation = () => async dispatch => {

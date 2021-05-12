@@ -29,18 +29,10 @@ function FormikContainer({ classes, sort, checkboxed }) {
     return <Loader />;
   }
 
-  // const initialValues = ;
-  // const validationSchema = Yup.object({
-  //   hot: Yup.array().required('Required'),
-  //   price: Yup.array().required('Required'),
-  //   gender: Yup.array().required('Required'),
-  //   brand: Yup.array().required('Required'),
-  //   stock: Yup.array().required('Required'),
-  // });
-  // const onSubmit = values => {
-  //   console.log('Form data', values);
-  //   console.log('Saved data', JSON.parse(JSON.stringify(values)));
-  // };
+  const onSubmit = values => {
+    dispatch(checkedFiltersOperation(values));
+    // setSubmitting(false);
+  };
 
   return (
     <>
@@ -61,14 +53,9 @@ function FormikContainer({ classes, sort, checkboxed }) {
             stock: Yup.array().required('Required'),
           })}
           onSubmit={(values, { setSubmitting }) => {
-            // console.log('values1', JSON.stringify(values));
-
             dispatch(checkedFiltersOperation(values));
-            // const { firstName, lastName, login, email, password } = values;
-            // dispatch(createCustomerOperation({ setTabIndex, firstName, lastName, login, email, password }));
             setSubmitting(false);
           }}
-          // validator={() => ({})}
         >
           {() => (
             <section className={styles.select_container_box}>
@@ -78,7 +65,7 @@ function FormikContainer({ classes, sort, checkboxed }) {
                     <h4 className={styles.select_heading}>Фильтр:</h4>
                     <FormikControl control='checkbox' label='Иконки' name='hot' options={filters} />
                     <SliderRadre
-                      label='Цена'
+                      label='Цена, грн'
                       name='price'
                       min={min}
                       max={max}
@@ -90,7 +77,7 @@ function FormikContainer({ classes, sort, checkboxed }) {
                     <FormikControl control='checkbox' label='Стать' name='gender' options={filters} />
                     <FormikControl control='checkbox' label='Бренд' name='brand' options={filters} />
                     <FormikControl control='checkbox' label='Наличие' name='stock' options={filters} />
-                    <Button title='Submit' type='submit' className={styles.select_btn} />
+                    <Button title='Применить' type='submit' className={styles.select_btn} />
                   </div>
                 </Form>
               </div>
@@ -106,23 +93,14 @@ function FormikContainer({ classes, sort, checkboxed }) {
           validationSchema={Yup.object({
             selected: Yup.string().required('Required'),
           })}
-          onSubmit={(values, { setSubmitting }) => {
-            // console.log('values1', JSON.stringify(values));
-
-            dispatch(checkedFiltersOperation(values));
-            // const { firstName, lastName, login, email, password } = values;
-            // dispatch(createCustomerOperation({ setTabIndex, firstName, lastName, login, email, password }));
-            setSubmitting(false);
-          }}
+          onSubmit={onSubmit}
         >
           {() => (
             <Form className={classes}>
               <div className={styles.select_box_sort}>
                 <h4 className={styles.select_heading}>Сортировка:</h4>
-                <FormikControl control='select' label='sort' name='selected' options={filters} />
-                <button type='submit' className={styles.select_btn}>
-                  Submit
-                </button>
+                <FormikControl control='select' label='sort' name='selected' options={filters} onChange={onSubmit} />
+                {/* <Button title='Submit' type='submit' className={styles.select_btn} /> */}
               </div>
             </Form>
           )}
