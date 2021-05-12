@@ -85,10 +85,10 @@ const MyFilterContainer = ({ sort, checkboxed }) => {
       </div>
 
       <div className={activeSort}>
-        <div className={activeDark} onClick={() => handleClickSort()} />
-
         {!!sort && (
           <>
+            <div className={activeDark} onClick={() => handleClickSort()} />
+
             <Container>
               <FormikContainer classes={styles.container_filter_fixed} checkboxed={checkboxed} sort={sort} />
             </Container>

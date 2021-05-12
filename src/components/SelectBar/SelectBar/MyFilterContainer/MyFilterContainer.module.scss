@@ -9,16 +9,18 @@
 
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     position: absolute;
+    top: 0%;
     left: -100%;
     transition: left 1.5s linear;
-    z-index: 2;
+    z-index: 99;
   }
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     position: absolute;
+    top: 0%;
     left: -100%;
     transition: left 1.5s linear;
-    z-index: 2;
+    z-index: 99;
   }
 
   &_filter {
@@ -36,7 +38,6 @@
     max-width: 280px;
     max-height: 50px;
     background-color: rgb(255, 255, 255);
-    z-index: 9999;
 
     @media (min-width: $tabMin) and (max-width: $tabMax) {
       position: absolute;
@@ -45,6 +46,7 @@
       min-width: 100%;
       max-width: 100%;
       transition: top 0.5s linear;
+      // z-index: 9999;
     }
     @media (min-width: $mobMin) and (max-width: $mobMax) {
       position: absolute;
@@ -53,6 +55,7 @@
       left: 0;
       top: -20%;
       transition: top 0.5s linear;
+      // z-index: 9999;
     }
   }
 }
@@ -66,7 +69,7 @@
   min-height: 100vh;
   background: fixed;
   background-color: rgba(0, 0, 0, 0.178);
-  z-index: 0;
+  z-index: 1;
   &_none {
     display: none;
   }
@@ -80,7 +83,7 @@
     left: 0%;
     min-width: 100%;
     transition: top 0.5s linear;
-    // z-index: 99;
+    z-index: 99;
   }
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     background-color: rgb(255, 255, 255);
@@ -88,7 +91,7 @@
     left: 0%;
     top: 0%;
     transition: top 0.5s linear;
-    z-index: 7;
+    z-index: 99;
   }
 }
 
