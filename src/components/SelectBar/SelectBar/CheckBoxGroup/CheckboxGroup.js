@@ -15,7 +15,7 @@ function CheckboxGroup(props) {
           {({ field }) =>
             options.map(option =>
               label === option.type ? (
-                <div className={styles.option_item}>
+                <div key={option._id} className={styles.option_item}>
                   <React.Fragment key={option._id}>
                     <input
                       className={styles.option_item_ckeckbox}
