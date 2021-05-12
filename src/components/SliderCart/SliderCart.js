@@ -28,9 +28,7 @@ const SliderCart = ({ product }) => {
           </div>
           <div className={styles.buttonSection}>
             <AddToCartButton id={id} />
-            <span>
-              <AddToWishListBtn id={id} />
-            </span>
+            <AddToWishListBtn id={id} />
           </div>
         </div>
       </div>
