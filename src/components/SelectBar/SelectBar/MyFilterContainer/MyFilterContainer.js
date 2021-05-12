@@ -78,23 +78,20 @@ const MyFilterContainer = ({ sort, checkboxed }) => {
           <>
             <div className={activeDark} onClick={() => handleClickFilter()} />
             <Container>
-              <div className={styles.container_filter}>
-                <FormikContainer classes={styles.container_filter_fixed} checkboxed={checkboxed} sort={sort} />
-              </div>
+              <FormikContainer classes={styles.container_filter_fixed} checkboxed={checkboxed} sort={sort} />
             </Container>
           </>
         )}
       </div>
 
       <div className={activeSort}>
+        <div className={activeDark} onClick={() => handleClickSort()} />
+
         {!!sort && (
           <>
-            <div className={activeDark} onClick={() => handleClickSort()} />
-            {/* <div className={styles.container_sort_box}> */}
             <Container>
               <FormikContainer classes={styles.container_filter_fixed} checkboxed={checkboxed} sort={sort} />
             </Container>
-            {/* </div> */}
           </>
         )}
       </div>

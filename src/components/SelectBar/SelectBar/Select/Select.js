@@ -11,9 +11,8 @@ function Select(props) {
   const { label, name, options, ...rest } = props;
   return (
     <div className={styles.checkbox_box}>
-      {/* <label htmlFor={name}>{label}</label> */}
       <Form className={`${styles.option_list_sort} `}>
-        <Field as='select' id={name} name={name} {...rest}>
+        <Field className={styles.option_select_list} as='select' id={name} name={name} {...rest}>
           {options.map(option =>
             option.type === label ? (
               <option className={styles.option_select} key={option._id} value={option.name}>

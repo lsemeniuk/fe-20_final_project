@@ -9,6 +9,7 @@ import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import styles from './Products.module.scss';
 import PageContainer from '../../components/Container/PageContainer/PageContainer';
 import AsideContainer from '../../components/Container/AsideContainer/AsideContainer';
+import Select from '../../components/SelectBar/Select/Select';
 
 const Products = () => {
   const location = useLocation();
@@ -43,10 +44,13 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <AsideContainer>
-              <div>
-                <h2 className={styles.filterTitle}>Filter</h2>
-              </div>
+              <Select />
             </AsideContainer>
+            {/* <div> */}
+
+            {/* <h2 className={styles.filterTitle}>Filter</h2> */}
+            {/* </div> */}
+
             <PageContainer style={{ padding: '0' }}>
               <ProductList />
             </PageContainer>

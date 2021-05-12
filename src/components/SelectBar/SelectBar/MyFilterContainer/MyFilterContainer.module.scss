@@ -1,23 +1,11 @@
 @import '../../../../utils/styles/var';
 
 .container {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
   position: sticky;
-  top: 0%;
+  top: 10%;
   z-index: 2;
-
-  @media (min-width: $deskXMax) {
-    max-width: $deskXMax;
-  }
-
-  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-    max-width: $deskXMin;
-  }
-
-  @media (min-width: $deskMin) and (max-width: $deskMax) {
-    max-width: $deskMin;
-  }
 
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     position: absolute;
@@ -43,22 +31,25 @@
 
   &_sort {
     position: sticky;
-    top: 0%;
-    left: 75%;
-    z-index: 2;
-    min-width: 300px;
-    max-width: 25%;
+    top: 2%;
+    min-width: 280px;
+    max-width: 280px;
     max-height: 50px;
     background-color: rgb(255, 255, 255);
+    z-index: 9999;
 
     @media (min-width: $tabMin) and (max-width: $tabMax) {
       position: absolute;
       top: -20%;
       left: 0;
+      min-width: 100%;
+      max-width: 100%;
       transition: top 0.5s linear;
     }
     @media (min-width: $mobMin) and (max-width: $mobMax) {
       position: absolute;
+      min-width: 100%;
+      max-width: 100%;
       left: 0;
       top: -20%;
       transition: top 0.5s linear;
@@ -89,7 +80,7 @@
     left: 0%;
     min-width: 100%;
     transition: top 0.5s linear;
-    z-index: 7;
+    // z-index: 99;
   }
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     background-color: rgb(255, 255, 255);
@@ -102,6 +93,8 @@
 }
 
 .container.active {
+  position: fixed;
+  z-index: 99;
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     left: -1%;
     top: 0%;

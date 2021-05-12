@@ -26,7 +26,10 @@ function CheckboxGroup(props) {
                       value={option.name}
                       checked={field.value.includes(option.name)}
                     />
-                    <label htmlFor={option.name}>{option.name}</label>
+
+                    <label className={styles.option_item_input} htmlFor={option.name}>
+                      {option.name}
+                    </label>
                   </React.Fragment>
                 </div>
               ) : (
