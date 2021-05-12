@@ -5,7 +5,7 @@ import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
 import { saveModalCartAction } from '../../../store/modal/actions';
 import { getModalCartSelector } from '../../../store/modal/selectors';
 import Icons from '../../Icons/Icons';
-import Cart from '../../modals/Cart/Cart';
+import Cart from '../../Cart/Cart';
 import styles from './MyOrders.module.scss';
 
 const MyOrders = () => {

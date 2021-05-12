@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { replace } from '../../../../utils/func';
-import { PRODUCT_ROUTE } from '../../../../utils/consts';
+import { replace } from '../../utils/func';
+import { PRODUCT_ROUTE } from '../../utils/consts';
 import styles from './CartItem.module.scss';
 import {
   addProductToCartOperation,
   decreaseCartProductQuantityOperation,
   deleteProductFromCartOperation,
-} from '../../../../store/cart/operations';
-import { saveModalCartAction } from '../../../../store/modal/actions';
+} from '../../store/cart/operations';
+import { saveModalCartAction } from '../../store/modal/actions';
 
 const CartItem = ({ product, cartQuantity, cart }) => {
   const { previousPrice, currentPrice, quantity, itemNo, name, imageUrls } = product;

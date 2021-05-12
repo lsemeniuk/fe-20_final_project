@@ -8,6 +8,19 @@ import { updatePassword } from '../../../../http/customersAPI';
 const UserPass = () => {
   const [messageServer, setmessageServer] = useState(null);
 
+  const validationSchema = Yup.object({
+    password: Yup.string()
+      .min(7, 'Это шликом маленький пароль')
+      .max(20, 'Такой пароль невозможно запомнить')
+      .required('Необходимо ввести пароль'),
+    newPassword: Yup.string()
+      .min(7, 'Это шликом маленький пароль')
+      .max(30, 'Такой пароль невозможно запомнить')
+      .matches('(?=.*[0-9])', 'Должен содержать хотя бы одно число')
+      .matches('(?=.*[A-Z])', 'Добавьте латинскую букву в верхнем регистре')
+      .required('Необходимо ввести пароль'),
+  });
+
   return (
     <>
       <Formik
@@ -15,18 +28,7 @@ const UserPass = () => {
           password: '',
           newPassword: '',
         }}
-        validationSchema={Yup.object({
-          password: Yup.string()
-            .min(7, 'Это шликом маленький пароль')
-            .max(20, 'Такой пароль невозможно запомнить')
-            .required('Необходимо ввести пароль'),
-          newPassword: Yup.string()
-            .min(7, 'Это шликом маленький пароль')
-            .max(30, 'Такой пароль невозможно запомнить')
-            .matches('(?=.*[0-9])', 'Должен содержать хотя бы одно число')
-            .matches('(?=.*[A-Z])', 'Добавьте латинскую букву в верхнем регистре')
-            .required('Необходимо ввести пароль'),
-        })}
+        validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           updatePassword(values)
             .then(res => {

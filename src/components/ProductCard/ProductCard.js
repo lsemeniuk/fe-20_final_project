@@ -1,30 +1,26 @@
 /* eslint-disable dot-notation */
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { PRODUCT_ROUTE } from '../../utils/consts';
 import { replace } from '../../utils/func';
-import { getWishListSelector } from '../../store/wishList/selectors';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import AddToWishListBtn from '../AddToWishListButton/AddToWishListBtn';
 import styles from './ProductCard.module.scss';
-import { deleteProductFromWishlishtOperation } from '../../store/wishList/operations';
 
-const ProductCard = ({ product, inCart }) => {
-  const dispatch = useDispatch();
-  const wishList = useSelector(getWishListSelector);
-
+const ProductCard = ({ product, inSlider }) => {
   const { imageUrls, itemNo, previousPrice, currentPrice, name, superPrise, isNew, isHit, _id: id } = product;
-
-  const deleteToWishList = () => {
-    dispatch(deleteProductFromWishlishtOperation(id, wishList));
-  };
 
   const calculateSales = Math.round(((previousPrice - currentPrice) / previousPrice) * 100);
 
+  let containerClassName = `${styles.container}`;
+
+  if (inSlider) {
+    containerClassName = `${styles.container} ${styles.container__slider}`;
+  }
+
   return (
-    <li className={styles.container}>
+    <li className={containerClassName}>
       <div>
         <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} className={styles.link}>
           <div className={styles.imgBlock}>
@@ -33,7 +29,6 @@ const ProductCard = ({ product, inCart }) => {
           </div>
         </NavLink>
       </div>
-      {inCart && <span onClick={deleteToWishList} className={styles.delete} />}
       <div className={styles.labelBlock}>
         {superPrise === 'yes' && (
           <div>
@@ -86,11 +81,11 @@ const ProductCard = ({ product, inCart }) => {
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
-  inCart: PropTypes.bool,
+  inSlider: PropTypes.bool,
 };
 
 ProductCard.defaultProps = {
-  inCart: false,
+  inSlider: false,
 };
 
 export default ProductCard;

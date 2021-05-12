@@ -26,6 +26,28 @@ const UserInfo = () => {
     return <Loader />;
   }
 
+  const validationSchema = Yup.object({
+    firstName: Yup.string()
+      .min(2, 'Это шликом маленькое имя')
+      .max(25, 'Неповерю что Вас так зовут')
+      .required('Укажите Ваше имя'),
+    lastName: Yup.string()
+      .min(2, 'Извените, этого маловато для фамилии')
+      .max(25, 'Возможно немного сократить?')
+      .required('Укажите Вашу фамилию'),
+    login: Yup.string()
+      .min(3, 'Придумайте что-нибудь длиннее')
+      .max(10, 'Это слишком большой логин')
+      .required('Укажите Ваш логин'),
+    email: Yup.string().email('Неверный адрес email').required('Укажите email'),
+    telephone: Yup.string()
+      .min(13, 'Слишком маленький')
+      .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Некоректный номер телефона'),
+    birthdate: Yup.string(),
+    city: Yup.string(),
+    gender: Yup.string().matches(/(Мужчина|Женщина)/, 'Определитесь кто вы, Мужчина либо Женщина'),
+  });
+
   return (
     <>
       <Formik
@@ -39,27 +61,7 @@ const UserInfo = () => {
           city: customer.city || '',
           gender: customer.gender || '',
         }}
-        validationSchema={Yup.object({
-          firstName: Yup.string()
-            .min(2, 'Это шликом маленькое имя')
-            .max(25, 'Неповерю что Вас так зовут')
-            .required('Укажите Ваше имя'),
-          lastName: Yup.string()
-            .min(2, 'Извените, этого маловато для фамилии')
-            .max(25, 'Возможно немного сократить?')
-            .required('Укажите Вашу фамилию'),
-          login: Yup.string()
-            .min(3, 'Придумайте что-нибудь длиннее')
-            .max(10, 'Это слишком большой логин')
-            .required('Укажите Ваш логин'),
-          email: Yup.string().email('Неверный адрес email').required('Укажите email'),
-          telephone: Yup.string()
-            .min(13, 'Слишком маленький')
-            .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Некоректный номер телефона'),
-          birthdate: Yup.string(),
-          city: Yup.string(),
-          gender: Yup.string().matches(/(Мужчина|Женщина)/, 'Определитесь кто вы, Мужчина либо Женщина'),
-        })}
+        validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           const newValues = {};
           for (const key in values) {

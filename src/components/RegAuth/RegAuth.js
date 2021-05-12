@@ -5,8 +5,8 @@ import 'react-tabs/style/react-tabs.scss';
 import Modal from '../Modal/Modal';
 import AuthForm from './AuthForm/AuthForm';
 import RegForm from './RegForm/RegForm';
-import { getModalAuthRegSelector } from '../../../store/modal/selectors';
-import { saveModalAuthRegAction } from '../../../store/modal/actions';
+import { getModalAuthRegSelector } from '../../store/modal/selectors';
+import { saveModalAuthRegAction } from '../../store/modal/actions';
 import styles from './RegAuth.module.scss';
 
 const RegAuth = () => {

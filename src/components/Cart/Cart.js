@@ -2,17 +2,17 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import CartItem from './CartItem/CartItem';
+import CartItem from '../CartItem/CartItem';
 import Modal from '../Modal/Modal';
-import Button from '../../Button/Button';
-import { CHECKOUT_ROUTE } from '../../../utils/consts';
-import RecommendList from './RecommendList/RecommendList';
+import Button from '../Button/Button';
+import { CHECKOUT_ROUTE } from '../../utils/consts';
+import RecommendList from '../RecommendList/RecommendList';
 import styles from './Cart.module.scss';
-import Loader from '../../Loader/Loader';
-import { getModalCartSelector } from '../../../store/modal/selectors';
-import { cartLoadingSelector, cartTotalPriceSelector, getCartSelector } from '../../../store/cart/selectors';
-import { getCartOperation } from '../../../store/cart/operations';
-import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
+import Loader from '../Loader/Loader';
+import { getModalCartSelector } from '../../store/modal/selectors';
+import { cartLoadingSelector, cartTotalPriceSelector, getCartSelector } from '../../store/cart/selectors';
+import { getCartOperation } from '../../store/cart/operations';
+import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 
 const Cart = ({ buttonHandler, display }) => {
   const dispatch = useDispatch();
