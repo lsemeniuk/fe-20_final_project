@@ -13,7 +13,7 @@ import {
 } from '../../../../store/cart/operations';
 import { saveModalCartAction } from '../../../../store/modal/actions';
 
-const CartItem = ({ product, cartQuantity }) => {
+const CartItem = ({ product, cartQuantity, cart }) => {
   const { previousPrice, currentPrice, quantity, itemNo, name, imageUrls } = product;
   const dispatch = useDispatch();
   const [controlQuantity, setControlQuantity] = useState(cartQuantity);
@@ -30,7 +30,7 @@ const CartItem = ({ product, cartQuantity }) => {
   };
 
   const deleteProduct = () => {
-    dispatch(deleteProductFromCartOperation(id));
+    dispatch(deleteProductFromCartOperation(id, cart));
   };
 
   const calculatePrice = () => {
@@ -99,6 +99,7 @@ const CartItem = ({ product, cartQuantity }) => {
 CartItem.propTypes = {
   product: PropTypes.object.isRequired,
   cartQuantity: PropTypes.number.isRequired,
+  cart: PropTypes.object.isRequired,
 };
 
 export default CartItem;

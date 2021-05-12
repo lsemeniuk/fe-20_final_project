@@ -7,8 +7,8 @@ import styles from './Loader.module.scss';
 const Loader = ({ fixed }) => {
   const fixedStyles = {
     position: 'absolute',
-    top: '50vh',
-    left: '50vw;',
+    top: '50%',
+    left: '50%',
     zIndex: '999',
   };
 

@@ -14,7 +14,7 @@ import { addProductToCartOperation } from '../../store/cart/operations';
 import { saveModalCartAction } from '../../store/modal/actions';
 import styles from './ProductCard.module.scss';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, inCart }) => {
   const dispatch = useDispatch();
   const cart = useSelector(getCartSelector);
   const cartLoading = useSelector(cartLoadingSelector);
@@ -55,7 +55,7 @@ const ProductCard = ({ product }) => {
   };
 
   const deleteToWishList = () => {
-    dispatch(deleteProductFromWishlishtOperation(id));
+    dispatch(deleteProductFromWishlishtOperation(id, wishList));
   };
 
   const calculateSales = Math.round(((previousPrice - currentPrice) / previousPrice) * 100);
@@ -70,7 +70,7 @@ const ProductCard = ({ product }) => {
           </div>
         </NavLink>
       </div>
-
+      {inCart && <span onClick={deleteToWishList} className={styles.delete} />}
       <div className={styles.labelBlock}>
         {superPrise === 'yes' && (
           <div>
@@ -131,6 +131,11 @@ const ProductCard = ({ product }) => {
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
+  inCart: PropTypes.bool,
+};
+
+ProductCard.defaultProps = {
+  inCart: false,
 };
 
 export default ProductCard;
