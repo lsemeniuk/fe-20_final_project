@@ -1,13 +1,11 @@
-/* eslint-disable no-console */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from 'react';
-
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
 import ButtonBlock from '../../../components/Forms/ButtonBlock/ButtonBlock';
 import { addCategoryRequest } from '../../../http/catalogAPI';
+import schema from '../schema';
 
 const AddCategory = () => {
   const [messageServer, setmessageServer] = useState(null);
@@ -28,17 +26,7 @@ const AddCategory = () => {
           description: '',
           level: 0,
         }}
-        validationSchema={Yup.object({
-          id: Yup.string().min(3, 'Мин. 3 буквы').max(30, 'Макс. 30 букв').required('Укажите id-слово для категории'),
-          name: Yup.string().min(3, 'Мин. 3 буквы').max(30, 'Макс. 30 букв').required('Укажите название категории'),
-          parentId: Yup.string()
-            .min(3, 'Мин. 3 буквы')
-            .max(30, 'Макс. 30 букв')
-            .required('Название Родительской категории либо null'),
-          imageUrl: Yup.string(),
-          description: Yup.string().max(60, 'Макс. 60 букв').required('Краткое описание категории'),
-          level: Yup.number().required('Уровень вложенности: по умолчанию - 0 (самый верх)'),
-        })}
+        validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
           const newCategory = {};
           for (const key in values) {
@@ -53,7 +41,6 @@ const AddCategory = () => {
               }
             })
             .catch(err => {
-              console.log(err.data);
               setmessageServer(<span>{Object.values(err.data).join('')}</span>);
             });
           setSubmitting(false);
