@@ -46,7 +46,7 @@ export const publicRoutes = [
   },
   {
     name: 'Страницы не существует',
-    path: '/page404',
+    path: '*',
     Component: Page404,
   },
 ];

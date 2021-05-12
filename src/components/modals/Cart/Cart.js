@@ -12,17 +12,21 @@ import Loader from '../../Loader/Loader';
 import { getModalCartSelector } from '../../../store/modal/selectors';
 import { cartLoadingSelector, cartTotalPriceSelector, getCartSelector } from '../../../store/cart/selectors';
 import { getCartOperation } from '../../../store/cart/operations';
+import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
 
 const Cart = ({ buttonHandler, display }) => {
   const dispatch = useDispatch();
+  const isAuth = useSelector(getCustomerIsAuthSelector);
   const modalCart = useSelector(getModalCartSelector);
   const cart = useSelector(getCartSelector);
   const cartLoading = useSelector(cartLoadingSelector);
   const totalPrice = useSelector(cartTotalPriceSelector);
 
   useEffect(() => {
-    dispatch(getCartOperation());
-  }, []);
+    if (isAuth) {
+      dispatch(getCartOperation());
+    }
+  }, [isAuth]);
 
   if (!modalCart) {
     return null;
