@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { replace } from '../../../../utils/func';
-import Button from '../../../Button/Button';
-import { PRODUCT_ROUTE } from '../../../../utils/consts';
+import { replace } from '../../../utils/func';
+import Button from '../../Button/Button';
+import { PRODUCT_ROUTE } from '../../../utils/consts';
 import styles from './ProductCardSmall.module.scss';
 
-const ProductCardSmall = ({ product }) => {
+const ProductCardSmall = ({ product, onClick }) => {
   return (
     <div className={styles.container}>
-      <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`}>
+      <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`} onClick={onClick}>
         <div className={styles.header}>
           <img src={product.imageUrls[0]} width={130} height={130} alt='product img' />
           <h5 className={styles.title}>{product.name}</h5>
@@ -25,6 +25,13 @@ const ProductCardSmall = ({ product }) => {
 
 ProductCardSmall.propTypes = {
   product: PropTypes.object.isRequired,
+  onClick: PropTypes.func,
+};
+
+ProductCardSmall.defaultProps = {
+  onClick: e => {
+    return e;
+  },
 };
 
 export default ProductCardSmall;

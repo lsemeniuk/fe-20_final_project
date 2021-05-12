@@ -1,55 +1,93 @@
+/* eslint-disable dot-notation */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { replace } from '../../../../utils/func';
 import { PRODUCT_ROUTE } from '../../../../utils/consts';
 import styles from './CartItem.module.scss';
+import {
+  addProductToCartOperation,
+  decreaseCartProductQuantityOperation,
+  deleteProductFromCartOperation,
+} from '../../../../store/cart/operations';
+import { saveModalCartAction } from '../../../../store/modal/actions';
 
-const CartItem = ({ product, cartQuantity }) => {
-  const [quantity, setQuantity] = useState(cartQuantity);
+const CartItem = ({ product, cartQuantity, cart }) => {
+  const { previousPrice, currentPrice, quantity, itemNo, name, imageUrls } = product;
+  const dispatch = useDispatch();
+  const [controlQuantity, setControlQuantity] = useState(cartQuantity);
+  const id = product['_id'];
 
   const decrementQuantity = () => {
-    setQuantity(Math.max(quantity - 1, 1));
+    dispatch(decreaseCartProductQuantityOperation(id));
+    setControlQuantity(cartQuantity - 1);
   };
 
   const incrementQuantity = () => {
-    setQuantity(Math.min(quantity + 1, product.quantity));
+    dispatch(addProductToCartOperation(id));
+    setControlQuantity(cartQuantity + 1);
+  };
+
+  const deleteProduct = () => {
+    dispatch(deleteProductFromCartOperation(id, cart));
   };
 
   const calculatePrice = () => {
-    return replace(quantity * product.currentPrice);
+    return replace(cartQuantity * currentPrice);
   };
+
+  const closeCart = () => {
+    dispatch(saveModalCartAction(false));
+  };
+
+  const decrementDisabled = controlQuantity <= 1;
+  const incrementDisabled = controlQuantity >= quantity;
 
   return (
     <div className={styles.container}>
-      <div className={styles.remove}>
-        <span className={styles.removeBtn}>&#128465;</span>
+      <div className={styles.delete}>
+        <span
+          onClick={() => {
+            deleteProduct();
+          }}
+          className={styles.deleteBtn}
+        >
+          &#128465;
+        </span>
       </div>
-      <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`}>
-        <img src={product.imageUrls[0]} width={78} height={78} alt='product img' />
+      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} onClick={closeCart}>
+        <img src={imageUrls[0]} width={78} height={78} alt='product img' />
       </NavLink>
       <div className={styles.nameBlock}>
-        <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`}>
-          <h4 className={styles.name}>{product.name}</h4>
+        <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} onClick={closeCart}>
+          <h4 className={styles.name}>{name}</h4>
         </NavLink>
-        <span>{replace(product.currentPrice)} грн</span>
+        {previousPrice ? (
+          <div className={styles.priceSales}>
+            <div className={styles.currentPrice}>{replace(currentPrice)} грн</div>
+            <div className={styles.previousPrice}>{replace(previousPrice)} грн</div>
+          </div>
+        ) : (
+          <div className={styles.regularPrice}>{replace(currentPrice)} грн</div>
+        )}
       </div>
       <div>
         <div className={styles.quantityBlock}>
-          <button className={styles.quantityBtn} type='button' onClick={decrementQuantity}>
+          <button disabled={decrementDisabled} className={styles.quantityBtn} type='button' onClick={decrementQuantity}>
             -
           </button>
           <input
-            onChange={e => setQuantity(e.target.value)}
+            onChange={e => setControlQuantity(e.target.value)}
             className={styles.quantityInput}
             type='text'
-            value={quantity}
+            value={controlQuantity}
           />
-          <button className={styles.quantityBtn} type='button' onClick={incrementQuantity}>
+          <button disabled={incrementDisabled} className={styles.quantityBtn} type='button' onClick={incrementQuantity}>
             +
           </button>
         </div>
-        {quantity === product.quantity && <span className={styles.ended}>Извините:( Товара больше нет!</span>}
+        {cartQuantity === quantity && <span className={styles.ended}>Извините:( Товара больше нет!</span>}
       </div>
       <div className={styles.price}>
         <span>{calculatePrice()} грн</span>
@@ -61,6 +99,7 @@ const CartItem = ({ product, cartQuantity }) => {
 CartItem.propTypes = {
   product: PropTypes.object.isRequired,
   cartQuantity: PropTypes.number.isRequired,
+  cart: PropTypes.object.isRequired,
 };
 
 export default CartItem;

@@ -5,34 +5,57 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { PRODUCT_ROUTE } from '../../utils/consts';
 import Icons from '../Icons/Icons';
-import styles from './ProductItem.module.scss';
 import { replace } from '../../utils/func';
 import { addProductToWishlistOperation, deleteProductFromWishlishtOperation } from '../../store/wishList/operations';
 import Button from '../Button/Button';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
+import { cartLoadingSelector, getCartSelector } from '../../store/cart/selectors';
+import { addProductToCartOperation } from '../../store/cart/operations';
+import { saveModalCartAction } from '../../store/modal/actions';
+import styles from './ProductCard.module.scss';
 
-const ProductItem = ({ product }) => {
+const ProductCard = ({ product, inCart }) => {
   const dispatch = useDispatch();
+  const cart = useSelector(getCartSelector);
+  const cartLoading = useSelector(cartLoadingSelector);
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
+
   const { imageUrls, itemNo, previousPrice, currentPrice, name, superPrise, isNew, isHit } = product;
   const id = product['_id'];
-  let idList = [];
+  let idCartList = [];
 
+  if (!cartLoading) {
+    if (cart) {
+      idCartList = cart.products.map(prod => {
+        return prod.product['_id'];
+      });
+    }
+  }
+
+  let idWishList = [];
   if (!wishListLoading) {
     if (wishList) {
-      idList = wishList.products.map(prod => {
+      idWishList = wishList.products.map(prod => {
         return prod['_id'];
       });
     }
   }
+
+  const openCart = () => {
+    dispatch(saveModalCartAction(true));
+  };
+
+  const addToCart = () => {
+    dispatch(addProductToCartOperation(id));
+  };
 
   const addToWishList = () => {
     dispatch(addProductToWishlistOperation(id));
   };
 
   const deleteToWishList = () => {
-    dispatch(deleteProductFromWishlishtOperation(id));
+    dispatch(deleteProductFromWishlishtOperation(id, wishList));
   };
 
   const calculateSales = Math.round(((previousPrice - currentPrice) / previousPrice) * 100);
@@ -47,7 +70,7 @@ const ProductItem = ({ product }) => {
           </div>
         </NavLink>
       </div>
-
+      {inCart && <span onClick={deleteToWishList} className={styles.delete} />}
       <div className={styles.labelBlock}>
         {superPrise === 'yes' && (
           <div>
@@ -88,12 +111,16 @@ const ProductItem = ({ product }) => {
 
       <div className={styles.btnBlock}>
         <div className={styles.btnFlex}>
-          <Button title='Купить' />
+          {idCartList.includes(id) ? (
+            <Button onClick={openCart} variant='outline' title='В корзине' />
+          ) : (
+            <Button onClick={addToCart} title='Купить' />
+          )}
           <span className={styles.favIcon}>
-            {idList.includes(id) ? (
-              <Icons onClick={() => deleteToWishList()} type='navHeart' color='#ffd200' filled width={30} height={30} />
+            {idWishList.includes(id) ? (
+              <Icons onClick={deleteToWishList} type='navHeart' color='#ffd200' filled width={30} height={30} />
             ) : (
-              <Icons onClick={() => addToWishList()} type='navHeart' color='black' width={30} height={30} />
+              <Icons onClick={addToWishList} type='navHeart' color='black' width={30} height={30} />
             )}
           </span>
         </div>
@@ -102,8 +129,13 @@ const ProductItem = ({ product }) => {
   );
 };
 
-ProductItem.propTypes = {
+ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
+  inCart: PropTypes.bool,
 };
 
-export default ProductItem;
+ProductCard.defaultProps = {
+  inCart: false,
+};
+
+export default ProductCard;
