@@ -6,7 +6,6 @@ import {
   CHECKOUT_ROUTE,
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
-  // FILTER_ROUTE,
   ADM_CATALOG_ROUTE,
   ADM_PRODUCTS_ROUTE,
 } from '../utils/consts';

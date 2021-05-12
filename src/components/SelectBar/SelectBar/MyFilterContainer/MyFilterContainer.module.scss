@@ -83,7 +83,7 @@
     left: 0%;
     min-width: 100%;
     transition: top 0.5s linear;
-    z-index: 99;
+    // z-index: 99;
   }
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     background-color: rgb(255, 255, 255);

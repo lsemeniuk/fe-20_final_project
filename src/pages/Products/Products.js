@@ -46,6 +46,11 @@ const Products = () => {
             <AsideContainer>
               <Select />
             </AsideContainer>
+            {/* <div> */}
+
+            {/* <h2 className={styles.filterTitle}>Filter</h2> */}
+            {/* </div> */}
+
             <PageContainer style={{ padding: '0' }}>
               <ProductList />
             </PageContainer>

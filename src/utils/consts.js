@@ -1,7 +1,6 @@
 // Public
 export const INDEX_ROUTE = '/';
 export const PRODUCTS_ROUTE = '/products';
-export const FILTER_ROUTE = '/filter';
 export const PRODUCT_ROUTE = '/product';
 export const CHECKOUT_ROUTE = '/checkout';
 export const PAGES_ROUTE = '/pages';

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import AsideBar from '../components/AsideBar/AsideBar';
+
 import Container from '../components/Container/Container';
 import { userRoutes } from './routes';
 import { PERSONAL_INFO_ROUTE, ORDERS_ROUTE, WISH_LIST_ROUTE } from '../utils/consts';
