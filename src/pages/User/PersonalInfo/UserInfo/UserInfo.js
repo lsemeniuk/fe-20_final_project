@@ -75,7 +75,7 @@ const UserInfo = () => {
               }
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              setmessageServer(<span>{Object.values(err.data).join(' ')}</span>);
             });
           setSubmitting(false);
         }}

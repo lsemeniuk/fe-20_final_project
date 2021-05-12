@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import Container from '../../components/Container/Container';
 import GenderLink from '../../components/GenderLink/GenderLink';
+import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 // import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import PromotionSlider from '../../components/sliders/PromotionSlider/PromotionSlider';
 import styles from './Index.module.scss';
@@ -21,6 +22,10 @@ const Index = () => {
       <PromotionSlider />
 
       <Container>
+        <div className={styles.brandBar}>
+          <h3 className={styles.brandBarTytle}>Выбирай часы своего любимого бренда</h3>
+          <BrandBar />
+        </div>
         <div className={styles.descriptionWrapper}>
           <h2 className={styles.descriptionText}>
             Большой выбор <br /> оригинальных <br /> смарт-часов
