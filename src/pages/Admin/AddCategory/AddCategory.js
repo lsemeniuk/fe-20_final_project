@@ -1,12 +1,22 @@
+/* eslint-disable no-console */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
-import React from 'react';
+import React, { useState } from 'react';
+
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
 import ButtonBlock from '../../../components/Forms/ButtonBlock/ButtonBlock';
+import { addCategoryRequest } from '../../../http/catalogAPI';
 
 const AddCategory = () => {
+  const [messageServer, setmessageServer] = useState(null);
+
+  // TODO: 1) требует проверку на авторизацию.  useEffect(() => {
+  // todo dispatch(checkAdminOperation());
+  // todo }, []);
+
+  //! также пишет что err.data - >undefined
   return (
     <>
       <Formik
@@ -19,14 +29,14 @@ const AddCategory = () => {
           level: 0,
         }}
         validationSchema={Yup.object({
-          id: Yup.string().min(3, 'Мин. 3 буквы').max(15, 'Макс. 15 букв').required('Укажите id-слово для категории'),
-          name: Yup.string().min(3, 'Мин. 3 буквы').max(15, 'Макс. 15 букв').required('Укажите название категории'),
+          id: Yup.string().min(3, 'Мин. 3 буквы').max(30, 'Макс. 30 букв').required('Укажите id-слово для категории'),
+          name: Yup.string().min(3, 'Мин. 3 буквы').max(30, 'Макс. 30 букв').required('Укажите название категории'),
           parentId: Yup.string()
             .min(3, 'Мин. 3 буквы')
-            .max(15, 'Макс. 15 букв')
+            .max(30, 'Макс. 30 букв')
             .required('Название Родительской категории либо null'),
           imageUrl: Yup.string(),
-          description: Yup.string().max(50, 'Макс. 50 букв').required('Краткое описание категории'),
+          description: Yup.string().max(60, 'Макс. 60 букв').required('Краткое описание категории'),
           level: Yup.number().required('Уровень вложенности: по умолчанию - 0 (самый верх)'),
         })}
         onSubmit={(values, { setSubmitting }) => {
@@ -36,7 +46,16 @@ const AddCategory = () => {
               newCategory[key] = values[key];
             }
           }
-
+          addCategoryRequest(newCategory)
+            .then(res => {
+              if (res.status === 200) {
+                setmessageServer(<span style={{ color: 'green' }}>Новая Категория успешно добавлена в каталог!</span>);
+              }
+            })
+            .catch(err => {
+              console.log(err.data);
+              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+            });
           setSubmitting(false);
         }}
       >
@@ -47,7 +66,7 @@ const AddCategory = () => {
           <MyTextInput label='Картинка' name='imageUrl' type='text' placeholder='ccылка на изображение' tabIndex='0' />
           <MyTextInput label='Описание' name='description' type='text' placeholder='опис.категории' tabIndex='0' />
           <MyTextInput label='Уровень' name='level' type='number' placeholder='Уровень вложенности' tabIndex='0' />
-          <ButtonBlock buttonTitle='Сохранить' />
+          <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
         </Form>
       </Formik>
     </>

@@ -1,12 +1,14 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
 import ButtonBlock from '../../../components/Forms/ButtonBlock/ButtonBlock';
+import { updateCategoryRequest } from '../../../http/catalogAPI';
 
 const UpdateCategory = () => {
+  const [messageServer, setmessageServer] = useState(null);
   return (
     <>
       <Formik
@@ -36,7 +38,15 @@ const UpdateCategory = () => {
               updateCategory[key] = values[key];
             }
           }
-
+          updateCategoryRequest(values.id, updateCategory)
+            .then(res => {
+              if (res.status === 200) {
+                setmessageServer(<span style={{ color: 'green' }}>Категория успешно изменена!</span>);
+              }
+            })
+            .catch(err => {
+              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+            });
           setSubmitting(false);
         }}
       >
@@ -47,7 +57,7 @@ const UpdateCategory = () => {
           <MyTextInput label='Картинка' name='imageUrl' type='text' placeholder='ccылка на изображение' tabIndex='0' />
           <MyTextInput label='Описание' name='description' type='text' placeholder='изменить описание' tabIndex='0' />
           <MyTextInput label='Уровень' name='level' type='number' placeholder='Изменить вложенность' tabIndex='0' />
-          <ButtonBlock buttonTitle='Сохранить' />
+          <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
         </Form>
       </Formik>
     </>
