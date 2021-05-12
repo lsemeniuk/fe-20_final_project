@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ProductItem from '../ProductItem/ProductItem';
+import ProductCard from '../ProductCard/ProductCard';
 import { getProductsSelector, productsLoadingSelector } from '../../store/products/selectors';
 import style from './ProductList.module.scss';
 import Loader from '../Loader/Loader';
@@ -19,7 +19,7 @@ const ProductList = () => {
     return <Loader />;
   }
 
-  const productList = products.map(product => <ProductItem key={product.itemNo} product={product} />);
+  const productList = products.map(product => <ProductCard key={product.itemNo} product={product} />);
 
   return <ul className={style.productsList}>{productList}</ul>;
 };
