@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { PRODUCT_ROUTE } from '../../utils/consts';
-import styles from './SliderCart.module.scss';
+import styles from './ProductCartSlider.module.scss';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import AddToWishListBtn from '../AddToWishListButton/AddToWishListBtn';
 
-const SliderCart = ({ product }) => {
+const ProductCartSlider = ({ product }) => {
   const { imageUrls, itemNo, currentPrice, name, previousPrice, _id: id } = product;
 
   return (
@@ -36,8 +36,8 @@ const SliderCart = ({ product }) => {
   );
 };
 
-SliderCart.propTypes = {
+ProductCartSlider.propTypes = {
   product: PropTypes.object.isRequired,
 };
 
-export default SliderCart;
+export default ProductCartSlider;
