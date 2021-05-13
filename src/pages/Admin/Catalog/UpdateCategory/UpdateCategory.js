@@ -2,19 +2,13 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
-import ButtonBlock from '../../../components/Forms/ButtonBlock/ButtonBlock';
-import { addCategoryRequest } from '../../../http/catalogAPI';
+import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
+import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
+import { updateCategory } from '../../../../http/catalogAPI';
 import schema from '../schema';
 
-const AddCategory = () => {
+const UpdateCategory = () => {
   const [messageServer, setmessageServer] = useState(null);
-
-  // TODO: 1) требует проверку на авторизацию.  useEffect(() => {
-  // todo dispatch(checkAdminOperation());
-  // todo }, []);
-
-  //! также пишет что err.data - >undefined
   return (
     <>
       <Formik
@@ -28,16 +22,16 @@ const AddCategory = () => {
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          const newCategory = {};
+          const updateCategorys = {};
           for (const key in values) {
             if (values[key] !== '') {
-              newCategory[key] = values[key];
+              updateCategorys[key] = values[key];
             }
           }
-          addCategoryRequest(newCategory)
+          updateCategory(values.id, updateCategorys)
             .then(res => {
               if (res.status === 200) {
-                setmessageServer(<span style={{ color: 'green' }}>Новая Категория успешно добавлена в каталог!</span>);
+                setmessageServer(<span style={{ color: 'green' }}>Категория успешно изменена!</span>);
               }
             })
             .catch(err => {
@@ -48,11 +42,11 @@ const AddCategory = () => {
       >
         <Form>
           <MyTextInput label='ID категории' name='id' type='text' placeholder='введите id-слово' tabIndex='0' />
-          <MyTextInput label='Название категории' name='name' type='text' placeholder='название' tabIndex='0' />
-          <MyTextInput label='Родит.категория' name='parentId' type='text' placeholder='род.категория' tabIndex='0' />
+          <MyTextInput label='Название' name='name' type='text' placeholder='изменить название' tabIndex='0' />
+          <MyTextInput label='Родит.категория' name='parentId' type='text' placeholder='изменить родит.' tabIndex='0' />
           <MyTextInput label='Картинка' name='imageUrl' type='text' placeholder='ccылка на изображение' tabIndex='0' />
-          <MyTextInput label='Описание' name='description' type='text' placeholder='опис.категории' tabIndex='0' />
-          <MyTextInput label='Уровень' name='level' type='number' placeholder='Уровень вложенности' tabIndex='0' />
+          <MyTextInput label='Описание' name='description' type='text' placeholder='изменить описание' tabIndex='0' />
+          <MyTextInput label='Уровень' name='level' type='number' placeholder='Изменить вложенность' tabIndex='0' />
           <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
         </Form>
       </Formik>
@@ -60,4 +54,4 @@ const AddCategory = () => {
   );
 };
 
-export default AddCategory;
+export default UpdateCategory;

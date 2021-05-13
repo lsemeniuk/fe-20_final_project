@@ -1,11 +1,11 @@
-import { $adminHost, $host } from './index';
+import { $authHost, $host } from './index';
 
 // @route   POST /catalog
 // @desc    Create new category
 // @access  Private
-export const addCategoryRequest = async newCategory => {
-  const res = await $adminHost.post('catalog', newCategory).catch(err => {
-    throw err;
+export const addCategory = async values => {
+  const res = await $authHost.post('catalog', values).catch(err => {
+    throw err.response;
   });
   return res;
 };
@@ -13,8 +13,8 @@ export const addCategoryRequest = async newCategory => {
 // @route   PUT /catalog/:id
 // @desc    Update existing category
 // @access  Private
-export const updateCategoryRequest = async (id, updateCategory) => {
-  const res = await $adminHost.put(`catalog/${id}`, updateCategory).catch(err => {
+export const updateCategory = async (id, values) => {
+  const res = await $authHost.put(`catalog/${id}`, values).catch(err => {
     throw err;
   });
   return res;
@@ -23,8 +23,8 @@ export const updateCategoryRequest = async (id, updateCategory) => {
 // @route   DELETE /catalog/:id
 // @desc    Delete existing category
 // @access  Private
-export const deleteCategoryRequest = async id => {
-  const res = await $adminHost.delete(`catalog/${id}`).catch(err => {
+export const deleteCategory = async id => {
+  const res = await $authHost.delete(`catalog/${id}`).catch(err => {
     throw err;
   });
   return res;

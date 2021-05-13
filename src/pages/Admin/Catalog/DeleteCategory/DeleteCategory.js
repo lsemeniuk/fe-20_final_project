@@ -2,9 +2,9 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
-import ButtonBlock from '../../../components/Forms/ButtonBlock/ButtonBlock';
-import { deleteCategoryRequest } from '../../../http/catalogAPI';
+import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
+import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
+import { deleteCategory } from '../../../../http/catalogAPI';
 import schema from '../schema';
 
 const DeleteCategory = () => {
@@ -17,7 +17,7 @@ const DeleteCategory = () => {
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          deleteCategoryRequest(values.id)
+          deleteCategory(values.id)
             .then(res => {
               if (res.status === 200) {
                 setmessageServer(<span style={{ color: 'green' }}>Категория успешно удалена!</span>);

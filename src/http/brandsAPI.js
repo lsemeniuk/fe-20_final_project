@@ -1,10 +1,10 @@
-import { $adminHost, $host } from './index';
+import { $authHost, $host } from './index';
 
 // @route   POST /brands
 // @desc    Create new brand
 // @access  Private
 export const addBrand = async () => {
-  const res = await $adminHost.post('brands').catch(err => {
+  const res = await $authHost.post('brands').catch(err => {
     throw err;
   });
   return res;
@@ -14,7 +14,7 @@ export const addBrand = async () => {
 // @desc    Update existing brand
 // @access  Private
 export const updateBrand = async id => {
-  const res = await $adminHost.put(`brands/${id}`).catch(err => {
+  const res = await $authHost.put(`brands/${id}`).catch(err => {
     throw err;
   });
   return res;
@@ -24,7 +24,7 @@ export const updateBrand = async id => {
 // @desc    DELETE existing brand
 // @access  Private
 export const deleteBrand = async customId => {
-  const res = await $adminHost.delete(`brands/${customId}`).catch(err => {
+  const res = await $authHost.delete(`brands/${customId}`).catch(err => {
     throw err;
   });
   return res;

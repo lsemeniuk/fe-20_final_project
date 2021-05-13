@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/Button/Button';
-import PageContainer from '../../components/Container/PageContainer/PageContainer';
+import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import Loader from '../../components/Loader/Loader';
 import { getProductsOperation } from '../../store/products/operations';
 import { getProductsSelector, productsLoadingSelector } from '../../store/products/selectors';
@@ -24,7 +24,7 @@ const AdminProducts = () => {
   const productItems = products.map(product => <ProductData key={product._id} product={product} />);
 
   return (
-    <PageContainer>
+    <ContainerPage>
       <div className={styles.row}>
         <h1>Products</h1>
         <Button type='button' title='Create Product' className={styles.create_btn} onClick={createHandler} />
@@ -44,7 +44,7 @@ const AdminProducts = () => {
           {productItems}
         </ul>
       )}
-    </PageContainer>
+    </ContainerPage>
   );
 };
 

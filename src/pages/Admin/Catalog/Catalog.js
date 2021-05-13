@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import styles from './AdminCatalog.module.scss';
-import PageContainer from '../../components/Container/PageContainer/PageContainer';
-import AddCategory from './AddCategory/AddCategory';
+import ContainerPage from '../../../components/ContainerPage/ContainerPage';
+import AddCategoryForm from './AddCategoryForm/AddCategoryForm';
 import UpdateCategory from './UpdateCategory/UpdateCategory';
 import DeleteCategory from './DeleteCategory/DeleteCategory';
+import styles from './Catalog.module.scss';
 
-const AdminCatalog = () => {
+const Catalog = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
-    <PageContainer>
+    <ContainerPage>
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
         <TabList>
           <Tab tabIndex='0'>
-            <div className={styles.tab}>Новая Категория</div>
+            <div className={styles.tab}>Добавить категорию</div>
           </Tab>
           <Tab tabIndex='0'>
             <div className={styles.tab}>Изменить Категорию</div>
@@ -26,7 +26,7 @@ const AdminCatalog = () => {
 
         <TabPanel>
           <div className={styles.form}>
-            <AddCategory />
+            <AddCategoryForm />
           </div>
         </TabPanel>
         <TabPanel>
@@ -40,8 +40,8 @@ const AdminCatalog = () => {
           </div>
         </TabPanel>
       </Tabs>
-    </PageContainer>
+    </ContainerPage>
   );
 };
 
-export default AdminCatalog;
+export default Catalog;

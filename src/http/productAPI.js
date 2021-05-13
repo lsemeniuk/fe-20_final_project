@@ -1,10 +1,10 @@
-import { $adminHost, $host } from './index';
+import { $authHost, $host } from './index';
 
 // @route   POST /products/images
 // @desc    Add images
 // @access  Private
 export const addImages = async () => {
-  const res = await $adminHost.post('products/images').catch(err => {
+  const res = await $authHost.post('products/images').catch(err => {
     throw err;
   });
   return res;
@@ -14,7 +14,7 @@ export const addImages = async () => {
 // @desc    Create new product
 // @access  Private
 export const addProduct = async () => {
-  const res = await $adminHost.post('products').catch(err => {
+  const res = await $authHost.post('products').catch(err => {
     throw err;
   });
   return res;
@@ -24,7 +24,7 @@ export const addProduct = async () => {
 // @desc    Update existing product
 // @access  Private
 export const updateProduct = async id => {
-  const res = await $adminHost.put(`products/${id}`).catch(err => {
+  const res = await $authHost.put(`products/${id}`).catch(err => {
     throw err;
   });
   return res;
