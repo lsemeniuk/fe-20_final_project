@@ -5,7 +5,7 @@ import AsideBar from '../components/AsideBar/AsideBar';
 import Container from '../components/Container/Container';
 import { userRoutes } from './routes';
 import { PERSONAL_INFO_ROUTE, ORDERS_ROUTE, WISH_LIST_ROUTE } from '../utils/consts';
-import { getCustomerIsAuthSelector } from '../store/customer/selectors';
+import { getCustomerIsAuthSelector, getCustomerIsLoadingSelector } from '../store/customer/selectors';
 import Loader from '../components/Loader/Loader';
 
 const links = [
@@ -16,11 +16,16 @@ const links = [
 
 const UserRoutes = () => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
+  const customerIsLoading = useSelector(getCustomerIsLoadingSelector);
 
   if (!isAuth) {
     return (
       <Container>
-        <Loader />
+        {customerIsLoading ? (
+          <Loader />
+        ) : (
+          <h2 style={{ textAlign: 'center' }}>Для начала зарегистрируйтесь либо авторизируйтесь!</h2>
+        )}
       </Container>
     );
   }

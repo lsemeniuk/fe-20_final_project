@@ -22,13 +22,7 @@ const UpdateCategory = () => {
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          const updateCategorys = {};
-          for (const key in values) {
-            if (values[key] !== '') {
-              updateCategorys[key] = values[key];
-            }
-          }
-          updateCategory(values.id, updateCategorys)
+          updateCategory(values.id, values)
             .then(res => {
               if (res.status === 200) {
                 setmessageServer(<span style={{ color: 'green' }}>Категория успешно изменена!</span>);

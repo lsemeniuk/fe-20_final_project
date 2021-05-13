@@ -7,9 +7,10 @@
   white-space: nowrap;
   position: relative;
   padding: 40px 40px 20px 40px;
+  margin-left: 50px;
   width: 70%;
   & label {
     text-align: left;
-    left: 0;
+    left: -50px;
   }
 }

@@ -28,7 +28,7 @@ const Product = () => {
       </Container>
     );
   }
-  console.log(product);
+  // console.log(product);
 
   return (
     <main>

@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import AsideBar from '../components/AsideBar/AsideBar';
 import Container from '../components/Container/Container';
 import Loader from '../components/Loader/Loader';
-import { getCustomerSelector } from '../store/customer/selectors';
+import { getCustomerIsLoadingSelector, getCustomerSelector } from '../store/customer/selectors';
 import { adminRoutes } from './routes';
 
 const links = adminRoutes.map(route => {
@@ -13,11 +13,16 @@ const links = adminRoutes.map(route => {
 
 const AdminRoutes = () => {
   const customer = useSelector(getCustomerSelector);
+  const customerIsLoading = useSelector(getCustomerIsLoadingSelector);
 
   if (!customer.isAdmin) {
     return (
       <Container>
-        <Loader />
+        {customerIsLoading ? (
+          <Loader />
+        ) : (
+          <h2 style={{ textAlign: 'center' }}>Вы не имеете допуска к этой странице!</h2>
+        )}
       </Container>
     );
   }
