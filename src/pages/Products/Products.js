@@ -9,10 +9,7 @@ import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import styles from './Products.module.scss';
-<<<<<<< HEAD
 import Select from '../../components/SelectBar/Select/Select';
-=======
->>>>>>> dev
 
 const Products = () => {
   const location = useLocation();
