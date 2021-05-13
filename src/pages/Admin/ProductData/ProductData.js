@@ -30,6 +30,6 @@ const ProductData = ({ product }) => {
   );
 };
 ProductData.propTypes = {
-  product: PropTypes.objectOf.isRequired,
+  product: PropTypes.object.isRequired,
 };
 export default ProductData;

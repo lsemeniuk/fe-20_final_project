@@ -3,7 +3,7 @@ import { $adminHost, $host } from './index';
 // @route   POST /catalog
 // @desc    Create new category
 // @access  Private
-export const addCategoryRequest = async newCategory => {
+export const addCategory = async newCategory => {
   const res = await $adminHost.post('catalog', newCategory).catch(err => {
     throw err;
   });
@@ -13,8 +13,8 @@ export const addCategoryRequest = async newCategory => {
 // @route   PUT /catalog/:id
 // @desc    Update existing category
 // @access  Private
-export const updateCategoryRequest = async (id, updateCategory) => {
-  const res = await $adminHost.put(`catalog/${id}`, updateCategory).catch(err => {
+export const updateCategory = async (id, updatedCategory) => {
+  const res = await $adminHost.put(`catalog/${id}`, updatedCategory).catch(err => {
     throw err;
   });
   return res;
@@ -23,7 +23,7 @@ export const updateCategoryRequest = async (id, updateCategory) => {
 // @route   DELETE /catalog/:id
 // @desc    Delete existing category
 // @access  Private
-export const deleteCategoryRequest = async id => {
+export const deleteCategory = async id => {
   const res = await $adminHost.delete(`catalog/${id}`).catch(err => {
     throw err;
   });

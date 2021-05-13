@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
 import ButtonBlock from '../../../components/Forms/ButtonBlock/ButtonBlock';
-import { deleteCategoryRequest } from '../../../http/catalogAPI';
+import { deleteCategory } from '../../../http/catalogAPI';
 import schema from '../schema';
 
-const DeleteCategory = () => {
+const DeleteCategoryForm = () => {
   const [messageServer, setmessageServer] = useState(null);
   return (
     <>
@@ -17,7 +17,7 @@ const DeleteCategory = () => {
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          deleteCategoryRequest(values.id)
+          deleteCategory(values.id)
             .then(res => {
               if (res.status === 200) {
                 setmessageServer(<span style={{ color: 'green' }}>Категория успешно удалена!</span>);
@@ -38,4 +38,4 @@ const DeleteCategory = () => {
   );
 };
 
-export default DeleteCategory;
+export default DeleteCategoryForm;

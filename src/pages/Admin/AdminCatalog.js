@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import styles from './AdminCatalog.module.scss';
-import PageContainer from '../../components/Container/PageContainer/PageContainer';
-import AddCategory from './AddCategory/AddCategory';
-import UpdateCategory from './UpdateCategory/UpdateCategory';
-import DeleteCategory from './DeleteCategory/DeleteCategory';
+import ContainerPage from '../../components/ContainerPage/ContainerPage';
+import AddCategoryForm from './AddCategoryForm/AddCategoryForm';
+import UpdateCategoryForm from './UpdateCategoryForm/UpdateCategoryForm';
+import DeleteCategoryForm from './DeleteCategoryForm/DeleteCategoryForm';
 
 const AdminCatalog = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
-    <PageContainer>
+    <ContainerPage>
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
         <TabList>
           <Tab tabIndex='0'>
@@ -26,21 +26,21 @@ const AdminCatalog = () => {
 
         <TabPanel>
           <div className={styles.form}>
-            <AddCategory />
+            <AddCategoryForm />
           </div>
         </TabPanel>
         <TabPanel>
           <div className={styles.form}>
-            <UpdateCategory />
+            <UpdateCategoryForm />
           </div>
         </TabPanel>
         <TabPanel>
           <div className={styles.form}>
-            <DeleteCategory />
+            <DeleteCategoryForm />
           </div>
         </TabPanel>
       </Tabs>
-    </PageContainer>
+    </ContainerPage>
   );
 };
 
