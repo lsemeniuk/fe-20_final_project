@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './AsideContainer.module.scss';
+import styles from './ContainerAside.module.scss';
 
-const AsideContainer = ({ children, style }) => {
+const ContainerAside = ({ children, style }) => {
   return (
     <aside style={style} className={styles.container}>
       {children}
@@ -10,13 +10,13 @@ const AsideContainer = ({ children, style }) => {
   );
 };
 
-AsideContainer.propTypes = {
+ContainerAside.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
   style: PropTypes.object,
 };
 
-AsideContainer.defaultProps = {
+ContainerAside.defaultProps = {
   style: {},
 };
 
-export default AsideContainer;
+export default ContainerAside;

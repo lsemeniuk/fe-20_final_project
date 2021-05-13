@@ -1,8 +1,8 @@
 import React from 'react';
-import PageContainer from '../../components/Container/PageContainer/PageContainer';
+import ContainerPage from '../../components/ContainerPage/ContainerPage';
 
 const Admin = () => {
-  return <PageContainer>Admin</PageContainer>;
+  return <ContainerPage>Admin</ContainerPage>;
 };
 
 export default Admin;

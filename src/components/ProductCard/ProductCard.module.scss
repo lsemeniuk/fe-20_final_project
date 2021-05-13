@@ -3,15 +3,15 @@
 
 .container {
   position: relative;
-  width: calc(100% / 3);
+  width: calc((100% / 3) - 14px);
+  margin: 10px 0 0 10px;
   padding: 20px;
-  margin-bottom: 20px;
   border-radius: 5px;
+  border: 1px solid #b1b1b1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #fff;
 
   &:hover {
     @extend %custom-shadow;
@@ -33,6 +33,36 @@
     border: 1px solid #d4d4d4;
     border-top: none;
     display: block;
+  }
+}
+
+// To slider
+.container__slider {
+  position: relative;
+  margin: 0;
+  width: calc(100% - 4px);
+  &:hover .btnBlock {
+    box-shadow: none;
+    border: none;
+  }
+
+  & .imgBlock {
+    width: 100%;
+  }
+
+  & .labelBlock {
+    padding: 5px 0 0 5px;
+  }
+
+  & .btnBlock {
+    position: relative;
+    border: 1px solid #d4d4d4;
+    border-top: none;
+    display: block;
+    width: 100%;
+    padding: 10px 0 0;
+    top: 0;
+    border: none;
   }
 }
 
@@ -58,6 +88,7 @@
 
 .lastImage {
   position: absolute;
+  top: 0;
   left: 0;
   visibility: hidden;
   opacity: 0;
@@ -72,6 +103,7 @@
 // Label
 
 .labelBlock {
+  text-align: left;
   padding: 10px 0 0 10px;
   position: absolute;
   top: 0;

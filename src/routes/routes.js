@@ -1,5 +1,4 @@
 import {
-  // PRODUCT_ROUTE,
   INDEX_ROUTE,
   WISH_LIST_ROUTE,
   PRODUCTS_ROUTE,
@@ -8,6 +7,7 @@ import {
   PERSONAL_INFO_ROUTE,
   ADM_CATALOG_ROUTE,
   ADM_PRODUCTS_ROUTE,
+  PRODUCT_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -17,6 +17,7 @@ import Page404 from '../pages/Page404/Page404';
 import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
 import Orders from '../pages/User/Orders/Orders';
 import WishList from '../pages/User/WishList/WishList';
+import Product from '../pages/Product/Product';
 
 export const publicRoutes = [
   {
@@ -24,10 +25,10 @@ export const publicRoutes = [
     path: INDEX_ROUTE,
     Component: Index,
   },
-  // {
-  //   path: `${PRODUCT_ROUTE}/:id`,
-  //   Component: Product,
-  // },
+  {
+    path: `${PRODUCT_ROUTE}/:id`,
+    Component: Product,
+  },
   {
     name: 'Товары',
     path: `${PRODUCTS_ROUTE}/:categories`,
@@ -45,7 +46,7 @@ export const publicRoutes = [
   },
   {
     name: 'Страницы не существует',
-    path: '/page404',
+    path: '*',
     Component: Page404,
   },
 ];

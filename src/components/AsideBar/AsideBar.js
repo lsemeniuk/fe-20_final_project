@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import AsideContainer from '../Container/AsideContainer/AsideContainer';
+import ContainerAside from '../ContainerAside/ContainerAside';
 import styles from './AsideBar.module.scss';
 
 const AsideBar = ({ links }) => {
@@ -14,13 +14,12 @@ const AsideBar = ({ links }) => {
       </li>
     );
   });
-
   return (
-    <AsideContainer>
+    <ContainerAside>
       <nav>
         <ul>{list}</ul>
       </nav>
-    </AsideContainer>
+    </ContainerAside>
   );
 };
 

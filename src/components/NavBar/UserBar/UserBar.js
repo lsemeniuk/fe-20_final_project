@@ -5,16 +5,14 @@ import { NavLink } from 'react-router-dom';
 import { getCustomerSelector } from '../../../store/customer/selectors';
 import { ADM_CATALOG_ROUTE, ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../../utils/consts';
 import styles from './UserBar.module.scss';
-import { saveCustomerAction, saveCustomerIsAuthAction } from '../../../store/customer/actions';
+import { outPutCustomerOperation } from '../../../store/customer/operations';
 
 const UserBar = ({ className }) => {
   const dispatch = useDispatch();
   const customer = useSelector(getCustomerSelector);
 
   const output = () => {
-    dispatch(saveCustomerAction({}));
-    dispatch(saveCustomerIsAuthAction(false));
-    localStorage.setItem('token', '');
+    dispatch(outPutCustomerOperation());
   };
 
   return (

@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 import { createCustomer, getCustomer, loginCustomer } from '../../http/customersAPI';
+import { saveCartAction } from '../cart/actions';
+import { saveWishListAction } from '../wishList/actions';
 import { saveModalAuthRegAction } from '../modal/actions';
 import { saveCustomerAction, saveCustomerIsAuthAction, saveCustomerIsLoadingAction } from './actions';
 
@@ -23,11 +25,9 @@ export const authorizOperation =
   dispatch => {
     loginCustomer(value)
       .then(res => {
-        // if (res) {
         dispatch(saveCustomerAction(res));
         dispatch(saveCustomerIsAuthAction(true));
         dispatch(saveModalAuthRegAction(false));
-        // }
       })
       .catch(err => {
         setmessageServer(err.data.loginOrEmail || err.data.password);
@@ -49,3 +49,11 @@ export const createCustomerOperation =
         console.log(err.response);
       });
   };
+
+export const outPutCustomerOperation = () => dispatch => {
+  dispatch(saveCustomerAction({}));
+  dispatch(saveWishListAction(null));
+  dispatch(saveCartAction(null));
+  dispatch(saveCustomerIsAuthAction(false));
+  localStorage.setItem('token', '');
+};

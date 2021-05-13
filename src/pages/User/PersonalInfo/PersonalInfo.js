@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import PageContainer from '../../../components/Container/PageContainer/PageContainer';
+import ContainerPage from '../../../components/ContainerPage/ContainerPage';
 import UserInfo from './UserInfo/UserInfo';
 import styles from './PersonalInfo.module.scss';
 import UserPass from './UserPass/UserPass';
@@ -9,7 +9,7 @@ const PersonalInfo = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
-    <PageContainer>
+    <ContainerPage>
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
         <TabList>
           <Tab tabIndex='0'>
@@ -31,7 +31,7 @@ const PersonalInfo = () => {
           </div>
         </TabPanel>
       </Tabs>
-    </PageContainer>
+    </ContainerPage>
   );
 };
 

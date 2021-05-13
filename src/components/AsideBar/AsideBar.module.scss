@@ -8,6 +8,7 @@
 }
 
 .link {
+  border-radius: 5px;
   white-space: nowrap;
   padding: 7px;
   font-size: 17px;
@@ -20,7 +21,6 @@
 .linkActive {
   background-color: $colorButton;
   color: #fff;
-  border-radius: 5px;
   &:hover {
     color: #000;
   }

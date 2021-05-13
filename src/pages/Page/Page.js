@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import PageContainer from '../../components/Container/PageContainer/PageContainer';
+import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import { getPageOperation } from '../../store/pages/operations';
 import { getPageSelector, pageLoadingSelector } from '../../store/pages/selectors';
 import Loader from '../../components/Loader/Loader';
@@ -21,9 +21,9 @@ const Page = () => {
   }, [dispatch]);
 
   return (
-    <PageContainer>
+    <ContainerPage>
       {pageLoading ? <Loader /> : <div dangerouslySetInnerHTML={{ __html: page.htmlContent }} />}
-    </PageContainer>
+    </ContainerPage>
   );
 };
 
