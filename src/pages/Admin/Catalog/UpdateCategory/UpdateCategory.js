@@ -2,12 +2,12 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
-import ButtonBlock from '../../../components/Forms/ButtonBlock/ButtonBlock';
+import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
+import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
+import { updateCategory } from '../../../../http/catalogAPI';
 import schema from '../schema';
-import { updateCategory } from '../../../http/catalogAPI';
 
-const UpdateCategoryForm = () => {
+const UpdateCategory = () => {
   const [messageServer, setmessageServer] = useState(null);
   return (
     <>
@@ -22,13 +22,13 @@ const UpdateCategoryForm = () => {
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          const updatedCategory = {};
+          const updateCategorys = {};
           for (const key in values) {
             if (values[key] !== '') {
-              updatedCategory[key] = values[key];
+              updateCategorys[key] = values[key];
             }
           }
-          updateCategory(values.id, updatedCategory)
+          updateCategory(values.id, updateCategorys)
             .then(res => {
               if (res.status === 200) {
                 setmessageServer(<span style={{ color: 'green' }}>Категория успешно изменена!</span>);
@@ -54,4 +54,4 @@ const UpdateCategoryForm = () => {
   );
 };
 
-export default UpdateCategoryForm;
+export default UpdateCategory;

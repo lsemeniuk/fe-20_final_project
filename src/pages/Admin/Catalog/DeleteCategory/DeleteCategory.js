@@ -2,12 +2,12 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
-import ButtonBlock from '../../../components/Forms/ButtonBlock/ButtonBlock';
-import { deleteCategory } from '../../../http/catalogAPI';
+import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
+import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import schema from '../schema';
+import { deleteCategory } from '../../../../http/catalogAPI';
 
-const DeleteCategoryForm = () => {
+const DeleteCategory = () => {
   const [messageServer, setmessageServer] = useState(null);
   return (
     <>
@@ -38,4 +38,4 @@ const DeleteCategoryForm = () => {
   );
 };
 
-export default DeleteCategoryForm;
+export default DeleteCategory;
