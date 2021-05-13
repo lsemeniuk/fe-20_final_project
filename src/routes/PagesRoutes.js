@@ -15,11 +15,11 @@ const PagesRoutes = () => {
     return <Loader />;
   }
 
-  const clientLinks = links.find(e => {
-    if (e.title !== 'Клиентам') {
-      return false;
+  const clientLinks = links.find(link => {
+    if (link.title === 'Клиентам') {
+      return link;
     }
-    return e;
+    return false;
   });
 
   return (

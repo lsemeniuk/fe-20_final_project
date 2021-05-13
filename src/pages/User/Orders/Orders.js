@@ -1,8 +1,8 @@
 import React from 'react';
-import PageContainer from '../../../components/Container/PageContainer/PageContainer';
+import ContainerPage from '../../../components/ContainerPage/ContainerPage';
 
 const Orders = () => {
-  return <PageContainer>Orders</PageContainer>;
+  return <ContainerPage>Orders</ContainerPage>;
 };
 
 export default Orders;

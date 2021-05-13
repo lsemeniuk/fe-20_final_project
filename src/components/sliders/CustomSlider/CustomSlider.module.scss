@@ -1,0 +1,8 @@
+@import '../../../utils/styles/mixins';
+
+.slider {
+  background-color: #fff;
+  padding: 10px 10px 30px;
+  @extend %custom-shadow;
+  @extend %custom-border;
+}

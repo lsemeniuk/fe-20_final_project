@@ -1,10 +1,10 @@
-import { $adminHost, $host } from './index';
+import { $authHost, $host } from './index';
 
 // @route   POST /slides
 // @desc    Create new slide
 // @access  Private
 export const addSlide = async () => {
-  const res = await $adminHost.post('slides').catch(err => {
+  const res = await $authHost.post('slides').catch(err => {
     throw err;
   });
   return res;
@@ -14,7 +14,7 @@ export const addSlide = async () => {
 // @desc    Update existing slide
 // @access  Private
 export const updateSlide = async id => {
-  const res = await $adminHost.put(`slides/${id}`).catch(err => {
+  const res = await $authHost.put(`slides/${id}`).catch(err => {
     throw err;
   });
   return res;
@@ -24,7 +24,7 @@ export const updateSlide = async id => {
 // @desc    Delete existing slide
 // @access  Private
 export const deleteSlide = async id => {
-  const res = await $adminHost.delete(`slides/${id}`).catch(err => {
+  const res = await $authHost.delete(`slides/${id}`).catch(err => {
     throw err;
   });
   return res;

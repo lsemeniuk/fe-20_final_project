@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { getProductsSelector, productsLoadingSelector } from '../../../store/products/selectors';
 import Loader from '../../Loader/Loader';
 import ProductCard from '../../ProductCard/ProductCard';
+import style from './CustomSlider.module.scss';
 
 const CustomSlider = () => {
   const products = useSelector(getProductsSelector);
@@ -45,13 +46,13 @@ const CustomSlider = () => {
   };
 
   return (
-    <div>
-      <Slider {...sliderSettings}>
+    <ul>
+      <Slider {...sliderSettings} className={style.slider}>
         {products.map(product => (
-          <ProductCard key={product.itemNo} product={product} />
+          <ProductCard inSlider key={product.itemNo} product={product} />
         ))}
       </Slider>
-    </div>
+    </ul>
   );
 };
 
