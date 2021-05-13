@@ -5,7 +5,7 @@ import { saveAllFiltersAction, saveCheckedFiltersAction } from './actions';
 // import { clean } from './helperFunction';
 
 export const getFiltersOperation = () => async dispatch => {
-  axios.get('/filters.json').then(res => {
+  axios.get('/filter.json').then(res => {
     dispatch(saveAllFiltersAction(res.data));
   });
 };
