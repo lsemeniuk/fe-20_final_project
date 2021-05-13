@@ -12,12 +12,14 @@
     margin: 10px 5px 10px 5px;
   }
   &_container_box {
-    background-color: rgb(31, 31, 48);
     position: relative;
     display: block;
-    min-width: 260px;
+    min-width: 270px;
     max-width: 280px;
     z-index: 99;
+    height: 650px;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   &_btn {
   }
