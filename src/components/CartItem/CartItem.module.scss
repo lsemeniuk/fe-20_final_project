@@ -10,11 +10,13 @@
   &:last-child {
     border: none;
   }
-  &:hover .remove {
+  &:hover .delete {
     opacity: 1;
   }
 }
-.remove {
+
+// Delete
+.delete {
   position: absolute;
   left: -30px;
   width: 30px;
@@ -27,17 +29,21 @@
     opacity: 1;
   }
 }
-.removeBtn {
+
+.deleteBtn {
   cursor: pointer;
   font-size: 20px;
   &:hover {
     color: $colorButnHover;
   }
 }
+
+//Name
 .nameBlock {
   padding-left: 20px;
   font-size: 14px;
 }
+
 .name {
   cursor: pointer;
   line-height: 1.25;
@@ -50,6 +56,34 @@
     color: $colorButnHover;
   }
 }
+
+// Price
+
+.priceSales {
+  display: flex;
+  align-items: flex-end;
+}
+
+.currentPrice {
+  margin-right: 20px;
+  color: $colorSale;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.previousPrice {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #6d6d6d;
+}
+
+.regularPrice {
+  color: $colorNew;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+// Quantity
 .quantityBlock {
   display: flex;
   border: 1px solid #a7a7a7;
@@ -75,6 +109,7 @@
   bottom: 15px;
   font-size: 12px;
 }
+
 .price {
   width: 100%;
   text-align: center;

@@ -1,21 +1,24 @@
+$bgColor: #fafaff;
 $colorButton: #37b7fa;
-$colorButnHover: #49c9ff;
-$colorNew: #3da5ca;
+$colorButnHover: hsl(198, 100%, 64%);
+$colorNew: #3d6aca;
 $colorSecondary: #fafa64;
 $colorTextFooter: #b1b1b1;
+$colorForMan: #23f4b5;
+$colorForWoman: #f93b9b;
+$colorSuperPrice: #38af20;
+$colorSale: #ed1c24;
 
 $fontSize: 14px;
 $fontSizeFooter: 12px;
 $fontSizeTitle: 32px;
 $fontSizeButton: 18px;
 
-$xsMax: 575px;
-$smMin: 576px;
-$smMax: 767px;
-$mdMin: 768px;
-$mdMax: 991px;
-$lgMin: 992px;
-$lgMax: 1199px;
-$xlMin: 1200px;
-$xlMax: 1499px;
-$xxlMin: 1500px;
+$mobMin: 320px;
+$mobMax: 480px;
+$tabMin: 481px;
+$tabMax: 992px;
+$deskMin: 993px;
+$deskMax: 1200px;
+$deskXMin: 1201px;
+$deskXMax: 1450px;

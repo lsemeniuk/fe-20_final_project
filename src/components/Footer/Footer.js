@@ -10,7 +10,7 @@ import privat24 from './img/paymentPrivat24.png';
 import Icons from '../Icons/Icons';
 import Loader from '../Loader/Loader';
 import CategoriesList from '../NavBar/CategoriesList/CategoriesList';
-import DifferentPagesList from './DifferentPagesList/DifferentPagesList';
+import DifferentPagesList from '../DifferentPagesList/DifferentPagesList';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -73,7 +73,7 @@ const Footer = () => {
             <h4 className={styles.heading}>Клиентам</h4>
             <nav className={styles.differentPagesList}>
               <ul className={styles.menuList}>
-                <DifferentPagesList className={styles.link} classItem={styles.menuItem} />
+                <DifferentPagesList classLink={styles.link} classItem={styles.menuItem} />
               </ul>
             </nav>
             <span>Мы в соцсетях</span>

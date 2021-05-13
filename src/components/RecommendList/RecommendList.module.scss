@@ -8,13 +8,3 @@
   margin: 0 0 10px;
   font-size: 16px;
 }
-
-:global {
-  .slick-next,
-  .slick-prev {
-    color: #131313;
-    &::before {
-      color: #131313;
-    }
-  }
-}

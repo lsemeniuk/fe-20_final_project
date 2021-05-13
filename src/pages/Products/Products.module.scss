@@ -1,0 +1,48 @@
+@import '../../utils/styles/var';
+@import '../../utils/styles/mixins';
+
+.productsPage {
+  font-size: 14px;
+}
+
+.breadCrumbs {
+  display: flex;
+  align-items: center;
+  color: #868686;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.crumbsLink {
+  color: #868686;
+  &:hover {
+    color: $colorButnHover;
+  }
+}
+
+.iconBreadcrumbs {
+  padding: 0 3px;
+  &::before {
+    content: '\203A';
+    font-size: 20px;
+    line-height: 0;
+    position: relative;
+    top: 2px;
+  }
+}
+.categoryTitle {
+  margin: 20px 0;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.flexRow {
+  display: flex;
+  justify-content: space-between;
+}
+.filterTitle {
+  display: block;
+  text-align: center;
+  margin: 0;
+}

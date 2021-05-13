@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import store from './store/store';
 import ErrorBoundary from './components/Error/ErrorBoundary/ErrorBoundary';
 import App from './App';
+import reportWebVitals from './reportWebVitals';
 import './utils/styles/global.scss';
 
 ReactDOM.render(
@@ -19,3 +20,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+reportWebVitals();

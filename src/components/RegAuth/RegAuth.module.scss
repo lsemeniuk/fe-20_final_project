@@ -1,0 +1,36 @@
+:global {
+  .react-tabs__tab-list {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .react-tabs__tab {
+    border-radius: 4px 4px 0 0;
+    padding: 10px 20px;
+    &:hover {
+      color: rgb(9, 162, 223);
+    }
+  }
+  .react-tabs__tab--selected {
+    &:hover {
+      color: black;
+    }
+  }
+  .react-tabs__tab-panel--selected {
+    border: 1px solid #aaa;
+    border-top: none;
+  }
+  .react-tabs__tab--selected {
+    cursor: default;
+  }
+}
+
+.form {
+  padding: 40px 40px 20px 40px;
+}
+.redTitle {
+  text-align: center;
+  color: red;
+  position: relative;
+  bottom: 20px;
+}
