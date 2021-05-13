@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './PageContainer.module.scss';
+import styles from './ContainerPage.module.scss';
 
-const PageContainer = ({ children, style }) => {
+const ContainerPage = ({ children, style }) => {
   return (
     <div style={style} className={styles.container}>
       {children}
@@ -10,13 +10,13 @@ const PageContainer = ({ children, style }) => {
   );
 };
 
-PageContainer.propTypes = {
+ContainerPage.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
   style: PropTypes.object,
 };
 
-PageContainer.defaultProps = {
+ContainerPage.defaultProps = {
   style: {},
 };
 
-export default PageContainer;
+export default ContainerPage;

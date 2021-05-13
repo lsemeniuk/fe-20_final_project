@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { saveModalAuthRegAction } from '../../../store/modal/actions';
-import { getModalAuthRegSelector } from '../../../store/modal/selectors';
-import Loader from '../../Loader/Loader';
-import { getLinksOperation } from '../../../store/links/operations';
-import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
-import { getLinksSelector, linksLoadingSelector } from '../../../store/links/selectors';
+import { saveModalAuthRegAction } from '../../store/modal/actions';
+import { getModalAuthRegSelector } from '../../store/modal/selectors';
+import Loader from '../Loader/Loader';
+import { getLinksOperation } from '../../store/links/operations';
+import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
+import { getLinksSelector, linksLoadingSelector } from '../../store/links/selectors';
 
 const DifferentPagesList = ({ classLink, classItem }) => {
   const dispatch = useDispatch();

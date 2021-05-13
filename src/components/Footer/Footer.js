@@ -10,7 +10,7 @@ import privat24 from './img/paymentPrivat24.png';
 import Icons from '../Icons/Icons';
 import Loader from '../Loader/Loader';
 import CategoriesList from '../NavBar/CategoriesList/CategoriesList';
-import DifferentPagesList from './DifferentPagesList/DifferentPagesList';
+import DifferentPagesList from '../DifferentPagesList/DifferentPagesList';
 import styles from './Footer.module.scss';
 
 const Footer = () => {

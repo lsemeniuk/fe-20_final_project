@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
-import { saveModalCartAction } from '../../../../store/modal/actions';
-import { getProductsSelector, productsLoadingSelector } from '../../../../store/products/selectors';
-import ProductCardSmall from '../../../ProductCard/ProductCardSmall/ProductCardSmall';
+import { saveModalCartAction } from '../../store/modal/actions';
+import { getProductsSelector, productsLoadingSelector } from '../../store/products/selectors';
+import ProductCardSmall from '../ProductCardSmall/ProductCardSmall';
 import styles from './RecommendList.module.scss';
 
 const RecommendList = () => {

@@ -3,13 +3,21 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import MyTextInput from '../../../Forms/MyTextInput/MyTextInput';
-import Button from '../../../Button/Button';
+import MyTextInput from '../../Forms/MyTextInput/MyTextInput';
+import Button from '../../Button/Button';
 import styles from './AuthForm.module.scss';
-import { authorizOperation } from '../../../../store/customer/operations';
+import { authorizOperation } from '../../../store/customer/operations';
 
 const AuthForm = ({ setmessageServer }) => {
   const dispatch = useDispatch();
+
+  const validationSchema = Yup.object({
+    loginOrEmail: Yup.string().email('Неверный адрес email').required('Укажите email'),
+    password: Yup.string()
+      .min(7, 'Это шликом маленький пароль')
+      .max(20, 'Такой пароль невозможно запомнить')
+      .required('Необходимо ввести пароль'),
+  });
 
   return (
     <>
@@ -18,13 +26,7 @@ const AuthForm = ({ setmessageServer }) => {
           loginOrEmail: '',
           password: '',
         }}
-        validationSchema={Yup.object({
-          loginOrEmail: Yup.string().email('Неверный адрес email').required('Укажите email'),
-          password: Yup.string()
-            .min(7, 'Это шликом маленький пароль')
-            .max(20, 'Такой пароль невозможно запомнить')
-            .required('Необходимо ввести пароль'),
-        })}
+        validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           const { loginOrEmail, password } = values;
           dispatch(authorizOperation({ setmessageServer, loginOrEmail, password }));

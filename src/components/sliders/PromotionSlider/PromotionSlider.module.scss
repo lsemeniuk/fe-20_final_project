@@ -1,6 +1,9 @@
+@import '../../../utils/styles/mixins';
+
 .container {
   height: 450px;
   color: #fff;
+  margin-bottom: 30px;
 }
 .itemContainer {
   height: 450px;
@@ -24,7 +27,7 @@
 }
 .sliderImage {
   margin: 0 auto;
-  height: 550px;
+  height: 450px;
 }
 .dots {
   position: absolute;
