@@ -11,12 +11,13 @@ import {
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
-import Admin from '../pages/Admin';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
 import Page404 from '../pages/Page404/Page404';
 import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
 import Orders from '../pages/User/Orders/Orders';
 import WishList from '../pages/User/WishList/WishList';
+import Catalog from '../pages/Admin/Catalog/Catalog';
+import AdminProducts from '../pages/Admin/AdminProducts';
 import Product from '../pages/Product/Product';
 
 export const publicRoutes = [
@@ -73,11 +74,11 @@ export const adminRoutes = [
   {
     name: 'Каталог',
     path: ADM_CATALOG_ROUTE,
-    Component: Admin,
+    Component: Catalog,
   },
   {
     name: 'Продукты',
     path: ADM_PRODUCTS_ROUTE,
-    Component: Admin,
+    Component: AdminProducts,
   },
 ];

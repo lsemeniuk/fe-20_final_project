@@ -1,10 +1,10 @@
-import { $adminHost, $host } from './index';
+import { $authHost, $host } from './index';
 
 // @route   POST /configs
 // @desc    Create new config
 // @access  Private
 export const addConfig = async () => {
-  const res = await $adminHost.post('configs').catch(err => {
+  const res = await $authHost.post('configs').catch(err => {
     throw err;
   });
   return res;
@@ -14,7 +14,7 @@ export const addConfig = async () => {
 // @desc    Update existing config
 // @access  Private
 export const updateConfig = async customId => {
-  const res = await $adminHost.put(`configs/${customId}`).catch(err => {
+  const res = await $authHost.put(`configs/${customId}`).catch(err => {
     throw err;
   });
   return res;
@@ -24,7 +24,7 @@ export const updateConfig = async customId => {
 // @desc    DELETE existing config
 // @access  Private
 export const deleteConfig = async customId => {
-  const res = await $adminHost.delete(`configs/${customId}`).catch(err => {
+  const res = await $authHost.delete(`configs/${customId}`).catch(err => {
     throw err;
   });
   return res;

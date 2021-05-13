@@ -1,0 +1,16 @@
+.tab {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 3px 0;
+}
+.form {
+  white-space: nowrap;
+  position: relative;
+  padding: 40px 40px 20px 40px;
+  width: 70%;
+  & label {
+    text-align: left;
+
+  }
+  
+}
