@@ -1,5 +1,6 @@
 import { addProductToWishlist, deleteProductFromWishlist, getWishlist, deleteWishlist } from '../../http/wishlistAPI';
 import { wishListLoadingAction, saveWishListAction } from './actions';
+/* eslint-disable prefer-const */
 
 export const getWishListOperation = () => dispatch => {
   dispatch(wishListLoadingAction(true));
