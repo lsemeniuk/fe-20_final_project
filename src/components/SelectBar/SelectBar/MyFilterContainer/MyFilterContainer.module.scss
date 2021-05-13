@@ -8,7 +8,7 @@
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     position: absolute;
     top: 0%;
-    left: -100%;
+    left: -130%;
     transition: left 1.5s linear;
     z-index: 99;
   }
@@ -16,13 +16,14 @@
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     position: absolute;
     top: 0%;
-    left: -100%;
+    left: -130%;
     transition: left 1.5s linear;
     z-index: 99;
   }
 
   &_filter {
     &_fixed {
+      position: relative;
       background-color: white;
       z-index: 1;
     }
@@ -43,6 +44,7 @@
       min-width: 100%;
       max-width: 100%;
       transition: top 0.5s linear;
+      z-index: 99;
     }
     @media (min-width: $mobMin) and (max-width: $mobMax) {
       position: absolute;
@@ -72,13 +74,14 @@
 
 .container_sort.active {
   @media (min-width: $tabMin) and (max-width: $tabMax) {
+    position: fixed;
     background-color: rgb(255, 255, 255);
     max-width: 100%;
     top: 0%;
     left: 0%;
     min-width: 100%;
     transition: top 0.5s linear;
-    // z-index: 99;
+    z-index: 99;
   }
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     background-color: rgb(255, 255, 255);

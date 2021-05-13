@@ -14,14 +14,13 @@
   &_container_box {
     position: relative;
     display: block;
+    background-color: white;
     min-width: 270px;
     max-width: 280px;
     z-index: 99;
     height: 650px;
     overflow-y: scroll;
     overflow-x: hidden;
-  }
-  &_btn {
   }
 }
 

@@ -6,9 +6,9 @@ import Container from '../../components/Container/Container';
 import { INDEX_ROUTE } from '../../utils/consts';
 import { getCategoriesSelector } from '../../store/catalog/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
+import ContainerPage from '../../components/ContainerPage/ContainerPage';
+import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import styles from './Products.module.scss';
-import PageContainer from '../../components/Container/PageContainer/PageContainer';
-import AsideContainer from '../../components/Container/AsideContainer/AsideContainer';
 import Select from '../../components/SelectBar/Select/Select';
 
 const Products = () => {
@@ -43,17 +43,15 @@ const Products = () => {
           </div>
           <BrandBar />
           <div className={styles.flexRow}>
-            <AsideContainer>
+            <ContainerAside>
+              <div>
+                <h2 className={styles.filterTitle}>Filter</h2>
+              </div>
               <Select />
-            </AsideContainer>
-            {/* <div> */}
-
-            {/* <h2 className={styles.filterTitle}>Filter</h2> */}
-            {/* </div> */}
-
-            <PageContainer style={{ padding: '0' }}>
+            </ContainerAside>
+            <ContainerPage style={{ padding: '0' }}>
               <ProductList />
-            </PageContainer>
+            </ContainerPage>
           </div>
         </div>
       </Container>

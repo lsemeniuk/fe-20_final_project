@@ -1,14 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartLoadingSelector, cartTotalPriceSelector, getCartSelector } from '../../../store/cart/selectors';
+import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
 import { saveModalCartAction } from '../../../store/modal/actions';
 import { getModalCartSelector } from '../../../store/modal/selectors';
 import Icons from '../../Icons/Icons';
-import Cart from '../../modals/Cart/Cart';
+import Cart from '../../Cart/Cart';
 import styles from './MyOrders.module.scss';
 
 const MyOrders = () => {
   const dispatch = useDispatch();
+  const isAuth = useSelector(getCustomerIsAuthSelector);
   const modalCart = useSelector(getModalCartSelector);
   const cart = useSelector(getCartSelector);
   const cartLoading = useSelector(cartLoadingSelector);
@@ -27,7 +29,7 @@ const MyOrders = () => {
 
   return (
     <>
-      {cart ? (
+      {isAuth && cart ? (
         <div className={styles.iconListItem} style={{ cursor: 'pointer' }} onClick={modalHandler}>
           <div className={styles.iconCart}>
             <Icons type='navBag' color='black' width={25} height={45} />

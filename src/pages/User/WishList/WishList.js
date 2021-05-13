@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWishListSelector, wishListLoadingSelector } from '../../../store/wishList/selectors';
-import PageContainer from '../../../components/Container/PageContainer/PageContainer';
+import ContainerPage from '../../../components/ContainerPage/ContainerPage';
 import ProductCard from '../../../components/ProductCard/ProductCard';
 import Loader from '../../../components/Loader/Loader';
 import { deleteWishListOperation } from '../../../store/wishList/operations';
@@ -19,14 +19,14 @@ const WishList = () => {
 
   if (wishListLoading) {
     return (
-      <PageContainer>
+      <ContainerPage>
         <Loader fixed />
-      </PageContainer>
+      </ContainerPage>
     );
   }
 
   return (
-    <PageContainer>
+    <ContainerPage>
       <div>
         <header className={styles.header}>
           <p className={styles.title}>Список желаний</p>
@@ -42,7 +42,7 @@ const WishList = () => {
           <p className={styles.noItems}>Вы еще не добавили товары в список желаний</p>
         )}
       </div>
-    </PageContainer>
+    </ContainerPage>
   );
 };
 
