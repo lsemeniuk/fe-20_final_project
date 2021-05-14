@@ -2,25 +2,12 @@
 import axios from 'axios';
 import { getFilters, getFilterByType } from '../../http/filtersAPI';
 import { saveAllFiltersAction, saveCheckedFiltersAction } from './actions';
-<<<<<<< HEAD
-// import { clean } from './helperFunction';
-=======
-<<<<<<< HEAD
-=======
-// import { clean } from './helperFunction';
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
 
 export const getFiltersOperation = () => async dispatch => {
   axios.get('/filter.json').then(res => {
     dispatch(saveAllFiltersAction(res.data));
   });
 };
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> dev
 
 export const saveFiltersOperation = value => async dispatch => {
   /* eslint no-console: 0 */
@@ -59,11 +46,6 @@ export const saveFiltersOperation = value => async dispatch => {
     console.log(r);
   }
 };
-
-<<<<<<< HEAD
-=======
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
 export const getFilterOperation = () => async dispatch => {
   getFilters().then(res => {
     dispatch(saveAllFiltersAction(res.data));

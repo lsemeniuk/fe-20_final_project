@@ -1,71 +1,29 @@
 @import '../../../../utils/styles/var';
 
 .container {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  // display: flex;
-  // justify-content: space-between;
-=======
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
   position: sticky;
   top: 15%;
   z-index: 2;
 
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     position: absolute;
-<<<<<<< HEAD
     top: 0%;
     left: -130%;
     transition: left 1.5s linear;
     z-index: 99;
-=======
-<<<<<<< HEAD
-    left: -100%;
-    transition: left 1.5s linear;
-    z-index: 2;
-=======
-    top: 0%;
-    left: -130%;
-    transition: left 1.5s linear;
-    z-index: 99;
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
   }
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     position: absolute;
-<<<<<<< HEAD
     top: 0%;
     left: -130%;
     transition: left 1.5s linear;
     z-index: 99;
-=======
-<<<<<<< HEAD
-    left: -100%;
-    transition: left 1.5s linear;
-    z-index: 2;
-=======
-    top: 0%;
-    left: -130%;
-    transition: left 1.5s linear;
-    z-index: 99;
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
   }
 
   &_filter {
     &_fixed {
-<<<<<<< HEAD
       position: relative;
-=======
-<<<<<<< HEAD
-      border: 1px solid rgb(223, 219, 219);
-=======
-      position: relative;
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
       background-color: white;
       z-index: 1;
       @media (min-width: $tabMin) and (max-width: $tabMax) {
@@ -86,14 +44,7 @@
     max-width: 270px;
     max-height: 80px;
     background-color: rgb(255, 255, 255);
-<<<<<<< HEAD
     opacity: 1;
-=======
-<<<<<<< HEAD
-    z-index: 9999;
-=======
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
 
     @media (min-width: $tabMin) and (max-width: $tabMax) {
       position: absolute;
@@ -101,16 +52,8 @@
       left: 0;
       min-width: 100%;
       max-width: 100%;
-<<<<<<< HEAD
       transition: top 0.8s linear;
       opacity: 0;
-=======
-      transition: top 0.5s linear;
-<<<<<<< HEAD
-=======
-      z-index: 99;
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
     }
     @media (min-width: $mobMin) and (max-width: $mobMax) {
       position: absolute;
@@ -133,15 +76,7 @@
   min-height: 100vh;
   background: fixed;
   background-color: rgba(0, 0, 0, 0.178);
-<<<<<<< HEAD
   z-index: 1;
-=======
-<<<<<<< HEAD
-  z-index: 0;
-=======
-  z-index: 1;
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
   &_none {
     display: none;
   }
@@ -149,30 +84,15 @@
 
 .container_sort.active {
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-<<<<<<< HEAD
     position: fixed;
-=======
-<<<<<<< HEAD
-=======
-    position: fixed;
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
     background-color: rgb(255, 255, 255);
     max-width: 100%;
     top: 0%;
     left: 0%;
     min-width: 100%;
     transition: top 0.5s linear;
-<<<<<<< HEAD
     opacity: 1;
     z-index: 99;
-=======
-<<<<<<< HEAD
-    // z-index: 99;
-=======
-    z-index: 99;
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
   }
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     position: fixed;
@@ -181,16 +101,8 @@
     left: 0%;
     top: 0%;
     transition: top 0.5s linear;
-<<<<<<< HEAD
     opacity: 1;
     z-index: 99;
-=======
-<<<<<<< HEAD
-    z-index: 7;
-=======
-    z-index: 99;
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
   }
 }
 
@@ -227,13 +139,8 @@
   }
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    border: 1px solid black;
-=======
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
->>>>>>> dev
+    display: block;
+
     max-width: 60px;
     border: 1px solid black;
     cursor: pointer;
