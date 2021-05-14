@@ -1,11 +1,10 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
-import { checkAuthOperation } from '../../../../store/customer/operations';
 import { getCustomerIsLoadingSelector, getCustomerSelector } from '../../../../store/customer/selectors';
 import Loader from '../../../../components/Loader/Loader';
 import { editCustomerInfo } from '../../../../http/customersAPI';
@@ -13,14 +12,9 @@ import MySelect from '../../../../components/Forms/MySelect/MySelect';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 
 const UserInfo = () => {
-  const dispatch = useDispatch();
   const customer = useSelector(getCustomerSelector);
   const customerLoading = useSelector(getCustomerIsLoadingSelector);
   const [messageServer, setmessageServer] = useState(null);
-
-  useEffect(() => {
-    dispatch(checkAuthOperation());
-  }, []);
 
   if (customerLoading) {
     return <Loader />;

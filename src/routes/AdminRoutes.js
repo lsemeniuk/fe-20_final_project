@@ -17,7 +17,7 @@ const AdminRoutes = () => {
   const customerIsLoading = useSelector(getCustomerIsLoadingSelector);
 
   if (!customer.isAdmin) {
-    return <>{customerIsLoading ? <Page404 /> : <Loader />}</>;
+    return <>{customerIsLoading ? <Loader /> : <Page404 />}</>;
   }
 
   return (

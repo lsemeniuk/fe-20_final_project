@@ -12,12 +12,13 @@ export const checkAuthOperation = () => dispatch => {
       if (res) {
         dispatch(saveCustomerAction(res.data));
         dispatch(saveCustomerIsAuthAction(true));
+        dispatch(saveCustomerIsLoadingAction(false));
       }
     })
     .catch(err => {
+      dispatch(saveCustomerIsLoadingAction(false));
       console.log(err.response);
     });
-  dispatch(saveCustomerIsLoadingAction(false));
 };
 
 export const authorizOperation = ({ setmessageServer, ...value }) => dispatch => {
