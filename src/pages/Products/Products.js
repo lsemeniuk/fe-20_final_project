@@ -44,9 +44,9 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
-              <div>
+              {/* <div>
                 <h2 className={styles.filterTitle}>Filter</h2>
-              </div>
+              </div> */}
               <Select />
             </ContainerAside>
             <ContainerPage style={{ padding: '0' }}>

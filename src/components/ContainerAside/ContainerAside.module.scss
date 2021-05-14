@@ -1,7 +1,8 @@
 @import '../../utils/styles/mixins';
+@import '../../utils/styles/var';
 
 .container {
-  min-width: 270px;
+  max-width: 270px;
   padding: 20px;
   margin-right: 10px;
   @extend %custom-shadow;
@@ -10,4 +11,26 @@
   max-height: 50%;
   background-color: #fff;
   padding: 0 0 30% 0;
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+
+    min-height: 10%;
+    max-height: 30%;
+    padding: 1% 2% 1% 2%;
+    max-width: $mobMax;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+
+    padding-right: 5px;
+    min-height: 10%;
+    max-height: 30%;
+    padding: 1% 2% 1% 2%;
+  }
 }
