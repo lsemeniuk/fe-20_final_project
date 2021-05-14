@@ -16,7 +16,7 @@ const AddCategoryForm = () => {
           id: '',
           name: '',
           parentId: 'null',
-          imageUrl: '',
+          imgUrl: '',
           description: '',
           level: 0,
         }}
@@ -34,10 +34,12 @@ const AddCategoryForm = () => {
           setSubmitting(false);
         }}
       >
-        <Form>
-          <CatalogInputs />
-          <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
-        </Form>
+        <div className='page_form'>
+          <Form>
+            <CatalogInputs isAdd />
+            <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
+          </Form>
+        </div>
       </Formik>
     </>
   );

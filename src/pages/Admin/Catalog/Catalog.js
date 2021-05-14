@@ -1,17 +1,15 @@
 import React from 'react';
 import AddCategoryForm from './AddCategoryForm/AddCategoryForm';
-import UpdateCategory from './UpdateCategory/UpdateCategory';
-import DeleteCategory from './DeleteCategory/DeleteCategory';
 import TabsCustom from '../../../components/TabsCustom/TabsCustom';
+import CategoriesList from './CategoriesList/CategoriesList';
 
 const Catalog = () => {
-  const tabsDate = [
+  const tabsData = [
     { name: 'Добавить категорию', component: AddCategoryForm },
-    { name: 'Изменить категорию', component: UpdateCategory },
-    { name: 'Удалить категорию', component: DeleteCategory },
+    { name: 'Список категорий', component: CategoriesList },
   ];
 
-  return <TabsCustom tabsDate={tabsDate} />;
+  return <TabsCustom tabsData={tabsData} />;
 };
 
 export default Catalog;

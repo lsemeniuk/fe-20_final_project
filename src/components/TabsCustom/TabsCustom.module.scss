@@ -3,14 +3,16 @@
   font-weight: 400;
   padding: 3px 0;
 }
-.form {
-  white-space: nowrap;
-  position: relative;
-  padding: 40px 40px 20px 40px;
-  margin-left: 50px;
-  width: 70%;
-  & label {
-    text-align: left;
-    left: -50px;
+:global {
+  .page_form {
+    white-space: nowrap;
+    position: relative;
+    padding: 40px 40px 20px 40px;
+    margin-left: 50px;
+    width: 70%;
+    & label {
+      text-align: left;
+      left: -50px;
+    }
   }
 }

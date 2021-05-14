@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import AsideBar from '../components/AsideBar/AsideBar';
 import Container from '../components/Container/Container';
 import Loader from '../components/Loader/Loader';
+import Page404 from '../pages/Page404/Page404';
 import { getCustomerIsLoadingSelector, getCustomerSelector } from '../store/customer/selectors';
 import { adminRoutes } from './routes';
 
@@ -16,15 +17,7 @@ const AdminRoutes = () => {
   const customerIsLoading = useSelector(getCustomerIsLoadingSelector);
 
   if (!customer.isAdmin) {
-    return (
-      <Container>
-        {customerIsLoading ? (
-          <Loader />
-        ) : (
-          <h2 style={{ textAlign: 'center' }}>Вы не имеете допуска к этой странице!</h2>
-        )}
-      </Container>
-    );
+    return <>{customerIsLoading ? <Page404 /> : <Loader />}</>;
   }
 
   return (

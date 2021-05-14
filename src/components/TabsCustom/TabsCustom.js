@@ -4,10 +4,10 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ContainerPage from '../ContainerPage/ContainerPage';
 import styles from './TabsCustom.module.scss';
 
-const TabsCustom = ({ tabsDate }) => {
+const TabsCustom = ({ tabsData }) => {
   const [tabIndex, setTabIndex] = useState(0);
 
-  const tabList = tabsDate.map(tab => {
+  const tabList = tabsData.map(tab => {
     return (
       <Tab key={tab.name} tabIndex='0'>
         <div className={styles.tab}>{tab.name}</div>
@@ -15,7 +15,7 @@ const TabsCustom = ({ tabsDate }) => {
     );
   });
 
-  const tabPanelList = tabsDate.map(tab => {
+  const tabPanelList = tabsData.map(tab => {
     return (
       <TabPanel key={tab.name}>
         <div className={styles.form}>
@@ -37,7 +37,7 @@ const TabsCustom = ({ tabsDate }) => {
 };
 
 TabsCustom.propTypes = {
-  tabsDate: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tabsData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default TabsCustom;

@@ -6,7 +6,8 @@ import Container from '../components/Container/Container';
 import { userRoutes } from './routes';
 import { PERSONAL_INFO_ROUTE, ORDERS_ROUTE, WISH_LIST_ROUTE } from '../utils/consts';
 import { getCustomerIsAuthSelector, getCustomerIsLoadingSelector } from '../store/customer/selectors';
-import Loader from '../components/Loader/Loader';
+// import Loader from '../components/Loader/Loader';
+// import Page404 from '../pages/Page404/Page404';
 
 const links = [
   { url: PERSONAL_INFO_ROUTE, description: 'Личные данные' },
@@ -17,18 +18,8 @@ const links = [
 const UserRoutes = () => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const customerIsLoading = useSelector(getCustomerIsLoadingSelector);
-
-  if (!isAuth) {
-    return (
-      <Container>
-        {customerIsLoading ? (
-          <Loader />
-        ) : (
-          <h2 style={{ textAlign: 'center' }}>Для начала зарегистрируйтесь либо авторизируйтесь!</h2>
-        )}
-      </Container>
-    );
-  }
+  console.log(isAuth, 'isAuth');
+  console.log(customerIsLoading, 'customerIsLoading');
 
   return (
     <main>

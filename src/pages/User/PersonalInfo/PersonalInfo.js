@@ -4,11 +4,11 @@ import UserInfo from './UserInfo/UserInfo';
 import UserPass from './UserPass/UserPass';
 
 const PersonalInfo = () => {
-  const tabsDate = [
+  const tabsData = [
     { name: 'Информация о пользователе', component: UserInfo },
     { name: 'Изменить пароль', component: UserPass },
   ];
-  return <TabsCustom tabsDate={tabsDate} />;
+  return <TabsCustom tabsData={tabsData} />;
 };
 
 export default PersonalInfo;
