@@ -13,7 +13,14 @@ const reducer = (state = initialState, action) => {
     case CHECKED_FILTERS: {
       return { ...state, checked: action.payload };
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
+>>>>>>> dev
     default: {
       return state;
     }
