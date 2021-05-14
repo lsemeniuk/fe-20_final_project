@@ -6,7 +6,6 @@ import {
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
   ADM_CATALOG_ROUTE,
-  ADM_PRODUCTS_ROUTE,
   PRODUCT_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
@@ -17,7 +16,6 @@ import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
 import Orders from '../pages/User/Orders/Orders';
 import WishList from '../pages/User/WishList/WishList';
 import Catalog from '../pages/Admin/Catalog/Catalog';
-import AdminProducts from '../pages/Admin/AdminProducts';
 import Product from '../pages/Product/Product';
 
 export const publicRoutes = [
@@ -75,10 +73,5 @@ export const adminRoutes = [
     name: 'Каталог',
     path: ADM_CATALOG_ROUTE,
     Component: Catalog,
-  },
-  {
-    name: 'Продукты',
-    path: ADM_PRODUCTS_ROUTE,
-    Component: AdminProducts,
   },
 ];
