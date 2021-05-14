@@ -29,9 +29,11 @@ const NavBar = () => {
   const location = useLocation();
 
   let favorites = 0;
-  if (!wishListLoading) {
-    if (wishList) {
-      favorites = wishList.products.length;
+  if (isAuth) {
+    if (!wishListLoading) {
+      if (wishList) {
+        favorites = wishList.products.length;
+      }
     }
   }
 

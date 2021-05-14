@@ -1,13 +1,13 @@
 /* eslint-disable dot-notation */
 /* eslint-disable prefer-const */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addProductToWishlistOperation, deleteProductFromWishlishtOperation } from '../../store/wishList/operations';
 import Icons from '../Icons/Icons';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
-// import { saveWishListAction } from '../../store/wishList/actions';
+import { saveWishListAction } from '../../store/wishList/actions';
 
 const AddToWishListBtn = ({ id }) => {
   const dispatch = useDispatch();
@@ -16,6 +16,10 @@ const AddToWishListBtn = ({ id }) => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
   let storageWishList = JSON.parse(localStorage.getItem('WishList')) || [];
   let idWishList = [];
+
+  useEffect(() => {
+    dispatch(saveWishListAction(storageWishList));
+  }, []);
 
   if (isAuth) {
     if (!wishListLoading) {
@@ -26,7 +30,7 @@ const AddToWishListBtn = ({ id }) => {
       }
     }
   } else {
-    idWishList = storageWishList;
+    idWishList = wishList || [];
   }
 
   const addToWishList = () => {
@@ -34,26 +38,16 @@ const AddToWishListBtn = ({ id }) => {
     if (isAuth) {
       dispatch(addProductToWishlistOperation(id));
     } else {
-      // } else if (localWishList === null || !localWishList?.[0]) {
-      // console.log('first operation start');
-      // localStorage.setItem('WishList', JSON.stringify([id]));
-      // console.log('first operation end');
-      // } else {
-      // console.log('add operation start');
       localStorage.setItem('WishList', JSON.stringify([...storageWishList, id]));
-      idWishList = storageWishList;
-      // idWishList = localWishList;
-      // dispatch(saveWishListAction(JSON.parse(localStorage.getItem('WishList'))));
-      // console.log('add operation end');
+      dispatch(saveWishListAction([...wishList, id]));
     }
-    console.log(idWishList);
   };
   const deleteToWishList = () => {
     if (isAuth) {
       dispatch(deleteProductFromWishlishtOperation(id, wishList));
     } else {
-      // const localWishList = JSON.parse(localStorage.getItem('WishList'));
       localStorage.setItem('WishList', JSON.stringify([...storageWishList.filter(i => i !== id)]));
+      dispatch(saveWishListAction([...wishList.filter(itemId => itemId !== id)]));
     }
   };
 
