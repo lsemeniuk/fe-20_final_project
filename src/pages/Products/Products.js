@@ -9,10 +9,14 @@ import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import styles from './Products.module.scss';
+import Sorting from '../../components/Sorting/Sorting';
+import { productsLoadingSelector } from '../../store/products/selectors';
 
 const Products = () => {
   const location = useLocation();
   const categories = useSelector(getCategoriesSelector);
+  const productsLoading = useSelector(productsLoadingSelector);
+
   const categorie = {};
 
   if (location.pathname === '/products') {
@@ -48,6 +52,7 @@ const Products = () => {
               </div>
             </ContainerAside>
             <ContainerPage style={{ padding: '0' }}>
+              {!productsLoading ? <Sorting /> : null}
               <ProductList />
             </ContainerPage>
           </div>

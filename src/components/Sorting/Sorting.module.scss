@@ -1,15 +1,8 @@
-@import '../../utils/styles/mixins';
-
-.productsList {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
 .sort {
-  padding-top: 0.6em;
-  padding-right: 1em;
+  padding-top: 0.4em;
   height: 2em;
   text-align: right;
+  padding-right: 1em;
 }
 .sortField {
   margin-left: 10px;
