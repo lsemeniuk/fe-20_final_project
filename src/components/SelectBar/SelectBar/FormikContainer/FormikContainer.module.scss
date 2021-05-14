@@ -5,6 +5,7 @@
 }
 
 @mixin container_select() {
+  display: flex;
   align-items: flex-start;
 }
 .select {

@@ -106,10 +106,12 @@ function FormikContainer({ classes, sort, checkboxed }) {
           {() => (
             <Form className={classes}>
               <div className={styles.select_box_sort}>
+                {/* <div> */}
                 <h4 className={styles.select_heading}>Сортировка:</h4>
                 <FormikControl control='select' label='sort' name='selected' options={filters} onChange={onSubmit} />
-                <Button title='Submit' type='submit' className={styles.select_btn} />
+                {/* </div> */}
               </div>
+              <Button title='Применить' type='submit' className={styles.select_btn} />
             </Form>
           )}
         </Formik>
