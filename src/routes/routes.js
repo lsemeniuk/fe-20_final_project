@@ -61,10 +61,13 @@ export const userRoutes = [
     path: PERSONAL_INFO_ROUTE,
     Component: PersonalInfo,
   },
+<<<<<<< HEAD
   // {
   //   path: `${PRODUCT_ROUTE}/:id`,
   //   Component: Select,
   // },
+=======
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
 
   {
     name: 'Заказы',

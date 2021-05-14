@@ -4,7 +4,15 @@ import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import FormikControl from '../FormikControl/FormikControl';
+<<<<<<< HEAD
 import { checkedFiltersOperation, getFiltersOperation } from '../../../../store/filter/operations';
+=======
+import {
+  checkedFiltersOperation,
+  getFiltersOperation,
+  saveFiltersOperation,
+} from '../../../../store/filter/operations';
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
 import { getFiltersSelector } from '../../../../store/filter/selectors';
 import Loader from '../../../Loader/Loader';
 import Button from '../../../Button/Button';
@@ -53,7 +61,15 @@ function FormikContainer({ classes, sort, checkboxed }) {
             stock: Yup.array().required('Required'),
           })}
           onSubmit={(values, { setSubmitting }) => {
+<<<<<<< HEAD
             dispatch(checkedFiltersOperation(values));
+=======
+            /* eslint no-console: 0 */
+
+            console.log(values);
+            dispatch(saveFiltersOperation(values));
+            // dispatch(checkedFiltersOperation(values));
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
             setSubmitting(false);
           }}
         >

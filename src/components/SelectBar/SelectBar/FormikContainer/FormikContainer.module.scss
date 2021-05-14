@@ -12,13 +12,22 @@
     margin: 10px 5px 10px 5px;
   }
   &_container_box {
-    background-color: rgb(31, 31, 48);
     position: relative;
     display: block;
+<<<<<<< HEAD:src/components/SelectBar/SelectBar/FormikContainer/FormikContainer.module.scss
     min-width: 260px;
     max-width: 280px;
   }
   &_btn {
+=======
+    background-color: white;
+    min-width: 270px;
+    max-width: 280px;
+    z-index: 99;
+    height: 650px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf:src/components/SelectBar/MyFilter/MyFilter.module.scss
   }
 }
 

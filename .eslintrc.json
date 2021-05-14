@@ -8,7 +8,11 @@
     "prettier/prettier": ["error", { "endOfLine": "auto", "jsxSingleQuote": true }],
     "max-len": ["error", 120],
     "no-plusplus": "off",
+<<<<<<< HEAD
     "no-console": "off",
+=======
+    "no-console": 0,
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
     "import/prefer-default-export": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",

@@ -6,6 +6,12 @@
   margin-right: 10px;
   @extend %custom-shadow;
   @extend %custom-border;
+<<<<<<< HEAD
   min-height: 100%;
+=======
+  min-height: 10%;
+  max-height: 50%;
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
   background-color: #fff;
+  padding: 0 0 30% 0;
 }

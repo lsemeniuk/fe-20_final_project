@@ -13,7 +13,12 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
       <label className={styles.option_title}>{label}</label>
       <Form>
         <Field name={name}>
+<<<<<<< HEAD
           {({ field }) => (
+=======
+          {/* {({ field }) => ( */}
+          {() => (
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
             <>
               <div className={styles.option_item_range_box}>
                 <ReactSlider
@@ -44,7 +49,11 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                     id='price_prod'
                     name='price_prod'
                     value={downPrice}
+<<<<<<< HEAD
                     val={field.value.includes(downPrice)}
+=======
+                    // val={field.value.includes(downPrice)}
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
                   />
                   —
                   <input
@@ -54,7 +63,11 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                     id='price_prod'
                     name='price_prod'
                     value={upPrice}
+<<<<<<< HEAD
                     val={field.value.includes(upPrice)}
+=======
+                    // val={field.value.includes(upPrice)}
+>>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
                   />
                 </>
               </div>
