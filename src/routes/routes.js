@@ -21,8 +21,6 @@ import Catalog from '../pages/Admin/Catalog/Catalog';
 import AdminProducts from '../pages/Admin/AdminProducts';
 import Product from '../pages/Product/Product';
 
-// import Select from '../components/SelectBar/Select/Select';
-
 export const publicRoutes = [
   {
     name: 'Главная',
@@ -61,13 +59,6 @@ export const userRoutes = [
     path: PERSONAL_INFO_ROUTE,
     Component: PersonalInfo,
   },
-<<<<<<< HEAD
-  // {
-  //   path: `${PRODUCT_ROUTE}/:id`,
-  //   Component: Select,
-  // },
-=======
->>>>>>> 4bc1c1c80e3ed27932d099270bcd169f2e711adf
 
   {
     name: 'Заказы',
