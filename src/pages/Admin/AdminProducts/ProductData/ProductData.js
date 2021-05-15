@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router';
 import styles from '../AdminProducts.module.scss';
-import Button from '../../../components/Button/Button';
+import Button from '../../../../components/Button/Button';
 
 const ProductData = ({ product }) => {
   const history = useHistory();

@@ -14,7 +14,7 @@ const Catalog = () => {
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
         <TabList>
           <Tab tabIndex='0'>
-            <div className={styles.tab}>Добавить категорию</div>
+            <div className={styles.tab}>Добавить Категорию</div>
           </Tab>
           <Tab tabIndex='0'>
             <div className={styles.tab}>Изменить Категорию</div>
