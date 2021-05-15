@@ -9,6 +9,7 @@ import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import styles from './Products.module.scss';
+import Select from '../../components/SelectBar/Select/Select';
 
 const Products = () => {
   const location = useLocation();
@@ -46,6 +47,7 @@ const Products = () => {
               <div>
                 <h2 className={styles.filterTitle}>Filter</h2>
               </div>
+              <Select />
             </ContainerAside>
             <ContainerPage style={{ padding: '0' }}>
               <ProductList />
