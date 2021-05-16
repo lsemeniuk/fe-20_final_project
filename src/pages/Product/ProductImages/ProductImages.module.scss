@@ -1,14 +1,15 @@
 @import '../../../utils/styles/var';
 
 .container {
-  padding: 10px;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 .imageItem {
+  position: relative;
+  cursor: pointer;
   display: flex;
-  // align-items: center;
   justify-content: center;
   width: 90px;
   height: 90px;
@@ -28,5 +29,16 @@
 }
 
 .imageContainer {
+  position: relative;
   width: calc(100% - 90px - 10px);
+}
+.brand {
+  width: 30%;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.brandImage {
+  width: 100%;
 }

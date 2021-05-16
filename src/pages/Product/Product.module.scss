@@ -1,17 +1,6 @@
 @import '../../utils/styles/var';
 @import '../../utils/styles/mixins';
 
-.container {
-  height: 300px;
-  width: 100%;
-  padding: 20px;
-  margin-right: 10px;
-  @extend %custom-shadow;
-  @extend %custom-border;
-  height: 100%;
-  background-color: #fff;
-}
-
 .breadCrumbs {
   display: flex;
   align-items: center;
@@ -39,18 +28,23 @@
 }
 
 // Flex
+
 .flexContainer {
+  @extend %custom-shadow;
+  @extend %custom-border;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
 }
 
 .flexColumn {
+  padding: 10px;
   background-color: rosybrown;
   flex: 1 1 50%;
   &:first-child {
-    margin-right: 20px;
+    margin-right: 10px;
   }
   &:last-child {
-    margin-left: 20px;
+    margin-left: 10px;
   }
 }

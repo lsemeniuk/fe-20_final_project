@@ -5,8 +5,9 @@ import Container from '../../components/Container/Container';
 import Loader from '../../components/Loader/Loader';
 import { getOneProductOperation } from '../../store/products/operations';
 import { getOneProductSelector, oneProductLoadingSelector } from '../../store/products/selectors';
-import styles from './Product.module.scss';
 import ProductImages from './ProductImages/ProductImages';
+import styles from './Product.module.scss';
+import Availability from './Availability/Availability';
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -22,10 +23,16 @@ const Product = () => {
   if (productLoading) {
     return (
       <Container>
-        <Loader fixed />
+        <div style={{ height: '60vh' }}>
+          <Loader fixed />
+        </div>
       </Container>
     );
   }
+
+  const { brand, name, quantity } = product;
+
+  console.log(product);
 
   return (
     <main>
@@ -39,21 +46,27 @@ const Product = () => {
             Все товары
           </NavLink>
           <span className={styles.iconBreadcrumbs}>{}</span>
-          <span className={styles.crumbs}>Товар</span>
+          <span className={styles.crumbs}>Смарт часы {brand}</span>
         </div>
+
         <div>
-          <h2 className={styles.categoryTitle}>Товар</h2>
+          <h2 className={styles.categoryTitle}>{name}</h2>
         </div>
+
         <nav className={styles.navBarProduct}>
           <span>Про товар</span>
           <span>Характеристики</span>
           <span>Отзывы</span>
         </nav>
+
         <div className={styles.flexContainer}>
           <div className={styles.flexColumn}>
-            <ProductImages images={product.imageUrls} />
+            <ProductImages product={product} />
           </div>
-          <div className={styles.flexColumn}>images</div>
+
+          <div className={styles.flexColumn}>
+            <Availability quantity={quantity} />
+          </div>
         </div>
       </Container>
     </main>
