@@ -7,7 +7,7 @@ import Container from '../Container/Container';
 import Icons from '../Icons/Icons';
 import MyOrders from './MyOrders/MyOrders';
 import Logo from '../../theme/Logo';
-import CategoriesList from './CategoriesList/CategoriesList';
+import CategoriesList from '../CategoriesList/CategoriesList';
 import User from './User/User';
 import RegAuth from '../RegAuth/RegAuth';
 import { getModalAuthRegSelector } from '../../store/modal/selectors';

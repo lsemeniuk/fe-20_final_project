@@ -23,6 +23,7 @@ const AddToCartButton = ({ id }) => {
   const openCart = () => {
     dispatch(saveModalCartAction(true));
   };
+
   const addToCart = () => {
     dispatch(addProductToCartOperation(id));
   };
