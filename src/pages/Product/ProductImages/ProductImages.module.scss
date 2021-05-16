@@ -1,0 +1,28 @@
+.container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.listContainer {
+}
+.imageList {
+}
+.imageItem {
+  width: 90px;
+  height: 90px;
+  margin: 0 10px 10px 0;
+}
+.imageMin {
+  border-radius: 5px;
+  width: 90px;
+}
+
+.imageContainer {
+  width: calc(100% - 90px - 10px);
+}
+
+.image {
+  border-radius: 15px;
+  width: 100%;
+}

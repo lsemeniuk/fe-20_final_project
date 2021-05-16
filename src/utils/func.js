@@ -14,3 +14,16 @@ export const calculateTotalPrice = cart => {
 
   return replace(totalPrice);
 };
+
+export const getDate = date => {
+  const optionsDate = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  };
+  const dateStr = new Date(date).toLocaleString('ru', optionsDate);
+  return dateStr;
+};
