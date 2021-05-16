@@ -23,6 +23,7 @@ const UpdateCategory = () => {
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
           const updateCategorys = {};
+          console.log(values.id);
           for (const key in values) {
             if (values[key] !== '') {
               updateCategorys[key] = values[key];
