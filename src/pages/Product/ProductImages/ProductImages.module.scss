@@ -1,28 +1,32 @@
+@import '../../../utils/styles/var';
+
 .container {
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
-.listContainer {
-}
-.imageList {
-}
 .imageItem {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
   width: 90px;
   height: 90px;
+  padding: auto;
   margin: 0 10px 10px 0;
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
 }
 .imageMin {
+  height: 100%;
   border-radius: 5px;
-  width: 90px;
+}
+
+.imageMinActive {
+  border-color: $colorButton;
 }
 
 .imageContainer {
   width: calc(100% - 90px - 10px);
-}
-
-.image {
-  border-radius: 15px;
-  width: 100%;
 }

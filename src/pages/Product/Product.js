@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import Loader from '../../components/Loader/Loader';
 import { getOneProductOperation } from '../../store/products/operations';
@@ -13,12 +13,10 @@ const Product = () => {
   const product = useSelector(getOneProductSelector);
   const productLoading = useSelector(oneProductLoadingSelector);
 
-  const location = useLocation();
-  const arrPath = location.pathname.split('/');
-  const pageId = arrPath[arrPath.length - 1];
+  const params = useParams();
 
   useEffect(() => {
-    dispatch(getOneProductOperation(pageId));
+    dispatch(getOneProductOperation(params.id));
   }, [dispatch]);
 
   if (productLoading) {
@@ -28,7 +26,6 @@ const Product = () => {
       </Container>
     );
   }
-  // console.log(product);
 
   return (
     <main>

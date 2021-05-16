@@ -1,25 +1,35 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Viewer from 'react-viewer';
+import ReactBnbGallery from 'react-bnb-gallery';
+import ReactImageMagnify from 'react-image-magnify';
+import './react-bnb-gallery.scss';
 import styles from './ProductImages.module.scss';
 
 const ProductImages = ({ images }) => {
-  const [visible, setVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activePhoto, setActivePhoto] = useState(0);
+  const [displayImage, setDisplayImage] = useState(0);
 
-  let imageSrc = [];
-
-  imageSrc = images.map(img => {
-    const src = { src: img };
-    return src;
-  });
+  const bnbGaleryProps = {
+    activePhotoIndex: activePhoto,
+    preloadSize: 2,
+    opacity: 0.6,
+    show: isOpen,
+    photos: images,
+    onClose: () => setIsOpen(false),
+  };
 
   const imageList = images.map((image, index) => {
     return (
-      <li key={index} className={styles.imageItem}>
+      <li key={index} className={`${styles.imageItem} ${index === displayImage ? styles.imageMinActive : ''}`}>
         <span
           onClick={() => {
-            setVisible(true);
+            setIsOpen(true);
+            setActivePhoto(index);
+          }}
+          onMouseEnter={() => {
+            setDisplayImage(index);
           }}
         >
           <img src={image} className={styles.imageMin} alt='Product' />
@@ -30,26 +40,33 @@ const ProductImages = ({ images }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.listContainer}>
-        <ul className={styles.imageList}>{imageList}</ul>
+      <div>
+        <ul>{imageList}</ul>
       </div>
       <div className={styles.imageContainer}>
         <span
           onClick={() => {
-            setVisible(true);
+            setIsOpen(true);
+            setActivePhoto(0);
           }}
         >
-          <img src={images[0]} className={styles.image} alt='Product' />
+          <ReactImageMagnify
+            {...{
+              smallImage: {
+                alt: 'Картинка продукта',
+                isFluidWidth: true,
+                src: images[displayImage],
+              },
+              largeImage: {
+                src: images[displayImage],
+                width: 1200,
+                height: 1200,
+              },
+            }}
+          />
         </span>
       </div>
-
-      <Viewer
-        visible={visible}
-        onClose={() => {
-          setVisible(false);
-        }}
-        images={imageSrc}
-      />
+      <ReactBnbGallery {...bnbGaleryProps} />
     </div>
   );
 };
