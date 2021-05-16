@@ -14,7 +14,7 @@ import { getModalAuthRegSelector } from '../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../store/modal/actions';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
-import { getWishListOperation } from '../../store/wishList/operations';
+import { addProductToWishlistOperation, getWishListOperation } from '../../store/wishList/operations';
 import styles from './NavBar.module.scss';
 import { getProductsOperation } from '../../store/products/operations';
 import { getCartOperation } from '../../store/cart/operations';
@@ -40,6 +40,10 @@ const NavBar = () => {
   useEffect(() => {
     dispatch(getProductsOperation());
     if (isAuth) {
+      const storageWishList = JSON.parse(localStorage.getItem('WishList'));
+      storageWishList.forEach(id => {
+        dispatch(addProductToWishlistOperation(id));
+      });
       dispatch(getCartOperation());
       dispatch(getWishListOperation());
     }
