@@ -1,4 +1,10 @@
-import { addProductToWishlist, deleteProductFromWishlist, getWishlist, deleteWishlist } from '../../http/wishlistAPI';
+import {
+  addProductToWishlist,
+  deleteProductFromWishlist,
+  getWishlist,
+  deleteWishlist,
+  updateWishlist,
+} from '../../http/wishlistAPI';
 import { wishListLoadingAction, saveWishListAction } from './actions';
 /* eslint-disable prefer-const */
 
@@ -29,6 +35,15 @@ export const deleteProductFromWishlishtOperation = (id, wishList) => dispatch =>
 export const deleteWishListOperation = () => dispatch => {
   deleteWishlist().then(res => {
     dispatch(saveWishListAction(null));
+    return res;
+  });
+};
+
+export const updateWishListOperation = prod => dispatch => {
+  dispatch(wishListLoadingAction(true));
+  updateWishlist(prod).then(res => {
+    console.log('operation');
+    dispatch(saveWishListAction(res.data));
     return res;
   });
 };

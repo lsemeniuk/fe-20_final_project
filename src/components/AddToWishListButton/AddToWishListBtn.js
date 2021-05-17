@@ -7,7 +7,6 @@ import { addProductToWishlistOperation, deleteProductFromWishlishtOperation } fr
 import Icons from '../Icons/Icons';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
-// import { saveWishListAction, wishListLoadingAction } from '../../store/wishList/actions';
 import { saveWishListAction } from '../../store/wishList/actions';
 
 const AddToWishListBtn = ({ id }) => {
@@ -20,9 +19,6 @@ const AddToWishListBtn = ({ id }) => {
 
   useEffect(() => {
     if (!isAuth) {
-      // if (!wishListLoading) {
-      //   dispatch(wishListLoadingAction(true));
-      // }
       dispatch(saveWishListAction(storageWishList));
     }
   }, []);

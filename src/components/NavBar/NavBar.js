@@ -14,10 +14,11 @@ import { getModalAuthRegSelector } from '../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../store/modal/actions';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
-import { addProductToWishlistOperation, getWishListOperation } from '../../store/wishList/operations';
+import { getWishListOperation, updateWishListOperation } from '../../store/wishList/operations';
 import styles from './NavBar.module.scss';
 import { getProductsOperation } from '../../store/products/operations';
 import { getCartOperation } from '../../store/cart/operations';
+import { wishListLoadingAction } from '../../store/wishList/actions';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,8 @@ const NavBar = () => {
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
   const location = useLocation();
+
+  const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) };
 
   let favorites = 0;
   if (isAuth) {
@@ -38,12 +41,10 @@ const NavBar = () => {
   }
 
   useEffect(() => {
+    dispatch(wishListLoadingAction(true));
     dispatch(getProductsOperation());
     if (isAuth) {
-      const storageWishList = JSON.parse(localStorage.getItem('WishList'));
-      storageWishList.forEach(id => {
-        dispatch(addProductToWishlistOperation(id));
-      });
+      dispatch(updateWishListOperation(storageWishList));
       dispatch(getCartOperation());
       dispatch(getWishListOperation());
     }
