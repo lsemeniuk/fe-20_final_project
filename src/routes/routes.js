@@ -11,12 +11,10 @@ import {
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
-
 import Page404 from '../pages/Page404/Page404';
 import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
 import Orders from '../pages/User/Orders/Orders';
 import WishList from '../pages/User/WishList/WishList';
-
 import Product from '../pages/Product/Product';
 import Catalog from '../pages/Admin/Catalog/Catalog';
 
@@ -27,16 +25,17 @@ export const publicRoutes = [
     Component: Index,
   },
   {
+    name: 'Отдельный товар',
     path: `${PRODUCT_ROUTE}/:id`,
     Component: Product,
   },
   {
-    name: 'Товары',
+    name: 'Категории',
     path: `${PRODUCTS_ROUTE}/:categories`,
     Component: Products,
   },
   {
-    name: 'Товары',
+    name: 'Все товары',
     path: PRODUCTS_ROUTE,
     Component: Products,
   },
