@@ -10,6 +10,8 @@ import styles from './Product.module.scss';
 import Availability from './Availability/Availability';
 import ProductColors from './ProductColors/ProductColors';
 import ProductPrice from './ProductPrice/ProductPrice';
+import OrdersInfo from './OrdersInfo/OrdersInfo';
+import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -54,13 +56,17 @@ const Product = () => {
         <div>
           <h2 className={styles.categoryTitle}>{name}</h2>
         </div>
-
-        <nav className={styles.navBarProduct}>
-          <span>Про товар</span>
-          <span>Характеристики</span>
-          <span>Отзывы</span>
-        </nav>
-
+      </Container>
+      <div className={styles.navBarContainer}>
+        <Container>
+          <nav className={styles.navBarProduct}>
+            <span>Про товар</span>
+            <span>Характеристики</span>
+            <span>Отзывы</span>
+          </nav>
+        </Container>
+      </div>
+      <Container>
         <div className={styles.flexContainer}>
           <div className={styles.flexColumn}>
             <ProductImages product={product} />
@@ -70,8 +76,10 @@ const Product = () => {
             <Availability quantity={quantity} />
             <ProductColors color={color} />
             <ProductPrice product={product} />
+            <OrdersInfo />
           </div>
         </div>
+        <CustomSlider />
       </Container>
     </main>
   );

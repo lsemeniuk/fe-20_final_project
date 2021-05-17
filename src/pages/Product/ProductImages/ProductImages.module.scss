@@ -1,10 +1,13 @@
 @import '../../../utils/styles/var';
 
 .container {
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 45px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  z-index: 200;
 }
 .imageItem {
   position: relative;

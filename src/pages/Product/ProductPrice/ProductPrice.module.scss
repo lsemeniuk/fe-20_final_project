@@ -3,11 +3,12 @@
 .container {
   padding: 15px;
   position: relative;
-  border: 1px solid $colorTextSilver;
+  border: 1px solid $colorLineSilver;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 30px;
   @media (min-width: $deskMin) and (max-width: $deskMax) {
     flex-wrap: wrap;
   }

@@ -3,8 +3,8 @@ import { $authHost } from './index';
 // @route   POST /wishlist
 // @desc    Create wishlist
 // @access  Private
-export const createWishlist = async () => {
-  const res = await $authHost.post('wishlist').catch(err => {
+export const createWishlist = async products => {
+  const res = await $authHost.post('wishlist', products).catch(err => {
     throw err;
   });
   return res;
@@ -13,8 +13,8 @@ export const createWishlist = async () => {
 // @route   PUT /wishlist
 // @desc    Update wishlist when adding / deleting products in wishlist
 // @access  Private
-export const updateWishlist = async () => {
-  const res = await $authHost.put('wishlist').catch(err => {
+export const updateWishlist = async products => {
+  const res = await $authHost.put('wishlist', products).catch(err => {
     throw err;
   });
   return res;

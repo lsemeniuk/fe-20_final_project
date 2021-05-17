@@ -19,7 +19,7 @@ const ProductColors = ({ color }) => {
   if (colorsLoadind) {
     return <Loader />;
   }
-  console.log(colors);
+
   const colorList = colors.map(col => {
     if (col.name === color) {
       return (
