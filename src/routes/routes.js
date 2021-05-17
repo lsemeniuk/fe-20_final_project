@@ -25,9 +25,9 @@ export const publicRoutes = [
     Component: Index,
   },
   {
-    name: 'Отдельный товар',
-    path: `${PRODUCT_ROUTE}/:id`,
-    Component: Product,
+    name: 'Все товары',
+    path: PRODUCTS_ROUTE,
+    Component: Products,
   },
   {
     name: 'Категории',
@@ -35,9 +35,9 @@ export const publicRoutes = [
     Component: Products,
   },
   {
-    name: 'Все товары',
-    path: PRODUCTS_ROUTE,
-    Component: Products,
+    name: 'Отдельный товар',
+    path: `${PRODUCT_ROUTE}/:id`,
+    Component: Product,
   },
   {
     name: 'Оформить заказ',

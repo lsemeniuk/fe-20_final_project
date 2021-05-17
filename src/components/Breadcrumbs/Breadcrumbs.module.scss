@@ -2,16 +2,16 @@
 ul.breadcrumb {
   padding: 10px 16px;
   list-style: none;
-  background-color: #eee;
+  background-color: #fff;
   text-align: left;
   margin: 0;
-  font-size: 12px;
+
 }
 
 /* Display list items side by side */
 ul.breadcrumb li {
   display: inline;
-  font-size: 18px;
+  font-size: 12px;
 }
 
 /* Add a slash symbol (>) before/behind each list item */
@@ -24,12 +24,12 @@ ul.breadcrumb li + li:before {
   text-decoration: none;
   color: grey;
   padding: 5px 10px;
-  font-size: 16px;
+
 }
 
 .link__active {
   color: blue;
   border-bottom: 2px solid blue;
   padding: 5px 10px;
-  font-size: 16px;
+
 }
