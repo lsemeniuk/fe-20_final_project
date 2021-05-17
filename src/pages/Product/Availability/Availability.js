@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Availability.module.scss';
 import Icons from '../../../components/Icons/Icons';
+import styles from './Availability.module.scss';
 
 const Availability = ({ quantity }) => {
   let availability = null;
@@ -30,7 +30,7 @@ const Availability = ({ quantity }) => {
   }
 
   return (
-    <div className={styles.availabilityContainer}>
+    <div className={styles.container}>
       <div className={styles.availabilityRow}>{availability}</div>
     </div>
   );

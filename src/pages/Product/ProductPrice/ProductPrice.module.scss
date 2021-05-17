@@ -1,0 +1,59 @@
+@import '../../../utils/styles/var';
+
+.container {
+  padding: 15px;
+  position: relative;
+  border: 1px solid $colorTextSilver;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    flex-wrap: wrap;
+  }
+}
+.price {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+.currentPrice {
+  margin-right: 10px;
+  color: $colorSale;
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.previousPrice {
+  position: absolute;
+  top: -9px;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: line-through;
+  color: $colorTextSilver;
+}
+
+.regularPrice {
+  color: $colorNew;
+  font-weight: 600;
+  font-size: 26px;
+  margin-right: 10px;
+}
+.buttonRow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.button {
+  padding: 10px 15px;
+  height: 45px;
+}
+.orderButton {
+  border-color: $colorTextSilver;
+  color: $colorTextSilver;
+  &:hover {
+    background-color: rgb(241, 241, 241);
+  }
+}

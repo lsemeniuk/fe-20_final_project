@@ -8,6 +8,8 @@ import { getOneProductSelector, oneProductLoadingSelector } from '../../store/pr
 import ProductImages from './ProductImages/ProductImages';
 import styles from './Product.module.scss';
 import Availability from './Availability/Availability';
+import ProductColors from './ProductColors/ProductColors';
+import ProductPrice from './ProductPrice/ProductPrice';
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -30,7 +32,7 @@ const Product = () => {
     );
   }
 
-  const { brand, name, quantity } = product;
+  const { brand, name, quantity, color } = product;
 
   console.log(product);
 
@@ -66,6 +68,8 @@ const Product = () => {
 
           <div className={styles.flexColumn}>
             <Availability quantity={quantity} />
+            <ProductColors color={color} />
+            <ProductPrice product={product} />
           </div>
         </div>
       </Container>
