@@ -12,6 +12,7 @@
 
 .textColor {
   color: #000;
+  font-weight: 600;
 }
 
 .colors {
@@ -50,5 +51,6 @@
 
 .colorActive {
   border: 1px solid $colorButton;
-  border-radius: 5px;
+  border-radius: 3px;
+  background-color: #fafafa;
 }

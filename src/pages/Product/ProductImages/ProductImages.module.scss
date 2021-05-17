@@ -29,6 +29,7 @@
 }
 
 .imageContainer {
+  z-index: 100;
   position: relative;
   width: calc(100% - 90px - 10px);
 }
