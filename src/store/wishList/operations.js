@@ -1,3 +1,6 @@
+/* eslint-disable dot-notation */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-expressions */
 import {
   addProductToWishlist,
   deleteProductFromWishlist,
@@ -41,9 +44,30 @@ export const deleteWishListOperation = () => dispatch => {
 
 export const updateWishListOperation = prod => dispatch => {
   dispatch(wishListLoadingAction(true));
-  updateWishlist(prod).then(res => {
-    console.log('operation');
-    dispatch(saveWishListAction(res.data));
-    return res;
+  let dbWishList = [];
+  let wishList = { products: [] };
+  const storageWishList = prod.products;
+
+  getWishlist().then(res => {
+    if (res.data && res.data.products) {
+      dbWishList = res.data.products.map(item => {
+        return item['_id'];
+      });
+
+      if (storageWishList) {
+        const newItem = storageWishList.filter(id => !dbWishList.includes(id));
+        console.log(newItem);
+        wishList.products = dbWishList.concat(newItem);
+        updateWishlist(wishList).then(products => {
+          dispatch(saveWishListAction(products.data));
+          return products;
+        });
+      }
+    } else {
+      updateWishlist(prod).then(products => {
+        dispatch(saveWishListAction(products.data));
+        return res;
+      });
+    }
   });
 };
