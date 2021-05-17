@@ -1,0 +1,162 @@
+@import '../../utils/styles/var';
+
+.section {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.title {
+  font-size: 32px;
+  font-weight: 400;
+  margin-top: 40px;
+}
+.formsContainer {
+  // background-color: rgb(172, 169, 169);
+  display: flex; 
+  justify-content: space-between;
+}
+.formContainer {
+  width: 800px;
+  min-width:600px;
+  margin-right: 20px;
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  position: relative;
+}
+.underlineBlock {
+  border-bottom: 1px dotted #959595;
+  padding: 25px;
+}
+
+.inputsContainer {
+  width: 550px;
+  // border: 1px solid rgb(3, 204, 37);
+}
+
+.formTitle {
+  color: #231f20;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 3px 0 23px;
+}
+
+
+
+.categoryNameStyle {
+  font-size: 32px;
+  line-height: 1.1;
+  align-self: start;
+  font-weight: normal;
+}
+
+.cartContainer {
+  background-color: rgb(248, 247, 247);
+  width: 540px;
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  padding: 25px;
+}
+
+.form {
+  margin: 0;
+  padding: 0;
+}
+
+.formItem {
+  display: flex;
+  justify-content: space-between;
+  // background-color: rgb(197, 197, 197);
+  // width: 600px;
+}
+
+.input {
+  border: 1px solid #acacac;
+  background: #fff;
+  border-radius: 4px;
+  line-height: normal;
+  vertical-align: middle;
+  // -webkit-transition: border-color 0.1s;
+  // -o-transition: border-color 0.1s;
+  // transition: border-color 0.1s;
+  padding: 6px 8px;
+  font-size: 16px;
+  height: 36px;
+  width: 385px;
+  
+}
+
+
+.label {
+  font-size: 14px;
+  margin-top: 9px;
+  }
+
+
+.citiesBlock {
+  float: right;
+  margin-right: 15px;
+  margin-top: -15px;
+}
+
+// .citiesBlock {
+//   float: right;
+//   margin-top: 20px;
+// }
+.citiesTitle {
+  color: #959595;
+  font-size: 15px;
+}
+.cities {
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.addComment {
+  cursor: pointer;
+  position: relative;
+  margin-top: 20px;
+  float: right;
+  margin-right: 138px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+.addComment:hover {
+  color: #37b7fa;
+}
+.cities:hover:not(:first-child) {
+  color: #37b7fa;
+}
+.commentBlock {
+  margin-top: 20px;
+  clear: both;
+  position: relative;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.commentlink:hover {
+  color: #8dbefa;
+}
+
+
+.deliveryList {
+  width: 385px;
+  height: 40px;
+
+}
+.deliveryLabel {
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.deliveryItem {
+  border-radius: 4px;
+}
+
+// .buttonCont {
+  
+// }
