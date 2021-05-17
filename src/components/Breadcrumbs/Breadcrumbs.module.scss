@@ -1,4 +1,4 @@
-/* Style the list */
+
 ul.breadcrumb {
   padding: 10px 16px;
   list-style: none;
@@ -8,13 +8,12 @@ ul.breadcrumb {
 
 }
 
-/* Display list items side by side */
 ul.breadcrumb li {
   display: inline;
   font-size: 12px;
 }
 
-/* Add a slash symbol (>) before/behind each list item */
+
 ul.breadcrumb li + li:before {
   color: grey;
   content: ">";

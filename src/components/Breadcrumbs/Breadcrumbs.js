@@ -1,31 +1,33 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { publicRoutes } from '../../routes/routes';
-import { INDEX_ROUTE, PRODUCT_ROUTE, PRODUCTS_ROUTE, CHECKOUT_ROUTE } from '../../utils/consts';
+import { crumbsRoutes } from '../../routes/routes';
+
 import styles from './Breadcrumbs.module.scss';
 
 const Breadcrumbs = () => {
   const { pathname } = useLocation();
-  const filteredLinks = publicRoutes.filter((r, ind) =>
-    pathname === INDEX_ROUTE
+  const filteredLinks = crumbsRoutes.filter((r, ind, arr) =>
+    pathname === '/'
       ? ind < 1
-      : pathname === `${PRODUCT_ROUTE}/:id`
+      : pathname === '/products'
       ? ind < 2
-      : pathname === `${PRODUCTS_ROUTE}/:categories`
+      : pathname === '/products/men'
       ? ind < 3
-      : pathname === PRODUCTS_ROUTE
-      ? ind < 4
-      : pathname === CHECKOUT_ROUTE
-      ? ind < 5
-      : ''
+      : pathname === '/products/women'
+      ? ind < 3
+      : pathname === '/products/kids'
+      ? ind < 3
+      : pathname === '/products/accessories'
+      ? ind < 3
+      : ind < arr.length
   );
 
   return (
     <ul className={styles.breadcrumb}>
       {filteredLinks.map(({ name, path }) => (
         <li key={path}>
-          <NavLink to={path} className={styles.link} activeClassName={styles.link__active} exact>
+          <NavLink to={path} className={styles.link} exact>
             {name}
           </NavLink>
         </li>

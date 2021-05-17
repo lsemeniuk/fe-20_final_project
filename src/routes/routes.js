@@ -25,9 +25,9 @@ export const publicRoutes = [
     Component: Index,
   },
   {
-    name: 'Все товары',
-    path: PRODUCTS_ROUTE,
-    Component: Products,
+    name: 'Отдельный товар',
+    path: `${PRODUCT_ROUTE}/:id`,
+    Component: Product,
   },
   {
     name: 'Категории',
@@ -35,9 +35,9 @@ export const publicRoutes = [
     Component: Products,
   },
   {
-    name: 'Отдельный товар',
-    path: `${PRODUCT_ROUTE}/:id`,
-    Component: Product,
+    name: 'Все товары',
+    path: PRODUCTS_ROUTE,
+    Component: Products,
   },
   {
     name: 'Оформить заказ',
@@ -75,5 +75,24 @@ export const adminRoutes = [
     name: 'Каталог',
     path: ADM_CATALOG_ROUTE,
     Component: Catalog,
+  },
+];
+
+export const crumbsRoutes = [
+  {
+    name: 'Главная',
+    path: '/',
+  },
+  {
+    name: 'Все товары',
+    path: '/products',
+  },
+  {
+    name: 'Категории',
+    path: '/products/men',
+  },
+  {
+    name: 'Товар',
+    path: '/product/615280',
   },
 ];
