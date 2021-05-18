@@ -56,7 +56,6 @@ export const updateWishListOperation = prod => dispatch => {
 
       if (storageWishList) {
         const newItem = storageWishList.filter(id => !dbWishList.includes(id));
-        console.log(newItem);
         wishList.products = dbWishList.concat(newItem);
         updateWishlist(wishList).then(products => {
           dispatch(saveWishListAction(products.data));
