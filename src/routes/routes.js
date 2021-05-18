@@ -91,8 +91,4 @@ export const crumbsRoutes = [
     name: 'Категории',
     path: '/products/men',
   },
-  {
-    name: 'Товар',
-    path: '/product/615280',
-  },
 ];

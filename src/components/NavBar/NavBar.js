@@ -18,6 +18,7 @@ import { getWishListOperation } from '../../store/wishList/operations';
 import styles from './NavBar.module.scss';
 import { getProductsOperation } from '../../store/products/operations';
 import { getCartOperation } from '../../store/cart/operations';
+import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -99,6 +100,7 @@ const NavBar = () => {
           </div>
         </nav>
         {!isAuth && <RegAuth />}
+        <Breadcrumbs />
       </Container>
     </div>
   );

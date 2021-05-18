@@ -1,8 +1,10 @@
+@import '../../utils/styles/var';
 
 ul.breadcrumb {
+  
+  background-color: $colorSecondary;
   padding: 10px 16px;
   list-style: none;
-  background-color: #fff;
   text-align: left;
   margin: 0;
 
@@ -26,9 +28,9 @@ ul.breadcrumb li + li:before {
 
 }
 
-.link__active {
-  color: blue;
-  border-bottom: 2px solid blue;
-  padding: 5px 10px;
+// .link__active {
+//   color: blue;
+//   border-bottom: 2px solid blue;
+//   padding: 5px 10px;
 
-}
+// }

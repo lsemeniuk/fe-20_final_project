@@ -2,11 +2,11 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { crumbsRoutes } from '../../routes/routes';
-
 import styles from './Breadcrumbs.module.scss';
 
 const Breadcrumbs = () => {
   const { pathname } = useLocation();
+  const pathArr = pathname.split('/');
   const filteredLinks = crumbsRoutes.filter((r, ind, arr) =>
     pathname === '/'
       ? ind < 1
@@ -32,6 +32,11 @@ const Breadcrumbs = () => {
           </NavLink>
         </li>
       ))}
+      {pathArr[2] && !Number.isNaN(+pathArr[2]) && (
+        <li>
+          <span className={styles.link}>Товар</span>
+        </li>
+      )}
     </ul>
   );
 };
