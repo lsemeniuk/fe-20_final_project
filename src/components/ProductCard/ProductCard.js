@@ -24,8 +24,8 @@ const ProductCard = ({ product, inSlider }) => {
       <div>
         <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} className={styles.link}>
           <div className={styles.imgBlock}>
-            <img className={`${styles.image} ${styles.firstImage}`} src={imageUrls[0]} alt='watch' />
-            <img className={`${styles.image} ${styles.lastImage}`} src={imageUrls[1]} alt='watch' />
+            <img className={`${styles.image} ${styles.firstImage}`} src={imageUrls[0].smallImage} alt='watch' />
+            <img className={`${styles.image} ${styles.lastImage}`} src={imageUrls[1].smallImage} alt='watch' />
           </div>
         </NavLink>
       </div>

@@ -7,13 +7,15 @@ import { cartLoadingSelector, getCartSelector } from '../../store/cart/selectors
 import { saveModalCartAction } from '../../store/modal/actions';
 import { addProductToCartOperation } from '../../store/cart/operations';
 
-const AddToCartButton = ({ id }) => {
+const AddToCartButton = ({ id, className }) => {
   const dispatch = useDispatch();
   const cartLoading = useSelector(cartLoadingSelector);
   const cart = useSelector(getCartSelector);
+
   let idCartList = [];
   if (!cartLoading) {
     if (cart) {
+      console.log(cart);
       idCartList = cart.products.map(prod => {
         return prod.product['_id'];
       });
@@ -23,6 +25,7 @@ const AddToCartButton = ({ id }) => {
   const openCart = () => {
     dispatch(saveModalCartAction(true));
   };
+
   const addToCart = () => {
     dispatch(addProductToCartOperation(id));
   };
@@ -30,9 +33,9 @@ const AddToCartButton = ({ id }) => {
   return (
     <div>
       {idCartList.includes(id) ? (
-        <Button onClick={openCart} variant='outline' title='В корзине' />
+        <Button onClick={openCart} variant='outline' title='В корзине' className={className} />
       ) : (
-        <Button onClick={addToCart} title='Купить' />
+        <Button onClick={addToCart} title='Купить' className={className} />
       )}
     </div>
   );
@@ -40,6 +43,11 @@ const AddToCartButton = ({ id }) => {
 
 AddToCartButton.propTypes = {
   id: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+AddToCartButton.defaultProps = {
+  className: '',
 };
 
 export default AddToCartButton;

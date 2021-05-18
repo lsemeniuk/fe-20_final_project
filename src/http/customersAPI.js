@@ -7,7 +7,7 @@ import { $authHost, $host } from './index';
 // @access  Public
 export const createCustomer = async value => {
   const res = await $host.post('customers', value).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -32,7 +32,7 @@ export const loginCustomer = async value => {
 // @access  Private
 export const getCustomer = async () => {
   const res = await $authHost.get('customers/customer').catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };

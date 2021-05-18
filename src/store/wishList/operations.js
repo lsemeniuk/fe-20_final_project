@@ -36,8 +36,8 @@ export const deleteProductFromWishlishtOperation = (id, wishList) => dispatch =>
 };
 
 export const deleteWishListOperation = () => dispatch => {
+  dispatch(saveWishListAction(null));
   deleteWishlist().then(res => {
-    dispatch(saveWishListAction(null));
     return res;
   });
 };

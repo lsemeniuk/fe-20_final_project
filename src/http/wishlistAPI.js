@@ -3,8 +3,8 @@ import { $authHost } from './index';
 // @route   POST /wishlist
 // @desc    Create wishlist
 // @access  Private
-export const createWishlist = async () => {
-  const res = await $authHost.post('wishlist').catch(err => {
+export const createWishlist = async products => {
+  const res = await $authHost.post('wishlist', products).catch(err => {
     throw err;
   });
   return res;

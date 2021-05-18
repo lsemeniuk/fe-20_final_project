@@ -1,12 +1,73 @@
+@import '../../utils/styles/var';
 @import '../../utils/styles/mixins';
 
-.container {
-  height: 300px;
-  width: 100%;
-  padding: 20px;
-  margin-right: 10px;
+.breadCrumbs {
+  display: flex;
+  align-items: center;
+  color: #868686;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.crumbsLink {
+  color: #868686;
+  &:hover {
+    color: $colorButnHover;
+  }
+}
+
+.iconBreadcrumbs {
+  padding: 0 3px;
+  &::before {
+    content: '\203A';
+    font-size: 20px;
+    line-height: 0;
+    position: relative;
+    top: 2px;
+  }
+}
+
+// Title
+.categoryTitle {
+  font-size: 24px;
+}
+
+// Navbar Product
+
+.navBarContainer {
+  margin-bottom: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  box-shadow: 0px 8px 13px -7px rgba(38, 44, 48, 0.15);
+  background-color: $bgColor;
+}
+.navBarProduct {
+  height: 45px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+// Flex
+
+.flexContainer {
   @extend %custom-shadow;
   @extend %custom-border;
-  height: 100%;
   background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexColumn {
+  padding: 10px;
+  // background-color: rosybrown;
+  flex: 1 1 50%;
+  &:first-child {
+    margin-right: 10px;
+  }
+  &:last-child {
+    margin-left: 10px;
+  }
 }

@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getCatalogOperation } from '../../../store/catalog/operations';
-import { categoriesLoadingSelector, getCategoriesSelector } from '../../../store/catalog/selectors';
-import { PRODUCTS_ROUTE } from '../../../utils/consts';
-import Loader from '../../Loader/Loader';
+import { getCatalogOperation } from '../../store/catalog/operations';
+import { categoriesLoadingSelector, getCategoriesSelector } from '../../store/catalog/selectors';
+import { PRODUCTS_ROUTE } from '../../utils/consts';
+import Loader from '../Loader/Loader';
 
 const CategoriesList = ({ className, classItem }) => {
   const dispatch = useDispatch();
   const categories = useSelector(getCategoriesSelector);
-  const isLoading = useSelector(categoriesLoadingSelector);
+  const categoriesLoading = useSelector(categoriesLoadingSelector);
 
   useEffect(() => {
     dispatch(getCatalogOperation());
   }, [dispatch]);
 
-  if (isLoading) {
+  if (categoriesLoading) {
     return <Loader />;
   }
 
