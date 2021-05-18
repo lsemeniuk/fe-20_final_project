@@ -47,9 +47,11 @@ const BrandBar = () => {
           <Loader />
         </div>
       ) : (
-        <Slider className={styles.slider} {...sliderSettings}>
-          {brandsList}
-        </Slider>
+        <ul>
+          <Slider className={styles.slider} {...sliderSettings}>
+            {brandsList}
+          </Slider>
+        </ul>
       )}
     </div>
   );

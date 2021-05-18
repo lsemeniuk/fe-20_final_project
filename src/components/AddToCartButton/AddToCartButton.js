@@ -11,9 +11,11 @@ const AddToCartButton = ({ id, className }) => {
   const dispatch = useDispatch();
   const cartLoading = useSelector(cartLoadingSelector);
   const cart = useSelector(getCartSelector);
+
   let idCartList = [];
   if (!cartLoading) {
     if (cart) {
+      console.log(cart);
       idCartList = cart.products.map(prod => {
         return prod.product['_id'];
       });

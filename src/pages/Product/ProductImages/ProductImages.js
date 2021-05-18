@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import ReactBnbGallery from 'react-bnb-gallery';
 import ReactImageMagnify from 'react-image-magnify';
 import { brandsLoadingSelector, getBrandsSelector } from '../../../store/brands/selectors';
-import './react-bnb-gallery.scss';
 import { getBrandsOperation } from '../../../store/brands/operations';
+import './react-bnb-gallery.scss';
 import styles from './ProductImages.module.scss';
 
 const ProductImages = ({ product }) => {
@@ -35,7 +35,9 @@ const ProductImages = ({ product }) => {
     preloadSize: 2,
     opacity: 0.8,
     show: isOpen,
-    photos: imageUrls,
+    photos: imageUrls.map(url => {
+      return url.largeImage;
+    }),
     onClose: () => setIsOpen(false),
   };
 
@@ -51,7 +53,7 @@ const ProductImages = ({ product }) => {
             setDisplayImage(index);
           }}
         >
-          <img src={image} className={styles.imageMin} alt='Product' />
+          <img src={image.smallImage} className={styles.imageMin} alt='Product' />
         </span>
       </li>
     );
@@ -70,16 +72,19 @@ const ProductImages = ({ product }) => {
           }}
         >
           <ReactImageMagnify
+            isActivatedOnTouch
+            enlargedImageContainerDimensions={{ width: '140%', height: '100%' }}
             {...{
               smallImage: {
                 alt: 'Картинка продукта',
                 isFluidWidth: true,
-                src: imageUrls[displayImage],
+                src: imageUrls[displayImage].smallImage,
               },
               largeImage: {
-                src: imageUrls[displayImage],
-                width: 1200,
-                height: 1200,
+                src: imageUrls[displayImage].largeImage,
+                alt: 'Картинка продукта',
+                width: 1500,
+                height: 1500,
               },
             }}
           />

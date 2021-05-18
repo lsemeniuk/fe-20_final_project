@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   @media (min-width: $deskMin) and (max-width: $deskMax) {
     flex-wrap: wrap;
   }
@@ -44,6 +44,7 @@
   color: $colorSale;
   font-weight: 600;
   font-size: 26px;
+  transform: scaleY(1.2);
 }
 
 .regularPrice {
@@ -51,6 +52,7 @@
   font-weight: 600;
   font-size: 26px;
   margin-right: 10px;
+  transform: scaleY(1.2);
 }
 .buttonRow {
   display: flex;

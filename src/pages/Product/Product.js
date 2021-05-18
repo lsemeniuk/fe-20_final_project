@@ -4,7 +4,12 @@ import { NavLink, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import Loader from '../../components/Loader/Loader';
 import { getOneProductOperation } from '../../store/products/operations';
-import { getOneProductSelector, oneProductLoadingSelector } from '../../store/products/selectors';
+import {
+  getOneProductSelector,
+  getProductsSelector,
+  oneProductLoadingSelector,
+  productsLoadingSelector,
+} from '../../store/products/selectors';
 import ProductImages from './ProductImages/ProductImages';
 import styles from './Product.module.scss';
 import Availability from './Availability/Availability';
@@ -15,6 +20,9 @@ import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 
 const Product = () => {
   const dispatch = useDispatch();
+  const products = useSelector(getProductsSelector);
+  const productsLoading = useSelector(productsLoadingSelector);
+
   const product = useSelector(getOneProductSelector);
   const productLoading = useSelector(oneProductLoadingSelector);
 
@@ -35,8 +43,6 @@ const Product = () => {
   }
 
   const { brand, name, quantity, color } = product;
-
-  console.log(product);
 
   return (
     <main>
@@ -79,7 +85,13 @@ const Product = () => {
             <OrdersInfo />
           </div>
         </div>
-        <CustomSlider />
+        {!productsLoading && (
+          <CustomSlider
+            title='
+Также Вас могут заинтересовать'
+            products={products}
+          />
+        )}
       </Container>
     </main>
   );

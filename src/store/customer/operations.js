@@ -17,7 +17,7 @@ export const checkAuthOperation = () => dispatch => {
     })
     .catch(err => {
       dispatch(saveCustomerIsLoadingAction(false));
-      console.log(err.response);
+      return err;
     });
 };
 
