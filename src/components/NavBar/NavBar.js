@@ -32,11 +32,9 @@ const NavBar = () => {
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) };
 
   let favorites = 0;
-  if (isAuth) {
-    if (!wishListLoading) {
-      if (wishList) {
-        favorites = wishList.products.length;
-      }
+  if (isAuth && !wishListLoading) {
+    if (wishList) {
+      favorites = wishList.products.length;
     }
   }
 
