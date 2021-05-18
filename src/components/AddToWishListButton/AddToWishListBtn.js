@@ -24,12 +24,8 @@ const AddToWishListBtn = ({ id }) => {
   }, []);
 
   if (isAuth) {
-    if (!wishListLoading) {
-      if (wishList) {
-        idWishList = wishList.products.map(prod => {
-          return prod['_id'];
-        });
-      }
+    if (!wishListLoading && wishList) {
+      idWishList = wishList.products.map(prod => prod['_id']);
     }
   } else {
     idWishList = wishList || [];
@@ -37,18 +33,18 @@ const AddToWishListBtn = ({ id }) => {
 
   const addToWishList = () => {
     storageWishList = JSON.parse(localStorage.getItem('WishList')) || [];
+    localStorage.setItem('WishList', JSON.stringify([...storageWishList, id]));
     if (isAuth) {
       dispatch(addProductToWishlistOperation(id));
     } else {
-      localStorage.setItem('WishList', JSON.stringify([...storageWishList, id]));
       dispatch(saveWishListAction([...wishList, id]));
     }
   };
   const deleteToWishList = () => {
+    localStorage.setItem('WishList', JSON.stringify([...storageWishList.filter(i => i !== id)]));
     if (isAuth) {
       dispatch(deleteProductFromWishlishtOperation(id, wishList));
     } else {
-      localStorage.setItem('WishList', JSON.stringify([...storageWishList.filter(i => i !== id)]));
       dispatch(saveWishListAction([...wishList.filter(itemId => itemId !== id)]));
     }
   };
