@@ -1,0 +1,20 @@
+@import '../../../utils/styles/var';
+
+.container {
+  margin-bottom: 40px;
+  border: 1px solid $colorLineSilver;
+  border-radius: 5px;
+}
+
+.title {
+  border-bottom: 1px solid $colorLineSilver;
+  padding: 15px;
+}
+.list {
+  line-height: 1.5;
+  padding: 15px;
+  list-style: inside;
+}
+.green {
+  color: $colorSuperPrice;
+}

@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../Forms/MyTextInput/MyTextInput';
 import Button from '../../Button/Button';
-import styles from './RegForm.module.scss';
 import { createCustomerOperation } from '../../../store/customer/operations';
+import styles from './RegForm.module.scss';
 
 const RegForm = ({ setTabIndex }) => {
   const dispatch = useDispatch();
+  const [messageServer, setmessageServer] = useState(null);
 
   const validationSchema = Yup.object({
     firstName: Yup.string()
@@ -50,11 +51,14 @@ const RegForm = ({ setTabIndex }) => {
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
           const { firstName, lastName, login, email, password } = values;
-          dispatch(createCustomerOperation({ setTabIndex, firstName, lastName, login, email, password }));
+          dispatch(
+            createCustomerOperation({ setmessageServer, setTabIndex, firstName, lastName, login, email, password })
+          );
           setSubmitting(false);
         }}
       >
         <Form>
+          <div className={styles.messageServer}>{messageServer}</div>
           <MyTextInput label='Имя' name='firstName' type='text' placeholder='Введите имя' tabIndex='0' />
           <MyTextInput label='Фамилия' name='lastName' type='text' placeholder='Введите фамилию' tabIndex='0' />
           <MyTextInput label='Логин' name='login' type='text' placeholder='Введите логин' tabIndex='0' />

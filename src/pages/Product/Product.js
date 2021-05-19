@@ -1,34 +1,48 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import Loader from '../../components/Loader/Loader';
 import { getOneProductOperation } from '../../store/products/operations';
-import { getOneProductSelector, oneProductLoadingSelector } from '../../store/products/selectors';
-import styles from './Product.module.scss';
+import {
+  getOneProductSelector,
+  getProductsSelector,
+  oneProductLoadingSelector,
+  productsLoadingSelector,
+} from '../../store/products/selectors';
 import ProductImages from './ProductImages/ProductImages';
+import styles from './Product.module.scss';
+import Availability from './Availability/Availability';
+import ProductColors from './ProductColors/ProductColors';
+import ProductPrice from './ProductPrice/ProductPrice';
+import OrdersInfo from './OrdersInfo/OrdersInfo';
+import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 
 const Product = () => {
   const dispatch = useDispatch();
+  const products = useSelector(getProductsSelector);
+  const productsLoading = useSelector(productsLoadingSelector);
+
   const product = useSelector(getOneProductSelector);
   const productLoading = useSelector(oneProductLoadingSelector);
 
-  const location = useLocation();
-  const arrPath = location.pathname.split('/');
-  const pageId = arrPath[arrPath.length - 1];
+  const params = useParams();
 
   useEffect(() => {
-    dispatch(getOneProductOperation(pageId));
+    dispatch(getOneProductOperation(params.id));
   }, [dispatch]);
 
   if (productLoading) {
     return (
       <Container>
-        <Loader fixed />
+        <div style={{ height: '60vh' }}>
+          <Loader fixed />
+        </div>
       </Container>
     );
   }
-  // console.log(product);
+
+  const { brand, name, quantity, color } = product;
 
   return (
     <main>
@@ -42,22 +56,42 @@ const Product = () => {
             Все товары
           </NavLink>
           <span className={styles.iconBreadcrumbs}>{}</span>
-          <span className={styles.crumbs}>Товар</span>
+          <span className={styles.crumbs}>Смарт часы {brand}</span>
         </div>
+
         <div>
-          <h2 className={styles.categoryTitle}>Товар</h2>
+          <h2 className={styles.categoryTitle}>{name}</h2>
         </div>
-        <nav className={styles.navBarProduct}>
-          <span>Про товар</span>
-          <span>Характеристики</span>
-          <span>Отзывы</span>
-        </nav>
+      </Container>
+      <div className={styles.navBarContainer}>
+        <Container>
+          <nav className={styles.navBarProduct}>
+            <span>Про товар</span>
+            <span>Характеристики</span>
+            <span>Отзывы</span>
+          </nav>
+        </Container>
+      </div>
+      <Container>
         <div className={styles.flexContainer}>
           <div className={styles.flexColumn}>
-            <ProductImages images={product.imageUrls} />
+            <ProductImages product={product} />
           </div>
-          <div className={styles.flexColumn}>images</div>
+
+          <div className={styles.flexColumn}>
+            <Availability quantity={quantity} />
+            <ProductColors color={color} />
+            <ProductPrice product={product} />
+            <OrdersInfo />
+          </div>
         </div>
+        {!productsLoading && (
+          <CustomSlider
+            title='
+Также Вас могут заинтересовать'
+            products={products}
+          />
+        )}
       </Container>
     </main>
   );

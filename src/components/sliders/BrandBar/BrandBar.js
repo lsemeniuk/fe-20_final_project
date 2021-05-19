@@ -22,19 +22,23 @@ const BrandBar = () => {
     dispatch(getBrandsOperation());
   }, []);
 
-  const brandsList = brands.map(brand => {
-    return (
-      <div key={brand.name} className={styles.itemContainer}>
-        <li className={styles.item}>
-          {brand.imageUrl ? (
-            <img alt={brand.name} src={brand.imageUrl} className={styles.img} />
-          ) : (
-            <div className={styles.name}>{brand.name}</div>
-          )}
-        </li>
-      </div>
-    );
-  });
+  let brandsList = null;
+
+  if (!brandsLoading) {
+    brandsList = brands.map(brand => {
+      return (
+        <div key={brand.name} className={styles.itemContainer}>
+          <li className={styles.item}>
+            {brand.imageUrl ? (
+              <img alt={brand.name} src={brand.imageUrl} className={styles.img} />
+            ) : (
+              <div className={styles.name}>{brand.name}</div>
+            )}
+          </li>
+        </div>
+      );
+    });
+  }
 
   return (
     <div className={styles.container}>
@@ -43,9 +47,11 @@ const BrandBar = () => {
           <Loader />
         </div>
       ) : (
-        <Slider className={styles.slider} {...sliderSettings}>
-          {brandsList}
-        </Slider>
+        <ul>
+          <Slider className={styles.slider} {...sliderSettings}>
+            {brandsList}
+          </Slider>
+        </ul>
       )}
     </div>
   );

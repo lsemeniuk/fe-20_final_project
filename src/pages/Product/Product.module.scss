@@ -1,17 +1,6 @@
 @import '../../utils/styles/var';
 @import '../../utils/styles/mixins';
 
-.container {
-  height: 300px;
-  width: 100%;
-  padding: 20px;
-  margin-right: 10px;
-  @extend %custom-shadow;
-  @extend %custom-border;
-  height: 100%;
-  background-color: #fff;
-}
-
 .breadCrumbs {
   display: flex;
   align-items: center;
@@ -38,19 +27,47 @@
   }
 }
 
+// Title
+.categoryTitle {
+  font-size: 24px;
+}
+
+// Navbar Product
+
+.navBarContainer {
+  margin-bottom: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  box-shadow: 0px 8px 13px -7px rgba(38, 44, 48, 0.15);
+  background-color: $bgColor;
+}
+.navBarProduct {
+  height: 45px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 // Flex
+
 .flexContainer {
+  @extend %custom-shadow;
+  @extend %custom-border;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
 }
 
 .flexColumn {
-  background-color: rosybrown;
+  padding: 10px;
+  // background-color: rosybrown;
   flex: 1 1 50%;
   &:first-child {
-    margin-right: 20px;
+    margin-right: 10px;
   }
   &:last-child {
-    margin-left: 20px;
+    margin-left: 10px;
   }
 }

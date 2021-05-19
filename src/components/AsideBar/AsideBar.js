@@ -16,7 +16,7 @@ const AsideBar = ({ links }) => {
   });
   return (
     <ContainerAside>
-      <nav>
+      <nav className={styles.nav}>
         <ul>{list}</ul>
       </nav>
     </ContainerAside>

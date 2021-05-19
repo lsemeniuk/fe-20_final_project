@@ -1,28 +1,59 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import Viewer from 'react-viewer';
+import ReactBnbGallery from 'react-bnb-gallery';
+import ReactImageMagnify from 'react-image-magnify';
+import { brandsLoadingSelector, getBrandsSelector } from '../../../store/brands/selectors';
+import { getBrandsOperation } from '../../../store/brands/operations';
+import './react-bnb-gallery.scss';
 import styles from './ProductImages.module.scss';
 
-const ProductImages = ({ images }) => {
-  const [visible, setVisible] = useState(false);
+const ProductImages = ({ product }) => {
+  const { imageUrls, brand } = product;
+  const brands = useSelector(getBrandsSelector);
+  const brandsLoading = useSelector(brandsLoadingSelector);
+  const dispatch = useDispatch();
 
-  let imageSrc = [];
+  const [isOpen, setIsOpen] = useState(false);
+  const [activePhoto, setActivePhoto] = useState(0);
+  const [displayImage, setDisplayImage] = useState(0);
 
-  imageSrc = images.map(img => {
-    const src = { src: img };
-    return src;
-  });
+  useEffect(() => {
+    dispatch(getBrandsOperation());
+  }, []);
 
-  const imageList = images.map((image, index) => {
+  let brandImage = '';
+
+  if (!brandsLoading) {
+    const brandProduct = brands.filter(br => br.name === brand);
+    brandImage = brandProduct[0].imageUrl;
+  }
+
+  const bnbGaleryProps = {
+    activePhotoIndex: activePhoto,
+    preloadSize: 2,
+    opacity: 0.8,
+    show: isOpen,
+    photos: imageUrls.map(url => {
+      return url.largeImage;
+    }),
+    onClose: () => setIsOpen(false),
+  };
+
+  const imageList = imageUrls.map((image, index) => {
     return (
-      <li key={index} className={styles.imageItem}>
+      <li key={index} className={`${styles.imageItem} ${index === displayImage ? styles.imageMinActive : ''}`}>
         <span
           onClick={() => {
-            setVisible(true);
+            setIsOpen(true);
+            setActivePhoto(index);
+          }}
+          onMouseEnter={() => {
+            setDisplayImage(index);
           }}
         >
-          <img src={image} className={styles.imageMin} alt='Product' />
+          <img src={image.smallImage} className={styles.imageMin} alt='Product' />
         </span>
       </li>
     );
@@ -30,32 +61,45 @@ const ProductImages = ({ images }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.listContainer}>
-        <ul className={styles.imageList}>{imageList}</ul>
+      <div>
+        <ul>{imageList}</ul>
       </div>
       <div className={styles.imageContainer}>
         <span
           onClick={() => {
-            setVisible(true);
+            setIsOpen(true);
+            setActivePhoto(0);
           }}
         >
-          <img src={images[0]} className={styles.image} alt='Product' />
+          <ReactImageMagnify
+            isActivatedOnTouch
+            enlargedImageContainerDimensions={{ width: '140%', height: '100%' }}
+            {...{
+              smallImage: {
+                alt: 'Картинка продукта',
+                isFluidWidth: true,
+                src: imageUrls[displayImage].smallImage,
+              },
+              largeImage: {
+                src: imageUrls[displayImage].largeImage,
+                alt: 'Картинка продукта',
+                width: 1500,
+                height: 1500,
+              },
+            }}
+          />
         </span>
+        <div className={styles.brand}>
+          {!brandsLoading && <img className={styles.brandImage} src={brandImage} alt={`Brand ${brand}`} />}
+        </div>
       </div>
-
-      <Viewer
-        visible={visible}
-        onClose={() => {
-          setVisible(false);
-        }}
-        images={imageSrc}
-      />
+      <ReactBnbGallery {...bnbGaleryProps} />
     </div>
   );
 };
 
 ProductImages.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  product: PropTypes.object.isRequired,
 };
 
 export default ProductImages;

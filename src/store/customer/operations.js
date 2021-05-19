@@ -16,7 +16,7 @@ export const checkAuthOperation = () => dispatch => {
     })
     .catch(err => {
       dispatch(saveCustomerIsLoadingAction(false));
-      console.log(err.response);
+      return err;
     });
 };
 
@@ -32,7 +32,7 @@ export const authorizOperation = ({ setmessageServer, ...value }) => dispatch =>
     });
 };
 
-export const createCustomerOperation = ({ setTabIndex, ...value }) => dispatch => {
+export const createCustomerOperation = ({ setmessageServer, setTabIndex, ...value }) => dispatch => {
   createCustomer(value)
     .then(res => {
       if (res) {
@@ -42,7 +42,7 @@ export const createCustomerOperation = ({ setTabIndex, ...value }) => dispatch =
       return res;
     })
     .catch(err => {
-      console.log(err.response);
+      setmessageServer(Object.values(err.data).join(' '));
     });
 };
 

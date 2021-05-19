@@ -99,7 +99,7 @@ const NavBar = () => {
             </div>
           </div>
         </nav>
-        {!isAuth && <RegAuth />}
+        {!isAuth && modalAuthReg && <RegAuth />}
         <Breadcrumbs />
       </Container>
     </div>

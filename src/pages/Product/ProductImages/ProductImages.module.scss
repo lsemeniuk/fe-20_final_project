@@ -1,28 +1,48 @@
+@import '../../../utils/styles/var';
+
 .container {
-  padding: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 45px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-}
-.listContainer {
-}
-.imageList {
+  z-index: 200;
 }
 .imageItem {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
   width: 90px;
   height: 90px;
+  padding: auto;
   margin: 0 10px 10px 0;
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
 }
 .imageMin {
+  height: 100%;
   border-radius: 5px;
-  width: 90px;
+}
+
+.imageMinActive {
+  border-color: $colorButton;
 }
 
 .imageContainer {
+  z-index: 100;
+  position: relative;
   width: calc(100% - 90px - 10px);
 }
-
-.image {
-  border-radius: 15px;
+.brand {
+  width: 30%;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.brandImage {
   width: 100%;
 }
