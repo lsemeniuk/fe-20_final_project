@@ -4,6 +4,7 @@ import AppRoutes from './routes/AppRoutes';
 import Footer from './components/Footer/Footer';
 import { checkAuthOperation } from './store/customer/operations';
 import NavBar from './components/NavBar/NavBar';
+import ToTopButton from './components/ToTop/ToTop';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function App() {
       <NavBar />
       <AppRoutes />
       <Footer />
+      <ToTopButton />
     </div>
   );
 }
