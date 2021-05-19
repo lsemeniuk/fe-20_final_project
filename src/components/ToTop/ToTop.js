@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ChevronIcon from '../../theme/icons/ChevronIcon';
 import styles from './ToTop.module.scss';
 
 const ToTopButton = () => {
@@ -8,9 +9,9 @@ const ToTopButton = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   const checkScrollTop = () => {
-    if (!showScroll && window.pageYOffset > 400) {
+    if (!showScroll && window.pageYOffset > 500) {
       setShowScroll(true);
-    } else if (showScroll && window.pageYOffset <= 400) {
+    } else if (showScroll && window.pageYOffset <= 500) {
       setShowScroll(false);
     }
   };
@@ -18,9 +19,13 @@ const ToTopButton = () => {
 
   return (
     <div>
-      {showScroll && (
+      {showScroll ? (
         <button type='button' className={styles.scrollTop} onClick={scrollToTop}>
-          To Top
+          <ChevronIcon />
+        </button>
+      ) : (
+        <button type='button' className={`${styles.scrollTop} ${styles.hidden}`} onClick={scrollToTop}>
+          <ChevronIcon />
         </button>
       )}
     </div>
