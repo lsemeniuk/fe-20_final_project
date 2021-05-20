@@ -9,6 +9,7 @@ import {
   updateWishlist,
 } from '../../http/wishlistAPI';
 import { wishListLoadingAction, saveWishListAction } from './actions';
+import { getProductById } from '../../http/productAPI';
 /* eslint-disable prefer-const */
 
 export const getWishListOperation = () => dispatch => {
@@ -68,5 +69,12 @@ export const updateWishListOperation = prod => dispatch => {
         return res;
       });
     }
+  });
+};
+
+export const setFavForCustomerOperation = (itemNo, wishList) => dispatch => {
+  getProductById(itemNo).then(product => {
+    const { data } = product;
+    dispatch(saveWishListAction([...wishList, data]));
   });
 };

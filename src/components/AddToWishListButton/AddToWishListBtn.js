@@ -3,23 +3,32 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addProductToWishlistOperation, deleteProductFromWishlishtOperation } from '../../store/wishList/operations';
+import {
+  addProductToWishlistOperation,
+  deleteProductFromWishlishtOperation,
+  setFavForCustomerOperation,
+} from '../../store/wishList/operations';
 import Icons from '../Icons/Icons';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { saveWishListAction } from '../../store/wishList/actions';
+import { getProductsSelector } from '../../store/products/selectors';
 
-const AddToWishListBtn = ({ id }) => {
+const AddToWishListBtn = ({ id, itemNo }) => {
   const dispatch = useDispatch();
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
+  const products = useSelector(getProductsSelector);
   let storageWishList = JSON.parse(localStorage.getItem('WishList')) || [];
   let idWishList = [];
 
   useEffect(() => {
-    if (!isAuth) {
-      dispatch(saveWishListAction(storageWishList));
+    if (!isAuth && storageWishList.length !== 0) {
+      const storageItemNo = storageWishList.map(itemData => itemData.itemNo);
+      const newStorageFav = products.filter(product => storageItemNo.includes(product.itemNo));
+      dispatch(saveWishListAction(newStorageFav));
+      console.log('lol');
     }
   }, []);
 
@@ -32,7 +41,8 @@ const AddToWishListBtn = ({ id }) => {
       }
     }
   } else {
-    idWishList = wishList || [];
+    idWishList = wishList.map(itemData => itemData['_id']) || [];
+    // console.log(wishList);
   }
 
   const addToWishList = () => {
@@ -40,16 +50,20 @@ const AddToWishListBtn = ({ id }) => {
     if (isAuth) {
       dispatch(addProductToWishlistOperation(id));
     } else {
-      localStorage.setItem('WishList', JSON.stringify([...storageWishList, id]));
-      dispatch(saveWishListAction([...wishList, id]));
+      localStorage.setItem('WishList', JSON.stringify([...storageWishList, { itemNo, id }]));
+      // dispatch(saveWishListAction([...wishList, { itemNo, id }]));
+      dispatch(setFavForCustomerOperation(itemNo, wishList));
     }
   };
   const deleteToWishList = () => {
     if (isAuth) {
       dispatch(deleteProductFromWishlishtOperation(id, wishList));
     } else {
-      localStorage.setItem('WishList', JSON.stringify([...storageWishList.filter(i => i !== id)]));
-      dispatch(saveWishListAction([...wishList.filter(itemId => itemId !== id)]));
+      // eslint-disable-next-line max-len
+      localStorage.setItem('WishList', JSON.stringify([...storageWishList.filter(i => i.itemNo !== itemNo)]));
+      // console.log('to equal', { id });
+      // console.log(...storageWishList);
+      dispatch(saveWishListAction([...wishList.filter(i => i.itemNo !== itemNo)]));
     }
   };
 
@@ -66,6 +80,7 @@ const AddToWishListBtn = ({ id }) => {
 
 AddToWishListBtn.propTypes = {
   id: PropTypes.string.isRequired,
+  itemNo: PropTypes.string.isRequired,
 };
 
 export default AddToWishListBtn;

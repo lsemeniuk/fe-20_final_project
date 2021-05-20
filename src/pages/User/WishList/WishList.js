@@ -7,17 +7,19 @@ import Loader from '../../../components/Loader/Loader';
 import { deleteWishListOperation } from '../../../store/wishList/operations';
 import styles from './WishList.module.scss';
 import Button from '../../../components/Button/Button';
+import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
 
 const WishList = () => {
   const dispatch = useDispatch();
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
-
+  const isAuth = useSelector(getCustomerIsAuthSelector);
+  const favProducts = isAuth ? wishList.products : wishList;
   const clearFavorites = () => {
     dispatch(deleteWishListOperation());
   };
 
-  if (wishListLoading) {
+  if (isAuth && wishListLoading) {
     return (
       <ContainerPage>
         <Loader fixed />
@@ -34,7 +36,7 @@ const WishList = () => {
         </header>
         {wishList ? (
           <div className={styles.wrapper}>
-            {wishList.products.map(i => (
+            {favProducts.map(i => (
               <ProductCard key={i.itemNo} product={i} inCart />
             ))}
           </div>

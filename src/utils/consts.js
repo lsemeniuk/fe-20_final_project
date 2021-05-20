@@ -4,6 +4,7 @@ export const PRODUCTS_ROUTE = '/products';
 export const PRODUCT_ROUTE = '/product';
 export const CHECKOUT_ROUTE = '/checkout';
 export const PAGES_ROUTE = '/pages';
+export const CUSTOMER_WISH_LIST_ROUTE = '/wishList';
 
 // User
 export const USER_ROUTE = '/user';

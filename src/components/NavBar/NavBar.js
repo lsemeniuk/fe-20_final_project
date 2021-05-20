@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { INDEX_ROUTE, PRODUCTS_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
+import { INDEX_ROUTE, PRODUCTS_ROUTE, WISH_LIST_ROUTE, CUSTOMER_WISH_LIST_ROUTE } from '../../utils/consts';
 import Container from '../Container/Container';
 import Icons from '../Icons/Icons';
 import MyOrders from './MyOrders/MyOrders';
@@ -24,27 +24,28 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
-
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
   const location = useLocation();
 
-  const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) };
+  const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
 
   let favorites = 0;
   if (isAuth && !wishListLoading) {
     if (wishList) {
       favorites = wishList.products.length;
     }
+  } else {
+    favorites = wishList.length || 0;
   }
 
   useEffect(() => {
-    dispatch(wishListLoadingAction(true));
     dispatch(getProductsOperation());
+    dispatch(wishListLoadingAction(true));
+    dispatch(getWishListOperation());
     if (isAuth) {
       dispatch(updateWishListOperation(storageWishList));
       dispatch(getCartOperation());
-      dispatch(getWishListOperation());
     }
   }, [isAuth]);
 
@@ -85,7 +86,8 @@ const NavBar = () => {
               <ul className={styles.iconList}>
                 <li key='wishList'>
                   {wishList && favorites !== 0 ? (
-                    <NavLink to={WISH_LIST_ROUTE}>
+                    <NavLink to={isAuth ? WISH_LIST_ROUTE : CUSTOMER_WISH_LIST_ROUTE}>
+                      {/* <NavLink to={WISH_LIST_ROUTE}> */}
                       {heartJsx}
                       <span className={styles.favorites}>{favorites}</span>
                     </NavLink>
