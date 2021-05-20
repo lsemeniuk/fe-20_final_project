@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ChevronIcon from '../../theme/icons/ChevronIcon';
+import Chevron from '../../theme/icons/Chevron';
 import styles from './ToTop.module.scss';
 
 const ToTopButton = () => {
@@ -21,11 +21,15 @@ const ToTopButton = () => {
     <div>
       {showScroll ? (
         <button type='button' className={styles.scrollTop} onClick={scrollToTop}>
-          <ChevronIcon />
+          <div>
+            <Chevron />
+          </div>
         </button>
       ) : (
         <button type='button' className={`${styles.scrollTop} ${styles.hidden}`} onClick={scrollToTop}>
-          <ChevronIcon />
+          <div>
+            <Chevron />
+          </div>
         </button>
       )}
     </div>
