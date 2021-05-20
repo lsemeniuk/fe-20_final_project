@@ -87,7 +87,6 @@ const NavBar = () => {
                 <li key='wishList'>
                   {wishList && favorites !== 0 ? (
                     <NavLink to={isAuth ? WISH_LIST_ROUTE : CUSTOMER_WISH_LIST_ROUTE}>
-                      {/* <NavLink to={WISH_LIST_ROUTE}> */}
                       {heartJsx}
                       <span className={styles.favorites}>{favorites}</span>
                     </NavLink>
