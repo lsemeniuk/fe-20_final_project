@@ -11,7 +11,6 @@ import {
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
-
 import Page404 from '../pages/Page404/Page404';
 import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
 import Orders from '../pages/User/Orders/Orders';

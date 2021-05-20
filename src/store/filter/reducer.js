@@ -13,7 +13,6 @@ const reducer = (state = initialState, action) => {
     case CHECKED_FILTERS: {
       return { ...state, checked: action.payload };
     }
-
     default: {
       return state;
     }
