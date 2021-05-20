@@ -1,31 +1,60 @@
 @import '../../utils/styles/var';
 
 .scrollTop {
-  display: inline-block;
-  background-color: $colorButton;
-  cursor: pointer;
-  border: none;
-  width: 50px;
-  height: 45px;
-  text-align: center;
-  border-radius: 4px;
+  padding: 0;
+  background: $colorTextSilver;
   position: fixed;
-  bottom: 30px;
-  right: 20px;
-  transition: background-color 0.6s, opacity 0.6s;
-  z-index: 100;
+  bottom: 20px;
+  right: 30px;
+  border: none;
+  transition: 0.6s;
+  z-index: 50;
 }
-.hidden {
- opacity: 0;
-
+.scrollTop::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #21ebff;
+  border-left: 3px solid #21ebff;
+  transition: 0.6s;
 }
 .scrollTop:hover {
-  background-color: $colorSecondary;
-
+  background: #21ebff;
+  color: #111;
+  box-shadow: 0 0 50px #18828b;
 }
-.scrollTop:hover svg{
+.scrollTop:hover::before {
+  width: 99%;
+  height: 99%;
+}
+.scrollTop::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 3px solid #21ebff;
+  border-right: 3px solid #21ebff;
+  transition: 0.6s;
+}
+.hidden {
+  opacity: 0;
+}
+.iconBox {
+  width: 45px;
+  height: 40px;
+}
+.scrollTop:hover::after {
+  width: 99%;
+  height: 99%;
+}
+.scrollTop:hover svg {
   fill: #000;
- }
+}
 svg {
   transition: fill 0.6s;
 }

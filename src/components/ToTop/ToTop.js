@@ -21,13 +21,13 @@ const ToTopButton = () => {
     <div>
       {showScroll ? (
         <button type='button' className={styles.scrollTop} onClick={scrollToTop}>
-          <div>
+          <div className={styles.iconBox}>
             <Chevron />
           </div>
         </button>
       ) : (
         <button type='button' className={`${styles.scrollTop} ${styles.hidden}`} onClick={scrollToTop}>
-          <div>
+          <div className={styles.iconBox}>
             <Chevron />
           </div>
         </button>
