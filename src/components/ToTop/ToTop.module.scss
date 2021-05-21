@@ -9,6 +9,8 @@
   border: none;
   transition: 0.6s;
   z-index: 50;
+  overflow:hidden;
+
 }
 .scrollTop::before {
   content: '';
@@ -25,6 +27,7 @@
   background: #21ebff;
   color: #111;
   box-shadow: 0 0 50px #18828b;
+  overflow:hidden;
 }
 .scrollTop:hover::before {
   width: 99%;
