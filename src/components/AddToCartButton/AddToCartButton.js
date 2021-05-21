@@ -15,7 +15,6 @@ const AddToCartButton = ({ id, className }) => {
   let idCartList = [];
   if (!cartLoading) {
     if (cart) {
-      console.log(cart);
       idCartList = cart.products.map(prod => {
         return prod.product['_id'];
       });

@@ -1,6 +1,5 @@
 /* eslint-disable dot-notation */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-expressions */
+/* eslint-disable prefer-const */
 import {
   addProductToWishlist,
   deleteProductFromWishlist,
@@ -10,7 +9,6 @@ import {
 } from '../../http/wishlistAPI';
 import { wishListLoadingAction, saveWishListAction } from './actions';
 import { getProductById } from '../../http/productAPI';
-/* eslint-disable prefer-const */
 
 export const getWishListOperation = () => dispatch => {
   dispatch(wishListLoadingAction(true));
@@ -48,7 +46,7 @@ export const updateWishListOperation = prod => dispatch => {
   let dbWishList = [];
   let wishList = { products: [] };
   const storageWishList = prod.products;
-
+  const storageId = storageWishList.map(itemData => itemData.id);
   getWishlist().then(res => {
     if (res.data && res.data.products) {
       dbWishList = res.data.products.map(item => {
@@ -56,7 +54,7 @@ export const updateWishListOperation = prod => dispatch => {
       });
 
       if (storageWishList) {
-        const newItem = storageWishList.filter(id => !dbWishList.includes(id));
+        const newItem = storageId.filter(id => !dbWishList.includes(id));
         wishList.products = dbWishList.concat(newItem);
         updateWishlist(wishList).then(products => {
           dispatch(saveWishListAction(products.data));
@@ -64,7 +62,7 @@ export const updateWishListOperation = prod => dispatch => {
         });
       }
     } else {
-      updateWishlist(prod).then(products => {
+      updateWishlist(wishList).then(products => {
         dispatch(saveWishListAction(products.data));
         return res;
       });

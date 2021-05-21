@@ -16,7 +16,7 @@ import { getProductsSelector } from '../../store/products/selectors';
 
 const AddToWishListBtn = ({ id, itemNo }) => {
   const dispatch = useDispatch();
-  const wishList = useSelector(getWishListSelector);
+  let wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const products = useSelector(getProductsSelector);
@@ -31,17 +31,18 @@ const AddToWishListBtn = ({ id, itemNo }) => {
     }
   }, []);
 
+  if (!isAuth && wishList === null) {
+    wishList = [];
+  }
+
   if (isAuth) {
-    if (!wishListLoading) {
-      if (wishList) {
-        idWishList = wishList.products.map(prod => {
-          return prod['_id'];
-        });
-      }
+    if (!wishListLoading && wishList) {
+      idWishList = wishList.products.map(prod => {
+        return prod['_id'];
+      });
     }
-  } else {
+  } else if (wishList !== null) {
     idWishList = wishList.map(itemData => itemData['_id']) || [];
-    // console.log(wishList);
   }
 
   const addToWishList = () => {
@@ -53,9 +54,11 @@ const AddToWishListBtn = ({ id, itemNo }) => {
       dispatch(setFavForCustomerOperation(itemNo, wishList));
     }
   };
+
   const deleteToWishList = () => {
     if (isAuth) {
       dispatch(deleteProductFromWishlishtOperation(id, wishList));
+      localStorage.setItem('WishList', JSON.stringify([...storageWishList.filter(i => i.itemNo !== itemNo)]));
     } else {
       localStorage.setItem('WishList', JSON.stringify([...storageWishList.filter(i => i.itemNo !== itemNo)]));
       dispatch(saveWishListAction([...wishList.filter(i => i.itemNo !== itemNo)]));

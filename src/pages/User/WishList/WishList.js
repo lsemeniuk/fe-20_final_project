@@ -8,15 +8,31 @@ import { deleteWishListOperation } from '../../../store/wishList/operations';
 import styles from './WishList.module.scss';
 import Button from '../../../components/Button/Button';
 import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
+import { saveWishListAction } from '../../../store/wishList/actions';
 
 const WishList = () => {
   const dispatch = useDispatch();
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
-  const favProducts = isAuth ? wishList.products : wishList;
+  let favProducts = [];
+
+  if (isAuth) {
+    if (wishList !== null) {
+      favProducts = wishList.products;
+    }
+  } else {
+    favProducts = wishList;
+  }
+
   const clearFavorites = () => {
-    dispatch(deleteWishListOperation());
+    if (isAuth) {
+      dispatch(deleteWishListOperation());
+      localStorage.removeItem('WishList');
+    } else {
+      dispatch(saveWishListAction([]));
+      localStorage.removeItem('WishList');
+    }
   };
 
   if (isAuth && wishListLoading) {
@@ -28,13 +44,13 @@ const WishList = () => {
   }
 
   return (
-    <ContainerPage>
+    <ContainerPage style={isAuth ? {} : { width: '70%', margin: '0 auto', minHeight: '500px', marginTop: '50px' }}>
       <div>
         <header className={styles.header}>
           <p className={styles.title}>Список желаний</p>
-          {wishList && <Button onClick={clearFavorites} title='Очистить' variant='outline' />}
+          {favProducts.length !== 0 && <Button onClick={clearFavorites} title='Очистить' variant='outline' />}
         </header>
-        {wishList ? (
+        {favProducts.length !== 0 ? (
           <div className={styles.wrapper}>
             {favProducts.map(i => (
               <ProductCard key={i.itemNo} product={i} inCart />

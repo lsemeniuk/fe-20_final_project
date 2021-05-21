@@ -31,19 +31,19 @@ const NavBar = () => {
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
 
   let favorites = 0;
-  if (isAuth && !wishListLoading) {
-    if (wishList) {
+  if (isAuth) {
+    if (!wishListLoading && wishList) {
       favorites = wishList.products.length;
     }
   } else {
-    favorites = wishList.length || 0;
+    favorites = wishList !== null ? wishList.length || 0 : 0;
   }
 
   useEffect(() => {
     dispatch(getProductsOperation());
     dispatch(wishListLoadingAction(true));
-    dispatch(getWishListOperation());
     if (isAuth) {
+      dispatch(getWishListOperation());
       dispatch(updateWishListOperation(storageWishList));
       dispatch(getCartOperation());
     }
