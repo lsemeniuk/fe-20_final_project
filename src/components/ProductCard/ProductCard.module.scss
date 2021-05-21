@@ -12,7 +12,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 
   &:hover {
     @extend %custom-shadow;
@@ -139,30 +138,6 @@
   align-self: flex-start;
   margin-bottom: 10px;
   white-space: nowrap;
-}
-
-.priceSales {
-  display: flex;
-  align-items: flex-end;
-}
-
-.currentPrice {
-  margin-right: 20px;
-  color: $colorSale;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.previousPrice {
-  font-size: 14px;
-  text-decoration: line-through;
-  color: #6d6d6d;
-}
-
-.regularPrice {
-  color: $colorNew;
-  font-weight: 700;
-  font-size: 18px;
 }
 
 .name {
