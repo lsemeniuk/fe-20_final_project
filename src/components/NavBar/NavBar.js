@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { INDEX_ROUTE, PRODUCTS_ROUTE, WISH_LIST_ROUTE, CUSTOMER_WISH_LIST_ROUTE } from '../../utils/consts';
+import { INDEX_ROUTE, WISH_LIST_ROUTE, CUSTOMER_WISH_LIST_ROUTE } from '../../utils/consts';
 import Container from '../Container/Container';
 import Icons from '../Icons/Icons';
 import MyOrders from './MyOrders/MyOrders';
@@ -78,12 +78,7 @@ const NavBar = () => {
             </div>
             <div className={styles.menuContainer}>
               <ul className={styles.menuList}>
-                <li key='all'>
-                  <NavLink to={PRODUCTS_ROUTE} className={styles.menuLink}>
-                    Все товары
-                  </NavLink>
-                </li>
-                <CategoriesList className={styles.menuLink} />
+                <CategoriesList className={styles.menuLink} activeClassName={styles.menuLinkActive} />
               </ul>
               <ul className={styles.iconList}>
                 <li key='wishList'>

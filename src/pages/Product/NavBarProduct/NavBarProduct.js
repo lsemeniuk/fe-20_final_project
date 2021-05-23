@@ -10,9 +10,9 @@ const NavBarProduct = ({ product, setTabIndexInfo, infoRef, productRef, interest
   const [showOrders, setShowOrders] = useState(false);
 
   const checkScrollOrders = () => {
-    if (!showOrders && window.pageYOffset > 400) {
+    if (!showOrders && window.pageYOffset > 500) {
       setShowOrders(true);
-    } else if (showOrders && window.pageYOffset <= 400) {
+    } else if (showOrders && window.pageYOffset <= 500) {
       setShowOrders(false);
     }
   };
@@ -51,7 +51,7 @@ const NavBarProduct = ({ product, setTabIndexInfo, infoRef, productRef, interest
               Отзывы
             </span>
             <span className={styles.navBarItem} onClick={() => scrollTo(interestedRef)}>
-              Отзывы
+              Покупают вместе
             </span>
           </nav>
 
