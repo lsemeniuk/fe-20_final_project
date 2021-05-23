@@ -83,7 +83,6 @@ const MyFilterContainer = ({ sort, checkboxed }) => {
           </>
         )}
       </div>
-
       <div className={activeSort}>
         {!!sort && (
           <>

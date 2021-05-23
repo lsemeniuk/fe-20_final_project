@@ -64,7 +64,7 @@ const ProductCard = ({ product, inSlider }) => {
         <div className={styles.btnFlex}>
           <AddToCartButton id={id} />
           <span className={styles.favIcon}>
-            <AddToWishListBtn id={id} />
+            <AddToWishListBtn id={id} itemNo={itemNo} />
           </span>
         </div>
       </div>

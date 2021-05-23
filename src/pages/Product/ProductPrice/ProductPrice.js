@@ -8,7 +8,7 @@ import Button from '../../../components/Button/Button';
 import AddToWishListBtn from '../../../components/AddToWishListButton/AddToWishListBtn';
 
 const ProductPrice = ({ product }) => {
-  const { previousPrice, currentPrice, _id: id } = product;
+  const { previousPrice, currentPrice, _id: id, itemNo } = product;
 
   return (
     <div className={styles.container}>
@@ -24,7 +24,7 @@ const ProductPrice = ({ product }) => {
       </div>
       <AddToCartButton id={id} className={styles.button} />
       <Button variant='outline' className={`${styles.button} ${styles.orderButton}`} title='Быстрый заказ' />
-      <AddToWishListBtn id={id} />
+      <AddToWishListBtn id={id} itemNo={itemNo} />
     </div>
   );
 };
