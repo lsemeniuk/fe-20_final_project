@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import ContainerPage from '../ContainerPage/ContainerPage';
+// import ContainerPage from '../ContainerPage/ContainerPage';
 import styles from './TabsCustom.module.scss';
 
 const TabsCustom = ({ tabsData }) => {
@@ -26,13 +26,13 @@ const TabsCustom = ({ tabsData }) => {
   });
 
   return (
-    <ContainerPage>
-      <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
-        <TabList>{tabList}</TabList>
+    // <ContainerPage>
+    <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
+      <TabList>{tabList}</TabList>
 
-        {tabPanelList}
-      </Tabs>
-    </ContainerPage>
+      {tabPanelList}
+    </Tabs>
+    // </ContainerPage>
   );
 };
 
