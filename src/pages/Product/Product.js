@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
@@ -18,11 +18,13 @@ import OrdersInfo from './OrdersInfo/OrdersInfo';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import InfoPanel from './InfoPanel/InfoPanel';
 import styles from './Product.module.scss';
-import AddToCartButton from '../../components/AddToCartButton/AddToCartButton';
-import PriceBlock from '../../components/PriceBlock/PriceBlock';
+import NavBarProduct from './NavBarProduct/NavBarProduct';
 
 const Product = () => {
   const [tabIndexInfo, setTabIndexInfo] = useState(0);
+  const infoRef = useRef(null);
+  const productRef = useRef(null);
+  const interestedRef = useRef(null);
 
   const dispatch = useDispatch();
   const products = useSelector(getProductsSelector);
@@ -46,7 +48,7 @@ const Product = () => {
       </Container>
     );
   }
-  const { brand, name, quantity, color, previousPrice, currentPrice, _id: id } = product;
+  const { brand, name, quantity, color } = product;
 
   return (
     <main>
@@ -68,33 +70,16 @@ const Product = () => {
         </div>
       </Container>
 
-      <div className={styles.navBarContainer}>
-        <Container>
-          <div className={styles.navBarFlex}>
-            <nav className={styles.navBarProduct}>
-              <span className={styles.navBarItem}>Про товар</span>
-              <span className={styles.navBarItem} onClick={() => setTabIndexInfo(0)}>
-                Описание
-              </span>
-              <span className={styles.navBarItem} onClick={() => setTabIndexInfo(1)}>
-                Характеристики
-              </span>
-              <span className={styles.navBarItem} onClick={() => setTabIndexInfo(2)}>
-                Отзывы
-              </span>
-            </nav>
-            <div className={styles.navBarOrder}>
-              <AddToCartButton id={id} />
-              <div className={styles.priceContainer}>
-                <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </div>
+      <NavBarProduct
+        product={product}
+        setTabIndexInfo={setTabIndexInfo}
+        infoRef={infoRef}
+        productRef={productRef}
+        interestedRef={interestedRef}
+      />
 
       <Container>
-        <div className={styles.flexContainer}>
+        <div className={styles.flexContainer} ref={productRef}>
           <div className={styles.flexColumn}>
             <ProductImages product={product} />
           </div>
@@ -107,9 +92,15 @@ const Product = () => {
           </div>
         </div>
 
-        <InfoPanel product={product} setTabIndex={setTabIndexInfo} tabIndex={tabIndexInfo} />
+        <div ref={infoRef} className={styles.infoPanel}>
+          <InfoPanel product={product} setTabIndex={setTabIndexInfo} tabIndex={tabIndexInfo} />
+        </div>
 
-        {!productsLoading && <CustomSlider title='Также Вас могут заинтересовать' products={products} />}
+        {!productsLoading && (
+          <div ref={interestedRef} className={styles.interestedProduct}>
+            <CustomSlider title='Также Вас могут заинтересовать' products={products} />
+          </div>
+        )}
       </Container>
     </main>
   );

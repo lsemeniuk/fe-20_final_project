@@ -33,49 +33,6 @@
   font-size: 24px;
 }
 
-// Navbar Product
-
-.navBarContainer {
-  margin-bottom: 10px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 500;
-  box-shadow: 0px 8px 13px -7px rgba(38, 44, 48, 0.15);
-  background-color: $bgColor;
-}
-
-.navBarFlex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navBarProduct {
-  height: 45px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.navBarItem {
-  font-size: 14px;
-  margin-right: 20px;
-  cursor: pointer;
-  &:hover {
-    color: $colorButton;
-  }
-}
-
-.navBarOrder {
-  display: flex;
-  align-items: center;
-}
-
-.priceContainer {
-  margin-left: 30px;
-}
-
 // Flex
 
 .flexContainer {
@@ -84,7 +41,6 @@
   background-color: #fff;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
 }
 
 .flexColumn {
@@ -97,4 +53,12 @@
   &:last-child {
     margin-left: 10px;
   }
+}
+
+.infoPanel {
+  padding-top: 45px;
+}
+
+.interestedProduct {
+  padding-top: 45px;
 }
