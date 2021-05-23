@@ -7,6 +7,7 @@ import {
   PERSONAL_INFO_ROUTE,
   ADM_CATALOG_ROUTE,
   PRODUCT_ROUTE,
+  CUSTOMER_WISH_LIST_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -42,6 +43,11 @@ export const publicRoutes = [
     name: 'Оформить заказ',
     path: CHECKOUT_ROUTE,
     Component: CheckoutCart,
+  },
+  {
+    name: 'Список желаний',
+    path: CUSTOMER_WISH_LIST_ROUTE,
+    Component: WishList,
   },
   {
     name: 'Страницы не существует',
