@@ -71,7 +71,7 @@ const Cart = ({ buttonHandler, display }) => {
             <span className={styles.total}>Итого</span>
             {totalPrice} грн
           </h3>
-          <NavLink to={CHECKOUT_ROUTE}>
+          <NavLink to={CHECKOUT_ROUTE} onClick={() => buttonHandler()}>
             <Button title='Оформить заказ' />
           </NavLink>
         </div>
