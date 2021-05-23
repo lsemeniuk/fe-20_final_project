@@ -15,7 +15,6 @@ class ErrorBoundary extends PureComponent {
   componentDidUpdate(prevProps, prevState) {
     const { location } = this.props;
     const { errorPresent } = prevState;
-
     if (errorPresent && location.pathname !== prevProps.location.pathname) {
       this.setState({ errorPresent: false });
     }

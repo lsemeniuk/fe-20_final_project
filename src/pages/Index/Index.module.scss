@@ -1,5 +1,18 @@
 @import '../../utils/styles/var';
 
+.main {
+  padding-top: 0;
+}
+
+.brandBar {
+  margin-bottom: 30px;
+}
+
+.brandBarTytle {
+  text-align: center;
+  font-size: 20px;
+}
+
 // product section styles===========================
 
 .descriptionWrapper {
@@ -70,10 +83,6 @@
 
 .bestsellersSection {
   margin-top: 40px;
-}
-
-.bestsellerTitle {
-  font-size: 20px;
 }
 
 .bestsellersItems {

@@ -10,13 +10,13 @@ import { saveModalAuthRegAction } from '../../../store/modal/actions';
 const User = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
-  const isLogin = useSelector(getCustomerIsAuthSelector);
+  const isAuth = useSelector(getCustomerIsAuthSelector);
 
   const Icon = <Icons type='navUser' color='black' width={30} height={30} />;
 
   return (
     <div className={styles.container}>
-      {isLogin ? (
+      {isAuth ? (
         <div className={styles.icon}>{Icon}</div>
       ) : (
         <div
@@ -29,9 +29,8 @@ const User = () => {
         </div>
       )}
 
-      {isLogin ? <UserBar className={styles.userBar} /> : null}
+      {isAuth ? <UserBar className={styles.userBar} /> : null}
     </div>
   );
 };
-
 export default User;

@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  // height: 100vh;
   background-color: #f0f0f0;
+  padding: 20px 0;
 }
 .notfound {
   display: flex;
@@ -13,7 +14,9 @@
   margin: auto;
   text-align: center;
 }
-
+.contant {
+  margin-right: 50px;
+}
 .title {
   font-size: 86px;
   text-transform: uppercase;
@@ -30,7 +33,7 @@
   margin-bottom: 30px;
 }
 .img {
-  height: 500px;
+  height: 300px;
 }
 
 @media only screen and (max-width: 990px) {

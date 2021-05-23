@@ -11,7 +11,7 @@ const Page404 = () => {
   return (
     <div className={styles.container}>
       <div className={styles.notfound}>
-        <div>
+        <div className={styles.contant}>
           <h1 className={styles.title}>УПС!</h1>
           <h2 className={styles.subTitle}>Error 404 : Страницу не найдено</h2>
           <Button onClick={() => history.push(INDEX_ROUTE)} title='На главную' />

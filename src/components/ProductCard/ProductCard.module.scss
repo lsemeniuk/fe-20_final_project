@@ -1,0 +1,172 @@
+@import '../../utils/styles/var';
+@import '../../utils/styles/mixins';
+
+.container {
+  position: relative;
+  width: calc(100% / 3);
+  padding: 20px;
+  // border-radius: 5px;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    @extend %custom-shadow;
+    border: 1px solid #d4d4d4;
+  }
+  &:hover .lastImage {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+  &:hover .btnBlock {
+    box-shadow: 0px 7px 13px -3px rgba(38, 44, 48, 0.25);
+    border: 1px solid #d4d4d4;
+    border-top: none;
+    display: block;
+  }
+}
+
+// To slider
+.container__slider {
+  position: relative;
+  margin: 0;
+  width: calc(100% - 4px);
+  &:hover .btnBlock {
+    box-shadow: none;
+    border: none;
+  }
+
+  & .labelBlock {
+    padding: 5px 0 0 5px;
+  }
+
+  & .btnBlock {
+    position: relative;
+    border: 1px solid #d4d4d4;
+    border-top: none;
+    display: block;
+    width: 100%;
+    padding: 10px 0 0;
+    top: 0;
+    border: none;
+  }
+}
+
+// Images
+
+.link {
+  display: flex;
+  justify-content: center;
+}
+
+.imgBlock {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.firstImage {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s, visibility 0.3s;
+  will-change: transform;
+}
+
+.lastImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  will-change: transform;
+}
+
+.image {
+  margin: 5px;
+  width: calc(100% - 10px);
+}
+
+// Label
+
+.labelBlock {
+  text-align: left;
+  padding: 10px 0 0 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 0 4px 0;
+  padding: 0 15px;
+  border-radius: 24px;
+}
+
+.labelNew {
+  background-color: $colorNew;
+}
+
+.labelSuperPrice {
+  background-color: $colorSuperPrice;
+}
+
+.labelHit {
+  background-color: #940ad5;
+}
+
+.labelSales {
+  background-color: $colorSale;
+}
+
+// Price
+
+.priceBlock {
+  align-self: flex-start;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.name {
+  position: relative;
+  color: #263238;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.btnBlock {
+  width: calc(100% + 2px);
+  position: absolute;
+  padding: 0 20px 20px;
+  border-radius: 0 0 5px 5px;
+  border-top: 0;
+  background: #fff;
+  display: none;
+  bottom: -50px;
+  z-index: 100;
+}
+
+.btnFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favIcon {
+  cursor: pointer;
+}

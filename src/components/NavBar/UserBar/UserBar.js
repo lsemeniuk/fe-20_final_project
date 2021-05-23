@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { getCustomerSelector } from '../../../store/customer/selectors';
-import { PERSONAL_INFO_ROUTE } from '../../../utils/consts';
+import { ADM_CATALOG_ROUTE, ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../../utils/consts';
 import styles from './UserBar.module.scss';
-import { saveCustomerAction, saveCustomerIsAuthAction } from '../../../store/customer/actions';
+import { outPutCustomerOperation } from '../../../store/customer/operations';
 
 const UserBar = ({ className }) => {
   const dispatch = useDispatch();
   const customer = useSelector(getCustomerSelector);
+  const history = useHistory();
 
   const output = () => {
-    dispatch(saveCustomerAction({}));
-    dispatch(saveCustomerIsAuthAction(false));
-    localStorage.setItem('token', '');
+    dispatch(outPutCustomerOperation());
+    history.push('/');
   };
 
   return (
@@ -26,18 +26,18 @@ const UserBar = ({ className }) => {
           </NavLink>
         </li>
         <li className={styles.item}>
-          <NavLink to={PERSONAL_INFO_ROUTE} className={styles.link}>
+          <NavLink to={ORDERS_ROUTE} className={styles.link}>
             Заказы
           </NavLink>
         </li>
         <li className={styles.item}>
-          <NavLink to={PERSONAL_INFO_ROUTE} className={styles.link}>
+          <NavLink to={WISH_LIST_ROUTE} className={styles.link}>
             Список желаний
           </NavLink>
         </li>
         {customer.isAdmin ? (
           <li className={styles.item}>
-            <NavLink to={PERSONAL_INFO_ROUTE} className={styles.link}>
+            <NavLink to={ADM_CATALOG_ROUTE} className={styles.link}>
               Админпанель
             </NavLink>
           </li>

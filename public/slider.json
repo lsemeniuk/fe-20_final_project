@@ -2,10 +2,10 @@
   {
     "_id": "5da7632172b193119c3c8659",
     "customId": "promotion-women-clothing21",
-    "imageUrl": "https://f.ua/statik/images/index_banners_fua/image_1619534315.png",
+    "imageUrl": "https://i.ibb.co/thYr1gG/1.png",
     "title": "Buy 2 dresses and get a third for free!",
     "description": "Do not miss our hot offer. Promotion ends 10/30/2019",
-    "backgroundColor": "#048141",
+    "backgroundColor": "linear-gradient(180deg, rgba(250,250,100,1) 0%, rgba(55,183,250,1) 100%)",
     "category": {
       "_id": "5d99f68e419d040eec0f722c",
       "id": "women",
@@ -23,9 +23,9 @@
   {
     "_id": "5da767c472b193119c3c865a",
     "customId": "promotion-product-562382177",
-    "imageUrl": "https://f.ua/statik/images/index_banners_fua/image_1619615779.jpg",
+    "imageUrl": "https://i.ibb.co/JyN3P36/image-1619615779121.png",
     "title": "50% discount for 'test product 5' ",
-    "backgroundColor": "#150140",
+    "backgroundColor": "radial-gradient(circle, rgba(134,252,237,1) 0%, rgba(87,55,250,1) 100%)",
     "product": {
       "enabled": true,
       "imageUrls": ["products/itemNo2"],

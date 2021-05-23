@@ -1,0 +1,42 @@
+.title {
+  text-align: center;
+  color: #fff;
+  margin: 0;
+}
+
+@mixin container_select() {
+  display: flex;
+  align-items: flex-start;
+}
+.select {
+  &_heading {
+    margin: 10px 5px 10px 5px;
+  }
+  &_container_box {
+    position: relative;
+    display: block;
+    background-color: white;
+    min-width: 270px;
+    max-width: 280px;
+    padding: 10px 0;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 99;
+  }
+}
+
+.select_box {
+  @include container_select();
+  justify-content: space-between;
+  min-width: 260px;
+  max-width: 100%;
+}
+.select_box_filter {
+  @include container_select();
+  flex-direction: column;
+}
+.select_box_sort {
+  display: flex;
+  align-items: center;
+}

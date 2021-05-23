@@ -1,7 +1,9 @@
 @import '../../utils/styles/var';
+@import '../../utils/styles/mixins';
 
 .bgContainer {
   background-color: $colorSecondary;
+  @extend %custom-shadow;
 }
 
 .flexContainer {
@@ -28,21 +30,18 @@
   color: #000;
   font-weight: 700;
   font-size: 14px;
-  padding: 10px 10px;
+  padding: 10px 0;
+  margin-right: 20px;
   white-space: nowrap;
   &:hover {
     text-decoration: none;
     color: $colorButton;
   }
+}
 
-  &:active {
-    color: #fff;
-    font-weight: 700;
-    font-size: 14px;
-    margin: 0 0;
-    background-color: #000;
-    text-decoration: none;
-  }
+.menuLinkActive {
+  color: $colorButton;
+  border-bottom: 2px solid $colorButton;
 }
 
 .iconList {

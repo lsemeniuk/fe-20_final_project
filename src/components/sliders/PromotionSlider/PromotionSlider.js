@@ -23,7 +23,7 @@ const PromotionSlider = () => {
   const slidersList = sliders.map(s => {
     return (
       <div className={styles.itemContainer} key={s.customId}>
-        <li style={{ backgroundColor: s.backgroundColor }} className={styles.sliderItem}>
+        <li style={{ background: s.backgroundColor }} className={styles.sliderItem}>
           <NavLink to={PRODUCTS_ROUTE} className={styles.link}>
             <img className={styles.sliderImage} alt={s.customId} src={s.imageUrl} />
           </NavLink>
@@ -34,9 +34,11 @@ const PromotionSlider = () => {
 
   return (
     <div className={styles.container}>
-      <Slider {...sliderSettings} className={styles.slider}>
-        {slidersList}
-      </Slider>
+      <ul>
+        <Slider {...sliderSettings} className={styles.slider}>
+          {slidersList}
+        </Slider>
+      </ul>
     </div>
   );
 };

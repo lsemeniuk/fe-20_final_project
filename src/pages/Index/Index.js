@@ -1,12 +1,18 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import Container from '../../components/Container/Container';
 import GenderLink from '../../components/GenderLink/GenderLink';
+import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import PromotionSlider from '../../components/sliders/PromotionSlider/PromotionSlider';
+import { getProductsSelector, productsLoadingSelector } from '../../store/products/selectors';
 import styles from './Index.module.scss';
 
 const Index = () => {
+  const products = useSelector(getProductsSelector);
+  const productsLoading = useSelector(productsLoadingSelector);
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -17,10 +23,14 @@ const Index = () => {
   };
 
   return (
-    <div className={styles.body}>
+    <main className={styles.main}>
       <PromotionSlider />
 
       <Container>
+        <div className={styles.brandBar}>
+          <h3 className={styles.brandBarTytle}>Выбирай часы своего любимого бренда</h3>
+          <BrandBar />
+        </div>
         <div className={styles.descriptionWrapper}>
           <h2 className={styles.descriptionText}>
             Большой выбор <br /> оригинальных <br /> смарт-часов
@@ -34,8 +44,7 @@ const Index = () => {
 
         <div className={styles.bestsellersSection}>
           <div className={styles.bestsellersItems}>
-            <h3 className={styles.bestsellerTitle}>Хиты продаж</h3>
-            <CustomSlider />
+            {!productsLoading && <CustomSlider title='Хиты продаж' products={products} />}
           </div>
         </div>
 
@@ -65,10 +74,7 @@ const Index = () => {
           />
         </Slider>
 
-        <div className={styles.newProducts}>
-          <h3 className={styles.newProductsTitle}>New products</h3>
-          <CustomSlider />
-        </div>
+        {!productsLoading && <CustomSlider title='Свежие новинки' products={products} />}
 
         <div className={styles.aboutSection}>
           <h4 className={styles.aboutTitle}>О магазине</h4>
@@ -90,7 +96,7 @@ const Index = () => {
           </p>
         </div>
       </Container>
-    </div>
+    </main>
   );
 };
 

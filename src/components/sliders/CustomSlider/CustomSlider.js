@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import axios from 'axios';
-import ProductItem from '../../ProductItem/ProductItem';
+import ProductCard from '../../ProductCard/ProductCard';
+import styles from './CustomSlider.module.scss';
 
-const CustomSlider = () => {
-  const [products, setProducts] = useState([]);
-
+const CustomSlider = ({ title, products }) => {
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -37,19 +36,23 @@ const CustomSlider = () => {
     ],
   };
 
-  useEffect(() => {
-    axios.get('../../products.json').then(res => setProducts([...res.data]));
-  }, []);
+  const productsList = products.map(product => <ProductCard inSlider key={product.itemNo} product={product} />);
 
   return (
     <div>
-      <Slider {...sliderSettings}>
-        {products.map(i => (
-          <ProductItem key={i.itemNo} product={i} />
-        ))}
-      </Slider>
+      <h3 className={styles.bestsellerTitle}>{title}</h3>
+      <ul>
+        <Slider {...sliderSettings} className={styles.slider}>
+          {productsList}
+        </Slider>
+      </ul>
     </div>
   );
+};
+
+CustomSlider.propTypes = {
+  title: PropTypes.string.isRequired,
+  products: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CustomSlider;
