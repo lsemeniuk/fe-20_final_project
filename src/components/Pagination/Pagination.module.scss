@@ -1,0 +1,27 @@
+.pagination {
+    display: flex;
+    text-align: center;
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+.page__item {
+    width: 50px;
+    margin: 20px 15px;
+    padding: 0 10px;
+    background: #dedede;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.active {
+    background-color: blue;
+    color: #fff;
+}
+.page__item:hover .page__number {
+    color:red;
+}
+.page__number {
+   
+    font-size: 25px;
+}
