@@ -18,7 +18,7 @@ const ProductList = () => {
   const [productsQuantity, setProductsQuantity] = useState('');
   const [productsLoading, setProductsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState();
+  const [productsPerPage] = useState(6);
 
   useEffect(() => {
     setProductsLoading(true);
