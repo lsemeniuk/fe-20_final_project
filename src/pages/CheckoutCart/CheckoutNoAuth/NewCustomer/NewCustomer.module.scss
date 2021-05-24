@@ -1,0 +1,50 @@
+@import '../../../../utils/styles/var';
+
+.container {
+  width: 50%;
+}
+
+.citiesBlock {
+  margin-left: 200px;
+  margin-top: -15px;
+  padding-bottom: 20px;
+}
+
+.citiesTitle {
+  color: #959595;
+  font-size: 15px;
+}
+.cities {
+  cursor: pointer;
+  font-size: 15px;
+  padding-right: 5px;
+  &:hover {
+    color: $colorButton;
+  }
+}
+
+.title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+.comment {
+  background: none !important;
+  border: none;
+  padding-bottom: 20px;
+  cursor: pointer;
+  &:hover {
+    color: $colorButton;
+  }
+}
+
+.commentContainer {
+  display: none;
+}
+
+.commentShowedContainer {
+  display: none;
+}
