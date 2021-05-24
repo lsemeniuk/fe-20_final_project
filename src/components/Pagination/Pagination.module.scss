@@ -1,27 +1,35 @@
+@import '../../utils/styles/var';
 .pagination {
-    display: flex;
-    text-align: center;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-flow: row wrap;
 }
 .center {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .page__item {
-    width: 50px;
-    margin: 20px 15px;
-    padding: 0 10px;
-    background: #dedede;
-    border: 1px solid black;
-    cursor: pointer;
+  margin: 20px 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
-.active {
-    background-color: blue;
-    color: #fff;
-}
-.page__item:hover .page__number {
-    color:red;
+.page__item:hover .page__number,
+.page__item:hover .page__prev,
+.page__item:hover .page__next {
+  color: $colorButton;
 }
 .page__number {
-   
-    font-size: 25px;
+  font-size: 25px;
+}
+.active {
+  border: 2px solid $colorButton;
+  color: $colorButton
+}
+.page__next,
+.page__prev {
+  font-size: 1rem;
 }

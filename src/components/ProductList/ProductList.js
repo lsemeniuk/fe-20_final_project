@@ -26,6 +26,7 @@ const ProductList = () => {
       `https://fe-20-final-project.herokuapp.com/api/products/filter?perPage=${productsPerPage}&startPage=${currentPage}`
     ).then(({ data }) => {
       setProducts(data.products);
+      console.log(data);
       setProductsQuantity(data.productsQuantity);
       setProductsLoading(false);
     });
@@ -39,7 +40,12 @@ const ProductList = () => {
 
   return (
     <>
-      <Pagination productsPerPage={productsPerPage} totalProducts={productsQuantity} setCurrentPage={setCurrentPage} />
+      <Pagination
+        productsPerPage={productsPerPage}
+        totalProducts={+productsQuantity}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
       <ul className={style.productsList}>{productList}</ul>
     </>
   );
