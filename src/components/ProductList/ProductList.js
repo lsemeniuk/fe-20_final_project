@@ -18,7 +18,7 @@ const ProductList = () => {
   const [productsQuantity, setProductsQuantity] = useState('');
   const [productsLoading, setProductsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(4);
+  const [productsPerPage] = useState();
 
   useEffect(() => {
     setProductsLoading(true);
@@ -26,7 +26,6 @@ const ProductList = () => {
       `https://fe-20-final-project.herokuapp.com/api/products/filter?perPage=${productsPerPage}&startPage=${currentPage}`
     ).then(({ data }) => {
       setProducts(data.products);
-      console.log(data);
       setProductsQuantity(data.productsQuantity);
       setProductsLoading(false);
     });
