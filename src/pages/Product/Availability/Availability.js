@@ -24,7 +24,7 @@ const Availability = ({ quantity }) => {
     availability = (
       <>
         <Icons color='#ff5c00' type='clock' width={20} height={20} className={styles.availabilityIcons} />
-        <span className={styles.ends}>Товар заканчиваеться</span>
+        <span className={styles.ends}>Товар заканчивается</span>
       </>
     );
   }
