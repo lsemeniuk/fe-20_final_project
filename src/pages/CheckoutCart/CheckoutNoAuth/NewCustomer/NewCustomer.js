@@ -9,7 +9,7 @@ import styles from './NewCustomer.module.scss';
 import MySelect from '../../../../components/Forms/MySelect/MySelect';
 
 const NewCustomer = () => {
-  const [messageServer, setmessageServer] = useState(null);
+  const [messageServer, setMessageServer] = useState(null);
   const [deliveryMethod, setDeliveryMethod] = useState('postDelivery');
   const [commentAvailible, setCommentAvailible] = useState(false);
 
@@ -51,11 +51,11 @@ const NewCustomer = () => {
           placeOrder(values)
             .then(res => {
               if (res.status === 200) {
-                setmessageServer(<span style={{ color: 'green' }}>Заказ успешно оформлен!</span>);
+                setMessageServer(<span style={{ color: 'green' }}>Заказ успешно оформлен!</span>);
               }
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              setMessageServer(<span>{Object.values(err.data).join('')}</span>);
             });
           setSubmitting(false);
         }}
@@ -122,6 +122,11 @@ const NewCustomer = () => {
                 tabIndex='-1'
               />
             )}
+            <hr />
+            <MySelect label='Оплата' name='payment'>
+              <option value='cash'>Наличными</option>
+              <option value='cashOnDelivery'>Оплата при получении</option>
+            </MySelect>
           </div>
 
           <ButtonBlock buttonTitle='Оформить заказ' messageServer={messageServer} />
