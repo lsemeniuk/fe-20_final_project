@@ -1,6 +1,4 @@
-/* eslint no-console: "error" */
 import axios from 'axios';
-import { getFilters, getFilterByType } from '../../http/filtersAPI';
 import { saveAllFiltersAction, saveCheckedFiltersAction } from './actions';
 
 export const getFiltersOperation = () => async dispatch => {
@@ -10,7 +8,6 @@ export const getFiltersOperation = () => async dispatch => {
 };
 
 export const saveFiltersOperation = value => async dispatch => {
-  /* eslint no-console: 0 */
   console.log('🚀 ~ file: operations.js ~ line 12 ~ dispatch', dispatch);
   console.log('🚀 ~ file: operations.js ~ line 14 ~ value', value);
   dispatch(saveCheckedFiltersAction(value));
@@ -32,8 +29,8 @@ export const saveFiltersOperation = value => async dispatch => {
   console.log('~ joined', joined);
 
   const config = {
-    url: 'https://fe-20-final-project.herokuapp.com/api/filters',
-    method: 'post',
+    url: 'https://fe-20-final-project.herokuapp.com/api/products/filter',
+    method: 'get',
     params: {
       ...joined,
     },
@@ -46,16 +43,7 @@ export const saveFiltersOperation = value => async dispatch => {
     console.log(r);
   }
 };
-export const getFilterOperation = () => async dispatch => {
-  getFilters().then(res => {
-    dispatch(saveAllFiltersAction(res.data));
-  });
-};
-export const getFilterByTypeOperation = () => async dispatch => {
-  getFilterByType().then(res => {
-    dispatch(saveAllFiltersAction(res.data));
-  });
-};
+
 export const checkedFiltersOperation = value => async dispatch => {
   dispatch(saveCheckedFiltersAction(value));
 };

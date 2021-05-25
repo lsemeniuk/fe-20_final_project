@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, ErrorMessage, Form } from 'formik';
-import ReactSlider from 'react-slider';
+// import ReactSlider from 'react-slider';
 import TextError from '../SelectBar/TextError/TextError';
 import styles from './SliderRadre.module.scss';
 
@@ -13,11 +13,32 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
       <label className={styles.option_title}>{label}</label>
       <Form>
         <Field name={name}>
-          {/* {({ field }) => ( */}
-          {() => (
+          {({ field }) => (
             <>
               <div className={styles.option_item_range_box}>
-                <ReactSlider
+                <input
+                  className={`${styles.input_lower} ${styles.input}`}
+                  onChange={e => setDownPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : '0')}
+                  value={downPrice}
+                  type='range'
+                  name='range'
+                  id='range'
+                  min={min}
+                  max={max}
+                />
+                <input
+                  className={`${styles.input_upper} ${styles.input}`}
+                  onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : '0')}
+                  value={upPrice}
+                  type='range'
+                  name='range'
+                  id='range'
+                  min={min}
+                  max={max}
+                />
+              </div>
+              {/* <div className={styles.option_item_range_box}>
+               <ReactSlider
                   className='horizontal-slider'
                   thumbClassName={styles.option_item_range_mark}
                   thumbActiveClassName={styles.option_item_range_mark_active}
@@ -33,28 +54,28 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                   min={min}
                   max={max}
                 />
-              </div>
+              </div> */}
               <div className={styles.option_item_input_box}>
                 <>
                   <input
                     className={styles.option_item_input}
-                    type='text'
+                    type='number'
                     onChange={e =>
-                      setDownPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '100')
+                      setUpPrice(e.target.value >= min && e.target.value <= max ? field.value.includes(downPrice) : '0')
                     }
                     id='price_prod'
                     name='price_prod'
-                    value={downPrice}
+                    value={+downPrice}
                     // val={field.value.includes(downPrice)}
                   />
                   —
                   <input
                     className={styles.option_item_input}
-                    type='text'
-                    onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '100')}
+                    type='number'
+                    onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '0')}
                     id='price_prod'
                     name='price_prod'
-                    value={upPrice}
+                    value={+upPrice}
                     // val={field.value.includes(upPrice)}
                   />
                 </>
