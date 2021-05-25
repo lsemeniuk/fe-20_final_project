@@ -11,6 +11,7 @@ import MySelect from '../../../../components/Forms/MySelect/MySelect';
 const NewCustomer = () => {
   const [messageServer, setmessageServer] = useState(null);
   const [deliveryMethod, setDeliveryMethod] = useState('postDelivery');
+  const [commentAvailible, setCommentAvailible] = useState(false);
 
   const quickFillCountry = country => {
     document.getElementById('city').value = country;
@@ -29,8 +30,8 @@ const NewCustomer = () => {
     setDeliveryMethod(document.getElementById('delivery').value);
   };
 
-  const ublockComment = () => {
-    document.getElementById('commentContainer').className = '{styles.showedElement}';
+  const unblockComment = () => {
+    setCommentAvailible(true);
   };
 
   return (
@@ -83,18 +84,22 @@ const NewCustomer = () => {
               {createCitiesSpans()}
             </div>
             <MyTextInput label='Эл. почта' name='email' type='tel' placeholder='Введите номер телефона' tabIndex='-1' />
-            <button type='button' className={styles.comment} onClick={ublockComment}>
-              Добавить комментарий к заказу
-            </button>
-            <div id='commentContainer' className={styles.commentContainer}>
-              <MyTextInput
-                label='Комментарий'
-                name='comment'
-                type='text'
-                placeholder='Введите комментарий'
-                tabIndex='-1'
-              />
-            </div>
+            {!commentAvailible && (
+              <button type='button' className={styles.comment} id='commentInvolver' onClick={unblockComment}>
+                Добавить комментарий к заказу
+              </button>
+            )}
+            {commentAvailible && (
+              <div id='commentContainer'>
+                <MyTextInput
+                  label='Комментарий'
+                  name='comment'
+                  type='text'
+                  placeholder='Введите комментарий'
+                  tabIndex='-1'
+                />
+              </div>
+            )}
             <hr />
 
             <MySelect label='Доставка' name='delivery' id='delivery' onClick={defineDeliveryOption}>
