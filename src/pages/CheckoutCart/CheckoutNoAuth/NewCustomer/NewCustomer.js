@@ -35,7 +35,7 @@ const NewCustomer = () => {
   };
 
   return (
-    <>
+    <div className={styles.tabContainer}>
       <Formik
         initialValues={{
           name: '',
@@ -61,79 +61,71 @@ const NewCustomer = () => {
         }}
       >
         <Form>
-          <div className={styles.container}>
-            <p className={styles.title}>Получатель заказа</p>
-            <MyTextInput
-              label='ФИО'
-              name='name'
-              type='text'
-              placeholder='Введите фамилию, имя и отчество'
-              tabIndex='-1'
-            />
-            <MyTextInput label='Телефон' name='phone' type='tel' placeholder='Введите номер телефона' tabIndex='-1' />
-            <MyTextInput
-              id='city'
-              label='Город'
-              name='city'
-              type='text'
-              placeholder='Введите название своего города'
-              tabIndex='-1'
-            />
-            <div className={styles.citiesBlock}>
-              <span className={styles.citiesTitle}>Например:&nbsp;</span>
-              {createCitiesSpans()}
-            </div>
-            <MyTextInput label='Эл. почта' name='email' type='tel' placeholder='Введите номер телефона' tabIndex='-1' />
-            {!commentAvailible && (
-              <button type='button' className={styles.comment} id='commentInvolver' onClick={unblockComment}>
-                Добавить комментарий к заказу
-              </button>
-            )}
-            {commentAvailible && (
-              <div id='commentContainer'>
-                <MyTextInput
-                  label='Комментарий'
-                  name='comment'
-                  type='text'
-                  placeholder='Введите комментарий'
-                  tabIndex='-1'
-                />
-              </div>
-            )}
-            <hr />
-            <p className={styles.title}>Доставка</p>
-            <MySelect label='Способ доставки' name='delivery' id='delivery' onClick={defineDeliveryOption}>
-              <option value='postDelivery'>Новой почтой</option>
-              <option value='courierDelivery'>Курьером по Киеву</option>
-            </MySelect>
-
-            {deliveryMethod === 'postDelivery' && (
-              <MySelect label='Склад' name='postom' onClick={defineDeliveryOption}>
-                <option value='Отделение № 1'>Отделение № 1</option>
-                <option value='Отделение № 2'>Отделение № 2</option>
-              </MySelect>
-            )}
-            {deliveryMethod === 'courierDelivery' && (
+          <p className={styles.title}>Получатель заказа</p>
+          <MyTextInput
+            label='ФИО'
+            name='name'
+            type='text'
+            placeholder='Введите фамилию, имя и отчество'
+            tabIndex='-1'
+          />
+          <MyTextInput label='Телефон' name='phone' type='tel' placeholder='Введите номер телефона' tabIndex='-1' />
+          <MyTextInput
+            id='city'
+            label='Город'
+            name='city'
+            type='text'
+            placeholder='Введите название своего города'
+            tabIndex='-1'
+          />
+          <div className={styles.citiesBlock}>
+            <span className={styles.citiesTitle}>Например:&nbsp;</span>
+            {createCitiesSpans()}
+          </div>
+          <MyTextInput label='Эл. почта' name='email' type='tel' placeholder='Введите номер телефона' tabIndex='-1' />
+          {!commentAvailible && (
+            <button type='button' className={styles.comment} id='commentInvolver' onClick={unblockComment}>
+              Добавить комментарий к заказу
+            </button>
+          )}
+          {commentAvailible && (
+            <div id='commentContainer'>
               <MyTextInput
-                label='Адрес'
-                name='address'
+                label='Комментарий'
+                name='comment'
                 type='text'
-                placeholder='Введите адрес доставки'
+                placeholder='Введите комментарий'
                 tabIndex='-1'
               />
-            )}
-            <hr />
-            <p className={styles.title}>Оплата</p>
-            <MySelect label='Способ оплаты' name='payment'>
-              <option value='cash'>Наличными</option>
-              <option value='cashOnDelivery'>Оплата при получении</option>
-            </MySelect>
-          </div>
+            </div>
+          )}
+          <hr />
+          <p className={styles.title}>Доставка</p>
+          <MySelect label='Способ доставки' name='delivery' id='delivery' onClick={defineDeliveryOption}>
+            <option value='postDelivery'>Новой почтой</option>
+            <option value='courierDelivery'>Курьером по Киеву</option>
+          </MySelect>
 
+          {deliveryMethod === 'postDelivery' && (
+            <MySelect label='Склад' name='postom' onClick={defineDeliveryOption}>
+              <option value='Отделение № 1'>Отделение № 1</option>
+              <option value='Отделение № 2'>Отделение № 2</option>
+            </MySelect>
+          )}
+          {deliveryMethod === 'courierDelivery' && (
+            <MyTextInput label='Адрес' name='address' type='text' placeholder='Введите адрес доставки' tabIndex='-1' />
+          )}
+          <hr />
+          <p className={styles.title}>Оплата</p>
+          <MySelect label='Способ оплаты' name='payment'>
+            <option value='cash'>Наличными</option>
+            <option value='cashOnDelivery'>Оплата при получении</option>
+          </MySelect>
+          <hr className={styles.lastHr} />
           <ButtonBlock buttonTitle='Оформить заказ' messageServer={messageServer} />
         </Form>
       </Formik>
-    </>
+    </div>
   );
 };
 
