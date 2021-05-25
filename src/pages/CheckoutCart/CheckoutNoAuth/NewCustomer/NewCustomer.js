@@ -6,9 +6,11 @@ import { placeOrder } from '../../../../http/ordersAPI';
 import schema from './schema';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import styles from './NewCustomer.module.scss';
+import MySelect from '../../../../components/Forms/MySelect/MySelect';
 
 const NewCustomer = () => {
   const [messageServer, setmessageServer] = useState(null);
+  const [deliveryMethod, setDeliveryMethod] = useState('postDelivery');
 
   const quickFillCountry = country => {
     document.getElementById('city').value = country;
@@ -23,8 +25,12 @@ const NewCustomer = () => {
     ));
   };
 
+  const defineDeliveryOption = () => {
+    setDeliveryMethod(document.getElementById('delivery').value);
+  };
+
   const ublockComment = () => {
-    document.getElementById('commentContainer').className = '{styles.commentShowedContainer}';
+    document.getElementById('commentContainer').className = '{styles.showedElement}';
   };
 
   return (
@@ -37,6 +43,7 @@ const NewCustomer = () => {
           email: '',
           delivery: '',
           payment: '',
+          comment: '',
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
@@ -88,7 +95,30 @@ const NewCustomer = () => {
                 tabIndex='-1'
               />
             </div>
+            <hr />
+
+            <MySelect label='Доставка' name='delivery' id='delivery' onClick={defineDeliveryOption}>
+              <option value='postDelivery'>Новой почтой</option>
+              <option value='courierDelivery'>Курьером по Киеву</option>
+            </MySelect>
+
+            {deliveryMethod === 'postDelivery' && (
+              <MySelect label='Склад' name='postom' onClick={defineDeliveryOption}>
+                <option value='Отделение № 1'>Отделение № 1</option>
+                <option value='Отделение № 2'>Отделение № 2</option>
+              </MySelect>
+            )}
+            {deliveryMethod === 'courierDelivery' && (
+              <MyTextInput
+                label='Адрес'
+                name='address'
+                type='text'
+                placeholder='Введите адрес доставки'
+                tabIndex='-1'
+              />
+            )}
           </div>
+
           <ButtonBlock buttonTitle='Оформить заказ' messageServer={messageServer} />
         </Form>
       </Formik>
