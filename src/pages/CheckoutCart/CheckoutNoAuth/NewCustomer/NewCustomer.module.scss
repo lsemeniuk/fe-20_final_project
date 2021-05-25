@@ -1,4 +1,4 @@
-@import '../../../../utils/styles/var';
+@import "../../../../utils/styles/var";
 
 .container {
   width: 70%;
@@ -49,6 +49,7 @@
 .hiddenElement {
   display: none;
 }
+
 .showedElement {
   display: block;
 }

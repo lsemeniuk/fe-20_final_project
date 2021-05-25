@@ -4,13 +4,21 @@ import Container from '../../components/Container/Container';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import CheckoutAuth from './CheckoutAuth/CheckoutAuth';
 import CheckoutNoAuth from './CheckoutNoAuth/CheckoutNoAuth';
+import styles from './CheckoutCart.module.scss';
+import OrderPreview from './OrderPreview/OrderPreview';
 
 const CheckoutCart = () => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
 
   return (
     <main>
-      <Container>{isAuth ? <CheckoutAuth /> : <CheckoutNoAuth />}</Container>
+      <Container>
+        <p className={styles.pageTitle}>Oформление заказа</p>
+        <div className={styles.pageContainer}>
+          {isAuth ? <CheckoutAuth /> : <CheckoutNoAuth />}
+          <OrderPreview />
+        </div>
+      </Container>
     </main>
   );
 };
