@@ -20,7 +20,7 @@ const ProductList = () => {
   const [productsQuantity, setProductsQuantity] = useState('');
   const [productsLoading, setProductsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(6);
+  const [productsPerPage, setProductsPerPage] = useState(6);
   const { pathname } = useLocation();
   const category = pathname.split('/')[2];
 
@@ -55,6 +55,7 @@ const ProductList = () => {
     <>
       <Pagination
         productsPerPage={productsPerPage}
+        setProductsPerPage={setProductsPerPage}
         totalProducts={+productsQuantity}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}

@@ -1,13 +1,14 @@
 @import '../../utils/styles/var';
 .pagination {
   display: flex;
-  text-align: center;
   align-items: center;
+  justify-content: center;
   flex-flow: row wrap;
 }
 .center {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 .page__item {
   margin: 20px 10px;
@@ -32,4 +33,45 @@
 .page__next,
 .page__prev {
   font-size: 1rem;
+}
+
+.items__qty {
+  width: 50px;
+  height: 30px;
+  color: $colorButton;
+  border-top: 1px solid $colorButton;
+  border-bottom: 1px solid $colorButton;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  font-size: 16px;
+  padding: 5px 0;
+}
+/* Для Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+/* Для Firefox */
+input[type=number]{
+  -moz-appearance: textfield;
+}
+.qty__increment,
+.qty__decrement {
+  width: 25px;
+  height: 30px;
+  color: $colorButton;
+  text-align: center;
+  border: 1px solid $colorButton;
+  padding: 5px 0;
+  font-weight: bold;
+}
+.setQuantity {
+  margin: 0 20px 0 0;
+}
+.productsPerPage {
+  margin-right: 20px;
 }
