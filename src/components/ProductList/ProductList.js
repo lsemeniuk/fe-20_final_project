@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
@@ -15,10 +16,11 @@ const ProductList = () => {
   const [productsPerPage, setProductsPerPage] = useState(9);
   const { pathname } = useLocation();
   const category = pathname.split('/')[2];
+  console.log(category);
 
   useEffect(() => {
     setProductsLoading(true);
-    if (category === 'all') {
+    if (category === 'all' || category === undefined) {
       axios(
         `https://fe-20-final-project.herokuapp.com/api/products/filter?perPage=${productsPerPage}&startPage=${currentPage}`
       ).then(({ data }) => {

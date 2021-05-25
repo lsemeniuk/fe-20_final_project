@@ -13,9 +13,9 @@ const GenderLink = ({ forWho, img, textContent }) => {
   }
   return (
     <div className={style.forWhoLinks}>
-      <NavLink to={PRODUCTS_ROUTE}>
+      <NavLink to={forWho === 'forMen' ? `${PRODUCTS_ROUTE}/men` : `${PRODUCTS_ROUTE}/women`}>
         <div className={className}>
-          <img className={style.img} src={img} alt='' />
+          <img className={style.img} src={img} alt='link to category' />
           <p>{textContent}</p>
         </div>
       </NavLink>
