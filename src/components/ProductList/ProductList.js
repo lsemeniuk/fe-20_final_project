@@ -16,7 +16,6 @@ const ProductList = () => {
   const [productsPerPage, setProductsPerPage] = useState(9);
   const { pathname } = useLocation();
   const category = pathname.split('/')[2];
-  console.log(category);
 
   useEffect(() => {
     setProductsLoading(true);
