@@ -101,8 +101,8 @@ const NewCustomer = () => {
               </div>
             )}
             <hr />
-
-            <MySelect label='Доставка' name='delivery' id='delivery' onClick={defineDeliveryOption}>
+            <p className={styles.title}>Доставка</p>
+            <MySelect label='Способ доставки' name='delivery' id='delivery' onClick={defineDeliveryOption}>
               <option value='postDelivery'>Новой почтой</option>
               <option value='courierDelivery'>Курьером по Киеву</option>
             </MySelect>
@@ -123,7 +123,8 @@ const NewCustomer = () => {
               />
             )}
             <hr />
-            <MySelect label='Оплата' name='payment'>
+            <p className={styles.title}>Оплата</p>
+            <MySelect label='Способ оплаты' name='payment'>
               <option value='cash'>Наличными</option>
               <option value='cashOnDelivery'>Оплата при получении</option>
             </MySelect>
