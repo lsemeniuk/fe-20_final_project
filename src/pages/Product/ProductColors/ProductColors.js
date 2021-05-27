@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import styles from './ProductColors.module.scss';
 import { getColors } from '../../../http/colorsAPI';
 import Loader from '../../../components/Loader/Loader';
+import styles from './ProductColors.module.scss';
 
 const ProductColors = ({ color }) => {
   const [colors, setColors] = useState([]);
