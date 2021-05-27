@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import { checkAuthOperation } from './store/customer/operations';
 import ToTopButton from './components/ToTop/ToTop';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className='App'>
       <NavBar />
+      <ScrollToTop />
       <AppRoutes />
       <Footer />
       <ToTopButton />

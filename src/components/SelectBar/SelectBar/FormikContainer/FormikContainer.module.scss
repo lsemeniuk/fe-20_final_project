@@ -5,6 +5,7 @@
 }
 
 @mixin container_select() {
+  display: flex;
   align-items: flex-start;
 }
 .select {
@@ -17,10 +18,11 @@
     background-color: white;
     min-width: 270px;
     max-width: 280px;
-    z-index: 99;
-    height: 650px;
+    padding: 10px 0;
+    height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    z-index: 99;
   }
 }
 

@@ -29,25 +29,8 @@
 
 // Title
 .categoryTitle {
+  margin: 20px 0 10px;
   font-size: 24px;
-}
-
-// Navbar Product
-
-.navBarContainer {
-  margin-bottom: 10px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 500;
-  box-shadow: 0px 8px 13px -7px rgba(38, 44, 48, 0.15);
-  background-color: $bgColor;
-}
-.navBarProduct {
-  height: 45px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 // Flex
@@ -70,4 +53,12 @@
   &:last-child {
     margin-left: 10px;
   }
+}
+
+.infoPanel {
+  padding-top: 45px;
+}
+
+.interestedProduct {
+  padding-top: 45px;
 }

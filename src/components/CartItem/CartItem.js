@@ -57,7 +57,7 @@ const CartItem = ({ product, cartQuantity, cart }) => {
         </span>
       </div>
       <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} onClick={closeCart}>
-        <img src={imageUrls[0]} width={78} height={78} alt='product img' />
+        <img src={imageUrls[0].smallImage} width={78} height={78} alt='product img' />
       </NavLink>
       <div className={styles.nameBlock}>
         <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} onClick={closeCart}>
