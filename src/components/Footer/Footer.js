@@ -2,14 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import Container from '../Container/Container';
-import { INDEX_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
+import { INDEX_ROUTE } from '../../utils/consts';
 import { categoriesLoadingSelector } from '../../store/catalog/selectors';
 import Logo from '../../theme/Logo';
 import visaMaster from './img/paymentVisaMaster.png';
 import privat24 from './img/paymentPrivat24.png';
 import Icons from '../Icons/Icons';
 import Loader from '../Loader/Loader';
-import CategoriesList from '../NavBar/CategoriesList/CategoriesList';
+import CategoriesList from '../CategoriesList/CategoriesList';
 import DifferentPagesList from '../DifferentPagesList/DifferentPagesList';
 import styles from './Footer.module.scss';
 
@@ -60,11 +60,6 @@ const Footer = () => {
             <h4 className={styles.heading}>Каталог</h4>
             <nav>
               <ul className={styles.menuList}>
-                <li key='all' className={styles.menuItem}>
-                  <NavLink to={PRODUCTS_ROUTE} className={styles.link}>
-                    Все товары
-                  </NavLink>
-                </li>
                 {catalogIsLoading ? <Loader /> : <CategoriesList className={styles.link} classItem={styles.menuItem} />}
               </ul>
             </nav>

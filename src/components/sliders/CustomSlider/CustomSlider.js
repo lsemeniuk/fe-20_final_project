@@ -1,19 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import { useSelector } from 'react-redux';
-import { getProductsSelector, productsLoadingSelector } from '../../../store/products/selectors';
-import Loader from '../../Loader/Loader';
 import ProductCard from '../../ProductCard/ProductCard';
-import style from './CustomSlider.module.scss';
+import styles from './CustomSlider.module.scss';
 
-const CustomSlider = () => {
-  const products = useSelector(getProductsSelector);
-  const productsLoading = useSelector(productsLoadingSelector);
-
-  if (productsLoading) {
-    return <Loader />;
-  }
-
+const CustomSlider = ({ title, products }) => {
   const sliderSettings = {
     dots: false,
     infinite: true,
@@ -45,15 +36,23 @@ const CustomSlider = () => {
     ],
   };
 
+  const productsList = products.map(product => <ProductCard inSlider key={product.itemNo} product={product} />);
+
   return (
-    <ul>
-      <Slider {...sliderSettings} className={style.slider}>
-        {products.map(product => (
-          <ProductCard inSlider key={product.itemNo} product={product} />
-        ))}
-      </Slider>
-    </ul>
+    <div>
+      <h3 className={styles.bestsellerTitle}>{title}</h3>
+      <ul>
+        <Slider {...sliderSettings} className={styles.slider}>
+          {productsList}
+        </Slider>
+      </ul>
+    </div>
   );
+};
+
+CustomSlider.propTypes = {
+  title: PropTypes.string.isRequired,
+  products: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CustomSlider;

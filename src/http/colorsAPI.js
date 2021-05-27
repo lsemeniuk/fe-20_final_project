@@ -1,10 +1,10 @@
-import { $adminHost, $host } from './index';
+import { $authHost, $host } from './index';
 
 // @route   POST /colors
 // @desc    Create new color
 // @access  Private
 export const addColor = async () => {
-  const res = await $adminHost.post('colors').catch(err => {
+  const res = await $authHost.post('colors').catch(err => {
     throw err;
   });
   return res;
@@ -14,7 +14,7 @@ export const addColor = async () => {
 // @desc    Update existing color
 // @access  Private
 export const updateColor = async id => {
-  const res = await $adminHost.put(`colors/${id}`).catch(err => {
+  const res = await $authHost.put(`colors/${id}`).catch(err => {
     throw err;
   });
   return res;
@@ -24,7 +24,7 @@ export const updateColor = async id => {
 // @desc    DELETE existing color
 // @access  Private
 export const deleteColor = async id => {
-  const res = await $adminHost.delete(`colors/${id}`).catch(err => {
+  const res = await $authHost.delete(`colors/${id}`).catch(err => {
     throw err;
   });
   return res;

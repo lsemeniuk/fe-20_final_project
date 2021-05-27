@@ -1,10 +1,10 @@
-import { $adminHost, $host } from './index';
+import { $authHost, $host } from './index';
 
 // @route   POST /pages
 // @desc    Create new links or page
 // @access  Private
 export const addPage = async () => {
-  const res = await $adminHost.post('pages').catch(err => {
+  const res = await $authHost.post('pages').catch(err => {
     throw err;
   });
   return res;
@@ -14,7 +14,7 @@ export const addPage = async () => {
 // @desc    Update existing page
 // @access  Private
 export const updatePage = async customId => {
-  const res = await $adminHost.put(`pages/${customId}`).catch(err => {
+  const res = await $authHost.put(`pages/${customId}`).catch(err => {
     throw err;
   });
   return res;
@@ -24,7 +24,7 @@ export const updatePage = async customId => {
 // @desc    Delete existing page
 // @access  Private
 export const deletePage = async customId => {
-  const res = await $adminHost.delete(`pages/${customId}`).catch(err => {
+  const res = await $authHost.delete(`pages/${customId}`).catch(err => {
     throw err;
   });
   return res;
