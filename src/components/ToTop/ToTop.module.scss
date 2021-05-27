@@ -1,0 +1,63 @@
+@import '../../utils/styles/var';
+
+.scrollTop {
+  padding: 0;
+  background: $colorTextSilver;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  border: none;
+  transition: 0.6s;
+  z-index: 50;
+  overflow:hidden;
+
+}
+.scrollTop::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #21ebff;
+  border-left: 3px solid #21ebff;
+  transition: 0.6s;
+}
+.scrollTop:hover {
+  background: #21ebff;
+  color: #111;
+  box-shadow: 0 0 50px #18828b;
+  overflow:hidden;
+}
+.scrollTop:hover::before {
+  width: 99%;
+  height: 99%;
+}
+.scrollTop::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 3px solid #21ebff;
+  border-right: 3px solid #21ebff;
+  transition: 0.6s;
+}
+.hidden {
+  opacity: 0;
+}
+.iconBox {
+  // width: 45px;
+  height: 40px;
+}
+.scrollTop:hover::after {
+  width: 99%;
+  height: 99%;
+}
+.scrollTop:hover svg {
+  fill: #000;
+}
+svg {
+  transition: fill 0.6s;
+}
