@@ -5,6 +5,13 @@
   font-weight: 400;
 }
 
+.slider {
+  list-style: none;
+  & button {
+    top: calc(50% - 20px);
+  }
+}
+
 .galeryImage {
   width: 70%;
 }

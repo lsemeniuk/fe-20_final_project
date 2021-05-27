@@ -5,9 +5,11 @@
   color: #fff;
   margin-bottom: 30px;
 }
+
 .itemContainer {
   height: 450px;
 }
+
 .slider {
   list-style: none;
   & button {
@@ -22,13 +24,16 @@
     }
   }
 }
+
 .sliderItem {
   background-color: transparent;
 }
+
 .sliderImage {
   margin: 0 auto;
   height: 450px;
 }
+
 .dots {
   position: absolute;
   bottom: 20px;

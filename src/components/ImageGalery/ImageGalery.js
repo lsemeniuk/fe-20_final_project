@@ -31,11 +31,13 @@ const ImageGalery = ({ product, buttonHandler, display, initialSlide }) => {
       <h2 className={styles.title}>
         Фотографии {product.name}, {product.color}
       </h2>
+
       <ul className={styles.galeryList}>
         <Slider {...sliderSettings} initialSlide={initialSlide} className={styles.slider}>
           {slidersList}
         </Slider>
       </ul>
+
       <div className={styles.orderContainer}>
         <AddToCartButton id={id} className={styles.button} />
         <div className={styles.currentPrice}>{replace(currentPrice)} грн</div>
