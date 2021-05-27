@@ -23,49 +23,49 @@
   {
     "_id": "5da4b9dd95987c2364a67b13",
     "type": "Бренд",
-    "name": "Apple",
+    "name": "apple",
     "date": "2019-10-14T18:09:33.813Z",
     "__v": 0
   },
   {
     "_id": "5da4b9dd95987c2364a67b23",
     "type": "Бренд",
-    "name": "Samsung",
+    "name": "samsung",
     "date": "2019-10-14T18:09:33.813Z",
     "__v": 0
   },
   {
     "_id": "5da4b9dd95987c2364a67b33",
     "type": "Бренд",
-    "name": "Huawei",
+    "name": "huawei",
     "date": "2019-10-14T18:09:33.813Z",
     "__v": 0
   },
   {
     "_id": "5da4b9dd95987c2364a67b53",
     "type": "Бренд",
-    "name": "Carming",
+    "name": "carming",
     "date": "2019-10-14T18:09:33.813Z",
     "__v": 0
   },
   {
     "_id": "5da4b9dd95987c2364a67b41",
     "type": "Бренд",
-    "name": "Amazfit",
+    "name": "amazfit",
     "date": "2019-10-14T18:09:33.813Z",
     "__v": 0
   },
   {
     "_id": "5da4b9dd95987c2364a67b42",
     "type": "Бренд",
-    "name": "Smart",
+    "name": "smart",
     "date": "2019-10-14T18:09:33.813Z",
     "__v": 0
   },
   {
     "_id": "5da4b9dd95987c2364a67b43",
     "type": "Бренд",
-    "name": "Fitbit",
+    "name": "fitbit",
     "date": "2019-10-14T18:09:33.813Z",
     "__v": 0
   },

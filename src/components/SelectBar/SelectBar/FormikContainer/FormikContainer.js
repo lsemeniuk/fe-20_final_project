@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import FormikControl from '../FormikControl/FormikControl';
 import {
-  checkedFiltersOperation,
+  // checkedFiltersOperation,
   getFiltersOperation,
   saveFiltersOperation,
 } from '../../../../store/filter/operations';
@@ -16,7 +16,7 @@ import SliderRadre from '../../SliderRadre/SliderRadre';
 import styles from './FormikContainer.module.scss';
 
 /* eslint no-console: ["error", { allow: ["warn"] }] */
-function FormikContainer({ classes, sort, checkboxed }) {
+function FormikContainer({ classes, checkboxed }) {
   const dispatch = useDispatch();
   const [min] = useState(0);
   const [max] = useState(400000);
@@ -33,10 +33,10 @@ function FormikContainer({ classes, sort, checkboxed }) {
     return <Loader />;
   }
 
-  const onSubmit = values => {
-    dispatch(checkedFiltersOperation(values));
-    // setSubmitting(false);
-  };
+  // const onSubmit = values => {
+  //   dispatch(checkedFiltersOperation(values));
+  //   // setSubmitting(false);
+  // };
 
   return (
     <>
@@ -93,7 +93,7 @@ function FormikContainer({ classes, sort, checkboxed }) {
           )}
         </Formik>
       )}
-      {!!sort && (
+      {/* {!!sort && (
         <Formik
           initialValues={{
             selected: '',
@@ -107,21 +107,20 @@ function FormikContainer({ classes, sort, checkboxed }) {
             <Form className={classes}>
               <div className={styles.select_box_sort}>
                 {/* <div> */}
-                <h4 className={styles.select_heading}>Сортировка:</h4>
+      {/* <h4 className={styles.select_heading}>Сортировка:</h4>
                 <FormikControl control='select' label='sort' name='selected' options={filters} onChange={onSubmit} />
                 {/* </div> */}
-              </div>
+      {/* </div>
               <Button title='Применить' type='submit' className={styles.select_btn} />
             </Form>
           )}
-        </Formik>
-      )}
+          // </Formik> */}
+      {/* // )} */}
     </>
   );
 }
 
 FormikContainer.propTypes = {
-  sort: PropTypes.bool.isRequired,
   checkboxed: PropTypes.bool.isRequired,
   classes: PropTypes.string.isRequired,
 };

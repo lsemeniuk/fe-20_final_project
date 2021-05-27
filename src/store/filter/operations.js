@@ -32,8 +32,8 @@ export const saveFiltersOperation = value => async dispatch => {
   console.log('~ joined', joined);
 
   const config = {
-    url: 'https://fe-20-final-project.herokuapp.com/api/filters',
-    method: 'post',
+    url: 'https://fe-20-final-project.herokuapp.com/api/products/filter',
+    method: 'get',
     params: {
       ...joined,
     },

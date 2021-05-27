@@ -6,10 +6,10 @@ import styles from './MyFilterContainer.module.scss';
 import Icons from '../../../Icons/Icons';
 import FormikContainer from '../FormikContainer/FormikContainer';
 
-const MyFilterContainer = ({ sort, checkboxed }) => {
+const MyFilterContainer = ({ checkboxed }) => {
   const [active, setActive] = useState(false);
   const [activeBox, setActiveBox] = useState(styles.container);
-  const [activeSort, setActiveSort] = useState(styles.container_sort);
+
   const [activeBtn, setActiveBtn] = useState(styles.container_btn);
   const [activeDark, setActiveDark] = useState(styles.container_dark_none);
   const handleClickFilter = () => {
@@ -28,37 +28,10 @@ const MyFilterContainer = ({ sort, checkboxed }) => {
       setActiveBtn(`${styles.container_btn}`);
     }
   };
-  const handleClickSort = () => {
-    setActive(!active);
-    if (active) {
-      setActiveDark(styles.container_dark);
-      setActiveSort(`${styles.container_sort} ${styles.active}`);
-    } else {
-      setActiveDark(styles.container_dark_none);
-      setActiveSort(`${styles.container_sort}`);
-    }
 
-    if (active) {
-      setActiveBtn(`${styles.container_btn} ${styles.active}`);
-    } else {
-      setActiveBtn(`${styles.container_btn}`);
-    }
-  };
   return (
     <>
       <div className={styles.btn_box}>
-        {!!sort && (
-          <Container>
-            <Icons
-              className={activeBtn}
-              width='50px'
-              height='50px'
-              type='sort'
-              color='rgba(0,0,0, 0.7)'
-              onClick={() => handleClickSort()}
-            />
-          </Container>
-        )}
         {!!checkboxed && (
           <Container>
             <Icons
@@ -78,17 +51,7 @@ const MyFilterContainer = ({ sort, checkboxed }) => {
           <>
             <div className={activeDark} onClick={() => handleClickFilter()} />
             <Container>
-              <FormikContainer classes={styles.container_filter_fixed} checkboxed={checkboxed} sort={sort} />
-            </Container>
-          </>
-        )}
-      </div>
-      <div className={activeSort}>
-        {!!sort && (
-          <>
-            <div className={activeDark} onClick={() => handleClickSort()} />
-            <Container>
-              <FormikContainer classes={styles.container_filter_fixed} checkboxed={checkboxed} sort={sort} />
+              <FormikContainer classes={styles.container_filter_fixed} checkboxed={checkboxed} />
             </Container>
           </>
         )}
@@ -98,7 +61,6 @@ const MyFilterContainer = ({ sort, checkboxed }) => {
 };
 
 MyFilterContainer.propTypes = {
-  sort: PropTypes.bool.isRequired,
   checkboxed: PropTypes.bool.isRequired,
 };
 
