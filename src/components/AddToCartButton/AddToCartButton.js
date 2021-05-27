@@ -30,13 +30,14 @@ const AddToCartButton = ({ id, className }) => {
   };
 
   return (
-    <div>
+    <>
       {idCartList.includes(id) ? (
         <Button onClick={openCart} variant='outline' title='В корзине' className={className} />
       ) : (
         <Button onClick={addToCart} title='Купить' className={className} />
       )}
-    </div>
+      <Button variant='order' title='Быстрый заказ' className={className} />
+    </>
   );
 };
 

@@ -1,7 +1,37 @@
-.galeryContainer {
-  height: 100px;
+@import '../../utils/styles/var';
+
+.title {
+  margin: 0 0 10px;
+  font-weight: 400;
 }
 
 .galeryImage {
-  width: 100%;
+  width: 70%;
+}
+
+.galeryItem {
+  margin: 0 auto;
+}
+
+.galeryImage {
+  margin: 0 auto;
+}
+
+.orderContainer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  margin-right: 20px;
+  padding: 10px 15px;
+  height: 45px;
+}
+
+.currentPrice {
+  font-size: 26px;
+  font-weight: 600;
+  color: $colorSale;
 }

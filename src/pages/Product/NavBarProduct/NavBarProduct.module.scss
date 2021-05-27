@@ -31,6 +31,9 @@
   &:hover {
     color: $colorButton;
   }
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    margin-right: 10px;
+  }
 }
 
 .navBarOrder {
@@ -41,6 +44,16 @@
   align-items: center;
 }
 
+.buttons {
+  margin-right: 15px;
+
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    margin-right: 5px;
+    padding: 0 10px;
+    font-size: 16px;
+  }
+}
+
 .priceContainer {
-  margin-left: 30px;
+  margin-left: 15px;
 }
