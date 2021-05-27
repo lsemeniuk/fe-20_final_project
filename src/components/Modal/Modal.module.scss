@@ -24,7 +24,7 @@
   padding: 30px;
   margin-bottom: 40px;
   border-radius: 5px;
-  z-index: 9999;
+  z-index: 1999;
   background-color: #ffffff;
 
   &__close {
@@ -41,7 +41,7 @@
 }
 .close {
   position: absolute;
-  z-index: 99999;
+  z-index: 2999;
   top: -6px;
   right: 5px;
   cursor: pointer;

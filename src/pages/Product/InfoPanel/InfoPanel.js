@@ -3,6 +3,7 @@ import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import PropTypes from 'prop-types';
 import styles from './InfoPanel.module.scss';
+import Сharacteristics from './Сharacteristics/Сharacteristics';
 
 const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
   return (
@@ -16,11 +17,16 @@ const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
 
         <TabPanel>
           <div className={styles.tab}>
+            <h3>
+              Описание <span>{product.name}</span>
+            </h3>
             <div dangerouslySetInnerHTML={{ __html: product?.description }} />
           </div>
         </TabPanel>
         <TabPanel>
-          <div className={styles.tab}>Сharacteristics</div>
+          <div className={styles.tab}>
+            <Сharacteristics product={product} />
+          </div>
         </TabPanel>
         <TabPanel>
           <div className={styles.tab}>Reviews</div>

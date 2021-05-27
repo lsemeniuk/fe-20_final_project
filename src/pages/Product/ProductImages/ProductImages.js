@@ -2,12 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import ReactBnbGallery from 'react-bnb-gallery';
+// import ReactBnbGallery from 'react-bnb-gallery';
 import ReactImageMagnify from 'react-image-magnify';
 import { brandsLoadingSelector, getBrandsSelector } from '../../../store/brands/selectors';
 import { getBrandsOperation } from '../../../store/brands/operations';
 import './react-bnb-gallery.scss';
 import styles from './ProductImages.module.scss';
+import ImageGalery from '../../../components/ImageGalery/ImageGalery';
 
 const ProductImages = ({ product }) => {
   const { imageUrls, brand } = product;
@@ -15,7 +16,7 @@ const ProductImages = ({ product }) => {
   const brandsLoading = useSelector(brandsLoadingSelector);
   const dispatch = useDispatch();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [galeryOpen, setGaleryOpen] = useState(false);
   const [activePhoto, setActivePhoto] = useState(0);
   const [displayImage, setDisplayImage] = useState(0);
 
@@ -30,23 +31,27 @@ const ProductImages = ({ product }) => {
     brandImage = brandProduct[0].imageUrl;
   }
 
-  const bnbGaleryProps = {
-    activePhotoIndex: activePhoto,
-    preloadSize: 2,
-    opacity: 0.8,
-    show: isOpen,
-    photos: imageUrls.map(url => {
-      return url.largeImage;
-    }),
-    onClose: () => setIsOpen(false),
+  const modalHandler = () => {
+    setGaleryOpen(!galeryOpen);
   };
+
+  // const bnbGaleryProps = {
+  //   activePhotoIndex: activePhoto,
+  //   preloadSize: 2,
+  //   opacity: 0.8,
+  //   show: isOpen,
+  //   photos: imageUrls.map(url => {
+  //     return url.largeImage;
+  //   }),
+  //   onClose: () => setIsOpen(false),
+  // };
 
   const imageList = imageUrls.map((image, index) => {
     return (
       <li key={index} className={`${styles.imageItem} ${index === displayImage ? styles.imageMinActive : ''}`}>
         <span
           onClick={() => {
-            setIsOpen(true);
+            setGaleryOpen(true);
             setActivePhoto(index);
           }}
           onMouseEnter={() => {
@@ -67,7 +72,7 @@ const ProductImages = ({ product }) => {
       <div className={styles.imageContainer}>
         <span
           onClick={() => {
-            setIsOpen(true);
+            setGaleryOpen(true);
             setActivePhoto(0);
           }}
         >
@@ -93,7 +98,8 @@ const ProductImages = ({ product }) => {
           {!brandsLoading && <img className={styles.brandImage} src={brandImage} alt={`Brand ${brand}`} />}
         </div>
       </div>
-      <ReactBnbGallery {...bnbGaleryProps} />
+      {/* <ReactBnbGallery {...bnbGaleryProps} /> */}
+      <ImageGalery buttonHandler={modalHandler} display={galeryOpen} product={product} initialSlide={activePhoto} />
     </div>
   );
 };

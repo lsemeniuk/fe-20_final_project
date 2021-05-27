@@ -35,11 +35,6 @@ export const publicRoutes = [
     Component: Products,
   },
   {
-    name: 'Товары',
-    path: PRODUCTS_ROUTE,
-    Component: Products,
-  },
-  {
     name: 'Оформить заказ',
     path: CHECKOUT_ROUTE,
     Component: CheckoutCart,
