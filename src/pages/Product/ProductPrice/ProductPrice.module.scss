@@ -1,0 +1,72 @@
+@import '../../../utils/styles/var';
+
+.container {
+  padding: 15px;
+  position: relative;
+  border: 1px solid $colorLineSilver;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    flex-wrap: wrap;
+  }
+}
+.price {
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.previousPrice {
+  position: absolute;
+  top: -9px;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  // text-decoration: line-through;
+  color: $colorTextSilver;
+  &::after {
+    border-bottom: 2px solid $colorSale;
+    content: '';
+    left: 0;
+    margin-top: calc(2px / 2 * -1);
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+}
+
+.currentPrice {
+  margin-right: 10px;
+  color: $colorSale;
+  font-weight: 600;
+  font-size: 26px;
+  transform: scaleY(1.2);
+}
+
+.regularPrice {
+  color: $colorNew;
+  font-weight: 600;
+  font-size: 26px;
+  margin-right: 10px;
+  transform: scaleY(1.2);
+}
+.buttonRow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.button {
+  padding: 10px 15px;
+  height: 45px;
+}
+.orderButton {
+  border-color: $colorTextSilver;
+  color: $colorTextSilver;
+  &:hover {
+    background-color: rgb(241, 241, 241);
+  }
+}

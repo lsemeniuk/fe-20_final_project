@@ -1,5 +1,9 @@
 @import '../../utils/styles/var';
 
+.nav {
+  padding: 20px;
+}
+
 .item {
   margin: 10px 0 20px;
   &:last-child {
@@ -22,6 +26,6 @@
   background-color: $colorButton;
   color: #fff;
   &:hover {
-    color: #000;
+    color: #fff;
   }
 }

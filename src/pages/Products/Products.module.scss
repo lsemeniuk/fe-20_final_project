@@ -30,6 +30,7 @@
     top: 2px;
   }
 }
+
 .categoryTitle {
   margin: 20px 0;
   font-size: 32px;
@@ -40,6 +41,15 @@
 .flexRow {
   display: flex;
   justify-content: space-between;
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    flex-direction: column;
+    max-width: $mobMax;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    flex-direction: column;
+    max-width: $tabMax;
+  }
 }
 .filterTitle {
   display: block;

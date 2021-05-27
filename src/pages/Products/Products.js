@@ -11,6 +11,7 @@ import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import styles from './Products.module.scss';
 import Sorting from '../../components/Sorting/Sorting';
 import { productsLoadingSelector } from '../../store/products/selectors';
+import Select from '../../components/SelectBar/Select/Select';
 
 const Products = () => {
   const location = useLocation();
@@ -47,9 +48,7 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
-              <div>
-                <h2 className={styles.filterTitle}>Filter</h2>
-              </div>
+              <Select />
             </ContainerAside>
             <ContainerPage style={{ padding: '0' }}>
               {!productsLoading ? <Sorting /> : null}

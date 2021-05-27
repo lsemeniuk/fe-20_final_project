@@ -1,4 +1,5 @@
 @import '../../utils/styles/mixins';
+@import '../../utils/styles/var';
 
 .container {
   @extend %width-page;
@@ -7,4 +8,12 @@
   padding: 20px;
   background-color: #fff;
   position: relative;
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    max-width: $mobMax;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    max-width: $tabMax;
+  }
 }

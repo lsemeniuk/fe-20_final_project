@@ -1,7 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import AsideBar from '../components/AsideBar/AsideBar';
 import Container from '../components/Container/Container';
+import Loader from '../components/Loader/Loader';
+import Page404 from '../pages/Page404/Page404';
+import { getCustomerIsLoadingSelector, getCustomerSelector } from '../store/customer/selectors';
 import { adminRoutes } from './routes';
 
 const links = adminRoutes.map(route => {
@@ -9,6 +13,13 @@ const links = adminRoutes.map(route => {
 });
 
 const AdminRoutes = () => {
+  const customer = useSelector(getCustomerSelector);
+  const customerIsLoading = useSelector(getCustomerIsLoadingSelector);
+
+  if (!customer.isAdmin) {
+    return <>{customerIsLoading ? <Loader /> : <Page404 />}</>;
+  }
+
   return (
     <main>
       <Container>

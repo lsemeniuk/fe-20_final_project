@@ -1,10 +1,10 @@
-import { $adminHost, $host } from './index';
+import { $authHost, $host } from './index';
 
 // @route   POST /filters
 // @desc    Create new filter
 // @access  Private
 export const createNewFilter = async () => {
-  const res = await $adminHost.post('filters').catch(err => {
+  const res = await $authHost.post('filters').catch(err => {
     throw err;
   });
   return res;
@@ -14,7 +14,7 @@ export const createNewFilter = async () => {
 // @desc    Update existing filter
 // @access  Private
 export const updateFilter = async id => {
-  const res = await $adminHost.put(`filters/${id}`).catch(err => {
+  const res = await $authHost.put(`filters/${id}`).catch(err => {
     throw err;
   });
   return res;
@@ -24,7 +24,7 @@ export const updateFilter = async id => {
 // @desc    DELETE existing filter
 // @access  Private
 export const deleteFilter = async id => {
-  const res = await $adminHost.delete(`filters/${id}`).catch(err => {
+  const res = await $authHost.delete(`filters/${id}`).catch(err => {
     throw err;
   });
   return res;

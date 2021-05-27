@@ -40,23 +40,25 @@ const UserPass = () => {
           setSubmitting(false);
         }}
       >
-        <Form>
-          <MyTextInput
-            label='Текущий пароль'
-            name='password'
-            type='password'
-            placeholder='Текущий пароль'
-            tabIndex='0'
-          />
-          <MyTextInput
-            label='Новый пароль'
-            name='newPassword'
-            type='password'
-            placeholder='Новый пароль'
-            tabIndex='0'
-          />
-          <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
-        </Form>
+        <div className='page_form'>
+          <Form>
+            <MyTextInput
+              label='Текущий пароль'
+              name='password'
+              type='password'
+              placeholder='Текущий пароль'
+              tabIndex='0'
+            />
+            <MyTextInput
+              label='Новый пароль'
+              name='newPassword'
+              type='password'
+              placeholder='Новый пароль'
+              tabIndex='0'
+            />
+            <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
+          </Form>
+        </div>
       </Formik>
     </>
   );

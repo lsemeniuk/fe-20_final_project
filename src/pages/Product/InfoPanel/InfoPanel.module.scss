@@ -1,0 +1,32 @@
+@import '../../../utils/styles/var';
+@import '../../../utils/styles/mixins';
+
+.container {
+  @extend %custom-shadow;
+  @extend %custom-border;
+  background-color: #fff;
+}
+
+.container {
+  :global {
+    .react-tabs__tab-list {
+      padding-top: 10px;
+      border: none;
+      margin-bottom: 5px;
+    }
+    .react-tabs__tab {
+      margin-left: 20px;
+      border: none;
+    }
+    .react-tabs__tab--selected {
+      border-bottom: 2px solid $colorButton;
+    }
+    .react-tabs__tab-panel {
+      border: none;
+    }
+  }
+}
+
+.tab {
+  padding: 10px 20px;
+}
