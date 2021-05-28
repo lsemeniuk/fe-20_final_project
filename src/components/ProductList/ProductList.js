@@ -19,7 +19,7 @@ const ProductList = () => {
 
   useEffect(() => {
     setProductsLoading(true);
-    if (category === 'all') {
+    if (category === 'all' || category === undefined) {
       axios(
         `https://fe-20-final-project.herokuapp.com/api/products/filter?perPage=${productsPerPage}&startPage=${currentPage}`
       ).then(({ data }) => {
