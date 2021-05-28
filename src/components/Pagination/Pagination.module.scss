@@ -1,15 +1,19 @@
 @import '../../utils/styles/var';
-.pagination {
+@mixin flx-center {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.pagination {
+  @include flx-center;
   flex-flow: row wrap;
 }
+
 .center {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flx-center;
 }
+
 .page__item {
   margin: 20px 10px;
   border: none;
@@ -35,43 +39,13 @@
   font-size: 1rem;
 }
 
-.items__qty {
-  width: 50px;
-  height: 30px;
-  color: $colorButton;
-  border-top: 1px solid $colorButton;
-  border-bottom: 1px solid $colorButton;
-  border-left: none;
-  border-right: none;
-  text-align: center;
-  font-size: 16px;
-  padding: 5px 0;
-}
-/* Для Chrome */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0;
-}
-/* Для Firefox */
-input[type=number]{
-  -moz-appearance: textfield;
-}
-.qty__increment,
-.qty__decrement {
-  width: 25px;
-  height: 30px;
-  color: $colorButton;
-  text-align: center;
-  border: 1px solid $colorButton;
-  padding: 5px 0;
-  font-weight: bold;
-}
 .setQuantity {
-  margin: 0 20px 0 0;
+  margin: 0 0 0 150px;
 }
-.productsPerPage {
-  margin-right: 20px;
+.select {
+  color: $colorButton;
+  border: 2px solid $colorButton;
+  padding: 3px 6px;
+  margin-left: 15px;
+  border-radius: 5px;
 }

@@ -48,14 +48,14 @@ const ProductList = () => {
     <>
       {productsQuantity > 0 ? (
         <div>
+          <ul className={style.productsList}>{productList}</ul>
           <Pagination
-            productsPerPage={productsPerPage}
+            productsPerPage={+productsPerPage}
             setProductsPerPage={setProductsPerPage}
             totalProducts={+productsQuantity}
             setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
+            currentPage={+currentPage}
           />
-          <ul className={style.productsList}>{productList}</ul>
         </div>
       ) : (
         <h1 className={style.productAbsent}>Продуктов в категории {category} пока нет</h1>

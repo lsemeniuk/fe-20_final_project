@@ -14,14 +14,21 @@ const Pagination = ({ productsPerPage, setProductsPerPage, totalProducts, setCur
   const handleClickPrev = () => (currentPage > 1 ? setCurrentPage(currentPage - 1) : null);
   const handleClickNext = () =>
     currentPage < Math.ceil(totalProducts / productsPerPage) ? setCurrentPage(currentPage + 1) : null;
-  const handleClickPlus = () => setProductsPerPage(Math.min(productsPerPage + 1, maxProductsPerPage));
-  const handleClickMinus = () => setProductsPerPage(Math.max(productsPerPage - 1, minProductsPerPage));
 
+  const optionsArr = [];
+  for (let i = minProductsPerPage; i <= maxProductsPerPage; i++) {
+    optionsArr.push(i);
+  }
+  const options = optionsArr.map(op => (
+    <option key={op} value={op}>
+      {op}
+    </option>
+  ));
   return (
     <nav className={styles.center}>
       <ul className={styles.pagination}>
         <li className={styles.page__item} onClick={() => handleClickPrev()}>
-          <span className={styles.page__prev}>prev</span>
+          <span className={styles.page__prev}>пред</span>
         </li>
         {pageNumbers.map(number => (
           <li
@@ -33,18 +40,18 @@ const Pagination = ({ productsPerPage, setProductsPerPage, totalProducts, setCur
           </li>
         ))}
         <li className={styles.page__item} onClick={() => handleClickNext()}>
-          <span className={styles.page__next}>next</span>
+          <span className={styles.page__next}>след</span>
         </li>
       </ul>
       <div className={styles.setQuantity}>
-        <label className={styles.productsPerPage}> Показывать по:</label>
-        <button type='button' className={styles.qty__decrement} onClick={handleClickMinus}>
-          -
-        </button>
-        <input type='number' value={productsPerPage} className={styles.items__qty} readOnly />
-        <button type='button' className={styles.qty__increment} onClick={handleClickPlus}>
-          +
-        </button>
+        <span>Показывать по:</span>
+        <select
+          onChange={e => setProductsPerPage(e.target.value)}
+          defaultValue={productsPerPage}
+          className={styles.select}
+        >
+          {options}
+        </select>
       </div>
     </nav>
   );
