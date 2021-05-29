@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import ProductCard from '../ProductCard/ProductCard';
 import {
   getProductsFilterSelector,
@@ -16,17 +16,17 @@ const ProductList = () => {
   const products = useSelector(getProductsSelector);
   const productFilters = useSelector(getProductsFilterSelector);
   const productsLoading = useSelector(productsLoadingSelector);
-
   const params = useParams();
 
+  const history = useHistory();
   useEffect(() => {
     if (params.categories === 'all') {
       const { categories, ...filters } = productFilters;
-      dispatch(getProductsFilterOperation({ ...filters }));
+      dispatch(getProductsFilterOperation({ history, ...filters }));
     } else {
-      dispatch(getProductsFilterOperation({ ...productFilters, categories: params.categories }));
+      dispatch(getProductsFilterOperation({ history, ...productFilters, categories: params.categories }));
     }
-  }, [params]);
+  }, [history.location.pathname]);
 
   if (productsLoading) {
     return <Loader />;

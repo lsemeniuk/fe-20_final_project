@@ -10,7 +10,6 @@ import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import styles from './Products.module.scss';
 import Select from '../../components/SelectBar/Select/Select';
-// import { getProductsFilterSelector } from '../../store/products/selectors';
 
 const Products = () => {
   const categories = useSelector(getCategoriesSelector);
