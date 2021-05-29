@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
 import Container from '../../components/Container/Container';
 import { INDEX_ROUTE } from '../../utils/consts';
@@ -10,17 +10,18 @@ import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import styles from './Products.module.scss';
 import Select from '../../components/SelectBar/Select/Select';
+// import { getProductsFilterSelector } from '../../store/products/selectors';
 
 const Products = () => {
-  const location = useLocation();
   const categories = useSelector(getCategoriesSelector);
   const categorie = {};
+  const params = useParams();
 
-  if (location.pathname === '/products') {
+  if (params.categories === 'all') {
     categorie.name = 'Все товары';
   } else {
     categories.map(c => {
-      if (location.pathname.includes(c.id)) {
+      if (params.categories === c.id) {
         categorie.name = c.name;
       }
       return null;
@@ -46,6 +47,7 @@ const Products = () => {
             <ContainerAside>
               <Select />
             </ContainerAside>
+
             <ContainerPage style={{ padding: '0' }}>
               <ProductList />
             </ContainerPage>
