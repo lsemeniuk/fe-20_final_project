@@ -32,7 +32,7 @@ const ProductColors = ({ color }) => {
         </li>
       );
     }
-    if (col.name === 'Bronze') {
+    if (col.name === 'bronze') {
       return (
         <li style={{ borderColor: col.cssValue }} key={col.name} className={`${styles.item}`}>
           <div style={{ borderColor: col.cssValue }} className={styles.border}>

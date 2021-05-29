@@ -2,10 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { replace } from '../../../utils/func';
-import styles from './ProductPrice.module.scss';
 import AddToCartButton from '../../../components/AddToCartButton/AddToCartButton';
-import Button from '../../../components/Button/Button';
 import AddToWishListBtn from '../../../components/AddToWishListButton/AddToWishListBtn';
+import styles from './ProductPrice.module.scss';
 
 const ProductPrice = ({ product }) => {
   const { previousPrice, currentPrice, _id: id, itemNo } = product;
@@ -23,7 +22,6 @@ const ProductPrice = ({ product }) => {
         )}
       </div>
       <AddToCartButton id={id} className={styles.button} />
-      <Button variant='outline' className={`${styles.button} ${styles.orderButton}`} title='Быстрый заказ' />
       <AddToWishListBtn id={id} itemNo={itemNo} />
     </div>
   );
