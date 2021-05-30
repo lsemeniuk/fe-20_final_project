@@ -6,6 +6,7 @@ import {
   oneProductLoadingAction,
   saveProductsQuantityAction,
   saveProductsFilterAction,
+  saveProductsFilteredAction,
 } from './actions';
 
 export const getProductsOperation = () => dispatch => {
@@ -24,11 +25,17 @@ export const getOneProductOperation = productId => dispatch => {
   });
 };
 
-export const getProductsFilterOperation = filters => dispatch => {
-  dispatch(saveProductsFilterAction({ ...filters }));
+export const getProductsFilterOperation = ({ history, ...filters }) => dispatch => {
   dispatch(productsLoadingAction(true));
+
+  dispatch(saveProductsFilterAction({ ...filters }));
+
+  const { categories, perPage, startPage, sort, ...Currentfilters } = filters;
+  const currentUrlParams = new URLSearchParams(Currentfilters);
+  history.push(`${history.location.pathname}?${currentUrlParams}`);
+
   getProductsFilterParams(filters).then(res => {
-    dispatch(saveProductsAction(res.data.products));
+    dispatch(saveProductsFilteredAction(res.data.products));
     dispatch(saveProductsQuantityAction(res.data.productsQuantity));
     dispatch(productsLoadingAction(false));
   });

@@ -19,6 +19,7 @@ import styles from './NavBar.module.scss';
 import { getCartOperation } from '../../store/cart/operations';
 import { getCatalogOperation } from '../../store/catalog/operations';
 import { wishListLoadingAction } from '../../store/wishList/actions';
+import { getProductsOperation } from '../../store/products/operations';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const NavBar = () => {
 
   useEffect(() => {
     dispatch(getCatalogOperation());
+    dispatch(getProductsOperation());
     dispatch(wishListLoadingAction(true));
     if (isAuth) {
       dispatch(getWishListOperation());
