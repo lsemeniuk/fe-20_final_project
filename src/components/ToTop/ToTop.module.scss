@@ -2,53 +2,27 @@
 
 .scrollTop {
   padding: 0;
-  background: $colorTextSilver;
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   right: 30px;
   border: none;
   transition: 0.6s;
+  border: 1px solid $colorTextSilver;
+  border-radius: 5px;
   z-index: 50;
-  overflow:hidden;
-
-}
-.scrollTop::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  border-top: 3px solid #21ebff;
-  border-left: 3px solid #21ebff;
-  transition: 0.6s;
+  background-color: #fff;
+  cursor: pointer;
 }
 .scrollTop:hover {
-  background: #21ebff;
-  color: #111;
-  box-shadow: 0 0 50px #18828b;
-  overflow:hidden;
+  background: $bgColor;
+  border-color: $colorButton;
 }
-.scrollTop:hover::before {
-  width: 99%;
-  height: 99%;
-}
-.scrollTop::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  border-bottom: 3px solid #21ebff;
-  border-right: 3px solid #21ebff;
-  transition: 0.6s;
-}
+
 .hidden {
+  visibility: hidden;
   opacity: 0;
 }
 .iconBox {
-  // width: 45px;
   height: 40px;
 }
 .scrollTop:hover::after {
@@ -56,7 +30,7 @@
   height: 99%;
 }
 .scrollTop:hover svg {
-  fill: #000;
+  fill: $colorButton;
 }
 svg {
   transition: fill 0.6s;

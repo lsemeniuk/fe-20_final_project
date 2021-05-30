@@ -8,9 +8,11 @@ import { getCategoriesSelector } from '../../store/catalog/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import ContainerAside from '../../components/ContainerAside/ContainerAside';
-import styles from './Products.module.scss';
 import Select from '../../components/SelectBar/Select/Select';
-// import { getProductsFilterSelector } from '../../store/products/selectors';
+import Pagination from '../../components/Pagination/Pagination';
+import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
+import Sorting from '../../components/Sorting/Sorting';
+import styles from './Products.module.scss';
 
 const Products = () => {
   const categories = useSelector(getCategoriesSelector);
@@ -49,7 +51,13 @@ const Products = () => {
             </ContainerAside>
 
             <ContainerPage style={{ padding: '0' }}>
+              <div className={styles.catalogSettings}>
+                <ProductQuantity />
+                <Sorting />
+              </div>
+
               <ProductList />
+              <Pagination />
             </ContainerPage>
           </div>
         </div>

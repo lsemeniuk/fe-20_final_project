@@ -18,3 +18,4 @@ export { favIcon } from './favIcon';
 export { okay } from './okay';
 export { no } from './no';
 export { clock } from './clock';
+export { сhevron } from './сhevron';
