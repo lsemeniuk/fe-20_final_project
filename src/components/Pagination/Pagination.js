@@ -25,29 +25,36 @@ const Pagination = () => {
   const handlePage = page => {
     if (page >= 1 && page <= pageNumbers.length) {
       dispatch(getProductsFilterOperation({ history, ...filter, perPage, startPage: page }));
+      window.scrollTo(0, 0);
     }
     return null;
   };
 
   return (
-    <nav className={styles.center}>
+    <nav className={styles.container}>
+      <div
+        className={startPage === 1 ? styles.arrow : `${styles.arrow} ${styles.arrowActive}`}
+        onClick={() => handlePage(startPage - 1)}
+      >
+        <span className={styles.prev}>{}</span>
+      </div>
       <ul className={styles.pagination}>
-        <li className={styles.page__item} onClick={() => handlePage(startPage - 1)}>
-          <span className={styles.page__prev}>пред</span>
-        </li>
         {pageNumbers.map(number => (
           <li
             key={number}
-            className={startPage === number ? `${styles.page__item} ${styles.active}` : `${styles.page__item}`}
+            className={startPage === number ? `${styles.page__item} ${styles.active}` : styles.page__item}
             onClick={() => handlePage(number)}
           >
             <span className={styles.page__number}>{number}</span>
           </li>
         ))}
-        <li className={styles.page__item} onClick={() => handlePage(startPage + 1)}>
-          <span className={styles.page__next}>след</span>
-        </li>
       </ul>
+      <div
+        className={startPage === pageNumbers.length ? styles.arrow : `${styles.arrow} ${styles.arrowActive}`}
+        onClick={() => handlePage(startPage + 1)}
+      >
+        <span className={styles.next}>{}</span>
+      </div>
     </nav>
   );
 };
