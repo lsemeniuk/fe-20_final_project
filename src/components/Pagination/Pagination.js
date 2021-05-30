@@ -30,6 +30,16 @@ const Pagination = () => {
     return null;
   };
 
+  const pageNumbersList = pageNumbers.map(number => (
+    <li
+      key={number}
+      className={startPage === number ? `${styles.pageNumbersItem} ${styles.itemActive}` : styles.pageNumbersItem}
+      onClick={() => handlePage(number)}
+    >
+      <span className={styles.pageNumbers}>{number}</span>
+    </li>
+  ));
+
   return (
     <nav className={styles.container}>
       <div
@@ -38,17 +48,7 @@ const Pagination = () => {
       >
         <span className={styles.prev}>{}</span>
       </div>
-      <ul className={styles.pagination}>
-        {pageNumbers.map(number => (
-          <li
-            key={number}
-            className={startPage === number ? `${styles.page__item} ${styles.active}` : styles.page__item}
-            onClick={() => handlePage(number)}
-          >
-            <span className={styles.page__number}>{number}</span>
-          </li>
-        ))}
-      </ul>
+      <ul className={styles.pagination}>{pageNumbersList}</ul>
       <div
         className={startPage === pageNumbers.length ? styles.arrow : `${styles.arrow} ${styles.arrowActive}`}
         onClick={() => handlePage(startPage + 1)}
