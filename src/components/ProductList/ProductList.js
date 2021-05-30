@@ -16,9 +16,10 @@ const ProductList = () => {
   const products = useSelector(getProductsSelector);
   const productFilters = useSelector(getProductsFilterSelector);
   const productsLoading = useSelector(productsLoadingSelector);
-  const params = useParams();
 
+  const params = useParams();
   const history = useHistory();
+
   useEffect(() => {
     if (params.categories === 'all') {
       const { categories, ...filters } = productFilters;
