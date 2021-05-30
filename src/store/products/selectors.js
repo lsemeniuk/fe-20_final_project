@@ -1,4 +1,6 @@
-export const getProductsSelector = state => state.products.data;
+export const getProductsSelector = state => state.products.allProducts;
+
+export const getProductsFilteredSelector = state => state.products.filterProducts;
 
 export const getOneProductSelector = state => state.products.product;
 

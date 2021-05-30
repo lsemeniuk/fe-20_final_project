@@ -1,5 +1,6 @@
 import {
   SET_PRODUCTS,
+  SET_PRODUCTS_FILTERED,
   SET_PRODUCTS_LOADING,
   SET_ONE_PRODUCT,
   SET_ONE_PRODUCT_LOADING,
@@ -8,9 +9,10 @@ import {
 } from './types';
 
 const initialState = {
-  data: [],
+  allProducts: [],
+  filterProducts: [],
   product: {},
-  productsFilter: { perPage: 9, startPage: 1 },
+  productsFilter: { perPage: 9, startPage: 1, sort: '-date' },
   productsQuantity: {},
   isLoading: true,
   productLoading: true,
@@ -19,7 +21,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_PRODUCTS: {
-      return { ...state, data: action.payload };
+      return { ...state, allProducts: action.payload };
+    }
+    case SET_PRODUCTS_FILTERED: {
+      return { ...state, filterProducts: action.payload };
     }
     case SET_ONE_PRODUCT: {
       return { ...state, product: action.payload };

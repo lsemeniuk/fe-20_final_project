@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import ProductCard from '../ProductCard/ProductCard';
 import {
+  getProductsFilteredSelector,
   getProductsFilterSelector,
-  getProductsSelector,
   productsLoadingSelector,
 } from '../../store/products/selectors';
 import style from './ProductList.module.scss';
@@ -13,7 +13,7 @@ import { getProductsFilterOperation } from '../../store/products/operations';
 
 const ProductList = () => {
   const dispatch = useDispatch();
-  const products = useSelector(getProductsSelector);
+  const productsFiltered = useSelector(getProductsFilteredSelector);
   const productFilters = useSelector(getProductsFilterSelector);
   const productsLoading = useSelector(productsLoadingSelector);
 
@@ -33,7 +33,7 @@ const ProductList = () => {
     return <Loader />;
   }
 
-  const productList = products.map(product => <ProductCard key={product.itemNo} product={product} />);
+  const productList = productsFiltered.map(product => <ProductCard key={product.itemNo} product={product} />);
 
   return <ul className={style.productsList}>{productList}</ul>;
 };

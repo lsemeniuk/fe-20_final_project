@@ -11,6 +11,7 @@ import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import Select from '../../components/SelectBar/Select/Select';
 import Pagination from '../../components/Pagination/Pagination';
 import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
+import Sorting from '../../components/Sorting/Sorting';
 import styles from './Products.module.scss';
 
 const Products = () => {
@@ -52,7 +53,7 @@ const Products = () => {
             <ContainerPage style={{ padding: '0' }}>
               <div className={styles.catalogSettings}>
                 <ProductQuantity />
-                <div>Sorting</div>
+                <Sorting />
               </div>
 
               <ProductList />
