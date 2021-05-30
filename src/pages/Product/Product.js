@@ -66,7 +66,9 @@ const Product = () => {
         </div>
 
         <div>
-          <h2 className={styles.categoryTitle}>{name}</h2>
+          <h2 className={styles.categoryTitle}>
+            {name}, {color}
+          </h2>
         </div>
       </Container>
 

@@ -56,13 +56,13 @@ const ProductCard = ({ product, inSlider }) => {
         <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} />
       </div>
 
-      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
+      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} className={styles.nameLink}>
         <span className={styles.name}>{name}</span>
       </NavLink>
 
       <div className={styles.btnBlock}>
         <div className={styles.btnFlex}>
-          <AddToCartButton id={id} />
+          <AddToCartButton id={id} orderButton={false} />
           <span className={styles.favIcon}>
             <AddToWishListBtn id={id} itemNo={itemNo} />
           </span>

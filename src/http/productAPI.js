@@ -43,8 +43,10 @@ export const getProducts = async () => {
 // @route   GET /products/filter
 // @desc    GET appropriate filtered products
 // @access  Public
-export const getProductsFilterParams = async () => {
-  const res = await $host.get('products/filter').catch(err => {
+export const getProductsFilterParams = async filters => {
+  const filtersStr = new URLSearchParams(filters).toString();
+
+  const res = await $host.get(`products/filter?${filtersStr}`).catch(err => {
     throw err;
   });
   return res;
