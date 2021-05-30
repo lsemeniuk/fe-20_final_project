@@ -1,0 +1,41 @@
+@import '../../utils/styles/var';
+
+@mixin flx-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  @include flx-center;
+  flex-flow: row wrap;
+}
+
+.center {
+  @include flx-center;
+}
+
+.page__item {
+  margin: 20px 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.page__item:hover .page__number,
+.page__item:hover .page__prev,
+.page__item:hover .page__next {
+  color: $colorButton;
+}
+.page__number {
+  font-size: 25px;
+}
+.active {
+  border: 2px solid $colorButton;
+  color: $colorButton;
+}
+.page__next,
+.page__prev {
+  font-size: 1rem;
+}

@@ -10,6 +10,8 @@ import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import styles from './Products.module.scss';
 import Select from '../../components/SelectBar/Select/Select';
+import Pagination from '../../components/Pagination/Pagination';
+import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
 
 const Products = () => {
   const categories = useSelector(getCategoriesSelector);
@@ -48,6 +50,8 @@ const Products = () => {
             </ContainerAside>
 
             <ContainerPage style={{ padding: '0' }}>
+              <ProductQuantity />
+              <Pagination />
               <ProductList />
             </ContainerPage>
           </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import Slider from 'react-slick';
 import { getBrandsOperation } from '../../../store/brands/operations';
 import { brandsLoadingSelector, getBrandsSelector } from '../../../store/brands/selectors';
@@ -23,6 +23,7 @@ const BrandBar = () => {
   const brandsLoading = useSelector(brandsLoadingSelector);
 
   const history = useHistory();
+  const { search } = useLocation();
 
   useEffect(() => {
     dispatch(getBrandsOperation());
@@ -43,7 +44,7 @@ const BrandBar = () => {
     brandsList = brands.map(brand => {
       let classNameItem = styles.itemContainer;
 
-      if (history.location.search.includes(`brand=${brand.name}`)) {
+      if (search.includes(`brand=${brand.name}`)) {
         classNameItem = `${styles.itemContainer} ${styles.itemActive}`;
       }
 
@@ -72,9 +73,7 @@ const BrandBar = () => {
           <Slider className={styles.slider} {...sliderSettings}>
             <div
               key='all'
-              className={
-                history.location.search ? styles.itemContainer : `${styles.itemContainer} ${styles.itemActive}`
-              }
+              className={search ? styles.itemContainer : `${styles.itemContainer} ${styles.itemActive}`}
               onClick={() => filterProductAllBrand()}
             >
               <li className={styles.item}>
