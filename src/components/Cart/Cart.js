@@ -29,7 +29,7 @@ const Cart = ({ buttonHandler, display }) => {
 
   let cartList = null;
 
-  if (isAuth) {
+  if (isAuth && cart) {
     cartList = cart.products.map(p => (
       <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
     ));

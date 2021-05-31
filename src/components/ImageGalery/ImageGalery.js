@@ -39,7 +39,7 @@ const ImageGalery = ({ product, buttonHandler, display, initialSlide }) => {
       </ul>
 
       <div className={styles.orderContainer}>
-        <AddToCartButton id={id} className={styles.button} />
+        <AddToCartButton id={id} className={styles.button} currentPrice={currentPrice} />
         <div className={styles.currentPrice}>{replace(currentPrice)} грн</div>
       </div>
     </Modal>

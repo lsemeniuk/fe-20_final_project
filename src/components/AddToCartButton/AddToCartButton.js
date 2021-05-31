@@ -7,9 +7,10 @@ import { cartLoadingSelector, getCartSelector, getLocalCartSelector } from '../.
 import { saveModalCartAction } from '../../store/modal/actions';
 import { addProductToCartOperation } from '../../store/cart/operations';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
-import { saveLocalCartAction } from '../../store/cart/actions';
+import { cartTotalPriceAction, saveLocalCartAction } from '../../store/cart/actions';
+import { calculateTotalPrice } from '../../utils/func';
 
-const AddToCartButton = ({ id, className, orderButton }) => {
+const AddToCartButton = ({ id, className, orderButton, currentPrice }) => {
   const dispatch = useDispatch();
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const cartLoading = useSelector(cartLoadingSelector);
@@ -34,12 +35,20 @@ const AddToCartButton = ({ id, className, orderButton }) => {
 
   const addToCart = () => {
     if (localCart) {
-      const productCart = { products: [...localCart?.products, { cartQuantity: 1, product: id }] };
+      const productCart = { products: [...localCart?.products, { cartQuantity: 1, product: id, currentPrice }] };
       localStorage.setItem('cart', JSON.stringify(productCart));
+
+      const totalPrice = calculateTotalPrice(productCart, false);
+      dispatch(cartTotalPriceAction(totalPrice));
+
       dispatch(saveLocalCartAction(productCart));
     } else {
-      const productCart = { products: [{ cartQuantity: 1, product: id }] };
+      const productCart = { products: [{ cartQuantity: 1, product: id, currentPrice }] };
       localStorage.setItem('cart', JSON.stringify(productCart));
+
+      const totalPrice = calculateTotalPrice(productCart, false);
+      dispatch(cartTotalPriceAction(totalPrice));
+
       dispatch(saveLocalCartAction(productCart));
     }
 
@@ -66,6 +75,7 @@ AddToCartButton.propTypes = {
   id: PropTypes.string.isRequired,
   className: PropTypes.string,
   orderButton: PropTypes.bool,
+  currentPrice: PropTypes.number.isRequired,
 };
 
 AddToCartButton.defaultProps = {

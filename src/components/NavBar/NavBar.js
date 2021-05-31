@@ -15,11 +15,11 @@ import { saveModalAuthRegAction } from '../../store/modal/actions';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
 import { getWishListOperation, updateWishListOperation } from '../../store/wishList/operations';
-import styles from './NavBar.module.scss';
-import { getCartOperation, updateCartOperation } from '../../store/cart/operations';
+import { getCartOperation, updateCartOperation, setCartTotalPriceOperation } from '../../store/cart/operations';
 import { getCatalogOperation } from '../../store/catalog/operations';
 import { wishListLoadingAction } from '../../store/wishList/actions';
 import { getProductsOperation } from '../../store/products/operations';
+import styles from './NavBar.module.scss';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -53,6 +53,8 @@ const NavBar = () => {
       } else {
         dispatch(getCartOperation());
       }
+    } else {
+      dispatch(setCartTotalPriceOperation(localCart));
     }
   }, [isAuth]);
 

@@ -59,6 +59,7 @@ const MyOrders = () => {
         </div>
         <div className={styles.infoCart}>
           <h4 className={styles.menuOrderTitle}>Мой заказ</h4>
+          <span className={styles.menuOrderPrice}>{`${totalPrice} грн`}</span>
         </div>
       </div>
     );
