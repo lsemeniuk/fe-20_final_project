@@ -10,6 +10,8 @@ const Button = ({ variant, title, onClick, disabled, type, className }) => {
     styleClass = `${styles.button} ${styles.outline}`;
   } else if (variant === 'special') {
     styleClass = `${styles.button} ${styles.examples} ${styles.special}`;
+  } else if (variant === 'order') {
+    styleClass = `${styles.button} ${styles.outline} ${styles.order}`;
   } else {
     styleClass = `${styles.button} ${styles.examples}`;
   }

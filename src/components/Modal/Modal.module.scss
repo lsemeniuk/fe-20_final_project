@@ -17,14 +17,14 @@
 }
 
 .modal {
-  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.3);
   position: relative;
-  top: 10%;
+  top: 5%;
   left: 50%;
   padding: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-radius: 5px;
-  z-index: 9999;
+  z-index: 1999;
   background-color: #ffffff;
 
   &__close {
@@ -41,7 +41,7 @@
 }
 .close {
   position: absolute;
-  z-index: 99999;
+  z-index: 2999;
   top: -6px;
   right: 5px;
   cursor: pointer;

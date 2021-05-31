@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-  id: yup.string().min(2, 'Мин. 2 буквы').max(10, 'Макс. 10 букв').required('Укажите id категории'),
+  id: yup.string().min(2, 'Мин. 2 буквы').max(15, 'Макс. 15 букв').required('Укажите id категории'),
   name: yup.string().min(2, 'Мин. 2 буквы').max(30, 'Макс. 30 букв').required('Укажите название категории'),
   parentId: yup
     .string()

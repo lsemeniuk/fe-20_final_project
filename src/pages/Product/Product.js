@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
@@ -11,14 +11,21 @@ import {
   productsLoadingSelector,
 } from '../../store/products/selectors';
 import ProductImages from './ProductImages/ProductImages';
-import styles from './Product.module.scss';
 import Availability from './Availability/Availability';
 import ProductColors from './ProductColors/ProductColors';
 import ProductPrice from './ProductPrice/ProductPrice';
 import OrdersInfo from './OrdersInfo/OrdersInfo';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
+import InfoPanel from './InfoPanel/InfoPanel';
+import styles from './Product.module.scss';
+import NavBarProduct from './NavBarProduct/NavBarProduct';
 
 const Product = () => {
+  const [tabIndexInfo, setTabIndexInfo] = useState(0);
+  const infoRef = useRef(null);
+  const productRef = useRef(null);
+  const interestedRef = useRef(null);
+
   const dispatch = useDispatch();
   const products = useSelector(getProductsSelector);
   const productsLoading = useSelector(productsLoadingSelector);
@@ -41,7 +48,6 @@ const Product = () => {
       </Container>
     );
   }
-
   const { brand, name, quantity, color } = product;
 
   return (
@@ -60,20 +66,22 @@ const Product = () => {
         </div>
 
         <div>
-          <h2 className={styles.categoryTitle}>{name}</h2>
+          <h2 className={styles.categoryTitle}>
+            {name}, {color}
+          </h2>
         </div>
       </Container>
-      <div className={styles.navBarContainer}>
-        <Container>
-          <nav className={styles.navBarProduct}>
-            <span>Про товар</span>
-            <span>Характеристики</span>
-            <span>Отзывы</span>
-          </nav>
-        </Container>
-      </div>
+
+      <NavBarProduct
+        product={product}
+        setTabIndexInfo={setTabIndexInfo}
+        infoRef={infoRef}
+        productRef={productRef}
+        interestedRef={interestedRef}
+      />
+
       <Container>
-        <div className={styles.flexContainer}>
+        <div className={styles.flexContainer} ref={productRef}>
           <div className={styles.flexColumn}>
             <ProductImages product={product} />
           </div>
@@ -85,12 +93,15 @@ const Product = () => {
             <OrdersInfo />
           </div>
         </div>
+
+        <div ref={infoRef} className={styles.infoPanel}>
+          <InfoPanel product={product} setTabIndex={setTabIndexInfo} tabIndex={tabIndexInfo} />
+        </div>
+
         {!productsLoading && (
-          <CustomSlider
-            title='
-Также Вас могут заинтересовать'
-            products={products}
-          />
+          <div ref={interestedRef} className={styles.interestedProduct}>
+            <CustomSlider title='Также Вас могут заинтересовать' products={products} />
+          </div>
         )}
       </Container>
     </main>

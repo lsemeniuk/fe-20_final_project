@@ -11,7 +11,7 @@ const ProductCardSmall = ({ product, onClick }) => {
     <div className={styles.container}>
       <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`} onClick={onClick}>
         <div className={styles.header}>
-          <img src={product.imageUrls[0]} width={130} height={130} alt='product img' />
+          <img src={product.imageUrls[0].smallImage} width={130} height={130} alt='product img' />
           <h5 className={styles.title}>{product.name}</h5>
         </div>
       </NavLink>
