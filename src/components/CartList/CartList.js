@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getCartSelector, getLocalCartSelector } from '../../store/cart/selectors';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
-import { getProductsSelector } from '../../store/products/selectors';
+import { getProductsSelector, productsLoadingSelector } from '../../store/products/selectors';
 import CartItem from '../CartItem/CartItem';
 import styles from './CartList.module.scss';
 
@@ -12,6 +12,7 @@ const CartList = () => {
   const cart = useSelector(getCartSelector);
   const localCart = useSelector(getLocalCartSelector);
   const products = useSelector(getProductsSelector);
+  const productsLoading = useSelector(productsLoadingSelector);
 
   let cartList = null;
 
@@ -19,7 +20,7 @@ const CartList = () => {
     cartList = cart.products.map(p => (
       <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
     ));
-  } else if (localCart && localCart.products.length >= 1) {
+  } else if (localCart && localCart.products.length >= 1 && !productsLoading) {
     cartList = localCart.products.map(p => {
       const filterProduct = products.filter(prod => {
         return prod['_id'] === p.product;

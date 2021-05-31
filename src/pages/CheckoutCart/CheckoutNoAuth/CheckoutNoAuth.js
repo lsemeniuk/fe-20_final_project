@@ -7,8 +7,8 @@ import QuickOrder from './QuickOrder/QuickOrder';
 
 const CheckoutNoAuth = () => {
   const tabsData = [
-    { name: 'Я новый покупатель', component: NewCustomer },
-    { name: 'Я зарегистрированный покупатель', component: AuthCustomerTab },
+    { name: 'Новый покупатель', component: NewCustomer },
+    { name: 'Есть аккаунт', component: AuthCustomerTab },
     { name: 'Быстрый заказ', component: QuickOrder },
   ];
   return (
