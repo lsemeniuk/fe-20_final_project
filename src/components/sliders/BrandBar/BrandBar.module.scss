@@ -1,4 +1,5 @@
 @import '../../../utils/styles/mixins';
+@import '../../../utils/styles/var';
 
 .container {
   @extend %custom-shadow;
@@ -13,11 +14,21 @@
     top: 50%;
   }
 }
+
 .itemContainer {
   cursor: pointer;
   padding: 15px 0;
   border-right: 1px solid #d6d6d6;
+  border-left: 1px solid #d6d6d6;
+  border-top: 1px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;
 }
+
+.itemActive {
+  border-color: $colorButnHover;
+  box-shadow: 0px 0px 20px -6px rgba(71, 200, 255, 0.21) inset;
+}
+
 .item {
   display: flex;
   align-items: center;
@@ -25,16 +36,20 @@
   height: 75px;
   width: 75px;
   margin: 0 auto;
+  border: 1px solid #fff;
 }
+
 .img {
   width: 75px;
 }
+
 .name {
   text-align: center;
   font-size: 16px;
   font-weight: 700;
   color: #3a3a3a;
 }
+
 .loader {
   height: 105px;
   display: flex;

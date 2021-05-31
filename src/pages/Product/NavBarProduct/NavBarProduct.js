@@ -56,7 +56,7 @@ const NavBarProduct = ({ product, setTabIndexInfo, infoRef, productRef, interest
           </nav>
 
           <div style={ordersStyles} className={styles.navBarOrder}>
-            <AddToCartButton id={id} />
+            <AddToCartButton id={id} className={styles.buttons} />
             <div className={styles.priceContainer}>
               <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} />
             </div>

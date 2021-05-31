@@ -14,7 +14,6 @@ const PagesRoutes = () => {
   if (linksLoading) {
     return <Loader />;
   }
-
   const clientLinks = links.find(link => {
     if (link.title === 'Клиентам') {
       return link;

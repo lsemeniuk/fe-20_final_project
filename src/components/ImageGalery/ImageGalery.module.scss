@@ -1,0 +1,41 @@
+@import '../../utils/styles/var';
+
+.title {
+  margin: 0 0 10px;
+  font-weight: 400;
+}
+
+.slider {
+  list-style: none;
+  & button {
+    top: calc(50% - 20px);
+  }
+}
+
+.galeryItem {
+  margin: 0 auto;
+}
+
+.galeryImage {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.orderContainer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  margin-right: 20px;
+  padding: 10px 15px;
+  height: 45px;
+}
+
+.currentPrice {
+  font-size: 26px;
+  font-weight: 600;
+  color: $colorSale;
+}

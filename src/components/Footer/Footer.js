@@ -50,7 +50,7 @@ const Footer = () => {
               </div>
               <div className={styles.mobileVersion}>
                 <span className={styles.mobileVersion}>
-                  <Icons type='mobile' color='rgba(125,125,125, 0.7)' />
+                  <Icons type='mobile' color='#fff' />
                   Мобильная версия
                 </span>
               </div>
@@ -74,16 +74,16 @@ const Footer = () => {
             <span>Мы в соцсетях</span>
             <nav className={styles.social}>
               <a className={styles.socialLink} target='blank' title='Мы Вконтакте!' href='https://vk.com/'>
-                <Icons type='vk' className={styles.socIcon} />
+                <Icons type='vk' className={styles.socIcon} color='#fff' />
               </a>
               <a className={styles.socialLink} target='blank' title='Мы в Facebook!' href='https://www.facebook.com/'>
-                <Icons type='facebook' className={styles.socIcon} />
+                <Icons type='facebook' className={styles.socIcon} color='#fff' />
               </a>
               <a className={styles.socialLink} target='blank' title='Мы в твиттере!' href='https://twitter.com/'>
-                <Icons type='twitter' className={styles.socIcon} />
+                <Icons type='twitter' className={styles.socIcon} color='#fff' />
               </a>
               <a className={styles.socialLink} target='blank' title='Мы в инстаграмме' href='https://instagram.com/'>
-                <Icons type='instagram' className={styles.socIcon} />
+                <Icons type='instagram' className={styles.socIcon} color='#fff' />
               </a>
             </nav>
           </div>
@@ -93,13 +93,13 @@ const Footer = () => {
               <nav>
                 <ul className={styles.menuList}>
                   <li className={styles.menuItem}>
-                    <Icons type='phone' className={styles.icons} />
+                    <Icons type='phone' className={styles.icons} color='#fff' />
                     <a href='tel:+380440000000' className={`${styles.contactsLink} ${styles.link}`}>
                       044 000-00-00
                     </a>
                   </li>
                   <li className={styles.menuItem}>
-                    <Icons type='phone' className={styles.icons} />
+                    <Icons type='phone' className={styles.icons} color='#fff' />
                     <a href='tel:+380950000000' className={`${styles.contactsLink} ${styles.link}`}>
                       095 000-00-00
                     </a>
@@ -112,7 +112,7 @@ const Footer = () => {
               <nav>
                 <ul className={styles.menuList}>
                   <li className={styles.menuItem}>
-                    <Icons type='whatsApp' className={styles.icons} />
+                    <Icons type='whatsApp' className={styles.icons} color='#fff' />
                     <a
                       href='https://api.whatsapp.com/send?phone=whats-app'
                       className={`${styles.contactsLink} ${styles.link}`}
@@ -123,7 +123,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li className={styles.menuItem}>
-                    <Icons type='telegram' className={styles.icons} />
+                    <Icons type='telegram' className={styles.icons} color='#fff' />
                     <a
                       href='tg://resolve?domain=telegram'
                       className={`${styles.contactsLink} ${styles.link}`}
@@ -134,7 +134,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li className={styles.menuItem}>
-                    <Icons type='skype' className={styles.icons} />
+                    <Icons type='skype' className={styles.icons} color='#fff' />
                     <a
                       href='skype:skype?call'
                       className={`${styles.contactsLink} ${styles.link}`}
@@ -145,7 +145,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li className={styles.menuItem}>
-                    <Icons type='email' className={styles.icons} />
+                    <Icons type='email' className={styles.icons} color='#fff' />
                     <a
                       href='mailto:timeshop.dan@gmail.com'
                       className={`${styles.contactsLink} ${styles.link}`}
@@ -157,7 +157,7 @@ const Footer = () => {
                   </li>
                 </ul>
                 <div className={styles.geolocation}>
-                  <Icons type='geolocation' className={styles.geolocationIcons} />
+                  <Icons type='geolocation' className={styles.geolocationIcons} color='#fff' />
                   <span className={styles.adress}>
                     Киев, пр. Павла
                     <br />

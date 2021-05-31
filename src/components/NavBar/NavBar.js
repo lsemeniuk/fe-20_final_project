@@ -16,10 +16,10 @@ import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
 import { getWishListOperation, updateWishListOperation } from '../../store/wishList/operations';
 import styles from './NavBar.module.scss';
-import { getProductsOperation } from '../../store/products/operations';
 import { getCartOperation } from '../../store/cart/operations';
 import { getCatalogOperation } from '../../store/catalog/operations';
 import { wishListLoadingAction } from '../../store/wishList/actions';
+import { getProductsOperation } from '../../store/products/operations';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -41,8 +41,8 @@ const NavBar = () => {
   }
 
   useEffect(() => {
-    dispatch(getProductsOperation());
     dispatch(getCatalogOperation());
+    dispatch(getProductsOperation());
     dispatch(wishListLoadingAction(true));
     if (isAuth) {
       dispatch(getWishListOperation());

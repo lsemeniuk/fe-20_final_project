@@ -139,13 +139,19 @@
   white-space: nowrap;
 }
 
+.nameLink {
+  overflow: hidden;
+  margin: auto;
+  height: 50px;
+  margin: 0;
+}
+
 .name {
   position: relative;
   color: #263238;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  overflow: hidden;
   font-size: 16px;
   line-height: 24px;
 }
