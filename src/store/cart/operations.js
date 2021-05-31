@@ -69,6 +69,7 @@ export const updateCartOperation = products => dispatch => {
 
 export const changeLocalCartOperation = (id, method) => dispatch => {
   const localCart = JSON.parse(localStorage.getItem('cart'));
+
   const newLocalCart = localCart.products.map(product => {
     if (product?.product === id) {
       if (method === 'decrease') {

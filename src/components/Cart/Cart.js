@@ -12,8 +12,8 @@ import RecommendList from '../RecommendList/RecommendList';
 import { getModalCartSelector } from '../../store/modal/selectors';
 import { getProductsSelector } from '../../store/products/selectors';
 import { cartTotalPriceSelector, getCartSelector, getLocalCartSelector } from '../../store/cart/selectors';
-import styles from './Cart.module.scss';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
+import styles from './Cart.module.scss';
 
 const Cart = ({ buttonHandler, display }) => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
