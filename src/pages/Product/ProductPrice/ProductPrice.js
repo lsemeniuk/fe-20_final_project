@@ -21,7 +21,7 @@ const ProductPrice = ({ product }) => {
           <div className={styles.regularPrice}>{replace(currentPrice)} грн</div>
         )}
       </div>
-      <AddToCartButton id={id} className={styles.button} />
+      <AddToCartButton id={id} className={styles.button} currentPrice={currentPrice} />
       <AddToWishListBtn id={id} itemNo={itemNo} />
     </div>
   );

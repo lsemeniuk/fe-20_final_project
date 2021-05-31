@@ -1,4 +1,5 @@
 import React from 'react';
+import ContainerPage from '../../../components/ContainerPage/ContainerPage';
 import TabsCustom from '../../../components/TabsCustom/TabsCustom';
 import UserInfo from './UserInfo/UserInfo';
 import UserPass from './UserPass/UserPass';
@@ -8,7 +9,11 @@ const PersonalInfo = () => {
     { name: 'Информация о пользователе', component: UserInfo },
     { name: 'Изменить пароль', component: UserPass },
   ];
-  return <TabsCustom tabsData={tabsData} />;
+  return (
+    <ContainerPage>
+      <TabsCustom tabsData={tabsData} />
+    </ContainerPage>
+  );
 };
 
 export default PersonalInfo;

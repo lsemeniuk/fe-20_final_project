@@ -7,6 +7,7 @@ import styles from './Sorting.module.scss';
 
 const sortList = [
   { name: 'Новинки', value: '-date' },
+  { name: 'Старые товары', value: '+date' },
   { name: 'Дешевые', value: 'currentPrice' },
   { name: 'Дорогие', value: '-currentPrice' },
 ];
