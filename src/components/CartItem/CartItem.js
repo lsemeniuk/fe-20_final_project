@@ -1,36 +1,49 @@
-/* eslint-disable dot-notation */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { replace } from '../../utils/func';
 import { PRODUCT_ROUTE } from '../../utils/consts';
 import styles from './CartItem.module.scss';
 import {
   addProductToCartOperation,
+  changeLocalCartOperation,
   decreaseCartProductQuantityOperation,
   deleteProductFromCartOperation,
 } from '../../store/cart/operations';
 import { saveModalCartAction } from '../../store/modal/actions';
+import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 
 const CartItem = ({ product, cartQuantity, cart }) => {
   const { previousPrice, currentPrice, quantity, itemNo, name, imageUrls } = product;
+  const isAuth = useSelector(getCustomerIsAuthSelector);
   const dispatch = useDispatch();
   const [controlQuantity, setControlQuantity] = useState(cartQuantity);
-  const id = product['_id'];
-
+  const { _id: id } = product;
   const decrementQuantity = () => {
-    dispatch(decreaseCartProductQuantityOperation(id));
+    dispatch(changeLocalCartOperation(id, 'decrease'));
+
+    if (isAuth) {
+      dispatch(decreaseCartProductQuantityOperation(id));
+    }
     setControlQuantity(cartQuantity - 1);
   };
 
   const incrementQuantity = () => {
-    dispatch(addProductToCartOperation(id));
+    dispatch(changeLocalCartOperation(id, 'add'));
+
+    if (isAuth) {
+      dispatch(addProductToCartOperation(id));
+    }
     setControlQuantity(cartQuantity + 1);
   };
 
   const deleteProduct = () => {
-    dispatch(deleteProductFromCartOperation(id, cart));
+    dispatch(changeLocalCartOperation(id, 'delete'));
+
+    if (isAuth) {
+      dispatch(deleteProductFromCartOperation(id, cart));
+    }
   };
 
   const calculatePrice = () => {
@@ -45,7 +58,7 @@ const CartItem = ({ product, cartQuantity, cart }) => {
   const incrementDisabled = controlQuantity >= quantity;
 
   return (
-    <div className={styles.container}>
+    <li className={styles.container}>
       <div className={styles.delete}>
         <span
           onClick={() => {
@@ -92,14 +105,18 @@ const CartItem = ({ product, cartQuantity, cart }) => {
       <div className={styles.price}>
         <span>{calculatePrice()} грн</span>
       </div>
-    </div>
+    </li>
   );
 };
 
 CartItem.propTypes = {
   product: PropTypes.object.isRequired,
   cartQuantity: PropTypes.number.isRequired,
-  cart: PropTypes.object.isRequired,
+  cart: PropTypes.object,
+};
+
+CartItem.defaultProps = {
+  cart: [],
 };
 
 export default CartItem;

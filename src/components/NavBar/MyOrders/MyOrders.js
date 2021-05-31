@@ -1,6 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { cartLoadingSelector, cartTotalPriceSelector, getCartSelector } from '../../../store/cart/selectors';
+import {
+  cartLoadingSelector,
+  cartTotalPriceSelector,
+  getCartSelector,
+  getLocalCartSelector,
+} from '../../../store/cart/selectors';
 import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
 import { saveModalCartAction } from '../../../store/modal/actions';
 import { getModalCartSelector } from '../../../store/modal/selectors';
@@ -15,46 +20,69 @@ const MyOrders = () => {
   const cart = useSelector(getCartSelector);
   const cartLoading = useSelector(cartLoadingSelector);
   const totalPrice = useSelector(cartTotalPriceSelector);
-
-  let quantity = 0;
-  if (cart?.products) {
-    for (let i = 0; i < cart.products.length; i++) {
-      quantity += cart.products[i].cartQuantity;
-    }
-  }
+  const localCart = useSelector(getLocalCartSelector);
 
   const modalHandler = () => {
     dispatch(saveModalCartAction(!modalCart));
   };
 
+  let ordersCart = null;
+  let quantity = 0;
+
+  if (isAuth && cart?.products) {
+    for (let i = 0; i < cart.products.length; i++) {
+      quantity += cart.products[i].cartQuantity;
+    }
+
+    ordersCart = (
+      <div className={styles.iconListItem} style={{ cursor: 'pointer' }} onClick={modalHandler}>
+        <div className={styles.iconCart}>
+          <Icons type='navBag' color='black' width={25} height={45} />
+          <span className={styles.productToCart}>{cartLoading ? null : quantity}</span>
+        </div>
+        <div className={styles.infoCart}>
+          <h4 className={styles.menuOrderTitle}>Мой заказ</h4>
+          <span className={styles.menuOrderPrice}>{`${totalPrice} грн`}</span>
+        </div>
+      </div>
+    );
+  } else if (!isAuth && localCart && localCart.products.length >= 1) {
+    for (let i = 0; i < localCart.products.length; i++) {
+      quantity += localCart.products[i].cartQuantity;
+    }
+
+    ordersCart = (
+      <div className={styles.iconListItem} style={{ cursor: 'pointer' }} onClick={modalHandler}>
+        <div className={styles.iconCart}>
+          <Icons type='navBag' color='black' width={25} height={45} />
+          <span className={styles.productToCart}>{quantity}</span>
+        </div>
+        <div className={styles.infoCart}>
+          <h4 className={styles.menuOrderTitle}>Мой заказ</h4>
+        </div>
+      </div>
+    );
+  } else {
+    ordersCart = (
+      <div className={styles.iconListItem}>
+        <div className={styles.iconCart}>
+          <Icons type='navBag' color='black' width={25} height={45} />
+          <span className={styles.productToCart}>0</span>
+        </div>
+        <div className={styles.infoCart}>
+          <h4 className={styles.menuOrderTitle}>
+            Корзина
+            <br />
+            пустая
+          </h4>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
-      {isAuth && cart ? (
-        <div className={styles.iconListItem} style={{ cursor: 'pointer' }} onClick={modalHandler}>
-          <div className={styles.iconCart}>
-            <Icons type='navBag' color='black' width={25} height={45} />
-            <span className={styles.productToCart}>{cartLoading ? null : quantity}</span>
-          </div>
-          <div className={styles.infoCart}>
-            <h4 className={styles.menuOrderTitle}>Мой заказ</h4>
-            <span className={styles.menuOrderPrice}>{`${totalPrice} грн`}</span>
-          </div>
-        </div>
-      ) : (
-        <div className={styles.iconListItem}>
-          <div className={styles.iconCart}>
-            <Icons type='navBag' color='black' width={25} height={45} />
-            <span className={styles.productToCart}>0</span>
-          </div>
-          <div className={styles.infoCart}>
-            <h4 className={styles.menuOrderTitle}>
-              Корзина
-              <br />
-              пустая
-            </h4>
-          </div>
-        </div>
-      )}
+      {ordersCart}
       <Cart buttonHandler={modalHandler} display={modalCart} />
     </>
   );

@@ -16,7 +16,7 @@ import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
 import { getWishListOperation, updateWishListOperation } from '../../store/wishList/operations';
 import styles from './NavBar.module.scss';
-import { getCartOperation } from '../../store/cart/operations';
+import { getCartOperation, updateCartOperation } from '../../store/cart/operations';
 import { getCatalogOperation } from '../../store/catalog/operations';
 import { wishListLoadingAction } from '../../store/wishList/actions';
 import { getProductsOperation } from '../../store/products/operations';
@@ -28,6 +28,7 @@ const NavBar = () => {
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
   const location = useLocation();
+  const localCart = JSON.parse(localStorage.getItem('cart'));
 
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
 
@@ -47,7 +48,11 @@ const NavBar = () => {
     if (isAuth) {
       dispatch(getWishListOperation());
       dispatch(updateWishListOperation(storageWishList));
-      dispatch(getCartOperation());
+      if (localCart) {
+        dispatch(updateCartOperation(localCart));
+      } else {
+        dispatch(getCartOperation());
+      }
     }
   }, [isAuth]);
 

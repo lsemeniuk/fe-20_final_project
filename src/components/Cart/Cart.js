@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+/* eslint-disable dot-notation */
+/* eslint-disable no-unused-expressions */
+import React from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import CartItem from '../CartItem/CartItem';
@@ -7,36 +9,43 @@ import Modal from '../Modal/Modal';
 import Button from '../Button/Button';
 import { CHECKOUT_ROUTE } from '../../utils/consts';
 import RecommendList from '../RecommendList/RecommendList';
-import styles from './Cart.module.scss';
-import Loader from '../Loader/Loader';
 import { getModalCartSelector } from '../../store/modal/selectors';
-import { cartLoadingSelector, cartTotalPriceSelector, getCartSelector } from '../../store/cart/selectors';
-import { getCartOperation } from '../../store/cart/operations';
+import { getProductsSelector } from '../../store/products/selectors';
+import { cartTotalPriceSelector, getCartSelector, getLocalCartSelector } from '../../store/cart/selectors';
+import styles from './Cart.module.scss';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 
 const Cart = ({ buttonHandler, display }) => {
-  const dispatch = useDispatch();
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const modalCart = useSelector(getModalCartSelector);
   const cart = useSelector(getCartSelector);
-  const cartLoading = useSelector(cartLoadingSelector);
+  const products = useSelector(getProductsSelector);
   const totalPrice = useSelector(cartTotalPriceSelector);
-
-  useEffect(() => {
-    if (isAuth) {
-      dispatch(getCartOperation());
-    }
-  }, [isAuth]);
+  const localCart = useSelector(getLocalCartSelector);
 
   if (!modalCart) {
     return null;
   }
 
-  if (cartLoading) {
-    return (
-      <Modal buttonHandler={buttonHandler} display={display}>
-        <Loader />
-      </Modal>
+  let cartList = null;
+
+  if (isAuth) {
+    cartList = cart.products.map(p => (
+      <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
+    ));
+  } else if (localCart && localCart.products.length >= 1) {
+    cartList = localCart.products.map(p => {
+      const filterProduct = products.filter(prod => {
+        return prod['_id'] === p.product;
+      });
+
+      return <CartItem key={p.product} product={filterProduct[0]} cartQuantity={p.cartQuantity} cart={cart} />;
+    });
+  } else {
+    cartList = (
+      <li style={{ textAlign: 'center', padding: '50px 0' }} className={styles.title}>
+        В корзине пока нет товаров
+      </li>
     );
   }
 
@@ -48,17 +57,7 @@ const Cart = ({ buttonHandler, display }) => {
         <div className={styles.headerPrice}>Стоимость</div>
       </div>
 
-      <div className={styles.list}>
-        {cart ? (
-          cart.products.map(p => (
-            <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
-          ))
-        ) : (
-          <div style={{ textAlign: 'center', padding: '50px 0' }} className={styles.title}>
-            В корзине пока нет товаров
-          </div>
-        )}
-      </div>
+      <ul className={styles.list}>{cartList}</ul>
 
       <div className={`${styles.list} ${styles.checkoutContainer}`}>
         <div className={styles.backContainer}>
