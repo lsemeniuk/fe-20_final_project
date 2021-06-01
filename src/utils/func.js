@@ -11,7 +11,7 @@ export const calculateTotalPrice = (cart, isAuth) => {
       return totalPrice;
     });
   } else {
-    cart.products.map(p => {
+    cart?.products.map(p => {
       totalPrice += p.cartQuantity * p.currentPrice;
       return totalPrice;
     });

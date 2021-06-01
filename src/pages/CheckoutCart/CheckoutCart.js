@@ -4,8 +4,8 @@ import Container from '../../components/Container/Container';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import CheckoutAuth from './CheckoutAuth/CheckoutAuth';
 import CheckoutNoAuth from './CheckoutNoAuth/CheckoutNoAuth';
-import styles from './CheckoutCart.module.scss';
 import OrderPreview from './OrderPreview/OrderPreview';
+import styles from './CheckoutCart.module.scss';
 
 const CheckoutCart = () => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
