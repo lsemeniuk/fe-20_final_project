@@ -35,7 +35,6 @@
   transition: opacity 0.3s;
 
   &:hover {
-    display: block;
     opacity: 1;
   }
 }
@@ -135,6 +134,18 @@
 }
 
 :global(.checkout__orders-preview) {
+  .delete {
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: -5px;
+    width: 30px;
+    text-align: center;
+    padding: 10px 0;
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+
   .image {
     @media (min-width: $deskMin) and (max-width: $deskMax) {
       width: 60px;
@@ -172,7 +183,7 @@
 
   .quantityInput {
     @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-      font-size: 22px;
+      font-size: 16px;
       width: 24px;
       height: 30px;
     }

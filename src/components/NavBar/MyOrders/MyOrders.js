@@ -46,7 +46,7 @@ const MyOrders = () => {
         </div>
       </div>
     );
-  } else if (!isAuth && localCart && localCart.products.length >= 1) {
+  } else if (!isAuth && localCart && localCart.products?.length >= 1) {
     for (let i = 0; i < localCart.products.length; i++) {
       quantity += localCart.products[i].cartQuantity;
     }

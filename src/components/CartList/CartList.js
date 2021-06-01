@@ -1,26 +1,31 @@
 /* eslint-disable dot-notation */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getCartSelector, getLocalCartSelector } from '../../store/cart/selectors';
+import { cartLoadingSelector, getCartSelector, getLocalCartSelector } from '../../store/cart/selectors';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getProductsSelector, productsLoadingSelector } from '../../store/products/selectors';
 import CartItem from '../CartItem/CartItem';
+import Loader from '../Loader/Loader';
 import styles from './CartList.module.scss';
 
 const CartList = () => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const cart = useSelector(getCartSelector);
+  const cartLoading = useSelector(cartLoadingSelector);
   const localCart = useSelector(getLocalCartSelector);
   const products = useSelector(getProductsSelector);
   const productsLoading = useSelector(productsLoadingSelector);
-
   let cartList = null;
 
-  if (isAuth && cart) {
+  if (productsLoading) {
+    return <Loader />;
+  }
+
+  if (isAuth && !cartLoading && cart) {
     cartList = cart.products.map(p => (
       <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
     ));
-  } else if (localCart && localCart.products.length >= 1 && !productsLoading) {
+  } else if (!productsLoading && localCart && localCart.products.length >= 1) {
     cartList = localCart.products.map(p => {
       const filterProduct = products.filter(prod => {
         return prod['_id'] === p.product;
