@@ -1,11 +1,10 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
-import { checkAuthOperation } from '../../../../store/customer/operations';
 import { getCustomerIsLoadingSelector, getCustomerSelector } from '../../../../store/customer/selectors';
 import Loader from '../../../../components/Loader/Loader';
 import { editCustomerInfo } from '../../../../http/customersAPI';
@@ -13,14 +12,9 @@ import MySelect from '../../../../components/Forms/MySelect/MySelect';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 
 const UserInfo = () => {
-  const dispatch = useDispatch();
   const customer = useSelector(getCustomerSelector);
   const customerLoading = useSelector(getCustomerIsLoadingSelector);
   const [messageServer, setmessageServer] = useState(null);
-
-  useEffect(() => {
-    dispatch(checkAuthOperation());
-  }, []);
 
   if (customerLoading) {
     return <Loader />;
@@ -82,28 +76,30 @@ const UserInfo = () => {
           setSubmitting(false);
         }}
       >
-        <Form>
-          <MyTextInput label='Имя' name='firstName' type='text' placeholder='Введите имя' tabIndex='0' />
-          <MyTextInput label='Фамилия' name='lastName' type='text' placeholder='Введите фамилию' tabIndex='0' />
-          <MyTextInput label='Логин' name='login' type='text' placeholder='Введите логин' tabIndex='0' />
-          <MyTextInput label='Email' name='email' type='text' placeholder='Введите email' tabIndex='0' />
-          <MyTextInput label='Телефон' name='telephone' type='tel' placeholder='+380 123 45 67 89' tabIndex='0' />
-          <MyTextInput
-            label='День рождения'
-            name='birthdate'
-            type='date'
-            placeholder='Введите день рождения'
-            tabIndex='0'
-          />
-          <MyTextInput label='Город' name='city' type='text' placeholder='Введите город' tabIndex='0' />
-          <MySelect label='Пол' name='gender'>
-            <option value=''>Выберите свой пол</option>
-            <option value='Мужчина'>Мужчина</option>
-            <option value='Женщина'>Женщина</option>
-          </MySelect>
+        <div className='page_form'>
+          <Form>
+            <MyTextInput label='Имя' name='firstName' type='text' placeholder='Введите имя' tabIndex='0' />
+            <MyTextInput label='Фамилия' name='lastName' type='text' placeholder='Введите фамилию' tabIndex='0' />
+            <MyTextInput label='Логин' name='login' type='text' placeholder='Введите логин' tabIndex='0' />
+            <MyTextInput label='Email' name='email' type='text' placeholder='Введите email' tabIndex='0' />
+            <MyTextInput label='Телефон' name='telephone' type='tel' placeholder='+380 123 45 67 89' tabIndex='0' />
+            <MyTextInput
+              label='День рождения'
+              name='birthdate'
+              type='date'
+              placeholder='Введите день рождения'
+              tabIndex='0'
+            />
+            <MyTextInput label='Город' name='city' type='text' placeholder='Введите город' tabIndex='0' />
+            <MySelect label='Пол' name='gender'>
+              <option value=''>Выберите свой пол</option>
+              <option value='Мужчина'>Мужчина</option>
+              <option value='Женщина'>Женщина</option>
+            </MySelect>
 
-          <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
-        </Form>
+            <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
+          </Form>
+        </div>
       </Formik>
     </>
   );

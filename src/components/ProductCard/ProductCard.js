@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { PRODUCT_ROUTE } from '../../utils/consts';
-import { replace } from '../../utils/func';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import AddToWishListBtn from '../AddToWishListButton/AddToWishListBtn';
+import PriceBlock from '../PriceBlock/PriceBlock';
 import styles from './ProductCard.module.scss';
 
 const ProductCard = ({ product, inSlider }) => {
@@ -24,8 +24,8 @@ const ProductCard = ({ product, inSlider }) => {
       <div>
         <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} className={styles.link}>
           <div className={styles.imgBlock}>
-            <img className={`${styles.image} ${styles.firstImage}`} src={imageUrls[0]} alt='watch' />
-            <img className={`${styles.image} ${styles.lastImage}`} src={imageUrls[1]} alt='watch' />
+            <img className={`${styles.image} ${styles.firstImage}`} src={imageUrls[0].smallImage} alt='watch' />
+            <img className={`${styles.image} ${styles.lastImage}`} src={imageUrls[1].smallImage} alt='watch' />
           </div>
         </NavLink>
       </div>
@@ -52,26 +52,19 @@ const ProductCard = ({ product, inSlider }) => {
           </div>
         )}
       </div>
-
       <div className={styles.priceBlock}>
-        {previousPrice ? (
-          <div className={styles.priceSales}>
-            <div className={styles.currentPrice}>{replace(currentPrice)} грн</div>
-            <div className={styles.previousPrice}>{replace(previousPrice)} грн</div>
-          </div>
-        ) : (
-          <div className={styles.regularPrice}>{replace(currentPrice)} грн</div>
-        )}
+        <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} />
       </div>
-      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
+
+      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} className={styles.nameLink}>
         <span className={styles.name}>{name}</span>
       </NavLink>
 
       <div className={styles.btnBlock}>
         <div className={styles.btnFlex}>
-          <AddToCartButton id={id} />
+          <AddToCartButton id={id} orderButton={false} currentPrice={currentPrice} />
           <span className={styles.favIcon}>
-            <AddToWishListBtn id={id} />
+            <AddToWishListBtn id={id} itemNo={itemNo} />
           </span>
         </div>
       </div>

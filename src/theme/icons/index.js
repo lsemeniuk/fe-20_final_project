@@ -15,3 +15,7 @@ export { navBag } from './navBag';
 export { navHeart } from './navHeart';
 export { navUser } from './navUser';
 export { favIcon } from './favIcon';
+export { okay } from './okay';
+export { no } from './no';
+export { clock } from './clock';
+export { сhevron } from './сhevron';

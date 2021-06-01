@@ -1,0 +1,46 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  text-align: center;
+  & div {
+    border-right: 1px solid #919191;
+    border-top: 1px solid #919191;
+    border-bottom: 1px solid #919191;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 0;
+    &:first-child {
+      border-left: 1px solid #919191;
+    }
+  }
+}
+.imgContainer {
+  width: 15%;
+}
+.img {
+  width: 100%;
+}
+.id {
+  width: 15%;
+}
+.name {
+  width: 20%;
+}
+
+.description {
+  width: 40%;
+}
+.level {
+  width: 10%;
+}
+
+.button {
+  margin: 10px 40px 0 0;
+}
+
+.redTitle {
+  margin-left: 10px;
+  color: red;
+}

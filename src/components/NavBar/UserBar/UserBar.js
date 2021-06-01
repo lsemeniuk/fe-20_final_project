@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { getCustomerSelector } from '../../../store/customer/selectors';
 import { ADM_CATALOG_ROUTE, ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../../utils/consts';
 import styles from './UserBar.module.scss';
@@ -10,9 +10,11 @@ import { outPutCustomerOperation } from '../../../store/customer/operations';
 const UserBar = ({ className }) => {
   const dispatch = useDispatch();
   const customer = useSelector(getCustomerSelector);
+  const history = useHistory();
 
   const output = () => {
     dispatch(outPutCustomerOperation());
+    history.push('/');
   };
 
   return (

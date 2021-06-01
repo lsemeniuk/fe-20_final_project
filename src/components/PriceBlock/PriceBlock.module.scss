@@ -1,0 +1,31 @@
+@import '../../utils/styles/var';
+
+.priceBlock {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.priceSales {
+  display: flex;
+  align-items: flex-end;
+}
+
+.currentPrice {
+  margin-right: 20px;
+  color: $colorSale;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.previousPrice {
+  font-size: 14px;
+  text-decoration: line-through;
+  color: #6d6d6d;
+}
+
+.regularPrice {
+  color: $colorNew;
+  font-weight: 700;
+  font-size: 18px;
+}

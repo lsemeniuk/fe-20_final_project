@@ -3,11 +3,10 @@
 
 .container {
   position: relative;
-  width: calc((100% / 3) - 14px);
-  margin: 10px 0 0 10px;
+  width: calc(100% / 3);
   padding: 20px;
-  border-radius: 5px;
-  border: 1px solid #b1b1b1;
+  // border-radius: 5px;
+  border: 1px solid #e6e6e6;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,12 +17,9 @@
     border: 1px solid #d4d4d4;
   }
   &:hover .lastImage {
-    visibility: hidden;
-    opacity: 0;
-  }
-  &:hover .lastImage {
-    margin: 0;
+    position: absolute;
     width: 100%;
+    margin: 0;
     padding: 0;
     visibility: visible;
     opacity: 1;
@@ -44,10 +40,6 @@
   &:hover .btnBlock {
     box-shadow: none;
     border: none;
-  }
-
-  & .imgBlock {
-    width: 100%;
   }
 
   & .labelBlock {
@@ -75,7 +67,7 @@
 
 .imgBlock {
   position: relative;
-  width: calc(100% - 40px);
+  width: 100%;
   margin-top: 20px;
   margin-bottom: 15px;
 }
@@ -84,6 +76,7 @@
   visibility: visible;
   opacity: 1;
   transition: opacity 0.3s, visibility 0.3s;
+  will-change: transform;
 }
 
 .lastImage {
@@ -93,11 +86,12 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
+  will-change: transform;
 }
 
 .image {
-  margin: 20px;
-  width: calc(100% - 40px);
+  margin: 5px;
+  width: calc(100% - 10px);
 }
 
 // Label
@@ -145,28 +139,11 @@
   white-space: nowrap;
 }
 
-.priceSales {
-  display: flex;
-  align-items: flex-end;
-}
-
-.currentPrice {
-  margin-right: 20px;
-  color: $colorSale;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.previousPrice {
-  font-size: 14px;
-  text-decoration: line-through;
-  color: #6d6d6d;
-}
-
-.regularPrice {
-  color: $colorNew;
-  font-weight: 700;
-  font-size: 18px;
+.nameLink {
+  overflow: hidden;
+  margin: auto;
+  height: 50px;
+  margin: 0;
 }
 
 .name {
@@ -175,7 +152,6 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  overflow: hidden;
   font-size: 16px;
   line-height: 24px;
 }

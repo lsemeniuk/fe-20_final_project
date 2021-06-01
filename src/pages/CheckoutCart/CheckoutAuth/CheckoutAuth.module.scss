@@ -1,0 +1,6 @@
+@import '../../../utils/styles/mixins';
+
+.container {
+  @extend %custom-shadow;
+  @extend %custom-border;
+}

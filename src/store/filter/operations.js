@@ -1,6 +1,4 @@
-/* eslint no-console: "error" */
 import axios from 'axios';
-import { getFilters, getFilterByType } from '../../http/filtersAPI';
 import { saveAllFiltersAction, saveCheckedFiltersAction } from './actions';
 
 export const getFiltersOperation = () => async dispatch => {
@@ -46,16 +44,7 @@ export const saveFiltersOperation = value => async dispatch => {
     console.log(r);
   }
 };
-export const getFilterOperation = () => async dispatch => {
-  getFilters().then(res => {
-    dispatch(saveAllFiltersAction(res.data));
-  });
-};
-export const getFilterByTypeOperation = () => async dispatch => {
-  getFilterByType().then(res => {
-    dispatch(saveAllFiltersAction(res.data));
-  });
-};
+
 export const checkedFiltersOperation = value => async dispatch => {
   dispatch(saveCheckedFiltersAction(value));
 };

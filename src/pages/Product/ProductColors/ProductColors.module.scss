@@ -1,0 +1,59 @@
+@import '../../../utils/styles/var';
+
+.container {
+  margin-bottom: 40px;
+  padding: 10px 15px;
+  border: 1px solid $colorLineSilver;
+  border-radius: 5px;
+}
+
+.text {
+  font-size: 14px;
+  color: $colorTextSilver;
+  margin-bottom: 10px;
+}
+
+.textColor {
+  color: #000;
+  font-weight: 600;
+}
+
+.colors {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  width: 35px;
+  height: 35px;
+  background-color: none;
+  border-radius: 5px;
+  &:hover .color {
+    opacity: 0.9;
+  }
+}
+
+.border {
+  background-color: none;
+  border-radius: 5px;
+  border: 2px solid;
+  width: 25px;
+  height: 25px;
+}
+
+.color {
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+}
+
+.colorActive {
+  border: 1px solid $colorButton;
+  border-radius: 3px;
+  background-color: #fafafa;
+}

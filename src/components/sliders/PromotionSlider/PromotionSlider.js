@@ -34,9 +34,11 @@ const PromotionSlider = () => {
 
   return (
     <div className={styles.container}>
-      <Slider {...sliderSettings} className={styles.slider}>
-        {slidersList}
-      </Slider>
+      <ul>
+        <Slider {...sliderSettings} className={styles.slider}>
+          {slidersList}
+        </Slider>
+      </ul>
     </div>
   );
 };

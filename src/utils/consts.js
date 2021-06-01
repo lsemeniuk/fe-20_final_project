@@ -4,6 +4,7 @@ export const PRODUCTS_ROUTE = '/products';
 export const PRODUCT_ROUTE = '/product';
 export const CHECKOUT_ROUTE = '/checkout';
 export const PAGES_ROUTE = '/pages';
+export const CUSTOMER_WISH_LIST_ROUTE = '/wishList';
 
 // User
 export const USER_ROUTE = '/user';
@@ -19,9 +20,7 @@ export const ADM_BRANDS_ROUTE = '/admin/brands';
 export const ADM_COLORS_ROUTE = '/admin/colors';
 export const ADM_FILTERS_ROUTE = '/admin/filters';
 export const ADM_SLIDER_ROUTE = '/admin/slider';
-export const ADM_CART_ROUTE = '/admin/cart';
 export const ADM_ORDERS_ROUTE = '/admin/orders';
-export const ADM_WISH_LIST_ROUTE = '/admin/wish-list';
 export const ADM_COMMENTS_ROUTE = '/admin/comments';
 export const ADM_SUBSCRIBERS_ROUTE = '/admin/subscribers';
 export const ADM_LINKS_ROUTE = '/admin/links';

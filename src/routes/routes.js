@@ -6,8 +6,10 @@ import {
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
   ADM_CATALOG_ROUTE,
-  ADM_PRODUCTS_ROUTE,
   PRODUCT_ROUTE,
+  CUSTOMER_WISH_LIST_ROUTE,
+  ADM_PRODUCTS_ROUTE,
+  ADM_BRANDS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -17,8 +19,8 @@ import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
 import Orders from '../pages/User/Orders/Orders';
 import WishList from '../pages/User/WishList/WishList';
 import Catalog from '../pages/Admin/Catalog/Catalog';
-import AdminProducts from '../pages/Admin/AdminProducts';
 import Product from '../pages/Product/Product';
+import Brands from '../pages/Admin/Brands/Brands';
 
 export const publicRoutes = [
   {
@@ -36,14 +38,14 @@ export const publicRoutes = [
     Component: Products,
   },
   {
-    name: 'Товары',
-    path: PRODUCTS_ROUTE,
-    Component: Products,
-  },
-  {
     name: 'Оформить заказ',
     path: CHECKOUT_ROUTE,
     Component: CheckoutCart,
+  },
+  {
+    name: 'Список желаний',
+    path: CUSTOMER_WISH_LIST_ROUTE,
+    Component: WishList,
   },
   {
     name: 'Страницы не существует',
@@ -80,6 +82,11 @@ export const adminRoutes = [
   {
     name: 'Продукты',
     path: ADM_PRODUCTS_ROUTE,
-    Component: AdminProducts,
+    Component: Catalog,
+  },
+  {
+    name: 'Бренды',
+    path: ADM_BRANDS_ROUTE,
+    Component: Brands,
   },
 ];

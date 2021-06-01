@@ -30,6 +30,7 @@
     top: 2px;
   }
 }
+
 .categoryTitle {
   margin: 20px 0;
   font-size: 32px;
@@ -54,4 +55,10 @@
   display: block;
   text-align: center;
   margin: 0;
+}
+
+.catalogSettings {
+  margin: 15px 30px;
+  display: flex;
+  justify-content: space-between;
 }
