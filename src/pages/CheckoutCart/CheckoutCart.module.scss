@@ -1,0 +1,11 @@
+.pageContainer {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 30px;
+}
+
+.pageTitle {
+    padding-bottom: 30px;
+    font-size: 30px;
+  
+}

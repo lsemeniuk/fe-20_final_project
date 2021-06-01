@@ -15,11 +15,11 @@ import { saveModalAuthRegAction } from '../../store/modal/actions';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
 import { getWishListOperation, updateWishListOperation } from '../../store/wishList/operations';
-import styles from './NavBar.module.scss';
-import { getProductsOperation } from '../../store/products/operations';
-import { getCartOperation } from '../../store/cart/operations';
+import { getCartOperation, updateCartOperation, setCartTotalPriceOperation } from '../../store/cart/operations';
 import { getCatalogOperation } from '../../store/catalog/operations';
 import { wishListLoadingAction } from '../../store/wishList/actions';
+import { getProductsOperation } from '../../store/products/operations';
+import styles from './NavBar.module.scss';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ const NavBar = () => {
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
   const location = useLocation();
+  const localCart = JSON.parse(localStorage.getItem('cart'));
 
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
 
@@ -41,13 +42,19 @@ const NavBar = () => {
   }
 
   useEffect(() => {
-    dispatch(getProductsOperation());
     dispatch(getCatalogOperation());
+    dispatch(getProductsOperation());
     dispatch(wishListLoadingAction(true));
     if (isAuth) {
       dispatch(getWishListOperation());
       dispatch(updateWishListOperation(storageWishList));
-      dispatch(getCartOperation());
+      if (localCart) {
+        dispatch(updateCartOperation(localCart));
+      } else {
+        dispatch(getCartOperation());
+      }
+    } else {
+      dispatch(setCartTotalPriceOperation(localCart));
     }
   }, [isAuth]);
 

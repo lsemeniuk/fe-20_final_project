@@ -1,0 +1,25 @@
+.container {
+  padding: 0 10px 30px;
+}
+
+.characteristicItem {
+  display: flex;
+  padding: 10px;
+  line-height: 1.5;
+  &:nth-child(odd) {
+    background-color: #ebebeb;
+  }
+}
+
+.characteristicName {
+  color: #6d6d6d;
+  width: 30%;
+}
+
+.characteristicValue {
+  width: 70%;
+}
+
+.characteristicValueItem {
+  margin-bottom: 5px;
+}

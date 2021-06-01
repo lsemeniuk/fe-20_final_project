@@ -13,8 +13,8 @@ export const createCart = async () => {
 // @route   PUT /cart
 // @desc    Update cart when adding / deleting products in cart
 // @access  Private
-export const updateCart = async () => {
-  const res = await $authHost.put('cart').catch(err => {
+export const updateCart = async products => {
+  const res = await $authHost.put('cart', products).catch(err => {
     throw err;
   });
   return res;

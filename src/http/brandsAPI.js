@@ -3,9 +3,9 @@ import { $authHost, $host } from './index';
 // @route   POST /brands
 // @desc    Create new brand
 // @access  Private
-export const addBrand = async () => {
-  const res = await $authHost.post('brands').catch(err => {
-    throw err;
+export const addBrand = async values => {
+  const res = await $authHost.post('brands', values).catch(err => {
+    throw err.response;
   });
   return res;
 };
@@ -13,9 +13,9 @@ export const addBrand = async () => {
 // @route   PUT /brands/:id
 // @desc    Update existing brand
 // @access  Private
-export const updateBrand = async id => {
-  const res = await $authHost.put(`brands/${id}`).catch(err => {
-    throw err;
+export const updateBrand = async (id, values) => {
+  const res = await $authHost.put(`brands/${id}`, values).catch(err => {
+    throw err.response;
   });
   return res;
 };
@@ -25,7 +25,7 @@ export const updateBrand = async id => {
 // @access  Private
 export const deleteBrand = async customId => {
   const res = await $authHost.delete(`brands/${customId}`).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -35,7 +35,7 @@ export const deleteBrand = async customId => {
 // @access  Public
 export const getBrands = async () => {
   const res = await $host.get('brands').catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };

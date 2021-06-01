@@ -1,0 +1,37 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  text-align: center;
+  & div {
+    border-right: 1px solid #919191;
+    border-top: 1px solid #919191;
+    border-bottom: 1px solid #919191;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 0;
+    &:first-child {
+      border-left: 1px solid #919191;
+    }
+  }
+}
+
+.name {
+  width: 20%;
+}
+.imgContainer {
+  width: 80%;
+}
+.img {
+  height: 50px;
+}
+
+.button {
+  margin: 10px 40px 0 0;
+}
+
+.redTitle {
+  margin-left: 10px;
+  color: red;
+}

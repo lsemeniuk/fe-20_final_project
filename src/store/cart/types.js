@@ -1,3 +1,4 @@
 export const SET_CART = 'SET_CART';
+export const SET_LOCAL_CART = 'SET_LOCAL_CART';
 export const SET_CART_LOADING = 'SET_CART_LOADING';
 export const SET_CART_TOTAL_PRICE = 'SET_CART_TOTAL_PRICE';
