@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, ErrorMessage, Form } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 import TextError from '../TextError/TextError';
 import styles from './CheckboxGroup.module.scss';
 
@@ -10,7 +10,7 @@ function CheckboxGroup(props) {
   return (
     <div className={styles.checkbox_box}>
       <label className={styles.option_title}>{label}</label>
-      <Form className={`${styles.option_list} `}>
+      <dev className={`${styles.option_list} `}>
         <Field name={name}>
           {({ field }) =>
             options.map(option =>
@@ -39,7 +39,7 @@ function CheckboxGroup(props) {
             )
           }
         </Field>
-      </Form>
+      </dev>
       <ErrorMessage component={TextError} name={name} />
     </div>
   );
