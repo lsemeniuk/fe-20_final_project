@@ -10,8 +10,8 @@ export const calculateTotalPrice = (cart, isAuth) => {
       totalPrice += p.cartQuantity * p.product.currentPrice;
       return totalPrice;
     });
-  } else {
-    cart?.products.map(p => {
+  } else if (cart && cart.products) {
+    cart.products.map(p => {
       totalPrice += p.cartQuantity * p.currentPrice;
       return totalPrice;
     });
