@@ -6,13 +6,11 @@ import MyFilterContainer from '../SelectBar/MyFilterContainer/MyFilterContainer'
  *  */
 
 const Select = () => {
-  const [sort] = useState(true);
   const [checkboxed] = useState(true);
 
   return (
     <>
-      <MyFilterContainer sort={sort} checkboxed={!checkboxed} />
-      <MyFilterContainer sort={!sort} checkboxed={checkboxed} />
+      <MyFilterContainer checkboxed={checkboxed} />
     </>
   );
 };
