@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { replace } from '../../utils/func';
 import { PRODUCT_ROUTE } from '../../utils/consts';
-import styles from './CartItem.module.scss';
 import {
   addProductToCartOperation,
   changeLocalCartOperation,
@@ -13,13 +12,14 @@ import {
 } from '../../store/cart/operations';
 import { saveModalCartAction } from '../../store/modal/actions';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
+import styles from './CartItem.module.scss';
 
-const CartItem = ({ product, cartQuantity, cart, containerClass }) => {
-  const { previousPrice, currentPrice, quantity, itemNo, name, imageUrls } = product;
+const CartItem = ({ product, cartQuantity, cart }) => {
+  const { previousPrice, currentPrice, quantity, itemNo, name, imageUrls, _id: id } = product;
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const dispatch = useDispatch();
   const [controlQuantity, setControlQuantity] = useState(cartQuantity);
-  const { _id: id } = product;
+
   const decrementQuantity = () => {
     dispatch(changeLocalCartOperation(id, 'decrease'));
 
@@ -58,7 +58,7 @@ const CartItem = ({ product, cartQuantity, cart, containerClass }) => {
   const incrementDisabled = controlQuantity >= quantity;
 
   return (
-    <li className={`${styles.container} ${containerClass}`}>
+    <li className={styles.container}>
       <div className={styles.column}>
         <div className={styles.delete}>
           <span
@@ -71,7 +71,7 @@ const CartItem = ({ product, cartQuantity, cart, containerClass }) => {
           </span>
         </div>
         <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} onClick={closeCart}>
-          <img src={imageUrls[0].smallImage} width={78} height={78} alt='product img' />
+          <img src={imageUrls[0].smallImage} className={styles.image} width={78} height={78} alt='product img' />
         </NavLink>
         <div className={styles.nameBlock}>
           <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} onClick={closeCart}>
@@ -127,12 +127,10 @@ CartItem.propTypes = {
   product: PropTypes.object.isRequired,
   cartQuantity: PropTypes.number.isRequired,
   cart: PropTypes.object,
-  containerClass: PropTypes.string,
 };
 
 CartItem.defaultProps = {
   cart: [],
-  containerClass: '',
 };
 
 export default CartItem;

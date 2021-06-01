@@ -20,7 +20,7 @@ const NewCustomer = () => {
   const createCitiesSpans = () => {
     const popularCities = ['Киев', 'Харьков', 'Днепр', 'Одесса', 'Львов'];
     return popularCities.map(city => (
-      <span className={styles.cities} onClick={() => quickFillCountry(city)}>
+      <span key={city} className={styles.cities} onClick={() => quickFillCountry(city)}>
         {city}
       </span>
     ));
