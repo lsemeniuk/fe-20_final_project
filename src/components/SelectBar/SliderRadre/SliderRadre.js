@@ -5,20 +5,27 @@ import { Field, ErrorMessage } from 'formik';
 // import ReactSlider from 'react-slider';
 import TextError from '../SelectBar/TextError/TextError';
 import styles from './SliderRadre.module.scss';
+import Button from '../../Button/Button';
 
 // react / jsx-props-no-spreading»: [«error», {«custom»: «ignore»}]
 const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, setUpPrice }) => {
+  const onClick = field => {
+    field.value.splice(0, 2);
+    console.log('🚀 ~ file: SliderRadre.js ~ line 47 ~ SliderRadre ~ field', field);
+
+    field.value.push(+downPrice);
+    field.value.push(+upPrice);
+  };
   return (
     <div className={styles.option_item_box}>
       <label className={styles.option_title}>{label}</label>
       <Field name={name}>
         {({ field }) => (
-          // {() => (
           <>
             <div className={styles.option_item_range_box}>
               <input
                 className={`${styles.input_lower} ${styles.input}`}
-                onChange={e => setDownPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : '0')}
+                onChange={e => setDownPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : '')}
                 value={downPrice}
                 type='range'
                 name='range'
@@ -28,7 +35,7 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
               />
               <input
                 className={`${styles.input_upper} ${styles.input}`}
-                onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : '0')}
+                onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : '')}
                 value={upPrice}
                 type='range'
                 name='range'
@@ -61,9 +68,7 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                   className={styles.option_item_input}
                   type='number'
                   onChange={e => {
-                    console.log('🚀 ~ file: SliderRadre.js ~ line 66 ~ SliderRadre ~ field', field);
-                    setDownPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '0');
-                    field.value.includes(downPrice);
+                    setDownPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '');
                   }}
                   id='price_prod'
                   name='price_prod'
@@ -73,13 +78,14 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                 <input
                   className={styles.option_item_input}
                   type='number'
-                  onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '0')}
+                  onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '')}
                   id='price_prod'
                   name='price_prod'
                   value={+upPrice}
                 />
               </>
             </div>
+            <Button title='ok' onClick={() => onClick(field)} />
           </>
         )}
       </Field>

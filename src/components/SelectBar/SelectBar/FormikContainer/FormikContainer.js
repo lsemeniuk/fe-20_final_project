@@ -44,15 +44,15 @@ function FormikContainer({ classes, checkboxed }) {
         <Formik
           initialValues={{
             hot: [],
-            price: [],
-            gender: [],
+            currentPrice: [],
+            categories: [],
             brand: [],
             stock: [],
           }}
           validationSchema={Yup.object({
             hot: Yup.array().required('Required'),
-            price: Yup.array().required('Required'),
-            gender: Yup.array().required('Required'),
+            currentPrice: Yup.array().required('Required'),
+            categories: Yup.array().required('Required'),
             brand: Yup.array().required('Required'),
             stock: Yup.array().required('Required'),
           })}
@@ -71,20 +71,33 @@ function FormikContainer({ classes, checkboxed }) {
                 <Form className={classes}>
                   <div className={styles.select_box_filter}>
                     <h4 className={styles.select_heading}>Фильтр:</h4>
-                    <FormikControl control='checkbox' label='Иконки' name='hot' options={filters} />
+                    <FormikControl
+                      control='checkbox'
+                      label='Горячие товары'
+                      name='hot'
+                      nameCur='hot'
+                      options={filters}
+                    />
                     <SliderRadre
                       label='Цена, грн'
-                      name='price'
-                      min={min}
-                      max={max}
-                      downPrice={downPrice}
+                      name='currentPrice'
+                      min={+min}
+                      max={+max}
+                      downPrice={+downPrice}
                       setDownPrice={setDownPrice}
-                      upPrice={upPrice}
+                      upPrice={+upPrice}
                       setUpPrice={setUpPrice}
                     />
-                    <FormikControl control='checkbox' label='Стать' name='gender' options={filters} />
-                    <FormikControl control='checkbox' label='Бренд' name='brand' options={filters} />
-                    <FormikControl control='checkbox' label='Наличие' name='stock' options={filters} />
+                    {/* <CategoriesList className={styles.link} /> */}
+                    <FormikControl
+                      control='checkbox'
+                      label='Категории'
+                      name='categories'
+                      nameCur='categories'
+                      options={filters}
+                    />
+                    <FormikControl control='checkbox' label='Бренд' name='brand' nameCur='brand' options={filters} />
+                    <FormikControl control='checkbox' label='Наличие' name='stock' nameCur='stock' options={filters} />
                     <Button title='Применить' type='submit' className={styles.select_btn} />
                   </div>
                 </Form>
