@@ -10,12 +10,12 @@ function CheckboxGroup(props) {
   return (
     <div className={styles.checkbox_box}>
       <label className={styles.option_title}>{label}</label>
-      <dev className={`${styles.option_list} `}>
+      <div className={`${styles.option_list} `}>
         <Field name={name}>
           {({ field }) =>
             options.map(option =>
               nameCur === option.type ? (
-                <>
+                <div key={option._id}>
                   <div key={option._id} className={styles.option_item}>
                     <React.Fragment key={option._id}>
                       <input
@@ -32,14 +32,14 @@ function CheckboxGroup(props) {
                       </label>
                     </React.Fragment>
                   </div>
-                </>
+                </div>
               ) : (
                 ''
               )
             )
           }
         </Field>
-      </dev>
+      </div>
       <ErrorMessage component={TextError} name={name} />
     </div>
   );

@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import FormikControl from '../FormikControl/FormikControl';
-import {
-  // checkedFiltersOperation,
-  getFiltersOperation,
-  saveFiltersOperation,
-} from '../../../../store/filter/operations';
+import { getFiltersOperation, saveFiltersOperation } from '../../../../store/filter/operations';
 import { getFiltersSelector } from '../../../../store/filter/selectors';
 import Loader from '../../../Loader/Loader';
 import Button from '../../../Button/Button';
@@ -32,11 +28,6 @@ function FormikContainer({ classes, checkboxed }) {
   if (filters === undefined) {
     return <Loader />;
   }
-
-  // const onSubmit = values => {
-  //   dispatch(checkedFiltersOperation(values));
-  //   // setSubmitting(false);
-  // };
 
   return (
     <>
@@ -88,7 +79,6 @@ function FormikContainer({ classes, checkboxed }) {
                       upPrice={+upPrice}
                       setUpPrice={setUpPrice}
                     />
-                    {/* <CategoriesList className={styles.link} /> */}
                     <FormikControl
                       control='checkbox'
                       label='Категории'
@@ -106,29 +96,6 @@ function FormikContainer({ classes, checkboxed }) {
           )}
         </Formik>
       )}
-      {/* {!!sort && (
-        <Formik
-          initialValues={{
-            selected: '',
-          }}
-          validationSchema={Yup.object({
-            selected: Yup.string().required('Required'),
-          })}
-          onSubmit={onSubmit}
-        >
-          {() => (
-            <Form className={classes}>
-              <div className={styles.select_box_sort}>
-                {/* <div> */}
-      {/* <h4 className={styles.select_heading}>Сортировка:</h4>
-                <FormikControl control='select' label='sort' name='selected' options={filters} onChange={onSubmit} />
-                {/* </div> */}
-      {/* </div>
-              <Button title='Применить' type='submit' className={styles.select_btn} />
-            </Form>
-          )}
-          // </Formik> */}
-      {/* // )} */}
     </>
   );
 }

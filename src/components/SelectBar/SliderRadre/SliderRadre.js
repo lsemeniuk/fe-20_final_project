@@ -11,8 +11,6 @@ import Button from '../../Button/Button';
 const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, setUpPrice }) => {
   const onClick = field => {
     field.value.splice(0, 2);
-    console.log('🚀 ~ file: SliderRadre.js ~ line 47 ~ SliderRadre ~ field', field);
-
     field.value.push(+downPrice);
     field.value.push(+upPrice);
   };
@@ -25,7 +23,7 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
             <div className={styles.option_item_range_box}>
               <input
                 className={`${styles.input_lower} ${styles.input}`}
-                onChange={e => setDownPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : '')}
+                onChange={e => setDownPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : ' ')}
                 value={downPrice}
                 type='range'
                 name='range'
@@ -35,7 +33,7 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
               />
               <input
                 className={`${styles.input_upper} ${styles.input}`}
-                onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : '')}
+                onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? +e.target.value : ' ')}
                 value={upPrice}
                 type='range'
                 name='range'
@@ -44,31 +42,13 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                 max={max}
               />
             </div>
-            {/* <div className={styles.option_item_range_box}>
-               <ReactSlider
-                  className='horizontal-slider'
-                  thumbClassName={styles.option_item_range_mark}
-                  thumbActiveClassName={styles.option_item_range_mark_active}
-                  trackClassName={styles.option_item_range_track}
-                  defaultValue={[min, max]}
-                  ariaLabel={['Lower thumb', 'Upper thumb']}
-                  ariaValuetext={state => `Thumb value ${state.valueNow}`}
-                  renderThumb={(props, state) => (
-                    <div {...props}>{(setDownPrice(state.value[0]), setUpPrice(state.value[1]))}</div>
-                  )}
-                  pearling
-                  minDistance={10}
-                  min={min}
-                  max={max}
-                />
-              </div> */}
             <div className={styles.option_item_input_box}>
               <>
                 <input
                   className={styles.option_item_input}
                   type='number'
                   onChange={e => {
-                    setDownPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '');
+                    setDownPrice(e.target.value >= min && e.target.value <= max ? e.target.value : ' ');
                   }}
                   id='price_prod'
                   name='price_prod'
@@ -78,7 +58,7 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                 <input
                   className={styles.option_item_input}
                   type='number'
-                  onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? e.target.value : '')}
+                  onChange={e => setUpPrice(e.target.value >= min && e.target.value <= max ? e.target.value : ' ')}
                   id='price_prod'
                   name='price_prod'
                   value={+upPrice}
