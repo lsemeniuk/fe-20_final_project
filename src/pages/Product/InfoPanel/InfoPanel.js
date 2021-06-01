@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-danger */
 import React, { useEffect } from 'react';
@@ -5,20 +6,22 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './InfoPanel.module.scss';
+import CommentAddForm from './Reviews/CommentAddForm';
 import Сharacteristics from './Сharacteristics/Сharacteristics';
-import ReviewsForm from './Reviews/ReviewsForm';
 import Loader from '../../../components/Loader/Loader';
 import { getAllCommentsOperation } from '../../../store/reviews/operations';
+import Comment from './Reviews/Comment';
 
 const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
   const { isLoading, data } = useSelector(state => state.reviews);
-
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getAllCommentsOperation());
   }, [data]);
 
-  const commentsList = data.map(c => <li key={c._id}>{c.content}</li>);
+  const commentsList = data.map(c => <Comment key={c._id} comment={c} />);
+
   return (
     <div className={styles.container}>
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
@@ -42,8 +45,8 @@ const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
         </TabPanel>
         <TabPanel>
           <div>
-            <ReviewsForm />
-            {isLoading ? <Loader /> : <ul>{commentsList}</ul>}
+            <CommentAddForm />
+            {isLoading ? <Loader /> : <ul className={styles.comments__container}>{commentsList}</ul>}
           </div>
         </TabPanel>
       </Tabs>

@@ -1,8 +1,9 @@
+/* eslint-disable no-underscore-dangle */
 import { ADD_COMMENT, GET_ALL_COMMENTS, SET_COMMENTS_LOADING } from './types';
 
 const initialState = {
   isLoading: false,
-  data: [{ product: 1, content: 'Такой прекрасный продукт офигеть можно!' }],
+  data: [],
 };
 
 const reducer = (state = initialState, action) => {

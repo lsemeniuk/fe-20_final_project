@@ -9,11 +9,11 @@ import MyTextArea from './MyTextArea';
 import { getOneProductSelector } from '../../../../store/products/selectors';
 import { addNewCommentOperation } from '../../../../store/reviews/operations';
 
-const ReviewsForm = () => {
+const CommentAddForm = () => {
   const dispatch = useDispatch();
   const productID = useSelector(getOneProductSelector)._id;
   const validationSchema = Yup.object({
-    comments: Yup.string(),
+    comments: Yup.string().min(5, 'Минимум 5 символов'),
   });
 
   return (
@@ -34,8 +34,15 @@ const ReviewsForm = () => {
         }}
       >
         <div className='page_form'>
-          <Form>
-            <Field component={MyTextArea} name='comments' type='text' placeholder='Ваш отзыв' tabIndex='0' />
+          <Form noValidate>
+            <Field
+              component={MyTextArea}
+              name='comments'
+              type='text'
+              placeholder='Ваш отзыв'
+              tabIndex='0'
+              style={{ width: '428px', height: '80px' }}
+            />
             <div>
               <Button type='submit' title='Отправить' />
             </div>
@@ -46,4 +53,4 @@ const ReviewsForm = () => {
   );
 };
 
-export default ReviewsForm;
+export default CommentAddForm;

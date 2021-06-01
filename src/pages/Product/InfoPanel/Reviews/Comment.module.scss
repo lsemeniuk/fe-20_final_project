@@ -1,0 +1,27 @@
+@import '../../../../utils/styles/var';
+
+  .customer {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .comment > * {
+    margin-bottom: 15px;
+  }
+  .comment {
+    margin-bottom: 20px;
+  }
+  .deleteBtn {
+    color: #fff;
+    background-color: $colorButton;
+    border: none;
+    border-radius: 3px;
+    padding: 3px 6px;
+  }
+  .updateBtn {
+    color: #000;
+    background-color: $colorSecondary;
+    border: none;
+    border-radius: 3px;
+    padding: 3px 6px;
+    margin-left: 20px;
+  }

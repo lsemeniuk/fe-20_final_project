@@ -1,13 +1,11 @@
 /* eslint-disable no-console */
-import { addComment, getComments } from '../../http/commentAPI';
-import { commentsLoadingAction } from './actions';
-import { ADD_COMMENT, GET_ALL_COMMENTS } from './types';
+import { addComment, getComments, deleteComment, updateComment } from '../../http/commentAPI';
+import { addCommentAction, commentsLoadingAction, getAllCommentsAction } from './actions';
 
 export const addNewCommentOperation = newComment => dispatch => {
   dispatch(commentsLoadingAction(true));
   addComment(newComment).then(res => {
-    console.log(res.data);
-    dispatch({ type: ADD_COMMENT, payload: res.data });
+    dispatch(addCommentAction(res.data));
   });
   dispatch(commentsLoadingAction(false));
 };
@@ -15,7 +13,19 @@ export const addNewCommentOperation = newComment => dispatch => {
 export const getAllCommentsOperation = () => dispatch => {
   dispatch(commentsLoadingAction(true));
   getComments().then(res => {
-    dispatch({ type: GET_ALL_COMMENTS, payload: res.data });
+    dispatch(getAllCommentsAction(res.data));
   });
+  dispatch(commentsLoadingAction(false));
+};
+
+export const deleteCommentOperation = commentID => dispatch => {
+  dispatch(commentsLoadingAction(true));
+  deleteComment(commentID);
+  dispatch(commentsLoadingAction(false));
+};
+
+export const updateCommentOperation = (commentID, updatedComment) => dispatch => {
+  dispatch(commentsLoadingAction(true));
+  updateComment(commentID, updatedComment);
   dispatch(commentsLoadingAction(false));
 };
