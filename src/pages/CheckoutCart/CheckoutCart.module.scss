@@ -1,0 +1,24 @@
+@import '../../utils/styles/mixins';
+
+.pageContainer {
+  display: grid;
+  grid-template-columns: calc(57% - 20px) 43%;
+  gap: 20px;
+}
+
+.pageTitle {
+  padding-bottom: 30px;
+  font-size: 30px;
+}
+
+.ordersCantainer {
+  padding: 20px;
+  @extend %custom-shadow;
+  @extend %custom-border;
+  background-color: #fff;
+}
+:global(.checkout__title) {
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0 30px 0;
+}

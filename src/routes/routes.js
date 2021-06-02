@@ -8,6 +8,8 @@ import {
   ADM_CATALOG_ROUTE,
   PRODUCT_ROUTE,
   CUSTOMER_WISH_LIST_ROUTE,
+  ADM_PRODUCTS_ROUTE,
+  ADM_BRANDS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -18,6 +20,7 @@ import Orders from '../pages/User/Orders/Orders';
 import WishList from '../pages/User/WishList/WishList';
 import Catalog from '../pages/Admin/Catalog/Catalog';
 import Product from '../pages/Product/Product';
+import Brands from '../pages/Admin/Brands/Brands';
 
 export const publicRoutes = [
   {
@@ -75,5 +78,15 @@ export const adminRoutes = [
     name: 'Каталог',
     path: ADM_CATALOG_ROUTE,
     Component: Catalog,
+  },
+  {
+    name: 'Продукты',
+    path: ADM_PRODUCTS_ROUTE,
+    Component: Catalog,
+  },
+  {
+    name: 'Бренды',
+    path: ADM_BRANDS_ROUTE,
+    Component: Brands,
   },
 ];

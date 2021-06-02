@@ -3,8 +3,8 @@ import { $authHost, $host } from './index';
 // @route   POST /comments
 // @desc    Add new comments
 // @access  Private
-export const addComment = async object => {
-  const res = await $authHost.post('comments', object).catch(err => {
+export const addComment = async value => {
+  const res = await $authHost.post('comments', value).catch(err => {
     throw err;
   });
   return res;
@@ -13,8 +13,8 @@ export const addComment = async object => {
 // @route   PUT /comments/:id
 // @desc    Update existing comment
 // @access  Private
-export const updateComment = async (id, object) => {
-  const res = await $authHost.put(`comments/${id}`, object).catch(err => {
+export const updateComment = async (id, value) => {
+  const res = await $authHost.put(`comments/${id}`, value).catch(err => {
     throw err;
   });
   return res;

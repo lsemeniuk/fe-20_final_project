@@ -1,6 +1,8 @@
-import { SET_CART, SET_CART_LOADING, SET_CART_TOTAL_PRICE } from './types';
+import { SET_CART, SET_LOCAL_CART, SET_CART_LOADING, SET_CART_TOTAL_PRICE } from './types';
 
 export const saveCartAction = cart => ({ type: SET_CART, payload: cart });
+
+export const saveLocalCartAction = cart => ({ type: SET_LOCAL_CART, payload: cart });
 
 export const cartLoadingAction = isLoading => ({ type: SET_CART_LOADING, payload: isLoading });
 

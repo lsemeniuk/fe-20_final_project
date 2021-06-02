@@ -1,43 +1,22 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import CartItem from '../CartItem/CartItem';
 import Modal from '../Modal/Modal';
 import Button from '../Button/Button';
 import { CHECKOUT_ROUTE } from '../../utils/consts';
 import RecommendList from '../RecommendList/RecommendList';
-import styles from './Cart.module.scss';
-import Loader from '../Loader/Loader';
 import { getModalCartSelector } from '../../store/modal/selectors';
-import { cartLoadingSelector, cartTotalPriceSelector, getCartSelector } from '../../store/cart/selectors';
-import { getCartOperation } from '../../store/cart/operations';
-import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
+import { cartTotalPriceSelector } from '../../store/cart/selectors';
+import styles from './Cart.module.scss';
+import CartList from '../CartList/CartList';
 
 const Cart = ({ buttonHandler, display }) => {
-  const dispatch = useDispatch();
-  const isAuth = useSelector(getCustomerIsAuthSelector);
   const modalCart = useSelector(getModalCartSelector);
-  const cart = useSelector(getCartSelector);
-  const cartLoading = useSelector(cartLoadingSelector);
   const totalPrice = useSelector(cartTotalPriceSelector);
-
-  useEffect(() => {
-    if (isAuth) {
-      dispatch(getCartOperation());
-    }
-  }, [isAuth]);
 
   if (!modalCart) {
     return null;
-  }
-
-  if (cartLoading) {
-    return (
-      <Modal buttonHandler={buttonHandler} display={display}>
-        <Loader />
-      </Modal>
-    );
   }
 
   return (
@@ -48,17 +27,9 @@ const Cart = ({ buttonHandler, display }) => {
         <div className={styles.headerPrice}>Стоимость</div>
       </div>
 
-      <div className={styles.list}>
-        {cart ? (
-          cart.products.map(p => (
-            <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
-          ))
-        ) : (
-          <div style={{ textAlign: 'center', padding: '50px 0' }} className={styles.title}>
-            В корзине пока нет товаров
-          </div>
-        )}
-      </div>
+      <ul className={styles.list}>
+        <CartList />
+      </ul>
 
       <div className={`${styles.list} ${styles.checkoutContainer}`}>
         <div className={styles.backContainer}>

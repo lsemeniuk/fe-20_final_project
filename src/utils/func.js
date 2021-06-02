@@ -5,12 +5,11 @@ export const replace = num => {
 
 export const calculateTotalPrice = cart => {
   let totalPrice = 0;
-  if (cart) {
-    cart.products.map(p => {
-      totalPrice += p.cartQuantity * p.product.currentPrice;
-      return totalPrice;
-    });
-  }
+
+  cart?.products.map(p => {
+    totalPrice += p.cartQuantity * p.currentPrice;
+    return totalPrice;
+  });
 
   return replace(totalPrice);
 };
