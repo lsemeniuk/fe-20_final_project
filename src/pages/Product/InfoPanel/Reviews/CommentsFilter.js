@@ -1,29 +1,32 @@
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerSelector } from '../../../../store/customer/selectors';
 import { getOneProductSelector } from '../../../../store/products/selectors';
-import { getAllCommentsOperation } from '../../../../store/reviews/operations';
+import {
+  getAllCommentsOperation,
+  getMyCommentsOperation,
+  getProductCommentsOperation,
+} from '../../../../store/reviews/operations';
 import styles from './CommentsFilter.module.scss';
 
 const CommentsFilter = () => {
   const dispatch = useDispatch();
-  const currentProduct = getOneProductSelector();
+  const currentProduct = useSelector(getOneProductSelector);
   const productId = currentProduct._id;
   console.log(productId);
-  const currentCustomer = getCustomerSelector();
+
+  const currentCustomer = useSelector(getCustomerSelector);
   const customerId = currentCustomer._id;
-  console.log(customerId);
-  const filterOptions = ['Все комментарии', 'Мои комментарии', 'Комм. об этом товаре'];
+
+  const filterOptions = ['Все комментарии', 'Мои комментарии', 'Комм об этом товаре'];
 
   const handleChange = value => {
     if (value === filterOptions[1]) {
-      //   dispatch(getMyCommentsOperation(customerId));
-      console.log('Filter My Comments');
+      dispatch(getMyCommentsOperation(customerId));
     } else if (value === filterOptions[2]) {
-      //   dispatch(getProductCommentsOperation(productId));
-      console.log('Filter This Product Comments');
+      dispatch(getProductCommentsOperation(productId));
     } else {
       dispatch(getAllCommentsOperation());
     }
@@ -36,7 +39,7 @@ const CommentsFilter = () => {
 
   return (
     <div className={styles.filter}>
-      <span>Показать:</span>
+      <span className={styles.text}>Показать:</span>
       <select onChange={e => handleChange(e.target.value)} defaultValue={filterOptions[0]} className={styles.select}>
         {options}
       </select>

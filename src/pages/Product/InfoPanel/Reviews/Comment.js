@@ -1,15 +1,18 @@
-/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteCommentOperation } from '../../../../store/reviews/operations';
 import styles from './Comment.module.scss';
 import CommentUpdateForm from './CommentUpdateForm';
+import { getCustomerSelector } from '../../../../store/customer/selectors';
 
 const Comment = ({ comment }) => {
   const dispatch = useDispatch();
   const [showUpdateForm, setShowUpdateForm] = useState(false);
+
+  const currentCustomer = useSelector(getCustomerSelector);
+  const customerId = currentCustomer._id;
 
   const handleDelete = deleteID => dispatch(deleteCommentOperation(deleteID));
   const handleUpdate = () => setShowUpdateForm(true);
@@ -17,10 +20,12 @@ const Comment = ({ comment }) => {
     <li className={styles.comment}>
       <div className={styles.customer}>{comment.customer.login}</div>
       <p>{comment.content}</p>
-      <button type='button' onClick={() => handleDelete(comment._id)} className={styles.deleteBtn}>
-        Удалить
-      </button>
-      {!showUpdateForm && (
+      {customerId === comment.customer._id && (
+        <button type='button' onClick={() => handleDelete(comment._id)} className={styles.deleteBtn}>
+          Удалить
+        </button>
+      )}
+      {customerId === comment.customer._id && !showUpdateForm && (
         <button type='button' onClick={handleUpdate} className={styles.updateBtn}>
           Изменить
         </button>

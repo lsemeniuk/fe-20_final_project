@@ -12,7 +12,7 @@ import { updateCommentOperation } from '../../../../store/reviews/operations';
 const CommentUpdateForm = ({ commentID, setShowUpdateForm }) => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object({
-    comments: Yup.string().min(5, 'Минимум 5 символов'),
+    comments: Yup.string().required('Невозможно отправить пустую форму!'),
   });
 
   return (
@@ -32,9 +32,16 @@ const CommentUpdateForm = ({ commentID, setShowUpdateForm }) => {
           setShowUpdateForm(false);
         }}
       >
-        <div className='page_form'>
+        <div>
           <Form noValidate>
-            <Field component={MyTextArea} name='comments' type='text' placeholder='Изменить отзыв' tabIndex='0' />
+            <Field
+              component={MyTextArea}
+              name='comments'
+              type='text'
+              placeholder='Изменить отзыв'
+              tabIndex='0'
+              style={{ marginBottom: '10px' }}
+            />
             <div>
               <Button type='submit' title='Отправить' />
             </div>

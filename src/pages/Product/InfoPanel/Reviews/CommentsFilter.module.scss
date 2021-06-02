@@ -1,3 +1,19 @@
+@import '../../../../utils/styles/var';
 .filter {
-    text-align: center;
+  text-align: center;
+}
+.text {
+  font-size: 14px;
+  padding-right: 1em;
+
+}
+.select {
+  font-size: 14px;
+  padding-right: 1em;
+  font-weight: 600;
+}
+.select:active,
+.select:focus {
+    color: $colorButton;
+    border: 1px solid $colorButton;
 }

@@ -1,5 +1,13 @@
 /* eslint-disable no-underscore-dangle */
-import { ADD_COMMENT, DELETE_COMMENT, GET_ALL_COMMENTS, SET_COMMENTS_LOADING, UPDATE_COMMENT } from './types';
+import {
+  ADD_COMMENT,
+  DELETE_COMMENT,
+  GET_ALL_COMMENTS,
+  GET_CUSTOMER_COMMENTS,
+  GET_PRODUCT_COMMENTS,
+  SET_COMMENTS_LOADING,
+  UPDATE_COMMENT,
+} from './types';
 
 const initialState = {
   isLoading: false,
@@ -9,7 +17,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_COMMENT: {
-      return { ...state, data: [...state.data, action.payload] };
+      return { ...state, data: [action.payload, ...state.data] };
     }
     case DELETE_COMMENT: {
       const { _id: deletedID } = action.payload.deletedCommentInfo;
@@ -22,6 +30,12 @@ const reducer = (state = initialState, action) => {
       return { ...state, data: [action.payload, ...withoutOldComment] };
     }
     case GET_ALL_COMMENTS: {
+      return { ...state, data: action.payload };
+    }
+    case GET_CUSTOMER_COMMENTS: {
+      return { ...state, data: action.payload };
+    }
+    case GET_PRODUCT_COMMENTS: {
       return { ...state, data: action.payload };
     }
     case SET_COMMENTS_LOADING: {

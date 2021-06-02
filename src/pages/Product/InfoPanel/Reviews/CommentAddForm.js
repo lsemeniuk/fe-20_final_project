@@ -13,7 +13,7 @@ const CommentAddForm = () => {
   const dispatch = useDispatch();
   const productID = useSelector(getOneProductSelector)._id;
   const validationSchema = Yup.object({
-    comments: Yup.string().min(5, 'Минимум 5 символов'),
+    comments: Yup.string().required('Невозможно отправить пустую форму!'),
   });
 
   return (
@@ -41,7 +41,7 @@ const CommentAddForm = () => {
               type='text'
               placeholder='Ваш отзыв'
               tabIndex='0'
-              style={{ width: '428px', height: '80px' }}
+              style={{ width: '428px', height: '80px', marginBottom: '20px' }}
             />
             <div>
               <Button type='submit' title='Отправить' />

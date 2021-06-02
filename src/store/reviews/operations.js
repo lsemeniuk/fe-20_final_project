@@ -1,10 +1,18 @@
-/* eslint-disable no-console */
-import { addComment, getComments, deleteComment, updateComment } from '../../http/commentAPI';
+import {
+  addComment,
+  getComments,
+  deleteComment,
+  updateComment,
+  getCustomerComments,
+  getProductComments,
+} from '../../http/commentAPI';
 import {
   addCommentAction,
   commentsLoadingAction,
   deleteCommentAction,
   getAllCommentsAction,
+  getMyCommentsAction,
+  getProductCommentsAction,
   updateCommentAction,
 } from './actions';
 
@@ -12,30 +20,45 @@ export const addNewCommentOperation = newComment => dispatch => {
   dispatch(commentsLoadingAction(true));
   addComment(newComment).then(res => {
     dispatch(addCommentAction(res.data));
+    dispatch(commentsLoadingAction(false));
   });
-  dispatch(commentsLoadingAction(false));
 };
 
 export const getAllCommentsOperation = () => dispatch => {
   dispatch(commentsLoadingAction(true));
   getComments().then(res => {
     dispatch(getAllCommentsAction(res.data));
+    dispatch(commentsLoadingAction(false));
   });
-  dispatch(commentsLoadingAction(false));
 };
 
 export const deleteCommentOperation = commentID => dispatch => {
   dispatch(commentsLoadingAction(true));
   deleteComment(commentID).then(res => {
     dispatch(deleteCommentAction(res.data));
+    dispatch(commentsLoadingAction(false));
   });
-  dispatch(commentsLoadingAction(false));
 };
 
 export const updateCommentOperation = (commentID, updatedComment) => dispatch => {
   dispatch(commentsLoadingAction(true));
   updateComment(commentID, updatedComment).then(res => {
     dispatch(updateCommentAction(res.data));
+    dispatch(commentsLoadingAction(false));
   });
-  dispatch(commentsLoadingAction(false));
+};
+
+export const getMyCommentsOperation = customerId => dispatch => {
+  dispatch(commentsLoadingAction(true));
+  getCustomerComments(customerId).then(res => {
+    dispatch(getMyCommentsAction(res.data));
+    dispatch(commentsLoadingAction(false));
+  });
+};
+export const getProductCommentsOperation = productId => dispatch => {
+  dispatch(commentsLoadingAction(true));
+  getProductComments(productId).then(res => {
+    dispatch(getProductCommentsAction(res.data));
+    dispatch(commentsLoadingAction(false));
+  });
 };

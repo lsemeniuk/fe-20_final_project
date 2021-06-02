@@ -44,7 +44,7 @@ export const getComments = async () => {
 // @desc    GET existing comments of particular customer
 // @access  Public
 export const getCustomerComments = async customerId => {
-  const res = await $host.get(`comments/${customerId}`).catch(err => {
+  const res = await $host.get(`comments/customer/${customerId}`).catch(err => {
     throw err;
   });
   return res;
@@ -54,7 +54,7 @@ export const getCustomerComments = async customerId => {
 // @desc    GET existing comments of particular product
 // @access  Public
 export const getProductComments = async productId => {
-  const res = await $host.get(`comments/${productId}`).catch(err => {
+  const res = await $host.get(`comments/product/${productId}`).catch(err => {
     throw err;
   });
   return res;
