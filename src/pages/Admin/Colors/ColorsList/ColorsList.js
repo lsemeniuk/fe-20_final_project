@@ -10,7 +10,7 @@ const ColorsList = () => {
   const colors = useSelector(getColorsSelector);
   const colorsLoading = useSelector(colorsLoadingSelector);
   useEffect(() => {
-    dispatch(getColorsOperation);
+    dispatch(getColorsOperation());
   }, []);
 
   if (colorsLoading) {
