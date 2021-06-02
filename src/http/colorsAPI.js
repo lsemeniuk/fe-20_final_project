@@ -3,8 +3,8 @@ import { $authHost, $host } from './index';
 // @route   POST /colors
 // @desc    Create new color
 // @access  Private
-export const addColor = async () => {
-  const res = await $authHost.post('colors').catch(err => {
+export const addColor = async values => {
+  const res = await $authHost.post('colors', values).catch(err => {
     throw err;
   });
   return res;
@@ -13,8 +13,8 @@ export const addColor = async () => {
 // @route   PUT /colors
 // @desc    Update existing color
 // @access  Private
-export const updateColor = async id => {
-  const res = await $authHost.put(`colors/${id}`).catch(err => {
+export const updateColor = async (id, values) => {
+  const res = await $authHost.put(`colors/${id}`, values).catch(err => {
     throw err;
   });
   return res;
