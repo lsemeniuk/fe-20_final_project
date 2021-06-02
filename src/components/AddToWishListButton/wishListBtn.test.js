@@ -2,6 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import userEvent from '@testing-library/user-event';
 import AddToWishListBtn from './AddToWishListBtn';
 import store from '../../store/store';
 
@@ -16,5 +17,15 @@ describe('Add to wishList btn test', () => {
       </Provider>
     );
   });
-  test('add to wishList clicked', () => {});
+  test('add to wishList clicked', () => {
+    const func = jest.fn();
+    const { getByTestId } = render(
+      <Provider store={store}>
+        <AddToWishListBtn id={id} itemNo={itemNo} />
+      </Provider>
+    );
+    const addToFavBtn = getByTestId('icon');
+    userEvent.click(addToFavBtn);
+    expect(func).toHaveBeenCalled();
+  });
 });
