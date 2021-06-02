@@ -11,7 +11,6 @@ import Сharacteristics from './Сharacteristics/Сharacteristics';
 import Loader from '../../../components/Loader/Loader';
 import { getAllCommentsOperation } from '../../../store/reviews/operations';
 import Comment from './Reviews/Comment';
-import CommentsFilter from './Reviews/CommentsFilter';
 
 const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
   const { isLoading, data } = useSelector(state => state.reviews);
@@ -19,7 +18,7 @@ const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
 
   useEffect(() => {
     dispatch(getAllCommentsOperation());
-  }, [data]);
+  }, []);
 
   const commentsList = data.map(c => <Comment key={c._id} comment={c} />);
 
@@ -47,7 +46,6 @@ const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
         <TabPanel>
           <div>
             <CommentAddForm />
-            <CommentsFilter />
             {isLoading ? <Loader /> : <ul className={styles.comments__container}>{commentsList}</ul>}
           </div>
         </TabPanel>

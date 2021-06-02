@@ -1,6 +1,12 @@
 /* eslint-disable no-console */
 import { addComment, getComments, deleteComment, updateComment } from '../../http/commentAPI';
-import { addCommentAction, commentsLoadingAction, getAllCommentsAction } from './actions';
+import {
+  addCommentAction,
+  commentsLoadingAction,
+  deleteCommentAction,
+  getAllCommentsAction,
+  updateCommentAction,
+} from './actions';
 
 export const addNewCommentOperation = newComment => dispatch => {
   dispatch(commentsLoadingAction(true));
@@ -20,12 +26,16 @@ export const getAllCommentsOperation = () => dispatch => {
 
 export const deleteCommentOperation = commentID => dispatch => {
   dispatch(commentsLoadingAction(true));
-  deleteComment(commentID);
+  deleteComment(commentID).then(res => {
+    dispatch(deleteCommentAction(res.data));
+  });
   dispatch(commentsLoadingAction(false));
 };
 
 export const updateCommentOperation = (commentID, updatedComment) => dispatch => {
   dispatch(commentsLoadingAction(true));
-  updateComment(commentID, updatedComment);
+  updateComment(commentID, updatedComment).then(res => {
+    dispatch(updateCommentAction(res.data));
+  });
   dispatch(commentsLoadingAction(false));
 };
