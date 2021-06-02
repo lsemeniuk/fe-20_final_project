@@ -15,7 +15,7 @@ const CheckoutCart = () => {
       <Container>
         <p className={styles.pageTitle}>Oформление заказа</p>
         <div className={styles.pageContainer}>
-          {isAuth ? <CheckoutAuth /> : <CheckoutNoAuth />}
+          <div className={styles.ordersCantainer}>{isAuth ? <CheckoutAuth /> : <CheckoutNoAuth />}</div>
           <OrderPreview />
         </div>
       </Container>

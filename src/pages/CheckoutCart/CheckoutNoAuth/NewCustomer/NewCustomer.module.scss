@@ -1,59 +1,19 @@
 @import '../../../../utils/styles/var';
 
-.container {
-  width: 70%;
-}
-
 .tabContainer {
   padding: 30px;
-  background-color: white;
 }
 
-.citiesBlock {
-  text-align: right;
-  padding-top: 0px;
-  padding-bottom: 20px;
-}
-
-.citiesTitle {
-  color: #959595;
-  font-size: 15px;
-}
-.cities {
-  cursor: pointer;
-  font-size: 15px;
-  padding-right: 5px;
-  &:hover {
-    color: $colorButton;
-  }
-}
-
-.title {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 50px;
+.addComment {
+  text-align: center;
 }
 
 .comment {
   background: none !important;
   border: none;
-  padding-bottom: 20px;
+  margin: 10px 0 20px;
   cursor: pointer;
   &:hover {
     color: $colorButton;
   }
-}
-
-.hiddenElement {
-  display: none;
-}
-
-.showedElement {
-  display: block;
-}
-
-.lastHr {
-  margin-bottom: 30px;
 }

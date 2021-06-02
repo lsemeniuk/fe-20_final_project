@@ -3,19 +3,13 @@ export const replace = num => {
   return str.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, `$1 `);
 };
 
-export const calculateTotalPrice = (cart, isAuth) => {
+export const calculateTotalPrice = cart => {
   let totalPrice = 0;
-  if (isAuth && cart) {
-    cart.products.map(p => {
-      totalPrice += p.cartQuantity * p.product.currentPrice;
-      return totalPrice;
-    });
-  } else {
-    cart?.products.map(p => {
-      totalPrice += p.cartQuantity * p.currentPrice;
-      return totalPrice;
-    });
-  }
+
+  cart?.products.map(p => {
+    totalPrice += p.cartQuantity * p.currentPrice;
+    return totalPrice;
+  });
 
   return replace(totalPrice);
 };
