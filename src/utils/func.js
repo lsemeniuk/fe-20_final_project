@@ -5,18 +5,19 @@ export const replace = num => {
 
 export const calculateTotalPrice = (cart, isAuth) => {
   let totalPrice = 0;
-  if (isAuth && cart) {
-    cart.products.map(p => {
-      totalPrice += p.cartQuantity * p.product.currentPrice;
-      return totalPrice;
-    });
-  } else {
-    cart?.products.map(p => {
-      totalPrice += p.cartQuantity * p.currentPrice;
-      return totalPrice;
-    });
+  if (cart === null) {
+    if (isAuth && cart) {
+      cart.products.map(p => {
+        totalPrice += p.cartQuantity * p.product.currentPrice;
+        return totalPrice;
+      });
+    } else {
+      cart.products.map(p => {
+        totalPrice += p.cartQuantity * p.currentPrice;
+        return totalPrice;
+      });
+    }
   }
-
   return replace(totalPrice);
 };
 

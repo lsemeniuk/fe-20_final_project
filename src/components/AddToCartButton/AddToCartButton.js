@@ -19,11 +19,12 @@ const AddToCartButton = ({ id, className, orderButton, currentPrice }) => {
   const localCart = useSelector(getLocalCartSelector);
 
   let idCartList = [];
+
   if (isAuth && !cartLoading && cart) {
     idCartList = cart.products.map(prod => {
       return prod.product['_id'];
     });
-  } else if (!isAuth && localCart && localCart.products.length >= 1) {
+  } else if (!isAuth && localCart === null && localCart.products.length >= 1) {
     idCartList = localCart.products.map(prod => {
       return prod.product;
     });
