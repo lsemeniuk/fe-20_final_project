@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
-
 import schema from '../schema';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 
@@ -15,7 +14,6 @@ const AddColorsForm = () => {
         initialValues={{
           name: '',
           cssValue: '',
-          date: '',
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
@@ -34,8 +32,13 @@ const AddColorsForm = () => {
         <div className='page_form'>
           <Form>
             <MyTextInput label='Название' name='name' type='text' placeholder='Название цвета' tabIndex='0' />
-            <MyTextInput label='Цвет' name='cssValue' type='text' placeholder='цвет' tabIndex='0' />
-            <MyTextInput label='Дата' name='date' type='date' placeholder='дата' tabIndex='0' />
+            <MyTextInput
+              label='HEX CSS цвет'
+              name='cssValue'
+              type='text'
+              placeholder='HEX значение цвета'
+              tabIndex='0'
+            />
             <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
           </Form>
         </div>
