@@ -3,13 +3,21 @@
 .container {
   @extend %custom-shadow;
   @extend %custom-border;
-  background-color: white;
-  
+  background-color: #fff;
+  padding: 20px;
+}
+
+.previewContant {
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
 }
 
 .title {
   padding: 20px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cartItem {
+  flex-direction: column;
+}

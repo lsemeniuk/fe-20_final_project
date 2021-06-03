@@ -1,0 +1,21 @@
+.list {
+  border: solid 1px #a7a7a7;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+:global(.checkout__orders-preview) {
+  .list {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+  }
+}
