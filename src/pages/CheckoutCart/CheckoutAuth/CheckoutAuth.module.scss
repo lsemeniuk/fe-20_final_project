@@ -1,6 +1,21 @@
-@import '../../../utils/styles/mixins';
+@import '../../../utils/styles/var';
 
-.container {
-  @extend %custom-shadow;
-  @extend %custom-border;
+.tabContainer {
+  padding: 0 30px 20px;
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
+}
+
+.addComment {
+  text-align: center;
+}
+
+.comment {
+  background: none !important;
+  border: none;
+  margin: 10px 0 20px;
+  cursor: pointer;
+  &:hover {
+    color: $colorButton;
+  }
 }

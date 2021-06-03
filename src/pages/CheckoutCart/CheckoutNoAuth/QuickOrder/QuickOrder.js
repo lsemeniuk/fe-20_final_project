@@ -32,7 +32,7 @@ const QuickOrder = () => {
     >
       <Form>
         <div className={styles.tabContainer}>
-          <p className={styles.title}>Получатель заказа</p>
+          <h3 className={styles.title}>Данные заказчика</h3>
           <MyTextInput
             label='ФИО'
             name='name'
