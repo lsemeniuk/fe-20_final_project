@@ -10,3 +10,12 @@
   font-size: 32px;
   font-weight: 400;
 }
+
+:global(.checkout__orders-preview) {
+  .list {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+  }
+}

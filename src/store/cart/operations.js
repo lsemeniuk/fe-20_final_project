@@ -17,7 +17,6 @@ export const getCartOperation = () => dispatch => {
   getCart().then(res => {
     dispatch(saveCartAction(res.data));
     dispatch(cartLoadingAction(false));
-    dispatch(cartTotalPriceAction(calculateTotalPrice(res.data, true)));
     if (res.data) {
       const databaseCart = res.data.products.map(productCart => {
         return { cartQuantity: productCart.cartQuantity, product: productCart.product['_id'] };
@@ -34,7 +33,6 @@ export const getCartOperation = () => dispatch => {
 export const decreaseCartProductQuantityOperation = id => dispatch => {
   decreaseCartProductQuantity(id).then(res => {
     dispatch(saveCartAction(res.data));
-    dispatch(cartTotalPriceAction(calculateTotalPrice(res.data, true)));
   });
 };
 
@@ -54,7 +52,6 @@ export const deleteProductFromCartOperation = (id, cart) => dispatch => {
 export const addProductToCartOperation = id => dispatch => {
   addProductToCart(id).then(res => {
     dispatch(saveCartAction(res.data));
-    dispatch(cartTotalPriceAction(calculateTotalPrice(res.data, true)));
   });
 };
 
@@ -63,7 +60,6 @@ export const updateCartOperation = products => dispatch => {
   updateCart(products).then(res => {
     dispatch(saveCartAction(res.data));
     dispatch(cartLoadingAction(false));
-    dispatch(cartTotalPriceAction(calculateTotalPrice(res.data, true)));
   });
 };
 
@@ -89,7 +85,7 @@ export const changeLocalCartOperation = (id, method) => dispatch => {
 
   localStorage.setItem('cart', JSON.stringify({ products: [...filtered] }));
 
-  const totalPrice = calculateTotalPrice({ products: [...filtered] }, false);
+  const totalPrice = calculateTotalPrice({ products: [...filtered] });
 
   dispatch(cartTotalPriceAction(totalPrice));
 
@@ -97,6 +93,6 @@ export const changeLocalCartOperation = (id, method) => dispatch => {
 };
 
 export const setCartTotalPriceOperation = products => dispatch => {
-  const totalPrice = calculateTotalPrice(products, false);
+  const totalPrice = calculateTotalPrice(products);
   dispatch(cartTotalPriceAction(totalPrice));
 };
