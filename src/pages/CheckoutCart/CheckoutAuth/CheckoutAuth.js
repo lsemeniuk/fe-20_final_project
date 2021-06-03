@@ -19,10 +19,10 @@ const CheckoutAuth = () => {
   const [messageServer, setMessageServer] = useState(null);
   const [commentAvailible, setCommentAvailible] = useState(false);
   const [htmlString, setHtmlString] = useState(null);
-  const customer = useSelector(getCustomerSelector);
   const customerLoading = useSelector(getCustomerIsLoadingSelector);
   const cart = useSelector(getCartSelector);
   const totalPrice = useSelector(cartTotalPriceSelector);
+  const customer = useSelector(getCustomerSelector);
 
   if (customerLoading) {
     return <Loader />;
