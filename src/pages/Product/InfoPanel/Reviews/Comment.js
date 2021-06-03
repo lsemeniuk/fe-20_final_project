@@ -28,12 +28,12 @@ const Comment = ({ comment }) => {
         <Icons type='commas' color='#37b7fa' filled width={15} height={15} />
       </div>
       {customerLogin === comment.customer.login && (
-        <button type='button' onClick={() => handleDelete(comment._id)} className={styles.deleteBtn}>
+        <button type='button' onClick={() => handleDelete(comment._id)} className={styles.up}>
           Удалить
         </button>
       )}
       {customerLogin === comment.customer.login && !showUpdateForm && (
-        <button type='button' onClick={handleUpdate} className={styles.updateBtn}>
+        <button type='button' onClick={handleUpdate} className={styles.slide}>
           Изменить
         </button>
       )}

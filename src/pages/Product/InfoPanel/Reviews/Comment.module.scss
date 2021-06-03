@@ -13,21 +13,21 @@
     border-radius: 5px;
     padding: 15px;
   }
-  .deleteBtn {
-    color: #fff;
-    background-color: $colorButton;
-    border: none;
-    border-radius: 3px;
-    padding: 3px 6px;
-  }
-  .updateBtn {
-    color: #000;
-    background-color: $colorSecondary;
-    border: none;
-    border-radius: 3px;
-    padding: 3px 6px;
-    margin-left: 20px;
-  }
+  // .deleteBtn {
+  //   color: #fff;
+  //   background-color: $colorButton;
+  //   border: none;
+  //   border-radius: 3px;
+  //   padding: 3px 6px;
+  // }
+  // .updateBtn {
+  //   color: #000;
+  //   background-color: $colorSecondary;
+  //   border: none;
+  //   border-radius: 3px;
+  //   padding: 3px 6px;
+  //   margin-left: 20px;
+  // }
 .row {
   display: flex;
   align-items: center;
@@ -35,4 +35,46 @@
 .commentText {
  margin-left: 5px;
  margin-right: 5px;
+}
+
+.up {
+  --color: #37b7fa;
+  --hover: #37b7fa;
+}
+
+.slide {
+  --color: #000;
+  --hover: #fafa64;
+}
+.up:hover,
+.up:focus {
+  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+}
+
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 8.8em 0 0 0 var(--hover);
+}
+.up,
+.slide {
+  background: none;
+  font: inherit;
+  border-radius: 3px;
+  padding: 0.5em 1em;
+  transition: 0.35s;
+  font-size: 12px;
+  color: var(--color);
+}
+.up {
+  border: 2px solid #37b7fa;
+}
+.slide {
+  border: 2px solid #fafa64;
+  margin-left: 20px;
+}
+
+button:hover,
+button:focus {
+  border-color: var(--hover);
+  color: #fff;
 }
