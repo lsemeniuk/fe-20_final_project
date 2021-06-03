@@ -1,7 +1,7 @@
 .buttonCont {
   display: flex;
   justify-content: flex-end;
-  overflow: hidden;
+  padding-bottom: 20px;
 }
 .widthCont {
   display: flex;
@@ -9,6 +9,11 @@
   width: 75%;
 }
 .redTitle {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
   margin-left: 10px;
   color: red;
 }

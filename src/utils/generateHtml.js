@@ -18,7 +18,7 @@ export const generateLetterHtml = (cart, values, logoSrc, url, totalPrice) => {
 
   cart.products.map(p => {
     ordersList += `
-    <div style="display: flex; border: 1px solid #a7a7a7; padding: 10px">
+    <div style="display: flex; padding: 10px">
       <a href="${url}product/${p.product.itemNo}" target="_blank" style="padding-right:30px;">
         <img src="${p.product.imageUrls[0].smallImage}" width="120" height="120" alt="product">
       </a>
@@ -44,7 +44,7 @@ export const generateLetterHtml = (cart, values, logoSrc, url, totalPrice) => {
     return null;
   });
 
-  const orders = `${yourOrders}<div style="border: 1px solid #a7a7a7; border-radius: 4px;">${ordersList}</div>`;
+  const orders = `${yourOrders}<div>${ordersList}</div>`;
 
   const summ = `<div style="font-size:12px;padding-top:20px;line-height:1.4;">
   Стоимость заказа: ${totalPrice} грн. <br>
@@ -57,8 +57,9 @@ export const generateLetterHtml = (cart, values, logoSrc, url, totalPrice) => {
     E-mail: <span style="font-weight:bold;">${values.email}</span> <br>
     Мобильный телефон: <span style="font-weight:bold;">${values.mobile}</span> <br>
     Способ доставки: <span style="font-weight:bold;">${values.delivery}</span> <br>
-    Адрес доставки: <span style="font-weight:bold;">${values.address}</span> <br>
-    Способ оплаты: <span style="font-weight:bold;">${values.payment}</span> <br>
+    Адрес доставки: <span style="font-weight:bold;">
+    ${values.region} обл., г. ${values.city}, ${values.address}</span> <br>
+    Способ оплаты: <span style="font-weight:bold;">${values.paymentInfo}</span> <br>
     Ваш коментарий: <span style="font-weight:bold;">${values.comment}</span> <br>
   </div>`;
 

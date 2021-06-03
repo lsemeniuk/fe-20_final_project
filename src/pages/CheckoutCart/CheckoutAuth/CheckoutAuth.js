@@ -1,24 +1,22 @@
 /* eslint-disable react/no-danger */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import ButtonBlock from '../../../components/Forms/ButtonBlock/ButtonBlock';
 import { placeOrder } from '../../../http/ordersAPI';
-import schema from '../schema';
-import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
 import CustomerDataInputs from '../CustomerDataInputs/CustomerDataInputs';
 import DeliveryDataInputs from '../DeliveryDataInputs/DeliveryDataInputs';
 import PaymentDataInputs from '../PaymentDataInputs/PaymentDataInputs';
 import { getCustomerIsLoadingSelector, getCustomerSelector } from '../../../store/customer/selectors';
 import Loader from '../../../components/Loader/Loader';
 import { generateLetterHtml } from '../../../utils/generateHtml';
-import styles from './CheckoutAuth.module.scss';
 import { cartTotalPriceSelector, getCartSelector } from '../../../store/cart/selectors';
+import schema from '../schema';
+import styles from './CheckoutAuth.module.scss';
 
 const CheckoutAuth = () => {
   const [messageServer, setMessageServer] = useState(null);
   const [commentAvailible, setCommentAvailible] = useState(false);
-  const [htmlString, setHtmlString] = useState(null);
   const customerLoading = useSelector(getCustomerIsLoadingSelector);
   const cart = useSelector(getCartSelector);
   const totalPrice = useSelector(cartTotalPriceSelector);
@@ -38,10 +36,11 @@ const CheckoutAuth = () => {
           lastName: customer.lastName || '',
           mobile: customer.telephone || '+380',
           email: customer.email || '',
-          city: customer.city || '',
+          region: '',
+          city: '',
           delivery: '',
           address: '',
-          payment: '',
+          paymentInfo: '',
           comment: '',
         }}
         validationSchema={schema}
@@ -53,18 +52,28 @@ const CheckoutAuth = () => {
             'http://localhost:3000/',
             totalPrice
           );
-          setHtmlString(letterHtml);
+
+          const { delivery, region, city, address, ...ordersValue } = values;
+          const deliveryAddress = { delivery, region, city, address };
+
           const letterSubject = 'Спасибо за заказ!';
 
-          placeOrder({ ...values, customerId: id, letterHtml, letterSubject })
+          placeOrder({ ...ordersValue, deliveryAddress, customerId: id, letterHtml, letterSubject })
             .then(res => {
               if (res.status === 200) {
-                setMessageServer(<span style={{ color: 'green' }}>Заказ успешно оформлен!</span>);
+                if (res.data.message) {
+                  setMessageServer(<span>{res.data.message}</span>);
+                } else {
+                  setMessageServer(<span style={{ color: 'green' }}>Заказ успешно оформлен!</span>);
+                }
               }
             })
             .catch(err => {
               setMessageServer(<span>{Object.values(err.data).join('')}</span>);
             });
+
+          setMessageServer('');
+
           setSubmitting(false);
         }}
       >
@@ -86,19 +95,21 @@ const CheckoutAuth = () => {
               </span>
             )}
             {commentAvailible && (
-              <MyTextInput
-                label='Комментарий'
-                name='comment'
-                type='text'
-                placeholder='Введите комментарий'
-                tabIndex='-1'
-              />
+              <div className={styles.textareaContainer}>
+                <label className={styles.label}>Комментарий</label>
+                <Field
+                  as='textarea'
+                  className={styles.textarea}
+                  name='comment'
+                  placeholder='Введите комментарий'
+                  rows={5}
+                />
+              </div>
             )}
           </div>
           <ButtonBlock buttonTitle='Оформить заказ' messageServer={messageServer} />
         </Form>
       </Formik>
-      <div dangerouslySetInnerHTML={{ __html: htmlString }} />
     </div>
   );
 };
