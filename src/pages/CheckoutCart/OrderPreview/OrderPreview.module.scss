@@ -3,7 +3,13 @@
 .container {
   @extend %custom-shadow;
   @extend %custom-border;
-  background-color: white;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.previewContant {
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
 }
 
 .title {
