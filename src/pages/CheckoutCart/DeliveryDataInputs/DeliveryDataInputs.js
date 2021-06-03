@@ -9,8 +9,7 @@ const DeliveryDataInputs = () => {
     <div>
       <h3 className='checkout__title'>Доставка</h3>
       <MyTextInput
-        id='city'
-        label='Город'
+        label='Город доставки'
         name='city'
         type='text'
         placeholder='Введите название своего города'
@@ -20,23 +19,24 @@ const DeliveryDataInputs = () => {
       <MySelect
         label='Способ доставки'
         name='delivery'
-        id='delivery'
         onClick={e => {
           setDeliveryMethod(e.target.value);
         }}
         tabIndex='0'
       >
-        <option value='postDelivery'>Новой почтой</option>
-        <option value='courierDelivery'>Курьером по Киеву</option>
+        <option>Выберите способ доставки</option>
+        <option value='Новой почтой'>Новой почтой</option>
+        <option value='Курьером по Киеву'>Курьером по Киеву</option>
       </MySelect>
 
-      {deliveryMethod === 'postDelivery' && (
-        <MySelect label='Склад' name='postom' tabIndex='0'>
+      {deliveryMethod === 'Новой почтой' && (
+        <MySelect label='Выберите адрес' name='address' tabIndex='0'>
+          <option>Выберите адрес</option>
           <option value='Отделение № 1'>Отделение № 1</option>
           <option value='Отделение № 2'>Отделение № 2</option>
         </MySelect>
       )}
-      {deliveryMethod === 'courierDelivery' && (
+      {deliveryMethod === 'Курьером по Киеву' && (
         <MyTextInput label='Адрес' name='address' type='text' placeholder='Введите адрес доставки' tabIndex='-1' />
       )}
       <hr />

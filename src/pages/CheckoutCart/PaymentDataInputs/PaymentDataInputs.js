@@ -6,8 +6,9 @@ const PaymentDataInputs = () => {
     <div>
       <h3 className='checkout__title'>Оплата</h3>
       <MySelect label='Способ оплаты' name='payment'>
-        <option value='cash'>Наличными</option>
-        <option value='cashOnDelivery'>Оплата при получении</option>
+        <option>Выберите способ оплаты</option>
+        <option value='Наличными'>Наличными</option>
+        <option value='Оплата при получении'>Оплата при получении</option>
       </MySelect>
       <hr />
     </div>
