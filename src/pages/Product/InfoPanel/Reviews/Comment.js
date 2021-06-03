@@ -6,6 +6,7 @@ import { deleteCommentOperation } from '../../../../store/reviews/operations';
 import styles from './Comment.module.scss';
 import CommentUpdateForm from './CommentUpdateForm';
 import { getCustomerSelector } from '../../../../store/customer/selectors';
+import Icons from '../../../../components/Icons/Icons';
 
 const Comment = ({ comment }) => {
   const dispatch = useDispatch();
@@ -18,8 +19,14 @@ const Comment = ({ comment }) => {
   const handleUpdate = () => setShowUpdateForm(true);
   return (
     <li className={styles.comment}>
-      <div className={styles.customer}>{comment.customer.login}</div>
-      <p>{comment.content}</p>
+      <div className={styles.customer}>
+        {comment.customer.firstName} {comment.customer.lastName}
+      </div>
+      <div className={styles.row}>
+        <Icons type='commas' color='#37b7fa' filled width={15} height={15} />
+        <p className={styles.commentText}>{comment.content}</p>
+        <Icons type='commas' color='#37b7fa' filled width={15} height={15} />
+      </div>
       {customerLogin === comment.customer.login && (
         <button type='button' onClick={() => handleDelete(comment._id)} className={styles.deleteBtn}>
           Удалить

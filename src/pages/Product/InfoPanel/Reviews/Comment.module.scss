@@ -9,6 +9,9 @@
   }
   .comment {
     margin-bottom: 20px;
+    border: 1px solid $colorTextSilver;
+    border-radius: 5px;
+    padding: 15px;
   }
   .deleteBtn {
     color: #fff;
@@ -25,3 +28,11 @@
     padding: 3px 6px;
     margin-left: 20px;
   }
+.row {
+  display: flex;
+  align-items: center;
+}
+.commentText {
+ margin-left: 5px;
+ margin-right: 5px;
+}
