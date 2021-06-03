@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,7 +14,6 @@ const CommentsFilter = () => {
   const dispatch = useDispatch();
   const currentProduct = useSelector(getOneProductSelector);
   const productId = currentProduct._id;
-  console.log(productId);
 
   const currentCustomer = useSelector(getCustomerSelector);
   const customerId = currentCustomer._id;
