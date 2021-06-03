@@ -12,7 +12,7 @@ const Comment = ({ comment }) => {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
   const currentCustomer = useSelector(getCustomerSelector);
-  const customerId = currentCustomer._id;
+  const customerLogin = currentCustomer.login;
 
   const handleDelete = deleteID => dispatch(deleteCommentOperation(deleteID));
   const handleUpdate = () => setShowUpdateForm(true);
@@ -20,12 +20,12 @@ const Comment = ({ comment }) => {
     <li className={styles.comment}>
       <div className={styles.customer}>{comment.customer.login}</div>
       <p>{comment.content}</p>
-      {customerId === comment.customer._id && (
+      {customerLogin === comment.customer.login && (
         <button type='button' onClick={() => handleDelete(comment._id)} className={styles.deleteBtn}>
           Удалить
         </button>
       )}
-      {customerId === comment.customer._id && !showUpdateForm && (
+      {customerLogin === comment.customer.login && !showUpdateForm && (
         <button type='button' onClick={handleUpdate} className={styles.updateBtn}>
           Изменить
         </button>

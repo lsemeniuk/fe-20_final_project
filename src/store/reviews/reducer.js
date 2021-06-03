@@ -24,10 +24,13 @@ const reducer = (state = initialState, action) => {
       return { ...state, data: state.data.filter(c => c._id !== deletedID) };
     }
     case UPDATE_COMMENT: {
-      const { _id: updatedID } = action.payload;
+      const { _id: updatedID, content: updatedContent } = action.payload;
       const oldComment = state.data.find(c => c._id === updatedID);
-      const withoutOldComment = state.data.filter(c => c !== oldComment);
-      return { ...state, data: [action.payload, ...withoutOldComment] };
+      const updatedComment = { ...oldComment, content: updatedContent };
+      const index = state.data.indexOf(oldComment);
+      const newComments = [...state.data];
+      newComments.splice(index, 1, updatedComment);
+      return { ...state, data: newComments };
     }
     case GET_ALL_COMMENTS: {
       return { ...state, data: action.payload };
