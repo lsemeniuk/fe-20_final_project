@@ -13,7 +13,7 @@ const Comment = ({ comment }) => {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
   const currentCustomer = useSelector(getCustomerSelector);
-  const customerLogin = currentCustomer.login;
+  const customerId = currentCustomer.id;
 
   const handleDelete = deleteID => dispatch(deleteCommentOperation(deleteID));
   const handleUpdate = () => setShowUpdateForm(true);
@@ -27,12 +27,12 @@ const Comment = ({ comment }) => {
         <p className={styles.commentText}>{comment.content}</p>
         <Icons type='commas' color='#37b7fa' filled width={15} height={15} />
       </div>
-      {customerLogin === comment.customer.login && (
+      {customerId === comment.customer._id && (
         <button type='button' onClick={() => handleDelete(comment._id)} className={styles.up}>
           Удалить
         </button>
       )}
-      {customerLogin === comment.customer.login && !showUpdateForm && (
+      {customerId === comment.customer._id && !showUpdateForm && (
         <button type='button' onClick={handleUpdate} className={styles.slide}>
           Изменить
         </button>

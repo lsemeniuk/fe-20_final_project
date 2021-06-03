@@ -12,14 +12,16 @@ import Loader from '../../../components/Loader/Loader';
 import { getAllCommentsOperation } from '../../../store/reviews/operations';
 import Comment from './Reviews/Comment';
 import CommentsFilter from './Reviews/CommentsFilter';
+import { getCustomerSelector } from '../../../store/customer/selectors';
 
 const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
   const { isLoading, data } = useSelector(state => state.reviews);
+  const customerData = useSelector(getCustomerSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllCommentsOperation());
-  }, []);
+  }, [customerData]);
 
   const commentsList = data.map(c => <Comment key={c._id} comment={c} />);
 
