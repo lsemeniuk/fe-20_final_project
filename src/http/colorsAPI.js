@@ -5,7 +5,7 @@ import { $authHost, $host } from './index';
 // @access  Private
 export const addColor = async values => {
   const res = await $authHost.post('colors', values).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -15,7 +15,7 @@ export const addColor = async values => {
 // @access  Private
 export const updateColor = async (id, values) => {
   const res = await $authHost.put(`colors/${id}`, values).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -25,7 +25,7 @@ export const updateColor = async (id, values) => {
 // @access  Private
 export const deleteColor = async id => {
   const res = await $authHost.delete(`colors/${id}`).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -35,7 +35,7 @@ export const deleteColor = async id => {
 // @access  Public
 export const getColors = async () => {
   const res = await $host.get('colors').catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };

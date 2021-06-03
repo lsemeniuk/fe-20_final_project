@@ -9,15 +9,15 @@ const ColorsList = () => {
   const dispatch = useDispatch();
   const colors = useSelector(getColorsSelector);
   const colorsLoading = useSelector(colorsLoadingSelector);
-  useEffect(() => {
-    dispatch(getColorsOperation);
-  }, []);
 
+  useEffect(() => {
+    dispatch(getColorsOperation());
+  }, []);
   if (colorsLoading) {
     return <Loader />;
   }
 
-  const colorsList = colors.map(color => {
+  const colorList = colors.map(color => {
     return (
       <li key={color.name} style={{ padding: '10px' }}>
         <ColorsItem color={color} />
@@ -25,7 +25,7 @@ const ColorsList = () => {
     );
   });
 
-  return <ul>{colorsList}</ul>;
+  return <ul>{colorList}</ul>;
 };
 
 export default ColorsList;

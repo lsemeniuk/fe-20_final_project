@@ -33,7 +33,7 @@ const ColorsItem = ({ color }) => {
       <div className={styles.info}>
         <div className={styles.name}>{color.name}</div>
         <div className={styles.colorContainer}>
-          {color.imageUrl && <img className={styles.color} src={color.imageUrl} alt={color.name} />}
+          {color.cssValue && <img className={styles.cssValue} src={color.cssValue} alt={color.name} />}
         </div>
       </div>
       <Button title='Изменить' onClick={() => setOpenForm(!openForm)} className={styles.button} />

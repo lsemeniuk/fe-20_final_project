@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
-
+import { addColor } from '../../../../http/colorsAPI';
 import schema from '../schema';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 
@@ -19,7 +19,7 @@ const AddColorsForm = () => {
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          AddColorsForm(values)
+          addColor(values)
             .then(res => {
               if (res.status === 200) {
                 setmessageServer(<span style={{ color: 'green' }}>Бренд успешно добавлен!</span>);
