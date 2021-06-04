@@ -9,7 +9,7 @@ import brandsReducer from './brands/reducer';
 import pageReducer from './pages/reducer';
 import linksReducer from './links/reducer';
 import wishListReducer from './wishList/reducer';
-import reviewsReducer from './reviews/reducer';
+import commentsReducer from './reviews/reducer';
 import colorsReducer from './colors/reducer';
 
 const reducer = combineReducers({
@@ -23,7 +23,7 @@ const reducer = combineReducers({
   modal: modalReducer,
   links: linksReducer,
   wishList: wishListReducer,
-  reviews: reviewsReducer,
+  comments: commentsReducer,
   colors: colorsReducer,
 });
 

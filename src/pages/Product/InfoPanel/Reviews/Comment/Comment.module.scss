@@ -1,4 +1,4 @@
-@import '../../../../utils/styles/var';
+
 
   .customer {
     font-size: 18px;
@@ -9,7 +9,7 @@
   }
   .comment {
     margin-bottom: 20px;
-    border: 1px solid $colorTextSilver;
+    border: 1px solid #999999;
     border-radius: 5px;
     padding: 15px;
   }
@@ -77,4 +77,12 @@ button:hover,
 button:focus {
   border-color: var(--hover);
   color: #fff;
+}
+.name__date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.date {
+  font-size: 12px;;
 }

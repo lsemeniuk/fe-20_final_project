@@ -1,30 +1,13 @@
-/* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-danger */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './InfoPanel.module.scss';
-import CommentAddForm from './Reviews/CommentAddForm';
 import Сharacteristics from './Сharacteristics/Сharacteristics';
-import Loader from '../../../components/Loader/Loader';
-import { getAllCommentsOperation } from '../../../store/reviews/operations';
-import Comment from './Reviews/Comment';
-import CommentsFilter from './Reviews/CommentsFilter';
-import { getCustomerSelector } from '../../../store/customer/selectors';
+import Reviews from './Reviews/Reviews';
 
 const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
-  const { isLoading, data } = useSelector(state => state.reviews);
-  const customerData = useSelector(getCustomerSelector);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllCommentsOperation());
-  }, [customerData]);
-
-  const commentsList = data.map(c => <Comment key={c._id} comment={c} />);
-
   return (
     <div className={styles.container}>
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
@@ -48,9 +31,7 @@ const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
         </TabPanel>
         <TabPanel>
           <div>
-            <CommentAddForm />
-            <CommentsFilter />
-            {isLoading ? <Loader /> : <ul className={styles.comments__container}>{commentsList}</ul>}
+            <Reviews />
           </div>
         </TabPanel>
       </Tabs>

@@ -5,9 +5,9 @@ import { Formik, Form, Field } from 'formik';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import Button from '../../../../components/Button/Button';
+import { updateCommentOperation } from '../../../../../store/reviews/operations';
 import MyTextArea from './MyTextArea';
-import { updateCommentOperation } from '../../../../store/reviews/operations';
+import Button from '../../../../../components/Button/Button';
 
 const CommentUpdateForm = ({ commentID, setShowUpdateForm }) => {
   const dispatch = useDispatch();

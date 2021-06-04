@@ -1,30 +1,21 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCustomerSelector } from '../../../../store/customer/selectors';
-import { getOneProductSelector } from '../../../../store/products/selectors';
-import {
-  getAllCommentsOperation,
-  getMyCommentsOperation,
-  getProductCommentsOperation,
-} from '../../../../store/reviews/operations';
 import styles from './CommentsFilter.module.scss';
+import { getCustomerSelector } from '../../../../../store/customer/selectors';
+import { getAllCommentsOperation, getMyCommentsOperation } from '../../../../../store/reviews/operations';
 
 const CommentsFilter = () => {
   const dispatch = useDispatch();
-  const currentProduct = useSelector(getOneProductSelector);
-  const productId = currentProduct._id;
 
   const currentCustomer = useSelector(getCustomerSelector);
   const customerId = currentCustomer._id;
 
-  const filterOptions = ['Все комментарии', 'Мои комментарии', 'Комм об этом товаре'];
+  const filterOptions = ['Все комментарии', 'Мои комментарии'];
 
   const handleChange = value => {
     if (value === filterOptions[1]) {
       dispatch(getMyCommentsOperation(customerId));
-    } else if (value === filterOptions[2]) {
-      dispatch(getProductCommentsOperation(productId));
     } else {
       dispatch(getAllCommentsOperation());
     }

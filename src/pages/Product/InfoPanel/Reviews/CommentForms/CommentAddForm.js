@@ -1,19 +1,17 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-console */
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
-import Button from '../../../../components/Button/Button';
 import MyTextArea from './MyTextArea';
-import { getOneProductSelector } from '../../../../store/products/selectors';
-import { addNewCommentOperation } from '../../../../store/reviews/operations';
+import { addNewCommentOperation } from '../../../../../store/reviews/operations';
+import Button from '../../../../../components/Button/Button';
+import { getOneProductSelector } from '../../../../../store/products/selectors';
 
 const CommentAddForm = () => {
   const dispatch = useDispatch();
-  const productID = useSelector(getOneProductSelector)._id;
+  const { _id: productID } = useSelector(getOneProductSelector);
   const validationSchema = Yup.object({
-    comments: Yup.string().required('Невозможно отправить пустую форму!'),
+    comments: Yup.string().required('Невозможно отправить пустой отзыв!'),
   });
 
   return (
@@ -41,7 +39,7 @@ const CommentAddForm = () => {
               type='text'
               placeholder='Ваш отзыв'
               tabIndex='0'
-              style={{ width: '428px', height: '80px', marginBottom: '20px' }}
+              style={{ width: '430px', height: '100px', marginBottom: '20px', resize: 'none' }}
             />
             <div>
               <Button type='submit' title='Отправить' />
