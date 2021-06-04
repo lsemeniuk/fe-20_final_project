@@ -1,0 +1,2 @@
+export const SET_COLORS = 'SET_COLORS';
+export const SET_COLORS_LOADING = 'SET_COLORS_LOADING';
