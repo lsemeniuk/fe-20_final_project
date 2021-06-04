@@ -39,13 +39,8 @@ const UpdateColorsForm = ({ color, setOpenForm }) => {
       >
         <div className='page_form'>
           <Form>
-<<<<<<< HEAD
-            <MyTextInput label='Название' name='name' type='text' placeholder='Название бренда' tabIndex='0' />
-            <MyTextInput label='Цвет' name='cssValue' type='text' placeholder='Цвет' tabIndex='0' />
-=======
             <MyTextInput label='Название' name='name' type='text' placeholder='Название цвета' tabIndex='0' />
             <MyTextInput label='HEX цвет' name='cssValue' type='text' placeholder='Значение цвета' tabIndex='0' />
->>>>>>> f90998696fe377bcef61758f6db83d931f9f5c5e
             <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
           </Form>
         </div>

@@ -2,17 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/Button/Button';
-<<<<<<< HEAD
-import styles from './ColorsItem.module.scss';
-import { deleteColor } from '../../../../http/colorsAPI';
-import { getColorsOperation } from '../../../../store/colors/operations';
-import UpdateColorsForm from '../UpdateColorsForm/UpdateColorsForm';
-=======
 import { deleteColor } from '../../../../http/colorsAPI';
 import { getColorsOperation } from '../../../../store/colors/operations';
 import UpdateColorsForm from '../UpdateColorsForm/UpdateColorsForm';
 import styles from './ColorsItem.module.scss';
->>>>>>> f90998696fe377bcef61758f6db83d931f9f5c5e
 
 const ColorsItem = ({ color }) => {
   const { _id: id } = color;
@@ -39,13 +32,8 @@ const ColorsItem = ({ color }) => {
       </div>
       <div className={styles.info}>
         <div className={styles.name}>{color.name}</div>
-<<<<<<< HEAD
-        <div className={styles.colorContainer}>
-          {color.imageUrl && <img className={styles.color} src={color.imageUrl} alt={color.name} />}
-=======
         <div className={styles.colorContainer} style={{ backgroundColor: color.cssValue }}>
           {' '}
->>>>>>> f90998696fe377bcef61758f6db83d931f9f5c5e
         </div>
       </div>
       <Button title='Изменить' onClick={() => setOpenForm(!openForm)} className={styles.button} />
