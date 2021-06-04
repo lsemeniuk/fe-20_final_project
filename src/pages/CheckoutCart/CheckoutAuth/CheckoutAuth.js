@@ -72,8 +72,6 @@ const CheckoutAuth = () => {
               setMessageServer(<span>{Object.values(err.data).join('')}</span>);
             });
 
-          setMessageServer('');
-
           setSubmitting(false);
         }}
       >

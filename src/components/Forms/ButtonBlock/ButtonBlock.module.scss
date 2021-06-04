@@ -1,9 +1,11 @@
 .buttonCont {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   padding-bottom: 20px;
 }
 .widthCont {
+  position: relative;
   display: flex;
   align-items: center;
   width: 75%;
@@ -11,9 +13,7 @@
 .redTitle {
   position: absolute;
   left: 0;
-  bottom: 10px;
+  bottom: -30px;
   width: 100%;
-  text-align: center;
-  margin-left: 10px;
   color: red;
 }
