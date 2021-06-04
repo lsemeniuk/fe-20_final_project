@@ -13,6 +13,7 @@ const ColorsList = () => {
   useEffect(() => {
     dispatch(getColorsOperation());
   }, []);
+
   if (colorsLoading) {
     return <Loader />;
   }

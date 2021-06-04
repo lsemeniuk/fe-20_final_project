@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
@@ -15,7 +14,6 @@ const AddColorsForm = () => {
         initialValues={{
           name: '',
           cssValue: '',
-          date: '',
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
