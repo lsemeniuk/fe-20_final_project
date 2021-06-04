@@ -1,4 +1,7 @@
 import axios from 'axios';
+// import { getProductsFilterParams } from '../../http/productAPI';
+// import { productsLoadingAction, saveProductsFilteredAction, saveProductsQuantityAction } from '../products/actions';
+import { getProductsFilterOperation } from '../products/operations';
 import { saveAllFiltersAction, saveCheckedFiltersAction } from './actions';
 
 export const getFiltersOperation = () => async dispatch => {
@@ -9,14 +12,19 @@ export const getFiltersOperation = () => async dispatch => {
 
 export const saveFiltersOperation = value => async dispatch => {
   /* eslint no-console: 0 */
-  // console.log('🚀 ~ file: operations.js ~ line 12 ~ dispatch', dispatch);
-  // console.log('🚀 ~ file: operations.js ~ line 14 ~ value', value);
   dispatch(saveCheckedFiltersAction(value));
-
   const joined = {};
   Object.keys(value).forEach(item => {
     if (value[item].length) {
-      joined[item] = encodeURIComponent(value[item].join());
+      console.log('🚀 ~ file: operations.js ~ line 19 ~ Object.keys ~ value[item].length', value[item].length);
+
+      // joined[item] = encodeURIComponent(value[item].join());
+      joined[item] = value[item].join();
+      // console.log(
+      //   '🚀 ~ file: operations.js ~ line 22 ~ Object.keys ~ encodeURIComponent(value[item].join());',
+      //   encodeURIComponent(value[item].join())
+      // );
+      console.log('🚀 ~ file: operations.js ~ line 22 ~ Object.keys ~ joined[item]', joined[item]);
     }
   });
   // const filterEmptyValues = joined.map(item => {
@@ -29,6 +37,7 @@ export const saveFiltersOperation = value => async dispatch => {
   // console.log(' filterEmptyValues', filterEmptyValues);
   console.log('~ joined', joined);
 
+  dispatch(getProductsFilterOperation(joined));
   const config = {
     url: 'https://fe-20-final-project.herokuapp.com/api/products/filter',
     method: 'get',
@@ -36,15 +45,18 @@ export const saveFiltersOperation = value => async dispatch => {
       ...joined,
     },
   };
+  console.log(' config', config);
   try {
     const response = await axios.request(config);
+
+    // getProductsFilterParams(response).then(res => {
+    //   dispatch(saveProductsFilteredAction(res.data.products));
+    //   dispatch(saveProductsQuantityAction(res.data.productsQuantity));
+    //   dispatch(productsLoadingAction(false));
+    // });
     console.log('response', response.data);
     console.log('response', response);
   } catch (r) {
     console.log(r);
   }
-};
-
-export const checkedFiltersOperation = value => async dispatch => {
-  dispatch(saveCheckedFiltersAction(value));
 };

@@ -10,6 +10,7 @@ function FormikControl(props) {
       return <Select {...rest} />;
     case 'checkbox':
       return <CheckboxGroup {...rest} />;
+
     default:
       return null;
   }

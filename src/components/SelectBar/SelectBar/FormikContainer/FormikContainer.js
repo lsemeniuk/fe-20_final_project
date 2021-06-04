@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import FormikControl from '../FormikControl/FormikControl';
 import { getFiltersOperation, saveFiltersOperation } from '../../../../store/filter/operations';
 import { getFiltersSelector } from '../../../../store/filter/selectors';
+import { categoriesLoadingSelector, getCategoriesSelector } from '../../../../store/catalog/selectors';
+
 import Loader from '../../../Loader/Loader';
 import Button from '../../../Button/Button';
 import SliderRadre from '../../SliderRadre/SliderRadre';
@@ -18,7 +20,8 @@ function FormikContainer({ classes, checkboxed }) {
   const [max] = useState(400000);
   const [downPrice, setDownPrice] = useState(min);
   const [upPrice, setUpPrice] = useState(max);
-
+  const categories = useSelector(getCategoriesSelector);
+  const categoriesLoading = useSelector(categoriesLoadingSelector);
   const filters = useSelector(getFiltersSelector);
 
   useEffect(() => {
@@ -28,24 +31,29 @@ function FormikContainer({ classes, checkboxed }) {
   if (filters === undefined) {
     return <Loader />;
   }
+  if (categoriesLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
       {!!checkboxed && (
         <Formik
           initialValues={{
-            hot: [],
+            isHit: [],
+            isNew: [],
             currentPrice: [],
             categories: [],
             brand: [],
-            stock: [],
+            isStock: [],
           }}
           validationSchema={Yup.object({
-            hot: Yup.array().required('Required'),
+            isHit: Yup.array().required('Required'),
+            isNew: Yup.array().required('Required'),
             currentPrice: Yup.array().required('Required'),
             categories: Yup.array().required('Required'),
             brand: Yup.array().required('Required'),
-            stock: Yup.array().required('Required'),
+            isStock: Yup.array().required('Required'),
           })}
           onSubmit={(values, { setSubmitting }) => {
             /* eslint no-console: 0 */
@@ -53,7 +61,7 @@ function FormikContainer({ classes, checkboxed }) {
             dispatch(saveFiltersOperation(values));
             // dispatch(checkedFiltersOperation(values));
 
-            setSubmitting(false);
+            setSubmitting(true);
           }}
         >
           {() => (
@@ -65,10 +73,11 @@ function FormikContainer({ classes, checkboxed }) {
                     <FormikControl
                       control='checkbox'
                       label='Горячие товары'
-                      name='hot'
-                      nameCur='hot'
+                      name='isHit'
+                      nameCur='isHit'
                       options={filters}
                     />
+                    <FormikControl control='checkbox' label='null' name='isNew' nameCur='isNew' options={filters} />
                     <SliderRadre
                       label='Цена, грн'
                       name='currentPrice'
@@ -84,10 +93,16 @@ function FormikContainer({ classes, checkboxed }) {
                       label='Категории'
                       name='categories'
                       nameCur='categories'
-                      options={filters}
+                      options={categories}
                     />
                     <FormikControl control='checkbox' label='Бренд' name='brand' nameCur='brand' options={filters} />
-                    <FormikControl control='checkbox' label='Наличие' name='stock' nameCur='stock' options={filters} />
+                    <FormikControl
+                      control='checkbox'
+                      label='Наличие'
+                      name='isStock'
+                      nameCur='isStock'
+                      options={filters}
+                    />
                     <Button title='Применить' type='submit' className={styles.select_btn} />
                   </div>
                 </Form>
