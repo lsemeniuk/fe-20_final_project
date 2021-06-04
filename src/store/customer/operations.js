@@ -22,15 +22,17 @@ export const checkAuthOperation = () => dispatch => {
 };
 
 export const authorizOperation = ({ setmessageServer, ...value }) => dispatch => {
+  dispatch(saveCustomerIsLoadingAction(true));
   loginCustomer(value)
     .then(res => {
-      dispatch(saveCustomerAction(res));
+      dispatch(saveCustomerAction(res.data));
       dispatch(saveCustomerIsAuthAction(true));
       dispatch(saveModalAuthRegAction(false));
     })
     .catch(err => {
       setmessageServer(err.data.loginOrEmail || err.data.password);
     });
+  dispatch(saveCustomerIsLoadingAction(false));
 };
 
 export const createCustomerOperation = ({ setmessageServer, setTabIndex, ...value }) => dispatch => {

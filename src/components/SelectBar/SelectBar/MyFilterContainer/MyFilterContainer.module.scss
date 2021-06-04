@@ -1,8 +1,6 @@
 @import '../../../../utils/styles/var';
 
 .container {
-  position: sticky;
-  top: 15%;
   z-index: 2;
 
   @media (min-width: $tabMin) and (max-width: $tabMax) {
@@ -36,35 +34,6 @@
       }
     }
   }
-
-  &_sort {
-    position: sticky;
-    top: 2%;
-    min-width: 270px;
-    max-width: 270px;
-    max-height: 80px;
-    background-color: rgb(255, 255, 255);
-    opacity: 1;
-
-    @media (min-width: $tabMin) and (max-width: $tabMax) {
-      position: absolute;
-      top: -60%;
-      left: 0;
-      min-width: 100%;
-      max-width: 100%;
-      transition: top 0.8s linear;
-      opacity: 0;
-    }
-    @media (min-width: $mobMin) and (max-width: $mobMax) {
-      position: absolute;
-      min-width: 100%;
-      max-width: 100%;
-      left: 0;
-      top: -60%;
-      transition: top 0.8s linear;
-      opacity: 0;
-    }
-  }
 }
 
 .container_dark {
@@ -79,30 +48,6 @@
   z-index: 1;
   &_none {
     display: none;
-  }
-}
-
-.container_sort.active {
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    position: fixed;
-    background-color: rgb(255, 255, 255);
-    max-width: 100%;
-    top: 0%;
-    left: 0%;
-    min-width: 100%;
-    transition: top 0.5s linear;
-    opacity: 1;
-    z-index: 99;
-  }
-  @media (min-width: $mobMin) and (max-width: $mobMax) {
-    position: fixed;
-    background-color: rgb(255, 255, 255);
-    max-width: 100%;
-    left: 0%;
-    top: 0%;
-    transition: top 0.5s linear;
-    opacity: 1;
-    z-index: 99;
   }
 }
 
