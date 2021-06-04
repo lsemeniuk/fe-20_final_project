@@ -12,6 +12,7 @@ import Loader from '../../../components/Loader/Loader';
 import { generateLetterHtml } from '../../../utils/generateHtml';
 import { cartTotalPriceSelector, getCartSelector } from '../../../store/cart/selectors';
 import schema from '../schema';
+import { replace } from '../../../utils/func';
 import styles from './CheckoutAuth.module.scss';
 
 const CheckoutAuth = () => {
@@ -19,7 +20,7 @@ const CheckoutAuth = () => {
   const [commentAvailible, setCommentAvailible] = useState(false);
   const customerLoading = useSelector(getCustomerIsLoadingSelector);
   const cart = useSelector(getCartSelector);
-  const totalPrice = useSelector(cartTotalPriceSelector);
+  const totalPrice = replace(useSelector(cartTotalPriceSelector));
   const customer = useSelector(getCustomerSelector);
 
   const { _id: id } = customer;

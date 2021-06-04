@@ -12,6 +12,7 @@ import { getModalCartSelector } from '../../../store/modal/selectors';
 import Icons from '../../Icons/Icons';
 import Cart from '../../Cart/Cart';
 import styles from './MyOrders.module.scss';
+import { replace } from '../../../utils/func';
 
 const MyOrders = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const MyOrders = () => {
   const modalCart = useSelector(getModalCartSelector);
   const cart = useSelector(getCartSelector);
   const cartLoading = useSelector(cartLoadingSelector);
-  const totalPrice = useSelector(cartTotalPriceSelector);
+  const totalPrice = replace(useSelector(cartTotalPriceSelector));
   const localCart = useSelector(getLocalCartSelector);
 
   const modalHandler = () => {
