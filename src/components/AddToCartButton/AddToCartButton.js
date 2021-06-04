@@ -19,6 +19,7 @@ const AddToCartButton = ({ id, className, orderButton, currentPrice }) => {
   const localCart = useSelector(getLocalCartSelector);
 
   let idCartList = [];
+
   if (isAuth && !cartLoading && cart) {
     idCartList = cart.products.map(prod => {
       return prod.product['_id'];

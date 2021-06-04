@@ -10,6 +10,7 @@ import {
   CUSTOMER_WISH_LIST_ROUTE,
   ADM_PRODUCTS_ROUTE,
   ADM_BRANDS_ROUTE,
+  ADM_COLORS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -21,6 +22,7 @@ import WishList from '../pages/User/WishList/WishList';
 import Catalog from '../pages/Admin/Catalog/Catalog';
 import Product from '../pages/Product/Product';
 import Brands from '../pages/Admin/Brands/Brands';
+import Colors from '../pages/Admin/Colors/Colors';
 
 export const publicRoutes = [
   {
@@ -88,5 +90,10 @@ export const adminRoutes = [
     name: 'Бренды',
     path: ADM_BRANDS_ROUTE,
     Component: Brands,
+  },
+  {
+    name: 'Цвета',
+    path: ADM_COLORS_ROUTE,
+    Component: Colors,
   },
 ];
