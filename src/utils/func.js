@@ -5,28 +5,13 @@ export const replace = num => {
 
 export const calculateTotalPrice = cart => {
   let totalPrice = 0;
-<<<<<<< HEAD
   if (cart === null) {
-    if (isAuth && cart) {
-      cart.products.map(p => {
-        totalPrice += p.cartQuantity * p.product.currentPrice;
-        return totalPrice;
-      });
-    } else {
-      cart.products.map(p => {
-        totalPrice += p.cartQuantity * p.currentPrice;
-        return totalPrice;
-      });
-    }
+    cart?.products.map(p => {
+      totalPrice += p.cartQuantity * p.currentPrice;
+      return totalPrice;
+    });
   }
-=======
 
-  cart?.products.map(p => {
-    totalPrice += p.cartQuantity * p.currentPrice;
-    return totalPrice;
-  });
-
->>>>>>> 4b3ff689982bb0933b64e3caab4865caf0130656
   return replace(totalPrice);
 };
 
