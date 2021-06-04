@@ -9,6 +9,7 @@ import brandsReducer from './brands/reducer';
 import pageReducer from './pages/reducer';
 import linksReducer from './links/reducer';
 import wishListReducer from './wishList/reducer';
+import colorsReducer from './colors/reducer';
 
 const reducer = combineReducers({
   brands: brandsReducer,
@@ -21,6 +22,7 @@ const reducer = combineReducers({
   modal: modalReducer,
   links: linksReducer,
   wishList: wishListReducer,
+  colors: colorsReducer,
 });
 
 export default reducer;

@@ -113,7 +113,7 @@ const CartItem = ({ product, cartQuantity, cart }) => {
               +
             </button>
           </div>
-          {cartQuantity === quantity && <span className={styles.ended}>Извините:( Товара больше нет!</span>}
+          {controlQuantity === quantity && <span className={styles.ended}>Извините:( Товара больше нет!</span>}
         </div>
         <div className={styles.price}>
           <span>{calculatePrice()} грн</span>

@@ -3,8 +3,8 @@ import { $authHost } from './index';
 // @route   POST /orders
 // @desc    Place Order
 // @access  Private
-export const placeOrder = async () => {
-  const res = await $authHost.post('orders').catch(err => {
+export const placeOrder = async values => {
+  const res = await $authHost.post('orders', values).catch(err => {
     throw err;
   });
   return res;
