@@ -18,7 +18,10 @@ const Comments = () => {
     dispatch(getAllCommentsOperation());
   }, [customerData]);
 
-  const commentsList = data.map(c => <Comment key={c.content} comment={c} />);
+  const commentsList = data
+    .sort((a, b) => (a.date > b.date ? -1 : 1))
+    .map(c => <Comment key={c.content} comment={c} />);
+
   return (
     <>
       {isAuth ? (
