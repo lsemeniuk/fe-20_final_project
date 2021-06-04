@@ -24,7 +24,11 @@ const AddToCartButton = ({ id, className, orderButton, currentPrice }) => {
     idCartList = cart.products.map(prod => {
       return prod.product['_id'];
     });
+<<<<<<< HEAD
   } else if (!isAuth && localCart === null && localCart.products.length >= 1) {
+=======
+  } else if (!isAuth && localCart && localCart.products && localCart.products.length >= 1) {
+>>>>>>> 4b3ff689982bb0933b64e3caab4865caf0130656
     idCartList = localCart.products.map(prod => {
       return prod.product;
     });
@@ -35,7 +39,7 @@ const AddToCartButton = ({ id, className, orderButton, currentPrice }) => {
   };
 
   const addToCart = () => {
-    if (localCart) {
+    if (localCart && localCart.products) {
       const productCart = { products: [...localCart?.products, { cartQuantity: 1, product: id, currentPrice }] };
       localStorage.setItem('cart', JSON.stringify(productCart));
 

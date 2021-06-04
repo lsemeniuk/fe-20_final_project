@@ -8,11 +8,13 @@
   font-size: 12px;
   margin: 5px 0 10px;
 }
+
 .headerQuantity {
-  padding-right: 40px;
+  padding-right: 45px;
 }
+
 .headerPrice {
-  padding-right: 30px;
+  padding-right: 35px;
 }
 
 .checkoutContainer {
@@ -20,27 +22,33 @@
   justify-content: space-between;
   height: 110px;
 }
+
 .backContainer {
   align-self: flex-end;
   padding: 20px 15px;
 }
+
 .back {
   cursor: pointer;
   font-size: 18px;
+
   &:hover {
     color: $colorButnHover;
   }
 }
+
 .checkoutBlock {
   padding: 10px 15px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .price {
   margin: 0;
   text-align: right;
 }
+
 .total {
   margin-right: 10px;
   font-size: 12px;
