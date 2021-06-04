@@ -19,11 +19,12 @@ const AddToCartButton = ({ id, className, orderButton, currentPrice }) => {
   const localCart = useSelector(getLocalCartSelector);
 
   let idCartList = [];
+
   if (isAuth && !cartLoading && cart) {
     idCartList = cart.products.map(prod => {
       return prod.product['_id'];
     });
-  } else if (!isAuth && localCart && localCart.products.length >= 1) {
+  } else if (!isAuth && localCart && localCart.products && localCart.products.length >= 1) {
     idCartList = localCart.products.map(prod => {
       return prod.product;
     });
@@ -34,7 +35,7 @@ const AddToCartButton = ({ id, className, orderButton, currentPrice }) => {
   };
 
   const addToCart = () => {
-    if (localCart) {
+    if (localCart && localCart.products) {
       const productCart = { products: [...localCart?.products, { cartQuantity: 1, product: id, currentPrice }] };
       localStorage.setItem('cart', JSON.stringify(productCart));
 
