@@ -59,8 +59,6 @@ function FormikContainer({ classes, checkboxed }) {
             /* eslint no-console: 0 */
             console.log(values);
             dispatch(saveFiltersOperation(values));
-            // dispatch(checkedFiltersOperation(values));
-
             setSubmitting(true);
           }}
         >
@@ -96,13 +94,13 @@ function FormikContainer({ classes, checkboxed }) {
                       options={categories}
                     />
                     <FormikControl control='checkbox' label='Бренд' name='brand' nameCur='brand' options={filters} />
-                    <FormikControl
+                    {/* <FormikControl
                       control='checkbox'
                       label='Наличие'
                       name='isStock'
                       nameCur='isStock'
                       options={filters}
-                    />
+                    /> */}
                     <Button title='Применить' type='submit' className={styles.select_btn} />
                   </div>
                 </Form>

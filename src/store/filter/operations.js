@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import { getProductsFilterParams } from '../../http/productAPI';
 // import { productsLoadingAction, saveProductsFilteredAction, saveProductsQuantityAction } from '../products/actions';
-import { getProductsFilterOperation } from '../products/operations';
+// import { getProductsFilterOperation } from '../products/operations';
 import { saveAllFiltersAction, saveCheckedFiltersAction } from './actions';
 
 export const getFiltersOperation = () => async dispatch => {
@@ -36,8 +36,8 @@ export const saveFiltersOperation = value => async dispatch => {
   // });
   // console.log(' filterEmptyValues', filterEmptyValues);
   console.log('~ joined', joined);
+  // dispatch(getProductsFilterOperation(history, config, productFilters));
 
-  dispatch(getProductsFilterOperation(joined));
   const config = {
     url: 'https://fe-20-final-project.herokuapp.com/api/products/filter',
     method: 'get',
@@ -49,11 +49,6 @@ export const saveFiltersOperation = value => async dispatch => {
   try {
     const response = await axios.request(config);
 
-    // getProductsFilterParams(response).then(res => {
-    //   dispatch(saveProductsFilteredAction(res.data.products));
-    //   dispatch(saveProductsQuantityAction(res.data.productsQuantity));
-    //   dispatch(productsLoadingAction(false));
-    // });
     console.log('response', response.data);
     console.log('response', response);
   } catch (r) {
