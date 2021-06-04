@@ -5,7 +5,7 @@ import styles from './Сharacteristics.module.scss';
 const Сharacteristics = ({ product }) => {
   const characteristicList = product.characteristics.map(c => {
     return (
-      <li className={styles.characteristicItem}>
+      <li key={product.itemNo} className={styles.characteristicItem}>
         <div className={styles.characteristicName}>{c.name}</div>
         <div className={styles.characteristicValue}>
           {typeof c.value === 'object'

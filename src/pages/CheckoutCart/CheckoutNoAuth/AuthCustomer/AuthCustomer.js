@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import AuthForm from '../../../../components/RegAuth/AuthForm/AuthForm';
-import styles from './AuthCustomerTab.module.scss';
+import styles from './AuthCustomer.module.scss';
 
-const AuthCustomerTab = () => {
+const AuthCustomer = () => {
   const [messageServer, setmessageServer] = useState(null);
 
   return (
@@ -14,4 +14,4 @@ const AuthCustomerTab = () => {
   );
 };
 
-export default AuthCustomerTab;
+export default AuthCustomer;
