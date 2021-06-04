@@ -8,8 +8,12 @@ const PriceBlock = ({ previousPrice, currentPrice }) => {
     <>
       {previousPrice ? (
         <div className={styles.priceSales}>
-          <div className={styles.currentPrice}>{replace(currentPrice)} грн</div>
-          <div className={styles.previousPrice}>{replace(previousPrice)} грн</div>
+          <div data-testid='newPrice' className={styles.currentPrice}>
+            {replace(currentPrice)} грн
+          </div>
+          <div data-testid='prevPrice' className={styles.previousPrice}>
+            {replace(previousPrice)} грн
+          </div>
         </div>
       ) : (
         <div className={styles.regularPrice}>{replace(currentPrice)} грн</div>

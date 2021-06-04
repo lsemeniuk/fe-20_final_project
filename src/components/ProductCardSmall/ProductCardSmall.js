@@ -9,7 +9,7 @@ import styles from './ProductCardSmall.module.scss';
 const ProductCardSmall = ({ product, onClick }) => {
   return (
     <div className={styles.container}>
-      <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`} onClick={onClick}>
+      <NavLink data-testid='link' to={`${PRODUCT_ROUTE}/${product.itemNo}`} onClick={onClick}>
         <div className={styles.header}>
           <img src={product.imageUrls[0].smallImage} width={130} height={130} alt='product img' />
           <h5 className={styles.title}>{product.name}</h5>
