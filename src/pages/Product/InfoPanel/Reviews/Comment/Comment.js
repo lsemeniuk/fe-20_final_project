@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,7 +13,8 @@ const Comment = ({ comment }) => {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
   const { id: customerId } = useSelector(getCustomerSelector);
-  const { _id: commentId } = comment.customer;
+  const { _id: commentCustomerId } = comment.customer;
+  const { _id: commentId } = comment;
   const handleDelete = deleteID => dispatch(deleteCommentOperation(deleteID));
   const handleUpdate = () => setShowUpdateForm(true);
   return (
@@ -30,17 +30,17 @@ const Comment = ({ comment }) => {
         <p className={styles.commentText}>{comment.content}</p>
         <Icons type='commas' color='#37b7fa' filled width={15} height={15} />
       </div>
-      {customerId === commentId && (
-        <button type='button' onClick={() => handleDelete(comment._id)} className={styles.up}>
+      {customerId === commentCustomerId && (
+        <button type='button' onClick={() => handleDelete(commentId)} className={styles.up}>
           Удалить
         </button>
       )}
-      {customerId === commentId && !showUpdateForm && (
+      {customerId === commentCustomerId && !showUpdateForm && (
         <button type='button' onClick={handleUpdate} className={styles.slide}>
           Изменить
         </button>
       )}
-      {showUpdateForm && <CommentUpdateForm commentID={comment._id} setShowUpdateForm={setShowUpdateForm} />}
+      {showUpdateForm && <CommentUpdateForm commentID={commentId} setShowUpdateForm={setShowUpdateForm} />}
     </li>
   );
 };

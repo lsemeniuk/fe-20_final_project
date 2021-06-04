@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './CommentsFilter.module.scss';
@@ -8,8 +7,7 @@ import { getAllCommentsOperation, getMyCommentsOperation } from '../../../../../
 const CommentsFilter = () => {
   const dispatch = useDispatch();
 
-  const currentCustomer = useSelector(getCustomerSelector);
-  const customerId = currentCustomer._id;
+  const { _id: customerId } = useSelector(getCustomerSelector);
 
   const filterOptions = ['Все комментарии', 'Мои комментарии'];
 

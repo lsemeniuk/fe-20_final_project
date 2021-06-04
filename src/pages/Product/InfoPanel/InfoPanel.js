@@ -1,11 +1,10 @@
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import PropTypes from 'prop-types';
 import styles from './InfoPanel.module.scss';
 import Сharacteristics from './Сharacteristics/Сharacteristics';
-import Reviews from './Reviews/Reviews';
+import Comments from './Reviews/Comments';
 
 const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
   return (
@@ -31,7 +30,7 @@ const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
         </TabPanel>
         <TabPanel>
           <div>
-            <Reviews />
+            <Comments />
           </div>
         </TabPanel>
       </Tabs>
