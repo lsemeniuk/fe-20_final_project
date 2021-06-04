@@ -22,7 +22,7 @@ const AddColorsForm = () => {
           addColor(values)
             .then(res => {
               if (res.status === 200) {
-                setmessageServer(<span style={{ color: 'green' }}>Бренд успешно добавлен!</span>);
+                setmessageServer(<span style={{ color: 'green' }}>Цвет успешно добавлен!</span>);
               }
             })
             .catch(err => {
@@ -34,13 +34,7 @@ const AddColorsForm = () => {
         <div className='page_form'>
           <Form>
             <MyTextInput label='Название' name='name' type='text' placeholder='Название цвета' tabIndex='0' />
-            <MyTextInput
-              label='HEX CSS цвет'
-              name='cssValue'
-              type='text'
-              placeholder='HEX значение цвета'
-              tabIndex='0'
-            />
+            <MyTextInput label='HEX цвет' name='cssValue' type='text' placeholder='Значение цвета' tabIndex='0' />
             <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
           </Form>
         </div>
