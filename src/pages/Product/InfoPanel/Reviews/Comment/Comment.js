@@ -40,7 +40,9 @@ const Comment = ({ comment }) => {
           Изменить
         </button>
       )}
-      {showUpdateForm && <CommentUpdateForm commentID={commentId} setShowUpdateForm={setShowUpdateForm} />}
+      {showUpdateForm && (
+        <CommentUpdateForm commentID={commentId} content={comment.content} setShowUpdateForm={setShowUpdateForm} />
+      )}
     </li>
   );
 };

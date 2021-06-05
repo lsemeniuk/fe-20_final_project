@@ -7,7 +7,7 @@ import { updateCommentOperation } from '../../../../../store/reviews/operations'
 import MyTextArea from './MyTextArea';
 import Button from '../../../../../components/Button/Button';
 
-const CommentUpdateForm = ({ commentID, setShowUpdateForm }) => {
+const CommentUpdateForm = ({ commentID, setShowUpdateForm, content }) => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object({
     comments: Yup.string().required('Невозможно отправить пустую форму!'),
@@ -17,7 +17,7 @@ const CommentUpdateForm = ({ commentID, setShowUpdateForm }) => {
     <>
       <Formik
         initialValues={{
-          comments: '',
+          comments: content,
         }}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -52,5 +52,6 @@ const CommentUpdateForm = ({ commentID, setShowUpdateForm }) => {
 CommentUpdateForm.propTypes = {
   commentID: PropTypes.string.isRequired,
   setShowUpdateForm: PropTypes.func.isRequired,
+  content: PropTypes.string.isRequired,
 };
 export default CommentUpdateForm;
