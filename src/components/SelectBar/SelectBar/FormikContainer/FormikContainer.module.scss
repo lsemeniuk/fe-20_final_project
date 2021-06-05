@@ -1,3 +1,6 @@
+@import '../../../../utils/styles/var';
+
+
 .title {
   text-align: center;
   color: #fff;
@@ -20,9 +23,20 @@
     max-width: 280px;
     padding: 10px 0;
     height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
+
     z-index: 99;
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+     overflow-y: scroll;
+     overflow-x: hidden; 
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    position: absolute;
+    top: 0%;
+    left: -130%;
+    transition: left 1.5s linear;
+    z-index: 99;
+  }
   }
 }
 

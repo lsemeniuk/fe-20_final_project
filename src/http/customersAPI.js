@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import jwtDecode from 'jwt-decode';
 import { $authHost, $host } from './index';
 
 // @route   POST /customers
@@ -21,10 +20,11 @@ export const loginCustomer = async value => {
   });
   if (res) {
     localStorage.setItem('token', res.data.token);
-    const data = jwtDecode(res.data?.token);
-    return data;
   }
-  return res;
+  const auth = await $authHost.get('customers/customer').catch(err => {
+    throw err.response;
+  });
+  return auth;
 };
 
 // @route   GET /
