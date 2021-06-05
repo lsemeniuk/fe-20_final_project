@@ -9,7 +9,6 @@ import FormikContainer from '../FormikContainer/FormikContainer';
 const MyFilterContainer = ({ checkboxed }) => {
   const [active, setActive] = useState(false);
   const [activeBox, setActiveBox] = useState(styles.container);
-
   const [activeBtn, setActiveBtn] = useState(styles.container_btn);
   const [activeDark, setActiveDark] = useState(styles.container_dark_none);
   const handleClickFilter = () => {
