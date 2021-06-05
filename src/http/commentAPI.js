@@ -3,21 +3,31 @@ import { $authHost, $host } from './index';
 // @route   POST /comments
 // @desc    Add new comments
 // @access  Private
-export const addComment = async value => {
-  const res = await $authHost.post('comments', value).catch(err => {
-    throw err;
+export const addComment = async (value, productId) => {
+  await $authHost.post('comments', value).catch(err => {
+    throw err.response;
   });
-  return res;
+
+  const productComment = await $host.get(`comments/product/${productId}`).catch(err => {
+    throw err.response;
+  });
+
+  return productComment;
 };
 
 // @route   PUT /comments/:id
 // @desc    Update existing comment
 // @access  Private
-export const updateComment = async (id, value) => {
-  const res = await $authHost.put(`comments/${id}`, value).catch(err => {
-    throw err;
+export const updateComment = async (id, value, productId) => {
+  await $authHost.put(`comments/${id}`, value).catch(err => {
+    throw err.response;
   });
-  return res;
+
+  const productComment = await $host.get(`comments/product/${productId}`).catch(err => {
+    throw err.response;
+  });
+
+  return productComment;
 };
 
 // @route   DELETE /comments/:id
@@ -25,7 +35,7 @@ export const updateComment = async (id, value) => {
 // @access  Private
 export const deleteComment = async id => {
   const res = await $authHost.delete(`comments/${id}`).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -35,7 +45,7 @@ export const deleteComment = async id => {
 // @access  Public
 export const getComments = async () => {
   const res = await $host.get('comments').catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -45,7 +55,7 @@ export const getComments = async () => {
 // @access  Public
 export const getCustomerComments = async customerId => {
   const res = await $host.get(`comments/customer/${customerId}`).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -55,7 +65,7 @@ export const getCustomerComments = async customerId => {
 // @access  Public
 export const getProductComments = async productId => {
   const res = await $host.get(`comments/product/${productId}`).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };

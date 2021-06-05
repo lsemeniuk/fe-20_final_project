@@ -9,8 +9,8 @@ import brandsReducer from './brands/reducer';
 import pageReducer from './pages/reducer';
 import linksReducer from './links/reducer';
 import wishListReducer from './wishList/reducer';
-import commentsReducer from './reviews/reducer';
 import colorsReducer from './colors/reducer';
+import reviewsReducer from './reviews/reducer';
 
 const reducer = combineReducers({
   brands: brandsReducer,
@@ -23,8 +23,8 @@ const reducer = combineReducers({
   modal: modalReducer,
   links: linksReducer,
   wishList: wishListReducer,
-  comments: commentsReducer,
   colors: colorsReducer,
+  reviews: reviewsReducer,
 });
 
 export default reducer;

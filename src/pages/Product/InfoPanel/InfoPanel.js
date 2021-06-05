@@ -4,9 +4,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import PropTypes from 'prop-types';
 import styles from './InfoPanel.module.scss';
 import Сharacteristics from './Сharacteristics/Сharacteristics';
-import Comments from './Reviews/Comments';
+import Reviews from './Reviews/Reviews';
 
 const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
+  const { _id: id } = product;
+
   return (
     <div className={styles.container}>
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
@@ -30,7 +32,7 @@ const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
         </TabPanel>
         <TabPanel>
           <div>
-            <Comments />
+            <Reviews productId={id} />
           </div>
         </TabPanel>
       </Tabs>
