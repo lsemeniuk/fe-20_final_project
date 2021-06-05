@@ -16,7 +16,7 @@ const ReviewItem = ({ review, setRefreshReviews, productId }) => {
 
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
-  const deleteReview = () => deleteComment(productId);
+  const deleteReview = () => deleteComment(reviewId, setRefreshReviews);
 
   const handleUpdate = () => {
     setShowUpdateForm(!showUpdateForm);

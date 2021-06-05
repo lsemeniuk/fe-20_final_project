@@ -22,23 +22,21 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshRevie
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           if (updateReview) {
-            updateComment(reviewId, values, productId)
+            updateComment(reviewId, values, setRefreshReviews)
               .then(res => {
                 if (res.status === 200) {
                   setmessageServer(<span style={{ color: 'green' }}>Отзыв успешно добавлен!</span>);
                 }
-                setRefreshReviews(true);
               })
               .catch(err => {
                 setmessageServer(<span>{Object.values(err.data).join('')}</span>);
               });
           } else {
-            addComment({ product: productId, ...values }, productId)
+            addComment({ product: productId, ...values }, setRefreshReviews)
               .then(res => {
                 if (res.status === 200) {
                   setmessageServer(<span style={{ color: 'green' }}>Отзыв успешно изменён!</span>);
                 }
-                setRefreshReviews(true);
               })
               .catch(err => {
                 setmessageServer(<span>{Object.values(err.data).join('')}</span>);
