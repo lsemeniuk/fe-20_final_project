@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Container from '../../../Container/Container';
 import styles from './MyFilterContainer.module.scss';
 // import Button from '../../Button/Button';
 import Icons from '../../../Icons/Icons';
 import FormikContainer from '../FormikContainer/FormikContainer';
 
-const MyFilterContainer = ({ checkboxed }) => {
+const MyFilterContainer = () => {
   const [active, setActive] = useState(false);
   const [activeBox, setActiveBox] = useState(styles.container);
 
@@ -32,36 +31,28 @@ const MyFilterContainer = ({ checkboxed }) => {
   return (
     <>
       <div className={styles.btn_box}>
-        {!!checkboxed && (
-          <Container>
-            <Icons
-              className={activeBtn}
-              width='50px'
-              height='50px'
-              type='filter'
-              color='rgba(0,0,0, 0.7)'
-              onClick={() => handleClickFilter()}
-            />
-          </Container>
-        )}
+        <Container>
+          <Icons
+            className={activeBtn}
+            width='50px'
+            height='50px'
+            type='filter'
+            color='rgba(0,0,0, 0.7)'
+            onClick={() => handleClickFilter()}
+          />
+        </Container>
       </div>
 
       <div className={activeBox}>
-        {!!checkboxed && (
-          <>
-            <div className={activeDark} onClick={() => handleClickFilter()} />
-            <Container>
-              <FormikContainer classes={styles.container_filter_fixed} checkboxed={checkboxed} />
-            </Container>
-          </>
-        )}
+        <>
+          <div className={activeDark} onClick={() => handleClickFilter()} />
+          <Container>
+            <FormikContainer classes={styles.container_filter_fixed} />
+          </Container>
+        </>
       </div>
     </>
   );
-};
-
-MyFilterContainer.propTypes = {
-  checkboxed: PropTypes.bool.isRequired,
 };
 
 export default MyFilterContainer;
