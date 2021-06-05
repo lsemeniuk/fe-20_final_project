@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { addComment, updateComment } from '../../../../../http/commentAPI';
 import styles from './ReviewForm.module.scss';
-import ButtonBlock from '../../../../../components/Forms/ButtonBlock/ButtonBlock';
+import Button from '../../../../../components/Button/Button';
 
 const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshReviews }) => {
   const [messageServer, setmessageServer] = useState(null);
@@ -59,9 +59,15 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshRevie
               />
             </div>
             {updateReview ? (
-              <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
+              <div>
+                <Button type='submit' title='Изменить' />
+                <div className={styles.redTitle}>{messageServer}</div>
+              </div>
             ) : (
-              <ButtonBlock buttonTitle='Добавить' messageServer={messageServer} />
+              <div>
+                <Button type='submit' title='Добавить' />
+                <div className={styles.redTitle}>{messageServer}</div>
+              </div>
             )}
           </Form>
         </div>
