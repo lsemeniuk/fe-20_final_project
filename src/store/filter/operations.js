@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { saveAllFiltersAction, saveCheckedFiltersAction } from './actions';
 
 export const getFiltersOperation = () => async dispatch => {
@@ -8,7 +9,6 @@ export const getFiltersOperation = () => async dispatch => {
 };
 
 export const saveFiltersOperation = value => async dispatch => {
-  console.log('🚀 ~ file: operations.js ~ line 14 ~ value', value);
   /* eslint no-console: 0 */
   dispatch(saveCheckedFiltersAction(value));
   const joined = {};

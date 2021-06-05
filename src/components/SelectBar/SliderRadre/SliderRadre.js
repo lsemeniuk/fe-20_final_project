@@ -12,7 +12,6 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
   const onClick = field => {
     field.value.minPrice.splice(0, 1);
     field.value.maxPrice.splice(0, 1);
-
     field.value.minPrice.push(+downPrice);
     field.value.maxPrice.push(+upPrice);
   };
