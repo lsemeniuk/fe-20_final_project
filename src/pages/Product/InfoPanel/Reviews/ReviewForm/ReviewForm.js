@@ -6,7 +6,7 @@ import { addComment, updateComment } from '../../../../../http/commentAPI';
 import styles from './ReviewForm.module.scss';
 import ButtonBlock from '../../../../../components/Forms/ButtonBlock/ButtonBlock';
 
-const ReviewForm = ({ review, productId, updateReview, reviewId, setReviews }) => {
+const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshReviews }) => {
   const [messageServer, setmessageServer] = useState(null);
 
   const validationSchema = Yup.object({
@@ -24,10 +24,10 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setReviews }) =
           if (updateReview) {
             updateComment(reviewId, values, productId)
               .then(res => {
-                setReviews(res.data);
                 if (res.status === 200) {
                   setmessageServer(<span style={{ color: 'green' }}>Отзыв успешно добавлен!</span>);
                 }
+                setRefreshReviews(true);
               })
               .catch(err => {
                 setmessageServer(<span>{Object.values(err.data).join('')}</span>);
@@ -35,10 +35,10 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setReviews }) =
           } else {
             addComment({ product: productId, ...values }, productId)
               .then(res => {
-                setReviews(res.data);
                 if (res.status === 200) {
                   setmessageServer(<span style={{ color: 'green' }}>Отзыв успешно изменён!</span>);
                 }
+                setRefreshReviews(true);
               })
               .catch(err => {
                 setmessageServer(<span>{Object.values(err.data).join('')}</span>);
@@ -77,7 +77,7 @@ ReviewForm.propTypes = {
   productId: PropTypes.string,
   updateReview: PropTypes.bool,
   reviewId: PropTypes.string,
-  setReviews: PropTypes.func.isRequired,
+  setRefreshReviews: PropTypes.func.isRequired,
 };
 
 ReviewForm.defaultProps = {

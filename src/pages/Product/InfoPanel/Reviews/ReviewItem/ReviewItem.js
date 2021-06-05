@@ -8,7 +8,7 @@ import { getCustomerSelector } from '../../../../../store/customer/selectors';
 import { deleteComment } from '../../../../../http/commentAPI';
 import ReviewForm from '../ReviewForm/ReviewForm';
 
-const ReviewItem = ({ review, setReviews, productId }) => {
+const ReviewItem = ({ review, setRefreshReviews, productId }) => {
   const { customer: reviewCustomer, date, content, _id: reviewId } = review;
   const { _id: reviewCustomerId } = reviewCustomer;
 
@@ -18,7 +18,9 @@ const ReviewItem = ({ review, setReviews, productId }) => {
 
   const deleteReview = () => deleteComment(productId);
 
-  const handleUpdate = () => setShowUpdateForm(!showUpdateForm);
+  const handleUpdate = () => {
+    setShowUpdateForm(!showUpdateForm);
+  };
 
   return (
     <li className={styles.comment}>
@@ -48,7 +50,13 @@ const ReviewItem = ({ review, setReviews, productId }) => {
       )}
 
       {showUpdateForm && (
-        <ReviewForm review={review} reviewId={reviewId} productId={productId} setReviews={setReviews} updateReview />
+        <ReviewForm
+          review={review}
+          reviewId={reviewId}
+          productId={productId}
+          setRefreshReviews={setRefreshReviews}
+          updateReview
+        />
       )}
     </li>
   );
@@ -57,7 +65,7 @@ const ReviewItem = ({ review, setReviews, productId }) => {
 ReviewItem.propTypes = {
   review: PropTypes.object.isRequired,
   productId: PropTypes.string.isRequired,
-  setReviews: PropTypes.func.isRequired,
+  setRefreshReviews: PropTypes.func.isRequired,
 };
 
 export default ReviewItem;

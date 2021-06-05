@@ -12,22 +12,24 @@ const Reviews = ({ productId }) => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const [reviewsLoading, setReviewsLoading] = useState(true);
   const [reviews, setReviews] = useState([]);
+  const [refreshReviews, setRefreshReviews] = useState(true);
 
   useEffect(() => {
     getProductComments(productId).then(res => {
       setReviews(res.data);
       setReviewsLoading(false);
+      setRefreshReviews(false);
     });
-  }, []);
+  }, [refreshReviews]);
 
   const commentsList = reviews.map(review => (
-    <ReviewItem key={review.content} review={review} productId={productId} setReviews={setReviews} />
+    <ReviewItem key={review.content} review={review} productId={productId} setRefreshReviews={setRefreshReviews} />
   ));
 
   return (
     <>
       {isAuth ? (
-        <ReviewForm productId={productId} setReviews={setReviews} />
+        <ReviewForm productId={productId} setRefreshReviews={setRefreshReviews} />
       ) : (
         <p className={styles.comments__container}>Пож-та, войдите/зарегистрируйтесь, чтобы оставить отзыв</p>
       )}

@@ -1,2 +1,0 @@
-export const SET_REVIEWS = 'SET_REVIEWS';
-export const SET_REVIEWS_LOADING = 'SET_REVIEWS_LOADING';

@@ -3,31 +3,23 @@ import { $authHost, $host } from './index';
 // @route   POST /comments
 // @desc    Add new comments
 // @access  Private
-export const addComment = async (value, productId) => {
-  await $authHost.post('comments', value).catch(err => {
+export const addComment = async value => {
+  const res = await $authHost.post('comments', value).catch(err => {
     throw err.response;
   });
 
-  const productComment = await $host.get(`comments/product/${productId}`).catch(err => {
-    throw err.response;
-  });
-
-  return productComment;
+  return res;
 };
 
 // @route   PUT /comments/:id
 // @desc    Update existing comment
 // @access  Private
-export const updateComment = async (id, value, productId) => {
-  await $authHost.put(`comments/${id}`, value).catch(err => {
+export const updateComment = async (id, value) => {
+  const res = await $authHost.put(`comments/${id}`, value).catch(err => {
     throw err.response;
   });
 
-  const productComment = await $host.get(`comments/product/${productId}`).catch(err => {
-    throw err.response;
-  });
-
-  return productComment;
+  return res;
 };
 
 // @route   DELETE /comments/:id
