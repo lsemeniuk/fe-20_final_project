@@ -12,6 +12,7 @@ import {
   ADM_BRANDS_ROUTE,
   ADM_COLORS_ROUTE,
   ADM_FILTERS_ROUTE,
+  ADM_COMMENTS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -25,6 +26,7 @@ import Product from '../pages/Product/Product';
 import Brands from '../pages/Admin/Brands/Brands';
 import Colors from '../pages/Admin/Colors/Colors';
 import Filters from '../pages/Admin/Filters/Filters';
+import Comments from '../pages/Admin/Comment/Comments';
 
 export const publicRoutes = [
   {
@@ -102,5 +104,10 @@ export const adminRoutes = [
     name: 'Фильтра',
     path: ADM_FILTERS_ROUTE,
     Component: Filters,
+  },
+  {
+    name: 'Комментарии',
+    path: ADM_COMMENTS_ROUTE,
+    Component: Comments,
   },
 ];

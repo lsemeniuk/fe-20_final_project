@@ -14,7 +14,7 @@ const FiltersList = () => {
     dispatch(getFiltersOperation());
   }, []);
 
-  if (!filterLoading) {
+  if (filterLoading) {
     return <Loader />;
   }
 

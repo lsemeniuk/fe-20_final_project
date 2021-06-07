@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
-import { createNewFilter } from '../../../../http/filtersAPI';
 import schema from '../schema';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
+import { addComment } from '../../../../http/commentAPI';
 
-const AddFiltersForm = () => {
+const AddCommentsForm = () => {
   const [messageServer, setmessageServer] = useState(null);
 
   return (
     <>
       <Formik
         initialValues={{
-          type: '',
-          name: '',
+          product: '',
+          content: '',
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          createNewFilter(values)
+          addComment(values)
             .then(res => {
               if (res.status === 200) {
-                setmessageServer(<span style={{ color: 'green' }}>Тип фильтра успешно добавлен!</span>);
+                setmessageServer(<span style={{ color: 'green' }}>Комментарий успешно добавлен!</span>);
               }
             })
             .catch(err => {
@@ -31,8 +31,14 @@ const AddFiltersForm = () => {
       >
         <div className='page_form'>
           <Form>
-            <MyTextInput label='Тип фильтра' name='type' type='text' placeholder='Название ТИПА фильтра' tabIndex='0' />
-            <MyTextInput label='Имя фильтра' name='name' type='text' placeholder='Значение фильтра' tabIndex='0' />
+            <MyTextInput label='Продукт' name='product' type='text' placeholder='Продукт' tabIndex='0' />
+            <MyTextInput
+              label='Комментарий'
+              name='content'
+              type='text'
+              placeholder='Комментарий к продукту'
+              tabIndex='0'
+            />
             <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
           </Form>
         </div>
@@ -41,4 +47,4 @@ const AddFiltersForm = () => {
   );
 };
 
-export default AddFiltersForm;
+export default AddCommentsForm;
