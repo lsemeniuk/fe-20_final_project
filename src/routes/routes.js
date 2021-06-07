@@ -11,6 +11,7 @@ import {
   ADM_PRODUCTS_ROUTE,
   ADM_BRANDS_ROUTE,
   ADM_COLORS_ROUTE,
+  ADM_FILTERS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -23,6 +24,7 @@ import Catalog from '../pages/Admin/Catalog/Catalog';
 import Product from '../pages/Product/Product';
 import Brands from '../pages/Admin/Brands/Brands';
 import Colors from '../pages/Admin/Colors/Colors';
+import Filters from '../pages/Admin/Filters/Filters';
 
 export const publicRoutes = [
   {
@@ -95,5 +97,10 @@ export const adminRoutes = [
     name: 'Цвета',
     path: ADM_COLORS_ROUTE,
     Component: Colors,
+  },
+  {
+    name: 'Фильтра',
+    path: ADM_FILTERS_ROUTE,
+    Component: Filters,
   },
 ];

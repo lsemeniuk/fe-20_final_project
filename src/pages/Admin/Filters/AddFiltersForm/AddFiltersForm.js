@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
-import { addColor } from '../../../../http/colorsAPI';
+import { createNewFilter } from '../../../../http/filtersAPI';
 import schema from '../schema';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 
-const AddcolorsForm = () => {
+const AddFiltersForm = () => {
   const [messageServer, setmessageServer] = useState(null);
 
   return (
@@ -17,7 +17,7 @@ const AddcolorsForm = () => {
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          addColor(values)
+          createNewFilter(values)
             .then(res => {
               if (res.status === 200) {
                 setmessageServer(<span style={{ color: 'green' }}>Тип фильтра успешно добавлен!</span>);
@@ -31,8 +31,8 @@ const AddcolorsForm = () => {
       >
         <div className='page_form'>
           <Form>
-            <MyTextInput label='Название' name='name' type='text' placeholder='Название цвета' tabIndex='0' />
-            <MyTextInput label='HEX цвет' name='cssValue' type='text' placeholder='Значение цвета' tabIndex='0' />
+            <MyTextInput label='Тип фильтра' name='type' type='text' placeholder='Название ТИПА фильтра' tabIndex='0' />
+            <MyTextInput label='Имя фильтра' name='name' type='text' placeholder='Значение цвета' tabIndex='0' />
             <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
           </Form>
         </div>
@@ -41,4 +41,4 @@ const AddcolorsForm = () => {
   );
 };
 
-export default AddcolorsForm;
+export default AddFiltersForm;
