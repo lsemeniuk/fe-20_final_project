@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import schema from '../schema';
-import { updateColor } from '../../../../http/colorsAPI';
-import { getColorsOperation } from '../../../../store/colors/operations';
+import { updateComment } from '../../../../http/commentAPI';
+import { getCommentsOperation } from '../../../../store/colors/operations';
 
-const UpdateColorsForm = ({ color, setOpenForm }) => {
-  const { name, cssValue, _id: id } = color;
+const UpdateCommentsForm = ({ comment, setOpenForm }) => {
+  const { product, content, _id: id } = comment;
 
   const [messageServer, setmessageServer] = useState(null);
   const dispatch = useDispatch();
@@ -18,17 +18,17 @@ const UpdateColorsForm = ({ color, setOpenForm }) => {
     <>
       <Formik
         initialValues={{
-          name: name || '',
-          cssValue: cssValue || '',
+          product: product || '',
+          content: content || '',
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          updateColor(id, values)
+          updateComment(id, values)
             .then(res => {
               if (res.status === 200) {
                 setOpenForm(false);
               }
-              dispatch(getColorsOperation());
+              dispatch(getCommentsOperation());
             })
             .catch(err => {
               setmessageServer(<span>{Object.values(err.data).join('')}</span>);
@@ -39,8 +39,14 @@ const UpdateColorsForm = ({ color, setOpenForm }) => {
       >
         <div className='page_form'>
           <Form>
-            <MyTextInput label='Название' name='name' type='text' placeholder='Название цвета' tabIndex='0' />
-            <MyTextInput label='HEX цвет' name='cssValue' type='text' placeholder='Значение цвета' tabIndex='0' />
+            <MyTextInput label='Продукт' name='product' type='text' placeholder='Продукт' tabIndex='0' />
+            <MyTextInput
+              label='Комментарий'
+              name='content'
+              type='text'
+              placeholder='Комментарий к продукту'
+              tabIndex='0'
+            />
             <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
           </Form>
         </div>
@@ -49,9 +55,9 @@ const UpdateColorsForm = ({ color, setOpenForm }) => {
   );
 };
 
-UpdateColorsForm.propTypes = {
-  color: PropTypes.object.isRequired,
+UpdateCommentsForm.propTypes = {
+  comment: PropTypes.object.isRequired,
   setOpenForm: PropTypes.func.isRequired,
 };
 
-export default UpdateColorsForm;
+export default UpdateCommentsForm;
