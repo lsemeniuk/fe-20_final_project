@@ -20,3 +20,4 @@ export { no } from './no';
 export { clock } from './clock';
 export { сhevron } from './сhevron';
 export { change } from './change';
+export { commas } from './commas';
