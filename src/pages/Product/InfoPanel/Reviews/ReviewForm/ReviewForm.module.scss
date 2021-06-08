@@ -6,8 +6,26 @@
   transition: border-color 0.1s;
   padding: 6px 8px;
   margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.7;
+  resize: none;
+}
+
+.textareaUpdate {
+  width: 100%;
+  vertical-align: middle;
+  transition: border-color 0.1s;
+  padding: 6px 8px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   font-size: 16px;
   resize: none;
+  line-height: 1.7;
+  border: none;
+  border-bottom: 1px solid #acacac;
+  padding: 5px 10px;
+  outline: none;
 }
 
 .buttonBlock {

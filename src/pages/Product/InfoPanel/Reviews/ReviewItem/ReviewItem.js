@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './ReviewItem.module.scss';
-import Icons from '../../../../../components/Icons/Icons';
 import { getDate } from '../../../../../utils/func';
 import { getCustomerSelector } from '../../../../../store/customer/selectors';
 import { deleteComment } from '../../../../../http/commentAPI';
 import ReviewForm from '../ReviewForm/ReviewForm';
+import Icons from '../../../../../components/Icons/Icons';
 
 const ReviewItem = ({ review, setRefreshReviews, productId }) => {
   const { customer: reviewCustomer, date, content, _id: reviewId } = review;
@@ -30,23 +30,20 @@ const ReviewItem = ({ review, setRefreshReviews, productId }) => {
         </div>
         <div className={styles.date}>{getDate(date)}</div>
       </div>
+      <hr />
 
-      <div className={styles.row}>
-        <Icons type='commas' color='#37b7fa' filled width={15} height={15} />
-        <p className={styles.commentText}>{content}</p>
-        <Icons type='commas' color='#37b7fa' filled width={15} height={15} />
-      </div>
-
-      {customerId === reviewCustomerId && (
-        <button type='button' onClick={() => deleteReview()} className={styles.up}>
-          Удалить
-        </button>
-      )}
-
-      {customerId === reviewCustomerId && (
-        <button type='button' onClick={handleUpdate} className={styles.slide}>
-          Изменить
-        </button>
+      {!showUpdateForm && (
+        <div className={styles.row}>
+          <p className={styles.commentText}>{content}</p>
+          <div className={styles.iconsContainer}>
+            {customerId === reviewCustomerId && (
+              <Icons onClick={handleUpdate} type='edit' color='#00000' filled width={30} height={30} />
+            )}
+            {customerId === reviewCustomerId && (
+              <Icons onClick={() => deleteReview()} type='deleteIcon' color='#00000' filled width={30} height={30} />
+            )}
+          </div>
+        </div>
       )}
 
       {showUpdateForm && (

@@ -47,15 +47,15 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshRevie
           setSubmitting(false);
         }}
       >
-        <div className='page_form'>
+        <div>
           <Form>
             <div className={styles.textareaContainer}>
               <Field
                 as='textarea'
-                className={styles.textarea}
+                className={!updateReview ? styles.textarea : styles.textareaUpdate}
                 name='content'
                 placeholder='Введите Ваш отзыв'
-                rows={5}
+                rows={!updateReview ? 5 : 3}
               />
             </div>
             {updateReview ? (

@@ -31,7 +31,7 @@ const Reviews = ({ productId }) => {
       {isAuth ? (
         <ReviewForm productId={productId} setRefreshReviews={setRefreshReviews} />
       ) : (
-        <p className={styles.comments__container}>Пож-та, войдите/зарегистрируйтесь, чтобы оставить отзыв</p>
+        <p className={styles.comments__container}>Пожалуйста, войдите или зарегистрируйтесь, чтобы оставить отзыв</p>
       )}
       {reviewsLoading ? <Loader /> : <ul className={styles.comments__container}>{commentsList}</ul>}
     </>
