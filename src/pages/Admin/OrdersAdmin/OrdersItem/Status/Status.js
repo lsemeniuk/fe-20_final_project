@@ -16,7 +16,7 @@ const Status = ({ status, id }) => {
     statusElement = <div style={{ color: '#FF8C00' }}>Обрабатывается</div>;
   } else if (statusChangeble === 'send') {
     statusElement = <div style={{ color: '#0000FF' }}>Отправлен</div>;
-  } else if (statusChangeble === 'сompleted') {
+  } else if (statusChangeble === 'completed') {
     statusElement = <div style={{ color: '#008000' }}>Выполнен</div>;
   }
   const changeStatus = stat => {
@@ -33,7 +33,7 @@ const Status = ({ status, id }) => {
         <option value='specified'>Уточняется</option>
         <option value='processed'>Обрабатывается</option>
         <option value='send'>Отправлен</option>
-        <option value='сompleted'>Выполнен</option>
+        <option value='completed'>Выполнен</option>
       </select>
     </div>
   );

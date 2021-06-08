@@ -9,33 +9,57 @@ const OrdersList = () => {
   const [orders, setOrders] = useState([]);
   const [ordersLoading, setOrdersLoading] = useState(true);
   const [refreshOrders, setRefreshOrders] = useState(true);
+  const [statusFilter, setStatusFilter] = useState('Все заказы');
   // const [startPage, setStartPage] = useState(1);
+
+  let ordersFilter = {};
+  if (statusFilter === 'Все заказы') {
+    ordersFilter = { perPage: 10, startPage: 1, sort: '-date' };
+  } else {
+    ordersFilter = { perPage: 10, startPage: 1, sort: '-date', status: statusFilter };
+  }
 
   useEffect(() => {
     setOrdersLoading(true);
-    getAllOrders({ perPage: 5, startPage: 1, sort: '-date' }).then(res => {
+    getAllOrders(ordersFilter).then(res => {
       setOrders(res.data.orders);
       setRefreshOrders(false);
       setOrdersLoading(false);
     });
   }, [refreshOrders]);
 
-  if (ordersLoading) {
-    return <Loader />;
-  }
+  let ordersList = null;
 
-  const ordersList = orders.map(order => {
-    return (
-      <li key={order.orderNo}>
-        <OrdersItem order={order} />
-      </li>
-    );
-  });
+  if (!ordersLoading) {
+    ordersList = orders.map(order => {
+      return (
+        <li key={order.orderNo}>
+          <OrdersItem order={order} />
+        </li>
+      );
+    });
+  }
 
   return (
     <div className={styles.container}>
-      <Button title='обновить' className={styles.update} onClick={() => setRefreshOrders(true)} />
-      <ul>{ordersList}</ul>
+      <div className={styles.filter}>
+        <select
+          onChange={e => {
+            setStatusFilter(e.target.value);
+            setRefreshOrders(true);
+          }}
+          defaultValue={null}
+          className={styles.select}
+        >
+          <option>Все заказы</option>
+          <option value='specified'>Уточняются</option>
+          <option value='processed'>Обрабатыватся</option>
+          <option value='send'>Отправлены</option>
+          <option value='completed'>Выполнены</option>
+        </select>
+        <Button title='обновить' className={styles.refresh} onClick={() => setRefreshOrders(true)} />
+      </div>
+      {ordersLoading ? <Loader /> : <ul>{ordersList}</ul>}
     </div>
   );
 };

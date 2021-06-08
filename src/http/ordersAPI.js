@@ -63,10 +63,10 @@ export const getCustommerOrders = async () => {
 // @route   GET /orders
 // @desc    Get all orders
 // @access  Private
-export const getAllOrders = async values => {
+export const getAllOrders = async (values, status) => {
   const paginatonStr = new URLSearchParams(values).toString();
 
-  const res = await $authHost.get(`orders/all?${paginatonStr}`).catch(err => {
+  const res = await $authHost.get(`orders/all?${paginatonStr}`, status).catch(err => {
     throw err.response;
   });
   return res;

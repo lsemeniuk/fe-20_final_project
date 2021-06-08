@@ -1,41 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { replace } from '../../../../utils/func';
-import styles from './OrdersItem.module.scss';
+import { getDate } from '../../../../utils/func';
 import Status from './Status/Status';
-import ProductOrdersItem from './ProductOrdersItem/ProductOrdersItem';
+import OrdersInfo from './OrdersInfo/OrdersInfo';
+import styles from './OrdersItem.module.scss';
 
 const OrdersItem = ({ order }) => {
   const [showOrderInfo, setShowOrderInfo] = useState(false);
-  const {
-    orderNo,
-    firstName,
-    lastName,
-    status,
-    email,
-    mobile,
-    paymentInfo,
-    deliveryAddress,
-    totalSum,
-    products,
-    comment,
-    _id: id,
-  } = order;
-
-  let productList = null;
-
-  if (showOrderInfo) {
-    productList = products.map(p => {
-      return <ProductOrdersItem product={p} />;
-    });
-  }
+  const { orderNo, firstName, lastName, status, _id: id, date } = order;
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <div>
           <div>
-            Заказ № <span className={styles.bold}>{orderNo}</span>
+            Заказ № <span className={styles.bold}>{orderNo}</span>, {getDate(date)}
           </div>
           <div>
             Имя покупателя:{' '}
@@ -54,40 +33,7 @@ const OrdersItem = ({ order }) => {
             <div onClick={() => setShowOrderInfo(true)}>&dArr; Открыть информацию о заказе &dArr;</div>
           )}
         </div>
-        {showOrderInfo && (
-          <div className={styles.info}>
-            <div>
-              Email заказчика: <span className={styles.bold}>{email}</span>
-            </div>
-            <div>
-              Номер мобильного телефона: <span className={styles.bold}>{mobile}</span>
-            </div>
-            <div>
-              Способ оплаты: <span className={styles.bold}>{paymentInfo}</span>
-            </div>
-            <div>
-              Способ Доставки: <span className={styles.bold}>{deliveryAddress?.delivery}</span>
-            </div>
-            {deliveryAddress && (
-              <div>
-                Адрес Доставки:{' '}
-                <span className={styles.bold}>
-                  {deliveryAddress?.region} обл., {deliveryAddress?.city}, {deliveryAddress?.address}.
-                </span>
-              </div>
-            )}
-            <div>
-              Сумма к оплате: <span className={styles.bold}>{replace(totalSum)} грн.</span>
-            </div>
-            <div>
-              Заказ:{` `}
-              <div className={styles.productList}>{productList}</div>
-            </div>
-            <div>
-              Комментарий: <span className={styles.bold}>{comment}</span>
-            </div>
-          </div>
-        )}
+        {showOrderInfo && <OrdersInfo order={order} />}
       </div>
     </div>
   );

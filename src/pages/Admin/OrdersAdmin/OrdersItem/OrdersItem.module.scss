@@ -2,6 +2,7 @@
 
 .container {
   margin: 20px;
+  padding-bottom: 10px;
   border: 1px solid $colorTextSilver;
   border-radius: 4px;
 }
@@ -11,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #eeeeee;
+  background-color: #f3f3f3;
   border-bottom: 1px solid $colorTextSilver;
   border-radius: 5px;
 }

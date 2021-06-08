@@ -1,0 +1,15 @@
+@import '../../../../../utils/styles/var';
+
+.bold {
+  font-weight: 700;
+}
+
+.info {
+  font-size: 14px;
+  line-height: 2;
+}
+
+.productList {
+  border: 1px solid $colorTextSilver;
+  border-radius: 5px;
+}

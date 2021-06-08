@@ -1,10 +1,18 @@
+@import '../../../../utils/styles/var';
+
 .container {
-  padding-top: 10px;
+  padding-top: 20px;
   position: relative;
+  border: 1px solid $colorTextSilver;
+  border-radius: 5px;
 }
 
-.update {
-  position: absolute;
-  right: 30px;
-  top: -55px;
+.filter {
+  margin: 0 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.select {
+  padding: 3px 5px;
 }
