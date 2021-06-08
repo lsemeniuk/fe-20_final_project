@@ -9,3 +9,13 @@
   font-size: 16px;
   resize: none;
 }
+
+.buttonBlock {
+  display: flex;
+  align-items: center;
+}
+
+.errorMessage {
+  color: #ff0000;
+  margin-left: 20px;
+}
