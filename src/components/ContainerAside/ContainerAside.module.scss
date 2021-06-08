@@ -15,7 +15,7 @@
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     display: flex;
     justify-content: space-between;
-    max-width: 100%;
+    min-width: 100%;
     min-height: 10%;
     max-height: 30%;
     padding: 1% 2% 1% 2%;
@@ -25,7 +25,7 @@
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     display: flex;
     justify-content: space-between;
-    max-width: 100%;
+    min-width: 100%;
     padding-right: 5px;
     min-height: 10%;
     max-height: 30%;

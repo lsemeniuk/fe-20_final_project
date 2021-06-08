@@ -12,10 +12,7 @@ export const getFiltersOperation = () => async dispatch => {
 
 export const saveFiltersOperation = value => async dispatch => {
   /* eslint no-console: 0 */
-  console.log('🚀 ~ file: operations.js ~ line 12 ~ dispatch', dispatch);
-  console.log('🚀 ~ file: operations.js ~ line 14 ~ value', value);
   dispatch(saveCheckedFiltersAction(value));
-
   const joined = {};
   Object.keys(value).forEach(item => {
     if (value[item].length) {
