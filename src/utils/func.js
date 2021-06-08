@@ -11,7 +11,7 @@ export const calculateTotalPrice = cart => {
     return totalPrice;
   });
 
-  return replace(totalPrice);
+  return totalPrice;
 };
 
 export const getDate = date => {

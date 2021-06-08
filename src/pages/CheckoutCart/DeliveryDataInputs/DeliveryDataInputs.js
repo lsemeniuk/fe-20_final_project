@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MySelect from '../../../components/Forms/MySelect/MySelect';
 import MyTextInput from '../../../components/Forms/MyTextInput/MyTextInput';
 import { getPostCity, getPostRegion, getPostDepartment } from '../../../http/newPostAPI';
+import { deliveryMethodAction } from '../../../store/cart/actions';
+import { deliveryMethodSelector } from '../../../store/cart/selectors';
 
 const DeliveryDataInputs = () => {
   const [regions, setRegions] = useState([]);
   const [cities, setCities] = useState([]);
   const [department, setDepartment] = useState([]);
-  const [deliveryMethod, setDeliveryMethod] = useState('postDelivery');
+  const dispatch = useDispatch();
+  const deliveryMethod = useSelector(deliveryMethodSelector);
 
   useEffect(() => {
     getPostRegion().then(res => {
@@ -101,7 +105,7 @@ const DeliveryDataInputs = () => {
         label='Способ доставки'
         name='delivery'
         onClick={e => {
-          setDeliveryMethod(e.target.value);
+          dispatch(deliveryMethodAction(e.target.value));
         }}
         tabIndex='0'
       >
