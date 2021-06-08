@@ -13,7 +13,7 @@ const OrdersList = () => {
 
   useEffect(() => {
     setOrdersLoading(true);
-    getAllOrders({ perPage: 5, startPage: 1 }).then(res => {
+    getAllOrders({ perPage: 5, startPage: 1, sort: '-date' }).then(res => {
       setOrders(res.data.orders);
       setRefreshOrders(false);
       setOrdersLoading(false);

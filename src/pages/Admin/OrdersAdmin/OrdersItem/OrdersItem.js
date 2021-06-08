@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styles from './OrdersItem.module.scss';
 import { replace } from '../../../../utils/func';
-import { PRODUCT_ROUTE } from '../../../../utils/consts';
+import styles from './OrdersItem.module.scss';
+import Status from './Status/Status';
+import ProductOrdersItem from './ProductOrdersItem/ProductOrdersItem';
 
 const OrdersItem = ({ order }) => {
   const [showOrderInfo, setShowOrderInfo] = useState(false);
@@ -19,51 +19,14 @@ const OrdersItem = ({ order }) => {
     totalSum,
     products,
     comment,
+    _id: id,
   } = order;
-
-  let statusElement = null;
-
-  if (status === 'specified') {
-    statusElement = <div style={{ color: '#FF0000' }}>Уточняется</div>;
-  } else if (status === 'processed') {
-    statusElement = <div style={{ color: '#FF8C00' }}>Обрабатывается</div>;
-  } else if (status === 'send') {
-    statusElement = <div style={{ color: '#0000FF' }}>Отправлен</div>;
-  } else if (status === 'сompleted') {
-    statusElement = <div style={{ color: '#008000' }}>Выполнен</div>;
-  }
 
   let productList = null;
 
   if (showOrderInfo) {
     productList = products.map(p => {
-      return (
-        <div className={styles.productList}>
-          <div className={styles.productImage}>
-            <NavLink to={`${PRODUCT_ROUTE}/${p.product.itemNo}`}>
-              <img src={p.product.imageUrls[0].smallImage} width={100} height={100} alt='productImage' />
-            </NavLink>
-          </div>
-          <div>
-            <NavLink to={`${PRODUCT_ROUTE}/${p.product.itemNo}`}>
-              <div className={`${styles.bold} ${styles.productName}`}>
-                {p.product.name}, {p.product.color}
-              </div>
-            </NavLink>
-            <div className={styles.productPrice}>
-              <div>
-                Цена: <span className={styles.bold}>{replace(p.product.currentPrice)} грн.</span>
-              </div>
-              <div>
-                Количество: <span className={styles.bold}>{p.cartQuantity} шт.</span>
-              </div>
-              <div>
-                Сумма: <span className={styles.bold}>{replace(p.product.currentPrice * p.cartQuantity)} грн.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
+      return <ProductOrdersItem product={p} />;
     });
   }
 
@@ -81,7 +44,7 @@ const OrdersItem = ({ order }) => {
             </span>
           </div>
         </div>
-        {statusElement}
+        <Status status={status} id={id} />
       </div>
       <div className={styles.infoBlock}>
         <div className={styles.infoOrderBtn}>
@@ -116,7 +79,10 @@ const OrdersItem = ({ order }) => {
             <div>
               Сумма к оплате: <span className={styles.bold}>{replace(totalSum)} грн.</span>
             </div>
-            <div>{productList}</div>
+            <div>
+              Заказ:{` `}
+              <div className={styles.productList}>{productList}</div>
+            </div>
             <div>
               Комментарий: <span className={styles.bold}>{comment}</span>
             </div>
