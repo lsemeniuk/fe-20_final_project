@@ -8,9 +8,9 @@ import styles from './CheckboxGroup.module.scss';
 function CheckboxGroup(props) {
   const { label, name, nameCur, options, ...rest } = props;
   // const [checked] = useState(false);
-  // const checkbox = (field, option) => {
-  //   field.value.includes(option.id);
-  // };
+  const checkbox = (field, option) => {
+    field.value.includes(option.id);
+  };
   return (
     <div className={styles.checkbox_box}>
       {label !== 'null' && <label className={styles.option_title}>{label}</label>}
@@ -29,7 +29,7 @@ function CheckboxGroup(props) {
                         {...field}
                         {...rest}
                         value={option.id}
-                        checked={field.value.includes(option.id)}
+                        checked={checkbox(field, option)}
                       />
                       <label className={styles.option_item_input} htmlFor={option.name}>
                         {option.name}

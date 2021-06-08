@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MyFilterContainer from '../SelectBar/MyFilterContainer/MyFilterContainer';
 /**
  * Чтобы отобразить фильтр на странице используй этот компонент
@@ -6,11 +6,9 @@ import MyFilterContainer from '../SelectBar/MyFilterContainer/MyFilterContainer'
  *  */
 
 const Select = () => {
-  const [checkboxed] = useState(true);
-
   return (
     <>
-      <MyFilterContainer checkboxed={checkboxed} />
+      <MyFilterContainer />
     </>
   );
 };

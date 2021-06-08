@@ -10,9 +10,10 @@ import Button from '../../Button/Button';
 // react / jsx-props-no-spreading»: [«error», {«custom»: «ignore»}]
 const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, setUpPrice }) => {
   const onClick = field => {
-    field.value.splice(0, 2);
-    field.value.push(+downPrice);
-    field.value.push(+upPrice);
+    field.value.minPrice.splice(0, 1);
+    field.value.maxPrice.splice(0, 1);
+    field.value.minPrice.push(+downPrice);
+    field.value.maxPrice.push(+upPrice);
   };
   return (
     <div className={styles.option_item_box}>
