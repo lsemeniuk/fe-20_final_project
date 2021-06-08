@@ -13,6 +13,7 @@ import {
   ADM_COLORS_ROUTE,
   ADM_FILTERS_ROUTE,
   ADM_COMMENTS_ROUTE,
+  ADM_SLIDER_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -27,6 +28,7 @@ import Brands from '../pages/Admin/Brands/Brands';
 import Colors from '../pages/Admin/Colors/Colors';
 import Filters from '../pages/Admin/Filters/Filters';
 import Comments from '../pages/Admin/Comment/Comments';
+import Sliders from '../pages/Admin/Slider/Sliders';
 
 export const publicRoutes = [
   {
@@ -109,5 +111,10 @@ export const adminRoutes = [
     name: 'Комментарии',
     path: ADM_COMMENTS_ROUTE,
     Component: Comments,
+  },
+  {
+    name: 'Слайдеры',
+    path: ADM_SLIDER_ROUTE,
+    Component: Sliders,
   },
 ];
