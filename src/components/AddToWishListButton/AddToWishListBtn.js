@@ -66,7 +66,7 @@ const AddToWishListBtn = ({ id, itemNo }) => {
   };
 
   return (
-    <div>
+    <div style={{ cursor: 'pointer' }}>
       {idWishList.includes(id) ? (
         <Icons onClick={deleteToWishList} type='navHeart' color='#ffd200' filled width={30} height={30} />
       ) : (
