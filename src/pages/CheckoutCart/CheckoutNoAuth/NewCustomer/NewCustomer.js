@@ -12,6 +12,7 @@ import { cartTotalPriceSelector, getLocalCartSelector } from '../../../../store/
 import { generateLetterHtml } from '../../../../utils/generateHtml';
 import Loader from '../../../../components/Loader/Loader';
 import { getProductsSelector, productsLoadingSelector } from '../../../../store/products/selectors';
+import { replace } from '../../../../utils/func';
 import styles from './NewCustomer.module.scss';
 
 const NewCustomer = () => {
@@ -20,8 +21,7 @@ const NewCustomer = () => {
   const products = useSelector(getProductsSelector);
   const productsLoading = useSelector(productsLoadingSelector);
   const localCart = useSelector(getLocalCartSelector);
-  const totalPrice = useSelector(cartTotalPriceSelector);
-  // console.log(localCart);
+  const totalPrice = replace(useSelector(cartTotalPriceSelector));
 
   if (productsLoading) {
     return <Loader />;
