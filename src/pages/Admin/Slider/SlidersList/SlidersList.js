@@ -1,39 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import Loader from '../../../../components/Loader/Loader';
-import { getFilters } from '../../../../http/filtersAPI';
-import FiltersItem from '../FiltersItem/FiltersItem';
+import { getSlides } from '../../../../http/slidesAPI';
+// import SlidrsItem from '../SlidrsItem/SlidrsItem';
 
-const FiltersList = () => {
-  const [filters, setFilters] = useState([]);
-  const [filtersLoading, setFiltersLoading] = useState(true);
-  const [refreshFilters, setRefreshFilters] = useState(true);
+const SlidersList = () => {
+  const [sliders, setSliders] = useState([]);
+  const [slidersLoading, setSlidersLoading] = useState(true);
+  const [refreshSliders, setRefreshSliders] = useState(true);
 
   useEffect(() => {
-    setFiltersLoading(true);
-    getFilters().then(res => {
-      setFilters(res.data);
-      setRefreshFilters(false);
-      setFiltersLoading(false);
+    setSlidersLoading(true);
+    getSlides().then(res => {
+      setSliders(res.data);
+      setRefreshSliders(false);
+      setSlidersLoading(false);
     });
-  }, [refreshFilters]);
+  }, [refreshSliders]);
 
-  if (filtersLoading) {
+  if (slidersLoading) {
     return <Loader />;
   }
 
-  const filtersList = filters.map(filter => {
-    return (
-      <li key={filter.name}>
-        <FiltersItem filter={filter} />
-      </li>
-    );
+  const slidersList = sliders.map(slider => {
+    return <li key={slider.name}>{/* <SlidrsItem slider={slider} /> */}</li>;
   });
 
   return (
     <div>
-      <ul>{filtersList}</ul>
+      <ul>{slidersList}</ul>
     </div>
   );
 };
 
-export default FiltersList;
+export default SlidersList;

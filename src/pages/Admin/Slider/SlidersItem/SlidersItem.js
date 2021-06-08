@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/Button/Button';
-import { deleteFilter } from '../../../../http/filtersAPI';
+import { deleteSlide } from '../../../../http/slidesAPI';
 import styles from './FiltersItem.module.scss';
-import { getFiltersOperation } from '../../../../store/filter/operations';
-import UpdateFiltersForm from '../UpdateFiltersForm/UpdateFiltersForm';
+import UpdateSlidersForm from '../UpdateSlidersForm/UpdateSlidersForm';
 
-const FiltersItem = ({ filter }) => {
-  const { _id: id } = filter;
-  const dispatch = useDispatch();
+const SlidersItem = ({ slider }) => {
+  const { _id: id } = slider;
   const [openForm, setOpenForm] = useState(false);
   const [messageServer, setmessageServer] = useState(null);
 
-  const deleteFilterFunc = () => {
-    deleteFilter(id)
+  const deleteSlidersFunc = () => {
+    deleteSlide(id)
       .then(res => {
-        dispatch(getFiltersOperation());
         return res;
       })
       .catch(err => {
@@ -27,23 +23,32 @@ const FiltersItem = ({ filter }) => {
   return (
     <>
       <div className={styles.info} style={{ fontWeight: '600' }}>
-        <div className={styles.type}>Название типа фильтра</div>
-        <div className={styles.name}>Имя фильтра</div>
+        <div className={styles.title}>Заголовок Слайдера</div>
+        <div className={styles.imageUrl}>Картинка</div>
+        <div className={styles.description}>Описание</div>
+        <div className={styles.product}>Продукт</div>
       </div>
       <div className={styles.info}>
         <div className={styles.type}>{filter.type}</div>
         <div className={styles.name}>{filter.name}</div>
+        <div className={styles.description}>Описание</div>
+        <div className={styles.product}>Продукт</div>
       </div>
       <Button title='Изменить' onClick={() => setOpenForm(!openForm)} className={styles.button} />
-      <Button variant='outline' title='Удалить' onClick={() => deleteFilterFunc(!openForm)} className={styles.button} />
+      <Button
+        variant='outline'
+        title='Удалить'
+        onClick={() => deleteSlidersFunc(!openForm)}
+        className={styles.button}
+      />
       <div className={styles.redTitle}>{messageServer}</div>
-      {openForm && <UpdateFiltersForm filter={filter} setOpenForm={setOpenForm} />}
+      {openForm && <UpdateSlidersForm slider={slider} setOpenForm={setOpenForm} />}
     </>
   );
 };
 
-FiltersItem.propTypes = {
-  filter: PropTypes.object.isRequired,
+SlidersItem.propTypes = {
+  slider: PropTypes.object.isRequired,
 };
 
-export default FiltersItem;
+export default SlidersItem;
