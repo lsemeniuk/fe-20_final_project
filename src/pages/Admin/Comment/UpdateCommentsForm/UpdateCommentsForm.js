@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import schema from '../schema';
 import { updateComment } from '../../../../http/commentAPI';
-import { getCommentsOperation } from '../../../../store/colors/operations';
 
 const UpdateCommentsForm = ({ comment, setOpenForm }) => {
   const { product, content, _id: id } = comment;
 
   const [messageServer, setmessageServer] = useState(null);
-  const dispatch = useDispatch();
 
   return (
     <>
       <Formik
         initialValues={{
-          product: product || '',
+          product: product.name || '',
           content: content || '',
         }}
         validationSchema={schema}
@@ -28,7 +25,6 @@ const UpdateCommentsForm = ({ comment, setOpenForm }) => {
               if (res.status === 200) {
                 setOpenForm(false);
               }
-              dispatch(getCommentsOperation());
             })
             .catch(err => {
               setmessageServer(<span>{Object.values(err.data).join('')}</span>);

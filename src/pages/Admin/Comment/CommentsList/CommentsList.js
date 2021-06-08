@@ -1,32 +1,39 @@
-import React from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import Loader from '../../../../components/Loader/Loader';
-// import { getColorsOperation } from '../../../../store/colors/operations';
-// import { colorsLoadingSelector, getColorsSelector } from '../../../../store/colors/selectors';
+import React, { useEffect, useState } from 'react';
+import Loader from '../../../../components/Loader/Loader';
+import { getComments } from '../../../../http/commentAPI';
 import CommentsItem from '../CommentsItem/CommentsItem';
 
 const CommentsList = () => {
-  // const dispatch = useDispatch();
-  // const comment = useSelector(getColorsSelector);
-  // const colorsLoading = useSelector(colorsLoadingSelector);
+  const [comments, setComments] = useState([]);
+  const [commentsLoading, setCommentsLoading] = useState(true);
+  const [refreshComments, setRefreshComments] = useState(true);
 
-  // useEffect(() => {
-  //   dispatch(getCommitsOperation());
-  // }, []);
+  useEffect(() => {
+    setCommentsLoading(true);
+    getComments().then(res => {
+      setComments(res.data);
+      setRefreshComments(false);
+      setCommentsLoading(false);
+    });
+  }, [refreshComments]);
 
-  // if (colorsLoading) {
-  //   return <Loader />;
-  // }
+  if (commentsLoading) {
+    return <Loader />;
+  }
 
-  // const commentList = colors.map(color => {
-  //   return (
-  //     <li key={color.name} style={{ padding: '10px' }}>
-  //       <ColorsItem color={color} />
-  //     </li>
-  //   );
-  // });
+  const commentsList = comments.map(comment => {
+    return (
+      <li key={comment.name}>
+        <CommentsItem comment={comment} />
+      </li>
+    );
+  });
 
-  return <CommentsItem />;
+  return (
+    <div>
+      <ul>{commentsList}</ul>
+    </div>
+  );
 };
 
 export default CommentsList;

@@ -1,32 +1,39 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import Loader from '../../../../components/Loader/Loader';
-import { getFiltersOperation } from '../../../../store/filter/operations';
-import { filtersLoadingSelector, getFiltersSelector } from '../../../../store/filter/selectors';
+import { getFilters } from '../../../../http/filtersAPI';
 import FiltersItem from '../FiltersItem/FiltersItem';
 
 const FiltersList = () => {
-  const dispatch = useDispatch();
-  const filters = useSelector(getFiltersSelector);
-  const filterLoading = useSelector(filtersLoadingSelector);
+  const [filters, setFilters] = useState([]);
+  const [filtersLoading, setFiltersLoading] = useState(true);
+  const [refreshFilters, setRefreshFilters] = useState(true);
 
   useEffect(() => {
-    dispatch(getFiltersOperation());
-  }, []);
+    setFiltersLoading(true);
+    getFilters().then(res => {
+      setFilters(res.data);
+      setRefreshFilters(false);
+      setFiltersLoading(false);
+    });
+  }, [refreshFilters]);
 
-  if (filterLoading) {
+  if (filtersLoading) {
     return <Loader />;
   }
 
-  const filterList = filters.map(filter => {
+  const filtersList = filters.map(filter => {
     return (
-      <li key={filter.name} style={{ padding: '10px' }}>
+      <li key={filter.name}>
         <FiltersItem filter={filter} />
       </li>
     );
   });
 
-  return <ul>{filterList}</ul>;
+  return (
+    <div>
+      <ul>{filtersList}</ul>
+    </div>
+  );
 };
 
 export default FiltersList;

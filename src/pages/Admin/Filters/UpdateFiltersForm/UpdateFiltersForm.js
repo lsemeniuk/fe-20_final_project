@@ -40,7 +40,7 @@ const UpdateFiltersForm = ({ filter, setOpenForm }) => {
         <div className='page_form'>
           <Form>
             <MyTextInput label='Тип фильтра' name='type' type='text' placeholder='Название ТИПА фильтра' tabIndex='0' />
-            <MyTextInput label='Имя фильтра' name='name' type='text' placeholder='Значение цвета' tabIndex='0' />
+            <MyTextInput label='Имя фильтра' name='name' type='text' placeholder='Укажите имя фильтра' tabIndex='0' />
             <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
           </Form>
         </div>
