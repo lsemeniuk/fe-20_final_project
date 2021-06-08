@@ -86,7 +86,9 @@ const NewCustomer = () => {
 
           const letterSubject = 'Спасибо за заказ!';
 
-          placeOrder({ ...ordersValue, deliveryAddress, letterHtml, letterSubject, products: cart })
+          const status = 'processed';
+
+          placeOrder({ ...ordersValue, deliveryAddress, letterHtml, letterSubject, products: cart, status })
             .then(res => {
               if (res.status === 200) {
                 if (res.data.message) {
@@ -105,8 +107,12 @@ const NewCustomer = () => {
       >
         <Form>
           <CustomerDataInputs />
+          <h3 className='checkout__title'>Доставка</h3>
           <DeliveryDataInputs />
+          <hr />
+          <h3 className='checkout__title'>Оплата</h3>
           <PaymentDataInputs />
+          <hr />
           <div className={styles.addComment}>
             {!commentAvailible && (
               <span
