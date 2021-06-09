@@ -62,7 +62,7 @@ const ProductCard = ({ product, inSlider }) => {
 
       <div className={styles.btnBlock}>
         <div className={styles.btnFlex}>
-          <AddToCartButton id={id} orderButton={false} currentPrice={currentPrice} />
+          <AddToCartButton product={product} id={id} orderButton={false} currentPrice={currentPrice} />
           <span className={styles.favIcon}>
             <AddToWishListBtn id={id} itemNo={itemNo} />
           </span>
