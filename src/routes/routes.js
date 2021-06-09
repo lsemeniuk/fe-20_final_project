@@ -110,7 +110,7 @@ export const adminRoutes = [
     Component: Colors,
   },
   {
-    name: 'Фильтра',
+    name: 'Фильтры',
     path: ADM_FILTERS_ROUTE,
     Component: Filters,
   },

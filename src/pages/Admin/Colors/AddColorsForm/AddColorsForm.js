@@ -5,22 +5,22 @@ import { addColor } from '../../../../http/colorsAPI';
 import schema from '../schema';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 
-const AddcolorsForm = () => {
+const AddСolorsForm = () => {
   const [messageServer, setmessageServer] = useState(null);
 
   return (
     <>
       <Formik
         initialValues={{
-          type: '',
           name: '',
+          cssValue: '',
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
           addColor(values)
             .then(res => {
               if (res.status === 200) {
-                setmessageServer(<span style={{ color: 'green' }}>Тип фильтра успешно добавлен!</span>);
+                setmessageServer(<span style={{ color: 'green' }}>Цвет успешно добавлен!</span>);
               }
             })
             .catch(err => {
@@ -41,4 +41,4 @@ const AddcolorsForm = () => {
   );
 };
 
-export default AddcolorsForm;
+export default AddСolorsForm;
