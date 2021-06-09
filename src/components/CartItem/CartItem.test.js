@@ -13,7 +13,7 @@ describe('Cart item test', () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
-          <CartItem cartQuantity={cartQuantity} product={product} cart={[]} />
+          <CartItem cartQuantity={cartQuantity} product={product} cart={{}} />
         </BrowserRouter>
       </Provider>
     );
