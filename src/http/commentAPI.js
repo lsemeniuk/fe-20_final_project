@@ -59,7 +59,6 @@ export const getCustomerComments = async customerId => {
 // @access  Public
 export const getProductComments = async productId => {
   const res = await $host.get(`comments/${productId}`).catch(err => {
-  const res = await $host.get(`comments/product/${productId}`).catch(err => {
     throw err.response;
   });
   return res;
