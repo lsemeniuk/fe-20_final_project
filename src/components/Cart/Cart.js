@@ -8,12 +8,13 @@ import { CHECKOUT_ROUTE } from '../../utils/consts';
 import RecommendList from '../RecommendList/RecommendList';
 import { getModalCartSelector } from '../../store/modal/selectors';
 import { cartTotalPriceSelector } from '../../store/cart/selectors';
-import styles from './Cart.module.scss';
 import CartList from '../CartList/CartList';
+import { replace } from '../../utils/func';
+import styles from './Cart.module.scss';
 
 const Cart = ({ buttonHandler, display }) => {
   const modalCart = useSelector(getModalCartSelector);
-  const totalPrice = useSelector(cartTotalPriceSelector);
+  const totalPrice = replace(useSelector(cartTotalPriceSelector));
 
   if (!modalCart) {
     return null;

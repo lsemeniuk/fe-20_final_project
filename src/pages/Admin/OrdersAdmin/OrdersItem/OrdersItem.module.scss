@@ -1,0 +1,41 @@
+@import '../../../../utils/styles/var';
+
+.container {
+  margin: 20px;
+  padding-bottom: 10px;
+  border: 1px solid $colorTextSilver;
+  border-radius: 4px;
+}
+
+.header {
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid $colorTextSilver;
+  border-radius: 5px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.infoBlock {
+  padding: 5px 15px;
+}
+
+.infoOrderBtn {
+  cursor: pointer;
+  text-align: center;
+}
+
+.info {
+  font-size: 14px;
+  line-height: 2;
+}
+
+.productList {
+  border: 1px solid $colorTextSilver;
+  border-radius: 5px;
+}

@@ -12,6 +12,7 @@ import Loader from '../../../components/Loader/Loader';
 import { generateLetterHtml } from '../../../utils/generateHtml';
 import { cartTotalPriceSelector, getCartSelector } from '../../../store/cart/selectors';
 import schema from '../schema';
+import { replace } from '../../../utils/func';
 import styles from './CheckoutAuth.module.scss';
 
 const CheckoutAuth = () => {
@@ -19,7 +20,7 @@ const CheckoutAuth = () => {
   const [commentAvailible, setCommentAvailible] = useState(false);
   const customerLoading = useSelector(getCustomerIsLoadingSelector);
   const cart = useSelector(getCartSelector);
-  const totalPrice = useSelector(cartTotalPriceSelector);
+  const totalPrice = replace(useSelector(cartTotalPriceSelector));
   const customer = useSelector(getCustomerSelector);
 
   const { _id: id } = customer;
@@ -58,7 +59,9 @@ const CheckoutAuth = () => {
 
           const letterSubject = 'Спасибо за заказ!';
 
-          placeOrder({ ...ordersValue, deliveryAddress, customerId: id, letterHtml, letterSubject })
+          const status = 'processed';
+
+          placeOrder({ ...ordersValue, deliveryAddress, customerId: id, letterHtml, letterSubject, status })
             .then(res => {
               if (res.status === 200) {
                 if (res.data.message) {
@@ -77,8 +80,12 @@ const CheckoutAuth = () => {
       >
         <Form>
           <CustomerDataInputs />
+          <h3 className='checkout__title'>Доставка</h3>
           <DeliveryDataInputs />
+          <hr />
+          <h3 className='checkout__title'>Оплата</h3>
           <PaymentDataInputs />
+          <hr />
           <div className={styles.addComment}>
             {!commentAvailible && (
               <span
