@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Modal.module.scss';
 
@@ -12,6 +12,13 @@ const Modal = ({ children, buttonHandler, modalWidth, display }) => {
     opacityStyle = { visibility: 'visible', opacity: 1 };
     modalStyle.left = 'calc(50% - 9px)';
   }
+
+  useEffect(() => {
+    document.body.classList.add('lock');
+    return function cleanup() {
+      document.body.classList.remove('lock');
+    };
+  }, []);
 
   const closeBtnHandler = e => {
     const modal = modalRef.current;
