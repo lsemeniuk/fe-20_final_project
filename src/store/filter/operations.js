@@ -1,7 +1,5 @@
 import axios from 'axios';
-// import { getProductsFilterParams } from '../../http/productAPI';
-// import { productsLoadingAction, saveProductsFilteredAction, saveProductsQuantityAction } from '../products/actions';
-// import { getProductsFilterOperation } from '../products/operations';
+
 import { saveAllFiltersAction, saveCheckedFiltersAction } from './actions';
 
 export const getFiltersOperation = () => async dispatch => {
@@ -15,16 +13,21 @@ export const saveFiltersOperation = value => async dispatch => {
   dispatch(saveCheckedFiltersAction(value));
   const joined = {};
   Object.keys(value).forEach(item => {
+    console.log('🚀 ~ file: operations.js ~ line 19 ~ Object.keys ~ value[item].length', value[item].length);
     if (value[item].length) {
-      console.log('🚀 ~ file: operations.js ~ line 19 ~ Object.keys ~ value[item].length', value[item].length);
-
       // joined[item] = encodeURIComponent(value[item].join());
       joined[item] = value[item].join();
       // console.log(
       //   '🚀 ~ file: operations.js ~ line 22 ~ Object.keys ~ encodeURIComponent(value[item].join());',
       //   encodeURIComponent(value[item].join())
       // );
-      console.log('🚀 ~ file: operations.js ~ line 22 ~ Object.keys ~ joined[item]', joined[item]);
+    }
+    if (value[item].length === undefined) {
+      const minPrice = value[item].minPrice.join();
+      const maxPrice = value[item].maxPrice.join();
+      joined.minPrice = minPrice;
+      joined.maxPrice = maxPrice;
+      console.log('🚀 ~ file: operations.js ~ line 38 ~ Object.keys ~ joined', joined);
     }
   });
   // const filterEmptyValues = joined.map(item => {

@@ -14,6 +14,7 @@ import {
   ADM_FILTERS_ROUTE,
   ADM_COMMENTS_ROUTE,
   ADM_SLIDER_ROUTE,
+  ADM_ORDERS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import Products from '../pages/Products/Products';
@@ -21,6 +22,7 @@ import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
 import Page404 from '../pages/Page404/Page404';
 import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
 import Orders from '../pages/User/Orders/Orders';
+import OrdersAdmin from '../pages/Admin/OrdersAdmin/OrdersAdmin';
 import WishList from '../pages/User/WishList/WishList';
 import Catalog from '../pages/Admin/Catalog/Catalog';
 import Product from '../pages/Product/Product';
@@ -82,6 +84,11 @@ export const userRoutes = [
 ];
 
 export const adminRoutes = [
+  {
+    name: 'Заказы',
+    path: ADM_ORDERS_ROUTE,
+    Component: OrdersAdmin,
+  },
   {
     name: 'Каталог',
     path: ADM_CATALOG_ROUTE,

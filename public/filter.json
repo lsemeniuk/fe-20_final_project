@@ -65,7 +65,7 @@
   },
   {
     "_id": "5da4b9dd95987c2364a67l73",
-    "type": "isStock",
+    "type": "quantity",
     "name": "В наличии",
     "date": "2019-10-14T18:09:33.813Z",
     "id": "yes",

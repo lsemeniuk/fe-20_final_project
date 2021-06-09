@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Error500 from '../Error500/Error500';
+// import { addError } from '../../../http/errorsAPI';
 
 class ErrorBoundary extends PureComponent {
   constructor(props) {
@@ -21,7 +22,7 @@ class ErrorBoundary extends PureComponent {
   }
 
   componentDidCatch() {
-    // axios.post('/api/errors', JSON.stringify({ error, errorInfo }));
+    // addError({ name: error.name, message: error.message, errorInfo });
     this.setState({ errorPresent: true });
   }
 
