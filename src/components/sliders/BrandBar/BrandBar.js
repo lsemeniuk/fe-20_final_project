@@ -19,8 +19,8 @@ const sliderSettings = {
 const BrandBar = () => {
   const dispatch = useDispatch();
   const brands = useSelector(getBrandsSelector);
-  const productFilters = useSelector(getProductsFilterSelector);
   const brandsLoading = useSelector(brandsLoadingSelector);
+  const productFilters = useSelector(getProductsFilterSelector);
 
   const history = useHistory();
   const { search } = useLocation();
@@ -44,7 +44,7 @@ const BrandBar = () => {
     brandsList = brands.map(brand => {
       let classNameItem = styles.itemContainer;
 
-      if (search.includes(`brand=${brand.name}`)) {
+      if (search.includes(brand.name)) {
         classNameItem = `${styles.itemContainer} ${styles.itemActive}`;
       }
 
@@ -73,7 +73,9 @@ const BrandBar = () => {
           <Slider className={styles.slider} {...sliderSettings}>
             <div
               key='all'
-              className={search ? styles.itemContainer : `${styles.itemContainer} ${styles.itemActive}`}
+              className={
+                search.includes('brand') ? styles.itemContainer : `${styles.itemContainer} ${styles.itemActive}`
+              }
               onClick={() => filterProductAllBrand()}
             >
               <li className={styles.item}>

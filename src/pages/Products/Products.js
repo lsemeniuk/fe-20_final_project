@@ -8,10 +8,10 @@ import { getCategoriesSelector } from '../../store/catalog/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import ContainerAside from '../../components/ContainerAside/ContainerAside';
-import Select from '../../components/SelectBar/Select/Select';
 import Pagination from '../../components/Pagination/Pagination';
 import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
 import Sorting from '../../components/Sorting/Sorting';
+import Filter from '../../components/Filter/Filter';
 import styles from './Products.module.scss';
 
 const Products = () => {
@@ -47,7 +47,7 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
-              <Select />
+              <Filter />
             </ContainerAside>
 
             <ContainerPage style={{ padding: '0' }}>
