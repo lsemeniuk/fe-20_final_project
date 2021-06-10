@@ -1,0 +1,48 @@
+@import '../../../utils/styles/var';
+
+.tabContainer {
+  padding: 0 30px 20px;
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
+  position: relative;
+}
+
+.addComment {
+  text-align: center;
+}
+
+.comment {
+  background: none !important;
+  margin: 10px 0 20px;
+  cursor: pointer;
+  &:hover {
+    color: $colorButton;
+  }
+}
+
+.textareaContainer {
+  margin: 20px 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  right: 75%;
+  text-align: right;
+  font-size: 14px;
+  padding-right: 10px;
+}
+
+.textarea {
+  width: 75%;
+  border: 1px solid #acacac;
+  border-radius: 4px;
+  vertical-align: middle;
+  transition: border-color 0.1s;
+  padding: 6px 8px;
+  font-size: 16px;
+  resize: none;
+}

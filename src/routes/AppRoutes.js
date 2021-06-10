@@ -1,27 +1,24 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { authRoutes, publicRoutes } from './routes';
-import { INDEX_ROUTE } from '../utils/consts';
+import { Switch, Route } from 'react-router-dom';
+import UserRoutes from './UserRoutes';
+import { publicRoutes } from './routes';
+import { ADMIN_ROUTE, PAGES_ROUTE, USER_ROUTE } from '../utils/consts';
+import AdminRoutes from './AdminRoutes';
+import PagesRoutes from './PagesRoutes';
 
-const AppRouter = () => {
+const AppRoutes = () => {
   return (
     <Switch>
-      {
-        // проверка на авторизацию пользователя
-        // user.isAuth &&
-        // если true пользователю открыти роуты для авторизованых
-        authRoutes.map(({ path, Component }) => (
-          <Route key={path} path={path} component={Component} exact />
-        ))
-      }
+      <Route component={PagesRoutes} path={PAGES_ROUTE} />
+      <Route component={UserRoutes} path={USER_ROUTE} />
+      <Route component={AdminRoutes} path={ADMIN_ROUTE} />
+
       {/* public открыти всем */}
       {publicRoutes.map(({ path, Component }) => (
         <Route key={path} path={path} component={Component} exact />
       ))}
-      {/* если ввёден любой другой адрес редиректим на главную */}
-      <Redirect to={INDEX_ROUTE} />
     </Switch>
   );
 };
 
-export default AppRouter;
+export default AppRoutes;

@@ -1,0 +1,231 @@
+@import '../../utils/styles/var';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: solid 1px #a7a7a7;
+  padding: 15px;
+  position: relative;
+
+  &:last-child {
+    border: none;
+  }
+
+  &:hover .delete {
+    opacity: 1;
+  }
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Delete
+.delete {
+  position: absolute;
+  left: -30px;
+  width: 30px;
+  text-align: center;
+  padding: 10px 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.deleteBtn {
+  cursor: pointer;
+  font-size: 20px;
+
+  &:hover {
+    color: $colorButnHover;
+  }
+}
+
+//Name
+.nameBlock {
+  padding-left: 20px;
+  font-size: 14px;
+}
+
+.name {
+  cursor: pointer;
+  line-height: 1.25;
+  font-weight: 400;
+  margin: 0 0 5px;
+  padding-right: 20px;
+  color: #000000;
+
+  &:hover {
+    color: $colorButnHover;
+  }
+}
+
+// Price
+
+.priceSales {
+  display: flex;
+  align-items: flex-end;
+}
+
+.currentPrice {
+  margin-right: 20px;
+  color: $colorSale;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.previousPrice {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #6d6d6d;
+}
+
+.regularPrice {
+  color: $colorNew;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+// Quantity
+.quantityBlock {
+  display: flex;
+  border: 1px solid #a7a7a7;
+  border-radius: 4px;
+}
+
+.quantityBtn {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  width: 28px;
+  border-radius: 4px;
+  height: 36px;
+}
+
+.quantityInput {
+  border: none;
+  width: 25px;
+  text-align: center;
+}
+
+.ended {
+  position: absolute;
+  right: 70px;
+  bottom: 15px;
+  font-size: 12px;
+}
+
+.price {
+  width: 100%;
+  text-align: center;
+  margin-left: 25px;
+  width: 100px;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+:global(.checkout__orders-preview) {
+  .container {
+    @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+      padding: 10px;
+    }
+
+    @media (min-width: $deskMin) and (max-width: $deskMax) {
+      padding: 5px;
+    }
+  }
+
+  .delete {
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: -5px;
+    width: 30px;
+    opacity: 1;
+  }
+
+  .deleteBtn {
+    @media (min-width: $deskMin) and (max-width: $deskMax) {
+      font-size: 16px;
+    }
+  }
+
+  .image {
+    @media (min-width: $deskMin) and (max-width: $deskMax) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .nameBlock {
+    @media (min-width: $deskMin) and (max-width: $deskMax) {
+      font-size: 12px;
+      padding-left: 5px;
+    }
+  }
+
+  .name {
+    @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+      padding-right: 16px;
+    }
+    @media (min-width: $deskMin) and (max-width: $deskMax) {
+      padding-right: 10px;
+    }
+  }
+
+  .currentPrice {
+    @media (min-width: $deskMin) and (max-width: $deskMax) {
+      margin-right: 5px;
+      font-size: 12px;
+    }
+  }
+
+  .quantityBtn {
+    @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+      font-size: 22px;
+      width: 24px;
+      height: 30px;
+    }
+
+    @media (min-width: $deskMin) and (max-width: $deskMax) {
+      font-size: 16px;
+      width: 15px;
+      height: 20px;
+    }
+  }
+
+  .quantityInput {
+    @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+      font-size: 16px;
+      width: 24px;
+      height: 30px;
+    }
+
+    @media (min-width: $deskMin) and (max-width: $deskMax) {
+      font-size: 14px;
+      width: 15px;
+    }
+  }
+
+  .price {
+    @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+      margin-left: 10px;
+      width: 80px;
+    }
+
+    @media (min-width: $deskMin) and (max-width: $deskMax) {
+      margin-left: 10px;
+      font-size: 12px;
+      width: 70px;
+    }
+  }
+}

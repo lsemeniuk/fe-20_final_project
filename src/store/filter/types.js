@@ -1,0 +1,2 @@
+export const GET_FILTERS = 'GET_FILTERS';
+export const CHECKED_FILTERS = 'CHECKED_FILTERS';

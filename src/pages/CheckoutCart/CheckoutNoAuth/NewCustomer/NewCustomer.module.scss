@@ -1,0 +1,19 @@
+@import '../../../../utils/styles/var';
+
+.tabContainer {
+  padding: 30px;
+}
+
+.addComment {
+  text-align: center;
+}
+
+.comment {
+  background: none !important;
+  border: none;
+  margin: 10px 0 20px;
+  cursor: pointer;
+  &:hover {
+    color: $colorButton;
+  }
+}

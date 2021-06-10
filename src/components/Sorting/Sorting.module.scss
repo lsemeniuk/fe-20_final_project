@@ -1,0 +1,18 @@
+@import '../../utils/styles/var';
+
+.sort {
+  font-size: 14px;
+  height: 2em;
+  padding-right: 1em;
+}
+.sortField {
+  cursor: pointer;
+  padding: 3px 6px;
+  margin-left: 10px;
+  border: 2px solid $colorDark;
+  border-radius: 5px;
+  &:focus {
+    color: $colorButton;
+    border: 2px solid $colorButton;
+  }
+}

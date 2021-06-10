@@ -1,0 +1,71 @@
+@import '../../utils/styles/var';
+@import '../../utils/styles/mixins';
+
+.bgContainer {
+  background-color: $colorSecondary;
+  @extend %custom-shadow;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.menuContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.menuList {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.menuLink {
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 0;
+  margin-right: 20px;
+  white-space: nowrap;
+  &:hover {
+    text-decoration: none;
+    color: $colorButton;
+  }
+}
+
+.menuLinkActive {
+  color: $colorButton;
+  border-bottom: 2px solid $colorButton;
+}
+
+.iconList {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.iconListItem {
+  position: relative;
+  margin: 0 10px;
+}
+
+.favorites {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  top: 9px;
+  left: 7px;
+  border-radius: 15px;
+  background: #37b7fa;
+  color: #fff;
+  font-size: 10px;
+  text-align: center;
+}

@@ -1,0 +1,164 @@
+@import '../../utils/styles/var';
+
+.main {
+  padding-top: 0;
+}
+
+.brandBar {
+  margin-bottom: 30px;
+}
+
+.brandBarTytle {
+  text-align: center;
+  font-size: 20px;
+}
+
+// product section styles===========================
+
+.descriptionWrapper {
+  color: white;
+  background-color: #2bb1f9;
+  border-radius: 15px;
+  padding: 55px 100px 55px 130px;
+  // transform: translateY(-80px);
+  box-shadow: 0 40px 25px -25px #2bb1f9;
+
+  // @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+  //   padding: 45px 80px 45px 80px;
+  //   transform: translateY(-70px);
+  // }
+  // @media (min-width: $deskMin) and (max-width: $deskMax) {
+  //   padding: 30px 60px 30px 60px;
+  //   transform: translateY(-50px);
+  // }
+  // @media (min-width: $tabMin) and (max-width: $tabMax) {
+  //   padding: 20px 50px 20px 60px;
+  //   transform: translateY(-50px);
+  // }
+  // @media (max-width: $mobMax) {
+  //   padding: 5px 40px 5px 20px;
+  //   transform: translateY(-30px);
+  // }
+}
+
+.descriptionText {
+  font-size: 60px;
+
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    font-size: 50px;
+  }
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    font-size: 30px;
+  }
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 25px;
+  }
+  @media (max-width: $mobMax) {
+    font-size: 16px;
+  }
+}
+
+.descriptionImg {
+  position: absolute;
+  transform: translate(650px, -382px);
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    width: 375px;
+    transform: translate(540px, -328px);
+  }
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    width: 230px;
+    transform: translate(360px, -200px);
+  }
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    width: 190px;
+    transform: translate(300px, -170px);
+  }
+  @media (max-width: $mobMax) {
+    width: 100px;
+    transform: translate(180px, -95px);
+  }
+}
+
+// bestsellers section styles ===========================
+
+.bestsellersSection {
+  margin-top: 40px;
+}
+
+.bestsellersItems {
+  text-align: center;
+  background-color: inherit;
+  height: min-content;
+  color: #000;
+}
+
+.forWho {
+  margin-top: 200px;
+  justify-content: space-between;
+  display: flex;
+  font-size: 55px;
+  font-weight: bold;
+  @media (max-width: $deskXMax) {
+    display: none;
+  }
+}
+
+.genderSlider {
+  display: none;
+  padding-top: 150px;
+  @media (max-width: $deskXMax) {
+    display: flex;
+    background-color: inherit;
+  }
+}
+
+.newProducts {
+  margin-top: 150px;
+  text-align: center;
+  height: 250px;
+  color: #000;
+}
+
+.newProductsTitle {
+  font-size: 20px;
+}
+
+.aboutSection {
+  margin-top: 300px;
+  color: #000;
+  text-align: center;
+  padding: 0 150px;
+  margin-bottom: 100px;
+
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    padding: 0 120px;
+  }
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    padding: 0 80px;
+  }
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    padding: 0 60px;
+  }
+  @media (max-width: $mobMax) {
+    font-size: $fontSize;
+    padding: 0 40px;
+  }
+}
+
+.aboutTitle {
+  font-size: 20px;
+}
+
+.aboutText {
+  color: grey;
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.footer {
+  background-color: grey;
+  margin-top: 100px;
+  height: 250px;
+  margin-bottom: 400px;
+}

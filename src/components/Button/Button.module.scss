@@ -1,0 +1,46 @@
+@import '../../utils/styles/var';
+
+.option_btn {
+  background-color: transparent;
+  border: 1px solid black;
+  margin: 0 10px;
+}
+.button {
+  cursor: pointer;
+  padding: 0 16px;
+  height: 36px;
+  font-size: $fontSizeButton;
+  font-weight: 400;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+.examples {
+  background-color: $colorButton;
+  &:hover {
+    background-color: $colorButnHover;
+  }
+}
+.outline {
+  color: $colorButton;
+  border: 1px solid $colorButton;
+  background: #fff;
+  &:hover {
+    background-color: rgba(55, 183, 250, 0.1);
+  }
+}
+.special {
+  padding: 0 12px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 15px;
+}
+
+.order {
+  border-color: $colorTextSilver;
+  color: $colorTextSilver;
+  &:hover {
+    background-color: rgb(241, 241, 241);
+  }
+}

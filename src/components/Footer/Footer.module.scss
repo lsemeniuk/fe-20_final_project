@@ -1,0 +1,125 @@
+@import '../../utils/styles/var';
+
+.footer {
+  background-color: #2b2b31;
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 30px 0;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.column {
+  flex: 1 0 4%;
+}
+
+.columnDouble {
+  flex: 2 0 0%;
+}
+
+.colFlex {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  margin-bottom: 25px;
+}
+.copyright {
+  margin-bottom: 15px;
+}
+
+.payment {
+  margin-bottom: 20px;
+}
+
+.paymentBlock {
+  margin-top: 10px;
+}
+
+.mobileVersion {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.heading {
+  font-size: 14px;
+  // color: #000;
+  margin-bottom: 10px;
+}
+
+.menuList {
+  font-size: 13px;
+}
+
+.menuItem {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.link {
+  color: #fff;
+  cursor: pointer;
+  &:hover {
+    color: $colorButnHover;
+    border-bottom: 1px solid $colorButnHover;
+  }
+}
+
+.differentPagesList {
+  margin-bottom: 30px;
+}
+
+.social {
+  margin-top: 10px;
+}
+
+.socialLink {
+  margin: 0 10px 10px 0;
+}
+
+.socIcon:hover svg path {
+  fill: $colorButnHover;
+}
+
+.contacts {
+  padding-left: 20px;
+}
+
+.contactsColumn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons {
+  position: absolute;
+  left: -20px;
+  top: 1px;
+}
+
+.call {
+  cursor: pointer;
+}
+
+.geolocation {
+  margin-top: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.geolocationIcons {
+  position: absolute;
+  left: -22px;
+  top: calc(50% - 10px);
+}
+
+.adress {
+  word-spacing: nowrap;
+  margin-bottom: 5px;
+}

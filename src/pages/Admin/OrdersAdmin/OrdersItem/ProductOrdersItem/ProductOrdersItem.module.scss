@@ -1,0 +1,30 @@
+@import '../../../../../utils/styles/var';
+
+.productItem {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  border-bottom: 1px dashed $colorTextSilver;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.productImage {
+  margin-right: 10px;
+}
+
+.productName {
+  margin-bottom: 20px;
+  color: #000;
+  &:hover {
+    color: $colorButton;
+  }
+}
+
+.productPrice {
+  display: flex;
+  & div {
+    margin-right: 10px;
+  }
+}

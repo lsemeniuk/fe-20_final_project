@@ -1,0 +1,39 @@
+@import '../../utils/styles/var';
+
+.cont {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: $deskXMax) {
+    max-width: $deskXMax;
+  }
+
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    max-width: $deskXMin;
+  }
+
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    max-width: $deskMin;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    padding-right: 5px;
+    padding-left: 5px;
+    max-width: 900px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    padding-right: 5px;
+    padding-left: 5px;
+    max-width: 420px;
+  }
+
+  @media (max-width: $mobMin) {
+    padding-right: 5px;
+    padding-left: 5px;
+    max-width: $mobMin;
+  }
+}
