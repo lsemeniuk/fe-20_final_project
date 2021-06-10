@@ -87,7 +87,6 @@ export const adminRoutes = [
     path: ADM_CATALOG_ROUTE,
     Component: Catalog,
   },
-
   {
     name: 'Бренды',
     path: ADM_BRANDS_ROUTE,
