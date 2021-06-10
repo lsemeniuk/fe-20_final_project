@@ -1,0 +1,22 @@
+@import '../../../../../utils/styles/var';
+
+.status {
+  display: flex;
+}
+
+.iconChange {
+  margin-right: 10px;
+  cursor: pointer;
+  &:hover svg path,
+  &:hover svg polygon {
+    fill: $colorDark;
+  }
+}
+
+.statusText {
+  text-align: right;
+}
+
+.select {
+  padding: 3px 5px;
+}

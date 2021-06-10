@@ -1,0 +1,29 @@
+@import '../../../../../utils/styles/var';
+
+.bold {
+  font-weight: 700;
+}
+
+.info {
+  position: relative;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.specify {
+  font-weight: 700;
+  position: absolute;
+  top: -30px;
+  right: 5px;
+  padding: 0 5px;
+  cursor: pointer;
+  &:hover {
+    color: $colorButton;
+    border-bottom: 2px solid $colorButton;
+  }
+}
+
+.productList {
+  border: 1px solid $colorTextSilver;
+  border-radius: 5px;
+}

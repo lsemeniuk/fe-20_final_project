@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { getCustomerSelector } from '../../../store/customer/selectors';
-import { ADM_CATALOG_ROUTE, ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../../utils/consts';
+import { ADM_ORDERS_ROUTE, ORDERS_ROUTE, PERSONAL_INFO_ROUTE, WISH_LIST_ROUTE } from '../../../utils/consts';
 import styles from './UserBar.module.scss';
 import { outPutCustomerOperation } from '../../../store/customer/operations';
 
@@ -37,7 +37,7 @@ const UserBar = ({ className }) => {
         </li>
         {customer.isAdmin ? (
           <li className={styles.item}>
-            <NavLink to={ADM_CATALOG_ROUTE} className={styles.link}>
+            <NavLink to={ADM_ORDERS_ROUTE} className={styles.link}>
               Админпанель
             </NavLink>
           </li>

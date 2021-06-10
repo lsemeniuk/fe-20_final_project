@@ -20,6 +20,7 @@ import { getCatalogOperation } from '../../store/catalog/operations';
 import { wishListLoadingAction } from '../../store/wishList/actions';
 import { getProductsOperation } from '../../store/products/operations';
 import styles from './NavBar.module.scss';
+import { getColorsOperation } from '../../store/colors/operations';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ const NavBar = () => {
     dispatch(getCatalogOperation());
     dispatch(getProductsOperation());
     dispatch(wishListLoadingAction(true));
+    dispatch(getColorsOperation());
     if (isAuth) {
       dispatch(getWishListOperation());
       dispatch(updateWishListOperation(storageWishList));

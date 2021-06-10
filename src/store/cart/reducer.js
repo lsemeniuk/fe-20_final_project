@@ -1,10 +1,11 @@
-import { SET_CART, SET_LOCAL_CART, SET_CART_LOADING, SET_CART_TOTAL_PRICE } from './types';
+import { SET_CART, SET_LOCAL_CART, SET_CART_LOADING, SET_CART_TOTAL_PRICE, SET_DELIVERY_METHOD } from './types';
 
 const initialState = {
   isLoading: true,
   data: {},
   localCart: JSON.parse(localStorage.getItem('cart')),
   totalPrice: '',
+  deliveryMethod: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -20,6 +21,9 @@ const reducer = (state = initialState, action) => {
     }
     case SET_CART_TOTAL_PRICE: {
       return { ...state, totalPrice: action.payload };
+    }
+    case SET_DELIVERY_METHOD: {
+      return { ...state, deliveryMethod: action.payload };
     }
     default: {
       return state;
