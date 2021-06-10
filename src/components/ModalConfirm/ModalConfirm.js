@@ -22,13 +22,11 @@ const ModalConfirm = ({ modalOpen, setModalOpen, content, buttonTitle, action })
       modalWidth={470}
       display={modalOpen}
     >
-      <div className={styles.container}>
-        <h2 className={styles.title}>Подтверджение</h2>
-        <p className={styles.content}>{content}</p>
-        <div className={styles.buttons}>
-          <Button title={buttonTitle} onClick={() => actionModal()} />
-          <Button className={styles.cancel} title='Отмена' onClick={() => closeModal()} />
-        </div>
+      <h2 className={styles.title}>Подтверджение</h2>
+      <p className={styles.content}>{content}</p>
+      <div className={styles.buttons}>
+        <Button title={buttonTitle} onClick={() => actionModal()} />
+        <Button className={styles.cancel} title='Отмена' onClick={() => closeModal()} />
       </div>
     </Modal>
   );
