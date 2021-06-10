@@ -30,7 +30,9 @@ export const deleteComment = async (id, setRefreshReviews) => {
   const res = await $authHost.delete(`comments/${id}`).catch(err => {
     throw err.response;
   });
+
   setRefreshReviews(true);
+
   return res;
 };
 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { addComment, updateComment } from '../../../../../http/commentAPI';
-import styles from './ReviewForm.module.scss';
 import Button from '../../../../../components/Button/Button';
+import styles from './ReviewForm.module.scss';
 
 const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshReviews }) => {
   const [messageServer, setmessageServer] = useState(null);
@@ -25,7 +25,7 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshRevie
             updateComment(reviewId, values, setRefreshReviews)
               .then(res => {
                 if (res.status === 200) {
-                  setmessageServer(<span style={{ color: 'green' }}>Отзыв успешно добавлен!</span>);
+                  setmessageServer(<span style={{ color: 'green' }}>Отзыв успешно изменён!</span>);
                 }
               })
               .catch(err => {
@@ -35,7 +35,7 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshRevie
             addComment({ product: productId, ...values }, setRefreshReviews)
               .then(res => {
                 if (res.status === 200) {
-                  setmessageServer(<span style={{ color: 'green' }}>Отзыв успешно изменён!</span>);
+                  setmessageServer(<span style={{ color: 'green' }}>Отзыв успешно добавлен!</span>);
                 }
               })
               .catch(err => {
@@ -47,25 +47,28 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshRevie
           setSubmitting(false);
         }}
       >
-        <div className='page_form'>
+        <div>
           <Form>
             <div className={styles.textareaContainer}>
               <Field
                 as='textarea'
-                className={styles.textarea}
+                className={!updateReview ? styles.textarea : styles.textareaUpdate}
                 name='content'
                 placeholder='Введите Ваш отзыв'
-                rows={5}
+                rows={!updateReview ? 5 : 3}
               />
             </div>
             {updateReview ? (
-              <div>
+              <div className={styles.buttonBlock}>
                 <Button type='submit' title='Изменить' />
                 <div className={styles.redTitle}>{messageServer}</div>
               </div>
             ) : (
-              <div>
+              <div className={styles.buttonBlock}>
                 <Button type='submit' title='Добавить' />
+                <div className={styles.errorMessage}>
+                  <ErrorMessage name='content' />
+                </div>
                 <div className={styles.redTitle}>{messageServer}</div>
               </div>
             )}

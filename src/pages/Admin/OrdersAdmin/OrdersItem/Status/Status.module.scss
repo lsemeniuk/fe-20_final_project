@@ -2,9 +2,12 @@
 
 .status {
   display: flex;
+  align-items: center;
 }
 
 .iconChange {
+  display: flex;
+  align-items: center;
   margin-right: 10px;
   cursor: pointer;
   &:hover svg path,

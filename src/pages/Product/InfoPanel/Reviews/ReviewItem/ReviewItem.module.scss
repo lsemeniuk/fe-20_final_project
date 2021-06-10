@@ -1,67 +1,52 @@
-.customer {
-  font-size: 18px;
-  font-weight: 700;
-}
-.comment > * {
-  margin-bottom: 15px;
-}
+@import '../../../../../utils/styles/var';
+
 .comment {
   margin-bottom: 20px;
   border: 1px solid #999999;
   border-radius: 5px;
-  padding: 15px;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-}
-.commentText {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.up {
-  --color: #37b7fa;
-  --hover: #37b7fa;
-}
-
-.slide {
-  --color: #000;
-  --hover: #fafa64;
-}
-.up:hover,
-.up:focus {
-  box-shadow: inset 0 -3.25em 0 0 var(--hover);
-}
-
-.slide:hover,
-.slide:focus {
-  box-shadow: inset 8.8em 0 0 0 var(--hover);
-}
-.up,
-.slide {
-  background: none;
-  font: inherit;
-  border-radius: 3px;
-  padding: 0.5em 1em;
-  transition: 0.35s;
-  font-size: 12px;
-  color: var(--color);
-}
-.up {
-  border: 2px solid #37b7fa;
-}
-.slide {
-  border: 2px solid #fafa64;
-  margin-left: 20px;
+  padding: 15px 0;
+  position: relative;
 }
 
 .name__date {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 15px 5px;
 }
+
+.customer {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.lineDate {
+  display: flex;
+  align-items: center;
+}
+
 .date {
   font-size: 12px;
+}
+
+.iconsContainer {
+  display: flex;
+  margin-left: 20px;
+}
+
+.icon {
+  margin-left: 20px;
+  cursor: pointer;
+  &:hover svg path,
+  &:hover svg polygon {
+    fill: $colorButnHover;
+  }
+}
+
+.commentContent {
+  padding: 10px 15px;
+}
+.commentText {
+  margin-top: 5px;
 }

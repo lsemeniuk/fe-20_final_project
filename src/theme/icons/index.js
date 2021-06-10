@@ -19,5 +19,6 @@ export { okay } from './okay';
 export { no } from './no';
 export { clock } from './clock';
 export { сhevron } from './сhevron';
-export { change } from './change';
 export { commas } from './commas';
+export { edit } from './edit';
+export { deleteIcon } from './deleteIcon';
