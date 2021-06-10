@@ -1,0 +1,41 @@
+.container {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  right: 75%;
+  text-align: right;
+  font-size: 14px;
+  padding-right: 10px;
+}
+
+.checkbox {
+  width: 75%;
+  border: 1px solid #acacac;
+  border-radius: 4px;
+  vertical-align: middle;
+  transition: border-color 0.1s;
+  padding: 6px 8px;
+  font-size: 16px;
+  height: 36px;
+  & option {
+    font-size: 14px;
+  }
+}
+
+.error {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 14px;
+  color: red;
+}

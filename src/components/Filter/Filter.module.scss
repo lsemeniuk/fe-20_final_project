@@ -1,0 +1,31 @@
+@import '../../utils/styles/var';
+
+.container {
+  padding: 20px;
+  border-bottom: 1px solid $colorLineSilver;
+}
+
+.item {
+  font-size: 14px;
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.categoriesLink {
+  color: #000000;
+  padding: 3px 10px;
+  border-radius: 5px;
+  &:hover {
+    color: $colorButnHover;
+  }
+}
+
+.categoriesLinkActive {
+  color: #ffffff;
+  background-color: $colorButton;
+  &:hover {
+    color: #fff;
+  }
+}
