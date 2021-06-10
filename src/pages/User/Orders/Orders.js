@@ -7,7 +7,13 @@ const Orders = () => {
   const [orders, setOrders] = useState();
 
   useEffect(() => {
-    getCustomerOrders().then(res => setOrders(res.data));
+    getCustomerOrders().then(res => {
+      if (res.data.length === 0) {
+        setOrders(null);
+      } else {
+        setOrders(res.data);
+      }
+    });
   }, []);
 
   const ordersWrapper = orders ? (

@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Order.module.scss';
 import { PRODUCT_ROUTE } from '../../../../utils/consts';
+import { getDate } from '../../../../utils/func';
 
 const Order = order => {
   const [active, setActive] = useState('');
@@ -22,6 +23,18 @@ const Order = order => {
     // eslint-disable-next-line react/destructuring-assignment
   } = order.order;
 
+  let statusElement = null;
+
+  if (status === 'specified') {
+    statusElement = <p style={{ color: '#FF0000' }}>Уточняется</p>;
+  } else if (status === 'processed') {
+    statusElement = <p style={{ color: '#FF8C00' }}>Обрабатывается</p>;
+  } else if (status === 'send') {
+    statusElement = <p style={{ color: '#0000FF' }}>Отправлен</p>;
+  } else if (status === 'completed') {
+    statusElement = <p style={{ color: '#008000' }}>Выполнен</p>;
+  }
+
   const openDescription = () => {
     setActive(active === '' ? 'active' : '');
     setHeight(active === 'active' ? '0px' : `${content.current.scrollHeight}px`);
@@ -31,7 +44,9 @@ const Order = order => {
     const { product } = i;
     return (
       <div className={styles.productItem}>
-        <img src={product.imageUrls[0].smallImage} width={100} alt='' />
+        <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`} className={styles.productLink}>
+          <img src={product.imageUrls[0].smallImage} width={100} alt='' />
+        </NavLink>
         <div>
           <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`} className={styles.productLink}>
             {product.name}
@@ -45,6 +60,7 @@ const Order = order => {
 
   return (
     <div className={`${styles.orderWrapper} ${active}`} onClick={openDescription}>
+      {console.log(order)}
       <div className={styles.orderHeader}>
         <div>Заказ №{orderNo}</div>
         <div>{totalSum} грн</div>
@@ -56,7 +72,7 @@ const Order = order => {
           })}
         </div>
         <div>
-          <span className={styles.date}>Дата заказа: {date}</span>
+          <span className={styles.date}>Дата заказа: {getDate(date)}</span>
         </div>
       </div>
 
@@ -65,33 +81,53 @@ const Order = order => {
 
         <div className={styles.userDataTable}>
           <div className={styles.tableRow}>
-            <p className={styles.tableRowTitle}>Status</p>
-            <p>{status}</p>
+            <p className={styles.tableRowTitle}>Статус</p>
+            {statusElement}
           </div>
           <div className={styles.tableRow}>
-            <p className={styles.tableRowTitle}>Name surname</p>
+            <p className={styles.tableRowTitle}>Имя и фамилия</p>
             <p>
               {firstName} {lastName}
             </p>
           </div>
           <div className={styles.tableRow}>
-            <p className={styles.tableRowTitle}>Email</p>
+            <p className={styles.tableRowTitle}>Почта</p>
             <p>{email}</p>
           </div>
           <div className={styles.tableRow}>
-            <p className={styles.tableRowTitle}>Phone number</p>
+            <p className={styles.tableRowTitle}>Номер телефона</p>
             <p>{mobile}</p>
           </div>
           <div className={styles.tableRow}>
-            <p className={styles.tableRowTitle}>Shipping methods</p>
-            <p>{deliveryAddress.delivery}</p>
+            <p className={styles.tableRowTitle}>Город</p>
+            {deliveryAddress.city ? <p>{deliveryAddress.city}</p> : <p style={{ color: 'red' }}>Город не указан</p>}
           </div>
           <div className={styles.tableRow}>
-            <p className={styles.tableRowTitle}>Address</p>
-            <p>{deliveryAddress.city}</p>
+            <p className={styles.tableRowTitle}>Область</p>
+            {deliveryAddress.region ? (
+              <p>{deliveryAddress.region}</p>
+            ) : (
+              <p style={{ color: 'red' }}>Область не указана</p>
+            )}
           </div>
           <div className={styles.tableRow}>
-            <p className={styles.tableRowTitle}>Payment methods</p>
+            <p className={styles.tableRowTitle}>Адрес</p>
+            {deliveryAddress.address ? (
+              <p>{deliveryAddress.address}</p>
+            ) : (
+              <p style={{ color: 'red' }}>Адрес не указан</p>
+            )}
+          </div>
+          <div className={styles.tableRow}>
+            <p className={styles.tableRowTitle}>Способ доставки</p>
+            {deliveryAddress.delivery ? (
+              <p>{deliveryAddress.delivery}</p>
+            ) : (
+              <p style={{ color: 'red' }}>Способ доставки не указан</p>
+            )}
+          </div>
+          <div className={styles.tableRow}>
+            <p className={styles.tableRowTitle}>Способ оплаты</p>
             <p>{paymentInfo}</p>
           </div>
         </div>
