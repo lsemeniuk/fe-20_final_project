@@ -39,3 +39,9 @@
   border: 1px solid $colorTextSilver;
   border-radius: 5px;
 }
+
+.orderDescription {
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s ease all;
+}
