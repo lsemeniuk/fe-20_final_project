@@ -75,8 +75,6 @@ const DeliveryDataInputs = () => {
 
   return (
     <div>
-      <h3 className='checkout__title'>Доставка</h3>
-
       <MySelect
         label='Область'
         name='region'
@@ -124,7 +122,6 @@ const DeliveryDataInputs = () => {
       {deliveryMethod === 'Курьером по Киеву' && (
         <MyTextInput label='Адрес' name='address' type='text' placeholder='Введите адрес доставки' tabIndex='-1' />
       )}
-      <hr />
     </div>
   );
 };

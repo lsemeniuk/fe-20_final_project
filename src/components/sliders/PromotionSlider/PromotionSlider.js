@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
+import { getSlides } from '../../../http/slidesAPI';
 import { PRODUCTS_ROUTE } from '../../../utils/consts';
 import styles from './PromotionSlider.module.scss';
 
@@ -17,14 +17,14 @@ const PromotionSlider = () => {
   };
 
   useEffect(() => {
-    axios.get('../../slider.json').then(res => setSliders([...res.data]));
+    getSlides().then(res => setSliders(res.data));
   }, []);
 
   const slidersList = sliders.map(s => {
     return (
       <div className={styles.itemContainer} key={s.customId}>
         <li style={{ background: s.backgroundColor }} className={styles.sliderItem}>
-          <NavLink to={PRODUCTS_ROUTE} className={styles.link}>
+          <NavLink to={`${PRODUCTS_ROUTE}/all`} className={styles.link}>
             <img className={styles.sliderImage} alt={s.customId} src={s.imageUrl} />
           </NavLink>
         </li>

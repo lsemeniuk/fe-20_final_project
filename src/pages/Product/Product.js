@@ -4,12 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import Loader from '../../components/Loader/Loader';
 import { getOneProductOperation } from '../../store/products/operations';
-import {
-  getOneProductSelector,
-  getProductsSelector,
-  oneProductLoadingSelector,
-  productsLoadingSelector,
-} from '../../store/products/selectors';
+import { getOneProductSelector, oneProductLoadingSelector } from '../../store/products/selectors';
 import ProductImages from './ProductImages/ProductImages';
 import Availability from './Availability/Availability';
 import ProductColors from './ProductColors/ProductColors';
@@ -27,8 +22,6 @@ const Product = () => {
   const interestedRef = useRef(null);
 
   const dispatch = useDispatch();
-  const products = useSelector(getProductsSelector);
-  const productsLoading = useSelector(productsLoadingSelector);
 
   const product = useSelector(getOneProductSelector);
   const productLoading = useSelector(oneProductLoadingSelector);
@@ -98,11 +91,9 @@ const Product = () => {
           <InfoPanel product={product} setTabIndex={setTabIndexInfo} tabIndex={tabIndexInfo} />
         </div>
 
-        {!productsLoading && (
-          <div ref={interestedRef} className={styles.interestedProduct}>
-            <CustomSlider title='Также Вас могут заинтересовать' products={products} />
-          </div>
-        )}
+        <div ref={interestedRef} className={styles.interestedProduct}>
+          <CustomSlider title='Также Вас могут заинтересовать' filter={{ brand: product.brand }} />
+        </div>
       </Container>
     </main>
   );

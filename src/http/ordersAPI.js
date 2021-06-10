@@ -5,7 +5,7 @@ import { $authHost } from './index';
 // @access  Private
 export const placeOrder = async values => {
   const res = await $authHost.post('orders', values).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -13,9 +13,9 @@ export const placeOrder = async values => {
 // @route   PUT /orders/:id
 // @desc    Update order
 // @access  Private
-export const updateOrder = async id => {
-  const res = await $authHost.put(`orders/${id}`).catch(err => {
-    throw err;
+export const updateOrder = async (id, value) => {
+  const res = await $authHost.put(`orders/${id}`, value).catch(err => {
+    throw err.response;
   });
   return res;
 };
@@ -25,7 +25,17 @@ export const updateOrder = async id => {
 // @access  Private
 export const cancelOrder = async id => {
   const res = await $authHost.put(`orders/cancel/${id}`).catch(err => {
-    throw err;
+    throw err.response;
+  });
+  return res;
+};
+
+// @route   PUT /orders/status/:id
+// @desc    Cancel order
+// @access  Private
+export const changeStatusOrders = async (id, value) => {
+  const res = await $authHost.put(`orders/status/${id}`, value).catch(err => {
+    throw err.response;
   });
   return res;
 };
@@ -35,7 +45,7 @@ export const cancelOrder = async id => {
 // @access  Private
 export const deleteOrder = async id => {
   const res = await $authHost.delete(`orders/${id}`).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -43,9 +53,21 @@ export const deleteOrder = async id => {
 // @route   GET /orders
 // @desc    Get all orders
 // @access  Private
-export const getAllOrders = async () => {
+export const getCustomerOrders = async () => {
   const res = await $authHost.get('orders').catch(err => {
-    throw err;
+    throw err.response;
+  });
+  return res;
+};
+
+// @route   GET /orders
+// @desc    Get all orders
+// @access  Private
+export const getAllOrders = async (values, status) => {
+  const paginatonStr = new URLSearchParams(values).toString();
+
+  const res = await $authHost.get(`orders/all?${paginatonStr}`, status).catch(err => {
+    throw err.response;
   });
   return res;
 };
@@ -55,7 +77,7 @@ export const getAllOrders = async () => {
 // @access  Private
 export const getOrderByNo = async orderNo => {
   const res = await $authHost.get(`orders/${orderNo}`).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };

@@ -25,10 +25,10 @@ const Footer = () => {
             <div className={styles.colFlex}>
               <div className={styles.logo}>
                 {location.pathname === '/' ? (
-                  <Logo />
+                  <Logo white />
                 ) : (
                   <NavLink to={INDEX_ROUTE}>
-                    <Logo />
+                    <Logo white />
                   </NavLink>
                 )}
               </div>

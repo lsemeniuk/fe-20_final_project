@@ -7,7 +7,7 @@ import schema from '../schema';
 import CatalogInputs from '../CatalogInputs/CatalogInputs';
 
 const AddCategoryForm = () => {
-  const [messageServer, setmessageServer] = useState(null);
+  const [messageServer, setMessageServer] = useState(null);
 
   return (
     <>
@@ -25,11 +25,11 @@ const AddCategoryForm = () => {
           addCategory(values)
             .then(res => {
               if (res.status === 200) {
-                setmessageServer(<span style={{ color: 'green' }}>Категория успешно добавлена!</span>);
+                setMessageServer(<span style={{ color: 'green' }}>Категория успешно добавлена!</span>);
               }
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              setMessageServer(<span>{Object.values(err.data).join('')}</span>);
             });
           setSubmitting(false);
         }}

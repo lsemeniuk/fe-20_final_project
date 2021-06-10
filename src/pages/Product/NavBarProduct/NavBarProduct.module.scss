@@ -45,12 +45,13 @@
 }
 
 .buttons {
+  font-size: 16px;
   margin-right: 15px;
-
+  height: 32px;
   @media (min-width: $deskMin) and (max-width: $deskMax) {
     margin-right: 5px;
     padding: 0 10px;
-    font-size: 16px;
+    height: 30px;
   }
 }
 
