@@ -53,7 +53,6 @@ const CustomSlider = ({ title, filter }) => {
   }
 
   const productsList = products.map(product => <ProductCard inSlider key={product.itemNo} product={product} />);
-  console.log('🚀 ~ file: CustomSlider.js ~ line 56 ~ CustomSlider ~ productsList', productsList);
 
   return (
     <div>

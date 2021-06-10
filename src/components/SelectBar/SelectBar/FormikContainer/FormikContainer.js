@@ -21,20 +21,13 @@ function FormikContainer({ classes }) {
   const [max] = useState(50000);
   const [downPrice, setDownPrice] = useState(min);
   const [upPrice, setUpPrice] = useState(max);
-  // const history = useHistory();
   const productFilters = useSelector(getProductsFilterSelector);
-  console.log('🚀 ~ file: FormikContainer.js ~ line 26 ~ FormikContainer ~ productFilters', productFilters);
-  // const categories = useSelector(getCategoriesSelector);
   const categoriesLoading = useSelector(categoriesLoadingSelector);
   const filters = useSelector(getFiltersSelector);
 
   useEffect(() => {
     dispatch(getFiltersOperation());
   }, [dispatch]);
-
-  // const filterProductByBrand = brand => {
-  //   dispatch(getProductsFilterOperation({ history, ...productFilters, brand }));
-  // };
 
   if (filters === undefined) {
     return <Loader />;
@@ -68,7 +61,7 @@ function FormikContainer({ classes }) {
         })}
         onSubmit={(value, { setSubmitting }) => {
           /* eslint no-console: 0 */
-          console.log(value);
+          // console.log(value);
           dispatch(saveFiltersOperation({ productFilters, value }));
           setSubmitting(true);
         }}
