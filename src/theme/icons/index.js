@@ -22,4 +22,3 @@ export { сhevron } from './сhevron';
 export { commas } from './commas';
 export { edit } from './edit';
 export { deleteIcon } from './deleteIcon';
-export { change } from './change';

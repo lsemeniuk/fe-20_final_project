@@ -59,7 +59,7 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshRevie
               />
             </div>
             {updateReview ? (
-              <div>
+              <div className={styles.buttonBlock}>
                 <Button type='submit' title='Изменить' />
                 <div className={styles.redTitle}>{messageServer}</div>
               </div>

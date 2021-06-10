@@ -1,9 +1,8 @@
-/* eslint-disable dot-notation */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../Modal/Modal';
-import styles from './QuickOrder.module.scss';
 import QuickOrderForm from '../QuickOrderForm/QuickOrderForm';
+import styles from './QuickOrder.module.scss';
 
 const QuickOrder = ({ product, quickOrderOpen, setQuickOrderOpen }) => {
   return (

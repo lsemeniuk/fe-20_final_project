@@ -1,36 +1,52 @@
-.customer {
-  font-size: 18px;
-  font-weight: 700;
-}
-.comment > * {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
+@import '../../../../../utils/styles/var';
+
 .comment {
   margin-bottom: 20px;
   border: 1px solid #999999;
   border-radius: 5px;
-  padding: 15px;
-}
-.iconsContainer {
-  width: 80px;
-  display: flex;
-  justify-content: space-between;
-}
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.commentText {
-  margin-top: 5px;
+  padding: 15px 0;
+  position: relative;
 }
 
 .name__date {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 15px 5px;
 }
+
+.customer {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.lineDate {
+  display: flex;
+  align-items: center;
+}
+
 .date {
   font-size: 12px;
+}
+
+.iconsContainer {
+  display: flex;
+  margin-left: 20px;
+}
+
+.icon {
+  margin-left: 20px;
+  cursor: pointer;
+  &:hover svg path,
+  &:hover svg polygon {
+    fill: $colorButnHover;
+  }
+}
+
+.commentContent {
+  padding: 10px 15px;
+}
+.commentText {
+  margin-top: 5px;
 }
