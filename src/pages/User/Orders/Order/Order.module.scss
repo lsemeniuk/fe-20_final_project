@@ -1,0 +1,85 @@
+.orderWrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.orderDetails {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.orderDescription {
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s ease all;
+}
+
+.date {
+  color: grey;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.userDataTable {
+  width: 50%;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.tableRowTitle{
+  color: grey;
+}
+
+.productName {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.productPreview {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.productItem {
+  display: flex;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.totalPrice {
+  font-weight: bold;
+}
+
+.productLink{
+  color: #000;
+  &:hover {
+    color: #2bb1f9;
+  }
+}
+
+.buttonWrapper {
+  margin-top: 10px;
+}
+
+.productDescription {
+  margin-left: 10px;
+}
