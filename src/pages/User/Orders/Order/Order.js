@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import styles from './Order.module.scss';
 import { PRODUCT_ROUTE } from '../../../../utils/consts';
 import { getDate } from '../../../../utils/func';
+import Button from '../../../../components/Button/Button';
 
 const Order = order => {
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState(false);
   const [height, setHeight] = useState('0px');
   const content = useRef(null);
   const {
@@ -36,8 +37,8 @@ const Order = order => {
   }
 
   const openDescription = () => {
-    setActive(active === '' ? 'active' : '');
-    setHeight(active === 'active' ? '0px' : `${content.current.scrollHeight}px`);
+    setActive(!active);
+    setHeight(active ? '0px' : `${content.current.scrollHeight}px`);
   };
 
   const orderedProducts = products.map(i => {
@@ -47,7 +48,7 @@ const Order = order => {
         <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`} className={styles.productLink}>
           <img src={product.imageUrls[0].smallImage} width={100} alt='' />
         </NavLink>
-        <div>
+        <div className={styles.productDescription}>
           <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`} className={styles.productLink}>
             {product.name}
           </NavLink>
@@ -59,8 +60,7 @@ const Order = order => {
   });
 
   return (
-    <div className={`${styles.orderWrapper} ${active}`} onClick={openDescription}>
-      {console.log(order)}
+    <div className={`${styles.orderWrapper} ${active}`}>
       <div className={styles.orderHeader}>
         <div>Заказ №{orderNo}</div>
         <div>{totalSum} грн</div>
@@ -73,6 +73,9 @@ const Order = order => {
         </div>
         <div>
           <span className={styles.date}>Дата заказа: {getDate(date)}</span>
+        </div>
+        <div className={styles.buttonWrapper}>
+          <Button onClick={openDescription} variant='outline' title='Детальная информация' />
         </div>
       </div>
 
