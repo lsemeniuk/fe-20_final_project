@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './Order.module.scss';
 import { PRODUCT_ROUTE } from '../../../../utils/consts';
 import { getDate } from '../../../../utils/func';
 import Button from '../../../../components/Button/Button';
+import styles from './Order.module.scss';
 
 const Order = order => {
   const [active, setActive] = useState(false);
@@ -43,8 +43,9 @@ const Order = order => {
 
   const orderedProducts = products.map(i => {
     const { product } = i;
+    const { _id: id } = product;
     return (
-      <div className={styles.productItem}>
+      <div key={id} className={styles.productItem}>
         <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`} className={styles.productLink}>
           <img src={product.imageUrls[0].smallImage} width={100} alt='' />
         </NavLink>
@@ -68,7 +69,12 @@ const Order = order => {
       <div className={styles.orderDetails}>
         <div>
           {products.map(product => {
-            return <p className={styles.productName}>{product.product.name}</p>;
+            const { _id: id } = product;
+            return (
+              <p key={id} className={styles.productName}>
+                {product.product.name}
+              </p>
+            );
           })}
         </div>
         <div>

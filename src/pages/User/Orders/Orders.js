@@ -16,9 +16,13 @@ const Orders = () => {
     });
   }, []);
 
-  const ordersWrapper = orders ? (
+  const ordersList = orders ? (
     orders.map(order => {
-      return <Order order={order} />;
+      return (
+        <li key={order.orderNo}>
+          <Order order={order} />
+        </li>
+      );
     })
   ) : (
     <div>У вас пока нет заказов</div>
@@ -30,7 +34,7 @@ const Orders = () => {
         <h2>Заказы</h2>
       </div>
 
-      <div>{ordersWrapper}</div>
+      <ul>{ordersList}</ul>
     </ContainerPage>
   );
 };
