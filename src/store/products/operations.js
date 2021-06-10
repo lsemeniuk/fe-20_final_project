@@ -33,6 +33,7 @@ export const getProductsFilterOperation = ({ history, ...filters }) => dispatch 
   const { categories, perPage, startPage, sort, ...Currentfilters } = filters;
   const currentUrlParams = new URLSearchParams(Currentfilters);
   history.push(`${history.location.pathname}?${currentUrlParams}`);
+  console.log('🚀 ~ file: operations.js ~ line 38 ~ getProductsFilterParams ~ filters', filters);
 
   getProductsFilterParams(filters).then(res => {
     dispatch(saveProductsFilteredAction(res.data.products));

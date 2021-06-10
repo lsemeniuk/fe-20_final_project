@@ -9,13 +9,16 @@ import { addProductToCartOperation } from '../../store/cart/operations';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { cartTotalPriceAction, saveLocalCartAction } from '../../store/cart/actions';
 import { calculateTotalPrice } from '../../utils/func';
+import QuickOrder from '../QuickOrder/QuickOrder';
 
-const AddToCartButton = ({ id, className, orderButton, currentPrice }) => {
+const AddToCartButton = ({ product, id, className, orderButton, currentPrice }) => {
+  const [quickOrderOpen, setQuickOrderOpen] = useState(false);
+  const [isCart, setIsCart] = useState(false);
+
   const dispatch = useDispatch();
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const cartLoading = useSelector(cartLoadingSelector);
   const cart = useSelector(getCartSelector);
-  const [isCart, setIsCart] = useState(false);
   const localCart = useSelector(getLocalCartSelector);
 
   let idCartList = [];
@@ -67,12 +70,19 @@ const AddToCartButton = ({ id, className, orderButton, currentPrice }) => {
       ) : (
         <Button onClick={addToCart} title='Купить' className={className} />
       )}
-      {orderButton && <Button variant='order' title='Быстрый заказ' className={className} />}
+      {orderButton && (
+        <Button variant='order' title='Быстрый заказ' className={className} onClick={() => setQuickOrderOpen(true)} />
+      )}
+
+      {quickOrderOpen && (
+        <QuickOrder product={product} quickOrderOpen={quickOrderOpen} setQuickOrderOpen={setQuickOrderOpen} />
+      )}
     </>
   );
 };
 
 AddToCartButton.propTypes = {
+  product: PropTypes.object.isRequired,
   id: PropTypes.string.isRequired,
   className: PropTypes.string,
   orderButton: PropTypes.bool,
