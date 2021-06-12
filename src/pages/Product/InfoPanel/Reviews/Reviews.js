@@ -26,7 +26,9 @@ const Reviews = ({ productId }) => {
   const commentsList = reviews.map(review => (
     <ReviewItem key={review.content} review={review} productId={productId} setRefreshReviews={setRefreshReviews} />
   ));
+
   if (reviewsLoading) return <Loader />;
+
   return (
     <>
       {isAuth ? (
