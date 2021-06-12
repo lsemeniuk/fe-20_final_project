@@ -10,6 +10,8 @@ const PromotionSlider = () => {
   const sliderSettings = {
     dots: true,
     infinite: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
     speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
