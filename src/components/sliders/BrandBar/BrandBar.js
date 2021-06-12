@@ -37,7 +37,7 @@ const BrandBar = () => {
 
   const filterProductByBrand = brand => {
     if (!history.location.pathname.includes('products')) {
-      history.push(`${PRODUCTS_ROUTE}/all`);
+      history.push(PRODUCTS_ROUTE);
     }
     dispatch(getProductsFilterOperation({ history, ...productFilters, brand }));
   };

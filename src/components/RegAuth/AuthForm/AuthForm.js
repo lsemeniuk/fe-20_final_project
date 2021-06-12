@@ -13,10 +13,7 @@ const AuthForm = ({ setmessageServer }) => {
 
   const validationSchema = Yup.object({
     loginOrEmail: Yup.string().email('Неверный адрес email').required('Укажите email'),
-    password: Yup.string()
-      .min(7, 'Это шликом маленький пароль')
-      .max(20, 'Такой пароль невозможно запомнить')
-      .required('Необходимо ввести пароль'),
+    password: Yup.string().required('Необходимо ввести пароль'),
   });
 
   return (

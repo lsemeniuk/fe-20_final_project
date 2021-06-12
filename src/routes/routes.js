@@ -1,7 +1,6 @@
 import {
   INDEX_ROUTE,
   WISH_LIST_ROUTE,
-  PRODUCTS_ROUTE,
   CHECKOUT_ROUTE,
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
@@ -14,7 +13,6 @@ import {
   ADM_ORDERS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
-import Products from '../pages/Products/Products';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
 import Page404 from '../pages/Page404/Page404';
 import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
@@ -35,11 +33,6 @@ export const publicRoutes = [
   {
     path: `${PRODUCT_ROUTE}/:id`,
     Component: Product,
-  },
-  {
-    name: 'Товары',
-    path: `${PRODUCTS_ROUTE}/:categories`,
-    Component: Products,
   },
   {
     name: 'Оформить заказ',
