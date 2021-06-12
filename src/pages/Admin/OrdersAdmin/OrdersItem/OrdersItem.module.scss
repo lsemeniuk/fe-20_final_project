@@ -26,8 +26,12 @@
 }
 
 .infoOrderBtn {
-  cursor: pointer;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & div {
+    cursor: pointer;
+  }
 }
 
 .info {
@@ -38,10 +42,4 @@
 .productList {
   border: 1px solid $colorTextSilver;
   border-radius: 5px;
-}
-
-.orderDescription {
-  height: 0;
-  overflow: hidden;
-  transition: 0.5s ease all;
 }

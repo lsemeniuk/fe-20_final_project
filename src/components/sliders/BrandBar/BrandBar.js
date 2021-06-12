@@ -6,6 +6,7 @@ import { getBrandsOperation } from '../../../store/brands/operations';
 import { brandsLoadingSelector, getBrandsSelector } from '../../../store/brands/selectors';
 import { getProductsFilterOperation } from '../../../store/products/operations';
 import { getProductsFilterSelector } from '../../../store/products/selectors';
+import { PRODUCTS_ROUTE } from '../../../utils/consts';
 import Loader from '../../Loader/Loader';
 import styles from './BrandBar.module.scss';
 
@@ -35,6 +36,9 @@ const BrandBar = () => {
   };
 
   const filterProductByBrand = brand => {
+    if (!history.location.pathname.includes('products')) {
+      history.push(`${PRODUCTS_ROUTE}/all`);
+    }
     dispatch(getProductsFilterOperation({ history, ...productFilters, brand }));
   };
 
@@ -71,17 +75,19 @@ const BrandBar = () => {
       ) : (
         <ul>
           <Slider className={styles.slider} {...sliderSettings}>
-            <div
-              key='all'
-              className={
-                search.includes('brand') ? styles.itemContainer : `${styles.itemContainer} ${styles.itemActive}`
-              }
-              onClick={() => filterProductAllBrand()}
-            >
-              <li className={styles.item}>
-                <div className={styles.name}>Все бренды</div>
-              </li>
-            </div>
+            {history.location.pathname.includes('products') && (
+              <div
+                key='all'
+                className={
+                  search.includes('brand') ? styles.itemContainer : `${styles.itemContainer} ${styles.itemActive}`
+                }
+                onClick={() => filterProductAllBrand()}
+              >
+                <li className={styles.item}>
+                  <div className={styles.name}>Все бренды</div>
+                </li>
+              </div>
+            )}
 
             {brandsList}
           </Slider>
