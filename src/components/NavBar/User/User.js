@@ -38,8 +38,7 @@ const User = () => {
           {Icon}
         </div>
       )}
-
-      {isAuth ? <UserBar className={styles.userBar} /> : null}
+      {isAuth && <UserBar className={styles.userBar} />}
     </div>
   );
 };
