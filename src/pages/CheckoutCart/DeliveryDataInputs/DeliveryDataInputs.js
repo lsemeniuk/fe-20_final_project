@@ -60,13 +60,19 @@ const DeliveryDataInputs = () => {
     );
   });
 
-  const citiesOptions = cities.map(city => {
-    return (
-      <option key={city.DescriptionRu} value={city.DescriptionRu}>
-        {city.DescriptionRu}
-      </option>
-    );
-  });
+  console.log(cities);
+
+  const citiesOptions = cities.length ? (
+    cities.map(city => {
+      return (
+        <option key={city.DescriptionRu} value={city.DescriptionRu}>
+          {city.DescriptionRu}
+        </option>
+      );
+    })
+  ) : (
+    <option disabled>Данные по области не получены</option>
+  );
 
   const departmentOptions = department.map(dep => {
     return (
