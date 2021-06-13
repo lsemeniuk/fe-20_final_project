@@ -8,6 +8,7 @@ import { deliveryMethodSelector } from '../../../store/cart/selectors';
 
 const DeliveryDataInputs = () => {
   const [regions, setRegions] = useState([]);
+  const [isRegionSelected, setIsRegionSelected] = useState(false);
   const [cities, setCities] = useState([]);
   const [department, setDepartment] = useState([]);
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const DeliveryDataInputs = () => {
   }, []);
 
   const getCities = region => {
+    setIsRegionSelected(true);
     if (region !== '') {
       const regionRef = regions.filter(r => {
         if (r.DescriptionRu === region) {
@@ -34,10 +36,10 @@ const DeliveryDataInputs = () => {
     }
   };
 
-  const getDepartment = citie => {
-    if (citie !== '') {
+  const getDepartment = city => {
+    if (city !== '') {
       const citieRef = cities.filter(c => {
-        if (c.DescriptionRu === citie) {
+        if (c.DescriptionRu === city) {
           return c.Ref;
         }
         return null;
@@ -83,11 +85,14 @@ const DeliveryDataInputs = () => {
         }}
         tabIndex='0'
       >
-        <option value=''>Выберите область доставки</option>
+        <option hidden value=''>
+          Выберите область доставки
+        </option>
         {regionOptions}
       </MySelect>
 
       <MySelect
+        disabled={!isRegionSelected}
         label='Город'
         name='city'
         onClick={e => {
@@ -95,7 +100,9 @@ const DeliveryDataInputs = () => {
         }}
         tabIndex='0'
       >
-        <option value=''>Выберите город доставки</option>
+        <option hidden value=''>
+          Выберите город доставки
+        </option>
         {citieOptions}
       </MySelect>
 
