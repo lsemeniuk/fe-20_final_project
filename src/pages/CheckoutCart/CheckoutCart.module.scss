@@ -1,4 +1,5 @@
 @import '../../theme/styles/mixins';
+@import '../../theme/styles/var';
 
 .pageContainer {
   display: grid;
@@ -15,7 +16,7 @@
   padding: 20px;
   @extend %custom-shadow;
   @extend %custom-border;
-  background-color: #fff;
+  background-color: $colorWhite;
 }
 :global(.checkout__title) {
   font-size: 20px;

@@ -16,7 +16,7 @@ ul {
 }
 main {
   padding: 30px 0;
-  background-color: $bgColor;
+  background-color: $colorGhostWhite;
 }
 body.lock {
   overflow: hidden;
@@ -92,9 +92,9 @@ body.lock {
     }
   }
   &:hover {
-    color: $colorButton;
+    color: $colorCyan;
   }
 }
 .react-tabs__tab--selected {
-  color: $colorButton;
+  color: $colorCyan;
 }

@@ -1,7 +1,9 @@
+@import '../../theme/styles/var';
+
 .modalFade {
   box-sizing: border-box;
   content: '';
-  background: rgba(0, 0, 0, 0.3);
+  background: $colorBlackBackground;
   position: fixed;
   left: 0;
   top: 0;
@@ -17,7 +19,7 @@
 }
 
 .modal {
-  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 35px $colorBlackBackground;
   position: relative;
   top: 5%;
   left: 50%;
@@ -25,7 +27,7 @@
   margin-bottom: 20px;
   border-radius: 5px;
   z-index: 1999;
-  background-color: #ffffff;
+  background-color: $colorWhite;
 
   &__close {
     cursor: pointer;
@@ -34,11 +36,13 @@
     top: -10px;
     font-size: 30px;
   }
+
   &__body {
     padding: 15px 0 15px;
     font-size: 16px;
   }
 }
+
 .close {
   position: absolute;
   z-index: 2999;
@@ -47,13 +51,16 @@
   cursor: pointer;
   font-size: 40px;
   font-weight: 400;
-  color: #5a5a5a;
+  color: $colorDimGray;
+
   &:hover {
-    color: #181818;
+    color: $colorDarkLight;
   }
+
   &::before {
     content: '\00D7';
   }
+
   &::after {
     content: '';
     top: 5px;

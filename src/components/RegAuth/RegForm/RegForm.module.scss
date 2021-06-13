@@ -1,5 +1,7 @@
+@import '../../../theme/styles/var';
+
 .messageServer {
-  color: red;
+  color: $colorRedPigment;
   margin-bottom: 20px;
   text-align: right;
 }
@@ -8,6 +10,7 @@
   display: flex;
   justify-content: flex-end;
 }
+
 .widthCont {
   width: 75%;
 }

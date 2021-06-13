@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  border-bottom: solid 1px #a7a7a7;
+  border-bottom: solid 1px $colorSilverChalice;
   padding: 15px;
   position: relative;
 
@@ -44,7 +44,7 @@
   font-size: 20px;
 
   &:hover {
-    color: $colorButnHover;
+    color: $colorCyanLight;
   }
 }
 
@@ -60,10 +60,10 @@
   font-weight: 400;
   margin: 0 0 5px;
   padding-right: 20px;
-  color: #000000;
+  color: $colorBlack;
 
   &:hover {
-    color: $colorButnHover;
+    color: $colorCyanLight;
   }
 }
 
@@ -76,7 +76,7 @@
 
 .currentPrice {
   margin-right: 20px;
-  color: $colorSale;
+  color: $colorRedPigment;
   font-weight: 700;
   font-size: 14px;
 }
@@ -84,11 +84,11 @@
 .previousPrice {
   font-size: 12px;
   text-decoration: line-through;
-  color: #6d6d6d;
+  color: $colorDimGray;
 }
 
 .regularPrice {
-  color: $colorNew;
+  color: $colorRoyalBlue;
   font-weight: 700;
   font-size: 14px;
 }
@@ -96,12 +96,12 @@
 // Quantity
 .quantityBlock {
   display: flex;
-  border: 1px solid #a7a7a7;
+  border: 1px solid $colorSpanishGray;
   border-radius: 4px;
 }
 
 .quantityBtn {
-  background-color: #fff;
+  background-color: $colorWhite;
   border: none;
   cursor: pointer;
   font-size: 24px;

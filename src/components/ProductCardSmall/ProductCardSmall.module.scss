@@ -3,9 +3,11 @@
 .container {
   width: 130px;
 }
+
 .header {
   cursor: pointer;
 }
+
 .title {
   font-size: 12px;
   line-height: 1.4;
@@ -14,17 +16,20 @@
   margin: 5px 0 5px;
   height: 50px;
   overflow: hidden;
-  color: #000000;
+  color: $colorBlack;
+
   &:hover {
-    color: $colorButnHover;
+    color: $colorCyanLight;
   }
 }
+
 .price {
   font-size: 12px;
   display: block;
   margin: 0 auto;
   text-align: center;
 }
+
 .button {
   text-align: center;
   margin: 10px auto 0;

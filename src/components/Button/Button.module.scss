@@ -2,9 +2,10 @@
 
 .option_btn {
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid $colorBlack;
   margin: 0 10px;
 }
+
 .button {
   cursor: pointer;
   padding: 0 16px;
@@ -12,24 +13,29 @@
   font-size: $fontSizeButton;
   font-weight: 400;
   border: none;
-  color: white;
+  color: $colorWhite;
   border-radius: 4px;
   transition: all 0.15s;
 }
+
 .examples {
-  background-color: $colorButton;
+  background-color: $colorCyan;
+
   &:hover {
-    background-color: $colorButnHover;
+    background-color: $colorCyanLight;
   }
 }
+
 .outline {
-  color: $colorButton;
-  border: 1px solid $colorButton;
-  background: #fff;
+  color: $colorCyan;
+  border: 1px solid $colorCyan;
+  background: $colorWhite;
+
   &:hover {
-    background-color: rgba(55, 183, 250, 0.1);
+    background-color: $colorSkyLight;
   }
 }
+
 .special {
   padding: 0 12px;
   height: 26px;
@@ -38,9 +44,10 @@
 }
 
 .order {
-  border-color: $colorTextSilver;
-  color: $colorTextSilver;
+  border-color: $colorSpanishGray;
+  color: $colorSpanishGray;
+
   &:hover {
-    background-color: rgb(241, 241, 241);
+    background-color: $colorAntiFlashWhite;
   }
 }

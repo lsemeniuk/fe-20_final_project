@@ -5,11 +5,12 @@
   @extend %custom-shadow;
   @extend %custom-border;
   margin-bottom: 10px;
-  background-color: #fff;
+  background-color: $colorWhite;
 }
 
 .slider {
   list-style: none;
+
   & button {
     top: 50%;
   }
@@ -18,14 +19,11 @@
 .itemContainer {
   cursor: pointer;
   padding: 15px 0;
-  border-right: 1px solid #d6d6d6;
-  border-left: 1px solid #d6d6d6;
-  border-top: 1px solid #d6d6d6;
-  border-bottom: 1px solid #d6d6d6;
+  border: 1px solid $colorLightGray;
 }
 
 .itemActive {
-  border-color: $colorButnHover;
+  border-color: $colorCyanLight;
   box-shadow: 0px 0px 20px -6px rgba(71, 200, 255, 0.21) inset;
 }
 

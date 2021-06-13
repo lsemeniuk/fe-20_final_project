@@ -4,43 +4,49 @@
   position: absolute;
   margin-top: 10px;
   padding: 8px 0 4px;
-  background-color: #ffffff;
+  background-color: $colorWhite;
   border-radius: 4px;
-  box-shadow: 0 3px 35px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 35px $colorBlackBackground;
   z-index: 1000;
   left: -200%;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
+
   &::before {
     content: '';
     position: absolute; /* Абсолютное позиционирование */
     right: calc(50% - 5px);
     top: -20px; /* Положение треугольника */
     border: 10px solid transparent; /* Прозрачные границы */
-    border-bottom: 10px solid #ffffff;
+    border-bottom: 10px solid $colorWhite;
   }
 }
+
 .item {
   width: 100%;
   border: 0;
+
   &:nth-last-child(2) a {
     padding-bottom: 10px;
   }
+
   &:last-child span {
     padding-top: 10px;
-    border-top: 1px solid #d6d6d6;
+    border-top: 1px solid $colorLightGray;
   }
 }
+
 .link {
   display: inline-block;
   width: 100%;
-  color: #000;
+  color: $colorBlack;
   padding: 6px 25px;
   font-size: 13px;
   white-space: nowrap;
   cursor: pointer;
+
   &:hover {
-    color: $colorButton;
+    color: $colorCyan;
   }
 }

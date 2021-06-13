@@ -2,7 +2,7 @@
 
 .container {
   padding: 20px;
-  border-bottom: 1px solid $colorLineSilver;
+  border-bottom: 1px solid $colorLightGray;
 }
 
 .item {
@@ -14,18 +14,18 @@
 }
 
 .categoriesLink {
-  color: #000000;
+  color: $colorBlack;
   padding: 3px 10px;
   border-radius: 5px;
   &:hover {
-    color: $colorButnHover;
+    color: $colorCyanLight;
   }
 }
 
 .categoriesLinkActive {
-  color: #ffffff;
-  background-color: $colorButton;
+  color: $colorWhite;
+  background-color: $colorCyan;
   &:hover {
-    color: #fff;
+    color: $colorWhite;
   }
 }

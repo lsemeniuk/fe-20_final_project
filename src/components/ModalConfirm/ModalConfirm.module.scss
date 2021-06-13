@@ -18,8 +18,9 @@
 }
 
 .cancel {
-  background-color: $colorButtonRed;
+  background-color: $colorRedPigment;
+
   &:hover {
-    background-color: #ff0000;
+    background-color: $colorTomato;
   }
 }

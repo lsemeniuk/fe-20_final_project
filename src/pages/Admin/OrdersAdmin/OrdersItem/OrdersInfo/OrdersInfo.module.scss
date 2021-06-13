@@ -18,12 +18,12 @@
   padding: 0 5px;
   cursor: pointer;
   &:hover {
-    color: $colorButton;
-    border-bottom: 2px solid $colorButton;
+    color: $colorCyan;
+    border-bottom: 2px solid $colorCyan;
   }
 }
 
 .productList {
-  border: 1px solid $colorTextSilver;
+  border: 1px solid $colorSpanishGray;
   border-radius: 5px;
 }

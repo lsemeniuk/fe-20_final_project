@@ -4,20 +4,22 @@
 .breadCrumbs {
   display: flex;
   align-items: center;
-  color: #868686;
+  color: $colorDimGray;
   font-size: 11px;
   margin-bottom: 10px;
 }
 
 .crumbsLink {
-  color: #868686;
+  color: $colorDimGray;
+
   &:hover {
-    color: $colorButnHover;
+    color: $colorCyanLight;
   }
 }
 
 .iconBreadcrumbs {
   padding: 0 3px;
+
   &::before {
     content: '\203A';
     font-size: 20px;
@@ -38,18 +40,19 @@
 .flexContainer {
   @extend %custom-shadow;
   @extend %custom-border;
-  background-color: #fff;
+  background-color: $colorWhite;
   display: flex;
   justify-content: space-between;
 }
 
 .flexColumn {
   padding: 10px;
-  // background-color: rosybrown;
   flex: 1 1 50%;
+
   &:first-child {
     margin-right: 10px;
   }
+
   &:last-child {
     margin-left: 10px;
   }

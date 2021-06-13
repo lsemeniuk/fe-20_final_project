@@ -2,7 +2,7 @@
 
 .tabContainer {
   padding: 0 30px 20px;
-  border: 1px solid #a7a7a7;
+  border: 1px solid $colorSilverChalice;
   border-radius: 5px;
   position: relative;
 }
@@ -16,7 +16,7 @@
   margin: 10px 0 20px;
   cursor: pointer;
   &:hover {
-    color: $colorButton;
+    color: $colorCyan;
   }
 }
 
@@ -38,7 +38,7 @@
 
 .textarea {
   width: 75%;
-  border: 1px solid #acacac;
+  border: 1px solid $colorSilverChalice;
   border-radius: 4px;
   vertical-align: middle;
   transition: border-color 0.1s;

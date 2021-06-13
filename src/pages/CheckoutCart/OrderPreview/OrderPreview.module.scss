@@ -1,14 +1,15 @@
 @import '../../../theme/styles/mixins';
+@import '../../../theme/styles/var';
 
 .container {
   @extend %custom-shadow;
   @extend %custom-border;
-  background-color: #fff;
+  background-color: $colorWhite;
   padding: 20px;
 }
 
 .previewContant {
-  border: 1px solid #a7a7a7;
+  border: 1px solid $colorSpanishGray;
   border-radius: 5px;
 }
 
@@ -37,6 +38,6 @@
   font-size: 18px;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-top: 1px solid #a7a7a7;
+  border-top: 1px solid $colorSpanishGray;
   font-weight: 700;
 }

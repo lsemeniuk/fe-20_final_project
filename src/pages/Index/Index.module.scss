@@ -16,12 +16,12 @@
 // product section styles===========================
 
 .descriptionWrapper {
-  color: white;
-  background-color: #2bb1f9;
+  color: $colorWhite;
+  background-color: $colorCyan;
   border-radius: 15px;
   padding: 55px 100px 55px 130px;
   // transform: translateY(-80px);
-  box-shadow: 0 40px 25px -25px #2bb1f9;
+  box-shadow: 0 40px 25px -25px $colorCyan;
 
   // @media (min-width: $deskXMin) and (max-width: $deskXMax) {
   //   padding: 45px 80px 45px 80px;
@@ -89,7 +89,7 @@
   text-align: center;
   background-color: inherit;
   height: min-content;
-  color: #000;
+  color: $colorBlack;
 }
 
 .forWho {
@@ -116,7 +116,7 @@
   margin-top: 150px;
   text-align: center;
   height: 250px;
-  color: #000;
+  color: $colorBlack;
 }
 
 .newProductsTitle {
@@ -125,7 +125,7 @@
 
 .aboutSection {
   margin-top: 300px;
-  color: #000;
+  color: $colorBlack;
   text-align: center;
   padding: 0 150px;
   margin-bottom: 100px;
@@ -150,14 +150,14 @@
 }
 
 .aboutText {
-  color: grey;
+  color: $colorDimGray;
   margin-top: 10px;
   font-size: 16px;
   line-height: 22px;
 }
 
 .footer {
-  background-color: grey;
+  background-color: $colorDimGray;
   margin-top: 100px;
   height: 250px;
   margin-bottom: 400px;
