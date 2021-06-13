@@ -115,7 +115,9 @@ const DeliveryDataInputs = () => {
         }}
         tabIndex='0'
       >
-        <option value=''>Выберите способ доставки</option>
+        <option hidden value=''>
+          Выберите способ доставки
+        </option>
         <option value='Самовывоз из магазина'>Самовывоз из магазина</option>
         <option value='Новой почтой'>Новой почтой</option>
         <option value='Курьером по Киеву'>Курьером по Киеву</option>
