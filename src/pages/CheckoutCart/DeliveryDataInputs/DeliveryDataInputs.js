@@ -60,8 +60,6 @@ const DeliveryDataInputs = () => {
     );
   });
 
-  console.log(cities);
-
   const citiesOptions = cities.length ? (
     cities.map(city => {
       return (
