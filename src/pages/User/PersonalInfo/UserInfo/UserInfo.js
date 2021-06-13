@@ -34,7 +34,7 @@ const UserInfo = () => {
       .max(10, 'Это слишком большой логин')
       .required('Укажите Ваш логин'),
     email: Yup.string().email('Неверный адрес email').required('Укажите email'),
-    telephone: Yup.string().matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Некоректный номер телефона'),
+    telephone: Yup.string().matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Некорректный номер телефона'),
     birthdate: Yup.string(),
     city: Yup.string(),
     gender: Yup.string().matches(/(Мужчина|Женщина)/, 'Определитесь кто вы, Мужчина либо Женщина'),
