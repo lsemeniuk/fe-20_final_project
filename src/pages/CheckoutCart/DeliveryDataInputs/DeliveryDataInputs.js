@@ -22,6 +22,7 @@ const DeliveryDataInputs = () => {
 
   const getCities = region => {
     setIsRegionSelected(true);
+
     if (region !== '') {
       const regionRef = regions.filter(r => {
         if (r.DescriptionRu === region) {
@@ -59,10 +60,10 @@ const DeliveryDataInputs = () => {
     );
   });
 
-  const citieOptions = cities.map(cit => {
+  const citiesOptions = cities.map(city => {
     return (
-      <option key={cit.DescriptionRu} value={cit.DescriptionRu}>
-        {cit.DescriptionRu}
+      <option key={city.DescriptionRu} value={city.DescriptionRu}>
+        {city.DescriptionRu}
       </option>
     );
   });
@@ -103,7 +104,7 @@ const DeliveryDataInputs = () => {
         <option hidden value=''>
           Выберите город доставки
         </option>
-        {citieOptions}
+        {citiesOptions}
       </MySelect>
 
       <MySelect
