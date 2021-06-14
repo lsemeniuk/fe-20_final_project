@@ -9,6 +9,7 @@ import { PERSONAL_INFO_ROUTE, ORDERS_ROUTE, WISH_LIST_ROUTE } from '../utils/con
 import { getCustomerIsAuthSelector, getCustomerIsLoadingSelector } from '../store/customer/selectors';
 import Loader from '../components/Loader/Loader';
 import Page404 from '../pages/Page404/Page404';
+import styles from './UserRoutes.module.scss';
 
 const links = [
   { url: PERSONAL_INFO_ROUTE, description: 'Личные данные' },
@@ -19,6 +20,7 @@ const links = [
 const UserRoutes = () => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const customerIsLoading = useSelector(getCustomerIsLoadingSelector);
+  const aside = true;
 
   if (!isAuth) {
     return <>{customerIsLoading ? <Loader /> : <Page404 />}</>;
@@ -27,8 +29,8 @@ const UserRoutes = () => {
   return (
     <main>
       <Container>
-        <div>
-          <AsideBar links={links} aside={true} />
+        <div className={styles.container__aside_user}>
+          <AsideBar links={links} aside={aside} />
           <Switch>
             {userRoutes.map(({ path, Component }) => (
               <Route key={path} path={path} component={Component} exact />

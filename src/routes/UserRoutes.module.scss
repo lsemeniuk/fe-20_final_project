@@ -1,0 +1,8 @@
+@import '../theme/styles/var';
+.container__aside_user {
+  display: flex;
+  justify-content: space-between;
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: block;
+  }
+}
