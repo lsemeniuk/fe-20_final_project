@@ -32,3 +32,18 @@
     padding: 1% 2% 1% 2%;
   }
 }
+
+.container__aside_user {
+  width: 280px;
+  padding: 20px;
+  margin-right: 10px;
+  @extend %custom-shadow;
+  @extend %custom-border;
+  min-height: 10%;
+  max-height: 50%;
+  background-color: $colorWhite;
+  padding: 0 0 30% 0;
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: none;
+  }
+}

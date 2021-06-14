@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import ContainerAside from '../ContainerAside/ContainerAside';
 import styles from './AsideBar.module.scss';
 
-const AsideBar = ({ links }) => {
+const AsideBar = ({ links, aside }) => {
   const list = links.map(link => {
     return (
       <li key={link.url} className={styles.item}>
@@ -15,7 +15,7 @@ const AsideBar = ({ links }) => {
     );
   });
   return (
-    <ContainerAside>
+    <ContainerAside aside={aside}>
       <nav className={styles.nav}>
         <ul>{list}</ul>
       </nav>
@@ -25,6 +25,7 @@ const AsideBar = ({ links }) => {
 
 AsideBar.propTypes = {
   links: PropTypes.arrayOf(PropTypes.object).isRequired,
+  aside: PropTypes.string.isRequired,
 };
 
 export default AsideBar;

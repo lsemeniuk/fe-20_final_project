@@ -11,10 +11,10 @@
   line-height: 27px;
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
-    max-width: $mobMax;
+    max-width: 100%;
   }
 
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-    max-width: $tabMax;
+    max-width: 100%;
   }
 }

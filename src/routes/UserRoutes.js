@@ -27,8 +27,8 @@ const UserRoutes = () => {
   return (
     <main>
       <Container>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <AsideBar links={links} />
+        <div>
+          <AsideBar links={links} aside={true} />
           <Switch>
             {userRoutes.map(({ path, Component }) => (
               <Route key={path} path={path} component={Component} exact />
