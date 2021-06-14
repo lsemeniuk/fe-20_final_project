@@ -10,3 +10,19 @@
 .icon {
   cursor: pointer;
 }
+
+.circle {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.initials {
+  font-weight: 600;
+  font-size: 15px;
+}
