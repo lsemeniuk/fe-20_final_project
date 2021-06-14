@@ -8,6 +8,7 @@ import { deliveryMethodSelector } from '../../../store/cart/selectors';
 
 const DeliveryDataInputs = () => {
   const [regions, setRegions] = useState([]);
+  const [isRegionSelected, setIsRegionSelected] = useState(false);
   const [cities, setCities] = useState([]);
   const [department, setDepartment] = useState([]);
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ const DeliveryDataInputs = () => {
   }, []);
 
   const getCities = region => {
+    setIsRegionSelected(true);
+
     if (region !== '') {
       const regionRef = regions.filter(r => {
         if (r.DescriptionRu === region) {
@@ -34,10 +37,10 @@ const DeliveryDataInputs = () => {
     }
   };
 
-  const getDepartment = citie => {
-    if (citie !== '') {
+  const getDepartment = city => {
+    if (city !== '') {
       const citieRef = cities.filter(c => {
-        if (c.DescriptionRu === citie) {
+        if (c.DescriptionRu === city) {
           return c.Ref;
         }
         return null;
@@ -57,13 +60,17 @@ const DeliveryDataInputs = () => {
     );
   });
 
-  const citieOptions = cities.map(cit => {
-    return (
-      <option key={cit.DescriptionRu} value={cit.DescriptionRu}>
-        {cit.DescriptionRu}
-      </option>
-    );
-  });
+  const citiesOptions = cities.length ? (
+    cities.map(city => {
+      return (
+        <option key={city.DescriptionRu} value={city.DescriptionRu}>
+          {city.DescriptionRu}
+        </option>
+      );
+    })
+  ) : (
+    <option disabled>Данные по области не получены</option>
+  );
 
   const departmentOptions = department.map(dep => {
     return (
@@ -83,11 +90,14 @@ const DeliveryDataInputs = () => {
         }}
         tabIndex='0'
       >
-        <option value=''>Выберите область доставки</option>
+        <option hidden value=''>
+          Выберите область доставки
+        </option>
         {regionOptions}
       </MySelect>
 
       <MySelect
+        disabled={!isRegionSelected}
         label='Город'
         name='city'
         onClick={e => {
@@ -95,8 +105,10 @@ const DeliveryDataInputs = () => {
         }}
         tabIndex='0'
       >
-        <option value=''>Выберите город доставки</option>
-        {citieOptions}
+        <option hidden value=''>
+          Выберите город доставки
+        </option>
+        {citiesOptions}
       </MySelect>
 
       <MySelect
@@ -107,7 +119,9 @@ const DeliveryDataInputs = () => {
         }}
         tabIndex='0'
       >
-        <option value=''>Выберите способ доставки</option>
+        <option hidden value=''>
+          Выберите способ доставки
+        </option>
         <option value='Самовывоз из магазина'>Самовывоз из магазина</option>
         <option value='Новой почтой'>Новой почтой</option>
         <option value='Курьером по Киеву'>Курьером по Киеву</option>
