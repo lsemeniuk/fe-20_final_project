@@ -25,7 +25,7 @@ const AsideBar = ({ links, aside }) => {
 
 AsideBar.propTypes = {
   links: PropTypes.arrayOf(PropTypes.object).isRequired,
-  aside: PropTypes.string.isRequired,
+  aside: PropTypes.bool.isRequired,
 };
 
 export default AsideBar;

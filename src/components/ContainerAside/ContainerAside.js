@@ -22,11 +22,12 @@ const ContainerAside = ({ children, style, aside }) => {
 ContainerAside.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
   style: PropTypes.object,
-  aside: PropTypes.string.isRequired,
+  aside: PropTypes.bool,
 };
 
 ContainerAside.defaultProps = {
   style: {},
+  aside: false,
 };
 
 export default ContainerAside;
