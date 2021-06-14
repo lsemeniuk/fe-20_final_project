@@ -11,8 +11,40 @@
 
 .flexContainer {
   display: flex;
+
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
+}
+.mobile {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
 }
 
+.mobile ul li:not(:first-child) {
+  margin-top: 25px;
+  font-size: 22px;
+
+  @media screen and (max-width: 470px) {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+}
+.contact__info {
+  text-decoration: none;
+  color:#fff;
+}
+.phones {
+  font-size: 26px;
+  @media screen and (max-width: 470px) {
+    font-size: 20px;
+  }
+}
 .column {
   flex: 1 0 4%;
 }

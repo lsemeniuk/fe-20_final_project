@@ -177,6 +177,18 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <div className={styles.mobile}>
+          <ul>
+            <li className={styles.phones}>044 123 32 21 &nbsp; 044 987 65 42</li>
+            <li>
+              <NavLink to='/pages/contact-info' className={styles.contact__info}>
+                Контактная информация
+              </NavLink>
+            </li>
+            <li>Вот такой мобильный футер</li>
+            <li>Информация ссылка</li>
+          </ul>
+        </div>
       </Container>
     </div>
   );
