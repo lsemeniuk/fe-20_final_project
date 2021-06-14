@@ -8,7 +8,7 @@
   border-radius: 4px;
   box-shadow: 0 3px 35px $colorBlackBackground;
   z-index: 1000;
-  left: -130%;
+  left: -200%;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
@@ -17,7 +17,7 @@
     content: '';
     position: absolute; /* Абсолютное позиционирование */
     right: calc(50% - 5px);
-    top: -18px; /* Положение треугольника */
+    top: -20px; /* Положение треугольника */
     border: 10px solid transparent; /* Прозрачные границы */
     border-bottom: 10px solid $colorWhite;
   }
