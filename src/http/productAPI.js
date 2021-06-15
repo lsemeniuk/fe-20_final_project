@@ -71,3 +71,13 @@ export const getProductById = async itemNo => {
   });
   return res;
 };
+
+// @route   GET /products/color
+// @desc    GET existing product by color
+// @access  Public
+export const getProductByColor = async value => {
+  const res = await $host.post('products/color', value).catch(err => {
+    throw err.response;
+  });
+  return res;
+};
