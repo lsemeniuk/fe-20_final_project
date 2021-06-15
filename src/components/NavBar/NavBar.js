@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { INDEX_ROUTE, WISH_LIST_ROUTE, CUSTOMER_WISH_LIST_ROUTE } from '../../utils/consts';
@@ -21,6 +21,7 @@ import { wishListLoadingAction } from '../../store/wishList/actions';
 import { getProductsOperation } from '../../store/products/operations';
 import styles from './NavBar.module.scss';
 import { getColorsOperation } from '../../store/colors/operations';
+import SlideOutNav from '../SlideOutNav/SlideOutNav';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,8 @@ const NavBar = () => {
   const wishListLoading = useSelector(wishListLoadingSelector);
   const location = useLocation();
   const localCart = JSON.parse(localStorage.getItem('cart'));
-
+  const [isOpen, setisOpen] = useState(false);
+  const toggleNav = () => setisOpen(!isOpen);
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
 
   let favorites = 0;
@@ -87,7 +89,11 @@ const NavBar = () => {
             </div>
             <div className={styles.menuContainer}>
               <ul className={styles.menuList}>
-                <CategoriesList className={styles.menuLink} activeClassName={styles.menuLinkActive} />
+                <CategoriesList
+                  className={styles.menuLink}
+                  activeClassName={styles.menuLinkActive}
+                  toggleNav={toggleNav}
+                />
               </ul>
               <ul className={styles.iconList}>
                 <li key='wishList'>
@@ -108,7 +114,7 @@ const NavBar = () => {
                 </li>
               </ul>
             </div>
-            <div className={styles.burger}>
+            <div className={styles.burger} onClick={toggleNav}>
               <span>
                 <Icons type='burger' filled />
               </span>
@@ -116,6 +122,7 @@ const NavBar = () => {
           </div>
         </nav>
         {!isAuth && modalAuthReg && <RegAuth />}
+        <SlideOutNav toggleNav={toggleNav} isOpen={isOpen} />
       </Container>
     </div>
   );

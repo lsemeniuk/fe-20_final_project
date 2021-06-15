@@ -23,3 +23,4 @@ export { commas } from './commas';
 export { edit } from './edit';
 export { deleteIcon } from './deleteIcon';
 export { burger } from './burger';
+export { close } from './close';
