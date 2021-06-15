@@ -108,6 +108,11 @@ const NavBar = () => {
                 </li>
               </ul>
             </div>
+            <div className={styles.burger}>
+              <span>
+                <Icons type='burger' filled />
+              </span>
+            </div>
           </div>
         </nav>
         {!isAuth && modalAuthReg && <RegAuth />}
