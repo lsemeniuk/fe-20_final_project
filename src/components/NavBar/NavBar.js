@@ -89,11 +89,7 @@ const NavBar = () => {
             </div>
             <div className={styles.menuContainer}>
               <ul className={styles.menuList}>
-                <CategoriesList
-                  className={styles.menuLink}
-                  activeClassName={styles.menuLinkActive}
-                  toggleNav={toggleNav}
-                />
+                <CategoriesList className={styles.menuLink} activeClassName={styles.menuLinkActive} />
               </ul>
               <ul className={styles.iconList}>
                 <li key='wishList'>
@@ -122,7 +118,7 @@ const NavBar = () => {
           </div>
         </nav>
         {!isAuth && modalAuthReg && <RegAuth />}
-        <SlideOutNav toggleNav={toggleNav} isOpen={isOpen} />
+        <SlideOutNav toggleNav={toggleNav} isOpen={isOpen} favorites={favorites} modalHandler={authRegHandler} />
       </Container>
     </div>
   );
