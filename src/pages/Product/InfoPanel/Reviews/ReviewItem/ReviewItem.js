@@ -56,7 +56,6 @@ const ReviewItem = ({ review, setRefreshReviews, productId }) => {
         </div>
         {openConfirmModal && (
           <ModalConfirm
-            modalOpen={openConfirmModal}
             setModalOpen={setOpenConfirmModal}
             content='Вы действительно хотите удалить комментарий?'
             buttonTitle='Удалить'

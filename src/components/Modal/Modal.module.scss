@@ -22,7 +22,7 @@
   box-shadow: 0 5px 35px $colorBlackBackground;
   position: relative;
   top: 5%;
-  left: 50%;
+  left: calc(50% - 9px);
   padding: 30px;
   margin-bottom: 20px;
   border-radius: 5px;

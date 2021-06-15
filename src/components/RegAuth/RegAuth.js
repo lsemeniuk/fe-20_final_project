@@ -30,7 +30,6 @@ const RegAuth = () => {
         dispatch(saveModalAuthRegAction(!modalAuthReg));
       }}
       modalWidth={570}
-      display={modalAuthReg}
     >
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
         <TabList>

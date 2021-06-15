@@ -6,7 +6,7 @@ import styles from './ImageGalery.module.scss';
 import { replace } from '../../utils/func';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 
-const ImageGalery = ({ product, buttonHandler, display, initialSlide }) => {
+const ImageGalery = ({ product, buttonHandler, initialSlide }) => {
   const { _id: id, currentPrice } = product;
 
   const sliderSettings = {
@@ -27,7 +27,7 @@ const ImageGalery = ({ product, buttonHandler, display, initialSlide }) => {
   });
 
   return (
-    <Modal buttonHandler={buttonHandler} display={display} modalWidth={window.innerWidth - 400}>
+    <Modal buttonHandler={buttonHandler} modalWidth={window.innerWidth - 400}>
       <h2 className={styles.title}>
         Фотографии {product.name}, {product.color}
       </h2>
@@ -55,7 +55,6 @@ const ImageGalery = ({ product, buttonHandler, display, initialSlide }) => {
 ImageGalery.propTypes = {
   product: PropTypes.object.isRequired,
   buttonHandler: PropTypes.func.isRequired,
-  display: PropTypes.bool.isRequired,
   initialSlide: PropTypes.number.isRequired,
 };
 

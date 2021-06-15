@@ -11,7 +11,6 @@ const QuickOrder = ({ product, quickOrderOpen, setQuickOrderOpen }) => {
         setQuickOrderOpen(!quickOrderOpen);
       }}
       modalWidth={570}
-      display={quickOrderOpen}
     >
       <h2 className={styles.title}>Быстрый заказ</h2>
       <QuickOrderForm product={product} setQuickOrderOpen={setQuickOrderOpen} />

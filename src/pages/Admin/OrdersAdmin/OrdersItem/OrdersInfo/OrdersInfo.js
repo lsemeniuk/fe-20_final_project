@@ -11,7 +11,11 @@ const OrdersInfo = ({ order }) => {
   const { email, mobile, paymentInfo, deliveryAddress, totalSum, comment, products, status, _id: id } = orderState;
 
   const productList = products.map(p => {
-    return <ProductOrdersItem product={p} />;
+    return (
+      <li key={p.product.itemNo}>
+        <ProductOrdersItem product={p} />
+      </li>
+    );
   });
 
   return (
@@ -61,7 +65,7 @@ const OrdersInfo = ({ order }) => {
       </div>
       <div>
         Заказ:{` `}
-        <div className={styles.productList}>{productList}</div>
+        <ul className={styles.productList}>{productList}</ul>
       </div>
     </div>
   );
