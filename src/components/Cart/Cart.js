@@ -12,7 +12,7 @@ import CartList from '../CartList/CartList';
 import { replace } from '../../utils/func';
 import styles from './Cart.module.scss';
 
-const Cart = ({ buttonHandler, display }) => {
+const Cart = ({ buttonHandler }) => {
   const modalCart = useSelector(getModalCartSelector);
   const totalPrice = replace(useSelector(cartTotalPriceSelector));
 
@@ -21,7 +21,7 @@ const Cart = ({ buttonHandler, display }) => {
   }
 
   return (
-    <Modal buttonHandler={buttonHandler} display={display}>
+    <Modal buttonHandler={buttonHandler}>
       <h2 className={styles.title}>Корзина</h2>
       <div className={styles.header}>
         <div className={styles.headerQuantity}>Количество</div>
@@ -56,7 +56,6 @@ const Cart = ({ buttonHandler, display }) => {
 
 Cart.propTypes = {
   buttonHandler: PropTypes.func.isRequired,
-  display: PropTypes.bool.isRequired,
 };
 
 export default Cart;
