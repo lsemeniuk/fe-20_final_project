@@ -31,7 +31,7 @@ const InfoPanel = ({ product, setTabIndex, tabIndex }) => {
           </div>
         </TabPanel>
         <TabPanel>
-          <div>
+          <div className={styles.tab}>
             <Reviews productId={id} />
           </div>
         </TabPanel>

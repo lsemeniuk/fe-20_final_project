@@ -91,7 +91,7 @@ const ProductImages = ({ product }) => {
 
       {galeryOpen && (
         <div className={styles.galeryContainer}>
-          <ImageGalery buttonHandler={modalHandler} display={galeryOpen} product={product} initialSlide={activePhoto} />
+          <ImageGalery buttonHandler={modalHandler} product={product} initialSlide={activePhoto} />
         </div>
       )}
     </>

@@ -1,10 +1,10 @@
-@import '../../../utils/styles/var';
-@import '../../../utils/styles/mixins';
+@import '../../../theme/styles/var';
+@import '../../../theme/styles/mixins';
 
 .container {
   @extend %custom-shadow;
   @extend %custom-border;
-  background-color: #fff;
+  background-color: $colorWhite;
 }
 
 .container {
@@ -19,7 +19,7 @@
       border: none;
     }
     .react-tabs__tab--selected {
-      border-bottom: 2px solid $colorButton;
+      border-bottom: 2px solid $colorCyan;
     }
     .react-tabs__tab-panel {
       border: none;

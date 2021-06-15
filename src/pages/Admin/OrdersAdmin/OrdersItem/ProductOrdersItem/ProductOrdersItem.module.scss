@@ -1,10 +1,10 @@
-@import '../../../../../utils/styles/var';
+@import '../../../../../theme/styles/var';
 
 .productItem {
   display: flex;
   align-items: center;
   margin: 10px 0;
-  border-bottom: 1px dashed $colorTextSilver;
+  border-bottom: 1px dashed $colorSpanishGray;
   &:last-child {
     border-bottom: none;
   }
@@ -18,7 +18,7 @@
   margin-bottom: 20px;
   color: #000;
   &:hover {
-    color: $colorButton;
+    color: $colorCyan;
   }
 }
 

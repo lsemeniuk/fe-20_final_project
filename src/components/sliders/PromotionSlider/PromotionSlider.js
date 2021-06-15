@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
+import { getSlides } from '../../../http/slidesAPI';
 import { PRODUCTS_ROUTE } from '../../../utils/consts';
 import styles from './PromotionSlider.module.scss';
 
@@ -17,7 +17,7 @@ const PromotionSlider = () => {
   };
 
   useEffect(() => {
-    axios.get('../../slider.json').then(res => setSliders([...res.data]));
+    getSlides().then(res => setSliders(res.data));
   }, []);
 
   const slidersList = sliders.map(s => {

@@ -1,7 +1,7 @@
 import {
   INDEX_ROUTE,
   WISH_LIST_ROUTE,
-  PRODUCTS_ROUTE,
+  RESET_PASSWORD,
   CHECKOUT_ROUTE,
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
@@ -17,7 +17,6 @@ import {
   ADM_ORDERS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
-import Products from '../pages/Products/Products';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
 import Page404 from '../pages/Page404/Page404';
 import PersonalInfo from '../pages/User/PersonalInfo/PersonalInfo';
@@ -31,6 +30,7 @@ import Colors from '../pages/Admin/Colors/Colors';
 import Filters from '../pages/Admin/Filters/Filters';
 import Comments from '../pages/Admin/Comment/Comments';
 import Sliders from '../pages/Admin/Slider/Sliders';
+import ResetPassword from '../pages/ResetPassword/ResetPassword';
 
 export const publicRoutes = [
   {
@@ -39,13 +39,9 @@ export const publicRoutes = [
     Component: Index,
   },
   {
+    name: 'Продукт',
     path: `${PRODUCT_ROUTE}/:id`,
     Component: Product,
-  },
-  {
-    name: 'Товары',
-    path: `${PRODUCTS_ROUTE}/:categories`,
-    Component: Products,
   },
   {
     name: 'Оформить заказ',
@@ -56,6 +52,11 @@ export const publicRoutes = [
     name: 'Список желаний',
     path: CUSTOMER_WISH_LIST_ROUTE,
     Component: WishList,
+  },
+  {
+    name: 'Список желаний',
+    path: `${RESET_PASSWORD}/:token`,
+    Component: ResetPassword,
   },
   {
     name: 'Страницы не существует',

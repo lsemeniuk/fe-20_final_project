@@ -26,7 +26,7 @@ const QuickOrderForm = ({ product, setQuickOrderOpen }) => {
       .required('Укажите Вашу фамилию'),
     mobile: Yup.string()
       .min(13, 'Слишком маленький')
-      .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Некоректный номер телефона'),
+      .matches(/^\+380\d{3}\d{2}\d{2}\d{2}$/, 'Некорректный номер телефона'),
     email: Yup.string().email('Неверный адрес email').required('Укажите email'),
   });
 

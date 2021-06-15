@@ -1,4 +1,4 @@
-@import '../../../utils/styles/var';
+@import '../../../theme/styles/var';
 
 .container {
   position: -webkit-sticky;
@@ -9,6 +9,7 @@
   align-items: flex-start;
   z-index: 200;
 }
+
 .imageItem {
   position: relative;
   cursor: pointer;
@@ -18,8 +19,8 @@
   height: 90px;
   padding: auto;
   margin: 0 10px 10px 0;
-  background-color: #fff;
-  border: 2px solid #fff;
+  background-color: $colorWhite;
+  border: 2px solid $colorWhite;
   border-radius: 5px;
 }
 
@@ -34,7 +35,7 @@
 }
 
 .imageMinActive {
-  border-color: $colorButton;
+  border-color: $colorCyan;
 }
 
 .imageContainer {

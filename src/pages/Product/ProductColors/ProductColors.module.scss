@@ -1,20 +1,20 @@
-@import '../../../utils/styles/var';
+@import '../../../theme/styles/var';
 
 .container {
   margin-bottom: 40px;
   padding: 10px 15px;
-  border: 1px solid $colorLineSilver;
+  border: 1px solid $colorLightGray;
   border-radius: 5px;
 }
 
 .text {
   font-size: 14px;
-  color: $colorTextSilver;
+  color: $colorSpanishGray;
   margin-bottom: 10px;
 }
 
 .textColor {
-  color: #000;
+  color: $colorBlack;
   font-weight: 600;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .colorActive {
-  border: 1px solid $colorButton;
+  border: 1px solid $colorCyan;
   border-radius: 3px;
-  background-color: #fafafa;
+  background-color: $colorGhostWhite;
 }

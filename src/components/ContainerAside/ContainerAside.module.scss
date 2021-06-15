@@ -1,5 +1,5 @@
-@import '../../utils/styles/mixins';
-@import '../../utils/styles/var';
+@import '../../theme/styles/mixins';
+@import '../../theme/styles/var';
 
 .container {
   width: 280px;
@@ -9,7 +9,7 @@
   @extend %custom-border;
   min-height: 10%;
   max-height: 50%;
-  background-color: #fff;
+  background-color: $colorWhite;
   padding: 0 0 30% 0;
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {

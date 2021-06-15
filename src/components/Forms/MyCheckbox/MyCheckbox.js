@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useField } from 'formik';
+import styles from './MyCheckbox.module.scss';
 
 const MyCheckbox = ({ children, ...props }) => {
   const [field, meta] = useField({ ...props, type: 'checkbox' });
 
   return (
-    <div>
-      <label className='checkbox-input'>
-        <input type='checkbox' {...field} {...props} />
-        {children}
-      </label>
-      {meta.touched && meta.error ? <div className='error'>{meta.error}</div> : null}
+    <div className={styles.container}>
+      <div className={styles.flex}>
+        <label className={styles.label}>
+          <input type='checkbox' className={styles.checkbox} {...field} {...props} />
+          {children}
+        </label>
+        {meta.touched && meta.error ? <div className={styles.error}>{meta.error}</div> : null}
+      </div>
     </div>
   );
 };

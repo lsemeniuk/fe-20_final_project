@@ -16,7 +16,7 @@ const OrderPreview = () => {
   if (deliveryMethod === 'Самовывоз из магазина') {
     deliveryPrice = 'Бесплатно';
   } else if (deliveryMethod === 'Новой почтой') {
-    deliveryPrice = 'Согласно тарифам "Нова пошта"';
+    deliveryPrice = 'Согласно тарифам "Новая почта"';
   } else if (deliveryMethod === 'Курьером по Киеву') {
     deliveryPrice = '80 грн.';
     paymentPrice += 80;
@@ -28,8 +28,8 @@ const OrderPreview = () => {
         <h3 className='checkout__title'>Ваш заказ</h3>
         <CartList containerClass={styles.cartItem} />
         <div className={styles.ordersBlock}>
-          <div className={styles.itemTitle}>Доставка</div>
-          <div>{deliveryPrice}</div>
+          <div className={styles.itemTitle}>Стоимость доставки</div>
+          <div>{deliveryMethod ? deliveryPrice : 'Определяется'}</div>
         </div>
         <div className={`${styles.ordersBlock} ${styles.payment}`}>
           <div className={styles.itemTitle}>Сумма к оплате: </div>

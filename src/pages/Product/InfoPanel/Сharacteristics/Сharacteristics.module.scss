@@ -1,3 +1,5 @@
+@import '../../../../theme/styles/var';
+
 .container {
   padding: 0 10px 30px;
 }
@@ -7,12 +9,12 @@
   padding: 10px;
   line-height: 1.5;
   &:nth-child(odd) {
-    background-color: #ebebeb;
+    background-color: $colorAntiFlashWhite;
   }
 }
 
 .characteristicName {
-  color: #6d6d6d;
+  color: $colorDimGray;
   width: 30%;
 }
 
