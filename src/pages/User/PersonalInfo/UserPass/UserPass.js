@@ -9,16 +9,16 @@ const UserPass = () => {
   const [messageServer, setmessageServer] = useState(null);
 
   const validationSchema = Yup.object({
-    password: Yup.string()
-      .min(7, 'Это шликом маленький пароль')
-      .max(20, 'Такой пароль невозможно запомнить')
-      .required('Необходимо ввести пароль'),
+    password: Yup.string().required('Необходимо ввести предидущий пароль'),
     newPassword: Yup.string()
-      .min(7, 'Это шликом маленький пароль')
-      .max(30, 'Такой пароль невозможно запомнить')
+      .min(7, 'Минимальное количество символов - 7')
+      .max(30, 'Возможно не больше 30 символов')
       .matches('(?=.*[0-9])', 'Должен содержать хотя бы одно число')
       .matches('(?=.*[A-Z])', 'Добавьте латинскую букву в верхнем регистре')
-      .required('Необходимо ввести пароль'),
+      .required('Укажите Ваш пароль'),
+    confirmPassword: Yup.string()
+      .required('Подтвердите Ваш пароль')
+      .oneOf([Yup.ref('newPassword'), null], 'Пароли не совпадают'),
   });
 
   return (
@@ -27,10 +27,13 @@ const UserPass = () => {
         initialValues={{
           password: '',
           newPassword: '',
+          confirmPassword: '',
         }}
         validationSchema={validationSchema}
         onSubmit={(values, { setSubmitting }) => {
-          updatePassword(values)
+          const { password, newPassword } = values;
+
+          updatePassword({ password, newPassword })
             .then(res => {
               setmessageServer(<span style={{ color: 'green' }}>{res.data.message}</span>);
             })
@@ -54,6 +57,13 @@ const UserPass = () => {
               name='newPassword'
               type='password'
               placeholder='Новый пароль'
+              tabIndex='0'
+            />
+            <MyTextInput
+              label='Повторите пароль*'
+              name='confirmPassword'
+              type='password'
+              placeholder='Подтвердите пароль'
               tabIndex='0'
             />
             <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
