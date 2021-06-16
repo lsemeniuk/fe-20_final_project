@@ -9,7 +9,7 @@ import styles from './User.module.scss';
 import { getModalAuthRegSelector } from '../../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../../store/modal/actions';
 
-const User = ({ filled }) => {
+const User = ({ filled, white }) => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
@@ -26,7 +26,7 @@ const User = ({ filled }) => {
   return (
     <div className={styles.container}>
       {isAuth ? (
-        <div className={styles.circle}>
+        <div className={white ? `${styles.circle} ${styles.border__white}` : `${styles.circle}`}>
           <span className={styles.initials}>{initials}</span>
         </div>
       ) : (
@@ -45,8 +45,10 @@ const User = ({ filled }) => {
 };
 User.propTypes = {
   filled: PropTypes.bool,
+  white: PropTypes.bool,
 };
 User.defaultProps = {
   filled: true,
+  white: false,
 };
 export default User;

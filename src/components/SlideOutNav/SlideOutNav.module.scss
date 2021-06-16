@@ -69,6 +69,7 @@
 .heartQuantity{
   position: absolute;
   display: block;
+  text-align: center;
   width: 16px;
   height: 16px;
   padding: 3px;
@@ -78,5 +79,27 @@
   background: $colorCyan;
   color: $colorWhite;
   font-size: 12px;
+
+}
+.bag__container {
+  position: relative;
+  width: 60px;
+  margin: 0 auto;
+}
+.cartQuantity {
+  position: absolute;
+  display: block;
   text-align: center;
+  width: 25px;
+  bottom: 25px;
+  top: 22px;
+  left: 18px;
+  line-height: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+.user__container {
+  width: 35px;
+  margin: 0 auto;
 }

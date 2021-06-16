@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -14,6 +15,9 @@ import User from '../NavBar/User/User';
 const SlideOutNav = ({ isOpen, toggleNav, favorites, modalHandler }) => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const wishList = useSelector(getWishListSelector);
+
+  const cartLocal = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : {};
+  const cartQuantity = cartLocal !== {} ? cartLocal.products.length : 0;
 
   return (
     <aside className={isOpen ? `${styles.container} ${styles.active}` : `${styles.container}`}>
@@ -37,10 +41,19 @@ const SlideOutNav = ({ isOpen, toggleNav, favorites, modalHandler }) => {
               )}
             </li>
             <li key='personalInfo' className={styles.iconListItem}>
-              <User modalHandler={modalHandler} filled={false} />
+              <div className={styles.user__container}>
+                <User modalHandler={modalHandler} filled={false} white />
+              </div>
             </li>
             <li>
-              <p>Моя Корзинушка</p>
+              {cartQuantity ? (
+                <div className={styles.bag__container}>
+                  <Icons type='navBag' color='white' width={25} height={45} />
+                  <span className={styles.cartQuantity}>{cartQuantity}</span>
+                </div>
+              ) : (
+                <span className={styles.menuLink}>Корзина пустая</span>
+              )}
             </li>
           </div>
         </ul>
