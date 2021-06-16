@@ -40,11 +40,10 @@ const sliderSettings = {
 const CustomSlider = ({ title, filter, viwedProduct }) => {
   const [products, setProducts] = useState([]);
   const [productsLoading, setProductLoading] = useState(true);
+  const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
 
   useEffect(() => {
     if (viwedProduct) {
-      const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
-
       getProductsByArrayId({ itemNo: viwedProducts }).then(res => {
         setProducts(res.data);
         setProductLoading(false);
@@ -56,6 +55,10 @@ const CustomSlider = ({ title, filter, viwedProduct }) => {
       });
     }
   }, []);
+
+  if (viwedProduct && !viwedProducts) {
+    return null;
+  }
 
   if (productsLoading) {
     return <Loader />;

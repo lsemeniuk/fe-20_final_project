@@ -32,8 +32,13 @@ const Product = () => {
     dispatch(getOneProductOperation(params.id));
 
     const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
-    const newViwedProducts = [...new Set([params.id, ...viwedProducts])];
-    localStorage.setItem('viwed_products', JSON.stringify(newViwedProducts));
+
+    if (viwedProducts && viwedProducts.length >= 1) {
+      const newViwedProducts = [...new Set([params.id, ...viwedProducts])];
+      localStorage.setItem('viwed_products', JSON.stringify(newViwedProducts));
+    } else {
+      localStorage.setItem('viwed_products', JSON.stringify([params.id]));
+    }
   }, [params.id]);
 
   if (productLoading) {
