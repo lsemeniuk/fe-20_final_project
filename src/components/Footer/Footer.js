@@ -185,8 +185,8 @@ const Footer = () => {
                 Контактная информация
               </NavLink>
             </li>
-            <li>Вот такой мобильный футер</li>
-            <li>Информация ссылка</li>
+            <li>Интернет-магазин &quot;SmartElectronics&quot;</li>
+            <li>2020 - 2021</li>
           </ul>
         </div>
       </Container>
