@@ -56,3 +56,23 @@ export const updatePassword = async values => {
   });
   return res;
 };
+
+// @route   POST /customers/profile/forgot-password
+// @desc    Email a link to reset your password
+// @access  Public
+export const forgotPassword = async values => {
+  const res = await $host.post('customers/forgot', values).catch(err => {
+    throw err.response;
+  });
+  return res;
+};
+
+// @route   POST /customers/profile/reset-password
+// @desc    Password reset
+// @access  Public
+export const resetPassword = async (token, values) => {
+  const res = await $host.post(`customers/reset/${token}`, values).catch(err => {
+    throw err.response;
+  });
+  return res;
+};
