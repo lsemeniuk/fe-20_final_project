@@ -30,7 +30,7 @@ const Product = () => {
 
   useEffect(() => {
     dispatch(getOneProductOperation(params.id));
-  }, [dispatch]);
+  }, [params.id]);
 
   if (productLoading) {
     return (
@@ -41,7 +41,7 @@ const Product = () => {
       </Container>
     );
   }
-  const { brand, name, quantity, color } = product;
+  const { brand, name, quantity, color, descForColor } = product;
 
   return (
     <main>
@@ -81,7 +81,7 @@ const Product = () => {
 
           <div className={styles.flexColumn}>
             <Availability quantity={quantity} />
-            <ProductColors color={color} />
+            <ProductColors color={color} descForColor={descForColor} />
             <ProductPrice product={product} />
             <OrdersInfo />
           </div>
