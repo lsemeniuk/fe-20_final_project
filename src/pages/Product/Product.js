@@ -12,8 +12,8 @@ import ProductPrice from './ProductPrice/ProductPrice';
 import OrdersInfo from './OrdersInfo/OrdersInfo';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import InfoPanel from './InfoPanel/InfoPanel';
-import styles from './Product.module.scss';
 import NavBarProduct from './NavBarProduct/NavBarProduct';
+import styles from './Product.module.scss';
 
 const Product = () => {
   const [tabIndexInfo, setTabIndexInfo] = useState(0);
@@ -30,6 +30,10 @@ const Product = () => {
 
   useEffect(() => {
     dispatch(getOneProductOperation(params.id));
+
+    const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
+    const newViwedProducts = [...new Set([params.id, ...viwedProducts])];
+    localStorage.setItem('viwed_products', JSON.stringify(newViwedProducts));
   }, [dispatch]);
 
   if (productLoading) {
@@ -91,8 +95,9 @@ const Product = () => {
           <InfoPanel product={product} setTabIndex={setTabIndexInfo} tabIndex={tabIndexInfo} />
         </div>
 
-        <div ref={interestedRef} className={styles.interestedProduct}>
+        <div ref={interestedRef} className={styles.slider}>
           <CustomSlider title='Также Вас могут заинтересовать' filter={{ brand: product.brand }} />
+          <CustomSlider title='Последние просмотренные товары' viwedProduct />
         </div>
       </Container>
     </main>

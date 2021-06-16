@@ -37,15 +37,24 @@ const sliderSettings = {
   ],
 };
 
-const CustomSlider = ({ title, filter }) => {
+const CustomSlider = ({ title, filter, viwedProduct }) => {
   const [products, setProducts] = useState([]);
   const [productsLoading, setProductLoading] = useState(true);
 
   useEffect(() => {
-    getProductsFilterParams(filter).then(res => {
-      setProducts(res.data.products);
-      setProductLoading(false);
-    });
+    if (viwedProduct) {
+      const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
+
+      getProductsFilterParams({ itemNo: viwedProducts }).then(res => {
+        setProducts(res.data.products);
+        setProductLoading(false);
+      });
+    } else {
+      getProductsFilterParams(filter).then(res => {
+        setProducts(res.data.products);
+        setProductLoading(false);
+      });
+    }
   }, []);
 
   if (productsLoading) {
@@ -68,7 +77,13 @@ const CustomSlider = ({ title, filter }) => {
 
 CustomSlider.propTypes = {
   title: PropTypes.string.isRequired,
-  filter: PropTypes.object.isRequired,
+  filter: PropTypes.object,
+  viwedProduct: PropTypes.bool,
+};
+
+CustomSlider.defaultProps = {
+  filter: {},
+  viwedProduct: false,
 };
 
 export default CustomSlider;

@@ -71,3 +71,13 @@ export const getProductById = async itemNo => {
   });
   return res;
 };
+
+// @route   POST /products/:id
+// @desc    POST existing product by id
+// @access  Public
+export const getProductsByArrayId = async value => {
+  const res = await $host.post('products/array', value).catch(err => {
+    throw err.response;
+  });
+  return res;
+};
