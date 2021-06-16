@@ -20,16 +20,15 @@ const sliderSettings = {
       },
     },
     {
-      breakpoint: 992,
+      breakpoint: 993,
       settings: {
         slidesToShow: 3,
       },
     },
     {
-      breakpoint: 767,
+      breakpoint: 481,
       settings: {
         slidesToShow: 2,
-        dots: true,
         arrows: false,
         slidesToScroll: 1,
       },
