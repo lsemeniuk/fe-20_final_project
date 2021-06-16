@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import ProductCard from '../../ProductCard/ProductCard';
 import Loader from '../../Loader/Loader';
-import { getProductsFilterParams } from '../../../http/productAPI';
+import { getProductsByArrayId, getProductsFilterParams } from '../../../http/productAPI';
 import styles from './CustomSlider.module.scss';
 
 const sliderSettings = {
@@ -45,8 +45,8 @@ const CustomSlider = ({ title, filter, viwedProduct }) => {
     if (viwedProduct) {
       const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
 
-      getProductsFilterParams({ itemNo: viwedProducts }).then(res => {
-        setProducts(res.data.products);
+      getProductsByArrayId({ itemNo: viwedProducts }).then(res => {
+        setProducts(res.data);
         setProductLoading(false);
       });
     } else {

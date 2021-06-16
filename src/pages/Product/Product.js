@@ -34,7 +34,7 @@ const Product = () => {
     const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
     const newViwedProducts = [...new Set([params.id, ...viwedProducts])];
     localStorage.setItem('viwed_products', JSON.stringify(newViwedProducts));
-  }, [params.id]]);
+  }, [params.id]);
 
   if (productLoading) {
     return (
