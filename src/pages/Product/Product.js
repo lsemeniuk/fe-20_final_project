@@ -34,7 +34,7 @@ const Product = () => {
     const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
     const newViwedProducts = [...new Set([params.id, ...viwedProducts])];
     localStorage.setItem('viwed_products', JSON.stringify(newViwedProducts));
-  }, [dispatch]);
+  }, [params.id]]);
 
   if (productLoading) {
     return (
@@ -45,7 +45,7 @@ const Product = () => {
       </Container>
     );
   }
-  const { brand, name, quantity, color } = product;
+  const { brand, name, quantity, color, descForColor } = product;
 
   return (
     <main>
@@ -85,7 +85,7 @@ const Product = () => {
 
           <div className={styles.flexColumn}>
             <Availability quantity={quantity} />
-            <ProductColors color={color} />
+            <ProductColors color={color} descForColor={descForColor} />
             <ProductPrice product={product} />
             <OrdersInfo />
           </div>
