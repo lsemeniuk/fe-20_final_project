@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-console */
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
@@ -13,11 +14,17 @@ import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
 import Sorting from '../../components/Sorting/Sorting';
 import Filter from '../../components/Filter/Filter';
 import styles from './Products.module.scss';
+import Loader from '../../components/Loader/Loader';
+import { searchProducts } from '../../http/productAPI';
 
 const Products = () => {
   const categories = useSelector(getCategoriesSelector);
   const categorie = {};
   const params = useParams();
+
+  const [resultsLoading, setResultsLoading] = useState(false);
+  const [searchWords, setSearchWords] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   if (params.categories === 'all') {
     categorie.name = 'Все товары';
@@ -29,6 +36,20 @@ const Products = () => {
       return null;
     });
   }
+  const handleSubmit = e => {
+    e.preventDefault();
+    const queryString = { query: searchWords };
+    setResultsLoading(true);
+    searchProducts(queryString)
+      .then(res => {
+        setSearchResults(res.data);
+        console.log(searchResults);
+      })
+      .catch(err => console.log(err));
+    setResultsLoading(false);
+  };
+
+  if (resultsLoading) return <Loader />;
 
   return (
     <main>
@@ -43,6 +64,11 @@ const Products = () => {
           </div>
           <div>
             <h2 className={styles.categoryTitle}>{categorie.name}</h2>
+            <form onSubmit={handleSubmit}>
+              <input type='text' placeholder='Поиск...' onChange={e => setSearchWords(e.target.value)} />
+              <button type='submit'>Найти</button>
+            </form>
+            <p>Error</p>
           </div>
           <BrandBar />
           <div className={styles.flexRow}>
