@@ -64,9 +64,17 @@
 }
 .row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 
+}
+.form {
+  margin-left: 20%;
+}
+.inCenter {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 25px;
 }
 .search {
   @include flx-center;
@@ -97,4 +105,16 @@
     border-bottom-left-radius: 0;
     height: 37px;
   }
+}
+.danger {
+  display: inline;
+  padding: 10px 20px;
+  background: pink;
+  color: red;
+}
+.success {
+  display: inline;
+  color: green;
+  padding: 10px 20px;
+  background: palegreen;
 }

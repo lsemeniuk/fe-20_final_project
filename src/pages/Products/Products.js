@@ -28,6 +28,7 @@ const Products = () => {
   const [searchWords, setSearchWords] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [nothingFound, setNothingFound] = useState(false);
+  const [error, setError] = useState(false);
 
   if (params.categories === 'all') {
     categorie.name = 'Все товары';
@@ -41,20 +42,23 @@ const Products = () => {
   }
   const handleSubmit = e => {
     e.preventDefault();
-    const queryString = { query: searchWords };
-    setResultsLoading(true);
-    searchProducts(queryString)
-      .then(res => {
-        setSearchResults(res.data);
-        console.log(searchResults);
-        if (res.data.length === 0) {
-          setNothingFound(true);
-        } else {
-          setNothingFound(false);
-        }
-      })
-      .catch(err => console.log(err));
-    setResultsLoading(false);
+    if (searchWords !== '') {
+      const queryString = { query: searchWords };
+      setResultsLoading(true);
+      searchProducts(queryString)
+        .then(res => {
+          setSearchResults(res.data);
+          console.log(searchResults);
+          if (res.data.length === 0) {
+            setNothingFound(true);
+          } else {
+            setNothingFound(false);
+          }
+        })
+        .catch(err => setError(err.message));
+      setResultsLoading(false);
+    }
+    return null;
   };
 
   if (resultsLoading) return <Loader />;
@@ -72,10 +76,10 @@ const Products = () => {
           </div>
           <div className={styles.row}>
             <h2 className={styles.categoryTitle}>{categorie.name}</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.search}>
                 <div className={styles.search__icon__wrapper}>
-                  <Icons type='search' filled className={styles.search__icon} />
+                  <Icons type='search' filled />
                 </div>
                 <input
                   type='text'
@@ -86,10 +90,12 @@ const Products = () => {
                 <Button type='submit' className={styles.search__button} title='Найти' />
               </div>
             </form>
-            <p>Error</p>
           </div>
-          {searchResults.length > 0 && <p>Найдено {searchResults.length} товаров</p>}
-          {nothingFound && <p>По Вашему запросу ничего не найдено. Уточните, пож-та, запрос</p>}
+          <div className={styles.inCenter}>
+            {error.length && <p className={styles.danger}>Произошла ошибка: {error}</p>}
+            {searchResults.length > 0 && <p className={styles.success}>Найдено {searchResults.length} товаров</p>}
+            {nothingFound && <p>По Вашему запросу ничего не найдено. Уточните, пож-та, запрос</p>}
+          </div>
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
