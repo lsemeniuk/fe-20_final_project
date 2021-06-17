@@ -35,7 +35,6 @@ const RegForm = ({ setTabIndex }) => {
       .matches('(?=.*[0-9])', 'Должен содержать хотя бы одно число')
       .matches('(?=.*[A-Z])', 'Добавьте латинскую букву в верхнем регистре')
       .required('Укажите Ваш пароль'),
-
     confirmPassword: Yup.string()
       .required('Подтвердите Ваш пароль')
       .oneOf([Yup.ref('password'), null], 'Пароли не совпадают'),

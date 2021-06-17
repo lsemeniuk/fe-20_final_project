@@ -1,6 +1,7 @@
 import {
   INDEX_ROUTE,
   WISH_LIST_ROUTE,
+  RESET_PASSWORD,
   CHECKOUT_ROUTE,
   ORDERS_ROUTE,
   PERSONAL_INFO_ROUTE,
@@ -23,6 +24,7 @@ import Catalog from '../pages/Admin/Catalog/Catalog';
 import Product from '../pages/Product/Product';
 import Brands from '../pages/Admin/Brands/Brands';
 import Colors from '../pages/Admin/Colors/Colors';
+import ResetPassword from '../pages/ResetPassword/ResetPassword';
 
 export const publicRoutes = [
   {
@@ -31,6 +33,7 @@ export const publicRoutes = [
     Component: Index,
   },
   {
+    name: 'Продукт',
     path: `${PRODUCT_ROUTE}/:id`,
     Component: Product,
   },
@@ -43,6 +46,11 @@ export const publicRoutes = [
     name: 'Список желаний',
     path: CUSTOMER_WISH_LIST_ROUTE,
     Component: WishList,
+  },
+  {
+    name: 'Список желаний',
+    path: `${RESET_PASSWORD}/:token`,
+    Component: ResetPassword,
   },
   {
     name: 'Страницы не существует',
