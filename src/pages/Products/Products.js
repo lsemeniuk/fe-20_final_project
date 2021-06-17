@@ -16,6 +16,8 @@ import Filter from '../../components/Filter/Filter';
 import styles from './Products.module.scss';
 import Loader from '../../components/Loader/Loader';
 import { searchProducts } from '../../http/productAPI';
+import Icons from '../../components/Icons/Icons';
+import Button from '../../components/Button/Button';
 
 const Products = () => {
   const categories = useSelector(getCategoriesSelector);
@@ -65,8 +67,18 @@ const Products = () => {
           <div>
             <h2 className={styles.categoryTitle}>{categorie.name}</h2>
             <form onSubmit={handleSubmit}>
-              <input type='text' placeholder='Поиск...' onChange={e => setSearchWords(e.target.value)} />
-              <button type='submit'>Найти</button>
+              <div className={styles.search}>
+                <div className={styles.search__icon__wrapper}>
+                  <Icons type='search' filled className={styles.search__icon} />
+                </div>
+                <input
+                  type='text'
+                  placeholder='Я ищу...'
+                  onChange={e => setSearchWords(e.target.value)}
+                  className={styles.search__input}
+                />
+                <Button type='submit' className={styles.search__button} title='Найти' />
+              </div>
             </form>
             <p>Error</p>
           </div>

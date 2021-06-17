@@ -62,3 +62,33 @@
   display: flex;
   justify-content: space-between;
 }
+.search {
+  @include flx-center;
+
+  &__icon__wrapper {
+    @include flx-center;
+    border-top: 1px solid #696969;
+    border-left: 1px solid #696969;
+    border-bottom: 1px solid #696969;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-right: none;
+    padding: 4px 5px 5px 5px;
+  }
+
+  &__input {
+    width: 250px;
+    height: 37px;
+    border-left: none;
+    border-top: 1px solid #696969;
+    border-bottom: 1px solid #696969;
+    border-right: 1px solid #696969;
+    border-right: none;
+
+  }
+  &__button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    height: 37px;
+  }
+}
