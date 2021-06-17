@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
@@ -48,7 +47,6 @@ const Products = () => {
       searchProducts(queryString)
         .then(res => {
           setSearchResults(res.data);
-          console.log(searchResults);
           if (res.data.length === 0) {
             setNothingFound(true);
           } else {
