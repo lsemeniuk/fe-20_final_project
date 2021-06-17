@@ -11,6 +11,18 @@
   justify-content: center;
   align-items: center;
 
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    margin-bottom: 50px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: $mobMin) {
+    margin-bottom: 50px;
+  }
+
   &:hover {
     @extend %custom-shadow;
     border: 1px solid $colorLightGray;
@@ -168,6 +180,24 @@
   display: none;
   bottom: -50px;
   z-index: 100;
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    width: 100%;
+    display: block;
+    margin-top: 50px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    width: 100%;
+    display: block;
+    margin-top: 50px;
+  }
+
+  @media (max-width: $mobMin) {
+    width: 100%;
+    display: block;
+    margin-top: 50px;
+  }
 }
 
 .btnFlex {
