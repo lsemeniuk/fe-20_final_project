@@ -27,6 +27,7 @@ const Products = () => {
   const [resultsLoading, setResultsLoading] = useState(false);
   const [searchWords, setSearchWords] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [nothingFound, setNothingFound] = useState(false);
 
   if (params.categories === 'all') {
     categorie.name = 'Все товары';
@@ -46,6 +47,11 @@ const Products = () => {
       .then(res => {
         setSearchResults(res.data);
         console.log(searchResults);
+        if (res.data.length === 0) {
+          setNothingFound(true);
+        } else {
+          setNothingFound(false);
+        }
       })
       .catch(err => console.log(err));
     setResultsLoading(false);
@@ -64,7 +70,7 @@ const Products = () => {
             <span className={styles.iconBreadcrumbs}>{}</span>
             <span className={styles.crumbs}>{categorie.name}</span>
           </div>
-          <div>
+          <div className={styles.row}>
             <h2 className={styles.categoryTitle}>{categorie.name}</h2>
             <form onSubmit={handleSubmit}>
               <div className={styles.search}>
@@ -82,6 +88,8 @@ const Products = () => {
             </form>
             <p>Error</p>
           </div>
+          {searchResults.length > 0 && <p>Найдено {searchResults.length} товаров</p>}
+          {nothingFound && <p>По Вашему запросу ничего не найдено. Уточните, пож-та, запрос</p>}
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
@@ -94,7 +102,7 @@ const Products = () => {
                 <Sorting />
               </div>
 
-              <ProductList />
+              <ProductList searchResults={searchResults} />
               <Pagination />
             </ContainerPage>
           </div>
