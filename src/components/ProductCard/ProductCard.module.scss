@@ -69,6 +69,18 @@
     padding: 10px 0 0;
     top: 0;
     border: none;
+
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+      padding: 0;
+    }
+
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      padding: 0;
+    }
+
+    @media (max-width: $mobMin) {
+      padding: 0;
+    }
   }
 }
 
@@ -199,6 +211,12 @@
     margin-top: 50px;
   }
 }
+
+.btnBlock__inSlider {
+  margin-top: 5px;
+  bottom: 0;
+}
+
 
 .btnFlex {
   display: flex;
