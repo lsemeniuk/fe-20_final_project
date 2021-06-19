@@ -11,7 +11,7 @@ import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import Pagination from '../../components/Pagination/Pagination';
 import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
 import Sorting from '../../components/Sorting/Sorting';
-import Filter from '../../components/Filter/Filter';
+import Select from '../../components/SelectBar/Select/Select';
 import styles from './Products.module.scss';
 
 const Products = () => {
@@ -47,7 +47,7 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
-              <Filter />
+              <Select />
             </ContainerAside>
 
             <ContainerPage style={{ padding: '0' }}>

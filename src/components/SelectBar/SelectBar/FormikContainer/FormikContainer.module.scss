@@ -53,3 +53,34 @@
   display: flex;
   align-items: center;
 }
+
+.container {
+  padding: 20px;
+  min-width: 100%;
+  border-bottom: 1px solid $colorLightGray;
+}
+
+.item {
+  font-size: 14px;
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.categoriesLink {
+  color: $colorBlack;
+  padding: 3px 10px;
+  border-radius: 5px;
+  &:hover {
+    color: $colorCyanLight;
+  }
+}
+
+.categoriesLinkActive {
+  color: $colorWhite;
+  background-color: $colorCyan;
+  &:hover {
+    color: $colorWhite;
+  }
+}
