@@ -43,6 +43,9 @@
         js.src = 'https://connect.facebook.net/en_US/sdk.js';
         fjs.parentNode.insertBefore(js, fjs);
       })(document, 'script', 'facebook-jssdk');
+      FB.api('/me', function (response) {
+        console.log(JSON.stringify(response));
+      });
     </script>
     <div id="fb-root"></div>
     <script
