@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import AppRoutes from './routes/AppRoutes';
