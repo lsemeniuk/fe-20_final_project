@@ -8,7 +8,6 @@ import {
   ADM_CATALOG_ROUTE,
   PRODUCT_ROUTE,
   CUSTOMER_WISH_LIST_ROUTE,
-  ADM_PRODUCTS_ROUTE,
   ADM_BRANDS_ROUTE,
   ADM_COLORS_ROUTE,
   ADM_ORDERS_ROUTE,
@@ -87,11 +86,6 @@ export const adminRoutes = [
   {
     name: 'Каталог',
     path: ADM_CATALOG_ROUTE,
-    Component: Catalog,
-  },
-  {
-    name: 'Продукты',
-    path: ADM_PRODUCTS_ROUTE,
     Component: Catalog,
   },
   {
