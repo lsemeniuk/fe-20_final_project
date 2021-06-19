@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import AppRoutes from './routes/AppRoutes';
@@ -12,6 +13,11 @@ function App() {
 
   useEffect(() => {
     dispatch(checkAuthOperation());
+    setTimeout(() => {
+      FB.getLoginStatus(response => {
+        console.log(response);
+      });
+    }, 3000);
   }, []);
 
   return (

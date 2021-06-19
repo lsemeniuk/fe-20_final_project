@@ -90,6 +90,17 @@ const NavBar = () => {
                 <CategoriesList className={styles.menuLink} activeClassName={styles.menuLinkActive} />
               </ul>
               <ul className={styles.iconList}>
+                <li>
+                  <div
+                    className='fb-login-button'
+                    data-width=''
+                    data-size='small'
+                    data-button-type='login_with'
+                    data-layout='default'
+                    data-auto-logout-link='false'
+                    data-use-continue-as='false'
+                  />
+                </li>
                 <li key='wishList'>
                   {wishList && favorites !== 0 ? (
                     <NavLink to={isAuth ? WISH_LIST_ROUTE : CUSTOMER_WISH_LIST_ROUTE}>
