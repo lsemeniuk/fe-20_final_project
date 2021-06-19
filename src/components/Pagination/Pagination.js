@@ -1,17 +1,9 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
-import { useHistory } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProductsFilterSelector, getProductsQuantitySelector } from '../../store/products/selectors';
-import { getProductsFilterOperation } from '../../store/products/operations';
+import PropTypes from 'prop-types';
 import styles from './Pagination.module.scss';
 
-const Pagination = () => {
-  const dispatch = useDispatch();
-  const { perPage, startPage, ...filter } = useSelector(getProductsFilterSelector);
-  const productsQuantity = useSelector(getProductsQuantitySelector);
-  const history = useHistory();
-
+const Pagination = ({ perPage, startPage, productsQuantity, setPage }) => {
   const pageNumbers = [1];
 
   for (let i = 2; i <= Math.ceil(productsQuantity / perPage); i++) {
@@ -19,12 +11,12 @@ const Pagination = () => {
   }
 
   if (pageNumbers.length < startPage) {
-    dispatch(getProductsFilterOperation({ history, ...filter, perPage, startPage: 1 }));
+    setPage(1);
   }
 
   const handlePage = page => {
     if (page >= 1 && page <= pageNumbers.length) {
-      dispatch(getProductsFilterOperation({ history, ...filter, perPage, startPage: page }));
+      setPage(page);
       window.scrollTo(0, 0);
     }
     return null;
@@ -57,6 +49,17 @@ const Pagination = () => {
       </div>
     </nav>
   );
+};
+
+Pagination.propTypes = {
+  perPage: PropTypes.number.isRequired,
+  startPage: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+  productsQuantity: PropTypes.number,
+};
+
+Pagination.defaultProps = {
+  productsQuantity: 0,
 };
 
 export default Pagination;

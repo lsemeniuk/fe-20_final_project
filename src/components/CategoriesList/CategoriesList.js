@@ -15,6 +15,9 @@ const CategoriesList = ({ classItem, className, activeClassName }) => {
 
   const categoriesList = categories
     .sort((a, b) => (a.date > b.date ? 1 : -1))
+    .filter(cat => {
+      return cat.level === 0;
+    })
     .map(i => {
       return (
         <li key={i.id} className={classItem}>

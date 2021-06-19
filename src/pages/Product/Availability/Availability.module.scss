@@ -1,8 +1,8 @@
-@import '../../../utils/styles/var';
+@import '../../../theme/styles/var';
 
 .container {
   display: inline-block;
-  background-color: #f4faf6;
+  background-color: $colorGhostWhite;
   padding: 5px 15px;
   margin-top: 10px;
   margin-bottom: 40px;
@@ -16,15 +16,15 @@
   align-items: center;
 }
 .inStock {
-  color: $colorSuperPrice;
+  color: $colorLimeGreen;
 }
 
 .noProduct {
-  color: #797878;
+  color: $colorDimGray;
 }
 
 .ends {
-  color: #ff5c00;
+  color: $colorDarkOrange;
 }
 
 .availabilityIcons {

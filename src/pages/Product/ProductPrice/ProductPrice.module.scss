@@ -1,9 +1,9 @@
-@import '../../../utils/styles/var';
+@import '../../../theme/styles/var';
 
 .container {
   padding: 15px;
   position: relative;
-  border: 1px solid $colorLineSilver;
+  border: 1px solid $colorLightGray;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -27,9 +27,9 @@
   font-size: 16px;
   font-weight: 600;
   // text-decoration: line-through;
-  color: $colorTextSilver;
+  color: $colorSpanishGray;
   &::after {
-    border-bottom: 2px solid $colorSale;
+    border-bottom: 2px solid $colorRedPigment;
     content: '';
     left: 0;
     margin-top: calc(2px / 2 * -1);
@@ -41,14 +41,14 @@
 
 .currentPrice {
   margin-right: 10px;
-  color: $colorSale;
+  color: $colorRedPigment;
   font-weight: 600;
   font-size: 26px;
   transform: scaleY(1.2);
 }
 
 .regularPrice {
-  color: $colorNew;
+  color: $colorRoyalBlue;
   font-weight: 600;
   font-size: 26px;
   margin-right: 10px;

@@ -1,9 +1,9 @@
-@import '../../../../utils/styles/var';
+@import '../../../../theme/styles/var';
 
 .container {
   margin: 20px;
   padding-bottom: 10px;
-  border: 1px solid $colorTextSilver;
+  border: 1px solid $colorSpanishGray;
   border-radius: 4px;
 }
 
@@ -13,7 +13,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #f3f3f3;
-  border-bottom: 1px solid $colorTextSilver;
+  border-bottom: 1px solid $colorSpanishGray;
   border-radius: 5px;
 }
 
@@ -26,8 +26,12 @@
 }
 
 .infoOrderBtn {
-  cursor: pointer;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & div {
+    cursor: pointer;
+  }
 }
 
 .info {
@@ -36,12 +40,6 @@
 }
 
 .productList {
-  border: 1px solid $colorTextSilver;
+  border: 1px solid $colorSpanishGray;
   border-radius: 5px;
-}
-
-.orderDescription {
-  height: 0;
-  overflow: hidden;
-  transition: 0.5s ease all;
 }

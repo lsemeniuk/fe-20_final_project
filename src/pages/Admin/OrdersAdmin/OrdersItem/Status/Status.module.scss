@@ -1,4 +1,4 @@
-@import '../../../../../utils/styles/var';
+@import '../../../../../theme/styles/var';
 
 .status {
   display: flex;
@@ -12,7 +12,7 @@
   cursor: pointer;
   &:hover svg path,
   &:hover svg polygon {
-    fill: $colorDark;
+    fill: $colorDarkLight;
   }
 }
 

@@ -1,5 +1,7 @@
+@import '../../theme/styles/var';
+
 .list {
-  border: solid 1px #a7a7a7;
+  border: solid 1px $colorSilverChalice;
   border-radius: 4px;
   margin-bottom: 10px;
 }

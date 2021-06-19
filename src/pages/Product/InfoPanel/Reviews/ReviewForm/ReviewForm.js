@@ -67,7 +67,13 @@ const ReviewForm = ({ review, productId, updateReview, reviewId, setRefreshRevie
               <div className={styles.buttonBlock}>
                 <Button type='submit' title='Добавить' />
                 <div className={styles.errorMessage}>
-                  <ErrorMessage name='content' />
+                  <ErrorMessage
+                    name='content'
+                    render={msg => {
+                      setmessageServer(null);
+                      return <div>{msg}</div>;
+                    }}
+                  />
                 </div>
                 <div className={styles.redTitle}>{messageServer}</div>
               </div>

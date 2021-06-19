@@ -1,12 +1,11 @@
-@import '../../utils/styles/var';
-@import '../../utils/styles/mixins';
+@import '../../theme/styles/var';
+@import '../../theme/styles/mixins';
 
 .container {
   position: relative;
   width: calc(100% / 3);
   padding: 20px;
-  // border-radius: 5px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid $colorAntiFlashWhite;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,8 +13,9 @@
 
   &:hover {
     @extend %custom-shadow;
-    border: 1px solid #d4d4d4;
+    border: 1px solid $colorLightGray;
   }
+
   &:hover .lastImage {
     position: absolute;
     width: 100%;
@@ -24,9 +24,10 @@
     visibility: visible;
     opacity: 1;
   }
+
   &:hover .btnBlock {
-    box-shadow: 0px 7px 13px -3px rgba(38, 44, 48, 0.25);
-    border: 1px solid #d4d4d4;
+    box-shadow: 0px 7px 18px -8px $colorBlackBackground;
+    border: 1px solid $colorLightGray;
     border-top: none;
     display: block;
   }
@@ -37,6 +38,7 @@
   position: relative;
   margin: 0;
   width: calc(100% - 4px);
+
   &:hover .btnBlock {
     box-shadow: none;
     border: none;
@@ -48,7 +50,7 @@
 
   & .btnBlock {
     position: relative;
-    border: 1px solid #d4d4d4;
+    border: 1px solid $colorLightGray;
     border-top: none;
     display: block;
     width: 100%;
@@ -102,7 +104,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: #fff;
+  color: $colorWhite;
   line-height: 24px;
   font-size: 12px;
   font-weight: 700;
@@ -116,19 +118,19 @@
 }
 
 .labelNew {
-  background-color: $colorNew;
+  background-color: $colorRoyalBlue;
 }
 
 .labelSuperPrice {
-  background-color: $colorSuperPrice;
+  background-color: $colorLimeGreen;
 }
 
 .labelHit {
-  background-color: #940ad5;
+  background-color: $colorDarkViolet;
 }
 
 .labelSales {
-  background-color: $colorSale;
+  background-color: $colorRedPigment;
 }
 
 // Price
@@ -148,7 +150,7 @@
 
 .name {
   position: relative;
-  color: #263238;
+  color: $colorDarkLight;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -162,7 +164,7 @@
   padding: 0 20px 20px;
   border-radius: 0 0 5px 5px;
   border-top: 0;
-  background: #fff;
+  background: $colorWhite;
   display: none;
   bottom: -50px;
   z-index: 100;

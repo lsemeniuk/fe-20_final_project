@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -26,6 +27,8 @@ const Reviews = ({ productId }) => {
     <ReviewItem key={review.content} review={review} productId={productId} setRefreshReviews={setRefreshReviews} />
   ));
 
+  if (reviewsLoading) return <Loader />;
+
   return (
     <>
       {isAuth ? (
@@ -33,7 +36,11 @@ const Reviews = ({ productId }) => {
       ) : (
         <p className={styles.comments__container}>Пожалуйста, войдите или зарегистрируйтесь, чтобы оставить отзыв</p>
       )}
-      {reviewsLoading ? <Loader /> : <ul className={styles.comments__container}>{commentsList}</ul>}
+      {reviews.length > 0 ? (
+        <ul className={styles.comments__container}>{commentsList}</ul>
+      ) : (
+        <p className={styles.first__comment}>Ваш отзыв будет первым!</p>
+      )}
     </>
   );
 };

@@ -1,4 +1,4 @@
-@import '../../utils/styles/var';
+@import '../../theme/styles/var';
 
 .forWhoLinks {
   @media (max-width: $deskMax) {
@@ -39,13 +39,13 @@
 }
 
 .forMen {
-  background-color: $colorForMan;
-  box-shadow: 0 15px 35px -10px $colorForMan;
+  background-color: #23f4b5;
+  box-shadow: 0 15px 35px -10px #23f4b5;
 }
 
 .forWoman {
-  background-color: $colorForWoman;
-  box-shadow: 0 15px 35px -10px $colorForWoman;
+  background-color: #f93b9b;
+  box-shadow: 0 15px 35px -10px #f93b9b;
 }
 
 .img {

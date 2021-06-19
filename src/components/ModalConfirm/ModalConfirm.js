@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
 import styles from './ModalConfirm.module.scss';
 
-const ModalConfirm = ({ modalOpen, setModalOpen, content, buttonTitle, action }) => {
+const ModalConfirm = ({ setModalOpen, content, buttonTitle, action }) => {
   const actionModal = () => {
     action();
     setModalOpen(false);
@@ -20,7 +20,6 @@ const ModalConfirm = ({ modalOpen, setModalOpen, content, buttonTitle, action })
         closeModal();
       }}
       modalWidth={470}
-      display={modalOpen}
     >
       <h2 className={styles.title}>Подтверджение</h2>
       <p className={styles.content}>{content}</p>
@@ -33,7 +32,6 @@ const ModalConfirm = ({ modalOpen, setModalOpen, content, buttonTitle, action })
 };
 
 ModalConfirm.propTypes = {
-  modalOpen: PropTypes.bool.isRequired,
   setModalOpen: PropTypes.func.isRequired,
   content: PropTypes.string.isRequired,
   buttonTitle: PropTypes.string.isRequired,

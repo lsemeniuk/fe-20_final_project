@@ -6,7 +6,7 @@ import store from './store/store';
 import ErrorBoundary from './components/Error/ErrorBoundary/ErrorBoundary';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './utils/styles/global.scss';
+import './theme/styles/global.scss';
 
 ReactDOM.render(
   <React.StrictMode>

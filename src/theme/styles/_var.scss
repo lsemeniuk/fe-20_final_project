@@ -1,0 +1,64 @@
+// Colors
+$colorWhite: rgb(255, 255, 255);
+$colorGhostWhite: rgb(250, 250, 255);
+$colorAntiFlashWhite: rgb(242, 243, 244);
+$colorLightGray: rgb(216, 216, 216);
+$colorSilverChalice: rgb(172, 172, 172);
+$colorSpanishGray: rgb(152, 152, 152);
+$colorDimGray: rgb(105, 105, 105);
+$colorDarkLight: rgb(53, 53, 53);
+$colorBlack: rgb(0, 0, 0);
+
+$colorUnmellowYellow: rgb(255, 255, 102);
+
+$colorCyan: rgb(55, 183, 250);
+$colorCyanLight: rgb(81, 198, 249);
+$colorSkyLight: rgb(235, 248, 255);
+
+$colorRoyalBlue: rgb(65, 105, 225);
+
+$colorDarkViolet: rgb(148, 0, 211);
+
+$colorTomato: rgb(255, 64, 64);
+$colorRedPigment: rgb(237, 28, 36);
+
+$colorDarkOrange: rgb(255, 140, 0);
+
+$colorLimeGreen: rgb(50, 175, 50);
+
+$colorBlackBackground: rgba(0, 0, 0, 0.3);
+
+// Fonts
+
+$fontFamily: 'Montserrat', 'Century Gothic', sans-serif;
+
+$fontSizeTitleH1: 28px;
+$fontSizeTitleH1_tab: 26px;
+$fontSizeTitleH1_mobile: 24px;
+
+$fontSizeTitleH2: 24px;
+$fontSizeTitleH2_tab: 22px;
+$fontSizeTitleH2_mobile: 18px;
+
+$fontSizeTitleH3: 22px;
+$fontSizeTitleH3_tab: 18px;
+$fontSizeTitleH3_mobile: 16px;
+
+$fontSizeButton: 18px;
+$fontSizeButton_tab: 16px;
+$fontSizeButton_mobile: 15px;
+
+$fontSizeText: 16px;
+$fontSizeText_tab: 14px;
+$fontSizeText_mobile: 13px;
+
+// @media width
+
+$mobMin: 320px;
+$mobMax: 480px;
+$tabMin: 481px;
+$tabMax: 992px;
+$deskMin: 993px;
+$deskMax: 1200px;
+$deskXMin: 1201px;
+$deskXMax: 1450px;

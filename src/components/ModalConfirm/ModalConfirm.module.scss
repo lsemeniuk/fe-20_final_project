@@ -1,4 +1,4 @@
-@import '../../utils/styles/var';
+@import '../../theme/styles/var';
 
 .title {
   font-size: 22px;
@@ -18,8 +18,9 @@
 }
 
 .cancel {
-  background-color: $colorButtonRed;
+  background-color: $colorRedPigment;
+
   &:hover {
-    background-color: #ff0000;
+    background-color: $colorTomato;
   }
 }

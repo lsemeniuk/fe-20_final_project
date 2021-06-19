@@ -1,4 +1,4 @@
-@import '../../../../../utils/styles/var';
+@import '../../../../../theme/styles/var';
 
 .comment {
   margin-bottom: 20px;
@@ -40,7 +40,7 @@
   cursor: pointer;
   &:hover svg path,
   &:hover svg polygon {
-    fill: $colorButnHover;
+    fill: $colorCyanLight;
   }
 }
 

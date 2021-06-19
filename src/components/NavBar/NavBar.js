@@ -19,8 +19,8 @@ import { getCartOperation, updateCartOperation, setCartTotalPriceOperation } fro
 import { getCatalogOperation } from '../../store/catalog/operations';
 import { wishListLoadingAction } from '../../store/wishList/actions';
 import { getProductsOperation } from '../../store/products/operations';
-import styles from './NavBar.module.scss';
 import { getColorsOperation } from '../../store/colors/operations';
+import styles from './NavBar.module.scss';
 
 const NavBar = () => {
   const dispatch = useDispatch();

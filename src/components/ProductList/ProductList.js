@@ -35,7 +35,16 @@ const ProductList = () => {
 
   const productList = productsFiltered.map(product => <ProductCard key={product.itemNo} product={product} />);
 
-  return <ul className={style.productsList}>{productList}</ul>;
+  return (
+    <>
+      {' '}
+      {productList.length ? (
+        <ul className={style.productsList}>{productList}</ul>
+      ) : (
+        <p className={style.message}>Нет товаров удовлетворяющих поиску</p>
+      )}
+    </>
+  );
 };
 
 export default ProductList;
