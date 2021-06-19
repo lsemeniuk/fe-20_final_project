@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from '../../../../components/Button/Button';
 import Loader from '../../../../components/Loader/Loader';
 import { getAllOrders } from '../../../../http/ordersAPI';
-import OrdersPagination from '../OrderPagination/OrdersPagination';
+import Pagination from '../../../../components/Pagination/Pagination';
 import OrdersItem from '../OrdersItem/OrdersItem';
 import styles from './OrdersList.module.scss';
 
@@ -64,12 +64,7 @@ const OrdersList = () => {
         <Button title='обновить' className={styles.refresh} onClick={() => setRefreshOrders(true)} />
       </div>
       {ordersLoading ? <Loader /> : <ul>{ordersList}</ul>}
-      <OrdersPagination
-        perPage={perPage}
-        startPage={startPage}
-        setStartPage={setStartPage}
-        ordersQuantity={ordersQuantity}
-      />
+      <Pagination perPage={perPage} startPage={startPage} setPage={setStartPage} productsQuantity={ordersQuantity} />
     </div>
   );
 };

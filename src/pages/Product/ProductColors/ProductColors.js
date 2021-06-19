@@ -32,7 +32,7 @@ const ProductColors = ({ color, descForColor }) => {
         return (
           <li
             key={product.itemNo}
-            className={color === product.color ? `${styles.item} ${styles.colorActive}` : styles.item}
+            className={color === product.color ? `${styles.item} ${styles.itemActive}` : styles.item}
           >
             <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`}>
               <div style={{ borderColor: colors[i].cssValue }} className={styles.border}>
