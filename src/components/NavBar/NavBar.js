@@ -76,7 +76,10 @@ const NavBar = () => {
   return (
     <div className={styles.bgContainer}>
       <Container>
-        <nav>
+        <nav className={styles.row}>
+          <div className={styles.burger} onClick={toggleNav}>
+            <Icons type='burger' filled />
+          </div>
           <div className={styles.flexContainer}>
             <div>
               {location.pathname === '/' ? (
@@ -109,11 +112,6 @@ const NavBar = () => {
                   <MyOrders />
                 </li>
               </ul>
-            </div>
-            <div className={styles.burger} onClick={toggleNav}>
-              <span>
-                <Icons type='burger' filled />
-              </span>
             </div>
           </div>
         </nav>

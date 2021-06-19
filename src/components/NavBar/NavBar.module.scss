@@ -5,7 +5,10 @@
   background-color: $colorUnmellowYellow;
   @extend %custom-shadow;
 }
-
+.row {
+  display: flex;
+  align-items: center;
+}
 .flexContainer {
   display: flex;
   justify-content: space-between;
