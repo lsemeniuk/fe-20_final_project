@@ -13,11 +13,14 @@ function App() {
 
   useEffect(() => {
     dispatch(checkAuthOperation());
-    setTimeout(() => {
-      FB.getLoginStatus(response => {
-        console.log(response);
-      });
-    }, 3000);
+
+    FB.getLoginStatus(response => {
+      console.log(response);
+    });
+
+    FB.api('/me', function (response) {
+      console.log(JSON.stringify(response));
+    });
   }, []);
 
   return (
