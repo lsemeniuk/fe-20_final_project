@@ -10,6 +10,8 @@
   opacity: 0;
   left: -100%;
   transition: 0.3s ease-in-out;
+  overflow-y: scroll;
+
 }
 .active {
   opacity: 1;
@@ -20,12 +22,13 @@
   position: absolute;
   top: 2.3%;
   left: 22%;
-  font-size: 1.5rem;
+  font-size: 20px;
   outline: none;
   cursor: pointer;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 768px) {
     top: 1%;
     left: 22%;
+    font-size: 12px;
   }
 }
 .title {
@@ -34,9 +37,10 @@
   top: 3.3%;
   left: 45%;
   font-size: 20px;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 768px) {
     top: 1.5%;
     left: 35%;
+    font-size: 16px;
   }
 }
 .container::after {
@@ -48,21 +52,52 @@
   @media screen and (max-width: 500px) {
     top: 6%;
   }
+  @media (min-width:501px) and (max-width: 768px) {
+    top: 8%;
+  }
+  @media (min-width:769px) and (max-width: 991px) {
+    top: 10%;
+  }
 }
 .menu__wrapper {
   text-align: center;
   margin-top: 150px;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 768px) {
     margin-top: 80px;
+
   }
+  @media (min-width: 769px) and (max-width: 991px) {
+    margin-top: 80px;
+
+  }
+  @media (min-width: 769px) and (max-width: 991px){
+    font-size: 14px;
+
+  }
+
 }
 .menu__slideOut {
   display: flex;
   flex-direction: column;
   text-align: center;
   margin: 70px 100px 50px 100px;
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     margin: 40px 100px 50px 100px;
+  }
+  @media (min-width: 601px) and (max-width: 662px) {
+    margin: 40px 100px 50px 115px;
+  }
+  @media (min-width: 663px) and (max-width: 768px) {
+    margin: 40px 100px 50px 125px;
+  }
+  @media (min-width: 769px) and (max-width: 850px) {
+    margin: 40px 100px 50px 145px;
+  }
+  @media (min-width: 769px) and (max-width: 850px) {
+    margin: 40px 100px 50px 165px;
+  }
+  @media (min-width: 851px) and (max-width: 991px) {
+    margin: 40px 100px 50px 185px;
   }
 }
 .navItem{
