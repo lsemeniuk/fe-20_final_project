@@ -107,6 +107,24 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
               <img className={styles.hidden} src={accessories} alt='kids watch' />
               <div className={styles.navLabel}>044 223 32 23</div>
             </li>
+            <li className={styles.navItem}>
+              <div className={styles.navIcon}>
+                <Icons type='whatsApp' filled={false} width={30} height={30} />
+              </div>
+              <div className={styles.navLabel}>+380 95 332 23 32</div>
+            </li>
+            <li className={styles.navItem}>
+              <div className={styles.navIcon}>
+                <Icons type='skype' filled={false} width={30} height={30} />
+              </div>
+              <div className={styles.navLabel}>skype</div>
+            </li>
+            <li className={styles.navItem}>
+              <div className={styles.navIcon}>
+                <Icons type='telegram' filled={false} width={30} height={30} />
+              </div>
+              <div className={styles.navLabel}>telegram</div>
+            </li>
           </ul>
         </div>
       </div>
