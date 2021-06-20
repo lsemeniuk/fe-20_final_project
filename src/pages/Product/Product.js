@@ -12,8 +12,8 @@ import ProductPrice from './ProductPrice/ProductPrice';
 import OrdersInfo from './OrdersInfo/OrdersInfo';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import InfoPanel from './InfoPanel/InfoPanel';
-import styles from './Product.module.scss';
 import NavBarProduct from './NavBarProduct/NavBarProduct';
+import styles from './Product.module.scss';
 
 const Product = () => {
   const [tabIndexInfo, setTabIndexInfo] = useState(0);
@@ -30,7 +30,16 @@ const Product = () => {
 
   useEffect(() => {
     dispatch(getOneProductOperation(params.id));
-  }, [dispatch]);
+
+    const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
+
+    if (viwedProducts && viwedProducts.length >= 1) {
+      const newViwedProducts = [...new Set([params.id, ...viwedProducts])];
+      localStorage.setItem('viwed_products', JSON.stringify(newViwedProducts));
+    } else {
+      localStorage.setItem('viwed_products', JSON.stringify([params.id]));
+    }
+  }, [params.id]);
 
   if (productLoading) {
     return (
@@ -41,7 +50,7 @@ const Product = () => {
       </Container>
     );
   }
-  const { brand, name, quantity, color } = product;
+  const { brand, name, quantity, color, descForColor } = product;
 
   return (
     <main>
@@ -81,7 +90,7 @@ const Product = () => {
 
           <div className={styles.flexColumn}>
             <Availability quantity={quantity} />
-            <ProductColors color={color} />
+            <ProductColors color={color} descForColor={descForColor} />
             <ProductPrice product={product} />
             <OrdersInfo />
           </div>
@@ -91,8 +100,9 @@ const Product = () => {
           <InfoPanel product={product} setTabIndex={setTabIndexInfo} tabIndex={tabIndexInfo} />
         </div>
 
-        <div ref={interestedRef} className={styles.interestedProduct}>
+        <div ref={interestedRef} className={styles.slider}>
           <CustomSlider title='Также Вас могут заинтересовать' filter={{ brand: product.brand }} />
+          <CustomSlider title='Последние просмотренные товары' viwedProduct />
         </div>
       </Container>
     </main>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import ProductCard from '../../ProductCard/ProductCard';
 import Loader from '../../Loader/Loader';
-import { getProductsFilterParams } from '../../../http/productAPI';
+import { getProductsByArrayId, getProductsFilterParams } from '../../../http/productAPI';
 import styles from './CustomSlider.module.scss';
 
 const sliderSettings = {
@@ -37,16 +37,28 @@ const sliderSettings = {
   ],
 };
 
-const CustomSlider = ({ title, filter }) => {
+const CustomSlider = ({ title, filter, viwedProduct }) => {
   const [products, setProducts] = useState([]);
   const [productsLoading, setProductLoading] = useState(true);
+  const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
 
   useEffect(() => {
-    getProductsFilterParams(filter).then(res => {
-      setProducts(res.data.products);
-      setProductLoading(false);
-    });
+    if (viwedProduct) {
+      getProductsByArrayId({ itemNo: viwedProducts }).then(res => {
+        setProducts(res.data);
+        setProductLoading(false);
+      });
+    } else {
+      getProductsFilterParams(filter).then(res => {
+        setProducts(res.data.products);
+        setProductLoading(false);
+      });
+    }
   }, []);
+
+  if (viwedProduct && !viwedProducts) {
+    return null;
+  }
 
   if (productsLoading) {
     return <Loader />;
@@ -68,7 +80,13 @@ const CustomSlider = ({ title, filter }) => {
 
 CustomSlider.propTypes = {
   title: PropTypes.string.isRequired,
-  filter: PropTypes.object.isRequired,
+  filter: PropTypes.object,
+  viwedProduct: PropTypes.bool,
+};
+
+CustomSlider.defaultProps = {
+  filter: {},
+  viwedProduct: false,
 };
 
 export default CustomSlider;

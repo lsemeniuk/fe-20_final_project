@@ -8,13 +8,13 @@ import {
   ADM_CATALOG_ROUTE,
   PRODUCT_ROUTE,
   CUSTOMER_WISH_LIST_ROUTE,
-  ADM_PRODUCTS_ROUTE,
   ADM_BRANDS_ROUTE,
   ADM_COLORS_ROUTE,
   ADM_FILTERS_ROUTE,
   ADM_COMMENTS_ROUTE,
   ADM_SLIDER_ROUTE,
   ADM_ORDERS_ROUTE,
+  CONFIRM_REFISTRATION,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
@@ -31,6 +31,7 @@ import Filters from '../pages/Admin/Filters/Filters';
 import Comments from '../pages/Admin/Comment/Comments';
 import Sliders from '../pages/Admin/Slider/Sliders';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
+import ConfirmRegistration from '../pages/ConfirmRegistration/ConfirmRegistration';
 
 export const publicRoutes = [
   {
@@ -54,7 +55,12 @@ export const publicRoutes = [
     Component: WishList,
   },
   {
-    name: 'Список желаний',
+    name: 'Подтвердить регистрацию',
+    path: `${CONFIRM_REFISTRATION}/:token`,
+    Component: ConfirmRegistration,
+  },
+  {
+    name: 'Сбросить пароль',
     path: `${RESET_PASSWORD}/:token`,
     Component: ResetPassword,
   },
@@ -93,11 +99,6 @@ export const adminRoutes = [
   {
     name: 'Каталог',
     path: ADM_CATALOG_ROUTE,
-    Component: Catalog,
-  },
-  {
-    name: 'Продукты',
-    path: ADM_PRODUCTS_ROUTE,
     Component: Catalog,
   },
   {
