@@ -22,7 +22,7 @@ const Index = () => {
   const toggleCatalogNav = () => setisOpen(!isOpen);
   return (
     <main className={styles.main}>
-      <div className={styles.catalogs__bar} onClick={toggleCatalogNav}>
+      <div className={styles.catalog__bar} onClick={toggleCatalogNav}>
         <div>
           <Icons type='widget' filled />
         </div>

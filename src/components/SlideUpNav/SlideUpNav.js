@@ -26,7 +26,7 @@ const SlideUpNav = ({ isOpen, toggleCatalogNav }) => {
 
   return (
     <aside className={isOpen ? `${styles.container} ${styles.active}` : `${styles.container}`}>
-      <div>
+      <div className={styles.header}>
         <div className={styles.icon__container} onClick={toggleCatalogNav}>
           <Icons type='close' width={35} height={35} />
         </div>

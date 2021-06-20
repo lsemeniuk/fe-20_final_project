@@ -34,11 +34,21 @@
   position: absolute;
   margin: 0;
   top: 3.5%;
-  left: 60%;
+  left: 50%;
   font-size: 20px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 500px) {
     top: 2.5%;
-    left: 26%;
+    left: 33%;
+    font-size: 16px;
+  }
+  @media (min-width: 500px) and (max-width: 768px) {
+    top: 2.5%;
+    left: 30%;
+    font-size: 16px;
+  }
+  @media (min-width: 769px) and (max-width: $deskMin) {
+    top: 2.7%;
+    left: 31%;
     font-size: 16px;
   }
 }
