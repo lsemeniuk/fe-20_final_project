@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../Forms/MyTextInput/MyTextInput';
@@ -9,7 +8,7 @@ import Button from '../../Button/Button';
 import { createCustomerOperation } from '../../../store/customer/operations';
 import styles from './RegForm.module.scss';
 
-const RegForm = ({ setTabIndex }) => {
+const RegForm = () => {
   const dispatch = useDispatch();
   const [messageServer, setmessageServer] = useState(null);
   const [isAcceptedPrivacyPolicyState, setIsAcceptedPrivacyPolicy] = useState(false);
@@ -57,7 +56,6 @@ const RegForm = ({ setTabIndex }) => {
           dispatch(
             createCustomerOperation({
               setmessageServer,
-              setTabIndex,
               firstName,
               lastName,
               login,
@@ -119,10 +117,6 @@ const RegForm = ({ setTabIndex }) => {
       </Formik>
     </>
   );
-};
-
-RegForm.propTypes = {
-  setTabIndex: PropTypes.func.isRequired,
 };
 
 export default RegForm;
