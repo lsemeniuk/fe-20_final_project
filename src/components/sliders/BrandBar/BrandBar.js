@@ -20,8 +20,8 @@ const sliderSettings = {
 const BrandBar = () => {
   const dispatch = useDispatch();
   const brands = useSelector(getBrandsSelector);
-  const brandsLoading = useSelector(brandsLoadingSelector);
   const productFilters = useSelector(getProductsFilterSelector);
+  const brandsLoading = useSelector(brandsLoadingSelector);
 
   const history = useHistory();
   const { search } = useLocation();
@@ -48,7 +48,7 @@ const BrandBar = () => {
     brandsList = brands.map(brand => {
       let classNameItem = styles.itemContainer;
 
-      if (search.includes(brand.name)) {
+      if (search.includes(`brand=${brand.name}`)) {
         classNameItem = `${styles.itemContainer} ${styles.itemActive}`;
       }
 
@@ -88,7 +88,6 @@ const BrandBar = () => {
                 </li>
               </div>
             )}
-
             {brandsList}
           </Slider>
         </ul>

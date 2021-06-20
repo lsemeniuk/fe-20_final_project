@@ -38,7 +38,7 @@ const UserBar = ({ className }) => {
         {customer.isAdmin ? (
           <li className={styles.item}>
             <NavLink to={ADM_ORDERS_ROUTE} className={styles.link}>
-              Админпанель
+              Админ панель
             </NavLink>
           </li>
         ) : null}
