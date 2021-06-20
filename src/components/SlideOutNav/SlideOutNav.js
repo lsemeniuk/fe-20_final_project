@@ -52,7 +52,7 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={kidsWatch} alt='kids watch' />
               <NavLink to={`${PRODUCTS_ROUTE}/kids`} className={styles.link} activeClassName={styles.activeLink}>
-                Десткие
+                Детcкие
               </NavLink>
             </li>
             <li className={styles.navItem}>
