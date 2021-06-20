@@ -8,11 +8,9 @@ import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import CustomerDataInputs from '../../CustomerDataInputs/CustomerDataInputs';
 import DeliveryDataInputs from '../../DeliveryDataInputs/DeliveryDataInputs';
 import PaymentDataInputs from '../../PaymentDataInputs/PaymentDataInputs';
-import { cartTotalPriceSelector, getLocalCartSelector } from '../../../../store/cart/selectors';
-import { generateLetterHtml } from '../../../../utils/generateHtml';
+import { getLocalCartSelector } from '../../../../store/cart/selectors';
 import Loader from '../../../../components/Loader/Loader';
 import { getProductsSelector, productsLoadingSelector } from '../../../../store/products/selectors';
-import { replace } from '../../../../utils/func';
 import styles from './NewCustomer.module.scss';
 
 const NewCustomer = () => {
@@ -21,7 +19,6 @@ const NewCustomer = () => {
   const products = useSelector(getProductsSelector);
   const productsLoading = useSelector(productsLoadingSelector);
   const localCart = useSelector(getLocalCartSelector);
-  const totalPrice = replace(useSelector(cartTotalPriceSelector));
 
   if (productsLoading) {
     return <Loader />;
@@ -72,23 +69,13 @@ const NewCustomer = () => {
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          const letterHtml = generateLetterHtml(
-            { products: cart },
-            values,
-            'https://i.ibb.co/GMbFyFv/logo.png',
-            'http://localhost:3000/',
-            totalPrice
-          );
-
           const { delivery, region, city, address, ...ordersValue } = values;
 
           const deliveryAddress = { delivery, region, city, address };
 
-          const letterSubject = 'Спасибо за заказ!';
-
           const status = 'processed';
 
-          placeOrder({ ...ordersValue, deliveryAddress, letterHtml, letterSubject, products: cart, status })
+          placeOrder({ ...ordersValue, deliveryAddress, products: cart, status })
             .then(res => {
               if (res.status === 200) {
                 if (res.data.message) {
