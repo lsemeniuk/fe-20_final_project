@@ -25,7 +25,7 @@ export const authorizOperation = ({ setmessageServer, ...value }) => dispatch =>
   dispatch(saveCustomerIsLoadingAction(true));
   loginCustomer(value)
     .then(res => {
-      dispatch(saveCustomerAction(res.data));
+      dispatch(saveCustomerAction(res.data.customer));
       dispatch(saveCustomerIsAuthAction(true));
       dispatch(saveModalAuthRegAction(false));
     })
