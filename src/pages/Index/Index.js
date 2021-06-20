@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import Container from '../../components/Container/Container';
 import GenderLink from '../../components/GenderLink/GenderLink';
+import Icons from '../../components/Icons/Icons';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import PromotionSlider from '../../components/sliders/PromotionSlider/PromotionSlider';
 import styles from './Index.module.scss';
+import SlideUpNav from '../../components/SlideUpNav/SlideUpNav';
 
 const Index = () => {
   const sliderSettings = {
@@ -16,9 +18,17 @@ const Index = () => {
     slidesToScroll: 1,
     arrows: false,
   };
-
+  const [isOpen, setisOpen] = useState(false);
+  const toggleCatalogNav = () => setisOpen(!isOpen);
   return (
     <main className={styles.main}>
+      <div className={styles.catalogs__bar} onClick={toggleCatalogNav}>
+        <div>
+          <Icons type='widget' filled />
+        </div>
+        <p className={styles.text}>Каталог товаров</p>
+      </div>
+      <SlideUpNav toggleCatalogNav={toggleCatalogNav} isOpen={isOpen} />
       <PromotionSlider />
 
       <Container>

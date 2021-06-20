@@ -1,9 +1,13 @@
 @import '../../../theme/styles/mixins';
+@import '../../../theme/styles/var';
 
 .container {
   height: 450px;
   color: #fff;
   margin-bottom: 30px;
+  @media screen and (max-width:$tabMax) {
+    display: none;
+  }
 }
 
 .itemContainer {

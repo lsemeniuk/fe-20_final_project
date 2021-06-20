@@ -8,6 +8,7 @@
 .row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .flexContainer {
   display: flex;
@@ -16,14 +17,38 @@
   height: 100px;
   @media screen and (max-width: $tabMax) {
     height: 45px;
-    margin-left: 30px;
+    margin-left: 0px;
     margin-top: 10px;
+  }
+  @media screen and (max-width: $mobMax) and (min-width: $mobMin) {
+    height: 45px;
+    margin-left: 0px;
+    margin-top: 10px;
+    & > div > img {
+      height: 50px;
+      width: 175px;
+    }
   }
 }
 .adaptive__icons__block {
   display: none;
-  @media screen and (max-width: $tabMax) {
+  @media (min-width: 500px) and (max-width: $tabMax) {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+    & > * {
+      margin-left: 20px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    & > * {
+      margin-left: 5px;
+    }
   }
 }
 .menuContainer {
@@ -40,6 +65,9 @@
 
   @media (min-width: $deskMin) {
     display: none;
+  }
+  @media (max-width: $tabMax) {
+    margin-right: 0px;
   }
 }
 

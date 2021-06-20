@@ -113,11 +113,11 @@ const NavBar = () => {
                 </li>
               </ul>
             </div>
-            <div className={styles.adaptive__icons__block}>
-              <Icons type='search' filled />
-              <Icons type='navHeart' width={30} height={30} />
-              <Icons type='navBag' width={30} height={30} />
-            </div>
+          </div>
+          <div className={styles.adaptive__icons__block}>
+            <Icons type='search' width={30} height={30} />
+            <Icons type='navHeart' width={25} height={25} />
+            <Icons type='navBag2' width={30} height={30} />
           </div>
         </nav>
         {!isAuth && modalAuthReg && <RegAuth />}
