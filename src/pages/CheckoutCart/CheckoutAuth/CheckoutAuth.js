@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
@@ -9,18 +8,13 @@ import DeliveryDataInputs from '../DeliveryDataInputs/DeliveryDataInputs';
 import PaymentDataInputs from '../PaymentDataInputs/PaymentDataInputs';
 import { getCustomerIsLoadingSelector, getCustomerSelector } from '../../../store/customer/selectors';
 import Loader from '../../../components/Loader/Loader';
-import { generateLetterHtml } from '../../../utils/generateHtml';
-import { cartTotalPriceSelector, getCartSelector } from '../../../store/cart/selectors';
 import schema from '../schema';
-import { replace } from '../../../utils/func';
 import styles from './CheckoutAuth.module.scss';
 
 const CheckoutAuth = () => {
   const [messageServer, setMessageServer] = useState(null);
   const [commentAvailible, setCommentAvailible] = useState(false);
   const customerLoading = useSelector(getCustomerIsLoadingSelector);
-  const cart = useSelector(getCartSelector);
-  const totalPrice = replace(useSelector(cartTotalPriceSelector));
   const customer = useSelector(getCustomerSelector);
 
   const { _id: id } = customer;
@@ -46,22 +40,12 @@ const CheckoutAuth = () => {
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          const letterHtml = generateLetterHtml(
-            cart,
-            values,
-            'https://i.ibb.co/GMbFyFv/logo.png',
-            'http://localhost:3000/',
-            totalPrice
-          );
-
           const { delivery, region, city, address, ...ordersValue } = values;
           const deliveryAddress = { delivery, region, city, address };
 
-          const letterSubject = 'Спасибо за заказ!';
-
           const status = 'processed';
 
-          placeOrder({ ...ordersValue, deliveryAddress, customerId: id, letterHtml, letterSubject, status })
+          placeOrder({ ...ordersValue, deliveryAddress, customerId: id, status })
             .then(res => {
               if (res.status === 200) {
                 if (res.data.message) {
