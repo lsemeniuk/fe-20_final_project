@@ -17,7 +17,12 @@
   opacity: 1;
   left: -20%;
 }
-
+.link {
+  color: #000;
+}
+.activeLink {
+  color: $colorCyan;
+}
 .icon__container {
   position: absolute;
   top: 2.3%;
@@ -98,6 +103,15 @@
   display: flex;
   align-items: center;
   //justify-content: center;
+}
+.navItem__differentPages {
+  margin: 20px 0 20px 92px;
+  text-align: left;
+}
+.link__differentPages {
+  &:active {
+    color: $colorCyan;
+  }
 }
 .navIcon {
   padding: 10px 30px;

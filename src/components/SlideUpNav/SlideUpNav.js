@@ -1,21 +1,15 @@
-/* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
-// import { useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './SlideUpNav.module.scss';
+import { PRODUCTS_ROUTE } from '../../utils/consts';
 import Icons from '../Icons/Icons';
 import menWatch from '../../theme/img/men-watch.webp';
 import womenWatch from '../../theme/img/women-watch.webp';
 import kidsWatch from '../../theme/img/kids-watch.webp';
 import accessories from '../../theme/img/accessories-pic.webp';
-// import CategoriesList from '../CategoriesList/CategoriesList';
-// import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
-// import { getWishListSelector } from '../../store/wishList/selectors';
-// import { CUSTOMER_WISH_LIST_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
-// import User from '../NavBar/User/User';
 
 const SlideUpNav = ({ isOpen, toggleCatalogNav }) => {
   // const isAuth = useSelector(getCustomerIsAuthSelector);
@@ -37,22 +31,30 @@ const SlideUpNav = ({ isOpen, toggleCatalogNav }) => {
           <ul className={styles.menu__slideOut}>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={menWatch} alt='men watch' />
-              <div className={styles.navLabel}>Мужские</div>
+              <NavLink to={`${PRODUCTS_ROUTE}/men`}>
+                <p className={styles.navLabel}>Мужские</p>
+              </NavLink>
             </li>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={womenWatch} alt='women watch' />
-              <div className={styles.navLabel}>Женские</div>
+              <NavLink to={`${PRODUCTS_ROUTE}/women`}>
+                <p className={styles.navLabel}>Женские</p>
+              </NavLink>
             </li>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={kidsWatch} alt='kids watch' />
-              <div className={styles.navLabel}>Детские</div>
+              <NavLink to={`${PRODUCTS_ROUTE}/kids`}>
+                <p className={styles.navLabel}>Детские</p>
+              </NavLink>
             </li>
             <li className={styles.navItem}>
-              <img className={styles.navIcon} src={accessories} alt='kids watch' />
-              <div className={styles.navLabel}>Аксессуары</div>
+              <img className={styles.navIcon} src={accessories} alt='accessories' />
+              <NavLink to={`${PRODUCTS_ROUTE}/accessories`}>
+                <p className={styles.navLabel}>Аксессуары</p>
+              </NavLink>
             </li>
             <li className={styles.navItem}>
-              <img className={styles.hidden} src={accessories} alt='kids watch' />
+              <img className={styles.hidden} src={accessories} alt='accessories' />
               <div className={styles.navLabel}>Бренды</div>
             </li>
           </ul>

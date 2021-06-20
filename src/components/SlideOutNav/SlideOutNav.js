@@ -3,8 +3,10 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 // import { useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import { PRODUCTS_ROUTE } from '../../utils/consts';
+import DifferentPagesList from '../DifferentPagesList/DifferentPagesList';
 import styles from './SlideOutNav.module.scss';
 import Icons from '../Icons/Icons';
 import menWatch from '../../theme/img/men-watch.webp';
@@ -37,71 +39,60 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
           <ul className={styles.menu__slideOut}>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={menWatch} alt='men watch' />
-              <div className={styles.navLabel}>Мужские</div>
+              <NavLink to={`${PRODUCTS_ROUTE}/men`} className={styles.link} activeClassName={styles.activeLink}>
+                Мужские
+              </NavLink>
             </li>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={womenWatch} alt='women watch' />
-              <div className={styles.navLabel}>Женские</div>
+              <NavLink to={`${PRODUCTS_ROUTE}/women`} className={styles.link} activeClassName={styles.activeLink}>
+                Женские
+              </NavLink>
             </li>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={kidsWatch} alt='kids watch' />
-              <div className={styles.navLabel}>Детские</div>
+              <NavLink to={`${PRODUCTS_ROUTE}/kids`} className={styles.link} activeClassName={styles.activeLink}>
+                Десткие
+              </NavLink>
             </li>
             <li className={styles.navItem}>
-              <img className={styles.navIcon} src={accessories} alt='kids watch' />
-              <div className={styles.navLabel}>Аксессуары</div>
-            </li>
-            <li className={styles.navItem}>
-              <img className={styles.hidden} src={accessories} alt='kids watch' />
-              <div className={styles.navLabel}>Бренды</div>
-            </li>
-            <li className={styles.navItem}>
-              <img className={styles.hidden} src={accessories} alt='kids watch' />
-              <div className={styles.navLabel}>О нас</div>
+              <img className={styles.navIcon} src={accessories} alt='accessories' />
+              <NavLink to={`${PRODUCTS_ROUTE}/accessories`} className={styles.link} activeClassName={styles.activeLink}>
+                Аксессуары
+              </NavLink>
             </li>
             <li className={styles.navItem}>
               <img className={styles.hidden} src={accessories} alt='kids watch' />
-              <div className={styles.navLabel}>Оплата и Доставка</div>
+              <p>Бренды</p>
             </li>
-            <li className={styles.navItem}>
-              <img className={styles.hidden} src={accessories} alt='kids watch' />
-              <div className={styles.navLabel}>Обмен и Возврат</div>
-            </li>
-            <li className={styles.navItem}>
-              <img className={styles.hidden} src={accessories} alt='kids watch' />
-              <div className={styles.navLabel}>Контактная информация</div>
-            </li>
-            <li className={styles.navItem}>
-              <img className={styles.hidden} src={accessories} alt='kids watch' />
-              <div className={styles.navLabel}>Блог</div>
-            </li>
+            <DifferentPagesList classLink={styles.link__differentPages} classItem={styles.navItem__differentPages} />
             <li className={styles.navItem}>
               <div className={styles.navIcon}>
                 <Icons type='navUser' filled width={30} height={30} />
               </div>
-              <div className={styles.navLabel}>Мой профиль</div>
+              <p className={styles.navLabel}>Мой профиль</p>
             </li>
             <li className={styles.navItem}>
               <div className={styles.navIcon}>
                 <Icons type='burger' filled width={30} height={30} />
               </div>
-              <div className={styles.navLabel}>Мои заказы</div>
+              <p className={styles.navLabel}>Мои заказы</p>
             </li>
             <li className={styles.navItem}>
               <div className={styles.navIcon}>
                 <Icons type='navHeart' width={30} height={30} />
               </div>
-              <div className={styles.navLabel}>Список желаний</div>
+              <p className={styles.navLabel}>Список желаний</p>
             </li>
             <li className={styles.navItem}>
               <img className={styles.hidden} src={accessories} alt='kids watch' />
-              <div className={styles.navLabel}>Выход</div>
+              <p className={styles.navLabel}>Выход</p>
             </li>
             <li className={styles.navItem}>
               <div className={styles.navIcon}>
                 <Icons type='phone' filled width={30} height={30} />
               </div>
-              <div className={styles.navLabel}>044 322 23 32</div>
+              <p className={styles.navLabel}>044 322 23 32</p>
             </li>
             <li className={styles.navItem}>
               <img className={styles.hidden} src={accessories} alt='kids watch' />
@@ -111,19 +102,19 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
               <div className={styles.navIcon}>
                 <Icons type='whatsApp' filled={false} width={30} height={30} />
               </div>
-              <div className={styles.navLabel}>+380 95 332 23 32</div>
+              <p className={styles.navLabel}>+380 95 332 23 32</p>
             </li>
             <li className={styles.navItem}>
               <div className={styles.navIcon}>
                 <Icons type='skype' filled={false} width={30} height={30} />
               </div>
-              <div className={styles.navLabel}>skype</div>
+              <p className={styles.navLabel}>skype</p>
             </li>
             <li className={styles.navItem}>
               <div className={styles.navIcon}>
                 <Icons type='telegram' filled={false} width={30} height={30} />
               </div>
-              <div className={styles.navLabel}>telegram</div>
+              <p className={styles.navLabel}>telegram</p>
             </li>
           </ul>
         </div>
