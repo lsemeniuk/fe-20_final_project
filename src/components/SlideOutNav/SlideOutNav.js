@@ -89,7 +89,7 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
             </li>
             <li className={styles.navItem}>
               <div className={styles.navIcon}>
-                <Icons type='navHeart' filled width={30} height={30} />
+                <Icons type='navHeart' width={30} height={30} />
               </div>
               <div className={styles.navLabel}>Список желаний</div>
             </li>

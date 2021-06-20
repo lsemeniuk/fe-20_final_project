@@ -14,8 +14,18 @@
   justify-content: space-between;
   align-items: center;
   height: 100px;
+  @media screen and (max-width: $tabMax) {
+    height: 45px;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
 }
-
+.adaptive__icons__block {
+  display: none;
+  @media screen and (max-width: $tabMax) {
+    display: flex;
+  }
+}
 .menuContainer {
   display: flex;
   justify-content: space-between;
