@@ -28,12 +28,13 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
 
   return (
     <aside className={isOpen ? `${styles.container} ${styles.active}` : `${styles.container}`}>
-      <div>
-        <div className={styles.icon__container} onClick={toggleNav}>
-          <Icons type='close' width={35} height={35} />
-        </div>
+      <div className={styles.icon__container} onClick={toggleNav}>
+        <Icons type='close' width={35} height={35} />
+      </div>
+      <div className={styles.title__wrapper}>
         <h2 className={styles.title}>SmartElectronics</h2>
       </div>
+
       <div className={styles.menu} onClick={toggleNav}>
         <div className={styles.menu__wrapper}>
           <ul className={styles.menu__slideOut}>

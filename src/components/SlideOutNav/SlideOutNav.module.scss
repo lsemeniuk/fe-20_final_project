@@ -26,26 +26,29 @@
 .icon__container {
   position: absolute;
   top: 2.3%;
-  left: 22%;
-  font-size: 20px;
   outline: none;
   cursor: pointer;
   @media screen and (max-width: 768px) {
-    top: 1%;
-    left: 22%;
+    top: 1.5%;
+    left: 25%;
+    font-size: 12px;
+  }
+  @media (min-width: 769px) and (max-width: $tabMax) {
+    top: 2.0%;
+    left: 24%;
     font-size: 12px;
   }
 }
+
+.title__wrapper {
+  text-align: center;
+  margin-left: 15%;
+}
 .title {
-  position: absolute;
-  margin: 0;
-  top: 3.5%;
-  left: 60%;
-  font-size: 20px;
+  margin: 17px 0 0 0;
+  font-size: 22px;
   @media screen and (max-width: 768px) {
-    top: 2%;
-    left: 50%;
-    font-size: 16px;
+   font-size: 18px;
   }
 }
 .container::after {
@@ -58,46 +61,49 @@
     top: 6%;
   }
   @media (min-width: 501px) and (max-width: 768px) {
-    top: 8%;
+    top: 10%;
   }
   @media (min-width: 769px) and (max-width: 991px) {
-    top: 10%;
+    top: 12%;
   }
 }
 .menu__wrapper {
-  text-align: center;
-  margin-top: 150px;
-  @media screen and (max-width: 768px) {
-    margin-top: 80px;
-  }
-  @media (min-width: 769px) and (max-width: 991px) {
-    margin-top: 80px;
-    font-size: 14px;
-  }
+  margin-left: 20%;
+  margin-top: 5%;
+  // text-align: center;
+  // @media screen and (max-width: 768px) {
+  //   margin-top: 20px;
+  // }
+  // @media (min-width: 769px) and (max-width: 991px) {
+  //   margin-top: 20px;
+  //   font-size: 14px;
+  // }
 }
 .menu__slideOut {
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
-  text-align: center;
-  margin: 70px 100px 50px 100px;
-  @media screen and (max-width: 600px) {
-    margin: 40px 100px 50px 100px;
-  }
-  @media (min-width: 601px) and (max-width: 662px) {
-    margin: 40px 100px 50px 115px;
-  }
-  @media (min-width: 663px) and (max-width: 768px) {
-    margin: 40px 100px 50px 135px;
-  }
-  @media (min-width: 769px) and (max-width: 850px) {
-    margin: 40px 100px 50px 160px;
-  }
-  @media (min-width: 769px) and (max-width: 850px) {
-    margin: 40px 100px 50px 180px;
-  }
-  @media (min-width: 851px) and (max-width: 991px) {
-    margin: 40px 100px 50px 200px;
-  }
+
+  // margin: 70px 100px 50px 100px;
+  // @media screen and (max-width: 600px) {
+  //   margin: 40px 100px 50px 100px;
+  // }
+  // @media (min-width: 601px) and (max-width: 662px) {
+  //   margin: 40px 100px 50px 115px;
+  // }
+  // @media (min-width: 663px) and (max-width: 768px) {
+  //   margin: 40px 100px 50px 135px;
+  // }
+  // @media (min-width: 769px) and (max-width: 850px) {
+  //   margin: 40px 100px 50px 160px;
+  // }
+  // @media (min-width: 769px) and (max-width: 850px) {
+  //   margin: 40px 100px 50px 180px;
+  // }
+  // @media (min-width: 851px) and (max-width: 991px) {
+  //   margin: 40px 100px 50px 200px;
+  // }
 }
 .navItem {
   display: flex;
