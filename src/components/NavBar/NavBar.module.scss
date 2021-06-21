@@ -61,13 +61,12 @@
   }
 }
 .burger {
-  margin-right: 25px;
 
   @media (min-width: $deskMin) {
     display: none;
   }
   @media (max-width: $tabMax) {
-    margin-right: 0px;
+    margin-left: 3%;
   }
 }
 
