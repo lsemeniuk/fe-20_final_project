@@ -14,9 +14,11 @@ const ProductCard = ({ product, inSlider }) => {
   const calculateSales = Math.round(((previousPrice - currentPrice) / previousPrice) * 100);
 
   let containerClassName = `${styles.container}`;
+  let btnBlockClassName = `${styles.btnBlock}`;
 
   if (inSlider) {
     containerClassName = `${styles.container} ${styles.container__slider}`;
+    btnBlockClassName = `${styles.btnBlock} ${styles.btnBlock__inSlider}`;
   }
 
   return (
@@ -60,7 +62,7 @@ const ProductCard = ({ product, inSlider }) => {
         <span className={styles.name}>{name}</span>
       </NavLink>
 
-      <div className={styles.btnBlock}>
+      <div className={btnBlockClassName}>
         <div className={styles.btnFlex}>
           <AddToCartButton product={product} id={id} orderButton={false} currentPrice={currentPrice} />
           <span className={styles.favIcon}>
