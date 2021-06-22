@@ -39,7 +39,7 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
         </div>
 
         <div className={styles.menu} onClick={toggleNav}>
-          <div className={styles.menu__wrapper}>
+          <nav className={styles.menu__wrapper}>
             <ul className={styles.menu__slideOut}>
               <li className={styles.navItem}>
                 <img className={styles.navIcon} src={menWatch} alt='men watch' />
@@ -69,17 +69,13 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
                   Аксессуары
                 </NavLink>
               </li>
-              <li className={styles.navItem}>
-                <img className={styles.hidden} src={accessories} alt='kids watch' />
-                <p>Бренды</p>
-              </li>
-              <DifferentPagesList classLink={styles.link__differentPages} classItem={styles.navItem__differentPages} />
               <li className={styles.navItem} onClick={toggleLoginReg}>
                 <div className={styles.navIcon}>
                   <Icons type='navUser' filled width={30} height={30} />
                 </div>
                 <p className={styles.navLabel}>Вход для клиентов</p>
               </li>
+              <DifferentPagesList classLink={styles.link__differentPages} classItem={styles.navItem__differentPages} />
               <li className={styles.navItem}>
                 <div className={styles.navIcon}>
                   <Icons type='burger' filled width={30} height={30} />
@@ -125,7 +121,7 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
                 <p className={styles.navLabel}>telegram</p>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
       </aside>
       <LoginRegNav showLogin={showLogin} toggleLoginReg={toggleLoginReg} />

@@ -20,20 +20,20 @@
   }
 
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
     max-width: 900px;
   }
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
     max-width: 420px;
   }
 
   @media (max-width: $mobMin) {
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
     max-width: $mobMin;
   }
 }

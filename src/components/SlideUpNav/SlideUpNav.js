@@ -27,34 +27,34 @@ const SlideUpNav = ({ isOpen, toggleCatalogNav }) => {
         <h2 className={styles.title}>SmartElectronics</h2>
       </div>
       <div className={styles.menu} onClick={toggleCatalogNav}>
-        <div className={styles.menu__wrapper}>
+        <nav className={styles.menu__wrapper}>
           <ul className={styles.menu__slideOut}>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={menWatch} alt='men watch' />
-              <NavLink to={`${PRODUCTS_ROUTE}/men`}>
-                <p className={styles.navLabel}>Мужские</p>
+              <NavLink to={`${PRODUCTS_ROUTE}/men`} className={styles.link} activeClassName={styles.activeLink}>
+                Мужские
               </NavLink>
             </li>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={womenWatch} alt='women watch' />
-              <NavLink to={`${PRODUCTS_ROUTE}/women`}>
-                <p className={styles.navLabel}>Женские</p>
+              <NavLink to={`${PRODUCTS_ROUTE}/women`} className={styles.link} activeClassName={styles.activeLink}>
+                Женские
               </NavLink>
             </li>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={kidsWatch} alt='kids watch' />
-              <NavLink to={`${PRODUCTS_ROUTE}/kids`}>
-                <p className={styles.navLabel}>Детские</p>
+              <NavLink to={`${PRODUCTS_ROUTE}/kids`} className={styles.link} activeClassName={styles.activeLink}>
+                Детcкие
               </NavLink>
             </li>
             <li className={styles.navItem}>
               <img className={styles.navIcon} src={accessories} alt='accessories' />
-              <NavLink to={`${PRODUCTS_ROUTE}/accessories`}>
-                <p className={styles.navLabel}>Аксессуары</p>
+              <NavLink to={`${PRODUCTS_ROUTE}/accessories`} className={styles.link} activeClassName={styles.activeLink}>
+                Аксессуары
               </NavLink>
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </aside>
   );

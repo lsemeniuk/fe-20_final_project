@@ -92,12 +92,16 @@
     color: $colorCyan;
   }
 }
+.link {
+  color: #000;
+}
+.activeLink {
+  color: $colorCyan;
+}
 .navIcon {
   padding: 10px 30px;
 }
-.navLabel {
-  white-space: nowrap;
-}
+
 .hidden {
   visibility: hidden;
   padding: 10px 30px;
