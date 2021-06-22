@@ -27,3 +27,5 @@ export { burger } from './burger';
 export { close } from './close';
 export { search } from './search';
 export { widget } from './widget';
+export { facebookBlue } from './facebookBlue';
+export { google } from './google';

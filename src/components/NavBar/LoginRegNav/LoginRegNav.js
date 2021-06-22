@@ -3,10 +3,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import AuthForm from '../RegAuth/AuthForm/AuthForm';
-import RegForm from '../RegAuth/RegForm/RegForm';
+import AuthForm from '../../RegAuth/AuthForm/AuthForm';
+import RegForm from '../../RegAuth/RegForm/RegForm';
 import styles from './LoginRegNav.module.scss';
-import Icons from '../Icons/Icons';
+import Icons from '../../Icons/Icons';
 
 const LoginRegNav = ({ showLogin, toggleLoginReg }) => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -49,6 +49,22 @@ const LoginRegNav = ({ showLogin, toggleLoginReg }) => {
               </div>
             </TabPanel>
           </Tabs>
+        </div>
+        <div className={styles.grid__container}>
+          <div className={styles.grid}>
+            <div className={styles.end}>
+              <Icons type='facebookBlue' filled height={40} width={40} />
+            </div>
+            <button type='button' className={styles.btn_logSocial}>
+              Войти через Facebook
+            </button>
+            <div className={styles.end}>
+              <Icons type='google' />
+            </div>
+            <button type='button' className={styles.btn_logSocial}>
+              Войти через Google
+            </button>
+          </div>
         </div>
       </div>
     </aside>

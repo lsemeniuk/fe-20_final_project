@@ -1,15 +1,14 @@
-/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import menWatch from '../../../theme/img/men-watch.webp';
+import womenWatch from '../../../theme/img/women-watch.webp';
+import kidsWatch from '../../../theme/img/kids-watch.webp';
+import accessories from '../../../theme/img/accessories-pic.webp';
 import styles from './SlideUpNav.module.scss';
-import { PRODUCTS_ROUTE } from '../../utils/consts';
-import Icons from '../Icons/Icons';
-import menWatch from '../../theme/img/men-watch.webp';
-import womenWatch from '../../theme/img/women-watch.webp';
-import kidsWatch from '../../theme/img/kids-watch.webp';
-import accessories from '../../theme/img/accessories-pic.webp';
+import { PRODUCTS_ROUTE } from '../../../utils/consts';
+import Icons from '../../Icons/Icons';
 
 const SlideUpNav = ({ isOpen, toggleCatalogNav }) => {
   return (

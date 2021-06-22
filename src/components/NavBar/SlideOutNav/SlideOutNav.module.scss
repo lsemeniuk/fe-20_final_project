@@ -1,4 +1,4 @@
-@import '../../theme/styles/var';
+@import '../../../theme/styles/var';
 
 .container {
   position: fixed;
@@ -7,14 +7,15 @@
   height: 100%;
   border: 1px solid $colorLightGray;
   background: $colorGhostWhite;
+  top: 0;
   opacity: 0;
-  bottom: -100%;
+  left: -100%;
   transition: 0.3s ease-in-out;
   overflow-y: scroll;
 }
 .active {
   opacity: 1;
-  bottom: -10%;
+  left: -20%;
 }
 .link {
   color: #000;
@@ -29,19 +30,19 @@
   cursor: pointer;
   @media screen and (max-width: 768px) {
     top: 1.5%;
-    left: 4%;
+    left: 24%;
     font-size: 12px;
   }
   @media (min-width: 769px) and (max-width: $tabMax) {
     top: 2.0%;
-    left: 4%;
+    left: 24%;
     font-size: 12px;
   }
 }
 
 .title__wrapper {
   text-align: center;
-
+  margin-left: 15%;
 }
 .title {
   margin: 17px 0 0 0;
@@ -67,8 +68,9 @@
   }
 }
 .menu__wrapper {
-  text-align: left;
-  margin-top: 3%;
+  margin-left: 20%;
+  margin-top: 8%;
+
 }
 .menu__slideOut {
   display: flex;
@@ -92,16 +94,12 @@
     color: $colorCyan;
   }
 }
-.link {
-  color: #000;
-}
-.activeLink {
-  color: $colorCyan;
-}
 .navIcon {
   padding: 10px 30px;
 }
-
+.navLabel {
+  white-space: nowrap;
+}
 .hidden {
   visibility: hidden;
   padding: 10px 30px;

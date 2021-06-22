@@ -4,16 +4,16 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { PRODUCTS_ROUTE, PERSONAL_INFO_ROUTE } from '../../utils/consts';
-import DifferentPagesList from '../DifferentPagesList/DifferentPagesList';
+import { PRODUCTS_ROUTE, PERSONAL_INFO_ROUTE } from '../../../utils/consts';
+import DifferentPagesList from '../../DifferentPagesList/DifferentPagesList';
 import styles from './SlideOutNav.module.scss';
-import Icons from '../Icons/Icons';
-import menWatch from '../../theme/img/men-watch.webp';
-import womenWatch from '../../theme/img/women-watch.webp';
-import kidsWatch from '../../theme/img/kids-watch.webp';
-import accessories from '../../theme/img/accessories-pic.webp';
+import Icons from '../../Icons/Icons';
+import menWatch from '../../../theme/img/men-watch.webp';
+import womenWatch from '../../../theme/img/women-watch.webp';
+import kidsWatch from '../../../theme/img/kids-watch.webp';
+import accessories from '../../../theme/img/accessories-pic.webp';
 import LoginRegNav from '../LoginRegNav/LoginRegNav';
-import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
+import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
 
 const SlideOutNav = ({ isOpen, toggleNav }) => {
   const isAuth = useSelector(getCustomerIsAuthSelector);

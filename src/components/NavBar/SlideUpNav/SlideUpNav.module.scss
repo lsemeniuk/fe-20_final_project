@@ -1,4 +1,4 @@
-@import '../../theme/styles/var';
+@import '../../../theme/styles/var';
 
 .container {
   position: fixed;
@@ -7,15 +7,14 @@
   height: 100%;
   border: 1px solid $colorLightGray;
   background: $colorGhostWhite;
-  top: 0;
   opacity: 0;
-  left: -100%;
+  bottom: -100%;
   transition: 0.3s ease-in-out;
   overflow-y: scroll;
 }
 .active {
   opacity: 1;
-  left: -20%;
+  bottom: -10%;
 }
 .link {
   color: #000;
@@ -30,19 +29,19 @@
   cursor: pointer;
   @media screen and (max-width: 768px) {
     top: 1.5%;
-    left: 24%;
+    left: 4%;
     font-size: 12px;
   }
   @media (min-width: 769px) and (max-width: $tabMax) {
     top: 2.0%;
-    left: 24%;
+    left: 4%;
     font-size: 12px;
   }
 }
 
 .title__wrapper {
   text-align: center;
-  margin-left: 15%;
+
 }
 .title {
   margin: 17px 0 0 0;
@@ -68,9 +67,8 @@
   }
 }
 .menu__wrapper {
-  margin-left: 20%;
-  margin-top: 8%;
-
+  text-align: left;
+  margin-top: 3%;
 }
 .menu__slideOut {
   display: flex;
@@ -94,61 +92,18 @@
     color: $colorCyan;
   }
 }
+.link {
+  color: #000;
+}
+.activeLink {
+  color: $colorCyan;
+}
 .navIcon {
   padding: 10px 30px;
 }
-.navLabel {
-  white-space: nowrap;
-}
+
 .hidden {
   visibility: hidden;
   padding: 10px 30px;
 }
 
-.iconsGroup {
-  text-align: center;
-}
-.iconsGroup li {
-  margin-top: 30px;
-}
-.heart__container {
-  position: relative;
-  width: 60px;
-  margin: 0 auto;
-}
-.heartQuantity {
-  position: absolute;
-  display: block;
-  text-align: center;
-  width: 16px;
-  height: 16px;
-  padding: 3px;
-  top: 9px;
-  left: 10px;
-  border-radius: 15px;
-  background: $colorCyan;
-  color: #000;
-  font-size: 12px;
-}
-.bag__container {
-  position: relative;
-  width: 60px;
-  margin: 0 auto;
-}
-.cartQuantity {
-  position: absolute;
-  display: block;
-  text-align: center;
-  width: 25px;
-  bottom: 25px;
-  top: 22px;
-  left: 18px;
-  line-height: 1;
-  font-size: 14px;
-  font-weight: 700;
-  color: #000;
-}
-.user__container {
-  width: 35px;
-  margin: 0 auto;
-}

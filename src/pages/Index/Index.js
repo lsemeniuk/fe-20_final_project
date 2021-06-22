@@ -4,10 +4,10 @@ import Container from '../../components/Container/Container';
 import GenderLink from '../../components/GenderLink/GenderLink';
 import Icons from '../../components/Icons/Icons';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
+import SlideUpNav from '../../components/NavBar/SlideUpNav/SlideUpNav';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import PromotionSlider from '../../components/sliders/PromotionSlider/PromotionSlider';
 import styles from './Index.module.scss';
-import SlideUpNav from '../../components/SlideUpNav/SlideUpNav';
 
 const Index = () => {
   const sliderSettings = {

@@ -1,4 +1,4 @@
-@import '../../theme/styles/var';
+@import '../../../theme/styles/var';
 
 .container {
   position: fixed;
@@ -58,4 +58,32 @@
       border: none;
     }
   }
+}
+.grid__container {
+  width: 75%;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  row-gap: 25px;
+  margin-top: 30px;
+
+}
+
+.end {
+  border-top: 1px solid grey;
+  border-right: none;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+  text-align: center;
+}
+.btn_logSocial {
+  border-left: none;
+  border-top: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid grey;
+ 
 }
