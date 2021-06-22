@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
+import { getSlides } from '../../../http/slidesAPI';
 import { PRODUCTS_ROUTE } from '../../../utils/consts';
 import styles from './PromotionSlider.module.scss';
 
@@ -10,6 +10,8 @@ const PromotionSlider = () => {
   const sliderSettings = {
     dots: true,
     infinite: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
     speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -17,7 +19,7 @@ const PromotionSlider = () => {
   };
 
   useEffect(() => {
-    axios.get('../../slider.json').then(res => setSliders([...res.data]));
+    getSlides().then(res => setSliders(res.data));
   }, []);
 
   const slidersList = sliders.map(s => {

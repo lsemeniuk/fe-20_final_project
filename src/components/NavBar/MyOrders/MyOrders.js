@@ -85,7 +85,7 @@ const MyOrders = () => {
   return (
     <>
       {ordersCart}
-      <Cart buttonHandler={modalHandler} display={modalCart} />
+      <Cart buttonHandler={modalHandler} />
     </>
   );
 };

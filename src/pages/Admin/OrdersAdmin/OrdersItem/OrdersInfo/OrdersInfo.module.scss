@@ -1,4 +1,4 @@
-@import '../../../../../utils/styles/var';
+@import '../../../../../theme/styles/var';
 
 .bold {
   font-weight: 700;
@@ -13,17 +13,17 @@
 .specify {
   font-weight: 700;
   position: absolute;
-  top: -30px;
+  top: -25px;
   right: 5px;
   padding: 0 5px;
   cursor: pointer;
   &:hover {
-    color: $colorButton;
-    border-bottom: 2px solid $colorButton;
+    color: $colorCyan;
+    border-bottom: 2px solid $colorCyan;
   }
 }
 
 .productList {
-  border: 1px solid $colorTextSilver;
+  border: 1px solid $colorSpanishGray;
   border-radius: 5px;
 }

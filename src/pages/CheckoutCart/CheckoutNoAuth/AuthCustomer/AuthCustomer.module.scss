@@ -1,3 +1,5 @@
+@import '../../../../theme/styles/var';
+
 .container {
   padding: 30px;
 }
@@ -10,7 +12,7 @@
 
 .redTitle {
   text-align: center;
-  color: red;
+  color: $colorRedPigment;
   position: relative;
   bottom: 20px;
 }

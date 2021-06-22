@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Сharacteristics.module.scss';
@@ -5,12 +6,16 @@ import styles from './Сharacteristics.module.scss';
 const Сharacteristics = ({ product }) => {
   const characteristicList = product.characteristics.map(c => {
     return (
-      <li key={product.itemNo} className={styles.characteristicItem}>
+      <li key={c.characteristic} className={styles.characteristicItem}>
         <div className={styles.characteristicName}>{c.name}</div>
         <div className={styles.characteristicValue}>
           {typeof c.value === 'object'
-            ? c.value.map(v => {
-                return <div className={styles.characteristicValueItem}>{v}</div>;
+            ? c.value.map((v, i) => {
+                return (
+                  <div key={i} className={styles.characteristicValueItem}>
+                    {v}
+                  </div>
+                );
               })
             : c.value}
         </div>

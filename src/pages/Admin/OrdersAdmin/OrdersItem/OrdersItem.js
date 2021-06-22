@@ -7,6 +7,7 @@ import styles from './OrdersItem.module.scss';
 
 const OrdersItem = ({ order }) => {
   const [showOrderInfo, setShowOrderInfo] = useState(false);
+
   const { orderNo, firstName, lastName, status, _id: id, date } = order;
 
   return (

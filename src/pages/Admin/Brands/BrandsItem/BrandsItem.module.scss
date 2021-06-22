@@ -1,18 +1,21 @@
+@import '../../../../theme/styles/var';
+
 .info {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
   text-align: center;
+
   & div {
-    border-right: 1px solid #919191;
-    border-top: 1px solid #919191;
-    border-bottom: 1px solid #919191;
+    border-right: 1px solid $colorSpanishGray;
+    border-top: 1px solid $colorSpanishGray;
+    border-bottom: 1px solid $colorSpanishGray;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 3px 0;
     &:first-child {
-      border-left: 1px solid #919191;
+      border-left: 1px solid $colorSpanishGray;
     }
   }
 }
@@ -33,5 +36,5 @@
 
 .redTitle {
   margin-left: 10px;
-  color: red;
+  color: $colorRedPigment;
 }

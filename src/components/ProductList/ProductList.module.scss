@@ -1,7 +1,12 @@
-@import '../../utils/styles/mixins';
-
 .productsList {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+}
+
+.message {
+  font-size: 16px;
+  margin-top: 50px;
+  text-align: center;
 }

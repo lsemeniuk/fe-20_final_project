@@ -1,11 +1,13 @@
+@import '../../theme/styles/var';
+
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // height: 100vh;
-  background-color: #f0f0f0;
+  background-color: $colorGhostWhite;
   padding: 20px 0;
 }
+
 .notfound {
   display: flex;
   justify-content: space-between;
@@ -14,24 +16,28 @@
   margin: auto;
   text-align: center;
 }
+
 .contant {
   margin-right: 50px;
 }
+
 .title {
   font-size: 86px;
   text-transform: uppercase;
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 8px;
-  color: #151515;
+  color: $colorDarkLight;
 }
+
 .subTitle {
   font-size: 26px;
   margin: 0;
   font-weight: 700;
-  color: #151515;
+  color: $colorDarkLight;
   margin-bottom: 30px;
 }
+
 .img {
   height: 300px;
 }
@@ -40,9 +46,11 @@
   .img {
     height: 300px;
   }
+
   .title {
     font-size: 68px;
   }
+
   .subTitle {
     font-size: 16px;
   }
@@ -52,9 +60,11 @@
   .notfound {
     max-width: 450px;
   }
+
   .title {
     font-size: 48px;
   }
+
   .subTitle {
     font-size: 14px;
   }
@@ -63,9 +73,11 @@
   .img {
     height: 200px;
   }
+
   .title {
     font-size: 68px;
   }
+
   .subTitle {
     font-size: 18px;
   }

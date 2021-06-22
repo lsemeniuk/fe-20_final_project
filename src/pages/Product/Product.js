@@ -4,12 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import Loader from '../../components/Loader/Loader';
 import { getOneProductOperation } from '../../store/products/operations';
-import {
-  getOneProductSelector,
-  getProductsSelector,
-  oneProductLoadingSelector,
-  productsLoadingSelector,
-} from '../../store/products/selectors';
+import { getOneProductSelector, oneProductLoadingSelector } from '../../store/products/selectors';
 import ProductImages from './ProductImages/ProductImages';
 import Availability from './Availability/Availability';
 import ProductColors from './ProductColors/ProductColors';
@@ -17,8 +12,8 @@ import ProductPrice from './ProductPrice/ProductPrice';
 import OrdersInfo from './OrdersInfo/OrdersInfo';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import InfoPanel from './InfoPanel/InfoPanel';
-import styles from './Product.module.scss';
 import NavBarProduct from './NavBarProduct/NavBarProduct';
+import styles from './Product.module.scss';
 
 const Product = () => {
   const [tabIndexInfo, setTabIndexInfo] = useState(0);
@@ -27,8 +22,6 @@ const Product = () => {
   const interestedRef = useRef(null);
 
   const dispatch = useDispatch();
-  const products = useSelector(getProductsSelector);
-  const productsLoading = useSelector(productsLoadingSelector);
 
   const product = useSelector(getOneProductSelector);
   const productLoading = useSelector(oneProductLoadingSelector);
@@ -37,7 +30,16 @@ const Product = () => {
 
   useEffect(() => {
     dispatch(getOneProductOperation(params.id));
-  }, [dispatch]);
+
+    const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
+
+    if (viwedProducts && viwedProducts.length >= 1) {
+      const newViwedProducts = [...new Set([params.id, ...viwedProducts])];
+      localStorage.setItem('viwed_products', JSON.stringify(newViwedProducts));
+    } else {
+      localStorage.setItem('viwed_products', JSON.stringify([params.id]));
+    }
+  }, [params.id]);
 
   if (productLoading) {
     return (
@@ -48,7 +50,7 @@ const Product = () => {
       </Container>
     );
   }
-  const { brand, name, quantity, color } = product;
+  const { brand, name, quantity, color, descForColor } = product;
 
   return (
     <main>
@@ -88,7 +90,7 @@ const Product = () => {
 
           <div className={styles.flexColumn}>
             <Availability quantity={quantity} />
-            <ProductColors color={color} />
+            <ProductColors color={color} descForColor={descForColor} />
             <ProductPrice product={product} />
             <OrdersInfo />
           </div>
@@ -98,11 +100,10 @@ const Product = () => {
           <InfoPanel product={product} setTabIndex={setTabIndexInfo} tabIndex={tabIndexInfo} />
         </div>
 
-        {!productsLoading && (
-          <div ref={interestedRef} className={styles.interestedProduct}>
-            <CustomSlider title='Также Вас могут заинтересовать' products={products} />
-          </div>
-        )}
+        <div ref={interestedRef} className={styles.slider}>
+          <CustomSlider title='Также Вас могут заинтересовать' filter={{ brand: product.brand }} />
+          <CustomSlider title='Последние просмотренные товары' viwedProduct />
+        </div>
       </Container>
     </main>
   );

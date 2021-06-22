@@ -1,8 +1,8 @@
-@import '../../utils/styles/var';
-@import '../../utils/styles/mixins';
+@import '../../theme/styles/var';
+@import '../../theme/styles/mixins';
 
 .bgContainer {
-  background-color: $colorSecondary;
+  background-color: $colorUnmellowYellow;
   @extend %custom-shadow;
 }
 
@@ -27,21 +27,22 @@
 }
 
 .menuLink {
-  color: #000;
+  color: $colorBlack;
   font-weight: 700;
   font-size: 14px;
   padding: 10px 0;
   margin-right: 20px;
   white-space: nowrap;
+
   &:hover {
     text-decoration: none;
-    color: $colorButton;
+    color: $colorCyan;
   }
 }
 
 .menuLinkActive {
-  color: $colorButton;
-  border-bottom: 2px solid $colorButton;
+  color: $colorCyan;
+  border-bottom: 2px solid $colorCyan;
 }
 
 .iconList {
@@ -64,8 +65,8 @@
   top: 9px;
   left: 7px;
   border-radius: 15px;
-  background: #37b7fa;
-  color: #fff;
+  background: $colorCyan;
+  color: $colorWhite;
   font-size: 10px;
   text-align: center;
 }

@@ -1,10 +1,10 @@
-@import '../../utils/styles/var';
+@import '../../theme/styles/var';
 
 .header {
   display: flex;
   justify-content: flex-end;
   align-self: center;
-  color: #898989;
+  color: $colorDarkLight;
   font-size: 12px;
   margin: 5px 0 10px;
 }
@@ -33,7 +33,7 @@
   font-size: 18px;
 
   &:hover {
-    color: $colorButnHover;
+    color: $colorCyanLight;
   }
 }
 

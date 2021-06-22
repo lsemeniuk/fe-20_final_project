@@ -1,4 +1,4 @@
-@import '../../utils/styles/var';
+@import '../../theme/styles/var';
 
 .title {
   margin: 0 0 10px;
@@ -37,5 +37,5 @@
 .currentPrice {
   font-size: 26px;
   font-weight: 600;
-  color: $colorSale;
+  color: $colorRedPigment;
 }

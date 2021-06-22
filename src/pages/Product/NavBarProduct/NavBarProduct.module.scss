@@ -1,5 +1,5 @@
-@import '../../../utils/styles/var';
-@import '../../../utils/styles/mixins';
+@import '../../../theme/styles/var';
+@import '../../../theme/styles/mixins';
 
 .navBarContainer {
   margin-bottom: 10px;
@@ -7,8 +7,8 @@
   position: sticky;
   top: 0;
   z-index: 500;
-  box-shadow: 0px 4px 13px -7px rgba(45, 51, 54, 0.15);
-  background-color: $bgColor;
+  box-shadow: 0px 4px 13px -7px $colorBlackBackground;
+  background-color: $colorGhostWhite;
 }
 
 .navBarFlex {
@@ -28,9 +28,11 @@
   font-size: 14px;
   margin-right: 20px;
   cursor: pointer;
+
   &:hover {
-    color: $colorButton;
+    color: $colorCyan;
   }
+
   @media (min-width: $deskMin) and (max-width: $deskMax) {
     margin-right: 10px;
   }
@@ -45,12 +47,14 @@
 }
 
 .buttons {
+  font-size: 16px;
   margin-right: 15px;
+  height: 32px;
 
   @media (min-width: $deskMin) and (max-width: $deskMax) {
     margin-right: 5px;
     padding: 0 10px;
-    font-size: 16px;
+    height: 30px;
   }
 }
 

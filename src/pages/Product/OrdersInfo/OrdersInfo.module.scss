@@ -1,13 +1,13 @@
-@import '../../../utils/styles/var';
+@import '../../../theme/styles/var';
 
 .container {
   margin-bottom: 40px;
-  border: 1px solid $colorLineSilver;
+  border: 1px solid $colorLightGray;
   border-radius: 5px;
 }
 
 .title {
-  border-bottom: 1px solid $colorLineSilver;
+  border-bottom: 1px solid $colorLightGray;
   padding: 15px;
 }
 .list {
@@ -16,5 +16,5 @@
   list-style: inside;
 }
 .green {
-  color: $colorSuperPrice;
+  color: $colorLimeGreen;
 }

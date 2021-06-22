@@ -1,4 +1,4 @@
-@import '../../utils/styles/var';
+@import '../../theme/styles/var';
 
 .container {
   font-size: 16px;
@@ -21,28 +21,28 @@
   width: 30px;
   padding: 5px 10px;
   border-radius: 5px;
-  border: 2px solid $colorLineSilver;
+  border: 2px solid $colorLightGray;
   cursor: auto;
 
   & span::before {
-    border-color: $colorLineSilver;
+    border-color: $colorLightGray;
   }
 }
 
 .arrowActive {
-  border: 2px solid $colorDark;
+  border: 2px solid $colorDarkLight;
   transition: all 0.3s;
   cursor: pointer;
 
   & span::before {
-    border-color: $colorDark;
+    border-color: $colorDarkLight;
   }
 
   &:hover {
-    border-color: $colorButton;
-    box-shadow: 0px 0px 32px -4px rgba(24, 42, 56, 0.1);
+    border-color: $colorCyan;
+    box-shadow: 0px 0px 32px -20px $colorBlackBackground;
     & span::before {
-      border-color: $colorButton;
+      border-color: $colorCyan;
       transition: all 0.3s;
     }
   }
@@ -54,8 +54,8 @@
     content: '';
     width: 10px;
     height: 10px;
-    border-bottom: 2px solid $colorDark;
-    border-left: 2px solid $colorDark;
+    border-bottom: 2px solid $colorDarkLight;
+    border-left: 2px solid $colorDarkLight;
     transform: rotate(45deg);
     top: 8px;
     left: 10px;
@@ -68,8 +68,8 @@
     content: '';
     width: 10px;
     height: 10px;
-    border-top: 2px solid $colorDark;
-    border-right: 2px solid $colorDark;
+    border-top: 2px solid $colorDarkLight;
+    border-right: 2px solid $colorDarkLight;
     transform: rotate(45deg);
     top: 8px;
     right: 10px;
@@ -77,21 +77,22 @@
 }
 
 .pageNumbersItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 30px;
   width: 30px;
   margin: 0px 10px;
   border-radius: 5px;
-  padding: 0 10px;
   cursor: pointer;
-  text-transform: uppercase;
 }
 
 .pageNumbersItem:hover .pageNumbers {
-  color: $colorButton;
+  color: $colorCyan;
 }
 
 .itemActive {
-  border: 2px solid $colorButton;
-  color: $colorButton;
-  box-shadow: 0px 0px 32px -4px rgba(24, 42, 56, 0.1);
+  border: 2px solid $colorCyan;
+  color: $colorCyan;
+  box-shadow: 0px 0px 32px -20px $colorBlackBackground;
 }
