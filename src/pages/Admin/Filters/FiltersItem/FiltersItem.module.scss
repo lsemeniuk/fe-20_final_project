@@ -1,7 +1,9 @@
+@import '../../../../theme/styles/var';
+
 .info {
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: $fontSizeText;
   text-align: center;
   & div {
     border-right: 1px solid #919191;
@@ -18,13 +20,10 @@
 }
 
 .type {
-  width: 20%;
+  width: 50%;
 }
 .name {
-  width: 80%;
-}
-.color {
-  height: 50px;
+  width: 50%;
 }
 
 .button {

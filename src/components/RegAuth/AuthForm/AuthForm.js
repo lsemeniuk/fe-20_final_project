@@ -33,7 +33,7 @@ const AuthForm = ({ setmessageServer, setForgotOpen }) => {
         <Form>
           <MyTextInput label='Email' name='loginOrEmail' type='text' placeholder='Введите email' tabIndex='0' />
 
-          <MyTextInput label='Пароль' name='password' type='password' placeholder='Введите пароль' tabIndex='-1' />
+          <MyTextInput label='Пароль' name='password' type='password' placeholder='Введите пароль' tabIndex='0' />
           <div className={styles.buttonCont}>
             <div className={styles.widthCont}>
               <Button type='submit' title='Войти' className={styles.button} />

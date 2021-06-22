@@ -32,8 +32,14 @@ const AddBrandsForm = () => {
       >
         <div className='page_form'>
           <Form>
-            <MyTextInput label='Название' name='name' type='text' placeholder='Название бренда' tabIndex='0' />
-            <MyTextInput label='Картинка' name='imageUrl' type='text' placeholder='Картинка бренда' tabIndex='0' />
+            <MyTextInput label='Название' name='name' type='text' placeholder='apple' tabIndex='0' />
+            <MyTextInput
+              label='Картинка'
+              name='imageUrl'
+              type='text'
+              placeholder='https://smart-electronix.com/1.png'
+              tabIndex='0'
+            />
             <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
           </Form>
         </div>

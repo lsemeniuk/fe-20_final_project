@@ -3,7 +3,7 @@
 .info {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: $fontSizeText;
   text-align: center;
 
   & div {
