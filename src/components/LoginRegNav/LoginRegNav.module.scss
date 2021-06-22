@@ -3,7 +3,7 @@
 .container {
   position: fixed;
   z-index: 200;
-  width: 100%;
+  width: 101%;
   height: 100%;
   border: 1px solid $colorLightGray;
   background: $colorGhostWhite;
@@ -16,23 +16,46 @@
 .active {
   opacity: 1;
   top: 0%;
-
 }
 .form__container {
   margin-left: auto;
   margin-right: auto;
-  max-width: 90%;
+  max-width: 80%;
 }
 .icon__container {
   position: absolute;
-  top: 2.3%;
-  right: 5%;
+  top: 4%;
+  left: 5%;
   font-size: 20px;
   outline: none;
   cursor: pointer;
-  @media screen and (max-width: 768px) {
-    top: 1%;
-    right: 5%;
-    font-size: 12px;
+  @media screen and (max-width: 500px) {
+    top: 2.5%;
+    left: 3%;
+
+  }
+  @media (min-width: 501px) and (max-width: 768px) {
+    top: 2.5%;
+    left: 3%;
+
+  }
+}
+.tabs__container {
+  :global {
+    .react-tabs__tab-list {
+      padding-top: 20px;
+      border: none;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    .react-tabs__tab {
+      border: none;
+    }
+    .react-tabs__tab--selected {
+      border-bottom: 3px solid $colorCyan;
+    }
+    .react-tabs__tab-panel {
+      border: none;
+    }
   }
 }

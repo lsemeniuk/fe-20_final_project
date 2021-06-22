@@ -8,7 +8,7 @@ import Button from '../../Button/Button';
 import { authorizOperation } from '../../../store/customer/operations';
 import styles from './AuthForm.module.scss';
 
-const AuthForm = ({ setmessageServer, setForgotOpen }) => {
+const AuthForm = ({ setmessageServer, setForgotOpen, toggleLoginReg }) => {
   const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
@@ -27,6 +27,7 @@ const AuthForm = ({ setmessageServer, setForgotOpen }) => {
         onSubmit={(values, { setSubmitting }) => {
           const { loginOrEmail, password } = values;
           dispatch(authorizOperation({ setmessageServer, loginOrEmail, password }));
+          toggleLoginReg();
           setSubmitting(false);
         }}
       >
@@ -51,6 +52,9 @@ const AuthForm = ({ setmessageServer, setForgotOpen }) => {
 AuthForm.propTypes = {
   setmessageServer: PropTypes.func.isRequired,
   setForgotOpen: PropTypes.func.isRequired,
+  toggleLoginReg: PropTypes.func,
 };
-
+AuthForm.defaultProps = {
+  toggleLoginReg: null,
+};
 export default AuthForm;

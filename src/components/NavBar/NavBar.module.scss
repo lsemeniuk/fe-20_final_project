@@ -121,3 +121,35 @@
   font-size: 10px;
   text-align: center;
 }
+.favorites__mobile {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  top: 6px;
+  left: -2px;
+  border-radius: 15px;
+  background: $colorCyan;
+  color: $colorWhite;
+  font-size: 10px;
+  text-align: center;
+}
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 5px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  @media screen and (max-width: $mobMax) {
+    display: none;
+  }
+}
+.letters {
+  font-size: 12px;
+  font-weight: 600;
+}
+.heart__parent {
+  position: relative;
+}

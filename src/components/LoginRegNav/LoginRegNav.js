@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.scss';
 import AuthForm from '../RegAuth/AuthForm/AuthForm';
 import RegForm from '../RegAuth/RegForm/RegForm';
 import styles from './LoginRegNav.module.scss';
@@ -25,25 +24,32 @@ const LoginRegNav = ({ showLogin, toggleLoginReg }) => {
     <aside className={showLogin ? `${styles.container} ${styles.active}` : `${styles.container}`}>
       <div className={styles.form__container}>
         <div className={styles.icon__container} onClick={toggleLoginReg}>
-          <Icons type='close' width={35} height={35} />
+          <Icons type='close' width={40} height={40} />
         </div>
-        <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
-          <TabList>
-            <Tab tabIndex='0'>Вход</Tab>
-            <Tab tabIndex='0'>Регистрация</Tab>
-          </TabList>
-          <TabPanel>
-            <div className={styles.form}>
-              <div className={styles.redTitle}>{messageServer}</div>
-              <AuthForm setmessageServer={setmessageServer} setForgotOpen={setForgotOpen} forgotOpen={forgotOpen} />
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <div className={styles.form}>
-              <RegForm setTabIndex={setTabIndexToReg} />
-            </div>
-          </TabPanel>
-        </Tabs>
+        <div className={styles.tabs__container}>
+          <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
+            <TabList>
+              <Tab tabIndex='0'>Вход</Tab>
+              <Tab tabIndex='0'>Регистрация</Tab>
+            </TabList>
+            <TabPanel>
+              <div className={styles.form}>
+                <div className={styles.redTitle}>{messageServer}</div>
+                <AuthForm
+                  setmessageServer={setmessageServer}
+                  setForgotOpen={setForgotOpen}
+                  forgotOpen={forgotOpen}
+                  toggleLoginReg={toggleLoginReg}
+                />
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className={styles.form}>
+                <RegForm setTabIndex={setTabIndexToReg} />
+              </div>
+            </TabPanel>
+          </Tabs>
+        </div>
       </div>
     </aside>
   );
