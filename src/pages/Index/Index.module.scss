@@ -87,9 +87,10 @@
     width: 190px;
     transform: translate(300px, -170px);
   }
-  @media (max-width: $mobMax) {
-    width: 100px;
-    transform: translate(180px, -95px);
+  @media (max-width: 620px) {
+    // width: 100px;
+    // transform: translate(180px, -95px);
+    display: none;
   }
 }
 

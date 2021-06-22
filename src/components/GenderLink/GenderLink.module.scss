@@ -72,3 +72,8 @@
     transform: translate(-150px, -139px);
   }
 }
+.forWho {
+  @media (max-width: $tabMin) {
+    display: none;
+  }
+}

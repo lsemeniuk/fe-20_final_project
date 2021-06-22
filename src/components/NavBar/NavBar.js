@@ -124,12 +124,16 @@ const NavBar = () => {
             ) : (
               <Icons type='navHeart' width={25} height={25} />
             )}
-            {isAuth && <User />}
+            {isAuth && (
+              <div className={styles.user}>
+                <User />
+              </div>
+            )}
             <Icons type='navBag2' width={30} height={30} />
           </div>
         </nav>
         {!isAuth && modalAuthReg && <RegAuth />}
-        <SlideOutNav toggleNav={toggleNav} isOpen={isOpen} favorites={favorites} modalHandler={authRegHandler} />
+        <SlideOutNav toggleNav={toggleNav} isOpen={isOpen} />
       </Container>
     </div>
   );

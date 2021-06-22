@@ -16,7 +16,7 @@ const GenderLink = ({ forWho, img, textContent }) => {
       <NavLink to={PRODUCTS_ROUTE}>
         <div className={className}>
           <img className={style.img} src={img} alt='' />
-          <p>{textContent}</p>
+          <p className={style.forWho}>{textContent}</p>
         </div>
       </NavLink>
     </div>
