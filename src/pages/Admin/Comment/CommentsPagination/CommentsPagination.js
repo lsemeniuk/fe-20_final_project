@@ -3,10 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './CommentsPagination.module.scss';
 
-const CommentsPagination = ({ perPage, startPage, setStartPage, ordersQuantity }) => {
+const CommentsPagination = ({ perPage, startPage, setStartPage, commentsQuantity }) => {
   const pageNumbers = [1];
 
-  for (let i = 2; i <= Math.ceil(ordersQuantity / perPage); i++) {
+  for (let i = 2; i <= Math.ceil(commentsQuantity / perPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -55,11 +55,11 @@ CommentsPagination.propTypes = {
   perPage: PropTypes.number.isRequired,
   startPage: PropTypes.number.isRequired,
   setStartPage: PropTypes.func.isRequired,
-  ordersQuantity: PropTypes.number,
+  commentsQuantity: PropTypes.number,
 };
 
 CommentsPagination.defaultProps = {
-  ordersQuantity: 0,
+  commentsQuantity: 0,
 };
 
 export default CommentsPagination;
