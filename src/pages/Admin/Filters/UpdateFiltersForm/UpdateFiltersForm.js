@@ -9,7 +9,7 @@ import { getFiltersOperation } from '../../../../store/filter/operations';
 import { updateFilter } from '../../../../http/filtersAPI';
 
 const UpdateFiltersForm = ({ filter, setOpenForm }) => {
-  const { name, cssValue, _id: id } = filter;
+  const { type, name, _id: id } = filter;
 
   const [messageServer, setmessageServer] = useState(null);
   const dispatch = useDispatch();
@@ -18,8 +18,8 @@ const UpdateFiltersForm = ({ filter, setOpenForm }) => {
     <>
       <Formik
         initialValues={{
-          type: name || '',
-          name: cssValue || '',
+          type: type || '',
+          name: name || '',
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
@@ -39,8 +39,8 @@ const UpdateFiltersForm = ({ filter, setOpenForm }) => {
       >
         <div className='page_form'>
           <Form>
-            <MyTextInput label='Тип фильтра' name='type' type='text' placeholder='Название ТИПА фильтра' tabIndex='0' />
-            <MyTextInput label='Имя фильтра' name='name' type='text' placeholder='Укажите имя фильтра' tabIndex='0' />
+            <MyTextInput label='Тип фильтра' name='type' type='text' placeholder='Тип  фильтра' tabIndex='0' />
+            <MyTextInput label='Имя фильтра' name='name' type='text' placeholder='Имя фильтра' tabIndex='0' />
             <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
           </Form>
         </div>

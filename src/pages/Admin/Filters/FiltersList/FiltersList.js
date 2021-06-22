@@ -23,7 +23,7 @@ const FiltersList = () => {
 
   const filtersList = filters.map(filter => {
     return (
-      <li key={filter.name}>
+      <li key={filter.name} style={{ padding: '10px' }}>
         <FiltersItem filter={filter} />
       </li>
     );

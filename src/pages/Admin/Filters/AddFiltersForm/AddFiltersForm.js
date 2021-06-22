@@ -31,8 +31,9 @@ const AddFiltersForm = () => {
       >
         <div className='page_form'>
           <Form>
-            <MyTextInput label='Тип фильтра' name='type' type='text' placeholder='Название ТИПА фильтра' tabIndex='0' />
-            <MyTextInput label='Имя фильтра' name='name' type='text' placeholder='Значение фильтра' tabIndex='0' />
+            <MyTextInput label='Тип фильтра' name='type' type='text' placeholder='Тип  фильтра' tabIndex='0' />
+            <MyTextInput label='Имя фильтра' name='name' type='text' placeholder='Имя фильтра' tabIndex='0' />
+
             <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
           </Form>
         </div>
