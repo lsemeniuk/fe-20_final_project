@@ -7,49 +7,48 @@
   height: 100%;
   border: 1px solid $colorLightGray;
   background: $colorGhostWhite;
+  top: 0;
   opacity: 0;
-  bottom: -100%;
+  left: -100%;
   transition: 0.3s ease-in-out;
   overflow-y: scroll;
 }
 .active {
   opacity: 1;
-  bottom: -10%;
+  left: -20%;
 }
-
+.link {
+  color: #000;
+}
+.activeLink {
+  color: $colorCyan;
+}
 .icon__container {
   position: absolute;
   top: 2.3%;
-  right: 5%;
-  font-size: 20px;
   outline: none;
   cursor: pointer;
   @media screen and (max-width: 768px) {
-    top: 1%;
-    right: 5%;
+    top: 1.5%;
+    left: 25%;
+    font-size: 12px;
+  }
+  @media (min-width: 769px) and (max-width: $tabMax) {
+    top: 2.0%;
+    left: 24%;
     font-size: 12px;
   }
 }
+
+.title__wrapper {
+  text-align: center;
+  margin-left: 15%;
+}
 .title {
-  position: absolute;
-  margin: 0;
-  top: 3.5%;
-  left: 50%;
-  font-size: 20px;
-  @media screen and (max-width: 500px) {
-    top: 2.5%;
-    left: 33%;
-    font-size: 16px;
-  }
-  @media (min-width: 500px) and (max-width: 768px) {
-    top: 2.5%;
-    left: 30%;
-    font-size: 16px;
-  }
-  @media (min-width: 769px) and (max-width: $deskMin) {
-    top: 2.7%;
-    left: 31%;
-    font-size: 16px;
+  margin: 17px 0 0 0;
+  font-size: 22px;
+  @media screen and (max-width: 768px) {
+   font-size: 18px;
   }
 }
 .container::after {
@@ -62,51 +61,38 @@
     top: 6%;
   }
   @media (min-width: 501px) and (max-width: 768px) {
-    top: 8%;
+    top: 10%;
   }
   @media (min-width: 769px) and (max-width: 991px) {
-    top: 10%;
+    top: 12%;
   }
 }
 .menu__wrapper {
-  text-align: center;
-  margin-top: 150px;
-  @media screen and (max-width: 768px) {
-    margin-top: 80px;
-  }
-  @media (min-width: 769px) and (max-width: 991px) {
-    margin-top: 80px;
-    font-size: 14px;
-  }
+  margin-left: 20%;
+  margin-top: 5%;
+
 }
 .menu__slideOut {
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
-  text-align: center;
-  margin: 70px 100px 50px 100px;
-  @media screen and (max-width: 600px) {
-    margin: 40px 100px 50px 100px;
-  }
-  @media (min-width: 601px) and (max-width: 662px) {
-    margin: 40px 100px 50px 115px;
-  }
-  @media (min-width: 663px) and (max-width: 768px) {
-    margin: 40px 100px 50px 135px;
-  }
-  @media (min-width: 769px) and (max-width: 850px) {
-    margin: 40px 100px 50px 145px;
-  }
-  @media (min-width: 769px) and (max-width: 850px) {
-    margin: 40px 100px 50px 165px;
-  }
-  @media (min-width: 851px) and (max-width: 991px) {
-    margin: 40px 100px 50px 185px;
-  }
+
+
 }
 .navItem {
   display: flex;
   align-items: center;
   //justify-content: center;
+}
+.navItem__differentPages {
+  margin: 20px 0 20px 92px;
+  text-align: left;
+}
+.link__differentPages {
+  &:active {
+    color: $colorCyan;
+  }
 }
 .navIcon {
   padding: 10px 30px;

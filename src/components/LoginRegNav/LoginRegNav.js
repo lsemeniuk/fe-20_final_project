@@ -3,9 +3,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.scss';
 import AuthForm from '../RegAuth/AuthForm/AuthForm';
 import RegForm from '../RegAuth/RegForm/RegForm';
-
 import styles from './LoginRegNav.module.scss';
 import Icons from '../Icons/Icons';
 
