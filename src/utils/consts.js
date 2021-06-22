@@ -6,6 +6,7 @@ export const CHECKOUT_ROUTE = '/checkout';
 export const PAGES_ROUTE = '/pages';
 export const CUSTOMER_WISH_LIST_ROUTE = '/wishList';
 export const RESET_PASSWORD = '/reset';
+export const CONFIRM_REFISTRATION = '/confirm-registration';
 
 // User
 export const USER_ROUTE = '/user';

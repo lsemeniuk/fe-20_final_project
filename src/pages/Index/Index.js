@@ -80,6 +80,7 @@ const Index = () => {
         </Slider>
 
         <CustomSlider title='Свежие новинки' filter={{ isNew: 'yes' }} />
+        <CustomSlider title='Последние просмотренные товары' viwedProduct />
 
         <div className={styles.aboutSection}>
           <h4 className={styles.aboutTitle}>О магазине</h4>

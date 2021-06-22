@@ -17,15 +17,6 @@ const RegAuth = () => {
   const [messageServer, setmessageServer] = useState(null);
   const [forgotOpen, setForgotOpen] = useState(false);
 
-  const setTabIndexToReg = () => {
-    setmessageServer(
-      <span style={{ color: 'green' }}>
-        Поздравляем, Вы зарегистрированы <br />А теперь введите свои email и пароль
-      </span>
-    );
-    setTabIndex(0);
-  };
-
   return (
     <Modal
       buttonHandler={() => {
@@ -50,7 +41,7 @@ const RegAuth = () => {
           </TabPanel>
           <TabPanel>
             <div className={styles.form}>
-              <RegForm setTabIndex={setTabIndexToReg} />
+              <RegForm />
             </div>
           </TabPanel>
         </Tabs>
