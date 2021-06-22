@@ -20,11 +20,11 @@ const SlideUpNav = ({ isOpen, toggleCatalogNav }) => {
 
   return (
     <aside className={isOpen ? `${styles.container} ${styles.active}` : `${styles.container}`}>
-      <div className={styles.header}>
-        <div className={styles.icon__container} onClick={toggleCatalogNav}>
-          <Icons type='close' width={35} height={35} />
-        </div>
-        <h2 className={styles.title}>Каталог</h2>
+      <div className={styles.icon__container} onClick={toggleCatalogNav}>
+        <Icons type='close' width={35} height={35} />
+      </div>
+      <div className={styles.title__wrapper}>
+        <h2 className={styles.title}>SmartElectronics</h2>
       </div>
       <div className={styles.menu} onClick={toggleCatalogNav}>
         <div className={styles.menu__wrapper}>
@@ -52,10 +52,6 @@ const SlideUpNav = ({ isOpen, toggleCatalogNav }) => {
               <NavLink to={`${PRODUCTS_ROUTE}/accessories`}>
                 <p className={styles.navLabel}>Аксессуары</p>
               </NavLink>
-            </li>
-            <li className={styles.navItem}>
-              <img className={styles.hidden} src={accessories} alt='accessories' />
-              <div className={styles.navLabel}>Бренды</div>
             </li>
           </ul>
         </div>

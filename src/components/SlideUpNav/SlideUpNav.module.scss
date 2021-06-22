@@ -7,15 +7,14 @@
   height: 100%;
   border: 1px solid $colorLightGray;
   background: $colorGhostWhite;
-  top: 0;
   opacity: 0;
-  left: -100%;
+  bottom: -100%;
   transition: 0.3s ease-in-out;
   overflow-y: scroll;
 }
 .active {
   opacity: 1;
-  left: -20%;
+  bottom: -10%;
 }
 .link {
   color: #000;
@@ -30,19 +29,19 @@
   cursor: pointer;
   @media screen and (max-width: 768px) {
     top: 1.5%;
-    left: 25%;
+    left: 4%;
     font-size: 12px;
   }
   @media (min-width: 769px) and (max-width: $tabMax) {
     top: 2.0%;
-    left: 24%;
+    left: 4%;
     font-size: 12px;
   }
 }
 
 .title__wrapper {
   text-align: center;
-  margin-left: 15%;
+
 }
 .title {
   margin: 17px 0 0 0;
@@ -68,9 +67,8 @@
   }
 }
 .menu__wrapper {
-  margin-left: 20%;
-  margin-top: 5%;
-
+  text-align: left;
+  margin-top: 3%;
 }
 .menu__slideOut {
   display: flex;
