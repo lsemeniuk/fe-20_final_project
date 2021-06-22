@@ -29,12 +29,12 @@
   outline: none;
   cursor: pointer;
   @media screen and (max-width: 768px) {
-    top: 1.5%;
+    top: 2.5%;
     left: 24%;
     font-size: 12px;
   }
   @media (min-width: 769px) and (max-width: $tabMax) {
-    top: 2.0%;
+    top: 5%;
     left: 24%;
     font-size: 12px;
   }
@@ -43,6 +43,7 @@
 .title__wrapper {
   text-align: center;
   margin-left: 15%;
+
 }
 .title {
   margin: 17px 0 0 0;
@@ -51,25 +52,11 @@
    font-size: 18px;
   }
 }
-.container::after {
-  position: absolute;
-  content: '';
-  top: 10%;
-  border-bottom: 1px solid $colorLightGray;
-  width: 100%;
-  @media screen and (max-width: 500px) {
-    top: 6%;
-  }
-  @media (min-width: 501px) and (max-width: 768px) {
-    top: 10%;
-  }
-  @media (min-width: 769px) and (max-width: 991px) {
-    top: 12%;
-  }
-}
+
 .menu__wrapper {
   margin-left: 20%;
-  margin-top: 8%;
+  margin-top: 5%;
+  border-top: 1px solid $colorLightGray;
 
 }
 .menu__slideOut {
