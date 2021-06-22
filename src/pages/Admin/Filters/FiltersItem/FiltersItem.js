@@ -27,7 +27,7 @@ const FiltersItem = ({ filter }) => {
   return (
     <>
       <div className={styles.info} style={{ fontWeight: '600' }}>
-        <div className={styles.type}>Название типа фильтра</div>
+        <div className={styles.type}>Тип фильтра</div>
         <div className={styles.name}>Имя фильтра</div>
       </div>
       <div className={styles.info}>
