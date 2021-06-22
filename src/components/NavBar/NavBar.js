@@ -12,7 +12,7 @@ import User from './User/User';
 import RegAuth from '../RegAuth/RegAuth';
 import { getModalAuthRegSelector } from '../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../store/modal/actions';
-import { getCustomerIsAuthSelector, getCustomerSelector } from '../../store/customer/selectors';
+import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
 import { getWishListOperation, updateWishListOperation } from '../../store/wishList/operations';
 import { getCartOperation, updateCartOperation, setCartTotalPriceOperation } from '../../store/cart/operations';
@@ -34,8 +34,6 @@ const NavBar = () => {
   const [isOpen, setisOpen] = useState(false);
   const toggleNav = () => setisOpen(!isOpen);
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
-  const [initials, setInitials] = useState('');
-  const { firstName, lastName } = useSelector(getCustomerSelector);
 
   let favorites = 0;
   if (isAuth) {
@@ -54,7 +52,6 @@ const NavBar = () => {
     if (isAuth) {
       dispatch(getWishListOperation());
       dispatch(updateWishListOperation(storageWishList));
-      setInitials(firstName.slice(0, 1) + lastName.slice(0, 1));
       if (localCart) {
         dispatch(updateCartOperation(localCart));
       } else {
@@ -127,12 +124,7 @@ const NavBar = () => {
             ) : (
               <Icons type='navHeart' width={25} height={25} />
             )}
-
-            {isAuth && (
-              <div className={styles.circle}>
-                <span className={styles.letters}>{initials}</span>
-              </div>
-            )}
+            {isAuth && <User />}
             <Icons type='navBag2' width={30} height={30} />
           </div>
         </nav>

@@ -12,12 +12,6 @@ import kidsWatch from '../../theme/img/kids-watch.webp';
 import accessories from '../../theme/img/accessories-pic.webp';
 
 const SlideUpNav = ({ isOpen, toggleCatalogNav }) => {
-  // const isAuth = useSelector(getCustomerIsAuthSelector);
-  // const wishList = useSelector(getWishListSelector);
-
-  // const cartLocal = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : {};
-  // const cartQuantity = cartLocal !== {} ? cartLocal.products.length : 0;
-
   return (
     <aside className={isOpen ? `${styles.container} ${styles.active}` : `${styles.container}`}>
       <div className={styles.icon__container} onClick={toggleCatalogNav}>

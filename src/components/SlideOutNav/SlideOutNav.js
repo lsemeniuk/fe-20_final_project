@@ -1,11 +1,10 @@
-/* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { PRODUCTS_ROUTE } from '../../utils/consts';
+import { PRODUCTS_ROUTE, PERSONAL_INFO_ROUTE } from '../../utils/consts';
 import DifferentPagesList from '../DifferentPagesList/DifferentPagesList';
 import styles from './SlideOutNav.module.scss';
 import Icons from '../Icons/Icons';
@@ -14,19 +13,12 @@ import womenWatch from '../../theme/img/women-watch.webp';
 import kidsWatch from '../../theme/img/kids-watch.webp';
 import accessories from '../../theme/img/accessories-pic.webp';
 import LoginRegNav from '../LoginRegNav/LoginRegNav';
-// import CategoriesList from '../CategoriesList/CategoriesList';
-// import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
-// import { getWishListSelector } from '../../store/wishList/selectors';
-// import { CUSTOMER_WISH_LIST_ROUTE, WISH_LIST_ROUTE } from '../../utils/consts';
-// import User from '../NavBar/User/User';
+import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 
 const SlideOutNav = ({ isOpen, toggleNav }) => {
+  const isAuth = useSelector(getCustomerIsAuthSelector);
   const [showLogin, setShowLogin] = useState(false);
   const toggleLoginReg = () => setShowLogin(!showLogin);
-  // const isAuth = useSelector(getCustomerIsAuthSelector);
-  // const wishList = useSelector(getWishListSelector);
-  // const cartLocal = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : {};
-  // const cartQuantity = cartLocal !== {} ? cartLocal.products.length : 0;
 
   return (
     <>
@@ -69,12 +61,23 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
                   Аксессуары
                 </NavLink>
               </li>
-              <li className={styles.navItem} onClick={toggleLoginReg}>
-                <div className={styles.navIcon}>
-                  <Icons type='navUser' filled width={30} height={30} />
-                </div>
-                <p className={styles.navLabel}>Вход для клиентов</p>
-              </li>
+              {!isAuth ? (
+                <li className={styles.navItem} onClick={toggleLoginReg}>
+                  <div className={styles.navIcon}>
+                    <Icons type='navUser' filled width={30} height={30} />
+                  </div>
+                  <p className={styles.navLabel}>Вход для клиентов</p>
+                </li>
+              ) : (
+                <li className={styles.navItem} onClick={toggleLoginReg}>
+                  <div className={styles.navIcon}>
+                    <Icons type='navUser' filled width={30} height={30} />
+                  </div>
+                  <NavLink to={`${PERSONAL_INFO_ROUTE}`} className={styles.link} activeClassName={styles.activeLink}>
+                    Мой Профиль
+                  </NavLink>
+                </li>
+              )}
               <DifferentPagesList classLink={styles.link__differentPages} classItem={styles.navItem__differentPages} />
               <li className={styles.navItem}>
                 <div className={styles.navIcon}>
