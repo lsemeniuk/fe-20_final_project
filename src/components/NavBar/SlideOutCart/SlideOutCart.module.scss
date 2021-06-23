@@ -37,6 +37,11 @@
 
 .title__wrapper {
   text-align: center;
+  border-bottom: 1px solid rgb(172, 172, 172);
+  padding-bottom: 20px;
+  @media (max-width:$tabMin) {
+    padding-bottom: 12px;
+  }
 
 }
 .title {
