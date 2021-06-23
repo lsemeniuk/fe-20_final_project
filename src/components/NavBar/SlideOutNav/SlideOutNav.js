@@ -15,14 +15,14 @@ import accessories from '../../../theme/img/accessories-pic.webp';
 import LoginRegNav from '../LoginRegNav/LoginRegNav';
 import { getCustomerIsAuthSelector } from '../../../store/customer/selectors';
 
-const SlideOutNav = ({ isOpen, toggleNav }) => {
+const SlideOutNav = ({ isNavOpen, toggleNav }) => {
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const [showLogin, setShowLogin] = useState(false);
   const toggleLoginReg = () => setShowLogin(!showLogin);
 
   return (
     <>
-      <aside className={isOpen ? `${styles.container} ${styles.active}` : `${styles.container}`}>
+      <aside className={isNavOpen ? `${styles.container} ${styles.active}` : `${styles.container}`}>
         <div className={styles.icon__container} onClick={toggleNav}>
           <Icons type='left' filled width={40} height={40} />
         </div>
@@ -126,7 +126,7 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
   );
 };
 SlideOutNav.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
+  isNavOpen: PropTypes.bool.isRequired,
   toggleNav: PropTypes.func.isRequired,
 };
 

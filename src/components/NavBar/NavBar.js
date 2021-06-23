@@ -21,6 +21,7 @@ import { wishListLoadingAction } from '../../store/wishList/actions';
 import { getProductsOperation } from '../../store/products/operations';
 import { getColorsOperation } from '../../store/colors/operations';
 import SlideOutNav from './SlideOutNav/SlideOutNav';
+import SlideOutCart from './SlideOutCart/SlideOutCart';
 import styles from './NavBar.module.scss';
 
 const NavBar = () => {
@@ -31,8 +32,10 @@ const NavBar = () => {
   const wishListLoading = useSelector(wishListLoadingSelector);
   const location = useLocation();
   const localCart = JSON.parse(localStorage.getItem('cart'));
-  const [isOpen, setisOpen] = useState(false);
-  const toggleNav = () => setisOpen(!isOpen);
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const toggleNav = () => setIsNavOpen(!isNavOpen);
+  const toggleSlideCart = () => setIsCartOpen(!isCartOpen);
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
 
   let favorites = 0;
@@ -129,11 +132,12 @@ const NavBar = () => {
                 <User />
               </div>
             )}
-            <Icons type='navBag2' width={30} height={30} />
+            <Icons type='navBag2' width={30} height={30} onClick={toggleSlideCart} />
           </div>
         </nav>
         {!isAuth && modalAuthReg && <RegAuth />}
-        <SlideOutNav toggleNav={toggleNav} isOpen={isOpen} />
+        <SlideOutNav toggleNav={toggleNav} isNavOpen={isNavOpen} />
+        <SlideOutCart toggleSlideCart={toggleSlideCart} isCartOpen={isCartOpen} />
       </Container>
     </div>
   );
