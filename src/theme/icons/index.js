@@ -23,6 +23,7 @@ export { сhevron } from './сhevron';
 export { commas } from './commas';
 export { edit } from './edit';
 export { deleteIcon } from './deleteIcon';
+export { trash } from './trash';
 export { burger } from './burger';
 export { close } from './close';
 export { search } from './search';

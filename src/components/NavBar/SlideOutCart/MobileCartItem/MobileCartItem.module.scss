@@ -1,0 +1,54 @@
+@import '../../../../theme/styles/var';
+
+.pic__container {
+  width: 40px;
+  height: 40px;
+}
+.item {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  justify-items: left;
+  align-items: center;
+  //gap: 15px;
+  border: 1px solid $colorLightGray;
+  border-radius: 5px;
+  margin-top: 15px;
+  & > div:nth-child(even) {
+    background: #eee;
+    padding: 10px;
+  }
+  &__price {
+      font-weight: 600;
+  }
+
+}
+
+.controls__block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item__info > * {
+    margin-bottom: 15px;
+}
+.quantityBlock {
+    display: flex;
+    border: 1px solid $colorSpanishGray;
+
+  }
+.quantityBtn {
+    background-color: $colorWhite;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    width: 28px;
+    border-radius: 4px;
+    height: 36px;
+  }
+
+  .quantityInput {
+    border: none;
+    width: 25px;
+    text-align: center;
+  }
