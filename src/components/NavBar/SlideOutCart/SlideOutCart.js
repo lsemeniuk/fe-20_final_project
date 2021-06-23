@@ -12,8 +12,9 @@ import { replace } from '../../../utils/func';
 const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
   const cart = useSelector(getCartSelector);
   const cartLoading = useSelector(cartLoadingSelector);
-  const { products } = useSelector(getCartSelector);
+  const { products } = cart;
   const totalPrice = replace(useSelector(cartTotalPriceSelector));
+  console.log(totalPrice);
 
   if (cartLoading) {
     return null;
@@ -31,7 +32,7 @@ const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
         <div className={styles.title__wrapper}>
           <h2 className={styles.title}>Корзина</h2>
         </div>
-        {products.length === 0 ? (
+        {products.length === 0 || products === undefined ? (
           <div className={styles.bag__block}>
             <Icons type='navBag2' filled={false} width={100} height={100} />
             <p>Нет товаров</p>
@@ -44,11 +45,14 @@ const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
         <h3 className={styles.price}>
           <span className={styles.total}>Итого</span> {totalPrice} грн
         </h3>
-        <div className={styles.btn__container}>
-          <div onClick={toggleSlideCart} className={styles.btn__order}>
-            Оформить заказ
+
+        {products.length && (
+          <div className={styles.btn__container}>
+            <div onClick={toggleSlideCart} className={styles.btn__order}>
+              Оформить заказ
+            </div>
           </div>
-        </div>
+        )}
         <div className={styles.btn__container}>
           <div onClick={toggleSlideCart} className={`${styles.btn__order} ${styles.btn__back}`}>
             <Icons type='left' filled width={40} height={40} />

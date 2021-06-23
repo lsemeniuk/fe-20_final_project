@@ -18,9 +18,8 @@
     padding: 10px;
   }
   &__price {
-      font-weight: 600;
+    font-weight: 600;
   }
-
 }
 
 .controls__block {
@@ -30,25 +29,24 @@
 }
 
 .item__info > * {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 .quantityBlock {
-    display: flex;
-    border: 1px solid $colorSpanishGray;
-
-  }
+  display: flex;
+  border: 1px solid $colorSpanishGray;
+}
 .quantityBtn {
-    background-color: $colorWhite;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    width: 28px;
-    border-radius: 4px;
-    height: 36px;
-  }
+  background-color: $colorWhite;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  width: 28px;
+  border-radius: 4px;
+  height: 36px;
+}
 
-  .quantityInput {
-    border: none;
-    width: 25px;
-    text-align: center;
-  }
+.quantityInput {
+  border: none;
+  width: 25px;
+  text-align: center;
+}
