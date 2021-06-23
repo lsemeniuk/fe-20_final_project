@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Loader from '../../../../components/Loader/Loader';
 import { getSlides } from '../../../../http/slidesAPI';
-// import SlidrsItem from '../SlidrsItem/SlidrsItem';
+import SlidrsItem from '../SlidersItem/SlidersItem';
 
 const SlidersList = () => {
   const [sliders, setSliders] = useState([]);
@@ -22,7 +22,11 @@ const SlidersList = () => {
   }
 
   const slidersList = sliders.map(slider => {
-    return <li key={slider.name}>{/* <SlidrsItem slider={slider} /> */}</li>;
+    return (
+      <li key={slider.name} style={{ padding: '10px' }}>
+        <SlidrsItem slider={slider} />
+      </li>
+    );
   });
 
   return (

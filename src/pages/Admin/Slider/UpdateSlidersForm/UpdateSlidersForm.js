@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import schema from '../schema';
-import { getFiltersOperation } from '../../../../store/filter/operations';
+
 import { updateSlide } from '../../../../http/slidesAPI';
 
 const UpdateSlidersForm = ({ filter, setOpenForm }) => {
   const { title, imageUrl, description, product, _id: id } = filter;
   const [messageServer, setmessageServer] = useState(null);
-  const dispatch = useDispatch();
 
   return (
     <>
@@ -29,7 +28,6 @@ const UpdateSlidersForm = ({ filter, setOpenForm }) => {
               if (res.status === 200) {
                 setOpenForm(false);
               }
-              //dispatch(getFiltersOperation());
             })
             .catch(err => {
               setmessageServer(<span>{Object.values(err.data).join('')}</span>);

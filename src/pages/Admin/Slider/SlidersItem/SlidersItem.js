@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/Button/Button';
 import { deleteSlide } from '../../../../http/slidesAPI';
-import styles from './FiltersItem.module.scss';
+import styles from './SlidersItem.module.scss';
 import UpdateSlidersForm from '../UpdateSlidersForm/UpdateSlidersForm';
 
 const SlidersItem = ({ slider }) => {
@@ -26,13 +26,15 @@ const SlidersItem = ({ slider }) => {
         <div className={styles.title}>Заголовок Слайдера</div>
         <div className={styles.imageUrl}>Картинка</div>
         <div className={styles.description}>Описание</div>
-        <div className={styles.product}>Продукт</div>
+        <div className={styles.product}>Категория Товара</div>
       </div>
       <div className={styles.info}>
-        <div className={styles.type}>{filter.type}</div>
-        <div className={styles.name}>{filter.name}</div>
-        <div className={styles.description}>Описание</div>
-        <div className={styles.product}>Продукт</div>
+        <div className={styles.title}>{slider.customId}</div>
+        <div className={styles.imageUrl}>
+          {slider.imageUrl && <img className={styles.img} src={slider.imageUrl} alt={slider.name} />}
+        </div>
+        <div className={styles.description}>{slider.description}</div>
+        <div className={styles.product}>{slider.category.name}</div>
       </div>
       <Button title='Изменить' onClick={() => setOpenForm(!openForm)} className={styles.button} />
       <Button
