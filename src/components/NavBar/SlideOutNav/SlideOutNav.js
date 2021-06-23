@@ -24,7 +24,7 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
     <>
       <aside className={isOpen ? `${styles.container} ${styles.active}` : `${styles.container}`}>
         <div className={styles.icon__container} onClick={toggleNav}>
-          <Icons type='close' width={35} height={35} />
+          <Icons type='left' filled width={40} height={40} />
         </div>
         <div className={styles.title__wrapper}>
           <h2 className={styles.title}>SmartElectronics</h2>

@@ -15,7 +15,7 @@
 }
 .active {
   opacity: 1;
-  left: -20%;
+  left: 0%;
 }
 .link {
   color: #000;
@@ -29,20 +29,20 @@
   outline: none;
   cursor: pointer;
   @media screen and (max-width: 768px) {
-    top: 2.5%;
-    left: 24%;
+    top: 2.4%;
+    left: 6%;
     font-size: 12px;
   }
   @media (min-width: 769px) and (max-width: $tabMax) {
     top: 5%;
-    left: 24%;
+    left: 10%;
     font-size: 12px;
   }
 }
 
 .title__wrapper {
   text-align: center;
-  margin-left: 15%;
+
 
 }
 .title {
@@ -54,7 +54,7 @@
 }
 
 .menu__wrapper {
-  margin-left: 20%;
+  margin-left: 0;
   margin-top: 5%;
   border-top: 1px solid $colorLightGray;
 

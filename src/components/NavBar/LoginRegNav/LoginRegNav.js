@@ -24,7 +24,7 @@ const LoginRegNav = ({ showLogin, toggleLoginReg }) => {
     <aside className={showLogin ? `${styles.container} ${styles.active}` : `${styles.container}`}>
       <div className={styles.form__container}>
         <div className={styles.icon__container} onClick={toggleLoginReg}>
-          <Icons type='close' width={40} height={40} />
+          <Icons type='left' filled width={40} height={40} />
         </div>
         <div className={styles.tabs__container}>
           <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
