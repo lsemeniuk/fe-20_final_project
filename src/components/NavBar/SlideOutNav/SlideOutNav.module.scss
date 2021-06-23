@@ -25,17 +25,17 @@
 }
 .icon__container {
   position: absolute;
-  top: 2.3%;
+  top: 10px;
   outline: none;
   cursor: pointer;
   @media screen and (max-width: 768px) {
-    top: 2.4%;
-    left: 6%;
+    top: 8px;
+    left: 30px;
     font-size: 12px;
   }
   @media (min-width: 769px) and (max-width: $tabMax) {
-    top: 5%;
-    left: 10%;
+    top: 40px;
+    left: 50px;
     font-size: 12px;
   }
 }
@@ -77,6 +77,8 @@
   text-align: left;
 }
 .link__differentPages {
+  color: #000;
+  text-decoration: none;
   &:active {
     color: $colorCyan;
   }
