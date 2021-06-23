@@ -42,11 +42,13 @@ const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
             <ul className={styles.productList__container}>{cartProductList}</ul>
           </div>
         )}
-        <h3 className={styles.price}>
-          <span className={styles.total}>Итого</span> {totalPrice} грн
-        </h3>
+        {products.length > 0 && (
+          <h3 className={styles.price}>
+            <span className={styles.total}>Итого</span> {totalPrice} грн
+          </h3>
+        )}
 
-        {products.length && (
+        {products.length > 0 && (
           <div className={styles.btn__container}>
             <div onClick={toggleSlideCart} className={styles.btn__order}>
               Оформить заказ
