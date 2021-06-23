@@ -17,8 +17,10 @@ const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
   if (cartLoading) {
     return null;
   }
-  const { products } = cart;
-  const cartProductList = products.map(p => (
+  const products = cart ? cart.products : [];
+  console.log(products);
+
+  const cartProductList = products?.map(p => (
     <MobileCartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
   ));
 
