@@ -69,7 +69,7 @@ const SlideOutNav = ({ isOpen, toggleNav }) => {
                   <p className={styles.navLabel}>Вход для клиентов</p>
                 </li>
               ) : (
-                <li className={styles.navItem} onClick={toggleLoginReg}>
+                <li className={styles.navItem}>
                   <div className={styles.navIcon}>
                     <Icons type='navUser' filled width={30} height={30} />
                   </div>
