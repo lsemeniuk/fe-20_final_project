@@ -229,3 +229,35 @@
     }
   }
 }
+
+@media screen and (max-width: $mobMax) {
+  .ended {
+    right: 28px;
+    bottom: 0px;
+  }
+
+  .previousPrice {
+    font-size: 11px;
+  }
+
+  .currentPrice {
+    font-size: 11px;
+  }
+
+  .price {
+    position: absolute;
+    right: -14px;
+    bottom: 20px;
+  }
+}
+
+@media screen and (min-width: $deskMin) {
+  .ended {
+    bottom: 1px;
+    right: 2px;
+  }
+
+  .quantityBtn {
+    width: 22px;
+  }
+}
