@@ -23,7 +23,7 @@
   top: 10px;
   outline: none;
   cursor: pointer;
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     top: 8px;
     left: 30px;
     font-size: 12px;
