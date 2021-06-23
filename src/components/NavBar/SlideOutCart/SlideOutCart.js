@@ -12,17 +12,16 @@ import { replace } from '../../../utils/func';
 const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
   const cart = useSelector(getCartSelector);
   const cartLoading = useSelector(cartLoadingSelector);
-  const { products } = cart;
   const totalPrice = replace(useSelector(cartTotalPriceSelector));
-  console.log(totalPrice);
 
   if (cartLoading) {
     return null;
   }
-
+  const { products } = cart;
   const cartProductList = products.map(p => (
     <MobileCartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
   ));
+
   return (
     <>
       <aside className={isCartOpen ? `${styles.container} ${styles.active}` : `${styles.container}`}>
@@ -32,7 +31,7 @@ const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
         <div className={styles.title__wrapper}>
           <h2 className={styles.title}>Корзина</h2>
         </div>
-        {products.length === 0 || products === undefined ? (
+        {products.length === 0 ? (
           <div className={styles.bag__block}>
             <Icons type='navBag2' filled={false} width={100} height={100} />
             <p>Нет товаров</p>
