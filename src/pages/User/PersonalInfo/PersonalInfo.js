@@ -6,7 +6,7 @@ import UserPass from './UserPass/UserPass';
 
 const PersonalInfo = () => {
   const tabsData = [
-    { name: 'Информация о пользователе', component: UserInfo },
+    { name: 'Личные данные', component: UserInfo },
     { name: 'Изменить пароль', component: UserPass },
   ];
   return (

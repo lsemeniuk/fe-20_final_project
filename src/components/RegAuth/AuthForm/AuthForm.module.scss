@@ -1,7 +1,20 @@
+@import '../../../theme/styles/var';
+
 .buttonCont {
   display: flex;
   justify-content: flex-end;
 }
+
 .widthCont {
+  display: flex;
+  align-items: center;
   width: 75%;
+}
+
+.forgot {
+  cursor: pointer;
+  margin-left: 30px;
+  &:hover {
+    color: $colorCyan;
+  }
 }

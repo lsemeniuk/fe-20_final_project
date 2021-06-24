@@ -1,20 +1,26 @@
-@import '../../utils/styles/mixins';
-@import '../../utils/styles/var';
+@import '../../theme/styles/mixins';
+@import '../../theme/styles/var';
 
 .container {
   @extend %width-page;
   @extend %custom-shadow;
   @extend %custom-border;
   padding: 20px;
-  background-color: #fff;
+  background-color: $colorWhite;
   position: relative;
   line-height: 27px;
 
-  @media (min-width: $mobMin) and (max-width: $mobMax) {
-    max-width: $mobMax;
-  }
 
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-    max-width: $tabMax;
+    width: 100%;
   }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    width: 100%;
+  }
+
+  @media (max-width: $mobMin) {
+    width: 100%;
+  }
+
 }

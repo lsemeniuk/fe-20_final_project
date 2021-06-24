@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from '../../../../components/Button/Button';
 import Loader from '../../../../components/Loader/Loader';
 import { getAllOrders } from '../../../../http/ordersAPI';
-import OrdersPagination from '../OrderPagination/OrdersPagination';
+import Pagination from '../../../../components/Pagination/Pagination';
 import OrdersItem from '../OrdersItem/OrdersItem';
 import styles from './OrdersList.module.scss';
 
@@ -18,9 +18,9 @@ const OrdersList = () => {
 
   let ordersFilter = {};
   if (statusFilter === 'Все заказы') {
-    ordersFilter = { perPage, startPage: 1, sort: '-date' };
+    ordersFilter = { perPage, startPage, sort: '-date' };
   } else {
-    ordersFilter = { perPage, startPage: 1, sort: '-date', status: statusFilter };
+    ordersFilter = { perPage, startPage, sort: '-date', status: statusFilter };
   }
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const OrdersList = () => {
       setOrdersLoading(false);
     });
   }, [refreshOrders, startPage]);
+
   let ordersList = null;
 
   if (!ordersLoading) {
@@ -64,12 +65,7 @@ const OrdersList = () => {
         <Button title='обновить' className={styles.refresh} onClick={() => setRefreshOrders(true)} />
       </div>
       {ordersLoading ? <Loader /> : <ul>{ordersList}</ul>}
-      <OrdersPagination
-        perPage={perPage}
-        startPage={startPage}
-        setStartPage={setStartPage}
-        ordersQuantity={ordersQuantity}
-      />
+      <Pagination perPage={perPage} startPage={startPage} setPage={setStartPage} productsQuantity={ordersQuantity} />
     </div>
   );
 };

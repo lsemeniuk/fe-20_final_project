@@ -53,7 +53,7 @@ export const deleteOrder = async id => {
 // @route   GET /orders
 // @desc    Get all orders
 // @access  Private
-export const getCustommerOrders = async () => {
+export const getCustomerOrders = async () => {
   const res = await $authHost.get('orders').catch(err => {
     throw err.response;
   });

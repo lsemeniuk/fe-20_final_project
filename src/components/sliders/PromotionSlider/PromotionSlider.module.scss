@@ -1,4 +1,4 @@
-@import '../../../utils/styles/mixins';
+@import '../../../theme/styles/mixins';
 
 .container {
   height: 450px;
@@ -32,6 +32,7 @@
 .sliderImage {
   margin: 0 auto;
   height: 450px;
+  will-change: transform;
 }
 
 .dots {

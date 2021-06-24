@@ -1,4 +1,4 @@
-@import '../../utils/styles/var';
+@import '../../theme/styles/var';
 
 .sort {
   font-size: 14px;
@@ -9,10 +9,6 @@
   cursor: pointer;
   padding: 3px 6px;
   margin-left: 10px;
-  border: 2px solid $colorDark;
+  border: 2px solid $colorDarkLight;
   border-radius: 5px;
-  &:focus {
-    color: $colorButton;
-    border: 2px solid $colorButton;
-  }
 }

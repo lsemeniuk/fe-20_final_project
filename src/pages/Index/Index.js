@@ -1,18 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Slider from 'react-slick';
 import Container from '../../components/Container/Container';
 import GenderLink from '../../components/GenderLink/GenderLink';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import PromotionSlider from '../../components/sliders/PromotionSlider/PromotionSlider';
-import { getProductsSelector, productsLoadingSelector } from '../../store/products/selectors';
 import styles from './Index.module.scss';
 
 const Index = () => {
-  const products = useSelector(getProductsSelector);
-  const productsLoading = useSelector(productsLoadingSelector);
-
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -44,7 +39,7 @@ const Index = () => {
 
         <div className={styles.bestsellersSection}>
           <div className={styles.bestsellersItems}>
-            {!productsLoading && <CustomSlider title='Хиты продаж' products={products} />}
+            <CustomSlider title='Хиты продаж' filter={{ isHit: 'yes' }} />
           </div>
         </div>
 
@@ -74,7 +69,8 @@ const Index = () => {
           />
         </Slider>
 
-        {!productsLoading && <CustomSlider title='Свежие новинки' products={products} />}
+        <CustomSlider title='Свежие новинки' filter={{ isNew: 'yes' }} />
+        <CustomSlider title='Последние просмотренные товары' viwedProduct />
 
         <div className={styles.aboutSection}>
           <h4 className={styles.aboutTitle}>О магазине</h4>

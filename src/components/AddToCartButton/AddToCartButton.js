@@ -11,7 +11,7 @@ import { cartTotalPriceAction, saveLocalCartAction } from '../../store/cart/acti
 import { calculateTotalPrice } from '../../utils/func';
 import QuickOrder from '../QuickOrder/QuickOrder';
 
-const AddToCartButton = ({ product, id, className, orderButton, currentPrice }) => {
+const AddToCartButton = ({ product, id, className, orderButton, currentPrice, modalHandler }) => {
   const [quickOrderOpen, setQuickOrderOpen] = useState(false);
   const [isCart, setIsCart] = useState(false);
 
@@ -35,6 +35,7 @@ const AddToCartButton = ({ product, id, className, orderButton, currentPrice }) 
 
   const openCart = () => {
     dispatch(saveModalCartAction(true));
+    modalHandler();
   };
 
   const addToCart = () => {
@@ -87,11 +88,15 @@ AddToCartButton.propTypes = {
   className: PropTypes.string,
   orderButton: PropTypes.bool,
   currentPrice: PropTypes.number.isRequired,
+  modalHandler: PropTypes.func,
 };
 
 AddToCartButton.defaultProps = {
   className: '',
   orderButton: true,
+  modalHandler: () => {
+    return null;
+  },
 };
 
 export default AddToCartButton;

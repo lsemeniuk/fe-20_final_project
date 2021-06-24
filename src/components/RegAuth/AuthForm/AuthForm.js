@@ -5,18 +5,15 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../Forms/MyTextInput/MyTextInput';
 import Button from '../../Button/Button';
-import styles from './AuthForm.module.scss';
 import { authorizOperation } from '../../../store/customer/operations';
+import styles from './AuthForm.module.scss';
 
-const AuthForm = ({ setmessageServer }) => {
+const AuthForm = ({ setmessageServer, setForgotOpen }) => {
   const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
     loginOrEmail: Yup.string().email('Неверный адрес email').required('Укажите email'),
-    password: Yup.string()
-      .min(7, 'Это шликом маленький пароль')
-      .max(20, 'Такой пароль невозможно запомнить')
-      .required('Необходимо ввести пароль'),
+    password: Yup.string().required('Необходимо ввести пароль'),
   });
 
   return (
@@ -40,6 +37,9 @@ const AuthForm = ({ setmessageServer }) => {
           <div className={styles.buttonCont}>
             <div className={styles.widthCont}>
               <Button type='submit' title='Войти' className={styles.button} />
+              <div className={styles.forgot} onClick={() => setForgotOpen(true)}>
+                Забыли пароль?
+              </div>
             </div>
           </div>
         </Form>
@@ -50,6 +50,7 @@ const AuthForm = ({ setmessageServer }) => {
 
 AuthForm.propTypes = {
   setmessageServer: PropTypes.func.isRequired,
+  setForgotOpen: PropTypes.func.isRequired,
 };
 
 export default AuthForm;

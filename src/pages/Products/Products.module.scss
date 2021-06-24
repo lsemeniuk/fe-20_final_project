@@ -1,5 +1,5 @@
-@import '../../utils/styles/var';
-@import '../../utils/styles/mixins';
+@import '../../theme/styles/var';
+@import '../../theme/styles/mixins';
 
 .productsPage {
   font-size: 14px;
@@ -8,15 +8,15 @@
 .breadCrumbs {
   display: flex;
   align-items: center;
-  color: #868686;
+  color: $colorDimGray;
   font-size: 11px;
   margin-bottom: 10px;
 }
 
 .crumbsLink {
-  color: #868686;
+  color: $colorDimGray;
   &:hover {
-    color: $colorButnHover;
+    color: $colorCyanLight;
   }
 }
 

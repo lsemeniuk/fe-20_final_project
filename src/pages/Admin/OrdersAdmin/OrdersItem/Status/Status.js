@@ -46,10 +46,11 @@ const Status = ({ status, id }) => {
         <>
           <Icons
             className={styles.iconChange}
-            type='change'
+            type='edit'
             color='#999999'
-            width={25}
-            height={25}
+            filled
+            width={20}
+            height={20}
             onClick={() => setisChangeStatus(true)}
           />
           <div className={styles.statusText}>{statusElement}</div>
