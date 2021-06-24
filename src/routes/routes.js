@@ -12,6 +12,7 @@ import {
   ADM_COLORS_ROUTE,
   ADM_ORDERS_ROUTE,
   CONFIRM_REFISTRATION,
+  ADM_IMAGES_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
@@ -26,6 +27,7 @@ import Brands from '../pages/Admin/Brands/Brands';
 import Colors from '../pages/Admin/Colors/Colors';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
 import ConfirmRegistration from '../pages/ConfirmRegistration/ConfirmRegistration';
+import Images from '../pages/Admin/Images/Images';
 
 export const publicRoutes = [
   {
@@ -89,6 +91,11 @@ export const adminRoutes = [
     name: 'Заказы',
     path: ADM_ORDERS_ROUTE,
     Component: OrdersAdmin,
+  },
+  {
+    name: 'Картинки',
+    path: ADM_IMAGES_ROUTE,
+    Component: Images,
   },
   {
     name: 'Каталог',
