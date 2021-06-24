@@ -8,10 +8,11 @@ import {
   ADM_CATALOG_ROUTE,
   PRODUCT_ROUTE,
   CUSTOMER_WISH_LIST_ROUTE,
-  ADM_PRODUCTS_ROUTE,
   ADM_BRANDS_ROUTE,
   ADM_COLORS_ROUTE,
   ADM_ORDERS_ROUTE,
+  CONFIRM_REFISTRATION,
+  ADM_IMAGES_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
@@ -25,6 +26,8 @@ import Product from '../pages/Product/Product';
 import Brands from '../pages/Admin/Brands/Brands';
 import Colors from '../pages/Admin/Colors/Colors';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
+import ConfirmRegistration from '../pages/ConfirmRegistration/ConfirmRegistration';
+import Images from '../pages/Admin/Images/Images';
 
 export const publicRoutes = [
   {
@@ -48,7 +51,12 @@ export const publicRoutes = [
     Component: WishList,
   },
   {
-    name: 'Список желаний',
+    name: 'Подтвердить регистрацию',
+    path: `${CONFIRM_REFISTRATION}/:token`,
+    Component: ConfirmRegistration,
+  },
+  {
+    name: 'Сбросить пароль',
     path: `${RESET_PASSWORD}/:token`,
     Component: ResetPassword,
   },
@@ -85,13 +93,13 @@ export const adminRoutes = [
     Component: OrdersAdmin,
   },
   {
-    name: 'Каталог',
-    path: ADM_CATALOG_ROUTE,
-    Component: Catalog,
+    name: 'Картинки',
+    path: ADM_IMAGES_ROUTE,
+    Component: Images,
   },
   {
-    name: 'Продукты',
-    path: ADM_PRODUCTS_ROUTE,
+    name: 'Каталог',
+    path: ADM_CATALOG_ROUTE,
     Component: Catalog,
   },
   {

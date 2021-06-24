@@ -11,6 +11,16 @@ export const createCustomer = async value => {
   return res;
 };
 
+// @route   POST /customers
+// @desc    Register customer
+// @access  Public
+export const confirmRegistration = async token => {
+  const res = await $host.post(`customers/confirm-registration/${token}`).catch(err => {
+    throw err.response;
+  });
+  return res;
+};
+
 // @route   POST /customers/login
 // @desc    Login Customer / Returning JWT Token
 // @access  Public
@@ -21,10 +31,7 @@ export const loginCustomer = async value => {
   if (res) {
     localStorage.setItem('token', res.data.token);
   }
-  const auth = await $authHost.get('customers/customer').catch(err => {
-    throw err.response;
-  });
-  return auth;
+  return res;
 };
 
 // @route   GET /

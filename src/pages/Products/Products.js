@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
 import Container from '../../components/Container/Container';
 import { INDEX_ROUTE } from '../../utils/consts';
 import { getCategoriesSelector } from '../../store/catalog/selectors';
+import { getProductsFilterSelector, getProductsQuantitySelector } from '../../store/products/selectors';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import ContainerPage from '../../components/ContainerPage/ContainerPage';
 import ContainerAside from '../../components/ContainerAside/ContainerAside';
@@ -17,8 +18,13 @@ import Loader from '../../components/Loader/Loader';
 import { searchProducts } from '../../http/productAPI';
 import Icons from '../../components/Icons/Icons';
 import Button from '../../components/Button/Button';
+import { getProductsFilterOperation } from '../../store/products/operations';
 
 const Products = () => {
+  const dispatch = useDispatch();
+  const { perPage, startPage, ...filter } = useSelector(getProductsFilterSelector);
+  const productsQuantity = useSelector(getProductsQuantitySelector);
+  const history = useHistory();
   const categories = useSelector(getCategoriesSelector);
   const categorie = {};
   const params = useParams();
@@ -60,6 +66,10 @@ const Products = () => {
   };
 
   if (resultsLoading) return <Loader />;
+
+  const setPage = page => {
+    dispatch(getProductsFilterOperation({ history, ...filter, perPage, startPage: page }));
+  };
 
   return (
     <main>
@@ -107,7 +117,12 @@ const Products = () => {
               </div>
 
               <ProductList searchResults={searchResults} />
-              <Pagination />
+              <Pagination
+                perPage={perPage}
+                startPage={startPage}
+                productsQuantity={productsQuantity}
+                setPage={setPage}
+              />
             </ContainerPage>
           </div>
         </div>
