@@ -1,0 +1,143 @@
+@import '../../../theme/styles/var';
+
+.container {
+  position: fixed;
+  z-index: 400;
+  width: 100%;
+  height: 100%;
+  border: 1px solid $colorLightGray;
+  background: $colorGhostWhite;
+  top: 0;
+  opacity: 0;
+  left: -100%;
+  transition: 0.3s ease-in-out;
+  overflow-y: scroll;
+}
+.active {
+  opacity: 1;
+  left: 0%;
+}
+.link {
+  color: #000;
+}
+.activeLink {
+  color: $colorCyan;
+}
+.icon__container {
+  position: absolute;
+  top: 10px;
+  outline: none;
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    top: 8px;
+    left: 30px;
+    font-size: 12px;
+  }
+  @media (min-width: 769px) and (max-width: $tabMax) {
+    top: 40px;
+    left: 50px;
+    font-size: 12px;
+  }
+}
+
+.title__wrapper {
+  text-align: center;
+
+
+}
+.title {
+  margin: 17px 0 0 0;
+  font-size: 22px;
+  @media screen and (max-width: 768px) {
+   font-size: 18px;
+  }
+}
+
+.menu__wrapper {
+  margin-left: 0;
+  margin-top: 5%;
+  border-top: 1px solid $colorLightGray;
+
+}
+.menu__slideOut {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+
+
+}
+.navItem {
+  display: flex;
+  align-items: center;
+  //justify-content: center;
+}
+.navItem__differentPages {
+  margin: 20px 0 20px 92px;
+  text-align: left;
+}
+.link__differentPages {
+  color: #000;
+  text-decoration: none;
+  &:active {
+    color: $colorCyan;
+  }
+}
+.navIcon {
+  padding: 10px 30px;
+}
+.navLabel {
+  white-space: nowrap;
+}
+.hidden {
+  visibility: hidden;
+  padding: 10px 30px;
+}
+
+.iconsGroup {
+  text-align: center;
+}
+.iconsGroup li {
+  margin-top: 30px;
+}
+.heart__container {
+  position: relative;
+  width: 60px;
+  margin: 0 auto;
+}
+.heartQuantity {
+  position: absolute;
+  display: block;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  padding: 3px;
+  top: 9px;
+  left: 10px;
+  border-radius: 15px;
+  background: $colorCyan;
+  color: #000;
+  font-size: 12px;
+}
+.bag__container {
+  position: relative;
+  width: 60px;
+  margin: 0 auto;
+}
+.cartQuantity {
+  position: absolute;
+  display: block;
+  text-align: center;
+  width: 25px;
+  bottom: 25px;
+  top: 22px;
+  left: 18px;
+  line-height: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+.user__container {
+  width: 35px;
+  margin: 0 auto;
+}

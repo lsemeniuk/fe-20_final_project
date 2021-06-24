@@ -3,7 +3,21 @@
 .main {
   padding-top: 0;
 }
-
+.catalog__bar {
+  display: flex;
+  margin: 25px 20px;
+  align-items: center;
+  justify-content: center;
+  background: $colorCyan;
+  border-radius: 8px;
+  padding: 15px 25px;
+  @media (min-width:$deskMin) and (max-width: $deskXMax ) {
+    display: none;
+  }
+}
+.text {
+  color: #fff;
+}
 .brandBar {
   margin-bottom: 30px;
 }
@@ -73,9 +87,10 @@
     width: 190px;
     transform: translate(300px, -170px);
   }
-  @media (max-width: $mobMax) {
-    width: 100px;
-    transform: translate(180px, -95px);
+  @media (max-width: 620px) {
+    // width: 100px;
+    // transform: translate(180px, -95px);
+    display: none;
   }
 }
 

@@ -1,0 +1,90 @@
+@import '../../../theme/styles/var';
+
+.container {
+  position: fixed;
+  z-index: 600;
+  width: 100%;
+  height: 100%;
+  border: 1px solid $colorLightGray;
+  background: $colorGhostWhite;
+  top: 0;
+  opacity: 0;
+  right: -100%;
+  transition: 0.3s ease-in-out;
+  overflow-y: scroll;
+}
+.active {
+  opacity: 1;
+  right: 0%;
+}
+
+.icon__container {
+  position: absolute;
+  top: 10px;
+  outline: none;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    top: 8px;
+    left: 30px;
+    font-size: 12px;
+  }
+  @media (min-width: 769px) and (max-width: $tabMax) {
+    top: 12px;
+    left: 45px;
+    font-size: 12px;
+  }
+}
+
+.title__wrapper {
+  text-align: center;
+  border-bottom: 1px solid rgb(172, 172, 172);
+  padding-bottom: 20px;
+  @media (max-width: $tabMin) {
+    padding-bottom: 12px;
+  }
+}
+.title {
+  margin: 17px 0 0 0;
+  font-size: 22px;
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+.price {
+  text-align: center;
+}
+.bag__block {
+  text-align: center;
+  margin-top: 75px;
+}
+.btn__container {
+  text-align: center;
+  margin-top: 30px;
+}
+.btn__order {
+  display: flex;
+  margin: 25px 20px;
+  align-items: center;
+  justify-content: center;
+  background: #37b7fa;
+  color: #fff;
+  border-radius: 8px;
+  padding: 15px 25px;
+}
+.btn__back {
+  background: transparent;
+  border: 1px solid $colorLightGray;
+  color: #000;
+  padding: 4px 25px;
+}
+.productList__container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+}
+.total {
+  color: $colorSpanishGray;
+}
+.slider__title {
+  text-align: center;
+}

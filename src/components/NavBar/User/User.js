@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { getCustomerIsAuthSelector, getCustomerSelector } from '../../../store/customer/selectors';
 import Icons from '../../Icons/Icons';
 import UserBar from '../UserBar/UserBar';
@@ -8,11 +9,11 @@ import styles from './User.module.scss';
 import { getModalAuthRegSelector } from '../../../store/modal/selectors';
 import { saveModalAuthRegAction } from '../../../store/modal/actions';
 
-const User = () => {
+const User = ({ filled, white }) => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
-  const Icon = <Icons type='navUser' color='black' width={30} height={30} />;
+  const Icon = <Icons type='navUser' filled={filled} width={30} height={30} />;
   const [initials, setInitials] = useState('');
   const { firstName, lastName } = useSelector(getCustomerSelector);
 
@@ -25,7 +26,7 @@ const User = () => {
   return (
     <div className={styles.container}>
       {isAuth ? (
-        <div className={styles.circle}>
+        <div className={white ? `${styles.circle} ${styles.border__white}` : `${styles.circle}`}>
           <span className={styles.initials}>{initials}</span>
         </div>
       ) : (
@@ -41,5 +42,13 @@ const User = () => {
       {isAuth && <UserBar className={styles.userBar} />}
     </div>
   );
+};
+User.propTypes = {
+  filled: PropTypes.bool,
+  white: PropTypes.bool,
+};
+User.defaultProps = {
+  filled: true,
+  white: false,
 };
 export default User;

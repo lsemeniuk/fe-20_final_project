@@ -5,18 +5,72 @@
   background-color: $colorUnmellowYellow;
   @extend %custom-shadow;
 }
-
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .flexContainer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 100px;
+  width: 100%;
+  @media screen and (max-width: $tabMax) {
+    height: 45px;
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+  @media screen and (max-width: $mobMax) and (min-width: $mobMin) {
+    height: 45px;
+    margin-left: 0px;
+    margin-top: 10px;
+    & > div > img {
+      height: 50px;
+      width: 175px;
+    }
+  }
 }
+.adaptive__icons__block {
+  display: none;
+  @media (min-width: 500px) and (max-width: $tabMax) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    & > * {
+      margin-left: 15px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 
+    & > * {
+      margin-left: 5px;
+    }
+  }
+}
 .menuContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
+
+  @media screen and (max-width: $tabMax) {
+    display: none;
+  }
+}
+.burger {
+
+  @media (min-width: $deskMin) {
+    display: none;
+  }
+  @media (max-width: $tabMax) {
+    margin-left: 3%;
+  }
+  @media (max-width:$tabMin) {
+  margin-left: 1%;
+  }
 }
 
 .menuList {
@@ -69,4 +123,52 @@
   color: $colorWhite;
   font-size: 10px;
   text-align: center;
+}
+.favorites__mobile {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  top: 6px;
+  left: -2px;
+  border-radius: 15px;
+  background: $colorCyan;
+  color: $colorWhite;
+  font-size: 10px;
+  text-align: center;
+}
+.navBag__container {
+  position: relative;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navBag__price {
+  font-size: 12px;
+  font-weight: 600;
+
+}
+.itemsInCart__mobile {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  top: 6px;
+  right: 0;
+  border-radius: 15px;
+  background: #000;
+  color: $colorWhite;
+  font-size: 10px;
+  text-align: center;
+}
+.heart__parent {
+  position: relative;
+}
+.user {
+  @media screen and (max-width: $tabMin) {
+    display: none;
+  }
 }
