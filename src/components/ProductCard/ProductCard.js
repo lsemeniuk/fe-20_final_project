@@ -15,10 +15,12 @@ const ProductCard = ({ product, inSlider }) => {
 
   let containerClassName = `${styles.container}`;
   let btnBlockClassName = `${styles.btnBlock}`;
+  let nameClassName = `${styles.name}`;
 
   if (inSlider) {
     containerClassName = `${styles.container} ${styles.container__slider}`;
     btnBlockClassName = `${styles.btnBlock} ${styles.btnBlock__inSlider}`;
+    nameClassName = `${styles.name} ${styles.name__inSlider}`;
   }
 
   return (
@@ -55,18 +57,24 @@ const ProductCard = ({ product, inSlider }) => {
         )}
       </div>
       <div className={styles.priceBlock}>
-        <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} />
+        <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} inSlider={inSlider} />
       </div>
 
       <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} className={styles.nameLink}>
-        <span className={styles.name}>{name}</span>
+        <span className={nameClassName}>{name}</span>
       </NavLink>
 
       <div className={btnBlockClassName}>
         <div className={styles.btnFlex}>
-          <AddToCartButton product={product} id={id} orderButton={false} currentPrice={currentPrice} />
+          <AddToCartButton
+            product={product}
+            id={id}
+            orderButton={false}
+            currentPrice={currentPrice}
+            inSlider={inSlider}
+          />
           <span className={styles.favIcon}>
-            <AddToWishListBtn id={id} itemNo={itemNo} />
+            <AddToWishListBtn id={id} itemNo={itemNo} inSlider={inSlider} />
           </span>
         </div>
       </div>
