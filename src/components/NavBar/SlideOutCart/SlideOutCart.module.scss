@@ -29,8 +29,8 @@
     font-size: 12px;
   }
   @media (min-width: 769px) and (max-width: $tabMax) {
-    top: 40px;
-    left: 50px;
+    top: 12px;
+    left: 45px;
     font-size: 12px;
   }
 }
@@ -84,4 +84,7 @@
 }
 .total {
   color: $colorSpanishGray;
+}
+.slider__title {
+  text-align: center;
 }

@@ -36,9 +36,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 40px;
+    margin-right: 20px;
     & > * {
-      margin-left: 20px;
+      margin-left: 15px;
     }
   }
   @media screen and (max-width: 500px) {
@@ -134,6 +134,32 @@
   left: -2px;
   border-radius: 15px;
   background: $colorCyan;
+  color: $colorWhite;
+  font-size: 10px;
+  text-align: center;
+}
+.navBag__container {
+  position: relative;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navBag__price {
+  font-size: 12px;
+  font-weight: 600;
+
+}
+.itemsInCart__mobile {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  top: 6px;
+  right: 0;
+  border-radius: 15px;
+  background: #000;
   color: $colorWhite;
   font-size: 10px;
   text-align: center;

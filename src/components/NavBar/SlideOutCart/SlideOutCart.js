@@ -1,16 +1,19 @@
-/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
 import MobileCartItem from './MobileCartItem/MobileCartItem';
+import CustomSlider from '../../sliders/CustomSlider/CustomSlider';
 import styles from './SlideOutCart.module.scss';
 import Icons from '../../Icons/Icons';
 import { cartLoadingSelector, cartTotalPriceSelector, getCartSelector } from '../../../store/cart/selectors';
 import { replace } from '../../../utils/func';
+import { CHECKOUT_ROUTE } from '../../../utils/consts';
 
 const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
   const cart = useSelector(getCartSelector);
+  const history = useHistory();
   const cartLoading = useSelector(cartLoadingSelector);
   const totalPrice = replace(useSelector(cartTotalPriceSelector));
 
@@ -22,6 +25,11 @@ const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
   const cartProductList = products?.map(p => (
     <MobileCartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
   ));
+
+  const handleCheckout = () => {
+    toggleSlideCart();
+    history.push(CHECKOUT_ROUTE);
+  };
 
   return (
     <>
@@ -50,7 +58,7 @@ const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
 
         {products.length > 0 && (
           <div className={styles.btn__container}>
-            <div onClick={toggleSlideCart} className={styles.btn__order}>
+            <div onClick={handleCheckout} className={styles.btn__order}>
               Оформить заказ
             </div>
           </div>
@@ -61,6 +69,7 @@ const SlideOutCart = ({ isCartOpen, toggleSlideCart }) => {
             Вернуться к покупкам
           </div>
         </div>
+        <CustomSlider title='Возможно, Вам понравится:' />
       </aside>
     </>
   );
