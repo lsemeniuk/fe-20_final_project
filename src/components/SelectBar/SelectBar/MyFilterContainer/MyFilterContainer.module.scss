@@ -1,22 +1,22 @@
 @import '../../../../theme/styles/var';
 
 .container {
-  z-index: 2;
+  z-index: 99;
 
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: -130%;
     transition: left 1.5s linear;
-    z-index: 99;
+    z-index: 999;
   }
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: -130%;
     transition: left 1.5s linear;
-    z-index: 99;
+    z-index: 999;
   }
 
   &_filter {
@@ -41,11 +41,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  min-width: 100vw;
-  min-height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   background: fixed;
   background-color: rgba(0, 0, 0, 0.178);
-  z-index: 1;
+  z-index: 99;
   &_none {
     display: none;
   }
@@ -58,11 +58,13 @@
     left: -1%;
     top: 0%;
     transition: left 1.5s linear;
+    z-index: 999;
   }
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     left: 0%;
     top: 0%;
     transition: left 1.5s linear;
+    z-index: 999;
   }
 }
 
@@ -79,7 +81,7 @@
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     display: block;
     max-width: 60px;
-    border: 1px solid black;
+    // border: 1px solid black;
     cursor: pointer;
   }
 
@@ -87,7 +89,7 @@
     display: block;
 
     max-width: 60px;
-    border: 1px solid black;
+    // border: 1px solid black;
     cursor: pointer;
   }
 }

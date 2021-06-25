@@ -57,11 +57,12 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
-              <Select />
+              <Select className={styles.select_desc} />
             </ContainerAside>
 
             <ContainerPage style={{ padding: '0' }}>
               <div className={styles.catalogSettings}>
+                <Select className={styles.select_mobile} />
                 <ProductQuantity />
                 <Sorting />
               </div>
