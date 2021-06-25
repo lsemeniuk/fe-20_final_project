@@ -1,10 +1,10 @@
 import React from 'react';
+import { product } from '../../../mokfiles/testingMok';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import AddToCartButton from './AddToCartButton';
 import store from '../../store/store';
-import { product } from '../../../mokfiles/testingMok';
 
 const id = '60a33e74f7a92e0004be1e53';
 const currentPrice = 5000;
