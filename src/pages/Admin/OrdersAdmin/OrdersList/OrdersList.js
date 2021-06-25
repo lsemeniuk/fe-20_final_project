@@ -18,9 +18,9 @@ const OrdersList = () => {
 
   let ordersFilter = {};
   if (statusFilter === 'Все заказы') {
-    ordersFilter = { perPage, startPage: 1, sort: '-date' };
+    ordersFilter = { perPage, startPage, sort: '-date' };
   } else {
-    ordersFilter = { perPage, startPage: 1, sort: '-date', status: statusFilter };
+    ordersFilter = { perPage, startPage, sort: '-date', status: statusFilter };
   }
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const OrdersList = () => {
       setOrdersLoading(false);
     });
   }, [refreshOrders, startPage]);
+
   let ordersList = null;
 
   if (!ordersLoading) {

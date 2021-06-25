@@ -6,6 +6,7 @@ export const CHECKOUT_ROUTE = '/checkout';
 export const PAGES_ROUTE = '/pages';
 export const CUSTOMER_WISH_LIST_ROUTE = '/wishList';
 export const RESET_PASSWORD = '/reset';
+export const CONFIRM_REFISTRATION = '/confirm-registration';
 
 // User
 export const USER_ROUTE = '/user';
@@ -16,6 +17,7 @@ export const WISH_LIST_ROUTE = '/user/wish-list';
 // Admin
 export const ADMIN_ROUTE = '/admin';
 export const ADM_ORDERS_ROUTE = '/admin/orders';
+export const ADM_IMAGES_ROUTE = '/admin/images';
 export const ADM_CATALOG_ROUTE = '/admin/catalog';
 export const ADM_PRODUCTS_ROUTE = '/admin/products';
 export const ADM_BRANDS_ROUTE = '/admin/brands';

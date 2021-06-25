@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { createCustomer, getCustomer, loginCustomer } from '../../http/customersAPI';
 import { saveCartAction } from '../cart/actions';
 import { saveWishListAction } from '../wishList/actions';
@@ -21,6 +20,7 @@ export const checkAuthOperation = () => dispatch => {
     });
 };
 
+<<<<<<< HEAD
 export const authorizOperation =
   ({ setmessageServer, ...value }) =>
   dispatch => {
@@ -52,6 +52,34 @@ export const createCustomerOperation =
         setmessageServer(Object.values(err.data).join(' '));
       });
   };
+=======
+export const authorizOperation = ({ setmessageServer, ...value }) => dispatch => {
+  dispatch(saveCustomerIsLoadingAction(true));
+  loginCustomer(value)
+    .then(res => {
+      dispatch(saveCustomerAction(res.data.customer));
+      dispatch(saveCustomerIsAuthAction(true));
+      dispatch(saveModalAuthRegAction(false));
+    })
+    .catch(err => {
+      setmessageServer(Object.values(err.data).join(' '));
+    });
+  dispatch(saveCustomerIsLoadingAction(false));
+};
+
+export const createCustomerOperation = ({ setmessageServer, ...value }) => dispatch => {
+  createCustomer(value)
+    .then(res => {
+      if (res) {
+        dispatch(saveCustomerAction(res.data));
+      }
+      return res;
+    })
+    .catch(err => {
+      setmessageServer(Object.values(err.data).join(' '));
+    });
+};
+>>>>>>> fb1775e75e88e94abea52439fe91542a2a5f225d
 
 export const outPutCustomerOperation = () => dispatch => {
   dispatch(saveCustomerAction({}));
