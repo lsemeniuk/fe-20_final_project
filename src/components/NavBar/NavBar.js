@@ -23,6 +23,7 @@ import { getProductsOperation } from '../../store/products/operations';
 import { getColorsOperation } from '../../store/colors/operations';
 import styles from './NavBar.module.scss';
 import { getProductsSelector } from '../../store/products/selectors';
+import { setQueryAction } from '../../store/search/actions';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,12 @@ const NavBar = () => {
 
   const handleClickSearch = () => setShowInput(!showInput);
 
+  const handleClickOnFoundItems = value => {
+    console.log(value);
+    dispatch(setQueryAction(value));
+    handleClickSearch();
+  };
+
   const list = allProducts
     .filter(p =>
       searchWords !== ''
@@ -77,8 +84,11 @@ const NavBar = () => {
         : null
     )
     .map(p => (
-      <li className={styles.searchList__item} key={p.itemNo}>
+      <li className={styles.searchList__item} key={p.itemNo} onClick={() => handleClickOnFoundItems(p.brand)}>
         {p.name}
+        <div>
+          <img src={p.imageUrls[0].smallImage} width={30} height={30} alt='product pic' />
+        </div>
       </li>
     ))
     .slice(0, 10);
@@ -122,7 +132,7 @@ const NavBar = () => {
                 </div>
               </ul>
               <ul className={styles.iconList}>
-                <li onClick={handleClickSearch}>
+                <li onClick={handleClickSearch} className={styles.searchIcon__container}>
                   <Icons type='search' width={40} height={40} />
                 </li>
                 <li key='wishList'>

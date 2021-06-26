@@ -72,6 +72,7 @@
 }
 .input__parent {
   position: relative;
+
 }
 .search__input {
   width: 300px;
@@ -91,5 +92,18 @@
   z-index: 500;
 }
 .searchList__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #fff;
+  padding: 5px 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+.searchIcon__container {
+  &:hover {
+    cursor: pointer;
+  }
 }

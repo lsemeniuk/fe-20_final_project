@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
@@ -16,21 +16,21 @@ import Filter from '../../components/Filter/Filter';
 import styles from './Products.module.scss';
 import Loader from '../../components/Loader/Loader';
 import { searchProducts } from '../../http/productAPI';
-import Icons from '../../components/Icons/Icons';
-import Button from '../../components/Button/Button';
 import { getProductsFilterOperation } from '../../store/products/operations';
+import { getQueryStringSelector } from '../../store/search/selectors';
 
 const Products = () => {
   const dispatch = useDispatch();
   const { perPage, startPage, ...filter } = useSelector(getProductsFilterSelector);
+
   const productsQuantity = useSelector(getProductsQuantitySelector);
   const history = useHistory();
   const categories = useSelector(getCategoriesSelector);
   const categorie = {};
   const params = useParams();
 
+  const searchWords = useSelector(getQueryStringSelector);
   const [resultsLoading, setResultsLoading] = useState(false);
-  const [searchWords, setSearchWords] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [nothingFound, setNothingFound] = useState(false);
   const [error, setError] = useState(false);
@@ -45,8 +45,7 @@ const Products = () => {
       return null;
     });
   }
-  const handleSubmit = e => {
-    e.preventDefault();
+  useEffect(() => {
     if (searchWords !== '') {
       const queryString = { query: searchWords };
       setResultsLoading(true);
@@ -63,7 +62,7 @@ const Products = () => {
       setResultsLoading(false);
     }
     return null;
-  };
+  }, [searchWords]);
 
   if (resultsLoading) return <Loader />;
 
@@ -84,25 +83,6 @@ const Products = () => {
           </div>
           <div className={styles.row}>
             <h2 className={styles.categoryTitle}>{categorie.name}</h2>
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <div className={styles.search}>
-                <div className={styles.search__icon__wrapper}>
-                  <Icons type='search' filled />
-                </div>
-                <input
-                  type='text'
-                  placeholder='Я ищу...'
-                  onChange={e => setSearchWords(e.target.value)}
-                  className={styles.search__input}
-                />
-                <Button type='submit' className={styles.search__button} title='Найти' />
-              </div>
-            </form>
-          </div>
-          <div className={styles.inCenter}>
-            {error.length && <p className={styles.danger}>Произошла ошибка: {error}</p>}
-            {searchResults.length > 0 && <p className={styles.success}>Найдено {searchResults.length} товаров</p>}
-            {nothingFound && <p>По Вашему запросу ничего не найдено. Уточните, пож-та, запрос</p>}
           </div>
           <BrandBar />
           <div className={styles.flexRow}>
@@ -113,6 +93,11 @@ const Products = () => {
             <ContainerPage style={{ padding: '0' }}>
               <div className={styles.catalogSettings}>
                 <ProductQuantity />
+                <div className={styles.inCenter}>
+                  {error.length && <p className={styles.danger}>Произошла ошибка: {error}</p>}
+                  {searchResults.length > 0 && <p className={styles.success}>Найдено {searchResults.length} товаров</p>}
+                  {nothingFound && <p> Ничего не найдено...</p>}
+                </div>
                 <Sorting />
               </div>
 

@@ -61,6 +61,7 @@
   margin: 15px 30px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 .row {
   display: flex;
@@ -74,7 +75,7 @@
 .inCenter {
   text-align: center;
   margin-bottom: 40px;
-  margin-top: 25px;
+
 }
 .search {
   @include flx-center;
@@ -114,7 +115,9 @@
 }
 .success {
   display: inline;
-  color: green;
-  padding: 10px 20px;
-  background: palegreen;
+  color: $colorRoyalBlue;
+  padding: 5px 10px;
+  background: #fff;
+  border: 1px solid $colorRoyalBlue;
+  border-radius: 5px;
 }
