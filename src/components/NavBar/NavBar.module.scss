@@ -140,14 +140,18 @@
 }
 .navBag__container {
   position: relative;
-  width: 80px;
+  width: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  @media (max-width: $mobMax) {
+    width: 30px;
+  }
 }
 .navBag__price {
   font-size: 12px;
   font-weight: 600;
+  display: none;
 
 }
 .itemsInCart__mobile {
