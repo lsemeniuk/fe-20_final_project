@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { INDEX_ROUTE, WISH_LIST_ROUTE, CUSTOMER_WISH_LIST_ROUTE } from '../../utils/consts';
@@ -21,16 +22,20 @@ import { wishListLoadingAction } from '../../store/wishList/actions';
 import { getProductsOperation } from '../../store/products/operations';
 import { getColorsOperation } from '../../store/colors/operations';
 import styles from './NavBar.module.scss';
+import { getProductsSelector } from '../../store/products/selectors';
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
+  const allProducts = useSelector(getProductsSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
   const location = useLocation();
   const localCart = JSON.parse(localStorage.getItem('cart'));
-
+  const [searchWords, setSearchWords] = useState('');
+  const [showInput, setShowInput] = useState(false);
+  console.log(searchWords);
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
 
   let favorites = 0;
@@ -60,6 +65,24 @@ const NavBar = () => {
     }
   }, [isAuth]);
 
+  const handleClickSearch = () => setShowInput(!showInput);
+
+  const list = allProducts
+    .filter(p =>
+      searchWords !== ''
+        ? p.name.includes(searchWords) ||
+          p.brand.includes(searchWords) ||
+          p.color.includes(searchWords) ||
+          p.description.includes(searchWords)
+        : null
+    )
+    .map(p => (
+      <li className={styles.searchList__item} key={p.itemNo}>
+        {p.name}
+      </li>
+    ))
+    .slice(0, 10);
+
   const authRegHandler = () => {
     dispatch(saveModalAuthRegAction(!modalAuthReg));
     document.body.classList.toggle('lock');
@@ -88,8 +111,20 @@ const NavBar = () => {
             <div className={styles.menuContainer}>
               <ul className={styles.menuList}>
                 <CategoriesList className={styles.menuLink} activeClassName={styles.menuLinkActive} />
+                <div className={styles.input__parent}>
+                  <input
+                    type='text'
+                    placeholder='Я ищу...'
+                    onChange={e => setSearchWords(e.target.value)}
+                    className={showInput ? `${styles.search__input} ${styles.showInput}` : `${styles.search__input}`}
+                  />
+                  {showInput && <ul className={styles.searchList}>{list}</ul>}
+                </div>
               </ul>
               <ul className={styles.iconList}>
+                <li onClick={handleClickSearch}>
+                  <Icons type='search' width={40} height={40} />
+                </li>
                 <li key='wishList'>
                   {wishList && favorites !== 0 ? (
                     <NavLink to={isAuth ? WISH_LIST_ROUTE : CUSTOMER_WISH_LIST_ROUTE}>
