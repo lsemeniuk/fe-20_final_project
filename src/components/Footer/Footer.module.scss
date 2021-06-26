@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: 992px) {
+  @media (min-width: $tabMax) {
     display: none;
   }
 }
@@ -30,9 +30,9 @@
   margin-top: 25px;
   font-size: 20px;
 
-  @media screen and (max-width: 470px) {
+  @media screen and (max-width: $tabMin) {
     margin-top: 20px;
-    font-size: 16px;
+    font-size: $fontSizeTitleH3_mobile;
   }
 }
 .contact__info {
@@ -41,7 +41,7 @@
 }
 .phones {
   font-size: 26px;
-  @media screen and (max-width: 470px) {
+  @media screen and (max-width: $tabMin) {
     font-size: 20px;
   }
 }
