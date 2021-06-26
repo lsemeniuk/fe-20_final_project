@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { INDEX_ROUTE, WISH_LIST_ROUTE, CUSTOMER_WISH_LIST_ROUTE } from '../../utils/consts';
+import { INDEX_ROUTE, WISH_LIST_ROUTE, CUSTOMER_WISH_LIST_ROUTE, PRODUCTS_ROUTE } from '../../utils/consts';
 import Container from '../Container/Container';
 import Icons from '../Icons/Icons';
 import MyOrders from './MyOrders/MyOrders';
@@ -26,6 +26,7 @@ import { setQueryAction } from '../../store/search/actions';
 
 const NavBar = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const allProducts = useSelector(getProductsSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
@@ -66,10 +67,12 @@ const NavBar = () => {
   }, [isAuth]);
 
   const handleClickSearch = () => setShowInput(!showInput);
+  const clearInput = () => setSearchWords('');
 
   const handleClickOnFoundItems = value => {
     dispatch(setQueryAction(value));
     handleClickSearch();
+    history.push(`${PRODUCTS_ROUTE}/all`);
   };
 
   const list = allProducts
@@ -124,8 +127,14 @@ const NavBar = () => {
                     type='text'
                     placeholder='Я ищу...'
                     onChange={e => setSearchWords(e.target.value)}
+                    value={searchWords}
                     className={showInput ? `${styles.search__input} ${styles.showInput}` : `${styles.search__input}`}
                   />
+                  {showInput && (
+                    <div className={styles.close} onClick={clearInput}>
+                      <Icons type='summer' />
+                    </div>
+                  )}
                   {showInput && <ul className={styles.searchList}>{list}</ul>}
                 </div>
               </ul>

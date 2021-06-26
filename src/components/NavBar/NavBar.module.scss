@@ -107,3 +107,11 @@
     cursor: pointer;
   }
 }
+.close {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
