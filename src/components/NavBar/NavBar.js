@@ -67,7 +67,7 @@ const NavBar = () => {
 
   const heartJsx = [
     <div key='heart' className={styles.iconListItem}>
-      <Icons type='navHeart' color='#000' width={30} height={30} />
+      <Icons type='navHeart' color='#FFF' width={30} height={30} />
     </div>,
   ];
 
@@ -78,10 +78,10 @@ const NavBar = () => {
           <div className={styles.flexContainer}>
             <div>
               {location.pathname === '/' ? (
-                <Logo />
+                <Logo white />
               ) : (
                 <NavLink to={INDEX_ROUTE}>
-                  <Logo />
+                  <Logo white />
                 </NavLink>
               )}
             </div>
