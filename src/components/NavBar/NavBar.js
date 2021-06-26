@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -36,7 +35,7 @@ const NavBar = () => {
   const localCart = JSON.parse(localStorage.getItem('cart'));
   const [searchWords, setSearchWords] = useState('');
   const [showInput, setShowInput] = useState(false);
-  console.log(searchWords);
+
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
 
   let favorites = 0;
@@ -69,7 +68,6 @@ const NavBar = () => {
   const handleClickSearch = () => setShowInput(!showInput);
 
   const handleClickOnFoundItems = value => {
-    console.log(value);
     dispatch(setQueryAction(value));
     handleClickSearch();
   };

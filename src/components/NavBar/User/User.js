@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerIsAuthSelector, getCustomerSelector } from '../../../store/customer/selectors';
