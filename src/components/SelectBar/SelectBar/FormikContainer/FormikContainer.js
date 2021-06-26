@@ -17,7 +17,6 @@ import { getProductsFilterSelector } from '../../../../store/products/selectors'
 import CategoriesList from '../../../CategoriesList/CategoriesList';
 import { getBrandsSelector } from '../../../../store/brands/selectors';
 
-/* eslint no-console: ["error", { allow: ["warn"] }] */
 function FormikContainer({ classes }) {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -59,7 +58,6 @@ function FormikContainer({ classes }) {
           brand: Yup.array().required('Required'),
         })}
         onSubmit={(value, { setSubmitting }) => {
-          /* eslint no-console: 0 */
           if (!history.location.pathname.includes('products')) {
             history.push(PRODUCTS_ROUTE);
           }

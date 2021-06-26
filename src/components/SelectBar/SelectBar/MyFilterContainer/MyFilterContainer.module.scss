@@ -81,15 +81,12 @@
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     display: block;
     max-width: 60px;
-    // border: 1px solid black;
     cursor: pointer;
   }
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     display: block;
-
     max-width: 60px;
-    // border: 1px solid black;
     cursor: pointer;
   }
 }
