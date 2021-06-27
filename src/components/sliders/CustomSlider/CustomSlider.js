@@ -43,7 +43,7 @@ const CustomSlider = ({ title, filter, viwedProduct }) => {
 
   useEffect(() => {
     if (viwedProduct) {
-      getProductsByArrayId({ itemNo: viwedProducts }).then(res => {
+      getProductsByArrayId({ productUrl: viwedProducts }).then(res => {
         setProducts(res.data);
         setProductLoading(false);
       });
