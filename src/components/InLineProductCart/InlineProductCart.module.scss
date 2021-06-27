@@ -1,0 +1,64 @@
+@import './src/theme/styles/var';
+
+.product {
+  display: flex;
+  border-bottom: 2px solid $colorAntiFlashWhite;
+  width: 100%;
+  padding: 10px 10px 30px 10px;
+  &:first-child {
+    border-top: 2px solid $colorAntiFlashWhite;
+  }
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  column-gap:5%;
+}
+
+.informationBlock {
+  width: 50%;
+}
+
+.characteristics {
+  margin-top: 15px;
+}
+
+.name {
+  color: $colorBlack;
+  font-size: $fontSizeText;
+  font-weight: bold;
+}
+
+.characteristicsRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.characteristicsTitle {
+  color: $colorSpanishGray;
+}
+
+.moreInfoBlock {
+  display: flex;
+  //justify-content: center;
+  row-gap: 60%;
+  flex-direction: column;
+  width: 40%;
+  border-left: 1px dotted $colorAntiFlashWhite;
+  padding-left: 10px;
+}
+
+.priceBlock {
+}
+
+
+.image {
+  width: 200px;
+}
+
+.buttonBlock {
+  display: flex;
+  justify-content: space-between;
+}

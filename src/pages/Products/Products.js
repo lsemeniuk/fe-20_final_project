@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
@@ -15,6 +15,7 @@ import Sorting from '../../components/Sorting/Sorting';
 import Filter from '../../components/Filter/Filter';
 import styles from './Products.module.scss';
 import { getProductsFilterOperation } from '../../store/products/operations';
+import { changeProductsStyle } from '../../store/products/actions';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,11 @@ const Products = () => {
   const categories = useSelector(getCategoriesSelector);
   const categorie = {};
   const params = useParams();
+  const isGrid = JSON.parse(localStorage.getItem('ProductStyle'));
+
+  useEffect(() => {
+    dispatch(changeProductsStyle(isGrid));
+  }, []);
 
   if (params.categories === 'all') {
     categorie.name = 'Все товары';
@@ -38,6 +44,17 @@ const Products = () => {
 
   const setPage = page => {
     dispatch(getProductsFilterOperation({ history, ...filter, perPage, startPage: page }));
+  };
+
+  const changeProductsStyleFunc = e => {
+    const type = e.target.value;
+    if (type === 'grid') {
+      dispatch(changeProductsStyle(true));
+      localStorage.setItem('ProductStyle', true);
+    } else {
+      dispatch(changeProductsStyle(false));
+      localStorage.setItem('ProductStyle', false);
+    }
   };
 
   return (
@@ -64,8 +81,15 @@ const Products = () => {
               <div className={styles.catalogSettings}>
                 <ProductQuantity />
                 <Sorting />
+                <div>
+                  <button onClick={e => changeProductsStyleFunc(e)} value='grid' type='button'>
+                    Grid
+                  </button>
+                  <button onClick={e => changeProductsStyleFunc(e)} value='inLine' type='button'>
+                    In line
+                  </button>
+                </div>
               </div>
-
               <ProductList />
               <Pagination
                 perPage={perPage}

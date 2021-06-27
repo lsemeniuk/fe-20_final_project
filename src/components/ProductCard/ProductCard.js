@@ -7,11 +7,10 @@ import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import AddToWishListBtn from '../AddToWishListButton/AddToWishListBtn';
 import PriceBlock from '../PriceBlock/PriceBlock';
 import styles from './ProductCard.module.scss';
+import ProductLabels from '../ProductLabels/ProductLabels';
 
 const ProductCard = ({ product, inSlider }) => {
   const { imageUrls, itemNo, previousPrice, currentPrice, name, superPrise, isNew, isHit, _id: id } = product;
-
-  const calculateSales = Math.round(((previousPrice - currentPrice) / previousPrice) * 100);
 
   let containerClassName = `${styles.container}`;
   let btnBlockClassName = `${styles.btnBlock}`;
@@ -31,29 +30,13 @@ const ProductCard = ({ product, inSlider }) => {
           </div>
         </NavLink>
       </div>
-      <div className={styles.labelBlock}>
-        {superPrise === 'yes' && (
-          <div>
-            <div className={`${styles.label} ${styles.labelSuperPrice}`}>Супер цена</div>
-          </div>
-        )}
-
-        {isNew === 'yes' && (
-          <div>
-            <div className={`${styles.label} ${styles.labelNew}`}>Новинка</div>
-          </div>
-        )}
-        {isHit === 'yes' && (
-          <div>
-            <div className={`${styles.label} ${styles.labelHit}`}>Хит</div>
-          </div>
-        )}
-        {previousPrice && (
-          <div>
-            <div className={`${styles.label} ${styles.labelSales}`}>-{calculateSales}%</div>
-          </div>
-        )}
-      </div>
+      <ProductLabels
+        previousPrice={previousPrice}
+        currentPrice={currentPrice}
+        isNew={isNew}
+        isHit={isHit}
+        superPrise={superPrise}
+      />
       <div className={styles.priceBlock}>
         <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} />
       </div>

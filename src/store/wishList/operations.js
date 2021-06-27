@@ -71,6 +71,8 @@ export const updateWishListOperation = prod => dispatch => {
 };
 
 export const setFavForCustomerOperation = (itemNo, wishList) => dispatch => {
+  console.log('item no', itemNo);
+  console.log('wish list', wishList);
   getProductById(itemNo).then(product => {
     const { data } = product;
     dispatch(saveWishListAction([...wishList, data]));
