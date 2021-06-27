@@ -46,6 +46,7 @@ function FormikContainer({ classes }) {
         initialValues={{
           isHit: [],
           isNew: [],
+          superPrise: [],
           currentPrice: { minPrice: [], maxPrice: [] },
           brand: [],
           quantity: [],
@@ -53,8 +54,8 @@ function FormikContainer({ classes }) {
         validationSchema={Yup.object({
           isHit: Yup.array().required('Required'),
           isNew: Yup.array().required('Required'),
+          superPrise: Yup.array().required('Required'),
           currentPrice: Yup.object().required('Required'),
-
           brand: Yup.array().required('Required'),
         })}
         onSubmit={(value, { setSubmitting }) => {
@@ -85,6 +86,13 @@ function FormikContainer({ classes }) {
                     nameCur='isHit'
                     options={filters}
                   />
+                  <FormikControl
+                    control='checkbox'
+                    label='null'
+                    name='superPrise'
+                    nameCur='superPrise'
+                    options={filters}
+                  />
                   <FormikControl control='checkbox' label='null' name='isNew' nameCur='isNew' options={filters} />
                   <SliderRadre
                     label='Цена, грн'
@@ -97,7 +105,6 @@ function FormikContainer({ classes }) {
                     setUpPrice={setUpPrice}
                   />
                   <FormikControl control='checkbox' label='Бренды' name='brand' nameCur='brand' options={brands} />
-
                   <Button title='Применить' type='submit' className={styles.select_btn} />
                 </div>
               </Form>

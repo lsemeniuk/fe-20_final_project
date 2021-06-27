@@ -64,7 +64,7 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                   value={+upPrice}
                 />
               </>
-              <Button title='ok' onClick={() => onClick(field)} />
+              <Button title='готово' className={styles.range_btn} onClick={() => onClick(field)} />
             </div>
           </>
         )}
