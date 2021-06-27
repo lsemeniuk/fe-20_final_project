@@ -34,7 +34,7 @@
   background-color: none;
   border-radius: 5px;
   &:hover .color {
-    opacity: 0.7;
+    opacity: 0.9;
   }
 }
 
@@ -44,7 +44,7 @@
   background-color: $colorGhostWhite;
 
   & .color {
-    opacity: 0.7;
+    opacity: 0.9;
   }
 
   & a {
@@ -61,7 +61,7 @@
 }
 
 .color {
-  opacity: 0.3;
+  opacity: 0.5;
   width: 100%;
   height: 100%;
 }
