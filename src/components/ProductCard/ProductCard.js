@@ -9,20 +9,33 @@ import PriceBlock from '../PriceBlock/PriceBlock';
 import styles from './ProductCard.module.scss';
 
 const ProductCard = ({ product, inSlider }) => {
-  const { imageUrls, itemNo, previousPrice, currentPrice, name, superPrise, isNew, isHit, _id: id } = product;
+  const {
+    imageUrls,
+    itemNo,
+    productUrl,
+    previousPrice,
+    currentPrice,
+    name,
+    superPrise,
+    isNew,
+    isHit,
+    _id: id,
+  } = product;
 
   const calculateSales = Math.round(((previousPrice - currentPrice) / previousPrice) * 100);
 
   let containerClassName = `${styles.container}`;
+  let btnBlockClassName = `${styles.btnBlock}`;
 
   if (inSlider) {
     containerClassName = `${styles.container} ${styles.container__slider}`;
+    btnBlockClassName = `${styles.btnBlock} ${styles.btnBlock__inSlider}`;
   }
 
   return (
     <li className={containerClassName}>
       <div>
-        <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} className={styles.link}>
+        <NavLink to={`${PRODUCT_ROUTE}/${productUrl}`} className={styles.link}>
           <div className={styles.imgBlock}>
             <img className={`${styles.image} ${styles.firstImage}`} src={imageUrls[0].smallImage} alt='watch' />
             <img className={`${styles.image} ${styles.lastImage}`} src={imageUrls[1].smallImage} alt='watch' />
@@ -56,11 +69,11 @@ const ProductCard = ({ product, inSlider }) => {
         <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} />
       </div>
 
-      <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} className={styles.nameLink}>
+      <NavLink to={`${PRODUCT_ROUTE}/${productUrl}`} className={styles.nameLink}>
         <span className={styles.name}>{name}</span>
       </NavLink>
 
-      <div className={styles.btnBlock}>
+      <div className={btnBlockClassName}>
         <div className={styles.btnFlex}>
           <AddToCartButton product={product} id={id} orderButton={false} currentPrice={currentPrice} />
           <span className={styles.favIcon}>
