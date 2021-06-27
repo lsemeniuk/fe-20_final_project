@@ -8,6 +8,7 @@ const AddImageForm = () => {
   const [messageServer, setMessageServer] = useState(null);
   const [affiliation, setAfiliation] = useState('products');
   const [product, setProduct] = useState('');
+  const [size, setSize] = useState('large');
   const [name, setName] = useState('');
   const [file, setFile] = useState(null);
 
@@ -20,6 +21,7 @@ const AddImageForm = () => {
     formData.append('affiliation', affiliation);
     formData.append('product', product);
     formData.append('name', name);
+    formData.append('size', size);
     formData.append('img', file);
     // addImages(formData).then(res => {
     //   if (res.status === 200) {
@@ -65,6 +67,23 @@ const AddImageForm = () => {
               tabIndex='0'
               onChange={e => setProduct(e.target.value)}
             />
+          </div>
+        </div>
+        <div className={styles.container}>
+          <div className={styles.input}>
+            <label className={styles.label}>Размер</label>
+            <select
+              className={styles.textInput}
+              type='text'
+              placeholder='large'
+              tabIndex='0'
+              onChange={e => setSize(e.target.value)}
+            >
+              <option defaultValue value='large'>
+                Большой
+              </option>
+              <option value='small'>Маленький</option>
+            </select>
           </div>
         </div>
         <div className={styles.container}>

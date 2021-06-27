@@ -33,7 +33,7 @@ const ImagesItem = ({ image, setRefreshLoading }) => {
         <div className={styles.imgContainer}>Картинка</div>
         <div className={styles.affiliation}>Принадлежность</div>
         <div className={styles.product}>Товар</div>
-        <div className={styles.name}>Название</div>
+        <div className={styles.size}>Размер</div>
       </div>
       <div className={styles.info}>
         <div className={styles.imgContainer}>
@@ -43,7 +43,7 @@ const ImagesItem = ({ image, setRefreshLoading }) => {
         </div>
         <div className={styles.affiliation}>{image.affiliation}</div>
         <div className={styles.product}>{image.product}</div>
-        <div className={styles.name}>{image.name}</div>
+        <div className={styles.size}>{image.size}</div>
       </div>
       <Button title='Изменить' onClick={() => setOpenForm(!openForm)} className={styles.button} />
       <Button

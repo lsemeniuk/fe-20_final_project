@@ -15,7 +15,7 @@ const initialState = {
   filterProducts: [],
   product: {},
   productsFilter: { perPage: 9, startPage: 1, sort: '-date' },
-  productsQuantity: {},
+  productsQuantity: 0,
   isLoading: true,
   productLoading: true,
   isGrid: true,

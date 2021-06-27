@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, ErrorMessage } from 'formik';
-// import ReactSlider from 'react-slider';
 import TextError from '../SelectBar/TextError/TextError';
 import styles from './SliderRadre.module.scss';
 import Button from '../../Button/Button';
@@ -65,7 +64,7 @@ const SliderRadre = ({ label, name, min, max, downPrice, setDownPrice, upPrice, 
                   value={+upPrice}
                 />
               </>
-              <Button title='ok' onClick={() => onClick(field)} />
+              <Button title='готово' className={styles.range_btn} onClick={() => onClick(field)} />
             </div>
           </>
         )}

@@ -10,7 +10,6 @@
   position: relative;
   line-height: 27px;
 
-
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     width: 100%;
   }
@@ -22,5 +21,4 @@
   @media (max-width: $mobMin) {
     width: 100%;
   }
-
 }
