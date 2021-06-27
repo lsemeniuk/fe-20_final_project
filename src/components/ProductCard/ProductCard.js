@@ -70,7 +70,7 @@ const ProductCard = ({ product, inSlider }) => {
       <div className={styles.priceBlock}>
         <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} inSlider={inSlider} />
       </div>
-      
+
       <NavLink to={`${PRODUCT_ROUTE}/${productUrl}`} className={styles.nameLink}>
         <span className={nameClassName}>{name}</span>
       </NavLink>
