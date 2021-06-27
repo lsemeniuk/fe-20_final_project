@@ -25,20 +25,18 @@ export const getOneProductOperation = productUrl => dispatch => {
   });
 };
 
-export const getProductsFilterOperation =
-  ({ history, ...filters }) =>
-  dispatch => {
-    dispatch(productsLoadingAction(true));
+export const getProductsFilterOperation = ({ history, ...filters }) => dispatch => {
+  dispatch(productsLoadingAction(true));
 
-    dispatch(saveProductsFilterAction({ ...filters }));
+  dispatch(saveProductsFilterAction({ ...filters }));
 
-    const { categories, perPage, startPage, sort, ...Currentfilters } = filters;
-    const currentUrlParams = new URLSearchParams(Currentfilters);
-    history.push(`${history.location.pathname}?${currentUrlParams}`);
+  const { categories, perPage, startPage, sort, ...Currentfilters } = filters;
+  const currentUrlParams = new URLSearchParams(Currentfilters);
+  history.push(`${history.location.pathname}?${currentUrlParams}`);
 
-    getProductsFilterParams(filters).then(res => {
-      dispatch(saveProductsFilteredAction(res.data.products));
-      dispatch(saveProductsQuantityAction(res.data.productsQuantity));
-      dispatch(productsLoadingAction(false));
-    });
-  };
+  getProductsFilterParams(filters).then(res => {
+    dispatch(saveProductsFilteredAction(res.data.products));
+    dispatch(saveProductsQuantityAction(res.data.productsQuantity));
+    dispatch(productsLoadingAction(false));
+  });
+};
