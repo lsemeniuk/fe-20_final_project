@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Container from '../../../Container/Container';
 import styles from './MyFilterContainer.module.scss';
-// import Button from '../../Button/Button';
 import Icons from '../../../Icons/Icons';
 import FormikContainer from '../FormikContainer/FormikContainer';
 
@@ -33,8 +32,8 @@ const MyFilterContainer = () => {
         <Container>
           <Icons
             className={activeBtn}
-            width='50px'
-            height='50px'
+            width='40px'
+            height='40px'
             type='filter'
             color='rgba(0,0,0, 0.7)'
             onClick={() => handleClickFilter()}
