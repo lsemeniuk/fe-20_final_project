@@ -10,8 +10,3 @@
 %width-page {
   width: calc(100% - 280px);
 }
-@mixin flx-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
