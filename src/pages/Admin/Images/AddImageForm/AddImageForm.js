@@ -100,7 +100,7 @@ const AddImageForm = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.input}>
-            <label className={styles.label}>Принадлежность</label>
+            <label className={styles.label}>Файл</label>
             <input type='file' placeholder='Добавьте файл' tabIndex='0' onChange={selectFile} />
           </div>
         </div>

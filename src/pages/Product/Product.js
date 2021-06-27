@@ -7,7 +7,7 @@ import { getOneProductUrlOperation } from '../../store/products/operations';
 import { getOneProductSelector, oneProductLoadingSelector } from '../../store/products/selectors';
 import ProductImages from './ProductImages/ProductImages';
 import Availability from './Availability/Availability';
-import ProductColors from './ProductColors/ProductColors';
+import ProductColors from '../../components/ProductColors/ProductColors';
 import ProductPrice from './ProductPrice/ProductPrice';
 import OrdersInfo from './OrdersInfo/OrdersInfo';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';

@@ -6,6 +6,7 @@ import { PRODUCT_ROUTE } from '../../utils/consts';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import AddToWishListBtn from '../AddToWishListButton/AddToWishListBtn';
 import PriceBlock from '../PriceBlock/PriceBlock';
+import ProductColors from '../ProductColors/ProductColors';
 import styles from './ProductCard.module.scss';
 
 const ProductCard = ({ product, inSlider }) => {
@@ -19,6 +20,8 @@ const ProductCard = ({ product, inSlider }) => {
     superPrise,
     isNew,
     isHit,
+    color,
+    descForColor,
     _id: id,
   } = product;
 
@@ -44,6 +47,9 @@ const ProductCard = ({ product, inSlider }) => {
           </div>
         </NavLink>
       </div>
+      <span className={styles.favIcon}>
+        <AddToWishListBtn id={id} itemNo={itemNo} inSlider={inSlider} />
+      </span>
       <div className={styles.labelBlock}>
         {superPrise === 'yes' && (
           <div>
@@ -84,9 +90,7 @@ const ProductCard = ({ product, inSlider }) => {
             currentPrice={currentPrice}
             inSlider={inSlider}
           />
-          <span className={styles.favIcon}>
-            <AddToWishListBtn id={id} itemNo={itemNo} inSlider={inSlider} />
-          </span>
+          <ProductColors descForColor={descForColor} color={color} isCard />
         </div>
       </div>
     </li>
