@@ -62,3 +62,23 @@
   display: flex;
   justify-content: space-between;
 }
+
+.select_mobile {
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    max-width: $tabMax;
+  }
+  @media (min-width: $deskMin) and (max-width: $deskXMax) {
+    display: none;
+  }
+  @media (min-width: $deskXMax) {
+    display: none;
+  }
+}
+.select_desc {
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: none;
+  }
+  @media (min-width: $deskMin) and (max-width: $deskXMax) {
+    display: block;
+  }
+}

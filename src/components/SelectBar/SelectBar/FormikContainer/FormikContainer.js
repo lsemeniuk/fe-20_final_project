@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 import FormikControl from '../FormikControl/FormikControl';
 import { getFiltersOperation, saveFiltersOperation } from '../../../../store/filter/operations';
 import { getFiltersSelector } from '../../../../store/filter/selectors';
@@ -11,12 +11,15 @@ import { categoriesLoadingSelector } from '../../../../store/catalog/selectors';
 import Loader from '../../../Loader/Loader';
 import Button from '../../../Button/Button';
 import SliderRadre from '../../SliderRadre/SliderRadre';
+import { PRODUCTS_ROUTE } from '../../../../utils/consts';
 import styles from './FormikContainer.module.scss';
 import { getProductsFilterSelector } from '../../../../store/products/selectors';
+import CategoriesList from '../../../CategoriesList/CategoriesList';
+import { getBrandsSelector } from '../../../../store/brands/selectors';
 
-/* eslint no-console: ["error", { allow: ["warn"] }] */
 function FormikContainer({ classes }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [min] = useState(0);
   const [max] = useState(50000);
   const [downPrice, setDownPrice] = useState(min);
@@ -24,6 +27,7 @@ function FormikContainer({ classes }) {
   const productFilters = useSelector(getProductsFilterSelector);
   const categoriesLoading = useSelector(categoriesLoadingSelector);
   const filters = useSelector(getFiltersSelector);
+  const brands = useSelector(getBrandsSelector);
 
   useEffect(() => {
     dispatch(getFiltersOperation());
@@ -42,27 +46,23 @@ function FormikContainer({ classes }) {
         initialValues={{
           isHit: [],
           isNew: [],
+          superPrise: [],
           currentPrice: { minPrice: [], maxPrice: [] },
-          // minPrice: [],
-          // maxPrice: [],
-          categories: [],
           brand: [],
           quantity: [],
         }}
         validationSchema={Yup.object({
           isHit: Yup.array().required('Required'),
           isNew: Yup.array().required('Required'),
+          superPrise: Yup.array().required('Required'),
           currentPrice: Yup.object().required('Required'),
-          // minPrice: Yup.array().required('Required'),
-          // maxPrice: Yup.array().required('Required'),
-          // categories: Yup.array().required('Required'),
-          // brand: Yup.array().required('Required'),
-          // quantity: Yup.array().required('Required'),
+          brand: Yup.array().required('Required'),
         })}
         onSubmit={(value, { setSubmitting }) => {
-          /* eslint no-console: 0 */
-          // console.log(value);
-          dispatch(saveFiltersOperation({ productFilters, value }));
+          if (!history.location.pathname.includes('products')) {
+            history.push(PRODUCTS_ROUTE);
+          }
+          dispatch(saveFiltersOperation({ history, productFilters, value }));
           setSubmitting(true);
         }}
       >
@@ -72,11 +72,25 @@ function FormikContainer({ classes }) {
               <Form className={classes}>
                 <div className={styles.select_box_filter}>
                   <h4 className={styles.select_heading}>Фильтр:</h4>
+                  <ul className={styles.container}>
+                    <CategoriesList
+                      classItem={styles.item}
+                      className={styles.categoriesLink}
+                      activeClassName={styles.categoriesLinkActive}
+                    />
+                  </ul>
                   <FormikControl
                     control='checkbox'
                     label='Горячие товары'
                     name='isHit'
                     nameCur='isHit'
+                    options={filters}
+                  />
+                  <FormikControl
+                    control='checkbox'
+                    label='null'
+                    name='superPrise'
+                    nameCur='superPrise'
                     options={filters}
                   />
                   <FormikControl control='checkbox' label='null' name='isNew' nameCur='isNew' options={filters} />
@@ -90,21 +104,7 @@ function FormikContainer({ classes }) {
                     upPrice={upPrice}
                     setUpPrice={setUpPrice}
                   />
-                  {/* <FormikControl
-                    control='checkbox'
-                    label='Категории'
-                    name='categories'
-                    nameCur='categories'
-                    options={categories}
-                  />
-                  <FormikControl control='checkbox' label='Бренд' name='brand' nameCur='brand' options={filters} />
-                  <FormikControl
-                    control='checkbox'
-                    label='Наличие'
-                    name='quantity'
-                    nameCur='quantity'
-                    options={filters}
-                  /> */}
+                  <FormikControl control='checkbox' label='Бренды' name='brand' nameCur='brand' options={brands} />
                   <Button title='Применить' type='submit' className={styles.select_btn} />
                 </div>
               </Form>
