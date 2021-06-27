@@ -34,7 +34,7 @@ const ProductColors = ({ color, descForColor }) => {
             key={product.itemNo}
             className={color === product.color ? `${styles.item} ${styles.itemActive}` : styles.item}
           >
-            <NavLink to={`${PRODUCT_ROUTE}/${product.itemNo}`}>
+            <NavLink to={`${PRODUCT_ROUTE}/${product.productUrl}`}>
               <div style={{ borderColor: colors[i].cssValue }} className={styles.border}>
                 <div style={{ backgroundColor: colors[i].cssValue }} className={styles.color}>
                   {}

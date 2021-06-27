@@ -29,17 +29,17 @@ const Product = () => {
   const params = useParams();
 
   useEffect(() => {
-    dispatch(getOneProductOperation(params.id));
+    dispatch(getOneProductOperation(params.productUrl));
 
     const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
 
     if (viwedProducts && viwedProducts.length >= 1) {
-      const newViwedProducts = [...new Set([params.id, ...viwedProducts])];
+      const newViwedProducts = [...new Set([params.productUrl, ...viwedProducts])];
       localStorage.setItem('viwed_products', JSON.stringify(newViwedProducts));
     } else {
-      localStorage.setItem('viwed_products', JSON.stringify([params.id]));
+      localStorage.setItem('viwed_products', JSON.stringify([params.productUrl]));
     }
-  }, [params.id]);
+  }, [params.productUrl]);
 
   if (productLoading) {
     return (

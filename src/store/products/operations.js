@@ -17,9 +17,9 @@ export const getProductsOperation = () => dispatch => {
   });
 };
 
-export const getOneProductOperation = productId => dispatch => {
+export const getOneProductOperation = productUrl => dispatch => {
   dispatch(oneProductLoadingAction(true));
-  getProductById(productId).then(res => {
+  getProductById(productUrl).then(res => {
     dispatch(saveOneProductAction(res.data));
     dispatch(oneProductLoadingAction(false));
   });
