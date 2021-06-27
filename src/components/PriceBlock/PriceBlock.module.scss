@@ -16,16 +16,57 @@
   color: $colorRedPigment;
   font-weight: 700;
   font-size: 18px;
+
+  &__slider {
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+      margin-right: 15px;
+      font-size: $fontSizeText_tab;
+    }
+
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      margin-right: 10px;
+      font-size: $fontSizeText_mobile;
+      }
+
+    @media (max-width: $mobMin) {
+      margin-right: 5px;
+      font-size: $fontSizeText_mobile;
+    }
+  }
 }
 
 .previousPrice {
   font-size: 14px;
   text-decoration: line-through;
   color: $colorDimGray;
+
+  &__slider {
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+      font-size: $fontSizeText_tab;
+    }
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      font-size: $fontSizeText_mobile;
+    }
+    @media (max-width: $mobMin) {
+      font-size: $fontSizeText_mobile;
+    }
+  }
 }
 
 .regularPrice {
-  color: $colorRoyalBlue;
+  color: #051219;
   font-weight: 700;
   font-size: 18px;
+  &__slider {
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+      font-size: $fontSizeText_tab;
+    }
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      font-size: $fontSizeText_mobile;
+    }
+    @media (max-width: $mobMin) {
+      font-size: $fontSizeText_mobile;
+    }
+  }
+
 }

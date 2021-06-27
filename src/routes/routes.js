@@ -15,6 +15,8 @@ import {
   ADM_SLIDER_ROUTE,
   ADM_ORDERS_ROUTE,
   CONFIRM_REFISTRATION,
+  ADM_IMAGES_ROUTE,
+  ADM_PRODUCTS_ROUTE,
 } from '../utils/consts';
 import Index from '../pages/Index/Index';
 import CheckoutCart from '../pages/CheckoutCart/CheckoutCart';
@@ -32,6 +34,8 @@ import Comments from '../pages/Admin/Comment/Comments';
 import Sliders from '../pages/Admin/Slider/Sliders';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
 import ConfirmRegistration from '../pages/ConfirmRegistration/ConfirmRegistration';
+import Images from '../pages/Admin/Images/Images';
+import Products from '../pages/Admin/Products/Products';
 
 export const publicRoutes = [
   {
@@ -41,7 +45,7 @@ export const publicRoutes = [
   },
   {
     name: 'Продукт',
-    path: `${PRODUCT_ROUTE}/:id`,
+    path: `${PRODUCT_ROUTE}/:productUrl`,
     Component: Product,
   },
   {
@@ -95,6 +99,16 @@ export const adminRoutes = [
     name: 'Заказы',
     path: ADM_ORDERS_ROUTE,
     Component: OrdersAdmin,
+  },
+  {
+    name: 'Картинки',
+    path: ADM_IMAGES_ROUTE,
+    Component: Images,
+  },
+  {
+    name: 'Товары',
+    path: ADM_PRODUCTS_ROUTE,
+    Component: Products,
   },
   {
     name: 'Каталог',

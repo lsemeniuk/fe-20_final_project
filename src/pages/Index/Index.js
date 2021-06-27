@@ -47,12 +47,12 @@ const Index = () => {
           <GenderLink
             img='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
             forWho='forMen'
-            textContent='для него'
+            textContent='Для него'
           />
           <GenderLink
             img='https://res.cloudinary.com/vdsh/image/upload/v1619086322/forWoman_bpp0pc.png'
             forWho='forWoman'
-            textContent='для неё'
+            textContent='Для неё'
           />
         </div>
 
@@ -60,12 +60,12 @@ const Index = () => {
           <GenderLink
             img='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
             forWho='forMen'
-            textContent='для него'
+            textContent='Для него'
           />
           <GenderLink
             img='https://res.cloudinary.com/vdsh/image/upload/v1619086322/forWoman_bpp0pc.png'
             forWho='forWoman'
-            textContent='для неё'
+            textContent='Для неё'
           />
         </Slider>
 

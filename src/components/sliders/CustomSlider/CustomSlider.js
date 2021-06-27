@@ -20,16 +20,15 @@ const sliderSettings = {
       },
     },
     {
-      breakpoint: 992,
+      breakpoint: 993,
       settings: {
         slidesToShow: 3,
       },
     },
     {
-      breakpoint: 767,
+      breakpoint: 481,
       settings: {
         slidesToShow: 2,
-        dots: true,
         arrows: false,
         slidesToScroll: 1,
       },
@@ -44,7 +43,7 @@ const CustomSlider = ({ title, filter, viwedProduct }) => {
 
   useEffect(() => {
     if (viwedProduct) {
-      getProductsByArrayId({ itemNo: viwedProducts }).then(res => {
+      getProductsByArrayId({ productUrl: viwedProducts }).then(res => {
         setProducts(res.data);
         setProductLoading(false);
       });

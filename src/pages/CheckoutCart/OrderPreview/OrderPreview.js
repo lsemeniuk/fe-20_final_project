@@ -29,7 +29,7 @@ const OrderPreview = () => {
         <CartList containerClass={styles.cartItem} />
         <div className={styles.ordersBlock}>
           <div className={styles.itemTitle}>Стоимость доставки</div>
-          <div>{deliveryMethod ? deliveryPrice : 'Определяется'}</div>
+          <div>{deliveryMethod ? deliveryPrice : 'Определяется..'}</div>
         </div>
         <div className={`${styles.ordersBlock} ${styles.payment}`}>
           <div className={styles.itemTitle}>Сумма к оплате: </div>

@@ -1,29 +1,20 @@
 @import '../../../theme/styles/var';
 
-.iconListItem {
-  position: relative;
-  align-items: center;
+.orderIconListItem,
+.centerBlock {
   display: flex;
-}
-
-.iconCart {
-  position: relative;
-  bottom: 10px;
-  height: 36px;
-  width: 24px;
-  line-height: 1.1;
+  align-items: center;
+  justify-content: center;
 }
 
 .productToCart {
-  position: relative;
   display: block;
   text-align: center;
-  width: 25px;
-  bottom: 25px;
-  line-height: 1;
+  padding-top: 5px;
   font-size: 14px;
-  font-weight: 700;
-  color: $colorUnmellowYellow;
+  font-weight: 500;
+  color: $colorCyan;
+  position: absolute;
 }
 
 .infoCart {
@@ -36,11 +27,13 @@
 .menuOrderTitle {
   white-space: nowrap;
   margin: 0 0 7px;
-  font-size: 17px;
+  font-size: 14px;
   line-height: 1;
-  font-weight: 700;
+  font-weight: 500;
+  color: white;
 }
 
 .menuOrderPrice {
+  color: white;
   font-size: 14px;
 }

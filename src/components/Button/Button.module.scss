@@ -16,6 +16,26 @@
   color: $colorWhite;
   border-radius: 4px;
   transition: all 0.15s;
+
+  &__inSlider {
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+      font-size: $fontSizeText_tab;
+      padding: 0 14px;
+      height: 30px;
+    }
+
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      font-size: $fontSizeText_mobile;
+      padding: 0 12px;
+      height: 25px;
+    }
+
+    @media (max-width: $mobMin) {
+      font-size: $fontSizeText_mobile;
+      padding: 0 10px;
+      height: 25px;
+    }
+  }
 }
 
 .examples {

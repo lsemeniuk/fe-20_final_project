@@ -1,0 +1,43 @@
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  text-align: center;
+  & div {
+    border-right: 1px solid #919191;
+    border-top: 1px solid #919191;
+    border-bottom: 1px solid #919191;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 0;
+    &:first-child {
+      border-left: 1px solid #919191;
+    }
+  }
+}
+.imgContainer {
+  width: 30%;
+}
+.img {
+  width: 100%;
+}
+.affiliation {
+  width: 20%;
+}
+.product {
+  width: 30%;
+}
+
+.size {
+  width: 20%;
+}
+
+.button {
+  margin: 10px 40px 0 0;
+}
+
+.redTitle {
+  margin-left: 10px;
+  color: red;
+}
