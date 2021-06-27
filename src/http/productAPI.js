@@ -55,8 +55,8 @@ export const getProductsFilterParams = async filters => {
 // @route   POST /products/search
 // @desc    POST appropriate to search query products
 // @access  Public
-export const searchProducts = async () => {
-  const res = await $host.post('products/search').catch(err => {
+export const searchProducts = async searchPhrases => {
+  const res = await $host.post('products/search', searchPhrases).catch(err => {
     throw err;
   });
   return res;

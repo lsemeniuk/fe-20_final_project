@@ -71,3 +71,60 @@
   font-size: 10px;
   text-align: center;
 }
+.input__parent {
+  position: relative;
+}
+.search__input {
+
+  width: 270px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #696969;
+  display: none;
+  @media (min-width: 1200px) and (max-width: 1340px) {
+    width: 190px;
+
+  }
+
+}
+.showInput {
+  display: block;
+  @media (max-width: 1205px) {
+    display: none;
+  }
+}
+.searchList {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+}
+.searchList__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 5px 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+.searchIcon__container {
+  &:hover {
+    cursor: pointer;
+  }
+}
+.close {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+  @media (max-width: 1205px) {
+    display: none;
+  }
+}

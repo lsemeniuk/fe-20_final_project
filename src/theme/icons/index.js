@@ -21,4 +21,7 @@ export { сhevron } from './сhevron';
 export { commas } from './commas';
 export { edit } from './edit';
 export { deleteIcon } from './deleteIcon';
+export { search } from './search';
+export { summer } from './summer';
 export { navBag } from './navBag';
+
