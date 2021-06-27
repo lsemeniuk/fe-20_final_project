@@ -93,7 +93,7 @@ const NavBar = () => {
         </div>
       </li>
     ))
-    .slice(0, 10);
+    .slice(0, 6);
 
   const authRegHandler = () => {
     dispatch(saveModalAuthRegAction(!modalAuthReg));
