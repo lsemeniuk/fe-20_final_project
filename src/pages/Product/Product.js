@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import Loader from '../../components/Loader/Loader';
-import { getOneProductOperation } from '../../store/products/operations';
+import { getOneProductUrlOperation } from '../../store/products/operations';
 import { getOneProductSelector, oneProductLoadingSelector } from '../../store/products/selectors';
 import ProductImages from './ProductImages/ProductImages';
 import Availability from './Availability/Availability';
@@ -29,7 +29,7 @@ const Product = () => {
   const params = useParams();
 
   useEffect(() => {
-    dispatch(getOneProductOperation(params.productUrl));
+    dispatch(getOneProductUrlOperation(params.productUrl));
 
     const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
 

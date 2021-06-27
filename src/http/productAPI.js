@@ -65,8 +65,18 @@ export const searchProducts = async () => {
 // @route   GET /products/:id
 // @desc    GET existing product by id
 // @access  Public
-export const getProductById = async productUrl => {
-  const res = await $host.get(`products/${productUrl}`).catch(err => {
+export const getProductById = async itemNo => {
+  const res = await $host.get(`products/${itemNo}`).catch(err => {
+    throw err;
+  });
+  return res;
+};
+
+// @route   GET /products/:productUrl
+// @desc    GET existing product by productUrl
+// @access  Public
+export const getProductByUrl = async productUrl => {
+  const res = await $host.get(`products/url/${productUrl}`).catch(err => {
     throw err;
   });
   return res;
