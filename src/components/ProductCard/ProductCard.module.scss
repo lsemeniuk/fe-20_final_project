@@ -58,6 +58,20 @@
 
   & .labelBlock {
     padding: 5px 0 0 5px;
+
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 12px;
+    }
+
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      font-size: 10px;
+      font-weight: 400;
+    }
+
+    @media (max-width: $mobMin) {
+      font-size: 10px;
+      font-weight: 400;
+    }
   }
 
   & .btnBlock {
@@ -68,17 +82,8 @@
     width: 100%;
     padding: 10px 0 0;
     top: 0;
-    border: none;
 
-    @media (min-width: $tabMin) and (max-width: $tabMax) {
-      padding: 0;
-    }
-
-    @media (min-width: $mobMin) and (max-width: $mobMax) {
-      padding: 0;
-    }
-
-    @media (max-width: $mobMin) {
+    @media (min-width: $mobMin) and (max-width: $tabMax) {
       padding: 0;
     }
   }
@@ -175,11 +180,26 @@
 .name {
   position: relative;
   color: $colorDarkLight;
+  text-align: left;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   font-size: 16px;
   line-height: 24px;
+
+  &__inSlider {
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+      font-size: $fontSizeText_tab;
+    }
+
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      font-size: $fontSizeText_mobile;
+    }
+
+    @media (max-width: $mobMin) {
+      font-size: $fontSizeText_mobile;
+    }
+  }
 }
 
 .btnBlock {

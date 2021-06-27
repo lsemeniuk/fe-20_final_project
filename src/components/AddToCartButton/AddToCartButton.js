@@ -11,7 +11,7 @@ import { cartTotalPriceAction, saveLocalCartAction } from '../../store/cart/acti
 import { calculateTotalPrice } from '../../utils/func';
 import QuickOrder from '../QuickOrder/QuickOrder';
 
-const AddToCartButton = ({ product, id, className, orderButton, currentPrice, modalHandler }) => {
+const AddToCartButton = ({ product, id, className, orderButton, currentPrice, modalHandler, inSlider }) => {
   const [quickOrderOpen, setQuickOrderOpen] = useState(false);
   const [isCart, setIsCart] = useState(false);
 
@@ -67,12 +67,18 @@ const AddToCartButton = ({ product, id, className, orderButton, currentPrice, mo
   return (
     <>
       {idCartList.includes(id) || isCart ? (
-        <Button onClick={openCart} variant='outline' title='В корзине' className={className} />
+        <Button onClick={openCart} variant='outline' title='В корзине' className={className} inSlider={inSlider} />
       ) : (
-        <Button onClick={addToCart} title='Купить' className={className} />
+        <Button onClick={addToCart} title='Купить' className={className} inSlider={inSlider} />
       )}
       {orderButton && (
-        <Button variant='order' title='Быстрый заказ' className={className} onClick={() => setQuickOrderOpen(true)} />
+        <Button
+          variant='order'
+          title='Быстрый заказ'
+          className={className}
+          onClick={() => setQuickOrderOpen(true)}
+          inSlider={inSlider}
+        />
       )}
 
       {quickOrderOpen && (
@@ -89,6 +95,7 @@ AddToCartButton.propTypes = {
   orderButton: PropTypes.bool,
   currentPrice: PropTypes.number.isRequired,
   modalHandler: PropTypes.func,
+  inSlider: PropTypes.bool,
 };
 
 AddToCartButton.defaultProps = {
@@ -97,6 +104,7 @@ AddToCartButton.defaultProps = {
   modalHandler: () => {
     return null;
   },
+  inSlider: false,
 };
 
 export default AddToCartButton;
