@@ -64,14 +64,13 @@
 }
 
 .select_mobile {
-  @media (min-width: $mobMin) and (max-width: $mobMax) {
-    max-width: $mobMax;
-  }
-
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
     max-width: $tabMax;
   }
   @media (min-width: $deskMin) and (max-width: $deskXMax) {
+    display: none;
+  }
+  @media (min-width: $deskXMax) {
     display: none;
   }
 }
