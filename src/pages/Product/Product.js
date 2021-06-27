@@ -29,7 +29,7 @@ const Product = () => {
   const params = useParams();
 
   useEffect(() => {
-    dispatch(getOneProductOperation(params.id));
+    dispatch(getOneProductOperation(params.productUrl));
 
     const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
 
@@ -39,7 +39,7 @@ const Product = () => {
     } else {
       localStorage.setItem('viwed_products', JSON.stringify([params.id]));
     }
-  }, [params.id]);
+  }, [params.productUrl]);
 
   if (productLoading) {
     return (
