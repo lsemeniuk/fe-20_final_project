@@ -11,7 +11,6 @@ export { telegram } from './telegram';
 export { skype } from './skype';
 export { email } from './email';
 export { geolocation } from './geolocation';
-export { navBag } from './navBag';
 export { navHeart } from './navHeart';
 export { navUser } from './navUser';
 export { favIcon } from './favIcon';
@@ -24,3 +23,5 @@ export { edit } from './edit';
 export { deleteIcon } from './deleteIcon';
 export { search } from './search';
 export { summer } from './summer';
+export { navBag } from './navBag';
+

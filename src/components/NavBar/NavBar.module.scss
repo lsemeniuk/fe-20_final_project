@@ -2,7 +2,7 @@
 @import '../../theme/styles/mixins';
 
 .bgContainer {
-  background-color: $colorUnmellowYellow;
+  background-color: #051219;
   @extend %custom-shadow;
 }
 
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 70px;
 }
 
 .menuContainer {
@@ -27,8 +27,8 @@
 }
 
 .menuLink {
-  color: $colorBlack;
-  font-weight: 700;
+  color: $colorWhite;;
+  font-weight: 500;
   font-size: 14px;
   padding: 10px 0;
   margin-right: 20px;
@@ -48,6 +48,7 @@
 .iconList {
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
 }
 

@@ -11,7 +11,7 @@ const User = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const isAuth = useSelector(getCustomerIsAuthSelector);
-  const Icon = <Icons type='navUser' color='black' width={30} height={30} />;
+  const Icon = <Icons type='navUser' color='white' width={30} height={30} />;
   const [initials, setInitials] = useState('');
   const { firstName, lastName } = useSelector(getCustomerSelector);
 

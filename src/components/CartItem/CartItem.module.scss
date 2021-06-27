@@ -88,7 +88,7 @@
 }
 
 .regularPrice {
-  color: $colorRoyalBlue;
+  color: #051219;
   font-weight: 700;
   font-size: 14px;
 }
@@ -182,7 +182,7 @@
     }
   }
 
-  .currentPrice {
+  .currentPrice, .regularPrice {
     @media (min-width: $deskMin) and (max-width: $deskMax) {
       margin-right: 5px;
       font-size: 12px;

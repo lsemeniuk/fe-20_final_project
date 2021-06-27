@@ -36,9 +36,9 @@ const MyOrders = () => {
     }
 
     ordersCart = (
-      <div className={styles.iconListItem} style={{ cursor: 'pointer' }} onClick={modalHandler}>
-        <div className={styles.iconCart}>
-          <Icons type='navBag' color='black' width={25} height={45} />
+      <div className={styles.orderIconListItem} style={{ cursor: 'pointer' }} onClick={modalHandler}>
+        <div className={styles.centerBlock}>
+          <Icons type='navBag' color='white' />
           <span className={styles.productToCart}>{cartLoading ? null : quantity}</span>
         </div>
         <div className={styles.infoCart}>
@@ -53,9 +53,9 @@ const MyOrders = () => {
     }
 
     ordersCart = (
-      <div className={styles.iconListItem} style={{ cursor: 'pointer' }} onClick={modalHandler}>
-        <div className={styles.iconCart}>
-          <Icons type='navBag' color='black' width={25} height={45} />
+      <div className={styles.orderIconListItem} style={{ cursor: 'pointer' }} onClick={modalHandler}>
+        <div className={styles.centerBlock}>
+          <Icons type='navBag' color='white' />
           <span className={styles.productToCart}>{quantity}</span>
         </div>
         <div className={styles.infoCart}>
@@ -66,9 +66,9 @@ const MyOrders = () => {
     );
   } else {
     ordersCart = (
-      <div className={styles.iconListItem}>
-        <div className={styles.iconCart}>
-          <Icons type='navBag' color='black' width={25} height={45} />
+      <div className={styles.orderIconListItem}>
+        <div className={styles.centerBlock}>
+          <Icons type='navBag' color='white' />
           <span className={styles.productToCart}>0</span>
         </div>
         <div className={styles.infoCart}>

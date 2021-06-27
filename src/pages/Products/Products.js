@@ -12,7 +12,7 @@ import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import Pagination from '../../components/Pagination/Pagination';
 import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
 import Sorting from '../../components/Sorting/Sorting';
-import Filter from '../../components/Filter/Filter';
+import Select from '../../components/SelectBar/Select/Select';
 import styles from './Products.module.scss';
 import Loader from '../../components/Loader/Loader';
 import { searchProducts } from '../../http/productAPI';
@@ -87,11 +87,12 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
-              <Filter />
+              <Select className={styles.select_desc} />
             </ContainerAside>
 
             <ContainerPage style={{ padding: '0' }}>
               <div className={styles.catalogSettings}>
+                <Select className={styles.select_mobile} />
                 <ProductQuantity />
                 <div className={styles.inCenter}>
                   {error.length && <p className={styles.danger}>Произошла ошибка: {error}</p>}

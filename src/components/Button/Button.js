@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
-const Button = ({ variant, title, onClick, disabled, type, className }) => {
+const Button = ({ variant, title, onClick, disabled, type, className, inSlider }) => {
   let styleClass = '';
 
   if (variant === 'outline') {
@@ -14,6 +14,10 @@ const Button = ({ variant, title, onClick, disabled, type, className }) => {
     styleClass = `${styles.button} ${styles.outline} ${styles.order}`;
   } else {
     styleClass = `${styles.button} ${styles.examples}`;
+  }
+
+  if (inSlider) {
+    styleClass = `${styleClass} ${styles.button__inSlider}`;
   }
 
   return (
@@ -32,6 +36,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   type: PropTypes.string,
   className: PropTypes.string,
+  inSlider: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -42,6 +47,7 @@ Button.defaultProps = {
     return e;
   },
   className: '',
+  inSlider: false,
 };
 
 export default Button;
