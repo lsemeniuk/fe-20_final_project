@@ -122,6 +122,8 @@ const NavBar = () => {
             <div className={styles.menuContainer}>
               <ul className={styles.menuList}>
                 <CategoriesList className={styles.menuLink} activeClassName={styles.menuLinkActive} />
+              </ul>
+              <ul className={styles.iconList}>
                 <div className={styles.input__parent}>
                   <input
                     type='text'
@@ -137,8 +139,6 @@ const NavBar = () => {
                   )}
                   {showInput && <ul className={styles.searchList}>{list}</ul>}
                 </div>
-              </ul>
-              <ul className={styles.iconList}>
                 <li onClick={handleClickSearch} className={styles.searchIcon__container}>
                   <Icons type='search' width={40} height={40} />
                 </li>
