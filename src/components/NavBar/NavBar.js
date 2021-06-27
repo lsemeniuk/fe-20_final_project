@@ -73,6 +73,7 @@ const NavBar = () => {
     dispatch(setQueryAction(value));
     handleClickSearch();
     history.push(`${PRODUCTS_ROUTE}/all`);
+    window.scrollTo(0, 350);
   };
 
   const list = allProducts
