@@ -57,7 +57,6 @@
   color: #051219;
   font-weight: 700;
   font-size: 18px;
-
   &__slider {
     @media (min-width: $tabMin) and (max-width: $tabMax) {
       font-size: $fontSizeText_tab;
@@ -69,4 +68,5 @@
       font-size: $fontSizeText_mobile;
     }
   }
+
 }
