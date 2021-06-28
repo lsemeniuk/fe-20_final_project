@@ -35,10 +35,26 @@
   width: 75px;
   margin: 0 auto;
   border: 1px solid #fff;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    height: 65px;
+    width: 65px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    height: 55px;
+    width: 55px;
+  }
 }
 
 .img {
   width: 75px;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    width: 65px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    width: 55px;
+  }
 }
 
 .name {

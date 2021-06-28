@@ -1,5 +1,11 @@
 @import '../../theme/styles/var';
 
+.container {
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: none;
+  }
+}
+
 .scrollTop {
   padding: 0;
   position: fixed;

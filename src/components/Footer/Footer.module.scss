@@ -163,6 +163,8 @@
 }
 
 .mobCopyright {
-  text-align: center;
-  line-height: 2;
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    text-align: center;
+    line-height: 2;
+  }
 }
