@@ -89,6 +89,7 @@ const ProductCard = ({ product, inSlider }) => {
             orderButton={false}
             currentPrice={currentPrice}
             inSlider={inSlider}
+            className={styles.letterSize}
           />
           <ProductColors descForColor={descForColor} color={color} isCard />
         </div>
