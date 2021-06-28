@@ -57,6 +57,7 @@ const Products = () => {
   };
 
   const brandColor = '#37b7fa';
+  const grayColor = '#b1b1b1';
 
   const changeToGrid = () => {
     setProductsView(true);
@@ -98,8 +99,8 @@ const Products = () => {
                 <Sorting />
                 {isInLineAvailable && (
                   <div className={styles.viewIcons}>
-                    <Icons type='gridIcon' color={productsView ? brandColor : 'black'} onClick={changeToGrid} />
-                    <Icons type='inLineIcon' color={!productsView ? brandColor : 'black'} onClick={changeToInLine} />
+                    <Icons type='gridIcon' color={productsView ? brandColor : grayColor} onClick={changeToGrid} />
+                    <Icons type='inLineIcon' color={!productsView ? brandColor : grayColor} onClick={changeToInLine} />
                   </div>
                 )}
               </div>
