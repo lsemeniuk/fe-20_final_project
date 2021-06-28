@@ -151,28 +151,24 @@ const NavBar = () => {
                     <Icons type='search' width={40} height={40} />
                   </li>
                 </div>
-                <li key='wishList'>
-                  {wishList && favorites !== 0 ? (
-                    <NavLink to={isAuth ? WISH_LIST_ROUTE : CUSTOMER_WISH_LIST_ROUTE}>
-                      {heartJsx}
-                      <span
-                        className={
-                          location.pathname === '/' ? `${styles.favorites} ${styles.index}` : `${styles.favorites}`
-                        }
-                      >
-                        {favorites}
-                      </span>
-                    </NavLink>
-                  ) : (
-                    heartJsx
-                  )}
-                </li>
-                <li key='personalInfo' className={styles.iconListItem}>
-                  <User modalHandler={authRegHandler} />
-                </li>
-                <li key='cart' className={styles.iconListItem}>
-                  <MyOrders />
-                </li>
+                <div className={styles.heart__user__bag}>
+                  <li key='wishList'>
+                    {wishList && favorites !== 0 ? (
+                      <NavLink to={isAuth ? WISH_LIST_ROUTE : CUSTOMER_WISH_LIST_ROUTE}>
+                        {heartJsx}
+                        <span className={styles.favorites}>{favorites}</span>
+                      </NavLink>
+                    ) : (
+                      heartJsx
+                    )}
+                  </li>
+                  <li key='personalInfo' className={styles.iconListItem}>
+                    <User modalHandler={authRegHandler} />
+                  </li>
+                  <li key='cart' className={styles.iconListItem}>
+                    <MyOrders />
+                  </li>
+                </div>
               </ul>
             </div>
           </div>

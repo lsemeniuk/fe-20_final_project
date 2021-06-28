@@ -56,7 +56,12 @@
   position: relative;
   margin: 0 10px;
 }
-
+.heart__user__bag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 .favorites {
   position: absolute;
   display: block;
@@ -64,17 +69,14 @@
   height: 15px;
   padding: 2px;
   top: 15px;
-  left: 45px;
+  left: 5px;
   border-radius: 15px;
   background: $colorCyan;
   color: $colorWhite;
   font-size: 10px;
   text-align: center;
 }
-.index {
-  top: 15px;
-  left: 5px;
-}
+
 .input__block {
   display: flex;
   align-items: center;
