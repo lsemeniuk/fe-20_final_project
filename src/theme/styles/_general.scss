@@ -20,6 +20,13 @@ ul {
 main {
   padding: 30px 0;
   background-color: $colorGhostWhite;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    padding: 20px 0;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    padding: 10px 0;
+  }
 }
 
 body.lock {
