@@ -8,6 +8,7 @@ import AddToWishListBtn from '../AddToWishListButton/AddToWishListBtn';
 import PriceBlock from '../PriceBlock/PriceBlock';
 import styles from './ProductCard.module.scss';
 import ProductLabels from '../ProductLabels/ProductLabels';
+import ProductColors from '../ProductColors/ProductColors';
 
 const ProductCard = ({ product, inSlider }) => {
   const {
@@ -20,6 +21,8 @@ const ProductCard = ({ product, inSlider }) => {
     superPrise,
     isNew,
     isHit,
+    color,
+    descForColor,
     _id: id,
   } = product;
 
@@ -43,6 +46,9 @@ const ProductCard = ({ product, inSlider }) => {
           </div>
         </NavLink>
       </div>
+      <span className={styles.favIcon}>
+        <AddToWishListBtn id={id} itemNo={itemNo} inSlider={inSlider} />
+      </span>
       <ProductLabels
         previousPrice={previousPrice}
         currentPrice={currentPrice}
@@ -67,9 +73,7 @@ const ProductCard = ({ product, inSlider }) => {
             currentPrice={currentPrice}
             inSlider={inSlider}
           />
-          <span className={styles.favIcon}>
-            <AddToWishListBtn id={id} itemNo={itemNo} inSlider={inSlider} />
-          </span>
+          <ProductColors descForColor={descForColor} color={color} isCard />
         </div>
       </div>
     </li>
