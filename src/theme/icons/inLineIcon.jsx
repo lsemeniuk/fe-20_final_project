@@ -1,7 +1,25 @@
+/* eslint-disable max-len */
 import React from 'react';
 
-export const inLineIcon = (width = 25, height = 25) => (
-  <svg width={width} height={height} viewBox='0 0 25 25' xmlns='http://www.w3.org/2000/svg'>
-    <path d='M4 8H8V4H4V8ZM10 20H20V16H10V20ZM4 20H8V16H4V20ZM4 14H8V10H4V14ZM10 14H20V10H10V14ZM10 8H20V4H10V8Z' />
+export const inLineIcon = (color = 'rgba(125,125,125, 0.5)', filled = true, width = 25, height = 25) => (
+  <svg width={width} height={height} viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+    <path
+      d='m0 23c0 .552.448 1 1 1h22c.552 0 1-.448 1-1v-5c0-.552-.448-1-1-1h-22c-.552 0-1 .448-1 1z'
+      fillRule='evenodd'
+      clipRule='evenodd'
+      fill={filled ? color : 'none'}
+    />
+    <path
+      d='m23 0h-22c-.552 0-1 .448-1 1v5c0 .552.448 1 1 1h22c.552 0 1-.448 1-1v-5c0-.552-.448-1-1-1z'
+      fillRule='evenodd'
+      clipRule='evenodd'
+      fill={filled ? color : 'none'}
+    />
+    <path
+      d='m1 15.5h22c.552 0 1-.448 1-1v-5c0-.552-.448-1-1-1h-22c-.552 0-1 .448-1 1v5c0 .552.448 1 1 1z'
+      fillRule='evenodd'
+      clipRule='evenodd'
+      fill={filled ? color : 'none'}
+    />
   </svg>
 );

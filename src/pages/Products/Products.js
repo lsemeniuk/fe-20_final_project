@@ -56,6 +56,8 @@ const Products = () => {
     dispatch(getProductsFilterOperation({ history, ...filter, perPage, startPage: page }));
   };
 
+  const brandColor = '#37b7fa';
+
   const changeToGrid = () => {
     setProductsView(true);
     dispatch(changeProductsStyle(true));
@@ -96,8 +98,8 @@ const Products = () => {
                 <Sorting />
                 {isInLineAvailable && (
                   <div>
-                    <Icons type='gridIcon' onClick={changeToGrid} />
-                    <Icons type='inLineIcon' onClick={changeToInLine} />
+                    <Icons type='gridIcon' color={brandColor} onClick={changeToGrid} />
+                    <Icons type='inLineIcon' color={brandColor} onClick={changeToInLine} />
                   </div>
                 )}
               </div>
