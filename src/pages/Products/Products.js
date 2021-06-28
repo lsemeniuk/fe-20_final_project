@@ -97,9 +97,9 @@ const Products = () => {
                 <ProductQuantity />
                 <Sorting />
                 {isInLineAvailable && (
-                  <div>
-                    <Icons type='gridIcon' color={brandColor} onClick={changeToGrid} />
-                    <Icons type='inLineIcon' color={brandColor} onClick={changeToInLine} />
+                  <div className={styles.viewIcons}>
+                    <Icons type='gridIcon' color={productsView ? brandColor : 'black'} onClick={changeToGrid} />
+                    <Icons type='inLineIcon' color={!productsView ? brandColor : 'black'} onClick={changeToInLine} />
                   </div>
                 )}
               </div>
