@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import Modal from '../Modal/Modal';
-import styles from './ImageGalery.module.scss';
 import { replace } from '../../utils/func';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
+import styles from './ImageGalery.module.scss';
 
 const ImageGalery = ({ product, buttonHandler, initialSlide }) => {
   const { _id: id, currentPrice } = product;

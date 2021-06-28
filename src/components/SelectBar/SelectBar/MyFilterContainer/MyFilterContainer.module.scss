@@ -70,24 +70,36 @@
 
 .btn_box {
   display: inline-flex;
-  flex-flow: row-reverse;
+  align-items: center;
 }
 
 .container_btn {
   display: none;
   margin: 5px;
-  padding: 5px;
+  margin-right: 10px;
+  cursor: pointer;
   border-radius: 2px;
   @media (min-width: $tabMin) and (max-width: $tabMax) {
     display: block;
     max-width: 60px;
-    cursor: pointer;
   }
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
     display: block;
     max-width: 60px;
-    cursor: pointer;
+  }
+}
+
+.btnText {
+  display: none;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    display: block;
+    font-size: $fontSizeText_tab;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    display: block;
+    font-size: $fontSizeText_mobile;
   }
 }
 

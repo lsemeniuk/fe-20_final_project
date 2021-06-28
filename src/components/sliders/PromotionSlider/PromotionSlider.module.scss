@@ -1,13 +1,46 @@
+@import '../../../theme/styles/var';
 @import '../../../theme/styles/mixins';
 
 .container {
   height: 450px;
   color: #fff;
   margin-bottom: 30px;
+
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    height: 400px;
+  }
+
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    height: 350px;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    height: 300px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    height: 150px;
+  }
 }
 
 .itemContainer {
   height: 450px;
+
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    height: 400px;
+  }
+
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    height: 350px;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    height: 300px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    height: 150px;
+  }
 }
 
 .slider {
@@ -33,6 +66,22 @@
   margin: 0 auto;
   height: 450px;
   will-change: transform;
+
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    height: 400px;
+  }
+
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    height: 350px;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    height: 300px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    height: 150px;
+  }
 }
 
 .dots {

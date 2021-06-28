@@ -33,9 +33,17 @@
 
 .categoryTitle {
   margin: 20px 0;
-  font-size: 32px;
+  font-size: $fontSizeTitleH1;
   line-height: 1.1;
   font-weight: 400;
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: $fontSizeTitleH1_tab;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    font-size: $fontSizeTitleH1_mobile;
+  }
 }
 
 .flexRow {
@@ -61,17 +69,23 @@
   margin: 15px 30px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    margin: 10px 20px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    margin: 5px 10px;
+  }
 }
 
 .select_mobile {
+  display: none;
+
   @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: block;
     max-width: $tabMax;
-  }
-  @media (min-width: $deskMin) and (max-width: $deskXMax) {
-    display: none;
-  }
-  @media (min-width: $deskXMax) {
-    display: none;
   }
 }
 .select_desc {
