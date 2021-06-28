@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
+import SearchProductList from '../../components/SearchProductList/SearchProductList';
 import Container from '../../components/Container/Container';
 import { INDEX_ROUTE } from '../../utils/consts';
 import { getCategoriesSelector } from '../../store/catalog/selectors';
@@ -14,26 +15,18 @@ import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
 import Sorting from '../../components/Sorting/Sorting';
 import Select from '../../components/SelectBar/Select/Select';
 import styles from './Products.module.scss';
-import Loader from '../../components/Loader/Loader';
-import { searchProducts } from '../../http/productAPI';
 import { getProductsFilterOperation } from '../../store/products/operations';
-import { getQueryStringSelector } from '../../store/search/selectors';
+import { getSearchResultsSelector } from '../../store/search/selectors';
 
 const Products = () => {
   const dispatch = useDispatch();
+  const searchResults = useSelector(getSearchResultsSelector);
   const { perPage, startPage, ...filter } = useSelector(getProductsFilterSelector);
-
   const productsQuantity = useSelector(getProductsQuantitySelector);
   const history = useHistory();
   const categories = useSelector(getCategoriesSelector);
   const categorie = {};
   const params = useParams();
-
-  const searchWords = useSelector(getQueryStringSelector);
-  const [resultsLoading, setResultsLoading] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
-  const [nothingFound, setNothingFound] = useState(false);
-  const [error, setError] = useState(false);
 
   if (params.categories === 'all') {
     categorie.name = 'Все товары';
@@ -45,26 +38,6 @@ const Products = () => {
       return null;
     });
   }
-  useEffect(() => {
-    if (searchWords !== '') {
-      const queryString = { query: searchWords };
-      setResultsLoading(true);
-      searchProducts(queryString)
-        .then(res => {
-          setSearchResults(res.data);
-          if (res.data.length === 0) {
-            setNothingFound(true);
-          } else {
-            setNothingFound(false);
-          }
-        })
-        .catch(err => setError(err.message));
-      setResultsLoading(false);
-    }
-    return null;
-  }, [searchWords]);
-
-  if (resultsLoading) return <Loader />;
 
   const setPage = page => {
     dispatch(getProductsFilterOperation({ history, ...filter, perPage, startPage: page }));
@@ -94,21 +67,20 @@ const Products = () => {
               <div className={styles.catalogSettings}>
                 <Select className={styles.select_mobile} />
                 <ProductQuantity />
-                <div className={styles.inCenter}>
-                  {error.length && <p className={styles.danger}>Произошла ошибка: {error}</p>}
-                  {searchResults.length > 0 && <p className={styles.success}>Найдено {searchResults.length} товаров</p>}
-                  {nothingFound && <p> Ничего не найдено...</p>}
-                </div>
+                {searchResults.length > 0 && params.categories === 'search' && (
+                  <p className={styles.success}> Найдено {searchResults.length} товаров </p>
+                )}
                 <Sorting />
               </div>
-
-              <ProductList searchResults={searchResults} />
-              <Pagination
-                perPage={perPage}
-                startPage={startPage}
-                productsQuantity={productsQuantity}
-                setPage={setPage}
-              />
+              {params.categories !== 'search' ? <ProductList /> : <SearchProductList />}
+              {params.categories !== 'search' && (
+                <Pagination
+                  perPage={perPage}
+                  startPage={startPage}
+                  productsQuantity={productsQuantity}
+                  setPage={setPage}
+                />
+              )}
             </ContainerPage>
           </div>
         </div>

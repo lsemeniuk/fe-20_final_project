@@ -73,11 +73,17 @@
 }
 .input__parent {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hidden {
+  display: none;
 }
 .search__input {
 
   width: 270px;
-  height: 40px;
+  height: 35px;
   border: none;
   border-bottom: 1px solid #696969;
   display: none;
@@ -117,14 +123,19 @@
     cursor: pointer;
   }
 }
+
+
 .close {
   position: absolute;
-  top: 6px;
-  right: 5px;
+  top: 8px;
+  right: 45px;
   &:hover {
     cursor: pointer;
   }
   @media (max-width: 1205px) {
     display: none;
   }
+}
+.searchLink {
+  color: #000;
 }

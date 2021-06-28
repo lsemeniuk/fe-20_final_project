@@ -38,8 +38,8 @@ const NavBar = () => {
   const [showInput, setShowInput] = useState(false);
 
   const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
-
   let favorites = 0;
+
   if (isAuth) {
     if (!wishListLoading && wishList) {
       favorites = wishList.products.length;
@@ -72,26 +72,28 @@ const NavBar = () => {
   const handleClickOnFoundItems = value => {
     dispatch(setQueryAction(value));
     handleClickSearch();
-    history.push(`${PRODUCTS_ROUTE}/all`);
+    history.push(`${PRODUCTS_ROUTE}/search/${value}`);
     window.scrollTo(0, 350);
   };
 
   const list = allProducts
     .filter(p =>
       searchWords !== ''
-        ? p.name.includes(searchWords) ||
-          p.brand.includes(searchWords) ||
-          p.color.includes(searchWords) ||
-          p.description.includes(searchWords)
+        ? p.name.toLowerCase().includes(searchWords.toLowerCase()) ||
+          p.brand.toLowerCase().includes(searchWords.toLowerCase()) ||
+          p.color.toLowerCase().includes(searchWords.toLowerCase()) ||
+          p.description.toLowerCase().includes(searchWords.toLowerCase())
         : null
     )
     .map(p => (
-      <li className={styles.searchList__item} key={p.itemNo} onClick={() => handleClickOnFoundItems(p.brand)}>
-        {p.name}
-        <div>
-          <img src={p.imageUrls[0].smallImage} width={30} height={30} alt='product pic' />
-        </div>
-      </li>
+      <NavLink to={`/products/search/${p.name}`} key={p.itemNo} className={styles.searchLink}>
+        <li className={styles.searchList__item} onClick={() => handleClickOnFoundItems(p.brand)}>
+          {p.name}
+          <div>
+            <img src={p.imageUrls[0].smallImage} width={30} height={30} alt='product pic' />
+          </div>
+        </li>
+      </NavLink>
     ))
     .slice(0, 6);
 
@@ -125,7 +127,11 @@ const NavBar = () => {
                 <CategoriesList className={styles.menuLink} activeClassName={styles.menuLinkActive} />
               </ul>
               <ul className={styles.iconList}>
-                <div className={styles.input__parent}>
+                <div
+                  className={
+                    location.pathname === '/' ? `${styles.input__parent} ${styles.hidden}` : `${styles.input__parent}`
+                  }
+                >
                   <input
                     type='text'
                     placeholder='Я ищу...'
@@ -139,10 +145,10 @@ const NavBar = () => {
                     </div>
                   )}
                   {showInput && <ul className={styles.searchList}>{list}</ul>}
+                  <li onClick={handleClickSearch} className={styles.searchIcon__container}>
+                    <Icons type='search' width={40} height={40} />
+                  </li>
                 </div>
-                <li onClick={handleClickSearch} className={styles.searchIcon__container}>
-                  <Icons type='search' width={40} height={40} />
-                </li>
                 <li key='wishList'>
                   {wishList && favorites !== 0 ? (
                     <NavLink to={isAuth ? WISH_LIST_ROUTE : CUSTOMER_WISH_LIST_ROUTE}>

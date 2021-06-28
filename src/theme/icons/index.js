@@ -24,4 +24,3 @@ export { deleteIcon } from './deleteIcon';
 export { search } from './search';
 export { summer } from './summer';
 export { navBag } from './navBag';
-
