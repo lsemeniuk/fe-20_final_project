@@ -63,13 +63,17 @@
   width: 15px;
   height: 15px;
   padding: 2px;
-  top: 9px;
-  left: 7px;
+  top: 15px;
+  left: 45px;
   border-radius: 15px;
   background: $colorCyan;
   color: $colorWhite;
   font-size: 10px;
   text-align: center;
+}
+.index {
+  top: 15px;
+  left: 5px;
 }
 .input__block {
   display: flex;

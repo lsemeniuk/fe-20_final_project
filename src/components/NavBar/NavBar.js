@@ -155,7 +155,13 @@ const NavBar = () => {
                   {wishList && favorites !== 0 ? (
                     <NavLink to={isAuth ? WISH_LIST_ROUTE : CUSTOMER_WISH_LIST_ROUTE}>
                       {heartJsx}
-                      <span className={styles.favorites}>{favorites}</span>
+                      <span
+                        className={
+                          location.pathname === '/' ? `${styles.favorites} ${styles.index}` : `${styles.favorites}`
+                        }
+                      >
+                        {favorites}
+                      </span>
                     </NavLink>
                   ) : (
                     heartJsx
