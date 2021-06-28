@@ -129,22 +129,24 @@ const NavBar = () => {
               <ul className={styles.iconList}>
                 <div
                   className={
-                    location.pathname === '/' ? `${styles.input__parent} ${styles.hidden}` : `${styles.input__parent}`
+                    location.pathname === '/' ? `${styles.input__block} ${styles.hidden}` : `${styles.input__block}`
                   }
                 >
-                  <input
-                    type='text'
-                    placeholder='Я ищу...'
-                    onChange={e => setSearchWords(e.target.value)}
-                    value={searchWords}
-                    className={showInput ? `${styles.search__input} ${styles.showInput}` : `${styles.search__input}`}
-                  />
-                  {showInput && (
-                    <div className={styles.close} onClick={clearInput}>
-                      <Icons type='summer' />
-                    </div>
-                  )}
-                  {showInput && <ul className={styles.searchList}>{list}</ul>}
+                  <div className={styles.input__parent}>
+                    <input
+                      type='text'
+                      placeholder='Я ищу...'
+                      onChange={e => setSearchWords(e.target.value)}
+                      value={searchWords}
+                      className={showInput ? `${styles.search__input} ${styles.showInput}` : `${styles.search__input}`}
+                    />
+                    {showInput && (
+                      <div className={styles.close} onClick={clearInput}>
+                        <Icons type='summer' />
+                      </div>
+                    )}
+                    {showInput && <ul className={styles.searchList}>{list}</ul>}
+                  </div>
                   <li onClick={handleClickSearch} className={styles.searchIcon__container}>
                     <Icons type='search' width={40} height={40} />
                   </li>
