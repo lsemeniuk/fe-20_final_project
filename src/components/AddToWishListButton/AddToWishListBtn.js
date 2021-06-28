@@ -46,7 +46,6 @@ const AddToWishListBtn = ({ id, itemNo }) => {
   }
 
   const addToWishList = () => {
-    console.log('fav');
     storageWishList = JSON.parse(localStorage.getItem('WishList')) || [];
     if (isAuth) {
       dispatch(addProductToWishlistOperation(id));
