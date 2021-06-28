@@ -111,7 +111,7 @@ const NavBar = () => {
                 <ul style={menuOpen ? { left: '-20px' } : { left: '-100%' }} className={styles.menuList} ref={menuRef}>
                   <div className={styles.titleStore}>
                     <div className={styles.arrow} ref={closeRef}>
-                      ⇐
+                      {}
                     </div>
                     <div>SMART ELECTRONIX</div>
                   </div>

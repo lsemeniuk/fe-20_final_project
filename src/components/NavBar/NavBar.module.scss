@@ -157,8 +157,33 @@
 }
 
 .arrow {
-  position: absolute;
-  left: 20px;
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    &::before {
+      content: '';
+      background-color: $colorDarkLight;
+      position: absolute;
+      width: 26px;
+      height: 3px;
+      transform: rotate(45deg);
+      top: 0;
+      left: 0;
+    }
+    &::after {
+      content: '';
+      background-color: $colorDarkLight;
+      position: absolute;
+      width: 26px;
+      height: 3px;
+      transform: rotate(-45deg);
+      top: 0;
+      left: 0;
+    }
+  }
 }
 
 .categoriesBlock {
