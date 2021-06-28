@@ -5,6 +5,11 @@
   background-color: #051219;
   @extend %custom-shadow;
   position: relative;
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 }
 
 .burger {
