@@ -3,16 +3,20 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import ProductCard from './ProductCard';
+import AsideBar from './AsideBar';
 import store from '../../store/store';
-import { product } from '../../../mokfiles/testingMock';
+import { adminRoutes } from '../../routes/routes';
 
-describe('Product cart tests', () => {
-  test('product cart smoke test', () => {
+const links = adminRoutes.map(route => {
+  return { url: route.path, description: route.name };
+});
+
+describe('Aside bar test', () => {
+  test('Aside bar smoke test', () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
-          <ProductCard product={product} inSlider={false} />
+          <AsideBar links={links} />
         </BrowserRouter>
       </Provider>
     );

@@ -1,18 +1,19 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import ProductCard from './ProductCard';
-import store from '../../store/store';
+import { BrowserRouter } from 'react-router-dom';
+import CartItem from './CartItem';
 import { product } from '../../../mokfiles/testingMock';
+import store from '../../store/store';
 
-describe('Product cart tests', () => {
-  test('product cart smoke test', () => {
+describe('Cart item test', () => {
+  test('Cart item smoke test', () => {
+    const cartQuantity = 1;
     render(
       <Provider store={store}>
         <BrowserRouter>
-          <ProductCard product={product} inSlider={false} />
+          <CartItem cartQuantity={cartQuantity} product={product} cart={{}} />
         </BrowserRouter>
       </Provider>
     );

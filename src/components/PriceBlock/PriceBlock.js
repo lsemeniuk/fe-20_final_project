@@ -18,8 +18,12 @@ const PriceBlock = ({ previousPrice, currentPrice, inSlider }) => {
     <>
       {previousPrice ? (
         <div className={styles.priceSales}>
-          <div className={currentPriceStyle}>{replace(currentPrice)} грн</div>
-          <div className={previousPriceStyle}>{replace(previousPrice)} грн</div>
+          <div data-testid='newPrice' className={currentPriceStyle}>
+            {replace(currentPrice)} грн
+          </div>
+          <div data-testid='prevPrice' className={previousPriceStyle}>
+            {replace(previousPrice)} грн
+          </div>
         </div>
       ) : (
         <div className={regularPrice}>{replace(currentPrice)} грн</div>
