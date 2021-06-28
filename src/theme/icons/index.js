@@ -22,3 +22,5 @@ export { commas } from './commas';
 export { edit } from './edit';
 export { deleteIcon } from './deleteIcon';
 export { navBag } from './navBag';
+export { gridIcon } from './gridIcon';
+export { inLineIcon } from './inLineIcon';

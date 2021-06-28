@@ -22,13 +22,11 @@ const InlineProductCart = ({ product, inSlider }) => {
     _id: id,
     characteristics,
   } = product;
-  // const { imageUrls, name, currentPrice, _id: id, itemNo, previousPrice, characteristics } = product;
-  // const calculateSales = Math.round(((previousPrice - currentPrice) / previousPrice) * 100);
 
   // eslint-disable-next-line array-callback-return,consistent-return
   const characteristicsBlock = characteristics.map((char, index) => {
     const { name: charName, value } = char;
-    if (index <= 6 && typeof value === 'string' && value.length <= 20) {
+    if (index <= 4 && typeof value === 'string' && value.length <= 20) {
       return (
         <div className={styles.characteristicsRow}>
           <p className={styles.characteristicsTitle}>{charName}</p>
@@ -63,7 +61,7 @@ const InlineProductCart = ({ product, inSlider }) => {
           <div className={styles.characteristics}>{characteristicsBlock}</div>
         </div>
         <div className={styles.moreInfoBlock}>
-          <div className={styles.priceBlock}>
+          <div>
             <p>Цена:</p>
             <PriceBlock currentPrice={currentPrice} previousPrice={previousPrice} />
           </div>

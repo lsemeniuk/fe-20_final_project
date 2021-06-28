@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
@@ -16,19 +16,29 @@ import Select from '../../components/SelectBar/Select/Select';
 import styles from './Products.module.scss';
 import { getProductsFilterOperation } from '../../store/products/operations';
 import { changeProductsStyle } from '../../store/products/actions';
+import Icons from '../../components/Icons/Icons';
 
 const Products = () => {
   const dispatch = useDispatch();
   const { perPage, startPage, ...filter } = useSelector(getProductsFilterSelector);
+  const [productsView, setProductsView] = useState();
+  const [isInLineAvailable, setIsInLineAvailable] = useState(true);
   const productsQuantity = useSelector(getProductsQuantitySelector);
   const history = useHistory();
   const categories = useSelector(getCategoriesSelector);
   const categorie = {};
   const params = useParams();
   const isGrid = JSON.parse(localStorage.getItem('ProductStyle'));
+  const windowWidth = window.innerWidth;
 
   useEffect(() => {
+    if (windowWidth <= 1200) {
+      setIsInLineAvailable(false);
+      dispatch(changeProductsStyle(true));
+      localStorage.setItem('ProductStyle', true);
+    }
     dispatch(changeProductsStyle(isGrid));
+    setProductsView(isGrid);
   }, []);
 
   if (params.categories === 'all') {
@@ -46,15 +56,17 @@ const Products = () => {
     dispatch(getProductsFilterOperation({ history, ...filter, perPage, startPage: page }));
   };
 
-  const changeProductsStyleFunc = e => {
-    const type = e.target.value;
-    if (type === 'grid') {
-      dispatch(changeProductsStyle(true));
-      localStorage.setItem('ProductStyle', true);
-    } else {
-      dispatch(changeProductsStyle(false));
-      localStorage.setItem('ProductStyle', false);
-    }
+  const changeToGrid = () => {
+    setProductsView(true);
+    dispatch(changeProductsStyle(true));
+    localStorage.setItem('ProductStyle', true);
+  };
+
+  const changeToInLine = () => {
+    setProductsView(false);
+    dispatch(changeProductsStyle(false));
+    localStorage.setItem('ProductStyle', false);
+    console.log(productsView);
   };
 
   return (
@@ -82,14 +94,12 @@ const Products = () => {
                 <Select className={styles.select_mobile} />
                 <ProductQuantity />
                 <Sorting />
-                <div>
-                  <button onClick={e => changeProductsStyleFunc(e)} value='grid' type='button'>
-                    Grid
-                  </button>
-                  <button onClick={e => changeProductsStyleFunc(e)} value='inLine' type='button'>
-                    In line
-                  </button>
-                </div>
+                {isInLineAvailable && (
+                  <div>
+                    <Icons type='gridIcon' onClick={changeToGrid} />
+                    <Icons type='inLineIcon' onClick={changeToInLine} />
+                  </div>
+                )}
               </div>
               <ProductList />
               <Pagination

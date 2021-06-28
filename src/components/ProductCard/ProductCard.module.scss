@@ -60,7 +60,7 @@
     padding: 5px 0 0 5px;
 
     @media (min-width: $tabMin) and (max-width: $tabMax) {
-    font-size: 12px;
+      font-size: 12px;
     }
 
     @media (min-width: $mobMin) and (max-width: $mobMax) {
@@ -76,7 +76,6 @@
 
   & .btnBlock {
     position: relative;
-    border: 1px solid $colorLightGray;
     border-top: none;
     display: block;
     width: 100%;
@@ -236,12 +235,14 @@
   bottom: 0;
 }
 
-
 .btnFlex {
   display: flex;
   justify-content: space-between;
 }
 
 .favIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
 }

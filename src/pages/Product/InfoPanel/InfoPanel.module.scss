@@ -30,3 +30,26 @@
 .tab {
   padding: 10px 20px;
 }
+
+:global {
+  .product__description {
+    & p,
+    div {
+      font-size: $fontSizeText;
+      line-height: 1.5;
+      padding-bottom: 10px;
+
+      @media (min-width: $tabMin) and (max-width: $tabMax) {
+        font-size: $fontSizeText_tab;
+        line-height: 1.3;
+        padding-bottom: 8px;
+      }
+
+      @media (min-width: $mobMin) and (max-width: $mobMax) {
+        font-size: $fontSizeText_mobile;
+        line-height: 1.1;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
