@@ -8,8 +8,7 @@ import PriceBlock from '../PriceBlock/PriceBlock';
 import ProductLabels from '../ProductLabels/ProductLabels';
 import { PRODUCT_ROUTE } from '../../utils/consts';
 
-// eslint-disable-next-line no-unused-vars
-const InlineProductCart = ({ product, inSlider }) => {
+const InlineProductCart = ({ product }) => {
   const {
     imageUrls,
     itemNo,
@@ -23,7 +22,6 @@ const InlineProductCart = ({ product, inSlider }) => {
     characteristics,
   } = product;
 
-  // eslint-disable-next-line array-callback-return,consistent-return
   const characteristicsBlock = characteristics.map((char, index) => {
     const { name: charName, value } = char;
     if (index <= 4 && typeof value === 'string' && value.length <= 20) {
@@ -34,6 +32,7 @@ const InlineProductCart = ({ product, inSlider }) => {
         </div>
       );
     }
+    return null;
   });
 
   return (
@@ -81,11 +80,6 @@ const InlineProductCart = ({ product, inSlider }) => {
 
 InlineProductCart.propTypes = {
   product: PropTypes.object.isRequired,
-  inSlider: PropTypes.bool,
-};
-
-InlineProductCart.defaultProps = {
-  inSlider: false,
 };
 
 export default InlineProductCart;
