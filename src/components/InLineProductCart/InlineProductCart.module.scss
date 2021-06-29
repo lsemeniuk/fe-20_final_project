@@ -1,0 +1,71 @@
+@import './src/theme/styles/var';
+
+.product {
+  display: flex;
+  border-bottom: 2px solid $colorAntiFlashWhite;
+  width: 100%;
+  padding: 10px;
+  &:first-child {
+    border-top: 2px solid $colorAntiFlashWhite;
+  }
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  column-gap: 5%;
+}
+
+.informationBlock {
+  width: 50%;
+}
+
+.characteristics {
+  margin-top: 15px;
+}
+
+.name {
+  color: $colorBlack;
+  font-size: $fontSizeText;
+  font-weight: bold;
+}
+
+.characteristicsRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.characteristicsTitle {
+  color: $colorSpanishGray;
+}
+
+.moreInfoBlock {
+  position: relative;
+  display: flex;
+  row-gap: 20px;
+  flex-direction: column;
+  width: 40%;
+  border-left: 1px dotted $colorAntiFlashWhite;
+  padding-left: 10px;
+}
+
+.image {
+  width: 150px;
+}
+
+.button {
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+.ordersButtons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.favorites {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

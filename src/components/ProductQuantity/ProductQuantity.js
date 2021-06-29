@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { getProductsFilterOperation } from '../../store/products/operations';
 import { getProductsFilterSelector } from '../../store/products/selectors';
+import Icons from '../Icons/Icons';
 import styles from './ProductQuantity.module.scss';
 
 const optionsPerPage = [9, 12, 15, 18, 21];
@@ -24,7 +25,8 @@ const ProductQuantity = () => {
 
   return (
     <div className={styles.setQuantity}>
-      <span>Товаров на странице:</span>
+      <span className={styles.setQuantityText}>Товаров на странице:</span>
+      <Icons type='quantity' className={styles.icons} color='#353535' width={20} height={20} />
       <select onChange={e => handlePerPage(e.target.value)} defaultValue={perPage} className={styles.select}>
         {options}
       </select>

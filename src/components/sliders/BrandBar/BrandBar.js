@@ -15,6 +15,30 @@ const sliderSettings = {
   speed: 700,
   slidesToShow: 9,
   slidesToScroll: 3,
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 7,
+      },
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 5,
+        arrows: false,
+        slidesToScroll: 3,
+      },
+    },
+    {
+      breakpoint: 481,
+      settings: {
+        slidesToShow: 3,
+        arrows: false,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 const BrandBar = () => {

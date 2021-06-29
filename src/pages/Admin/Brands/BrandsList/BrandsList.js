@@ -9,6 +9,7 @@ const BrandsList = () => {
   const dispatch = useDispatch();
   const brands = useSelector(getBrandsSelector);
   const brandsLoading = useSelector(brandsLoadingSelector);
+
   useEffect(() => {
     dispatch(getBrandsOperation());
   }, []);

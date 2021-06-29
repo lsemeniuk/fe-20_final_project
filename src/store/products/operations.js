@@ -1,4 +1,4 @@
-import { getProducts, getProductById, getProductsFilterParams } from '../../http/productAPI';
+import { getProducts, getProductById, getProductsFilterParams, getProductByUrl } from '../../http/productAPI';
 import {
   productsLoadingAction,
   saveProductsAction,
@@ -17,28 +17,34 @@ export const getProductsOperation = () => dispatch => {
   });
 };
 
-export const getOneProductOperation = productUrl => dispatch => {
+export const getOneProductOperation = itemNo => dispatch => {
   dispatch(oneProductLoadingAction(true));
-  getProductById(productUrl).then(res => {
+  getProductById(itemNo).then(res => {
     dispatch(saveOneProductAction(res.data));
     dispatch(oneProductLoadingAction(false));
   });
 };
 
-export const getProductsFilterOperation =
-  ({ history, ...filters }) =>
-  dispatch => {
-    dispatch(productsLoadingAction(true));
+export const getOneProductUrlOperation = productUrl => dispatch => {
+  dispatch(oneProductLoadingAction(true));
+  getProductByUrl(productUrl).then(res => {
+    dispatch(saveOneProductAction(res.data));
+    dispatch(oneProductLoadingAction(false));
+  });
+};
 
-    dispatch(saveProductsFilterAction({ ...filters }));
+export const getProductsFilterOperation = ({ history, ...filters }) => dispatch => {
+  dispatch(productsLoadingAction(true));
 
-    const { categories, perPage, startPage, sort, ...Currentfilters } = filters;
-    const currentUrlParams = new URLSearchParams(Currentfilters);
-    history.push(`${history.location.pathname}?${currentUrlParams}`);
+  dispatch(saveProductsFilterAction({ ...filters }));
 
-    getProductsFilterParams(filters).then(res => {
-      dispatch(saveProductsFilteredAction(res.data.products));
-      dispatch(saveProductsQuantityAction(res.data.productsQuantity));
-      dispatch(productsLoadingAction(false));
-    });
-  };
+  const { categories, perPage, startPage, sort, ...Currentfilters } = filters;
+  const currentUrlParams = new URLSearchParams(Currentfilters);
+  history.push(`${history.location.pathname}?${currentUrlParams}`);
+
+  getProductsFilterParams(filters).then(res => {
+    dispatch(saveProductsFilteredAction(res.data.products));
+    dispatch(saveProductsQuantityAction(res.data.productsQuantity));
+    dispatch(productsLoadingAction(false));
+  });
+};

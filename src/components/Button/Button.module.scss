@@ -17,6 +17,12 @@
   border-radius: 4px;
   transition: all 0.15s;
 
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    padding: 0 8px;
+    font-size: $fontSizeButton_tab;
+    height: 32px;
+  }
+
   &__inSlider {
     @media (min-width: $tabMin) and (max-width: $tabMax) {
       font-size: $fontSizeText_tab;

@@ -39,6 +39,7 @@ const Pagination = ({ perPage, startPage, productsQuantity, setPage }) => {
   return (
     <nav className={styles.container}>
       <div
+        data-testid='prev'
         className={startPage === 1 ? styles.arrow : `${styles.arrow} ${styles.arrowActive}`}
         onClick={() => handlePage(startPage - 1)}
       >
@@ -46,6 +47,7 @@ const Pagination = ({ perPage, startPage, productsQuantity, setPage }) => {
       </div>
       <ul className={styles.pagination}>{pageNumbersList}</ul>
       <div
+        data-testid='next'
         className={startPage === pageNumbers.length ? styles.arrow : `${styles.arrow} ${styles.arrowActive}`}
         onClick={() => handlePage(startPage + 1)}
       >

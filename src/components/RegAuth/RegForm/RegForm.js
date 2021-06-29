@@ -10,7 +10,6 @@ import styles from './RegForm.module.scss';
 
 const RegForm = () => {
   const dispatch = useDispatch();
-  const [messageServer, setmessageServer] = useState(null);
   const [isAcceptedPrivacyPolicyState, setIsAcceptedPrivacyPolicy] = useState(false);
   const isAcceptedPrivacyPolicy = useRef(false);
 
@@ -55,7 +54,6 @@ const RegForm = () => {
           const { firstName, lastName, login, email, password } = values;
           dispatch(
             createCustomerOperation({
-              setmessageServer,
               firstName,
               lastName,
               login,
@@ -70,7 +68,6 @@ const RegForm = () => {
         {formik => {
           return (
             <Form>
-              <div className={styles.messageServer}>{messageServer}</div>
               <MyTextInput label='Имя*' name='firstName' type='text' placeholder='Введите имя' tabIndex='0' />
               <MyTextInput label='Фамилия*' name='lastName' type='text' placeholder='Введите фамилию' tabIndex='0' />
               <MyTextInput label='Логин*' name='login' type='text' placeholder='Введите логин' tabIndex='0' />
