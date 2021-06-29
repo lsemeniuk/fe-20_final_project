@@ -69,7 +69,6 @@ const Products = () => {
     setProductsView(false);
     dispatch(changeProductsStyle(false));
     localStorage.setItem('ProductStyle', false);
-    console.log(productsView);
   };
 
   return (
@@ -99,8 +98,18 @@ const Products = () => {
                 <Sorting />
                 {isInLineAvailable && (
                   <div className={styles.viewIcons}>
-                    <Icons type='gridIcon' color={productsView ? brandColor : grayColor} onClick={changeToGrid} />
-                    <Icons type='inLineIcon' color={!productsView ? brandColor : grayColor} onClick={changeToInLine} />
+                    <Icons
+                      className={styles.icon}
+                      type='gridIcon'
+                      color={productsView ? brandColor : grayColor}
+                      onClick={changeToGrid}
+                    />
+                    <Icons
+                      className={styles.icon}
+                      type='inLineIcon'
+                      color={!productsView ? brandColor : grayColor}
+                      onClick={changeToInLine}
+                    />
                   </div>
                 )}
               </div>

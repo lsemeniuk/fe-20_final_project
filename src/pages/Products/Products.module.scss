@@ -83,9 +83,15 @@
   }
 }
 
-
 .viewIcons {
   width: 60px;
   display: flex;
   justify-content: space-between;
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: none;
+  }
+}
+
+.icon {
+  cursor: pointer;
 }
