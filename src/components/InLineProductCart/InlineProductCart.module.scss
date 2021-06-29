@@ -29,6 +29,7 @@
   color: $colorBlack;
   font-size: $fontSizeText;
   font-weight: bold;
+  padding-top: 10px;
 }
 
 .characteristicsRow {
@@ -38,6 +39,8 @@
 
 .characteristicsTitle {
   color: $colorSpanishGray;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .moreInfoBlock {
