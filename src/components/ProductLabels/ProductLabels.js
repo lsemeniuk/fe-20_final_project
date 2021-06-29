@@ -38,13 +38,14 @@ ProductLabels.propTypes = {
   superPrise: PropTypes.string.isRequired,
   isNew: PropTypes.string.isRequired,
   isHit: PropTypes.string.isRequired,
-  previousPrice: PropTypes.number.isRequired,
+  previousPrice: PropTypes.number,
   currentPrice: PropTypes.number.isRequired,
   inLine: PropTypes.bool,
 };
 
 ProductLabels.defaultProps = {
   inLine: false,
+  previousPrice: null,
 };
 
 export default ProductLabels;

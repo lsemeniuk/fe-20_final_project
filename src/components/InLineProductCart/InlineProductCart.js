@@ -28,6 +28,7 @@ const InlineProductCart = ({ product, inSlider }) => {
     const { name: charName, value } = char;
     if (index <= 4 && typeof value === 'string' && value.length <= 20) {
       return (
+        <div key={charName} className={styles.characteristicsRow}>
         <div className={styles.characteristicsRow}>
           <p className={styles.characteristicsTitle}>{charName}</p>
           <p>{value}</p>
@@ -65,9 +66,13 @@ const InlineProductCart = ({ product, inSlider }) => {
             <p>Цена:</p>
             <PriceBlock currentPrice={currentPrice} previousPrice={previousPrice} />
           </div>
-          <div className={styles.buttonBlock}>
-            <AddToCartButton product={product} currentPrice={currentPrice} id={id} />
-            <AddToWishListBtn id={id} itemNo={itemNo} />
+          <div>
+            <div className={styles.ordersButtons}>
+              <AddToCartButton className={styles.button} product={product} currentPrice={currentPrice} id={id} />
+            </div>
+            <div className={styles.favorites}>
+              <AddToWishListBtn id={id} itemNo={itemNo} />
+            </div>
           </div>
         </div>
       </div>

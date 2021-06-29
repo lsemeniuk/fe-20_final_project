@@ -1,5 +1,4 @@
 /* eslint-disable dot-notation */
-/* eslint-disable prefer-const */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
