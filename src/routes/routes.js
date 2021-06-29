@@ -140,4 +140,9 @@ export const adminRoutes = [
     path: ADM_SLIDER_ROUTE,
     Component: Sliders,
   },
+  {
+    name: 'Товары',
+    path: ADM_PRODUCTS_ROUTE,
+    Component: Products,
+  },
 ];
