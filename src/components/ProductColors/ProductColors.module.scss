@@ -36,9 +36,7 @@
   height: 33px;
   background-color: none;
   border-radius: 5px;
-  &:hover .color {
-    opacity: 0.9;
-  }
+
   @media (min-width: $deskMin) and (max-width: $deskMax) {
     width: 25px;
     height: 25px;
@@ -72,7 +70,7 @@
 }
 
 .color {
-  opacity: 1;
+  opacity: 0.9;
   width: 100%;
   height: 100%;
 }

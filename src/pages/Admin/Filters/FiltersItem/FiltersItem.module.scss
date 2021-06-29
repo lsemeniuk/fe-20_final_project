@@ -6,27 +6,24 @@
   font-size: $fontSizeText;
   text-align: center;
   & div {
-    border-right: 1px solid $colorSpanishGray;
-    border-top: 1px solid $colorSpanishGray;
-    border-bottom: 1px solid $colorSpanishGray;
+    border-right: 1px solid #919191;
+    border-top: 1px solid #919191;
+    border-bottom: 1px solid #919191;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 3px 0;
     &:first-child {
-      border-left: 1px solid $colorSpanishGray;
+      border-left: 1px solid #919191;
     }
   }
 }
 
+.type {
+  width: 50%;
+}
 .name {
-  width: 40%;
-}
-.colorContainer {
-  width: 60%;
-}
-.color {
-  height: 50px;
+  width: 50%;
 }
 
 .button {
