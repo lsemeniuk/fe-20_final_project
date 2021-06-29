@@ -6,21 +6,22 @@ import { deleteFilter } from '../../../../http/filtersAPI';
 import styles from './FiltersItem.module.scss';
 import { getFiltersOperation } from '../../../../store/filter/operations';
 import UpdateFiltersForm from '../UpdateFiltersForm/UpdateFiltersForm';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const FiltersItem = ({ filter }) => {
   const { _id: id } = filter;
   const dispatch = useDispatch();
   const [openForm, setOpenForm] = useState(false);
-  const [messageServer, setmessageServer] = useState(null);
 
   const deleteFilterFunc = () => {
     deleteFilter(id)
       .then(res => {
         dispatch(getFiltersOperation());
-        return res;
+        dispatch(popupOpenOperation(res.data.message));
       })
       .catch(err => {
-        setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+        const message = Object.values(err.data).join('');
+        dispatch(popupOpenOperation(message, true));
       });
   };
 
@@ -36,7 +37,6 @@ const FiltersItem = ({ filter }) => {
       </div>
       <Button title='Изменить' onClick={() => setOpenForm(!openForm)} className={styles.button} />
       <Button variant='outline' title='Удалить' onClick={() => deleteFilterFunc(!openForm)} className={styles.button} />
-      <div className={styles.redTitle}>{messageServer}</div>
       {openForm && <UpdateFiltersForm filter={filter} setOpenForm={setOpenForm} />}
     </>
   );

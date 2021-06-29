@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/Button/Button';
 import { deleteSlide } from '../../../../http/slidesAPI';
 import styles from './SlidersItem.module.scss';
 import UpdateSlidersForm from '../UpdateSlidersForm/UpdateSlidersForm';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
-const SlidersItem = ({ slider }) => {
-  const { _id: id } = slider;
+const SlidersItem = ({ slider, setRefreshSliders }) => {
+  const dispatch = useDispatch();
+  const { customId } = slider;
   const [openForm, setOpenForm] = useState(false);
-  const [messageServer, setmessageServer] = useState(null);
 
   const deleteSlidersFunc = () => {
-    deleteSlide(id)
+    deleteSlide(customId)
       .then(res => {
-        return res;
+        setRefreshSliders();
+        dispatch(popupOpenOperation(res.data.message));
       })
       .catch(err => {
-        setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+        const message = Object.values(err.data).join('');
+        dispatch(popupOpenOperation(message, true));
       });
   };
 
@@ -29,7 +33,7 @@ const SlidersItem = ({ slider }) => {
         <div className={styles.product}>Категория Товара</div>
       </div>
       <div className={styles.info}>
-        <div className={styles.title}>{slider.customId}</div>
+        <div className={styles.title}>{slider.title}</div>
         <div className={styles.imageUrl}>
           {slider.imageUrl && <img className={styles.img} src={slider.imageUrl} alt={slider.name} />}
         </div>
@@ -43,14 +47,16 @@ const SlidersItem = ({ slider }) => {
         onClick={() => deleteSlidersFunc(!openForm)}
         className={styles.button}
       />
-      <div className={styles.redTitle}>{messageServer}</div>
-      {openForm && <UpdateSlidersForm slider={slider} setOpenForm={setOpenForm} />}
+      {openForm && (
+        <UpdateSlidersForm slider={slider} setOpenForm={setOpenForm} setRefreshSliders={setRefreshSliders} />
+      )}
     </>
   );
 };
 
 SlidersItem.propTypes = {
   slider: PropTypes.object.isRequired,
+  setRefreshSliders: PropTypes.func.isRequired,
 };
 
 export default SlidersItem;

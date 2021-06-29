@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/Button/Button';
 import { deleteComment } from '../../../../http/commentAPI';
 import styles from './CommentsItem.module.scss';
 import UpdateCommentsForm from '../UpdateCommentsForm/UpdateCommentsForm';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
-const CommentsItem = ({ comment }) => {
+const CommentsItem = ({ comment, setRefreshComments }) => {
+  const dispatch = useDispatch();
+
   const { _id: id } = comment;
   const [openForm, setOpenForm] = useState(false);
-  const [messageServer, setmessageServer] = useState(null);
 
   const deleteCommentFunc = () => {
     deleteComment(id)
       .then(res => {
-        return res;
+        setRefreshComments(true);
+        dispatch(popupOpenOperation(res.data.message));
       })
       .catch(err => {
-        setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+        const message = Object.values(err.data).join('');
+        dispatch(popupOpenOperation(message, true));
+        return err;
       });
   };
   return (
@@ -36,14 +42,16 @@ const CommentsItem = ({ comment }) => {
         onClick={() => deleteCommentFunc(!openForm)}
         className={styles.button}
       />
-      <div className={styles.redTitle}>{messageServer}</div>
-      {openForm && <UpdateCommentsForm comment={comment} setOpenForm={setOpenForm} />}
+      {openForm && (
+        <UpdateCommentsForm comment={comment} setOpenForm={setOpenForm} setRefreshComments={setRefreshComments} />
+      )}
     </>
   );
 };
 
 CommentsItem.propTypes = {
   comment: PropTypes.object.isRequired,
+  setRefreshComments: PropTypes.func.isRequired,
 };
 
 export default CommentsItem;

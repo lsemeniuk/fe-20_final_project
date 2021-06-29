@@ -8,7 +8,7 @@ import schema from '../schema';
 import { updateComment } from '../../../../http/commentAPI';
 import { popupOpenOperation } from '../../../../store/modal/operations';
 
-const UpdateCommentsForm = ({ comment, setOpenForm }) => {
+const UpdateCommentsForm = ({ comment, setOpenForm, setRefreshComments }) => {
   const { content, _id: id } = comment;
 
   const dispatch = useDispatch();
@@ -25,6 +25,7 @@ const UpdateCommentsForm = ({ comment, setOpenForm }) => {
             .then(res => {
               if (res.status === 200) {
                 setOpenForm(false);
+                setRefreshComments(true);
               }
               dispatch(popupOpenOperation('Комментарий успешно изменён!'));
             })
@@ -57,6 +58,7 @@ const UpdateCommentsForm = ({ comment, setOpenForm }) => {
 UpdateCommentsForm.propTypes = {
   comment: PropTypes.object.isRequired,
   setOpenForm: PropTypes.func.isRequired,
+  setRefreshComments: PropTypes.func.isRequired,
 };
 
 export default UpdateCommentsForm;

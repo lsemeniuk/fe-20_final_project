@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
@@ -12,7 +12,6 @@ import { popupOpenOperation } from '../../../../store/modal/operations';
 const UpdateFiltersForm = ({ filter, setOpenForm }) => {
   const { name, type, _id: id } = filter;
 
-  const [messageServer, setmessageServer] = useState(null);
   const dispatch = useDispatch();
 
   return (
@@ -33,7 +32,8 @@ const UpdateFiltersForm = ({ filter, setOpenForm }) => {
               dispatch(getFiltersOperation());
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
 
           setSubmitting(false);
@@ -43,7 +43,7 @@ const UpdateFiltersForm = ({ filter, setOpenForm }) => {
           <Form>
             <MyTextInput label='Тип фильтра' name='type' type='text' placeholder='displayResolution' tabIndex='0' />
             <MyTextInput label='Имя фильтра' name='name' type='text' placeholder='360х360' tabIndex='0' />
-            <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Изменить' />
           </Form>
         </div>
       </Formik>

@@ -25,7 +25,7 @@ const SlidersList = () => {
     const { _id: id } = slider;
     return (
       <li key={id} style={{ padding: '10px' }}>
-        <SlidrsItem slider={slider} />
+        <SlidrsItem slider={slider} setRefreshSliders={setRefreshSliders} />
       </li>
     );
   });

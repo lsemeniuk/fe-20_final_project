@@ -9,6 +9,7 @@ const CommentsList = () => {
   const [commentsLoading, setCommentsLoading] = useState(true);
   const [startPage, setStartPage] = useState(1);
   const [commentsQuantity, setCommentsQuantity] = useState(0);
+  const [refreshComments, setRefreshComments] = useState(true);
 
   const perPage = 15;
 
@@ -19,9 +20,10 @@ const CommentsList = () => {
     getComments(filters).then(res => {
       setComments(res.data.comments);
       setCommentsQuantity(res.data.commentsQuantity);
+      setRefreshComments(false);
       setCommentsLoading(false);
     });
-  }, [startPage]);
+  }, [refreshComments, startPage]);
 
   if (commentsLoading) {
     return <Loader />;
@@ -31,7 +33,7 @@ const CommentsList = () => {
     const { _id: id } = comment;
     return (
       <li key={id} style={{ padding: '10px' }}>
-        <CommentsItem comment={comment} />
+        <CommentsItem comment={comment} setRefreshComments={setRefreshComments} />
       </li>
     );
   });

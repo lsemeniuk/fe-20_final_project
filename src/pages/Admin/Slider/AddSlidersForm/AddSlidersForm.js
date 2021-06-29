@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import { addSlide } from '../../../../http/slidesAPI';
@@ -7,10 +7,11 @@ import schema from '../schema';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import MySelect from '../../../../components/Forms/MySelect/MySelect';
 import { getCategoriesSelector } from '../../../../store/catalog/selectors';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const AddSlidersForm = () => {
+  const dispatch = useDispatch();
   const categories = useSelector(getCategoriesSelector);
-  const [messageServer, setMessageServer] = useState(null);
 
   return (
     <>
@@ -28,11 +29,12 @@ const AddSlidersForm = () => {
           addSlide(values)
             .then(res => {
               if (res.status === 200) {
-                setMessageServer(<span style={{ color: 'green' }}>Слайдер успешно добавлен!</span>);
+                dispatch(popupOpenOperation('Бренд успешно добавлен!'));
               }
             })
             .catch(err => {
-              setMessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
           setSubmitting(false);
         }}
@@ -53,14 +55,15 @@ const AddSlidersForm = () => {
             <MySelect label='Категория' name='category' tabIndex='0'>
               <option value='null'>Категория</option>
               {categories.map(category => {
+                const { _id: id, name, level } = category;
                 return (
-                  <option key={category.id} value={category.id}>
-                    {category.name} ({category.level})
+                  <option key={id} value={id}>
+                    {name} {level}
                   </option>
                 );
               })}
             </MySelect>
-            <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Сохранить' />
           </Form>
         </div>
       </Formik>
