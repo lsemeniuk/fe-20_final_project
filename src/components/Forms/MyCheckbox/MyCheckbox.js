@@ -23,7 +23,7 @@ MyCheckbox.propTypes = {
 };
 
 MyCheckbox.defaultProps = {
-  id: false,
+  id: '',
 };
 
 export default MyCheckbox;

@@ -17,7 +17,7 @@ const AddColorsForm = () => {
           cssValue: '',
         }}
         validationSchema={schema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           addColor(values)
             .then(res => {
               if (res.status === 200) {
@@ -28,6 +28,7 @@ const AddColorsForm = () => {
               const message = Object.values(err.data).join('');
               dispatch(popupOpenOperation(message, true));
             });
+          resetForm({});
           setSubmitting(false);
         }}
       >

@@ -22,7 +22,7 @@ const AddCategoryForm = () => {
           level: 0,
         }}
         validationSchema={schema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           addCategory(values)
             .then(res => {
               if (res.status === 200) {
@@ -33,6 +33,7 @@ const AddCategoryForm = () => {
               const message = Object.values(err.data).join('');
               dispatch(popupOpenOperation(message, true));
             });
+          resetForm({});
           setSubmitting(false);
         }}
       >

@@ -1,0 +1,31 @@
+@import '../../../../theme/styles/var';
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: $fontSizeText;
+  text-align: center;
+  & div {
+    border-right: 1px solid #919191;
+    border-top: 1px solid #919191;
+    border-bottom: 1px solid #919191;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 0;
+    &:first-child {
+      border-left: 1px solid #919191;
+    }
+  }
+}
+
+.type {
+  width: 50%;
+}
+.name {
+  width: 50%;
+}
+
+.button {
+  margin: 10px 40px 0 0;
+}
