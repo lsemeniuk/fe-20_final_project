@@ -73,7 +73,7 @@ const ProductCard = ({ product, inSlider }) => {
             currentPrice={currentPrice}
             inSlider={inSlider}
           />
-          <ProductColors descForColor={descForColor} color={color} isCard />
+          {!inSlider && <ProductColors descForColor={descForColor} color={color} isCard />}
         </div>
       </div>
     </li>
