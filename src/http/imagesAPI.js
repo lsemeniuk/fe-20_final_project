@@ -41,3 +41,15 @@ export const getImages = async filters => {
   });
   return res;
 };
+
+// @route   GET /images
+// @desc    GET existing image
+// @access  Private
+export const getImageAffiliation = async filters => {
+  const filtersStr = new URLSearchParams(filters).toString();
+
+  const res = await $authHost.get(`images/affiliation?${filtersStr}`).catch(err => {
+    throw err.response;
+  });
+  return res;
+};

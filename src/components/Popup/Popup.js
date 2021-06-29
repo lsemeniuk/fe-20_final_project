@@ -17,7 +17,7 @@ const Popup = () => {
     setTimeout(() => {
       dispatch(saveModalPopupAction({ isOpen: false }));
       action();
-    }, 300000);
+    }, 3000);
   }
 
   const closeBtnHandler = e => {
