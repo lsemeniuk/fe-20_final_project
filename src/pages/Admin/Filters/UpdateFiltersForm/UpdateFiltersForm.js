@@ -7,6 +7,7 @@ import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import schema from '../schema';
 import { getFiltersOperation } from '../../../../store/filter/operations';
 import { updateFilter } from '../../../../http/filtersAPI';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const UpdateFiltersForm = ({ filter, setOpenForm }) => {
   const { name, type, _id: id } = filter;
@@ -28,6 +29,7 @@ const UpdateFiltersForm = ({ filter, setOpenForm }) => {
               if (res.status === 200) {
                 setOpenForm(false);
               }
+              dispatch(popupOpenOperation('Фильтр успешно изменён!'));
               dispatch(getFiltersOperation());
             })
             .catch(err => {

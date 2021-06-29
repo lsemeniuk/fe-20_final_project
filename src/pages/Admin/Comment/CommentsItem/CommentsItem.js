@@ -26,7 +26,7 @@ const CommentsItem = ({ comment }) => {
         <div className={styles.content}>Комментарий</div>
       </div>
       <div className={styles.info}>
-        <div className={styles.product}>{comment.name}</div>
+        <div className={styles.product}>{comment.product.name}</div>
         <div className={styles.content}>{comment.content}</div>
       </div>
       <Button title='Изменить' onClick={() => setOpenForm(!openForm)} className={styles.button} />

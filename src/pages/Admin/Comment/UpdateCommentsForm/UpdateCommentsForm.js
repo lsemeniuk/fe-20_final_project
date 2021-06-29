@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import schema from '../schema';
 import { updateComment } from '../../../../http/commentAPI';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const UpdateCommentsForm = ({ comment, setOpenForm }) => {
-  const { product, content, _id: id } = comment;
+  const { content, _id: id } = comment;
 
-  const [messageServer, setmessageServer] = useState(null);
+  const dispatch = useDispatch();
 
   return (
     <>
       <Formik
         initialValues={{
-          product: product.name || '',
           content: content || '',
         }}
         validationSchema={schema}
@@ -25,9 +26,11 @@ const UpdateCommentsForm = ({ comment, setOpenForm }) => {
               if (res.status === 200) {
                 setOpenForm(false);
               }
+              dispatch(popupOpenOperation('Комментарий успешно изменён!'));
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
 
           setSubmitting(false);
@@ -35,7 +38,7 @@ const UpdateCommentsForm = ({ comment, setOpenForm }) => {
       >
         <div className='page_form'>
           <Form>
-            <MyTextInput label='Продукт' name='product' type='text' placeholder='Продукт' tabIndex='0' />
+            {/* <MyTextInput label='Продукт' name='product' type='text' placeholder='Продукт' tabIndex='0' /> */}
             <MyTextInput
               label='Комментарий'
               name='content'
@@ -43,7 +46,7 @@ const UpdateCommentsForm = ({ comment, setOpenForm }) => {
               placeholder='Комментарий к продукту'
               tabIndex='0'
             />
-            <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Изменить' />
           </Form>
         </div>
       </Formik>

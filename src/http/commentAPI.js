@@ -15,11 +15,11 @@ export const addComment = async (value, setRefreshReviews) => {
 // @route   PUT /comments/:id
 // @desc    Update existing comment
 // @access  Private
-export const updateComment = async (id, value, setRefreshReviews) => {
+export const updateComment = async (id, value) => {
   const res = await $authHost.put(`comments/${id}`, value).catch(err => {
     throw err.response;
   });
-  setRefreshReviews(true);
+  // setRefreshReviews(true);
   return res;
 };
 
