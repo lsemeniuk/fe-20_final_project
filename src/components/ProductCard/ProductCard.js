@@ -53,35 +53,26 @@ const ProductCard = ({ product, inSlider }) => {
       <div className={styles.labelBlock}>
         {superPrise === 'yes' && (
           <div>
-            <div data-testid='superPrice' className={`${styles.label} ${styles.labelSuperPrice}`}>
-              Супер цена
-            </div>
+            <div className={`${styles.label} ${styles.labelSuperPrice}`}>Супер цена</div>
           </div>
         )}
 
         {isNew === 'yes' && (
           <div>
-            <div data-testid='isNew' className={`${styles.label} ${styles.labelNew}`}>
-              Новинка
-            </div>
+            <div className={`${styles.label} ${styles.labelNew}`}>Новинка</div>
           </div>
         )}
         {isHit === 'yes' && (
           <div>
-            <div data-testid='isHit' className={`${styles.label} ${styles.labelHit}`}>
-              Хит
-            </div>
+            <div className={`${styles.label} ${styles.labelHit}`}>Хит</div>
           </div>
         )}
         {previousPrice && (
           <div>
-            <div data-testid='sales' className={`${styles.label} ${styles.labelSales}`}>
-              -{calculateSales}%
-            </div>
+            <div className={`${styles.label} ${styles.labelSales}`}>-{calculateSales}%</div>
           </div>
         )}
       </div>
-
       <div className={styles.priceBlock}>
         <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} inSlider={inSlider} />
       </div>
