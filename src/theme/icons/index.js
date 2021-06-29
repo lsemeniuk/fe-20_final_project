@@ -24,3 +24,4 @@ export { deleteIcon } from './deleteIcon';
 export { navBag } from './navBag';
 export { gridIcon } from './gridIcon';
 export { inLineIcon } from './inLineIcon';
+export { quantity } from './quantity';

@@ -30,7 +30,7 @@ const Modal = ({ children, buttonHandler, modalWidth }) => {
   };
 
   return (
-    <div onClick={closeBtnHandler} className={styles.modalFade} style={opacityStyle}>
+    <div data-testid='modalWrapper' onClick={closeBtnHandler} className={styles.modalFade} style={opacityStyle}>
       <div style={modalStyle} className={styles.modal} ref={modalRef}>
         <div>
           <span className={styles.close} ref={closeRef}>

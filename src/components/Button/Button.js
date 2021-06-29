@@ -22,7 +22,13 @@ const Button = ({ variant, title, onClick, disabled, type, className, inSlider }
 
   return (
     <>
-      <button type={type} className={`${styleClass} ${className}`} onClick={onClick} disabled={disabled}>
+      <button
+        data-testid='button'
+        type={type}
+        className={`${styleClass} ${className}`}
+        onClick={onClick}
+        disabled={disabled}
+      >
         {title}
       </button>
     </>

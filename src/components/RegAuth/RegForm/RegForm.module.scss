@@ -1,11 +1,5 @@
 @import '../../../theme/styles/var';
 
-.messageServer {
-  color: $colorRedPigment;
-  margin-bottom: 20px;
-  text-align: right;
-}
-
 .buttonCont {
   display: flex;
   justify-content: flex-end;
@@ -25,10 +19,10 @@
 }
 
 .disabled {
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   color: #808080;
 }
 .disabled:hover {
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   color: #808080;
 }

@@ -5,21 +5,22 @@ import UpdateCategoryForm from '../UpdateCategoryForm/UpdateCategoryForm';
 import Button from '../../../../components/Button/Button';
 import { deleteCategory } from '../../../../http/catalogAPI';
 import { getCatalogOperation } from '../../../../store/catalog/operations';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 import styles from './CategoriesItem.module.scss';
 
 const CategoriesItem = ({ category }) => {
   const dispatch = useDispatch();
   const [openForm, setOpenForm] = useState(false);
-  const [messageServer, setmessageServer] = useState(null);
 
   const deleteCategoryFunc = () => {
     deleteCategory(category.id)
       .then(res => {
         dispatch(getCatalogOperation());
-        return res;
+        dispatch(popupOpenOperation(res.data.message, false));
       })
       .catch(err => {
-        setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+        const message = Object.values(err.data).join('');
+        dispatch(popupOpenOperation(message, true));
       });
   };
 
@@ -48,7 +49,6 @@ const CategoriesItem = ({ category }) => {
         onClick={() => deleteCategoryFunc(!openForm)}
         className={styles.button}
       />
-      <div className={styles.redTitle}>{messageServer}</div>
       {openForm && <UpdateCategoryForm category={category} setOpenForm={setOpenForm} />}
     </>
   );

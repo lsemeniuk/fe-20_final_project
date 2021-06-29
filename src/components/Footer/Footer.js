@@ -94,13 +94,13 @@ const Footer = () => {
                 <ul className={styles.menuList}>
                   <li className={styles.menuItem}>
                     <Icons type='phone' className={styles.icons} color='#fff' />
-                    <a href='tel:+380440000000' className={`${styles.contactsLink} ${styles.link}`}>
+                    <a href='tel:+380440000000' className={styles.link}>
                       044 000-00-00
                     </a>
                   </li>
                   <li className={styles.menuItem}>
                     <Icons type='phone' className={styles.icons} color='#fff' />
-                    <a href='tel:+380950000000' className={`${styles.contactsLink} ${styles.link}`}>
+                    <a href='tel:+380950000000' className={styles.link}>
                       095 000-00-00
                     </a>
                   </li>
@@ -115,7 +115,7 @@ const Footer = () => {
                     <Icons type='whatsApp' className={styles.icons} color='#fff' />
                     <a
                       href='https://api.whatsapp.com/send?phone=whats-app'
-                      className={`${styles.contactsLink} ${styles.link}`}
+                      className={styles.link}
                       target='blank'
                       rel='noreferrer'
                     >
@@ -124,34 +124,19 @@ const Footer = () => {
                   </li>
                   <li className={styles.menuItem}>
                     <Icons type='telegram' className={styles.icons} color='#fff' />
-                    <a
-                      href='tg://resolve?domain=telegram'
-                      className={`${styles.contactsLink} ${styles.link}`}
-                      target='blank'
-                      rel='noreferrer'
-                    >
+                    <a href='tg://resolve?domain=telegram' className={styles.link} target='blank' rel='noreferrer'>
                       telegram
                     </a>
                   </li>
                   <li className={styles.menuItem}>
                     <Icons type='skype' className={styles.icons} color='#fff' />
-                    <a
-                      href='skype:skype?call'
-                      className={`${styles.contactsLink} ${styles.link}`}
-                      target='blank'
-                      rel='noreferrer'
-                    >
+                    <a href='skype:skype?call' className={styles.link} target='blank' rel='noreferrer'>
                       skype
                     </a>
                   </li>
                   <li className={styles.menuItem}>
                     <Icons type='email' className={styles.icons} color='#fff' />
-                    <a
-                      href='mailto:timeshop.dan@gmail.com'
-                      className={`${styles.contactsLink} ${styles.link}`}
-                      target='blank'
-                      rel='noreferrer'
-                    >
+                    <a href='mailto:timeshop.dan@gmail.com' className={styles.link} target='blank' rel='noreferrer'>
                       mail@gmail.com
                     </a>
                   </li>
@@ -166,7 +151,7 @@ const Footer = () => {
                   <a
                     style={{ border: 'none' }}
                     href='https://goo.gl/maps/c1oXdJR34nr9t1666'
-                    className={`${styles.contactsLink} ${styles.link}`}
+                    className={styles.link}
                     target='blank'
                     rel='noreferrer'
                   >
@@ -175,6 +160,26 @@ const Footer = () => {
                 </div>
               </nav>
             </div>
+          </div>
+        </div>
+        <div className={styles.mobileContainer}>
+          <div className={styles.mobBlock}>
+            <a href='tel:+380440000000' className={`${styles.link} ${styles.mobNumbers}`}>
+              044 000-00-00
+            </a>
+            <a href='tel:+380950000000' className={`${styles.link} ${styles.mobNumbers}`}>
+              095 000-00-00
+            </a>
+          </div>
+          <div className={styles.mobBlock}>
+            <a className={styles.link} href='/pages/contact-info'>
+              Контактная информация
+            </a>
+          </div>
+          <div className={styles.mobCopyright}>
+            © 2014—2021
+            <br />
+            Интернет-магазин топовых часов
           </div>
         </div>
       </Container>
