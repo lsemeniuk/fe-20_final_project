@@ -13,7 +13,7 @@ const ImagesList = () => {
   const [startPage, setStartPage] = useState(1);
   const [imagesQuantity, setImagesQuantity] = useState(0);
 
-  const perPage = 15;
+  const perPage = 20;
 
   const filters = { sort: '-date', perPage, startPage, affiliation };
 

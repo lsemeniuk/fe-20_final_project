@@ -25,7 +25,7 @@ const AddSlidersForm = () => {
           category: '',
         }}
         validationSchema={schema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           addSlide(values)
             .then(res => {
               if (res.status === 200) {
@@ -36,6 +36,7 @@ const AddSlidersForm = () => {
               const message = Object.values(err.data).join('');
               dispatch(popupOpenOperation(message, true));
             });
+          resetForm({});
           setSubmitting(false);
         }}
       >

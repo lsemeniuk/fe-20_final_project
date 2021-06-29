@@ -115,17 +115,32 @@ const NavBar = () => {
                     </div>
                     <div>SMART ELECTRONIX</div>
                   </div>
-                  <div className={styles.categoriesBlock}>
+                  <div
+                    className={styles.categoriesBlock}
+                    onClick={() => {
+                      setMenuOpen(false);
+                    }}
+                  >
                     <CategoriesList
                       className={styles.menuLink}
                       classItem={styles.menuItem}
                       activeClassName={styles.menuLinkActive}
                     />
                   </div>
-                  <div className={styles.adaptiveBlock}>
+                  <div
+                    className={styles.adaptiveBlock}
+                    onClick={() => {
+                      setMenuOpen(false);
+                    }}
+                  >
                     <DifferentPagesList classLink={styles.menuLink} classItem={styles.menuItem} />
                   </div>
-                  <div className={styles.adaptiveBlock}>
+                  <div
+                    className={styles.adaptiveBlock}
+                    onClick={() => {
+                      setMenuOpen(false);
+                    }}
+                  >
                     <span className={styles.socTitle}>Мы в соцсетях</span>
                     <nav className={styles.social}>
                       <a className={styles.socialLink} target='blank' title='Мы Вконтакте!' href='https://vk.com/'>
