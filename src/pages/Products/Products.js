@@ -32,18 +32,13 @@ const Products = () => {
   const windowWidth = window.innerWidth;
 
   useEffect(() => {
-    if (isGrid === null) {
-      localStorage.setItem('ProductStyle', false);
-      dispatch(changeProductsStyle(false));
-    }
-
     if (windowWidth <= 1200) {
       setIsInLineAvailable(false);
       dispatch(changeProductsStyle(true));
       localStorage.setItem('ProductStyle', true);
     }
-    dispatch(changeProductsStyle(isGrid));
-    setProductsView(isGrid);
+    dispatch(changeProductsStyle(isGrid || true));
+    setProductsView(isGrid || true);
   }, []);
 
   if (params.categories === 'all') {
