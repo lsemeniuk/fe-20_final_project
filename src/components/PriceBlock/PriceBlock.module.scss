@@ -8,7 +8,11 @@
 
 .priceSales {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  // @media (min-width: $mobMin) and (max-width: $tabMax) {
+  //   display: block;
+  //   text-align: center;
+  // }
 }
 
 .currentPrice {
@@ -18,45 +22,67 @@
   font-size: 18px;
 
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-    margin-right: 15px;
-    font-size: $fontSizeText_tab;
+    font-size: 16px;
   }
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
-    margin-right: 10px;
+    font-size: 14px;
   }
 
-  @media (max-width: $mobMin) {
-    margin-right: 5px;
-    font-size: $fontSizeText_mobile;
-  }
+  &__slider {
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+      margin-right: 15px;
+      font-size: $fontSizeText_tab;
+    }
 
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      margin-right: 10px;
+      font-size: $fontSizeText_mobile;
+    }
+  }
 }
 
 .previousPrice {
   font-size: 14px;
   text-decoration: line-through;
   color: $colorDimGray;
-  @media (min-width: $mobMin) and (max-width: $mobMax) {
-    font-size: $fontSizeText_mobile;
+
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: none;
   }
 
-  @media (max-width: $mobMin) {
-    font-size: $fontSizeText_mobile;
+  &__slider {
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+      font-size: $fontSizeText_tab;
+    }
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      font-size: $fontSizeText_mobile;
+    }
   }
-
 }
 
 .regularPrice {
-  color: $colorRoyalBlue;
+  color: #051219;
   font-weight: 700;
   font-size: 18px;
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 16px;
+  }
+
   @media (min-width: $mobMin) and (max-width: $mobMax) {
-    font-size: $fontSizeText_mobile;
+    font-size: 14px;
   }
 
-  @media (max-width: $mobMin) {
-    font-size: $fontSizeText_mobile;
+  &__slider {
+    @media (min-width: $tabMin) and (max-width: $tabMax) {
+      font-size: $fontSizeText_tab;
+    }
+    @media (min-width: $mobMin) and (max-width: $mobMax) {
+      font-size: $fontSizeText_mobile;
+    }
+    @media (max-width: $mobMin) {
+      font-size: $fontSizeText_mobile;
+    }
   }
-
 }

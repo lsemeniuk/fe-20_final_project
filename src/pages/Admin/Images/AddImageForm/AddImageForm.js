@@ -1,13 +1,16 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Button from '../../../../components/Button/Button';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 // import { addImages } from '../../../../http/productAPI';
 import styles from './AddImageForm.module.scss';
 
 const AddImageForm = () => {
-  const [messageServer, setMessageServer] = useState(null);
+  const dispatch = useDispatch();
   const [affiliation, setAfiliation] = useState('products');
   const [product, setProduct] = useState('');
+  const [size, setSize] = useState('large');
   const [name, setName] = useState('');
   const [file, setFile] = useState(null);
 
@@ -20,15 +23,16 @@ const AddImageForm = () => {
     formData.append('affiliation', affiliation);
     formData.append('product', product);
     formData.append('name', name);
+    formData.append('size', size);
     formData.append('img', file);
     // addImages(formData).then(res => {
     //   if (res.status === 200) {
-    //     setMessageServer('Картинку успешно добавлено!');
+    //     dispatch(popupOpenOperation('Картинку успешно добавлено!'));
     //   }
     // });
     axios.post('http://localhost:5000/api/images', formData).then(res => {
       if (res.status === 200) {
-        setMessageServer('Картинку успешно добавлено!');
+        dispatch(popupOpenOperation('Картинку успешно добавлено!'));
       }
     });
   };
@@ -69,6 +73,23 @@ const AddImageForm = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.input}>
+            <label className={styles.label}>Размер</label>
+            <select
+              className={styles.textInput}
+              type='text'
+              placeholder='large'
+              tabIndex='0'
+              onChange={e => setSize(e.target.value)}
+            >
+              <option defaultValue value='large'>
+                Большой
+              </option>
+              <option value='small'>Маленький</option>
+            </select>
+          </div>
+        </div>
+        <div className={styles.container}>
+          <div className={styles.input}>
             <label className={styles.label}>Название картинки</label>
             <input
               className={styles.textInput}
@@ -81,7 +102,7 @@ const AddImageForm = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.input}>
-            <label className={styles.label}>Принадлежность</label>
+            <label className={styles.label}>Файл</label>
             <input type='file' placeholder='Добавьте файл' tabIndex='0' onChange={selectFile} />
           </div>
         </div>
@@ -96,7 +117,6 @@ const AddImageForm = () => {
                 addImage();
               }}
             />
-            <div className={styles.messageServer}>{messageServer}</div>
           </div>
         </div>
       </form>

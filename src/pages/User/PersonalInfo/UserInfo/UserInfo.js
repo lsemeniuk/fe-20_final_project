@@ -1,7 +1,6 @@
-/* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
@@ -10,11 +9,12 @@ import Loader from '../../../../components/Loader/Loader';
 import { editCustomerInfo } from '../../../../http/customersAPI';
 import MySelect from '../../../../components/Forms/MySelect/MySelect';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const UserInfo = () => {
+  const dispatch = useDispatch();
   const customer = useSelector(getCustomerSelector);
   const customerLoading = useSelector(getCustomerIsLoadingSelector);
-  const [messageServer, setmessageServer] = useState(null);
 
   if (customerLoading) {
     return <Loader />;
@@ -65,11 +65,12 @@ const UserInfo = () => {
           editCustomerInfo(newValues)
             .then(res => {
               if (res.status === 200) {
-                setmessageServer(<span style={{ color: 'green' }}>Данные успешно сохранены</span>);
+                dispatch(popupOpenOperation('Данные успешно сохранены'));
               }
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join(' ')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
           setSubmitting(false);
         }}
@@ -95,7 +96,7 @@ const UserInfo = () => {
               <option value='Женщина'>Женщина</option>
             </MySelect>
 
-            <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Сохранить' />
           </Form>
         </div>
       </Formik>

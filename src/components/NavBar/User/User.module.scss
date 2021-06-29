@@ -1,9 +1,14 @@
+@import '../../../theme/styles/var';
+
 .container {
   position: relative;
 
   &:hover .userBar {
     visibility: visible;
     opacity: 1;
+  }
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: none;
   }
 }
 
@@ -15,7 +20,7 @@
   cursor: pointer;
   width: 35px;
   height: 35px;
-  border: 2px solid #000;
+  border: 2px solid #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -23,6 +28,7 @@
 }
 
 .initials {
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
 }

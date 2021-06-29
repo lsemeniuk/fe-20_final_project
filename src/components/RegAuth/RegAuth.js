@@ -14,7 +14,6 @@ const RegAuth = () => {
   const dispatch = useDispatch();
   const modalAuthReg = useSelector(getModalAuthRegSelector);
   const [tabIndex, setTabIndex] = useState(0);
-  const [messageServer, setmessageServer] = useState(null);
   const [forgotOpen, setForgotOpen] = useState(false);
 
   return (
@@ -35,8 +34,7 @@ const RegAuth = () => {
 
           <TabPanel>
             <div className={styles.form}>
-              <div className={styles.redTitle}>{messageServer}</div>
-              <AuthForm setmessageServer={setmessageServer} setForgotOpen={setForgotOpen} />
+              <AuthForm setForgotOpen={setForgotOpen} />
             </div>
           </TabPanel>
           <TabPanel>

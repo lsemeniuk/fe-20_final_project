@@ -15,7 +15,7 @@ import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import styles from './CartItem.module.scss';
 
 const CartItem = ({ product, cartQuantity, cart }) => {
-  const { previousPrice, currentPrice, quantity, itemNo, name, imageUrls, _id: id } = product;
+  const { previousPrice, currentPrice, quantity, productUrl, name, imageUrls, _id: id } = product;
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const dispatch = useDispatch();
   const [controlQuantity, setControlQuantity] = useState(cartQuantity);
@@ -70,11 +70,11 @@ const CartItem = ({ product, cartQuantity, cart }) => {
             &#128465;
           </span>
         </div>
-        <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} onClick={closeCart}>
+        <NavLink to={`${PRODUCT_ROUTE}/${productUrl}`} onClick={closeCart}>
           <img src={imageUrls[0].smallImage} className={styles.image} width={78} height={78} alt='product img' />
         </NavLink>
         <div className={styles.nameBlock}>
-          <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`} onClick={closeCart}>
+          <NavLink to={`${PRODUCT_ROUTE}/${productUrl}`} onClick={closeCart}>
             <h4 className={styles.name}>{name}</h4>
           </NavLink>
           {previousPrice ? (

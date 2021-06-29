@@ -10,6 +10,10 @@ const Pagination = ({ perPage, startPage, productsQuantity, setPage }) => {
     pageNumbers.push(i);
   }
 
+  if (pageNumbers.length <= 1) {
+    return null;
+  }
+
   if (pageNumbers.length < startPage) {
     setPage(1);
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
@@ -7,11 +7,11 @@ import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import { updateBrand } from '../../../../http/brandsAPI';
 import { getBrandsOperation } from '../../../../store/brands/operations';
 import schema from '../schema';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const UpdateBrandsForm = ({ brand, setOpenForm }) => {
   const { name, imageUrl, _id: id } = brand;
 
-  const [messageServer, setmessageServer] = useState(null);
   const dispatch = useDispatch();
 
   return (
@@ -28,10 +28,12 @@ const UpdateBrandsForm = ({ brand, setOpenForm }) => {
               if (res.status === 200) {
                 setOpenForm(false);
               }
+              dispatch(popupOpenOperation('Бренд успешно изменён!'));
               dispatch(getBrandsOperation());
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
 
           setSubmitting(false);
@@ -41,7 +43,7 @@ const UpdateBrandsForm = ({ brand, setOpenForm }) => {
           <Form>
             <MyTextInput label='Название' name='name' type='text' placeholder='Название бренда' tabIndex='0' />
             <MyTextInput label='Картинка' name='imageUrl' type='text' placeholder='Картинка бренда' tabIndex='0' />
-            <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Изменить' />
           </Form>
         </div>
       </Formik>

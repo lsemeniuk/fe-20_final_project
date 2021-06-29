@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import Loader from '../../components/Loader/Loader';
-import { getOneProductOperation } from '../../store/products/operations';
+import { getOneProductUrlOperation } from '../../store/products/operations';
 import { getOneProductSelector, oneProductLoadingSelector } from '../../store/products/selectors';
 import ProductImages from './ProductImages/ProductImages';
 import Availability from './Availability/Availability';
-import ProductColors from './ProductColors/ProductColors';
+import ProductColors from '../../components/ProductColors/ProductColors';
 import ProductPrice from './ProductPrice/ProductPrice';
 import OrdersInfo from './OrdersInfo/OrdersInfo';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
@@ -29,17 +29,17 @@ const Product = () => {
   const params = useParams();
 
   useEffect(() => {
-    dispatch(getOneProductOperation(params.id));
+    dispatch(getOneProductUrlOperation(params.productUrl));
 
     const viwedProducts = JSON.parse(localStorage.getItem('viwed_products'));
 
     if (viwedProducts && viwedProducts.length >= 1) {
-      const newViwedProducts = [...new Set([params.id, ...viwedProducts])];
+      const newViwedProducts = [...new Set([params.productUrl, ...viwedProducts])];
       localStorage.setItem('viwed_products', JSON.stringify(newViwedProducts));
     } else {
-      localStorage.setItem('viwed_products', JSON.stringify([params.id]));
+      localStorage.setItem('viwed_products', JSON.stringify([params.productUrl]));
     }
-  }, [params.id]);
+  }, [params.productUrl]);
 
   if (productLoading) {
     return (

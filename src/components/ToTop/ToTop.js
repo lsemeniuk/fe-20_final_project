@@ -18,7 +18,7 @@ const ToTopButton = () => {
   window.addEventListener('scroll', checkScrollTop);
 
   return (
-    <div>
+    <div className={styles.container}>
       {showScroll ? (
         <button type='button' className={styles.scrollTop} onClick={scrollToTop} title='Наверх'>
           <div className={styles.iconBox}>

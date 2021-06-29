@@ -3,12 +3,43 @@
 .sort {
   font-size: 14px;
   height: 2em;
-  padding-right: 1em;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 13px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    font-size: 12px;
+  }
 }
+
+.sortText {
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: none;
+  }
+}
+
+.icons {
+  display: none;
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    display: block;
+  }
+}
+
 .sortField {
   cursor: pointer;
   padding: 3px 6px;
-  margin-left: 10px;
+  margin-left: 15px;
   border: 2px solid $colorDarkLight;
   border-radius: 5px;
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 13px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    font-size: 12px;
+  }
 }

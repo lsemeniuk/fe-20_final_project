@@ -12,9 +12,9 @@ import ContainerAside from '../../components/ContainerAside/ContainerAside';
 import Pagination from '../../components/Pagination/Pagination';
 import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
 import Sorting from '../../components/Sorting/Sorting';
-import Filter from '../../components/Filter/Filter';
-import styles from './Products.module.scss';
+import Select from '../../components/SelectBar/Select/Select';
 import { getProductsFilterOperation } from '../../store/products/operations';
+import styles from './Products.module.scss';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -57,11 +57,12 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
-              <Filter />
+              <Select className={styles.select_desc} />
             </ContainerAside>
 
             <ContainerPage style={{ padding: '0' }}>
               <div className={styles.catalogSettings}>
+                <Select className={styles.select_mobile} />
                 <ProductQuantity />
                 <Sorting />
               </div>

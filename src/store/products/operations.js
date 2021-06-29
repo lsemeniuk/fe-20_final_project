@@ -1,4 +1,4 @@
-import { getProducts, getProductById, getProductsFilterParams } from '../../http/productAPI';
+import { getProducts, getProductById, getProductsFilterParams, getProductByUrl } from '../../http/productAPI';
 import {
   productsLoadingAction,
   saveProductsAction,
@@ -17,9 +17,17 @@ export const getProductsOperation = () => dispatch => {
   });
 };
 
-export const getOneProductOperation = productId => dispatch => {
+export const getOneProductOperation = itemNo => dispatch => {
   dispatch(oneProductLoadingAction(true));
-  getProductById(productId).then(res => {
+  getProductById(itemNo).then(res => {
+    dispatch(saveOneProductAction(res.data));
+    dispatch(oneProductLoadingAction(false));
+  });
+};
+
+export const getOneProductUrlOperation = productUrl => dispatch => {
+  dispatch(oneProductLoadingAction(true));
+  getProductByUrl(productUrl).then(res => {
     dispatch(saveOneProductAction(res.data));
     dispatch(oneProductLoadingAction(false));
   });
