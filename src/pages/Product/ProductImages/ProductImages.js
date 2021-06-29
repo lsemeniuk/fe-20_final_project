@@ -26,7 +26,9 @@ const ProductImages = ({ product }) => {
 
   if (!brandsLoading) {
     const brandProduct = brands.filter(br => br.name === brand);
-    brandImage = brandProduct[0].imageUrl;
+    if (brandProduct.length >= 1) {
+      brandImage = brandProduct[0].imageUrl;
+    }
   }
 
   const modalHandler = () => {
@@ -84,7 +86,9 @@ const ProductImages = ({ product }) => {
             />
           </span>
           <div className={styles.brand}>
-            {!brandsLoading && <img className={styles.brandImage} src={brandImage} alt={`Brand ${brand}`} />}
+            {!brandsLoading && brandImage !== '' && (
+              <img className={styles.brandImage} src={brandImage} alt={`Brand ${brand}`} />
+            )}
           </div>
         </div>
       </div>
