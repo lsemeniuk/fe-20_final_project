@@ -6,6 +6,8 @@ import {
   SET_ONE_PRODUCT_LOADING,
   SET_PRODUCTS_FILTER,
   SET_PRODUCTS_QUANTITY,
+  // eslint-disable-next-line import/named
+  SET_PRODUCTS_STYLE,
 } from './types';
 
 const initialState = {
@@ -16,6 +18,7 @@ const initialState = {
   productsQuantity: 0,
   isLoading: true,
   productLoading: true,
+  isGrid: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -40,6 +43,9 @@ const reducer = (state = initialState, action) => {
     }
     case SET_ONE_PRODUCT_LOADING: {
       return { ...state, productLoading: action.payload };
+    }
+    case SET_PRODUCTS_STYLE: {
+      return { ...state, isGrid: action.payload };
     }
     default: {
       return state;

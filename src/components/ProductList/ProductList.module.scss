@@ -1,18 +1,21 @@
+@import '../../theme/styles/var';
+
 .productsList {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
-  @media (min-width: $mobMin) and (max-width: $mobMax) {
-    flex-direction: column;
-    width: 250%;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
 }
 
 .message {
-  font-size: 16px;
+  font-size: $fontSizeText;
   margin-top: 50px;
   text-align: center;
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: $fontSizeText_tab;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    font-size: $fontSizeText_mobile;
+  }
 }

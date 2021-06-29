@@ -1,5 +1,4 @@
-/* eslint-disable no-restricted-syntax */
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
@@ -8,9 +7,9 @@ import { updateCategory } from '../../../../http/catalogAPI';
 import schema from '../schema';
 import CatalogInputs from '../CatalogInputs/CatalogInputs';
 import { getCatalogOperation } from '../../../../store/catalog/operations';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const UpdateCategoryForm = ({ category, setOpenForm }) => {
-  const [messageServer, setmessageServer] = useState(null);
   const dispatch = useDispatch();
 
   return (
@@ -31,10 +30,12 @@ const UpdateCategoryForm = ({ category, setOpenForm }) => {
               if (res.status === 200) {
                 setOpenForm(false);
               }
+              dispatch(popupOpenOperation('Категория успешно изменена!'));
               dispatch(getCatalogOperation());
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
 
           setSubmitting(false);
@@ -43,7 +44,7 @@ const UpdateCategoryForm = ({ category, setOpenForm }) => {
         <div className='page_form'>
           <Form>
             <CatalogInputs />
-            <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Изменить' />
           </Form>
         </div>
       </Formik>

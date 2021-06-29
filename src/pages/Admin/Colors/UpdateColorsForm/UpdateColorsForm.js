@@ -7,11 +7,10 @@ import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import schema from '../schema';
 import { updateColor } from '../../../../http/colorsAPI';
 import { getColorsOperation } from '../../../../store/colors/operations';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const UpdateColorsForm = ({ color, setOpenForm }) => {
   const { name, cssValue, _id: id } = color;
-
-  const [messageServer, setmessageServer] = useState(null);
   const dispatch = useDispatch();
 
   return (
@@ -28,10 +27,12 @@ const UpdateColorsForm = ({ color, setOpenForm }) => {
               if (res.status === 200) {
                 setOpenForm(false);
               }
+              dispatch(popupOpenOperation('Цвет успешно изменён!'));
               dispatch(getColorsOperation());
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
 
           setSubmitting(false);
@@ -39,9 +40,9 @@ const UpdateColorsForm = ({ color, setOpenForm }) => {
       >
         <div className='page_form'>
           <Form>
-            <MyTextInput label='Название' name='name' type='text' placeholder='Black' tabIndex='0' />
-            <MyTextInput label='HEX цвет' name='cssValue' type='text' placeholder='#000000' tabIndex='0' />
-            <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
+            <MyTextInput label='Название' name='name' type='text' placeholder='Название цвета' tabIndex='0' />
+            <MyTextInput label='HEX цвет' name='cssValue' type='text' placeholder='Значение цвета' tabIndex='0' />
+            <ButtonBlock buttonTitle='Изменить' />
           </Form>
         </div>
       </Formik>

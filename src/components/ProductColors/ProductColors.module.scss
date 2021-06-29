@@ -1,4 +1,4 @@
-@import '../../../theme/styles/var';
+@import '../../theme/styles/var';
 
 .container {
   margin-bottom: 40px;
@@ -22,25 +22,32 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    display: none;
+  }
 }
 
 .item {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 5px;
-  width: 35px;
-  height: 35px;
+  margin-right: 2px;
+  width: 33px;
+  height: 33px;
   background-color: none;
   border-radius: 5px;
   &:hover .color {
     opacity: 0.9;
   }
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .itemActive {
   border: 1px solid $colorCyan;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: $colorGhostWhite;
 
   & .color {
@@ -54,10 +61,14 @@
 
 .border {
   background-color: none;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 2px solid;
   width: 25px;
   height: 25px;
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .color {

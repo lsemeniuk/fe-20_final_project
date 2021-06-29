@@ -7,6 +7,8 @@ import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import AddToWishListBtn from '../AddToWishListButton/AddToWishListBtn';
 import PriceBlock from '../PriceBlock/PriceBlock';
 import styles from './ProductCard.module.scss';
+import ProductLabels from '../ProductLabels/ProductLabels';
+import ProductColors from '../ProductColors/ProductColors';
 
 const ProductCard = ({ product, inSlider }) => {
   const {
@@ -19,10 +21,10 @@ const ProductCard = ({ product, inSlider }) => {
     superPrise,
     isNew,
     isHit,
+    color,
+    descForColor,
     _id: id,
   } = product;
-
-  const calculateSales = Math.round(((previousPrice - currentPrice) / previousPrice) * 100);
 
   let containerClassName = `${styles.container}`;
   let btnBlockClassName = `${styles.btnBlock}`;
@@ -44,29 +46,16 @@ const ProductCard = ({ product, inSlider }) => {
           </div>
         </NavLink>
       </div>
-      <div className={styles.labelBlock}>
-        {superPrise === 'yes' && (
-          <div>
-            <div className={`${styles.label} ${styles.labelSuperPrice}`}>Супер цена</div>
-          </div>
-        )}
-
-        {isNew === 'yes' && (
-          <div>
-            <div className={`${styles.label} ${styles.labelNew}`}>Новинка</div>
-          </div>
-        )}
-        {isHit === 'yes' && (
-          <div>
-            <div className={`${styles.label} ${styles.labelHit}`}>Хит</div>
-          </div>
-        )}
-        {previousPrice && (
-          <div>
-            <div className={`${styles.label} ${styles.labelSales}`}>-{calculateSales}%</div>
-          </div>
-        )}
-      </div>
+      <span className={styles.favIcon}>
+        <AddToWishListBtn id={id} itemNo={itemNo} inSlider={inSlider} />
+      </span>
+      <ProductLabels
+        previousPrice={previousPrice}
+        currentPrice={currentPrice}
+        isNew={isNew}
+        isHit={isHit}
+        superPrise={superPrise}
+      />
       <div className={styles.priceBlock}>
         <PriceBlock previousPrice={previousPrice} currentPrice={currentPrice} inSlider={inSlider} />
       </div>
@@ -84,9 +73,7 @@ const ProductCard = ({ product, inSlider }) => {
             currentPrice={currentPrice}
             inSlider={inSlider}
           />
-          <span className={styles.favIcon}>
-            <AddToWishListBtn id={id} itemNo={itemNo} inSlider={inSlider} />
-          </span>
+          <ProductColors descForColor={descForColor} color={color} isCard />
         </div>
       </div>
     </li>

@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import { updatePassword } from '../../../../http/customersAPI';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const UserPass = () => {
-  const [messageServer, setmessageServer] = useState(null);
+  const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
     password: Yup.string().required('Необходимо ввести предидущий пароль'),
@@ -35,10 +37,11 @@ const UserPass = () => {
 
           updatePassword({ password, newPassword })
             .then(res => {
-              setmessageServer(<span style={{ color: 'green' }}>{res.data.message}</span>);
+              dispatch(popupOpenOperation(res.data.message));
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
           setSubmitting(false);
         }}
@@ -66,7 +69,7 @@ const UserPass = () => {
               placeholder='Подтвердите пароль'
               tabIndex='0'
             />
-            <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Изменить' />
           </Form>
         </div>
       </Formik>

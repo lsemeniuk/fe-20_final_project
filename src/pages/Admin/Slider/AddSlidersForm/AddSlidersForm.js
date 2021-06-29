@@ -17,9 +17,10 @@ const AddSlidersForm = () => {
       <Formik
         initialValues={{
           customId: '',
-          title: '',
           imageUrl: '',
+          title: '',
           description: '',
+          backgroundColor: '',
           category: '',
         }}
         validationSchema={schema}
@@ -39,6 +40,7 @@ const AddSlidersForm = () => {
         <div className='page_form'>
           <Form>
             <MyTextInput label='customId' name='customId' type='text' placeholder='customId' tabIndex='0' />
+            <MyTextInput label='Картинка' name='imageUrl' type='text' placeholder='Картинка слайдера' tabIndex='0' />
             <MyTextInput
               label='Заголовок Слайдера'
               name='title'
@@ -46,9 +48,9 @@ const AddSlidersForm = () => {
               placeholder='Заголовок слайдера'
               tabIndex='0'
             />
-            <MyTextInput label='Картинка' name='imageUrl' type='text' placeholder='Картинка слайдера' tabIndex='0' />
             <MyTextInput label='Описание' name='description' type='text' placeholder='Описание' tabIndex='0' />
-            <MySelect label='Категория' name='parentId' tabIndex='0'>
+            <MyTextInput label='Цвет' name='backgroundColor' type='text' placeholder='Цвет' tabIndex='0' />
+            <MySelect label='Категория' name='category' tabIndex='0'>
               <option value='null'>Категория</option>
               {categories.map(category => {
                 return (

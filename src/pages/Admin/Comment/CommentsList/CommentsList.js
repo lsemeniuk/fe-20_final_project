@@ -29,7 +29,7 @@ const CommentsList = () => {
 
   const commentsList = comments.map(comment => {
     return (
-      <li key={comment.name} style={{ padding: '10px' }}>
+      <li key={comment} style={{ padding: '10px' }}>
         <CommentsItem comment={comment} />
       </li>
     );

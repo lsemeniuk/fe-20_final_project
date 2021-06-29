@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { colorsLoadingSelector, getColorsSelector } from '../../../store/colors/selectors';
-import { getProductByColor } from '../../../http/productAPI';
-import { PRODUCT_ROUTE } from '../../../utils/consts';
-import Loader from '../../../components/Loader/Loader';
+import { colorsLoadingSelector, getColorsSelector } from '../../store/colors/selectors';
+import { getProductByColor } from '../../http/productAPI';
+import { PRODUCT_ROUTE } from '../../utils/consts';
+import Loader from '../Loader/Loader';
 import styles from './ProductColors.module.scss';
 
-const ProductColors = ({ color, descForColor }) => {
+const ProductColors = ({ color, descForColor, isCard }) => {
   const colors = useSelector(getColorsSelector);
   const colorsLoading = useSelector(colorsLoadingSelector);
 
@@ -48,6 +48,10 @@ const ProductColors = ({ color, descForColor }) => {
     return null;
   });
 
+  if (isCard) {
+    return <ul className={styles.colors}>{colorList}</ul>;
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.text}>
@@ -61,10 +65,12 @@ const ProductColors = ({ color, descForColor }) => {
 ProductColors.propTypes = {
   color: PropTypes.string.isRequired,
   descForColor: PropTypes.string,
+  isCard: PropTypes.bool,
 };
 
 ProductColors.defaultProps = {
   descForColor: '',
+  isCard: false,
 };
 
 export default ProductColors;

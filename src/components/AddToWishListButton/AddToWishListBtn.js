@@ -1,5 +1,4 @@
 /* eslint-disable dot-notation */
-/* eslint-disable prefer-const */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -68,9 +67,9 @@ const AddToWishListBtn = ({ id, itemNo }) => {
   return (
     <div style={{ cursor: 'pointer' }}>
       {idWishList.includes(id) ? (
-        <Icons onClick={deleteToWishList} type='navHeart' color='#ffd200' filled width={30} height={30} />
+        <Icons onClick={deleteToWishList} type='navHeart' color='#ffd200' filled width={25} height={25} />
       ) : (
-        <Icons onClick={addToWishList} type='navHeart' color='black' width={30} height={30} />
+        <Icons onClick={addToWishList} type='navHeart' color='black' width={25} height={25} />
       )}
     </div>
   );

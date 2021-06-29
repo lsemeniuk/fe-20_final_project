@@ -6,6 +6,8 @@ import {
   SET_ONE_PRODUCT_LOADING,
   SET_PRODUCTS_FILTER,
   SET_PRODUCTS_QUANTITY,
+  // eslint-disable-next-line import/named
+  SET_PRODUCTS_STYLE,
 } from './types';
 
 export const saveProductsAction = products => ({ type: SET_PRODUCTS, payload: products });
@@ -21,3 +23,5 @@ export const saveProductsQuantityAction = quantity => ({ type: SET_PRODUCTS_QUAN
 export const productsLoadingAction = isLoading => ({ type: SET_PRODUCTS_LOADING, payload: isLoading });
 
 export const oneProductLoadingAction = isLoading => ({ type: SET_ONE_PRODUCT_LOADING, payload: isLoading });
+
+export const changeProductsStyle = viewType => ({ type: SET_PRODUCTS_STYLE, payload: viewType });

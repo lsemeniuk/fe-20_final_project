@@ -7,9 +7,12 @@ import styles from './CheckboxGroup.module.scss';
 /* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
 function CheckboxGroup(props) {
   const { label, name, nameCur, options, ...rest } = props;
-  // const [checked] = useState(false);
   const checkbox = (field, option) => {
-    field.value.includes(option.id);
+    if (field.name === 'brand') {
+      field.value.includes(option.name);
+    } else {
+      field.value.includes(option.id);
+    }
   };
   return (
     <div className={styles.checkbox_box}>
@@ -18,7 +21,7 @@ function CheckboxGroup(props) {
         <Field name={name}>
           {({ field }) =>
             options.map(option =>
-              nameCur === option.type || nameCur === 'categories' ? (
+              nameCur === option.type || nameCur === 'brand' ? (
                 <div key={option._id}>
                   <div key={option._id} className={styles.option_item}>
                     <React.Fragment key={option._id}>
@@ -28,7 +31,7 @@ function CheckboxGroup(props) {
                         id={option._id}
                         {...field}
                         {...rest}
-                        value={option.id}
+                        value={option.id || option.name}
                         checked={checkbox(field, option)}
                       />
                       <label className={styles.option_item_input} htmlFor={option.name}>
