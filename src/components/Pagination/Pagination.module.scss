@@ -1,11 +1,25 @@
 @import '../../theme/styles/var';
 
 .container {
-  font-size: 16px;
+  font-size: $fontSizeText;
   margin: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    margin: 25px;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    margin: 20px;
+    font-size: $fontSizeText_tab;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    margin: 10px;
+    font-size: $fontSizeText_mobile;
+  }
 }
 
 .pagination {
@@ -85,6 +99,14 @@
   margin: 0px 10px;
   border-radius: 5px;
   cursor: pointer;
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    margin: 0px 7px;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    margin: 0px 4px;
+  }
 }
 
 .pageNumbersItem:hover .pageNumbers {

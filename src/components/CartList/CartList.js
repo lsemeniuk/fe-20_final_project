@@ -21,7 +21,7 @@ const CartList = () => {
     return <Loader />;
   }
 
-  if (isAuth && !cartLoading && cart) {
+  if (isAuth && !cartLoading && cart && cart?.products.length >= 1) {
     cartList = cart.products.map(p => (
       <CartItem key={p.product.itemNo} product={p.product} cartQuantity={p.cartQuantity} cart={cart} />
     ));

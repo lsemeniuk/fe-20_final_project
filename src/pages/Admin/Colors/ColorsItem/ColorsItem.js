@@ -6,21 +6,22 @@ import { deleteColor } from '../../../../http/colorsAPI';
 import { getColorsOperation } from '../../../../store/colors/operations';
 import UpdateColorsForm from '../UpdateColorsForm/UpdateColorsForm';
 import styles from './ColorsItem.module.scss';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const ColorsItem = ({ color }) => {
   const { _id: id } = color;
   const dispatch = useDispatch();
   const [openForm, setOpenForm] = useState(false);
-  const [messageServer, setmessageServer] = useState(null);
 
   const deleteCategoryFunc = () => {
     deleteColor(id)
       .then(res => {
         dispatch(getColorsOperation());
-        return res;
+        dispatch(popupOpenOperation(res.data.message));
       })
       .catch(err => {
-        setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+        const message = Object.values(err.data).join('');
+        dispatch(popupOpenOperation(message, true));
       });
   };
 
@@ -43,7 +44,6 @@ const ColorsItem = ({ color }) => {
         onClick={() => deleteCategoryFunc(!openForm)}
         className={styles.button}
       />
-      <div className={styles.redTitle}>{messageServer}</div>
       {openForm && <UpdateColorsForm color={color} setOpenForm={setOpenForm} />}
     </>
   );

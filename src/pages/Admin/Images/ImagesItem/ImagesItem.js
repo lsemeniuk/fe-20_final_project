@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import UpdateImagesForm from '../UpdateImagesForm/UpdateImagesForm';
 import Button from '../../../../components/Button/Button';
 import styles from './ImagesItem.module.scss';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 // import { deleteImage } from '../../../../http/imagesAPI';
 
 const ImagesItem = ({ image, setRefreshLoading }) => {
+  const dispatch = useDispatch();
   const [openForm, setOpenForm] = useState(false);
-  const [messageServer, setMessageServer] = useState(null);
 
   const deleteCategoryFunc = () => {
     axios.delete(`http://localhost:5000/api/images/${image.name}`).then(res => {
       if (res.status === 200) {
-        setMessageServer(<span style={{ color: 'green' }}>{res.data.message}</span>);
+        dispatch(popupOpenOperation(res.data.message));
         setRefreshLoading(true);
       }
     });
@@ -52,7 +54,6 @@ const ImagesItem = ({ image, setRefreshLoading }) => {
         onClick={() => deleteCategoryFunc(!openForm)}
         className={styles.button}
       />
-      <div className={styles.redTitle}>{messageServer}</div>
       {openForm && <UpdateImagesForm image={image} setRefreshLoading={setRefreshLoading} />}
     </>
   );

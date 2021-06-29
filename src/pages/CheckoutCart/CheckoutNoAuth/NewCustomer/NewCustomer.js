@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import { Formik, Form } from 'formik';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import { placeOrder } from '../../../../http/ordersAPI';
@@ -12,9 +13,13 @@ import { getLocalCartSelector } from '../../../../store/cart/selectors';
 import Loader from '../../../../components/Loader/Loader';
 import { getProductsSelector, productsLoadingSelector } from '../../../../store/products/selectors';
 import styles from './NewCustomer.module.scss';
+import { cartTotalPriceAction } from '../../../../store/cart/actions';
+import { popupOpenOperation } from '../../../../store/modal/operations';
+import { INDEX_ROUTE } from '../../../../utils/consts';
 
 const NewCustomer = () => {
-  const [messageServer, setMessageServer] = useState(null);
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [commentAvailible, setCommentAvailible] = useState(false);
   const products = useSelector(getProductsSelector);
   const productsLoading = useSelector(productsLoadingSelector);
@@ -78,15 +83,18 @@ const NewCustomer = () => {
           placeOrder({ ...ordersValue, deliveryAddress, products: cart, status })
             .then(res => {
               if (res.status === 200) {
-                if (res.data.message) {
-                  setMessageServer(<span>{res.data.message}</span>);
-                } else {
-                  setMessageServer(<span style={{ color: 'green' }}>Заказ успешно оформлен!</span>);
-                }
+                dispatch(
+                  popupOpenOperation('Заказ успешно оформлен!', false, () => {
+                    history.push(INDEX_ROUTE);
+                  })
+                );
+                localStorage.setItem('cart', JSON.stringify({ products: [] }));
+                dispatch(cartTotalPriceAction(0));
               }
             })
             .catch(err => {
-              setMessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
 
           setSubmitting(false);
@@ -123,7 +131,7 @@ const NewCustomer = () => {
               />
             )}
           </div>
-          <ButtonBlock buttonTitle='Оформить заказ' messageServer={messageServer} />
+          <ButtonBlock buttonTitle='Оформить заказ' />
         </Form>
       </Formik>
     </div>

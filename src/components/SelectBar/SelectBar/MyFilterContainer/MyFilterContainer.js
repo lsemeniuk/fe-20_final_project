@@ -28,17 +28,9 @@ const MyFilterContainer = () => {
 
   return (
     <>
-      <div className={styles.btn_box}>
-        <Container>
-          <Icons
-            className={activeBtn}
-            width='40px'
-            height='40px'
-            type='filter'
-            color='rgba(0,0,0, 0.7)'
-            onClick={() => handleClickFilter()}
-          />
-        </Container>
+      <div className={styles.btn_box} onClick={() => handleClickFilter()}>
+        <Icons className={activeBtn} width='20px' height='20px' type='filter' color='rgba(0,0,0, 0.7)' />
+        <div className={styles.btnText}>Фильтр</div>
       </div>
 
       <div className={activeBox}>

@@ -6,21 +6,22 @@ import UpdateBrandsForm from '../UpdateBrandsForm/UpdateBrandsForm';
 import { deleteBrand } from '../../../../http/brandsAPI';
 import { getBrandsOperation } from '../../../../store/brands/operations';
 import styles from './BrandsItem.module.scss';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const BrandsItem = ({ brand }) => {
   const { _id: id } = brand;
   const dispatch = useDispatch();
   const [openForm, setOpenForm] = useState(false);
-  const [messageServer, setmessageServer] = useState(null);
 
   const deleteCategoryFunc = () => {
     deleteBrand(id)
       .then(res => {
         dispatch(getBrandsOperation());
-        return res;
+        dispatch(popupOpenOperation(res.data.message));
       })
       .catch(err => {
-        setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+        const message = Object.values(err.data).join('');
+        dispatch(popupOpenOperation(message, true));
       });
   };
 
@@ -43,7 +44,6 @@ const BrandsItem = ({ brand }) => {
         onClick={() => deleteCategoryFunc(!openForm)}
         className={styles.button}
       />
-      <div className={styles.redTitle}>{messageServer}</div>
       {openForm && <UpdateBrandsForm brand={brand} setOpenForm={setOpenForm} />}
     </>
   );

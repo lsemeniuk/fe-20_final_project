@@ -16,6 +16,15 @@ const PromotionSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     dotsClass: `slick-dots ${styles.dots}`,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          arrows: false,
+          dots: false,
+        },
+      },
+    ],
   };
 
   useEffect(() => {

@@ -13,10 +13,10 @@ import Pagination from '../../components/Pagination/Pagination';
 import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
 import Sorting from '../../components/Sorting/Sorting';
 import Select from '../../components/SelectBar/Select/Select';
-import styles from './Products.module.scss';
 import { getProductsFilterOperation } from '../../store/products/operations';
 import { changeProductsStyle } from '../../store/products/actions';
 import Icons from '../../components/Icons/Icons';
+import styles from './Products.module.scss';
 
 const Products = () => {
   const dispatch = useDispatch();

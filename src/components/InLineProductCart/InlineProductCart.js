@@ -29,6 +29,7 @@ const InlineProductCart = ({ product, inSlider }) => {
     if (index <= 4 && typeof value === 'string' && value.length <= 20) {
       return (
         <div key={charName} className={styles.characteristicsRow}>
+        <div className={styles.characteristicsRow}>
           <p className={styles.characteristicsTitle}>{charName}</p>
           <p>{value}</p>
         </div>
