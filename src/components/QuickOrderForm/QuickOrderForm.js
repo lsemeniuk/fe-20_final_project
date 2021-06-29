@@ -1,6 +1,6 @@
 /* eslint-disable dot-notation */
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
@@ -8,11 +8,11 @@ import Button from '../Button/Button';
 import { getCustomerSelector } from '../../store/customer/selectors';
 import MyTextInput from '../Forms/MyTextInput/MyTextInput';
 import { placeOrder } from '../../http/ordersAPI';
-import { generateLetterHtml } from '../../utils/generateHtml';
+import { popupOpenOperation } from '../../store/modal/operations';
 import styles from './QuickOrderForm.module.scss';
 
 const QuickOrderForm = ({ product, setQuickOrderOpen }) => {
-  const [messageServer, setMessageServer] = useState(null);
+  const dispatch = useDispatch();
   const customer = useSelector(getCustomerSelector);
 
   const validationSchema = Yup.object({
@@ -43,35 +43,27 @@ const QuickOrderForm = ({ product, setQuickOrderOpen }) => {
         onSubmit={(values, { setSubmitting }) => {
           const products = [{ product, cartQuantity: 1 }];
           const status = 'specified';
-          const letterSubject = 'Быстрый заказ успешно оформлен!';
-          const letterHtml = generateLetterHtml(
-            { products },
-            values,
-            'https://i.ibb.co/GMbFyFv/logo.png',
-            'http://localhost:3000/',
-            product.currentPrice
-          );
 
-          placeOrder({ ...values, products, letterHtml, letterSubject, status })
+          placeOrder({ ...values, products, status })
             .then(res => {
               if (res.status === 200) {
                 if (res.data.message) {
-                  setMessageServer(<span>{res.data.message}</span>);
+                  dispatch(popupOpenOperation(res.data.message));
                 } else {
-                  setMessageServer(<span style={{ color: 'green' }}>Заказ успешно оформлен!</span>);
+                  dispatch(popupOpenOperation('Заказ успешно оформлен!'));
                 }
                 setQuickOrderOpen(false);
               }
             })
             .catch(err => {
-              setMessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
 
           setSubmitting(false);
         }}
       >
         <Form>
-          <div className={styles.messageServer}>{messageServer}</div>
           <MyTextInput label='Имя' name='firstName' type='text' placeholder='Введите имя' tabIndex='0' />
           <MyTextInput label='Фамилия' name='lastName' type='text' placeholder='Введите фамилию' tabIndex='0' />
           <MyTextInput label='Телефон' name='mobile' type='text' placeholder='Введите номер телефона' tabIndex='0' />

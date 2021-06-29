@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import ImageGalery from './ImageGalery';
-import { product } from '../../../mokfiles/testingMok';
+import { product } from '../../../mokfiles/testingMock';
 import store from '../../store/store';
 
 describe('Image gallery test', () => {

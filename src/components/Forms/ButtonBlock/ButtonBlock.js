@@ -8,7 +8,9 @@ const ButtonBlock = ({ buttonTitle, messageServer }) => {
     <div className={styles.buttonCont}>
       <div className={styles.widthCont}>
         <Button type='submit' title={buttonTitle} />
-        <div className={styles.redTitle}>{messageServer}</div>
+        <div data-testid='serverMessage' className={styles.redTitle}>
+          {messageServer}
+        </div>
       </div>
     </div>
   );

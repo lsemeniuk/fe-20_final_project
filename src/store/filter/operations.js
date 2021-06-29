@@ -10,7 +10,6 @@ export const getFiltersOperation = () => async dispatch => {
 
 export const saveFiltersOperation = props => async dispatch => {
   const { value, productFilters, history } = props;
-  /* eslint no-console: 0 */
   dispatch(saveCheckedFiltersAction(value));
   const joined = {};
   Object.keys(value).forEach(item => {
