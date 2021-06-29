@@ -32,6 +32,11 @@ const Products = () => {
   const windowWidth = window.innerWidth;
 
   useEffect(() => {
+    if (isGrid === null) {
+      localStorage.setItem('ProductStyle', false);
+      dispatch(changeProductsStyle(false));
+    }
+
     if (windowWidth <= 1200) {
       setIsInLineAvailable(false);
       dispatch(changeProductsStyle(true));
