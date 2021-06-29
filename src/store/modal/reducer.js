@@ -1,8 +1,16 @@
-import { SET_MODAL_CART, SET_MODAL_AUTH_REG } from './types';
+import { SET_MODAL_CART, SET_MODAL_AUTH_REG, SET_MODAL_POPUP } from './types';
 
 const initialState = {
   cartOpen: false,
   authRegOpen: false,
+  popup: {
+    isOpen: false,
+    message: 'default',
+    failed: true,
+    action: () => {
+      return null;
+    },
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +20,9 @@ const reducer = (state = initialState, action) => {
     }
     case SET_MODAL_AUTH_REG: {
       return { ...state, authRegOpen: action.payload };
+    }
+    case SET_MODAL_POPUP: {
+      return { ...state, popup: action.payload };
     }
     default: {
       return state;

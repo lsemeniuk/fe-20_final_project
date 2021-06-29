@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import { addColor } from '../../../../http/colorsAPI';
 import schema from '../schema';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const AddColorsForm = () => {
-  const [messageServer, setmessageServer] = useState(null);
-
+  const dispatch = useDispatch();
   return (
     <>
       <Formik
@@ -20,11 +21,12 @@ const AddColorsForm = () => {
           addColor(values)
             .then(res => {
               if (res.status === 200) {
-                setmessageServer(<span style={{ color: 'green' }}>Цвет успешно добавлен!</span>);
+                dispatch(popupOpenOperation('Цвет успешно добавлен!'));
               }
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
           setSubmitting(false);
         }}
@@ -33,7 +35,7 @@ const AddColorsForm = () => {
           <Form>
             <MyTextInput label='Название' name='name' type='text' placeholder='Название цвета' tabIndex='0' />
             <MyTextInput label='HEX цвет' name='cssValue' type='text' placeholder='Значение цвета' tabIndex='0' />
-            <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Сохранить' />
           </Form>
         </div>
       </Formik>

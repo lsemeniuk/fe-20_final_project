@@ -1,22 +1,11 @@
 import React from 'react';
-// import Slider from 'react-slick';
 import Container from '../../components/Container/Container';
-// import GenderLink from '../../components/GenderLink/GenderLink';
 import BrandBar from '../../components/sliders/BrandBar/BrandBar';
 import CustomSlider from '../../components/sliders/CustomSlider/CustomSlider';
 import PromotionSlider from '../../components/sliders/PromotionSlider/PromotionSlider';
 import styles from './Index.module.scss';
 
 const Index = () => {
-  // const sliderSettings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 700,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   arrows: false,
-  // };
-
   return (
     <main className={styles.main}>
       <PromotionSlider />
@@ -42,32 +31,6 @@ const Index = () => {
             <CustomSlider title='Хиты продаж' filter={{ isHit: 'yes' }} />
           </div>
         </div>
-
-        {/* <div className={styles.forWho}>
-          <GenderLink
-            img='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
-            forWho='forMen'
-            textContent='Для него'
-          />
-          <GenderLink
-            img='https://res.cloudinary.com/vdsh/image/upload/v1619086322/forWoman_bpp0pc.png'
-            forWho='forWoman'
-            textContent='Для неё'
-          />
-        </div> */}
-
-        {/* <Slider className={styles.genderSlider} {...sliderSettings}>
-          <GenderLink
-            img='https://res.cloudinary.com/vdsh/image/upload/v1619083373/forMan_aldinh.png'
-            forWho='forMen'
-            textContent='Для него'
-          />
-          <GenderLink
-            img='https://res.cloudinary.com/vdsh/image/upload/v1619086322/forWoman_bpp0pc.png'
-            forWho='forWoman'
-            textContent='Для неё'
-          />
-        </Slider> */}
 
         <CustomSlider title='Свежие новинки' filter={{ isNew: 'yes' }} />
         <CustomSlider title='Последние просмотренные товары' viwedProduct />
