@@ -11,13 +11,10 @@ const Popup = () => {
   const modalRef = useRef(null);
   const closeRef = useRef(null);
 
-  useEffect(() => {
-    document.body.classList.add('lock');
-  }, []);
+  useEffect(() => {}, []);
 
   if (isOpen) {
     setTimeout(() => {
-      document.body.classList.remove('lock');
       dispatch(saveModalPopupAction({ isOpen: false }));
       action();
     }, 300000);
@@ -31,7 +28,6 @@ const Popup = () => {
       return;
     }
 
-    document.body.classList.remove('lock');
     dispatch(saveModalPopupAction({ isOpen: false }));
     action();
   };
