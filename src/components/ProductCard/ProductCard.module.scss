@@ -11,16 +11,18 @@
   justify-content: center;
   align-items: center;
 
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    padding: 15px;
+  }
+
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-    margin-bottom: 50px;
+    justify-content: flex-start;
+    padding: 10px;
   }
 
   @media (min-width: $mobMin) and (max-width: $mobMax) {
-    margin-bottom: 50px;
-  }
-
-  @media (max-width: $mobMin) {
-    margin-bottom: 50px;
+    width: calc(100% / 2);
+    padding: 10px;
   }
 
   &:hover {
@@ -42,8 +44,12 @@
     border: 1px solid $colorLightGray;
     border-top: none;
     display: block;
+    @media (min-width: $mobMin) and (max-width: $tabMax) {
+      display: none;
+    }
   }
 }
+
 
 // To slider
 .container__slider {
@@ -135,6 +141,18 @@
   line-height: 24px;
   font-size: 12px;
   font-weight: 700;
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    font-size: 11px;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    display: none;
+  }
 }
 
 .label {
@@ -142,6 +160,14 @@
   margin: 0 0 4px 0;
   padding: 0 15px;
   border-radius: 24px;
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    padding: 0 12px;
+  }
+
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    padding: 0 8px;
+    line-height: 2;
+  }
 }
 
 .labelNew {
@@ -166,6 +192,9 @@
   align-self: flex-start;
   margin-bottom: 10px;
   white-space: nowrap;
+  @media (min-width: $mobMin) and (max-width: $tabMax) {
+    align-self: center;
+  }
 }
 
 .nameLink {
@@ -173,6 +202,7 @@
   margin: auto;
   height: 50px;
   margin: 0;
+  align-self: flex-start;
 }
 
 .name {
@@ -185,18 +215,18 @@
   font-size: 16px;
   line-height: 24px;
 
-  &__inSlider {
-    @media (min-width: $tabMin) and (max-width: $tabMax) {
-      font-size: $fontSizeText_tab;
-    }
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    font-size: $fontSizeButton_mobile;
+  }
 
-    @media (min-width: $mobMin) and (max-width: $mobMax) {
-      font-size: $fontSizeText_mobile;
-    }
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: $fontSizeText_tab;
+    -webkit-line-clamp: 3;
+  }
 
-    @media (max-width: $mobMin) {
-      font-size: $fontSizeText_mobile;
-    }
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    font-size: $fontSizeText_mobile;
+    -webkit-line-clamp: 3;
   }
 }
 
@@ -211,22 +241,9 @@
   bottom: -50px;
   z-index: 100;
 
-  @media (min-width: $tabMin) and (max-width: $tabMax) {
-    width: 100%;
-    display: block;
-    margin-top: 50px;
-  }
-
-  @media (min-width: $mobMin) and (max-width: $mobMax) {
-    width: 100%;
-    display: block;
-    margin-top: 50px;
-  }
-
-  @media (max-width: $mobMin) {
-    width: 100%;
-    display: block;
-    margin-top: 50px;
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    padding: 0 15px 15px;
+    bottom: -46px;
   }
 }
 

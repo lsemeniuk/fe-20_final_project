@@ -10,6 +10,9 @@ import {
   CUSTOMER_WISH_LIST_ROUTE,
   ADM_BRANDS_ROUTE,
   ADM_COLORS_ROUTE,
+  ADM_FILTERS_ROUTE,
+  ADM_COMMENTS_ROUTE,
+  ADM_SLIDER_ROUTE,
   ADM_ORDERS_ROUTE,
   CONFIRM_REFISTRATION,
   ADM_IMAGES_ROUTE,
@@ -26,6 +29,9 @@ import Catalog from '../pages/Admin/Catalog/Catalog';
 import Product from '../pages/Product/Product';
 import Brands from '../pages/Admin/Brands/Brands';
 import Colors from '../pages/Admin/Colors/Colors';
+import Filters from '../pages/Admin/Filters/Filters';
+import Comments from '../pages/Admin/Comment/Comments';
+import Sliders from '../pages/Admin/Slider/Sliders';
 import ResetPassword from '../pages/ResetPassword/ResetPassword';
 import ConfirmRegistration from '../pages/ConfirmRegistration/ConfirmRegistration';
 import Images from '../pages/Admin/Images/Images';
@@ -118,5 +124,25 @@ export const adminRoutes = [
     name: 'Цвета',
     path: ADM_COLORS_ROUTE,
     Component: Colors,
+  },
+  {
+    name: 'Фильтр',
+    path: ADM_FILTERS_ROUTE,
+    Component: Filters,
+  },
+  {
+    name: 'Комментарии',
+    path: ADM_COMMENTS_ROUTE,
+    Component: Comments,
+  },
+  {
+    name: 'Слайдеры',
+    path: ADM_SLIDER_ROUTE,
+    Component: Sliders,
+  },
+  {
+    name: 'Товары',
+    path: ADM_PRODUCTS_ROUTE,
+    Component: Products,
   },
 ];

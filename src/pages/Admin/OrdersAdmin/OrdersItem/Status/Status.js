@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeStatusOrders } from '../../../../../http/ordersAPI';
 import Icons from '../../../../../components/Icons/Icons';
 import styles from './Status.module.scss';
+import { popupOpenOperation } from '../../../../../store/modal/operations';
 
 const Status = ({ status, id }) => {
+  const dispatch = useDispatch();
   const [isChangeStatus, setisChangeStatus] = useState(false);
   const [statusChangeble, setStatusChangeble] = useState(status);
 
@@ -22,8 +25,8 @@ const Status = ({ status, id }) => {
   const changeStatus = stat => {
     changeStatusOrders(id, { status: stat }).then(res => {
       setisChangeStatus(false);
-      setStatusChangeble(res.data.order.status);
-      return res;
+      setStatusChangeble(res.data.status);
+      dispatch(popupOpenOperation(res.data.message));
     });
   };
 

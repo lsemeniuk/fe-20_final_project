@@ -18,8 +18,21 @@
   @extend %custom-border;
   background-color: $colorWhite;
 }
+
 :global(.checkout__title) {
   font-size: 20px;
   text-align: center;
   margin: 20px 0 30px 0;
 }
+
+@media screen and (max-width: $tabMax) {
+  .pageContainer {
+    grid-template-columns: 1fr
+  }
+}
+
+@media screen and (max-width: $mobMax) {
+  .ordersCantainer {
+    width: 100%;
+  }
+} 

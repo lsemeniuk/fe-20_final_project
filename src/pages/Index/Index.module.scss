@@ -8,9 +8,15 @@
   margin-bottom: 30px;
 }
 
-.brandBarTytle {
+.brandBarTitle {
   text-align: center;
-  font-size: 20px;
+  font-size: $fontSizeTitleH3;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: $fontSizeTitleH3_tab;
+  }
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    font-size: $fontSizeTitleH3_mobile;
+  }
 }
 
 // product section styles===========================
@@ -20,25 +26,29 @@
   background-color: $colorCyan;
   border-radius: 15px;
   padding: 55px 100px 55px 130px;
-  // transform: translateY(-80px);
+  margin: 50px 0;
   box-shadow: 0 40px 25px -25px $colorCyan;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 
-  // @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-  //   padding: 45px 80px 45px 80px;
-  //   transform: translateY(-70px);
-  // }
-  // @media (min-width: $deskMin) and (max-width: $deskMax) {
-  //   padding: 30px 60px 30px 60px;
-  //   transform: translateY(-50px);
-  // }
-  // @media (min-width: $tabMin) and (max-width: $tabMax) {
-  //   padding: 20px 50px 20px 60px;
-  //   transform: translateY(-50px);
-  // }
-  // @media (max-width: $mobMax) {
-  //   padding: 5px 40px 5px 20px;
-  //   transform: translateY(-30px);
-  // }
+  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
+    margin: 40px 0;
+    padding: 45px 80px 45px 80px;
+  }
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    margin: 35px 0;
+    padding: 30px 60px 30px 60px;
+  }
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    margin: 30px 0;
+    padding: 20px 50px 20px 60px;
+  }
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    margin: 25px 0;
+    padding: 5px 40px 5px 20px;
+  }
 }
 
 .descriptionText {
@@ -51,31 +61,32 @@
     font-size: 30px;
   }
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-    font-size: 25px;
+    font-size: 21px;
   }
-  @media (max-width: $mobMax) {
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
     font-size: 16px;
   }
 }
 
 .descriptionImg {
   position: absolute;
-  transform: translate(650px, -382px);
+  right: 100px;
+  // transform: translate(650px);
   @media (min-width: $deskXMin) and (max-width: $deskXMax) {
     width: 375px;
-    transform: translate(540px, -328px);
+    // transform: translate(540px);
   }
   @media (min-width: $deskMin) and (max-width: $deskMax) {
     width: 230px;
-    transform: translate(360px, -200px);
+    right: 60px;
   }
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-    width: 190px;
-    transform: translate(300px, -170px);
+    width: 160px;
+    right: 40px;
   }
-  @media (max-width: $mobMax) {
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
     width: 100px;
-    transform: translate(180px, -95px);
+    right: 20px;
   }
 }
 
@@ -127,33 +138,37 @@
   margin-top: 30px;
   color: $colorBlack;
   text-align: center;
-  padding: 0 150px;
-  margin-bottom: 100px;
+  padding: 0 100px;
 
-  @media (min-width: $deskXMin) and (max-width: $deskXMax) {
-    padding: 0 120px;
-  }
-  @media (min-width: $deskMin) and (max-width: $deskMax) {
-    padding: 0 80px;
-  }
   @media (min-width: $tabMin) and (max-width: $tabMax) {
-    padding: 0 60px;
+    padding: 0 70px;
   }
-  @media (max-width: $mobMax) {
-    font-size: $fontSizeText;
-    padding: 0 40px;
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    padding: 0 30px;
   }
 }
 
 .aboutTitle {
   font-size: 20px;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    padding: 0 70px;
+  }
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    padding: 0 30px;
+  }
 }
 
 .aboutText {
   color: $colorDimGray;
   margin-top: 10px;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: $fontSizeText;
+  line-height: 1.5;
+  @media (min-width: $tabMin) and (max-width: $tabMax) {
+    font-size: $fontSizeText_tab;
+  }
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    font-size: $fontSizeText_mobile;
+  }
 }
 
 .footer {

@@ -22,6 +22,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  @media (min-width: $mobMin) and (max-width: $mobMax) {
+    display: none;
+  }
 }
 
 .item {
@@ -33,8 +36,10 @@
   height: 33px;
   background-color: none;
   border-radius: 5px;
-  &:hover .color {
-    opacity: 0.9;
+
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    width: 25px;
+    height: 25px;
   }
 }
 
@@ -58,10 +63,14 @@
   border: 2px solid;
   width: 25px;
   height: 25px;
+  @media (min-width: $deskMin) and (max-width: $deskMax) {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .color {
-  opacity: 0.5;
+  opacity: 0.9;
   width: 100%;
   height: 100%;
 }

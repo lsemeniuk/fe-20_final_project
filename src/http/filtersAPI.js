@@ -3,9 +3,9 @@ import { $authHost, $host } from './index';
 // @route   POST /filters
 // @desc    Create new filter
 // @access  Private
-export const createNewFilter = async () => {
-  const res = await $authHost.post('filters').catch(err => {
-    throw err;
+export const createNewFilter = async values => {
+  const res = await $authHost.post('filters', values).catch(err => {
+    throw err.response;
   });
   return res;
 };
@@ -13,9 +13,9 @@ export const createNewFilter = async () => {
 // @route   PUT /filters/:id
 // @desc    Update existing filter
 // @access  Private
-export const updateFilter = async id => {
-  const res = await $authHost.put(`filters/${id}`).catch(err => {
-    throw err;
+export const updateFilter = async (id, values) => {
+  const res = await $authHost.put(`filters/${id}`, values).catch(err => {
+    throw err.response;
   });
   return res;
 };
@@ -25,7 +25,7 @@ export const updateFilter = async id => {
 // @access  Private
 export const deleteFilter = async id => {
   const res = await $authHost.delete(`filters/${id}`).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -35,7 +35,7 @@ export const deleteFilter = async id => {
 // @access  Public
 export const getFilters = async () => {
   const res = await $host.get('filters').catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };
@@ -45,7 +45,7 @@ export const getFilters = async () => {
 // @access  Public
 export const getFilterByType = async type => {
   const res = await $host.get(`filters/${type}`).catch(err => {
-    throw err;
+    throw err.response;
   });
   return res;
 };

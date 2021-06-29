@@ -11,3 +11,5 @@ export const getProductsQuantitySelector = state => state.products.productsQuant
 export const productsLoadingSelector = state => state.products.isLoading;
 
 export const oneProductLoadingSelector = state => state.products.productLoading;
+
+export const productsStyle = state => state.products.isGrid;

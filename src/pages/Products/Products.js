@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
@@ -13,17 +13,33 @@ import Pagination from '../../components/Pagination/Pagination';
 import ProductQuantity from '../../components/ProductQuantity/ProductQuantity';
 import Sorting from '../../components/Sorting/Sorting';
 import Select from '../../components/SelectBar/Select/Select';
-import styles from './Products.module.scss';
 import { getProductsFilterOperation } from '../../store/products/operations';
+import { changeProductsStyle } from '../../store/products/actions';
+import Icons from '../../components/Icons/Icons';
+import styles from './Products.module.scss';
 
 const Products = () => {
   const dispatch = useDispatch();
   const { perPage, startPage, ...filter } = useSelector(getProductsFilterSelector);
+  const [productsView, setProductsView] = useState();
+  const [isInLineAvailable, setIsInLineAvailable] = useState(true);
   const productsQuantity = useSelector(getProductsQuantitySelector);
   const history = useHistory();
   const categories = useSelector(getCategoriesSelector);
   const categorie = {};
   const params = useParams();
+  const isGrid = JSON.parse(localStorage.getItem('ProductStyle'));
+  const windowWidth = window.innerWidth;
+
+  useEffect(() => {
+    if (windowWidth <= 1200) {
+      setIsInLineAvailable(false);
+      dispatch(changeProductsStyle(true));
+      localStorage.setItem('ProductStyle', true);
+    }
+    dispatch(changeProductsStyle(isGrid));
+    setProductsView(isGrid);
+  }, []);
 
   if (params.categories === 'all') {
     categorie.name = 'Все товары';
@@ -38,6 +54,21 @@ const Products = () => {
 
   const setPage = page => {
     dispatch(getProductsFilterOperation({ history, ...filter, perPage, startPage: page }));
+  };
+
+  const brandColor = '#37b7fa';
+  const grayColor = '#b1b1b1';
+
+  const changeToGrid = () => {
+    setProductsView(true);
+    dispatch(changeProductsStyle(true));
+    localStorage.setItem('ProductStyle', true);
+  };
+
+  const changeToInLine = () => {
+    setProductsView(false);
+    dispatch(changeProductsStyle(false));
+    localStorage.setItem('ProductStyle', false);
   };
 
   return (
@@ -65,8 +96,23 @@ const Products = () => {
                 <Select className={styles.select_mobile} />
                 <ProductQuantity />
                 <Sorting />
+                {isInLineAvailable && (
+                  <div className={styles.viewIcons}>
+                    <Icons
+                      className={styles.icon}
+                      type='gridIcon'
+                      color={productsView ? brandColor : grayColor}
+                      onClick={changeToGrid}
+                    />
+                    <Icons
+                      className={styles.icon}
+                      type='inLineIcon'
+                      color={!productsView ? brandColor : grayColor}
+                      onClick={changeToInLine}
+                    />
+                  </div>
+                )}
               </div>
-
               <ProductList />
               <Pagination
                 perPage={perPage}

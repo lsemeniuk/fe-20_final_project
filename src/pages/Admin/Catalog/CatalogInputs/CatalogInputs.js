@@ -10,11 +10,9 @@ const CatalogInputs = ({ isAdd }) => {
 
   return (
     <>
-      {isAdd && (
-        <MyTextInput label='ID категории' name='id' type='text' placeholder='введите ID категории' tabIndex='0' />
-      )}
+      {isAdd && <MyTextInput label='ID категории' name='id' type='text' placeholder='smartphones' tabIndex='0' />}
 
-      <MyTextInput label='Название' name='name' type='text' placeholder='Название категории' tabIndex='0' />
+      <MyTextInput label='Название' name='name' type='text' placeholder='Смартфоны' tabIndex='0' />
       <MySelect label='Родит. категория' name='parentId' tabIndex='0'>
         <option value='null'>Без родительськой категории</option>
         {categories.map(categorie => {
@@ -25,9 +23,15 @@ const CatalogInputs = ({ isAdd }) => {
           );
         })}
       </MySelect>
-      <MyTextInput label='URL картинки' name='imgUrl' type='text' placeholder='URL картинки' tabIndex='0' />
-      <MyTextInput label='Описание' name='description' type='text' placeholder='Описание категории' tabIndex='0' />
-      <MyTextInput label='Уровень' name='level' type='number' placeholder='Уровень вложенности' tabIndex='0' />
+      <MyTextInput
+        label='URL картинки'
+        name='imgUrl'
+        type='text'
+        placeholder='https://smart-electronix.com/1.png'
+        tabIndex='0'
+      />
+      <MyTextInput label='Описание' name='description' type='text' placeholder='Смартфоны' tabIndex='0' />
+      <MyTextInput label='Уровень' name='level' type='number' tabIndex='0' />
     </>
   );
 };
