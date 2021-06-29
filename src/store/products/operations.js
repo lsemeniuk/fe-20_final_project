@@ -45,6 +45,7 @@ export const getProductsFilterOperation = ({ history, ...filters }) => dispatch 
   getProductsFilterParams(filters).then(res => {
     dispatch(saveProductsFilteredAction(res.data.products));
     dispatch(saveProductsQuantityAction(res.data.productsQuantity));
+
     dispatch(productsLoadingAction(false));
   });
 };
