@@ -22,8 +22,9 @@ const SlidersList = () => {
   }
 
   const slidersList = sliders.map(slider => {
+    const { _id: id } = slider;
     return (
-      <li key={slider.name} style={{ padding: '10px' }}>
+      <li key={id} style={{ padding: '10px' }}>
         <SlidrsItem slider={slider} />
       </li>
     );

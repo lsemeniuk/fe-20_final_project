@@ -15,11 +15,13 @@ export const addComment = async (value, setRefreshReviews) => {
 // @route   PUT /comments/:id
 // @desc    Update existing comment
 // @access  Private
-export const updateComment = async (id, value) => {
+export const updateComment = async (id, value, setRefreshReviews) => {
   const res = await $authHost.put(`comments/${id}`, value).catch(err => {
     throw err.response;
   });
-  // setRefreshReviews(true);
+  if (setRefreshReviews) {
+    setRefreshReviews(true);
+  }
   return res;
 };
 
@@ -39,8 +41,10 @@ export const deleteComment = async (id, setRefreshReviews) => {
 // @route   GET /comments
 // @desc    GET existing comments
 // @access  Public
-export const getComments = async () => {
-  const res = await $host.get('comments').catch(err => {
+export const getComments = async filters => {
+  const filtersStr = new URLSearchParams(filters).toString();
+
+  const res = await $host.get(`comments?${filtersStr}`).catch(err => {
     throw err.response;
   });
   return res;
