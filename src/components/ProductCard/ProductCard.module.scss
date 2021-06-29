@@ -44,6 +44,9 @@
     border: 1px solid $colorLightGray;
     border-top: none;
     display: block;
+    @media (min-width: $mobMin) and (max-width: $tabMax) {
+      display: none;
+    }
   }
 }
 
@@ -239,10 +242,6 @@
   @media (min-width: $deskMin) and (max-width: $deskMax) {
     padding: 0 15px 15px;
     bottom: -46px;
-  }
-
-  @media (min-width: $mobMin) and (max-width: $tabMax) {
-    display: none;
   }
 }
 

@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Button from '../../../../components/Button/Button';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 // import { addImages } from '../../../../http/productAPI';
 import styles from './AddImageForm.module.scss';
 
 const AddImageForm = () => {
-  const [messageServer, setMessageServer] = useState(null);
+  const dispatch = useDispatch();
   const [affiliation, setAfiliation] = useState('products');
   const [product, setProduct] = useState('');
   const [size, setSize] = useState('large');
@@ -25,12 +27,12 @@ const AddImageForm = () => {
     formData.append('img', file);
     // addImages(formData).then(res => {
     //   if (res.status === 200) {
-    //     setMessageServer('Картинку успешно добавлено!');
+    //     dispatch(popupOpenOperation('Картинку успешно добавлено!'));
     //   }
     // });
     axios.post('http://localhost:5000/api/images', formData).then(res => {
       if (res.status === 200) {
-        setMessageServer('Картинку успешно добавлено!');
+        dispatch(popupOpenOperation('Картинку успешно добавлено!'));
       }
     });
   };
@@ -115,7 +117,6 @@ const AddImageForm = () => {
                 addImage();
               }}
             />
-            <div className={styles.messageServer}>{messageServer}</div>
           </div>
         </div>
       </form>

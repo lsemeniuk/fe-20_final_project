@@ -1,5 +1,4 @@
-/* eslint-disable no-restricted-syntax */
-import React, { useState } from 'react';
+import React from 'react';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
@@ -9,9 +8,9 @@ import { updateImage } from '../../../../http/imagesAPI';
 import MyTextInput from '../../../../components/Forms/MyTextInput/MyTextInput';
 import MySelect from '../../../../components/Forms/MySelect/MySelect';
 import { getCatalogOperation } from '../../../../store/catalog/operations';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const UpdateImagesForm = ({ image, setRefreshLoading }) => {
-  const [messageServer, setmessageServer] = useState(null);
   const dispatch = useDispatch();
 
   const schema = yup.object().shape({
@@ -39,10 +38,12 @@ const UpdateImagesForm = ({ image, setRefreshLoading }) => {
               if (res.status === 200) {
                 setRefreshLoading();
               }
+              dispatch(popupOpenOperation('Информация о картинке успешно изменена!'));
               dispatch(getCatalogOperation());
             })
             .catch(err => {
-              setmessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
 
           setSubmitting(false);
@@ -65,7 +66,7 @@ const UpdateImagesForm = ({ image, setRefreshLoading }) => {
               placeholder='samsung_watch_35'
               tabIndex='0'
             />
-            <ButtonBlock buttonTitle='Изменить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Изменить' />
           </Form>
         </div>
       </Formik>

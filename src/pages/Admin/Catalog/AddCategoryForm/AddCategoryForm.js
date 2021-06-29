@@ -1,13 +1,14 @@
-/* eslint-disable no-restricted-syntax */
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import ButtonBlock from '../../../../components/Forms/ButtonBlock/ButtonBlock';
 import { addCategory } from '../../../../http/catalogAPI';
 import schema from '../schema';
 import CatalogInputs from '../CatalogInputs/CatalogInputs';
+import { popupOpenOperation } from '../../../../store/modal/operations';
 
 const AddCategoryForm = () => {
-  const [messageServer, setMessageServer] = useState(null);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -25,11 +26,12 @@ const AddCategoryForm = () => {
           addCategory(values)
             .then(res => {
               if (res.status === 200) {
-                setMessageServer(<span style={{ color: 'green' }}>Категория успешно добавлена!</span>);
+                dispatch(popupOpenOperation('Категория успешно добавлена!'));
               }
             })
             .catch(err => {
-              setMessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
           setSubmitting(false);
         }}
@@ -37,7 +39,7 @@ const AddCategoryForm = () => {
         <div className='page_form'>
           <Form>
             <CatalogInputs isAdd />
-            <ButtonBlock buttonTitle='Сохранить' messageServer={messageServer} />
+            <ButtonBlock buttonTitle='Сохранить' />
           </Form>
         </div>
       </Formik>

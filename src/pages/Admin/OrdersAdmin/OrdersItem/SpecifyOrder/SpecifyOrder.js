@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik, Form, Field } from 'formik';
 import schema from './schema';
@@ -10,9 +11,10 @@ import PaymentDataInputs from '../../../../CheckoutCart/PaymentDataInputs/Paymen
 import styles from './SpecifyOrder.module.scss';
 import { generateLetterHtml } from '../../../../../utils/generateHtml';
 import { replace } from '../../../../../utils/func';
+import { popupOpenOperation } from '../../../../../store/modal/operations';
 
 const SpecifyOrder = ({ orderId, order, setspecifyOrderState, setOrderState }) => {
-  const [messageServer, setMessageServer] = useState(null);
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.container}>
@@ -52,13 +54,14 @@ const SpecifyOrder = ({ orderId, order, setspecifyOrderState, setOrderState }) =
           })
             .then(res => {
               if (res.status === 200) {
-                setMessageServer(<span style={{ color: 'green' }}>Заказ успешно уточнён!</span>);
+                dispatch(popupOpenOperation('Заказ успешно уточнён!'));
                 setspecifyOrderState(false);
                 setOrderState(res.data.order);
               }
             })
             .catch(err => {
-              setMessageServer(<span>{Object.values(err.data).join('')}</span>);
+              const message = Object.values(err.data).join('');
+              dispatch(popupOpenOperation(message, true));
             });
 
           setSubmitting(false);
@@ -78,7 +81,7 @@ const SpecifyOrder = ({ orderId, order, setspecifyOrderState, setOrderState }) =
               rows={5}
             />
           </div>
-          <ButtonBlock buttonTitle='Уточнить заказ' messageServer={messageServer} />
+          <ButtonBlock buttonTitle='Уточнить заказ' />
         </Form>
       </Formik>
     </div>
