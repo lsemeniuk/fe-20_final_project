@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-
 import { getProducts, getProductById, getProductsFilterParams, getProductByUrl } from '../../http/productAPI';
 import {
   productsLoadingAction,
@@ -27,6 +25,16 @@ export const getOneProductOperation = itemNo => dispatch => {
   });
 };
 
+export const getOneProductUrlOperation = productUrl => dispatch => {
+  dispatch(oneProductLoadingAction(true));
+  getProductByUrl(productUrl).then(res => {
+    dispatch(saveOneProductAction(res.data));
+    dispatch(oneProductLoadingAction(false));
+  });
+};
+
+/* eslint-disable prettier/prettier */
+
 export const getProductsFilterOperation = ({ history, ...filters }) => dispatch => {
   dispatch(productsLoadingAction(true));
 
@@ -41,13 +49,5 @@ export const getProductsFilterOperation = ({ history, ...filters }) => dispatch 
     dispatch(saveProductsQuantityAction(res.data.productsQuantity));
 
     dispatch(productsLoadingAction(false));
-  });
-};
-
-export const getOneProductUrlOperation = productUrl => dispatch => {
-  dispatch(oneProductLoadingAction(true));
-  getProductByUrl(productUrl).then(res => {
-    dispatch(saveOneProductAction(res.data));
-    dispatch(oneProductLoadingAction(false));
   });
 };
