@@ -9,8 +9,6 @@ import ButtonBlock from '../../../../../components/Forms/ButtonBlock/ButtonBlock
 import DeliveryDataInputs from '../../../../CheckoutCart/DeliveryDataInputs/DeliveryDataInputs';
 import PaymentDataInputs from '../../../../CheckoutCart/PaymentDataInputs/PaymentDataInputs';
 import styles from './SpecifyOrder.module.scss';
-import { generateLetterHtml } from '../../../../../utils/generateHtml';
-import { replace } from '../../../../../utils/func';
 import { popupOpenOperation } from '../../../../../store/modal/operations';
 
 const SpecifyOrder = ({ orderId, order, setspecifyOrderState, setOrderState }) => {
@@ -29,15 +27,6 @@ const SpecifyOrder = ({ orderId, order, setspecifyOrderState, setOrderState }) =
         }}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
-          const totalPrice = replace(order.totalSum);
-          const letterHtml = generateLetterHtml(
-            order,
-            { ...order, ...values },
-            'https://i.ibb.co/GMbFyFv/logo.png',
-            'http://localhost:3000/',
-            totalPrice
-          );
-
           const { delivery, region, city, address, ...ordersValue } = values;
           const deliveryAddress = { delivery, region, city, address };
 
@@ -48,7 +37,6 @@ const SpecifyOrder = ({ orderId, order, setspecifyOrderState, setOrderState }) =
             ...ordersValue,
             deliveryAddress,
             letterSubject,
-            letterHtml,
             email: order.email,
             status,
           })
