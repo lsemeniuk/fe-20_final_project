@@ -106,11 +106,6 @@ export const adminRoutes = [
     Component: Images,
   },
   {
-    name: 'Товары',
-    path: ADM_PRODUCTS_ROUTE,
-    Component: Products,
-  },
-  {
     name: 'Каталог',
     path: ADM_CATALOG_ROUTE,
     Component: Catalog,
