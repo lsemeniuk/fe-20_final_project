@@ -12,6 +12,7 @@ const InlineProductCart = ({ product }) => {
   const {
     imageUrls,
     itemNo,
+    productUrl,
     previousPrice,
     currentPrice,
     name,
@@ -38,7 +39,7 @@ const InlineProductCart = ({ product }) => {
   return (
     <div className={styles.product}>
       <div>
-        <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
+        <NavLink to={`${PRODUCT_ROUTE}/${productUrl}`}>
           <img className={styles.image} src={imageUrls[0].smallImage} alt='' />
         </NavLink>
       </div>
@@ -54,7 +55,7 @@ const InlineProductCart = ({ product }) => {
               inLine
             />
           </div>
-          <NavLink to={`${PRODUCT_ROUTE}/${itemNo}`}>
+          <NavLink to={`${PRODUCT_ROUTE}/${productUrl}`}>
             <p className={styles.name}>{name}</p>
           </NavLink>
           <div className={styles.characteristics}>{characteristicsBlock}</div>

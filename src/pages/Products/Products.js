@@ -37,8 +37,8 @@ const Products = () => {
       dispatch(changeProductsStyle(true));
       localStorage.setItem('ProductStyle', true);
     }
-    dispatch(changeProductsStyle(isGrid));
-    setProductsView(isGrid);
+    dispatch(changeProductsStyle(isGrid || true));
+    setProductsView(isGrid || true);
   }, []);
 
   if (params.categories === 'all') {
