@@ -1,0 +1,75 @@
+[
+  {
+    "_id": "5da7632172b193119c3c8659",
+    "customId": "promotion-women-clothing21",
+    "imageUrl": "https://i.ibb.co/thYr1gG/1.png",
+    "title": "Buy 2 dresses and get a third for free!",
+    "description": "Do not miss our hot offer. Promotion ends 10/30/2019",
+    "backgroundColor": "linear-gradient(180deg, rgba(250,250,100,1) 0%, rgba(55,183,250,1) 100%)",
+    "category": {
+      "_id": "5d99f68e419d040eec0f722c",
+      "id": "women",
+      "name": "women",
+      "parentId": "null",
+      "imgUrl": "img/catalog/women.png",
+      "description": "A category, that represents products for women",
+      "level": 0,
+      "date": "2019-10-06T14:13:34.304Z",
+      "__v": 0
+    },
+    "date": "2019-10-16T18:36:17.833Z",
+    "__v": 0
+  },
+  {
+    "_id": "5da767c472b193119c3c865a",
+    "customId": "promotion_Apple",
+    "imageUrl": "https://i.ibb.co/JyN3P36/image-1619615779121.png",
+    "title": "50% discount for 'test product 5' ",
+    "backgroundColor": "radial-gradient(circle, rgba(134,252,237,1) 0%, rgba(87,55,250,1) 100%)",
+    "product": {
+      "enabled": true,
+      "imageUrls": ["products/itemNo2"],
+      "quantity": 40,
+      "_id": "5d73adb9fcad90130470f08f",
+      "name": "test product 5",
+      "currentPrice": 400,
+      "categories": "computers",
+      "someOtherFeature": "test5",
+      "color": "green",
+      "size": "xl",
+      "ram": "600",
+      "weight": "1800g",
+      "itemNo": "563877",
+      "__v": 0,
+      "date": "2019-10-16T18:56:14.415Z"
+    },
+    "date": "2019-10-16T18:56:04.674Z",
+    "__v": 0
+  },
+  {
+    "_id": "5da767c472b193119c3c865a",
+    "customId": "promdsadotion-product-56387217",
+    "imageUrl": "https://f.ua/statik/images/index_banners_fua/image_1619172758.png",
+    "title": "50% discount for 'test product 5' ",
+    "backgroundColor": "#8ed3d7",
+    "product": {
+      "enabled": true,
+      "imageUrls": ["products/itemNo2"],
+      "quantity": 40,
+      "_id": "5d73adb9fcad90130470f08f",
+      "name": "test product 5",
+      "currentPrice": 400,
+      "categories": "computers",
+      "someOtherFeature": "test5",
+      "color": "green",
+      "size": "xl",
+      "ram": "600",
+      "weight": "1800g",
+      "itemNo": "563877",
+      "__v": 0,
+      "date": "2019-10-16T18:56:14.415Z"
+    },
+    "date": "2019-10-16T18:56:04.674Z",
+    "__v": 0
+  }
+]
