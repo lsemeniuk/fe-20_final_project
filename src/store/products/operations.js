@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import { getProducts, getProductById, getProductsFilterParams, getProductByUrl } from '../../http/productAPI';
 import {
   productsLoadingAction,
@@ -30,7 +32,7 @@ export const getProductsFilterOperation = ({ history, ...filters }) => dispatch 
 
   dispatch(saveProductsFilterAction({ ...filters }));
 
-  const { categories, ...Currentfilters } = filters;
+  const { categories, perPage, startPage, sort, ...Currentfilters } = filters;
   const currentUrlParams = new URLSearchParams(Currentfilters);
   history.push(`${history.location.pathname}?${currentUrlParams}`);
 
