@@ -25,14 +25,6 @@ export const getOneProductOperation = itemNo => dispatch => {
   });
 };
 
-export const getOneProductUrlOperation = productUrl => dispatch => {
-  dispatch(oneProductLoadingAction(true));
-  getProductByUrl(productUrl).then(res => {
-    dispatch(saveOneProductAction(res.data));
-    dispatch(oneProductLoadingAction(false));
-  });
-};
-
 export const getProductsFilterOperation = ({ history, ...filters }) => dispatch => {
   dispatch(productsLoadingAction(true));
 
@@ -47,5 +39,13 @@ export const getProductsFilterOperation = ({ history, ...filters }) => dispatch 
     dispatch(saveProductsQuantityAction(res.data.productsQuantity));
 
     dispatch(productsLoadingAction(false));
+  });
+};
+
+export const getOneProductUrlOperation = productUrl => dispatch => {
+  dispatch(oneProductLoadingAction(true));
+  getProductByUrl(productUrl).then(res => {
+    dispatch(saveOneProductAction(res.data));
+    dispatch(oneProductLoadingAction(false));
   });
 };
