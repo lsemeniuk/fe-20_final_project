@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import ProductCardSmall from './ProductCardSmall';
-import { product } from '../../../mokfiles/testingMok';
+import { product } from '../../../mokfiles/testingMock';
 
 describe('Product cart small', () => {
   test('Product cart small smoke test', () => {

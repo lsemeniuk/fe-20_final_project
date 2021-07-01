@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ProductCard from './ProductCard';
 import store from '../../store/store';
-import { product, productWithLabels } from '../../../mokfiles/testingMok';
+import { product } from '../../../mokfiles/testingMock';
 
 describe('Product cart tests', () => {
   test('product cart smoke test', () => {
@@ -16,22 +16,5 @@ describe('Product cart tests', () => {
         </BrowserRouter>
       </Provider>
     );
-  });
-  test('Product item to have labels test', () => {
-    const { getByTestId } = render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <ProductCard product={productWithLabels} inSlider={false} />
-        </BrowserRouter>
-      </Provider>
-    );
-    const superPrise = getByTestId('superPrice');
-    const isNew = getByTestId('isNew');
-    const isHit = getByTestId('isHit');
-    const prevPrice = getByTestId('sales');
-    expect(prevPrice).toBeInTheDocument();
-    expect(superPrise).toBeInTheDocument();
-    expect(isNew).toBeInTheDocument();
-    expect(isHit).toBeInTheDocument();
   });
 });

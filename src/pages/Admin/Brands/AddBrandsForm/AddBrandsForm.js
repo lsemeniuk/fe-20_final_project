@@ -31,7 +31,7 @@ const AddBrandsForm = () => {
           imageUrl: '',
         }}
         validationSchema={schema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           addBrand(values)
             .then(res => {
               if (res.status === 200) {
@@ -42,6 +42,7 @@ const AddBrandsForm = () => {
               const message = Object.values(err.data).join('');
               dispatch(popupOpenOperation(message, true));
             });
+          resetForm({});
           setSubmitting(false);
         }}
       >

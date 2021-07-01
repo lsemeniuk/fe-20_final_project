@@ -59,12 +59,13 @@ const AddProducts = () => {
         }}
         enableReinitialize
         validationSchema={schema}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
           const { characteristics } = values;
           const characteristicsFilter = characteristics.filter(c => c.characteristic !== '');
 
           console.log(characteristicsFilter);
           setmessageServer('hello');
+          resetForm({});
           setSubmitting(false);
         }}
       >

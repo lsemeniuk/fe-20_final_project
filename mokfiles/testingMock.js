@@ -39,6 +39,7 @@ export const product = {
   isNew: 'no',
   isHit: 'no',
   itemNo: '949618',
+  color: 'red',
 };
 
 export const productWithLabels = {
@@ -82,4 +83,5 @@ export const productWithLabels = {
   isNew: 'yes',
   isHit: 'yes',
   itemNo: '949618',
+  color: 'red',
 };

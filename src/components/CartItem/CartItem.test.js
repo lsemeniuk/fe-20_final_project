@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import CartItem from './CartItem';
-import { product } from '../../../mokfiles/testingMok';
+import { product } from '../../../mokfiles/testingMock';
 import store from '../../store/store';
 
 describe('Cart item test', () => {
