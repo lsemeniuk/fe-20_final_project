@@ -33,10 +33,10 @@ export const getOneProductUrlOperation = productUrl => dispatch => {
   });
 };
 
-export const getProductsFilterOperation =
-  ({ history, ...filters }) =>
-  dispatch => {
-    dispatch(productsLoadingAction(true));
+/* eslint-disable prettier/prettier */
+
+export const getProductsFilterOperation = ({ history, ...filters }) => dispatch => {
+  dispatch(productsLoadingAction(true));
 
     dispatch(saveProductsFilterAction({ ...filters }));
 

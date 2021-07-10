@@ -36,8 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "lint:fix": "eslint ./src --fix"
   },
   "eslintConfig": {
     "extends": [
