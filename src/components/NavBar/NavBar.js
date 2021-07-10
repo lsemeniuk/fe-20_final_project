@@ -10,17 +10,12 @@ import CategoriesList from '../CategoriesList/CategoriesList';
 import User from './User/User';
 import RegAuth from '../RegAuth/RegAuth';
 import { getModalAuthRegSelector } from '../../store/modal/selectors';
-import { saveModalAuthRegAction } from '../../store/modal/actions';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getWishListSelector, wishListLoadingSelector } from '../../store/wishList/selectors';
-import { getWishListOperation, updateWishListOperation } from '../../store/wishList/operations';
-import { getCartOperation, updateCartOperation, setCartTotalPriceOperation } from '../../store/cart/operations';
-import { getCatalogOperation } from '../../store/catalog/operations';
-import { wishListLoadingAction } from '../../store/wishList/actions';
-import { getProductsOperation } from '../../store/products/operations';
-import { getColorsOperation } from '../../store/colors/operations';
 import DifferentPagesList from '../DifferentPagesList/DifferentPagesList';
 import styles from './NavBar.module.scss';
+import SocialList from '../SocialList/SocialList';
+import { getDataOperation } from '../../store/operations';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -29,12 +24,9 @@ const NavBar = () => {
   const wishList = useSelector(getWishListSelector);
   const wishListLoading = useSelector(wishListLoadingSelector);
   const location = useLocation();
-  const localCart = JSON.parse(localStorage.getItem('cart'));
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const closeRef = useRef(null);
-
-  const storageWishList = { products: JSON.parse(localStorage.getItem('WishList')) || [] };
 
   let favorites = 0;
   if (isAuth) {
@@ -46,27 +38,8 @@ const NavBar = () => {
   }
 
   useEffect(() => {
-    dispatch(getCatalogOperation());
-    dispatch(getProductsOperation());
-    dispatch(wishListLoadingAction(true));
-    dispatch(getColorsOperation());
-    if (isAuth) {
-      dispatch(getWishListOperation());
-      dispatch(updateWishListOperation(storageWishList));
-      if (localCart) {
-        dispatch(updateCartOperation(localCart));
-      } else {
-        dispatch(getCartOperation());
-      }
-    } else {
-      dispatch(setCartTotalPriceOperation(localCart));
-    }
+    dispatch(getDataOperation(isAuth));
   }, [isAuth]);
-
-  const authRegHandler = () => {
-    dispatch(saveModalAuthRegAction(!modalAuthReg));
-    document.body.classList.toggle('lock');
-  };
 
   const heartJsx = [
     <div key='heart' className={styles.iconListItem}>
@@ -79,14 +52,18 @@ const NavBar = () => {
     setMenuOpen(true);
   };
 
+  const closeMenu = () => {
+    document.body.classList.remove('lock');
+    setMenuOpen(false);
+  };
+
   const closeMenuHandler = e => {
     const modal = menuRef.current;
     const close = closeRef.current;
     if (modal.contains(e.target) && e.target !== close) {
       return;
     }
-    document.body.classList.remove('lock');
-    setMenuOpen(false);
+    closeMenu();
   };
 
   return (
@@ -115,62 +92,26 @@ const NavBar = () => {
                     </div>
                     <div>SMART ELECTRONIX</div>
                   </div>
-                  <div
-                    className={styles.categoriesBlock}
-                    onClick={() => {
-                      setMenuOpen(false);
-                    }}
-                  >
+                  <div className={styles.categoriesBlock}>
                     <CategoriesList
                       className={styles.menuLink}
                       classItem={styles.menuItem}
                       activeClassName={styles.menuLinkActive}
+                      onClick={closeMenu}
                     />
                   </div>
-                  <div
-                    className={styles.adaptiveBlock}
-                    onClick={() => {
-                      setMenuOpen(false);
-                    }}
-                  >
-                    <DifferentPagesList classLink={styles.menuLink} classItem={styles.menuItem} />
+                  <div className={styles.adaptiveBlock}>
+                    <DifferentPagesList classLink={styles.menuLink} classItem={styles.menuItem} onClick={closeMenu} />
                   </div>
-                  <div
-                    className={styles.adaptiveBlock}
-                    onClick={() => {
-                      setMenuOpen(false);
-                    }}
-                  >
+                  <div className={styles.adaptiveBlock}>
                     <span className={styles.socTitle}>Мы в соцсетях</span>
-                    <nav className={styles.social}>
-                      <a className={styles.socialLink} target='blank' title='Мы Вконтакте!' href='https://vk.com/'>
-                        <Icons type='vk' className={styles.socIcon} color='#acacac' />
-                      </a>
-                      <a
-                        className={styles.socialLink}
-                        target='blank'
-                        title='Мы в Facebook!'
-                        href='https://www.facebook.com/'
-                      >
-                        <Icons type='facebook' className={styles.socIcon} color='#acacac' />
-                      </a>
-                      <a
-                        className={styles.socialLink}
-                        target='blank'
-                        title='Мы в твиттере!'
-                        href='https://twitter.com/'
-                      >
-                        <Icons type='twitter' className={styles.socIcon} color='#acacac' />
-                      </a>
-                      <a
-                        className={styles.socialLink}
-                        target='blank'
-                        title='Мы в инстаграмме'
-                        href='https://instagram.com/'
-                      >
-                        <Icons type='instagram' className={styles.socIcon} color='#acacac' />
-                      </a>
-                    </nav>
+                    <SocialList
+                      className={styles.social}
+                      classItem={styles.socialLink}
+                      classIcon={styles.socIcon}
+                      color='#acacac'
+                      onClick={closeMenu}
+                    />
                   </div>
                   <div className={styles.adaptiveBlock}>
                     <li className={styles.menuItem}>
@@ -239,7 +180,7 @@ const NavBar = () => {
                   )}
                 </li>
                 <li key='personalInfo' className={styles.iconListItem}>
-                  <User modalHandler={authRegHandler} />
+                  <User />
                 </li>
                 <li key='cart' className={styles.iconListItem}>
                   <MyOrders />
