@@ -17,6 +17,7 @@ import { getProductsFilterOperation } from '../../store/products/operations';
 import { changeProductsStyle } from '../../store/products/actions';
 import Icons from '../../components/Icons/Icons';
 import styles from './Products.module.scss';
+import Filter from '../../components/Filter/Filter';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -88,7 +89,7 @@ const Products = () => {
           <BrandBar />
           <div className={styles.flexRow}>
             <ContainerAside>
-              <Select className={styles.select_desc} />
+              <Filter />
             </ContainerAside>
 
             <ContainerPage style={{ padding: '0' }}>

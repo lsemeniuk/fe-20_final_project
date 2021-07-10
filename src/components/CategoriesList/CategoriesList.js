@@ -5,7 +5,7 @@ import { categoriesLoadingSelector, getCategoriesSelector } from '../../store/ca
 import { PRODUCTS_ROUTE } from '../../utils/consts';
 import Loader from '../Loader/Loader';
 
-const CategoriesList = ({ classItem, className, activeClassName }) => {
+const CategoriesList = ({ classItem, className, activeClassName, onClick }) => {
   const categories = useSelector(getCategoriesSelector);
   const categoriesLoading = useSelector(categoriesLoadingSelector);
 
@@ -21,7 +21,12 @@ const CategoriesList = ({ classItem, className, activeClassName }) => {
     .map(i => {
       return (
         <li key={i.id} className={classItem}>
-          <NavLink to={`${PRODUCTS_ROUTE}/${i.id}`} className={className} activeClassName={activeClassName}>
+          <NavLink
+            to={`${PRODUCTS_ROUTE}/${i.id}`}
+            className={className}
+            activeClassName={activeClassName}
+            onClick={onClick}
+          >
             {i.name}
           </NavLink>
         </li>

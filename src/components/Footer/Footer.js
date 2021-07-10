@@ -11,6 +11,7 @@ import Icons from '../Icons/Icons';
 import Loader from '../Loader/Loader';
 import CategoriesList from '../CategoriesList/CategoriesList';
 import DifferentPagesList from '../DifferentPagesList/DifferentPagesList';
+import SocialList from '../SocialList/SocialList';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -72,20 +73,12 @@ const Footer = () => {
               </ul>
             </nav>
             <span>Мы в соцсетях</span>
-            <nav className={styles.social}>
-              <a className={styles.socialLink} target='blank' title='Мы Вконтакте!' href='https://vk.com/'>
-                <Icons type='vk' className={styles.socIcon} color='#fff' />
-              </a>
-              <a className={styles.socialLink} target='blank' title='Мы в Facebook!' href='https://www.facebook.com/'>
-                <Icons type='facebook' className={styles.socIcon} color='#fff' />
-              </a>
-              <a className={styles.socialLink} target='blank' title='Мы в твиттере!' href='https://twitter.com/'>
-                <Icons type='twitter' className={styles.socIcon} color='#fff' />
-              </a>
-              <a className={styles.socialLink} target='blank' title='Мы в инстаграмме' href='https://instagram.com/'>
-                <Icons type='instagram' className={styles.socIcon} color='#fff' />
-              </a>
-            </nav>
+            <SocialList
+              className={styles.social}
+              classItem={styles.socialLink}
+              classIcon={styles.socIcon}
+              color='#fff'
+            />
           </div>
           <div className={`${styles.columnDouble} ${styles.contacts}`}>
             <h4 className={styles.heading}>Контактная информация</h4>

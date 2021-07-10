@@ -9,7 +9,7 @@ import { getLinksOperation } from '../../store/links/operations';
 import { getCustomerIsAuthSelector } from '../../store/customer/selectors';
 import { getLinksSelector, linksLoadingSelector } from '../../store/links/selectors';
 
-const DifferentPagesList = ({ classLink, classItem }) => {
+const DifferentPagesList = ({ classLink, classItem, onClick }) => {
   const dispatch = useDispatch();
   const isAuth = useSelector(getCustomerIsAuthSelector);
   const modalAuthReg = useSelector(getModalAuthRegSelector);
@@ -33,7 +33,7 @@ const DifferentPagesList = ({ classLink, classItem }) => {
   const linksList = clientLinks.links.map(i => {
     return (
       <li key={i.url} className={classItem}>
-        <NavLink to={i.url} className={classLink}>
+        <NavLink to={i.url} className={classLink} onClick={onClick}>
           {i.description}
         </NavLink>
       </li>
@@ -48,6 +48,7 @@ const DifferentPagesList = ({ classLink, classItem }) => {
             className={classLink}
             onClick={() => {
               dispatch(saveModalAuthRegAction(!modalAuthReg));
+              onClick();
             }}
           >
             Вход в личный кабинет
@@ -62,6 +63,13 @@ const DifferentPagesList = ({ classLink, classItem }) => {
 DifferentPagesList.propTypes = {
   classLink: PropTypes.string.isRequired,
   classItem: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+DifferentPagesList.defaultProps = {
+  onClick: () => {
+    return null;
+  },
 };
 
 export default DifferentPagesList;
